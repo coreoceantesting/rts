@@ -49,7 +49,20 @@ Route::middleware(['auth','PreventBackHistory'])->group(function()
 
 
 
+    // Masters
     Route::resource('wards', App\Http\Controllers\Admin\Masters\WardController::class );
+
+
+
+
+    // Users Roles n Permissions
+    Route::resource('users', App\Http\Controllers\Admin\UserController::class );
+    Route::get('users/{user}/toggle', [App\Http\Controllers\Admin\UserController::class, 'toggle' ])->name('users.toggle');
+    Route::get('users/{user}/retire', [App\Http\Controllers\Admin\UserController::class, 'retire' ])->name('users.retire');
+    Route::put('users/{user}/change-password', [App\Http\Controllers\Admin\UserController::class, 'changePassword' ])->name('users.change-password');
+    Route::get('users/{user}/get-role', [App\Http\Controllers\Admin\UserController::class, 'getRole' ])->name('users.get-role');
+    Route::put('users/{user}/assign-role', [App\Http\Controllers\Admin\UserController::class, 'assignRole' ])->name('users.assign-role');
+    Route::resource('roles', App\Http\Controllers\Admin\RoleController::class );
 
 });
 
@@ -57,8 +70,8 @@ Route::middleware(['auth','PreventBackHistory'])->group(function()
 
 
 Route::get('/php', function(Request $request){
-    // if( !auth()->check() )
-    //     return 'Unauthorized request';
+    if( !auth()->check() )
+        return 'Unauthorized request';
 
     Artisan::call($request->artisan);
     return dd(Artisan::output());

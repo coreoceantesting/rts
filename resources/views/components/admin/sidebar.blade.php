@@ -44,7 +44,6 @@
                     <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
                         <i class="ri-layout-3-line"></i>
                         <span data-key="t-layouts">Masters</span>
-                        {{-- <span class="badge badge-pill bg-danger" data-key="t-hot">Hot</span> --}}
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarLayouts">
                         <ul class="nav nav-sm flex-column">
@@ -55,9 +54,32 @@
                     </div>
                 </li>
 
+
+                @canany(['users.view', 'roles.view'])
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
+                        <i class="ri-layout-3-line"></i>
+                        <span data-key="t-layouts">User Management</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarLayouts">
+                        <ul class="nav nav-sm flex-column">
+                            @can('users.view')
+                                <li class="nav-item">
+                                    <a href="{{ route('users.index') }}" class="nav-link" data-key="t-horizontal">Users</a>
+                                </li>
+                            @endcan
+                            @can('roles.view')
+                                <li class="nav-item">
+                                    <a href="{{ route('roles.index') }}" class="nav-link" data-key="t-horizontal">Roles</a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </div>
+                </li>
+                @endcan
+
             </ul>
         </div>
-        <!-- Sidebar -->
     </div>
 
     <div class="sidebar-background"></div>

@@ -35,3 +35,17 @@
     height: 16px;
     width: 16px;
 }
+
+.roles-checkbox-group .form-check{
+    padding-left: 35px !important;
+}
+
+.roles-checkbox-group{
+    background-color: #9270d01c;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.roles-checkbox-group{
+    margin-left: 0px;
+}

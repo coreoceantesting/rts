@@ -1,5 +1,5 @@
 <x-admin.layout>
-    <x-slot name="title">{{ auth()->user()->tenant_name }} - Wards</x-slot>
+    <x-slot name="title">Wards</x-slot>
     <x-slot name="heading">Wards</x-slot>
     {{-- <x-slot name="subheading">Test</x-slot> --}}
 
