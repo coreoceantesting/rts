@@ -1,2 +1,37 @@
+#buttons-datatables_wrapper .dt-buttons button{
+    border: 1px solid #eee;
+    background-color: #8c68cdad;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 3px;
+    transition: all 0.2s ease-in-out;
+}
 
-/*# sourceMappingURL=custom.min.css.map */
+#buttons-datatables_wrapper .dt-buttons button:hover{
+    background-color: #8c68cdd1;
+}
+
+#buttons-datatables_wrapper .dt-buttons{
+    float: right !important;
+    margin-top: 10px;
+}
+
+#buttons-datatables_wrapper #buttons-datatables_paginate{
+    float: right !important;
+    margin-top: -20px;
+}
+
+#buttons-datatables_wrapper #buttons-datatables_filter{
+    margin-left: 15px;
+    display: inline-flex;
+}
+
+#buttons-datatables_wrapper #buttons-datatables_length{
+    float: left;
+    display: flex;
+}
+
+#buttons-datatables_wrapper tbody button svg{
+    height: 16px;
+    width: 16px;
+}
