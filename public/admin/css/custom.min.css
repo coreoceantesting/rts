@@ -1,6 +1,6 @@
 #buttons-datatables_wrapper .dt-buttons button{
     border: 1px solid #eee;
-    background-color: #8c68cdad;
+    background-color: #8c68cd;
     color: #fff;
     padding: 4px 12px;
     border-radius: 3px;
@@ -8,12 +8,12 @@
 }
 
 #buttons-datatables_wrapper .dt-buttons button:hover{
-    background-color: #8c68cdd1;
+    background-color: #7758ae;
 }
 
 #buttons-datatables_wrapper .dt-buttons{
     float: right !important;
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #buttons-datatables_wrapper #buttons-datatables_paginate{

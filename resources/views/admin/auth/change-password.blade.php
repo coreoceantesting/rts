@@ -36,7 +36,7 @@
                                         <input class="form-control" type="password" id="old_password" name="old_password" placeholder="Old Password">
                                         <span class="input-group-text" id="old_password_eye" onclick="showHidePassword1()"><i class="eye fa-regular fa-eye-slash"></i></span>
                                     </div>
-                                    <span class="text-danger error-text old_password_err"></span>
+                                    <span class="text-danger is-invalid old_password_err"></span>
                                 </div>
                             </div>
 
@@ -47,7 +47,7 @@
                                         <input class="form-control" type="password" id="password" name="password" placeholder="New Password">
                                         <span class="input-group-text" id="password_eye" onclick="showHidePassword2()"><i class="eye fa-regular fa-eye-slash" ></i></span>
                                     </div>
-                                    <span class="text-danger error-text password_err"></span>
+                                    <span class="text-danger is-invalid password_err"></span>
                                 </div>
                             </div>
 
@@ -58,7 +58,7 @@
                                         <input class="form-control" type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password">
                                         <span class="input-group-text" id="confirm_password_eye" onclick="showHidePassword3()"><i class="eye fa-regular fa-eye-slash" ></i></span>
                                     </div>
-                                    <span class="text-danger error-text confirm_password_err"></span>
+                                    <span class="text-danger is-invalid confirm_password_err"></span>
                                 </div>
                             </div>
 

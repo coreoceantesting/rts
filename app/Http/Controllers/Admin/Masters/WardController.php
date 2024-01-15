@@ -87,7 +87,6 @@ class WardController extends Controller
         {
             DB::beginTransaction();
             $input = $request->validated();
-            $input['name'] = $input['edit_name'];
             $ward->update( Arr::only( $input, Ward::getFillables() ) );
             DB::commit();
 
@@ -102,8 +101,19 @@ class WardController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Ward $ward)
     {
-        //
+        try
+        {
+            DB::beginTransaction();
+            $ward->delete();
+            DB::commit();
+
+            return response()->json(['success'=> 'Ward deleted successfully!']);
+        }
+        catch(\Exception $e)
+        {
+            return $this->respondWithAjax($e, 'deleting', 'Ward');
+        }
     }
 }

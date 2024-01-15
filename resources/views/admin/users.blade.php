@@ -21,20 +21,20 @@
                             <div class="col-md-4 mt-3">
                                 <label class="col-form-label" for="name">User Name <span class="text-danger">*</span></label>
                                 <input class="form-control" id="name" name="name" type="text" placeholder="Enter User Name">
-                                <span class="text-danger error-text name_err"></span>
+                                <span class="text-danger is-invalid name_err"></span>
                             </div>
 
                             <div class="col-md-4 mt-3">
                                 <label class="col-form-label" for="email">User Email <span class="text-danger">*</span></label>
                                 <input class="form-control" id="email" name="email" type="email" placeholder="Enter User Email">
-                                <span class="text-danger error-text email_err"></span>
+                                <span class="text-danger is-invalid email_err"></span>
                             </div>
 
                             <div class="col-md-4 mt-3">
                                 <label class="col-form-label" for="mobile">User Mobile <span class="text-danger">*</span></label>
                                 <input class="form-control" id="mobile" name="mobile" type="number" min="0" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
                                     placeholder="Enter User Mobile">
-                                <span class="text-danger error-text mobile_err"></span>
+                                <span class="text-danger is-invalid mobile_err"></span>
                             </div>
 
                             <div class="col-md-4 mt-3">
@@ -45,19 +45,19 @@
                                         <option value="{{ $role->id }}">{{ $role->name }}</option>
                                     @endforeach
                                 </select>
-                                <span class="text-danger error-text role_err"></span>
+                                <span class="text-danger is-invalid role_err"></span>
                             </div>
 
                             <div class="col-md-4 mt-3">
                                 <label class="col-form-label" for="password">Password <span class="text-danger">*</span></label>
                                 <input class="form-control" id="password" name="password" type="password" placeholder="********">
-                                <span class="text-danger error-text password_err"></span>
+                                <span class="text-danger is-invalid password_err"></span>
                             </div>
 
                             <div class="col-md-4 mt-3">
                                 <label class="col-form-label" for="confirm_password">Confirm Password <span class="text-danger">*</span></label>
                                 <input class="form-control" id="confirm_password" name="confirm_password" type="password" placeholder="********">
-                                <span class="text-danger error-text confirm_password_err"></span>
+                                <span class="text-danger is-invalid confirm_password_err"></span>
                             </div>
                         </div>
 
@@ -91,20 +91,20 @@
                             <div class="col-md-4">
                                 <label class="col-form-label" for="name">User Name <span class="text-danger">*</span></label>
                                 <input class="form-control" name="name" type="text" placeholder="Enter User Name">
-                                <span class="text-danger error-text name_err"></span>
+                                <span class="text-danger is-invalid name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="email">User Email <span class="text-danger">*</span></label>
                                 <input class="form-control" name="email" type="email" placeholder="Enter User Email">
-                                <span class="text-danger error-text email_err"></span>
+                                <span class="text-danger is-invalid email_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="mobile">User Mobile <span class="text-danger">*</span></label>
                                 <input class="form-control" name="mobile" type="number" min="0" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
                                     placeholder="Enter User Mobile">
-                                <span class="text-danger error-text mobile_err"></span>
+                                <span class="text-danger is-invalid mobile_err"></span>
                             </div>
 
                             <div class="col-md-4 mt-3">
@@ -115,7 +115,7 @@
                                         <option value="{{ $role->id }}">{{ $role->name }}</option>
                                     @endforeach
                                 </select>
-                                <span class="text-danger error-text role_err"></span>
+                                <span class="text-danger is-invalid role_err"></span>
                             </div>
 
                         </div>
@@ -176,9 +176,9 @@
                                             {{ \Carbon\Carbon::parse($user->created_at)->format('d M, y h:i:s') }}
                                         </td>
                                         <td>
-                                            <button class="edit-element btn btn-primary px-2 py-1" title="Edit User" data-id="{{ $user->id }}"><i data-feather="edit"></i></button>
-                                            <button class="btn btn-primary change-password px-2 py-1" title="Change Password" data-id="{{ $user->id }}"><i data-feather="lock"></i></button>
-                                            <button class="btn btn-warning assign-role px-2 py-1" title="Assign Role" data-id="{{ $user->id }}"><i data-feather="user-check"></i></button>
+                                            <button class="edit-element btn text-primary px-2 py-1" title="Edit User" data-id="{{ $user->id }}"><i data-feather="edit"></i></button>
+                                            <button class="btn text-primary change-password px-2 py-1" title="Change Password" data-id="{{ $user->id }}"><i data-feather="lock"></i></button>
+                                            <button class="btn text-warning assign-role px-2 py-1" title="Assign Role" data-id="{{ $user->id }}"><i data-feather="user-check"></i></button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -212,7 +212,7 @@
                                     <input class="form-control" type="password" id="new_password" name="new_password">
                                     {{-- <div class="show-hide"><span class="show"></span></div> --}}
                                 </div>
-                                <span class="text-danger error-text password_err"></span>
+                                <span class="text-danger is-invalid password_err"></span>
                             </div>
                         </div>
 
@@ -223,7 +223,7 @@
                                     <input class="form-control" type="password" id="confirmed_password" name="confirmed_password">
                                     {{-- <div class="show-hide"><span class="show"></span></div> --}}
                                 </div>
-                                <span class="text-danger error-text confirmed_password_err"></span>
+                                <span class="text-danger is-invalid confirmed_password_err"></span>
                             </div>
                         </div>
 
@@ -265,7 +265,7 @@
                                 <select class="js-example-basic-single" id="edit_role" name="edit_role">
                                     <option value="">--Select Role--</option>
                                 </select>
-                                <span class="text-danger error-text edit_role_err"></span>
+                                <span class="text-danger is-invalid edit_role_err"></span>
                             </div>
                         </div>
 
@@ -349,24 +349,6 @@
                 }
             }
         });
-
-        function resetErrors() {
-            var form = document.getElementById('addForm');
-            var data = new FormData(form);
-            for (var [key, value] of data) {
-                $('.' + key + '_err').text('');
-                $('#' + key).removeClass('is-invalid');
-                $('#' + key).addClass('is-valid');
-            }
-        }
-
-        function printErrMsg(msg) {
-            $.each(msg, function(key, value) {
-                $('.' + key + '_err').text(value);
-                $('#' + key).addClass('is-invalid');
-                $('#' + key).removeClass('is-valid');
-            });
-        }
 
     });
 </script>
@@ -460,16 +442,10 @@
                 '_token': "{{ csrf_token() }}"
             },
             success: function(data, textStatus, jqXHR) {
-                $("#addContainer").slideUp();
-                $("#btnCancel").show();
-                $("#addToTable").hide();
-                $("#editContainer").slideDown();
+                editFormBehaviour();
 
                 if (!data.error) {
                     $("#editForm input[name='edit_model_id']").val(data.user.id);
-                    $("#editForm input[name='emp_code']").val(data.user.emp_code);
-                    $("#editForm select[name='department_id']").html(data.departmentHtml);
-                    $("#editForm select[name='sub_department_id']").html(data.subDepartmentHtml);
                     $("#editForm input[name='dob']").val(data.user.dob);
                     data.user.gender == 'm' ? $("#editForm input[name='gender'][value='m']").prop("checked", true) : $("#editForm input[name='gender'][value='f']").prop("checked", true);
                     $("#editForm select[name='role']").html(data.roleHtml);
@@ -528,25 +504,6 @@
                     }
                 }
             });
-
-            function resetErrors() {
-                var form = document.getElementById('editForm');
-                var data = new FormData(form);
-                for (var [key, value] of data) {
-                    var field = key.replace('[]', '');
-                    $('.' + field + '_err').text('');
-                    $('#' + field).removeClass('is-invalid');
-                    $('#' + field).addClass('is-valid');
-                }
-            }
-
-            function printErrMsg(msg) {
-                $.each(msg, function(key, value) {
-                    var field = key.replace('[]', '');
-                    $('.' + field + '_err').text(value);
-                    $('#' + field).addClass('is-invalid');
-                });
-            }
 
         });
     });

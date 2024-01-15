@@ -11,17 +11,20 @@
                     <form class="theme-form" name="addForm" id="addForm" enctype="multipart/form-data">
                         @csrf
 
+                        <div class="card-header">
+                            <h4 class="card-title">Add Ward</h4>
+                        </div>
                         <div class="card-body">
                             <div class="mb-3 row">
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="name">Ward Name <span class="text-danger">*</span></label>
                                     <input class="form-control" id="name" name="name" type="text" placeholder="Enter Ward Name">
-                                    <span class="text-danger error-text name_err"></span>
+                                    <span class="text-danger is-invalid name_err"></span>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="initial">Initial <span class="text-danger">*</span></label>
                                     <input class="form-control" id="initial" name="initial" type="text" placeholder="Enter Ward Initial">
-                                    <span class="text-danger error-text initial_err"></span>
+                                    <span class="text-danger is-invalid initial_err"></span>
                                 </div>
                             </div>
 
@@ -42,24 +45,22 @@
             <div class="col">
                 <form class="form-horizontal form-bordered" method="post" id="editForm">
                     @csrf
-                    <section class="card">
-                        <header class="card-header">
+                    <div class="card">
+                        <div class="card-header">
                             <h4 class="card-title">Edit Ward</h4>
-                        </header>
-
+                        </div>
                         <div class="card-body py-2">
-
                             <input type="hidden" id="edit_model_id" name="edit_model_id" value="">
                             <div class="mb-3 row">
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="name">Ward Name <span class="text-danger">*</span></label>
                                     <input class="form-control" id="name" name="name" type="text" placeholder="Ward Name">
-                                    <span class="text-danger error-text name_err"></span>
+                                    <span class="text-danger is-invalid name_err"></span>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="initial">Initial <span class="text-danger">*</span></label>
                                     <input class="form-control" id="initial" name="initial" type="text" placeholder="Enter Ward Initial">
-                                    <span class="text-danger error-text initial_err"></span>
+                                    <span class="text-danger is-invalid initial_err"></span>
                                 </div>
                             </div>
 
@@ -68,7 +69,7 @@
                             <button class="btn btn-primary" id="editSubmit">Submit</button>
                             <button type="reset" class="btn btn-warning">Reset</button>
                         </div>
-                    </section>
+                    </div>
                 </form>
             </div>
         </div>
@@ -111,8 +112,8 @@
                                             <td>2011/04/25</td>
                                             <td>$320,800</td>
                                             <td>
-                                                <button class="edit-element btn btn-secondary px-2 py-1" title="Edit ward" data-id="{{ $ward->id }}"><i data-feather="edit"></i></button>
-                                                <button class="btn btn-danger rem-element px-2 py-1" title="Delete ward" data-id="{{ $ward->id }}"><i data-feather="trash-2"></i> </button>
+                                                <button class="edit-element btn text-secondary px-2 py-1" title="Edit ward" data-id="{{ $ward->id }}"><i data-feather="edit"></i></button>
+                                                <button class="btn text-danger rem-element px-2 py-1" title="Delete ward" data-id="{{ $ward->id }}"><i data-feather="trash-2"></i> </button>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -189,6 +190,7 @@
                 {
                     $("#editForm input[name='edit_model_id']").val(data.ward.id);
                     $("#editForm input[name='name']").val(data.ward.name);
+                    $("#editForm input[name='initial']").val(data.ward.initial);
                 }
                 else
                 {

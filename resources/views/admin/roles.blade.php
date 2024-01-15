@@ -19,7 +19,7 @@
                             <div class="col-md-4">
                                 <label class="col-form-label" for="name">Role Name <span class="text-danger">*</span></label>
                                 <input class="form-control" id="name" name="name" type="text" placeholder="Enter Role Name">
-                                <span class="text-danger error-text name_err"></span>
+                                <span class="text-danger is-invalid name_err"></span>
                             </div>
                         </div>
 
@@ -49,7 +49,7 @@
                                     $previousPermission = explode('.', $permission->name)[0]
                                 @endphp
                             @endforeach
-                            <span class="text-danger error-text permission_err"></span>
+                            <span class="text-danger is-invalid permission_err"></span>
                         </div>
 
                     </div>
@@ -81,7 +81,7 @@
                             <div class="col-md-4">
                                 <label class="col-form-label" for="edit_name">Role Name <span class="text-danger">*</span></label>
                                 <input class="form-control" id="edit_name" name="edit_name" type="text" placeholder="Enter Role Name">
-                                <span class="text-danger error-text edit_name_err"></span>
+                                <span class="text-danger is-invalid edit_name_err"></span>
                             </div>
                         </div>
 
@@ -130,8 +130,8 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $role->name }}</td>
                                         <td>
-                                            <button class="edit-element btn btn-secondary px-2 py-1" title="Edit Role" data-id="{{ $role->id }}"><i data-feather="edit"></i></button>
-                                            <button class="btn btn-danger rem-element px-2 py-1" title="Delete Role" data-id="{{ $role->id }}"><i data-feather="trash-2"></i> </button>
+                                            <button class="edit-element btn text-secondary px-2 py-1" title="Edit Role" data-id="{{ $role->id }}"><i data-feather="edit"></i></button>
+                                            <button class="btn text-danger rem-element px-2 py-1" title="Delete Role" data-id="{{ $role->id }}"><i data-feather="trash-2"></i> </button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -183,24 +183,6 @@
                 }
             }
         });
-
-        function resetErrors() {
-            var form = document.getElementById('addForm');
-            var data = new FormData(form);
-            for (var [key, value] of data) {
-                $('.' + key + '_err').text('');
-                $('#' + key).removeClass('is-invalid');
-                $('#' + key).addClass('is-valid');
-            }
-        }
-
-        function printErrMsg(msg) {
-            $.each(msg, function(key, value) {
-                $('.' + key + '_err').text(value);
-                $('#' + key).addClass('is-invalid');
-                $('#' + key).removeClass('is-valid');
-            });
-        }
 
     });
 </script>
@@ -278,25 +260,6 @@
                     }
                 }
             });
-
-            function resetErrors() {
-                var form = document.getElementById('editForm');
-                var data = new FormData(form);
-                for (var [key, value] of data) {
-                    var field = key.replace('[]', '');
-                    $('.' + field + '_err').text('');
-                    $('#' + field).removeClass('is-invalid');
-                    $('#' + field).addClass('is-valid');
-                }
-            }
-
-            function printErrMsg(msg) {
-                $.each(msg, function(key, value) {
-                    var field = key.replace('[]', '');
-                    $('.' + field + '_err').text(value);
-                    $('#' + field).addClass('is-invalid');
-                });
-            }
 
         });
     });
