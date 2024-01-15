@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\Controller;
 use App\Http\Requests\Admin\StoreRoleRequest;
 use App\Http\Requests\Admin\UpdateRoleRequest;
 use Illuminate\Http\Request;
@@ -89,22 +89,22 @@ class RoleController extends Controller
                                     <div class="form-group m-t-15 row roles-checkbox-group">
                                         <strong class="mt-2"> '.ucfirst( explode('.', $permission->name)[0] ).' </strong>
                                         <div class="col-3 py-2 form-check">
-                                            <label class="d-block form-check-label" for="chk-ani'.$permission->id.'">
-                                                <input class="checkbox_animated form-check-input" id="chk-ani'.$permission->id.'" type="checkbox"  name="edit_permission[]" value="'.$permission->id.'" '.$isChecked.'>'.explode('.', $permission->name)[1].'
+                                            <label class="d-block form-check-label" for="chk-ani'.$permission->name.'">
+                                                <input class="checkbox_animated form-check-input" id="chk-ani'.$permission->name.'" type="checkbox"  name="edit_permission[]" value="'.$permission->name.'" '.$isChecked.'>'.explode('.', $permission->name)[1].'
                                             </label>
                                         </div>';
                 }
                 else
                 {
                 $permissionsHtml .='<div class="col-3 py-2 form-check">
-                                        <label class="d-block form-check-label" for="chk-ani'.$permission->id.'">
-                                            <input class="checkbox_animated form-check-input" id="chk-ani'.$permission->id.'" type="checkbox"  name="edit_permission[]" value="'.$permission->id.'" '.$isChecked.'>'.explode('.', $permission->name)[1].'
+                                        <label class="d-block form-check-label" for="chk-ani'.$permission->name.'">
+                                            <input class="checkbox_animated form-check-input" id="chk-ani'.$permission->name.'" type="checkbox"  name="edit_permission[]" value="'.$permission->name.'" '.$isChecked.'>'.explode('.', $permission->name)[1].'
                                         </label>
                                     </div>';
                 }
                 $previousPermission = explode('.', $permission->name)[0];
             }
-            $permissionsHtml .='<span class="text-danger error-text permission_err"></span>';
+            $permissionsHtml .='<span class="text-danger error-text edit_permission_err"></span>';
 
             $response = [
                 'result' => 1,

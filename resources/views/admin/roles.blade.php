@@ -34,14 +34,14 @@
                                     <div class="form-group m-t-15 row roles-checkbox-group">
                                         <strong class="mt-2"> {{ ucfirst( explode('.', $permission->name)[0] ) }} </strong>
                                         <div class="col-3 py-2 form-check">
-                                            <label class="d-block form-check-label" for="chk-ani{{$permission->id}}">
-                                                <input class="checkbox_animated form-check-input" id="chk-ani{{$permission->id}}" type="checkbox"  name="permission[]" value="{{$permission->id}}" checked>{{explode('.', $permission->name)[1]}}
+                                            <label class="d-block form-check-label" for="chk-ani{{$permission->name}}">
+                                                <input class="checkbox_animated form-check-input" id="chk-ani{{$permission->name}}" type="checkbox"  name="permission[]" value="{{$permission->name}}" checked>{{explode('.', $permission->name)[1]}}
                                             </label>
                                         </div>
                                 @else
                                     <div class="col-3 py-2 form-check">
-                                        <label class="d-block form-check-label" for="chk-ani{{$permission->id}}">
-                                            <input class="checkbox_animated form-check-input" id="chk-ani{{$permission->id}}" type="checkbox"  name="permission[]" value="{{$permission->id}}" checked>{{explode('.', $permission->name)[1]}}
+                                        <label class="d-block form-check-label" for="chk-ani{{$permission->name}}">
+                                            <input class="checkbox_animated form-check-input" id="chk-ani{{$permission->name}}" type="checkbox"  name="permission[]" value="{{$permission->name}}" checked>{{explode('.', $permission->name)[1]}}
                                         </label>
                                     </div>
                                 @endif
