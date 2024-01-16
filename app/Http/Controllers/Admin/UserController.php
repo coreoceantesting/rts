@@ -132,7 +132,7 @@ class UserController extends Controller
 
     public function toggle(Request $request, User $user)
     {
-        $current_status = DB::table('app_users')->where('id', $user->id)->value('active_status');
+        $current_status = DB::table('users')->where('id', $user->id)->value('active_status');
         try
         {
             DB::beginTransaction();
