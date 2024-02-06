@@ -150,21 +150,27 @@
 <script>
     function resetErrors() {
         var form = document.getElementById('addForm');
-        var data = new FormData(form);
-        for (var [key, value] of data) {
-            var field = key.replace('[]', '');
-            $('.' + field + '_err').text('');
-            $("[name='"+field+"']").removeClass('is-invalid');
-            $("[name='"+field+"']").addClass('is-valid');
+        if(form)
+        {
+            var data = new FormData(form);
+            for (var [key, value] of data) {
+                var field = key.replace('[]', '');
+                $('.' + field + '_err').text('');
+                $("[name='"+field+"']").removeClass('is-invalid');
+                $("[name='"+field+"']").addClass('is-valid');
+            }
         }
 
         var form = document.getElementById('editForm');
-        var data = new FormData(form);
-        for (var [key, value] of data) {
-            var field = key.replace('[]', '');
-            $('.' + field + '_err').text('');
-            $("[name='"+field+"']").removeClass('is-invalid');
-            $("[name='"+field+"']").addClass('is-valid');
+        if(form)
+        {
+            var data = new FormData(form);
+            for (var [key, value] of data) {
+                var field = key.replace('[]', '');
+                $('.' + field + '_err').text('');
+                $("[name='"+field+"']").removeClass('is-invalid');
+                $("[name='"+field+"']").addClass('is-valid');
+            }
         }
     }
 
