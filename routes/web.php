@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 
 // Guest Users
-Route::middleware(['guest','PreventBackHistory'])->group(function()
+Route::middleware(['guest','PreventBackHistory', 'firewall.all'])->group(function()
 {
     Route::get('login', [App\Http\Controllers\Admin\AuthController::class, 'showLogin'] )->name('login');
     Route::post('login', [App\Http\Controllers\Admin\AuthController::class, 'login'])->name('signin');
@@ -36,7 +36,7 @@ Route::middleware(['guest','PreventBackHistory'])->group(function()
 
 
 // Authenticated users
-Route::middleware(['auth','PreventBackHistory'])->group(function()
+Route::middleware(['auth','PreventBackHistory', 'firewall.all'])->group(function()
 {
 
     // Auth Routes
