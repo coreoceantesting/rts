@@ -39,44 +39,41 @@
                     </a>
                 </li>
 
-
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
-                        <i class="ri-layout-3-line"></i>
-                        <span data-key="t-layouts">Masters</span>
+                    <a class="nav-link menu-link" href="{{ route('dashboard') }}" >
+                        <i class="ri-dashboard-2-line"></i>
+                        <span data-key="t-dashboards">Information</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarLayouts">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="{{ route('wards.index') }}" class="nav-link" data-key="t-horizontal">Wards</a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
 
-
-                @canany(['users.view', 'roles.view'])
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
-                        <i class="bx bx-user-circle"></i>
-                        <span data-key="t-layouts">User Management</span>
+                    <a class="nav-link menu-link" href="{{ route('dashboard') }}" >
+                        <i class="ri-dashboard-2-line"></i>
+                        <span data-key="t-dashboards">My Application</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarLayouts">
-                        <ul class="nav nav-sm flex-column">
-                            @can('users.view')
-                                <li class="nav-item">
-                                    <a href="{{ route('users.index') }}" class="nav-link" data-key="t-horizontal">Users</a>
-                                </li>
-                            @endcan
-                            @can('roles.view')
-                                <li class="nav-item">
-                                    <a href="{{ route('roles.index') }}" class="nav-link" data-key="t-horizontal">Roles</a>
-                                </li>
-                            @endcan
-                        </ul>
-                    </div>
                 </li>
-                @endcan
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('dashboard') }}" >
+                        <i class="ri-dashboard-2-line"></i>
+                        <span data-key="t-dashboards">Search Application</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('dashboard') }}" >
+                        <i class="ri-dashboard-2-line"></i>
+                        <span data-key="t-dashboards">RTS Guideline</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('dashboard') }}" >
+                        <i class="ri-dashboard-2-line"></i>
+                        <span data-key="t-dashboards">My Profile</span>
+                    </a>
+                </li>
+
 
             </ul>
         </div>

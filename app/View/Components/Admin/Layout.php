@@ -22,9 +22,9 @@ class Layout extends Component
     public function render(): View|Closure|string
     {
         $themeMode = request()->cookie('theme-mode');
-        if(!$themeMode)
+        if (!$themeMode)
             $themeMode = 'light';
 
-        return view('components.admin.layout')->with(['themeMode' => $themeMode]);
+        return view('components.layout')->with(['themeMode' => $themeMode]);
     }
 }

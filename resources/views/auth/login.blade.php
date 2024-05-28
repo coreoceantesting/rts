@@ -63,7 +63,7 @@
                                 <div class="col-lg-6">
                                     <div class="p-lg-5 p-4">
                                         <div>
-                                            <h5 class="text-primary">Welcome Back !</h5>
+                                            <h5 class="text-primary">User Login !</h5>
                                             <p class="text-muted">Sign in to continue to {{ config('app.name') }}.</p>
                                         </div>
 
@@ -87,7 +87,7 @@
                                                 </div>
 
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="remember_me" name="remember_me">
+                                                    <input class="form-check-input" type="checkbox" value="" id="auth-remember-check" name="remember_me">
                                                     <label class="form-check-label" for="auth-remember-check">Remember me</label>
                                                 </div>
 
@@ -99,7 +99,7 @@
                                         </div>
 
                                         <div class="mt-5 text-center">
-                                            <p class="mb-0">Don't have an account ? <a href="auth-signup-cover.html" class="fw-semibold text-primary text-decoration-underline"> Signup</a> </p>
+                                            <p class="mb-0">Don't have an account ? <a href="{{ route('register') }}" class="fw-semibold text-primary text-decoration-underline"> Register</a> </p>
                                         </div>
                                     </div>
                                 </div>
