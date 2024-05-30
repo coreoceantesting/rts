@@ -490,19 +490,19 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Address In English (पत्ता इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <textarea class="form-control" name="name" placeholder="Enter name"></textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Address In Marathi (पत्ता मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <textarea class="form-control" name="name" placeholder="Enter name"></textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Pincode (पिनकोड) <span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="name" placeholder="Enter name" />
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
@@ -514,7 +514,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Mobile No (मोबाईल क्र) <span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="name" placeholder="Enter name" />
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
@@ -526,103 +526,135 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Aadhar Card No. <span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="name" placeholder="Enter name" />
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Date of Birth (जन्मतारीख) <span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <input type="date" class="form-control" name="name" placeholder="Enter name" />
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Age (वय) <span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="name" placeholder="Enter name" />
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Gender <span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <select name="gender" class="form-select" id="">
+                                                                    <option value="">Select option</option>
+                                                                    <option value="">Male</option>
+                                                                    <option value="">Female</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Religion by birth (जन्माने धर्म) <span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <select name="gender" class="form-select" id="">
+                                                                    <option value="">Select option</option>
+                                                                    <option value="">Male</option>
+                                                                    <option value="">Female</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Religion by adoption (दत्तक घेऊन धर्म) <span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <select name="gender" class="form-select" id="">
+                                                                    <option value="">Select option</option>
+                                                                    <option value="">Male</option>
+                                                                    <option value="">Female</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Bride Photo (वधूचा फोटो) <span class="text-danger">Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <input type="file" class="form-control" name="name" placeholder="Enter name" />
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Id Proof (आयडी पुरावा) <span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <select name="gender" class="form-select" id="">
+                                                                    <option value="">Select option</option>
+                                                                    <option value="">Male</option>
+                                                                    <option value="">Female</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Residential Proof (निवासी पुरावा) <span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <select name="gender" class="form-select" id="">
+                                                                    <option value="">Select option</option>
+                                                                    <option value="">Male</option>
+                                                                    <option value="">Female</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Age Proof (वयाचा पुरावा) <span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <select name="gender" class="form-select" id="">
+                                                                    <option value="">Select option</option>
+                                                                    <option value="">Male</option>
+                                                                    <option value="">Female</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Upload Id Proof (आयडी पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <input type="file" class="form-control" name="name" placeholder="Enter name" />
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Upload Residential Proof (निवासी पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <input type="file" class="form-control" name="name" placeholder="Enter name" />
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Upload Age Proof (वयाचा पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <input type="file" class="form-control" name="name" placeholder="Enter name" />
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 400kb) *</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <input type="file" class="form-control" name="name" placeholder="Enter name" />
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Previous Status (मागील स्थिती) <span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <select name="gender" class="form-select" id="">
+                                                                    <option value="">Select option</option>
+                                                                    <option value="">Male</option>
+                                                                    <option value="">Female</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Previous Status Proof (मागील स्थितीचा पुरावा) <span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <select name="gender" class="form-select" id="">
+                                                                    <option value="">Select option</option>
+                                                                    <option value="">Male</option>
+                                                                    <option value="">Female</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Upload Previous Status Proof (मागील स्थितीचा पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <input type="file" class="form-control" name="name" placeholder="Enter name" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -682,28 +714,28 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Address In English (पत्ता इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <textarea type="text" class="form-control" name="name" placeholder="Enter name"></textarea>
                                                             </div>
                                                         </div>
                             
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Address In Marathi (पत्ता मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <textarea type="text" class="form-control" name="name" placeholder="Enter name"></textarea>
                                                             </div>
                                                         </div>
                             
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Mobile No (मोबाईल क्र) <span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="name" placeholder="Enter name" />
                                                             </div>
                                                         </div>
                             
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Age (वय) <span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="name" placeholder="Enter name" />
                                                             </div>
                                                         </div>
                             
@@ -717,7 +749,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
-                                                                <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                                                                <input type="file" class="form-control" name="name" placeholder="Enter name" />
                                                             </div>
                                                         </div>
                                                     </div>
