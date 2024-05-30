@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MarriageController;
+use App\Http\Controllers\AapaleSarkarLoginCheckController;
+use App\Http\Controllers\ServiceInformationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,8 +56,20 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::get('users/{user}/get-role', [App\Http\Controllers\Admin\UserController::class, 'getRole'])->name('users.get-role');
     Route::put('users/{user}/assign-role', [App\Http\Controllers\Admin\UserController::class, 'assignRole'])->name('users.assign-role');
     Route::resource('roles', App\Http\Controllers\Admin\RoleController::class);
+
+
+    // Route::get('marriage-registration-certificate/list', [MarriageController::class, 'list'])->name('marriage.list');
+    // Route::get('marriage-registration-certificate/add', [MarriageController::class, 'add'])->name('marriage.add');
+    // Route::post('marriage-registration-certificate/store', [MarriageController::class, 'store'])->name('marriage.store');
+    // Route::get('marriage-registration-certificate/edit/{id}', [MarriageController::class, 'edit'])->name('marriage.edit');
+    // Route::put('marriage-registration-certificate/update', [MarriageController::class, 'update'])->name('marriage.update');
+
+    Route::resource('marriage-registration', MarriageController::class);
+
+    Route::get('service-information', [ServiceInformationController::class, 'serviceInformation'])->name('service-information');
 });
 
+// Route::get('check-aapalesarkar-user', [AapaleSarkarLoginCheckController::class, 'check']);
 
 
 

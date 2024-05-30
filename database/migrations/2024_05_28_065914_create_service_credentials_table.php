@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('service_credentials', function (Blueprint $table) {
             $table->id();
             $table->string('service_name');
+            $table->string('service_url');
             $table->string('client_code');
             $table->string('check_sum_key');
             $table->string('str_key');

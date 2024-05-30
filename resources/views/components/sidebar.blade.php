@@ -2,18 +2,18 @@
     <!-- LOGO -->
     <div class="navbar-brand-box">
         <!-- Dark Logo-->
-        <a href="index.html" class="logo logo-dark">
+        <a href="{{ route('dashboard') }}" class="logo logo-dark">
             <span class="logo-sm">
-                <img src="{{ asset('admin/images/logo-sm.png') }}" alt="" height="22" />
+                <img src="{{ asset('admin/images/logo-light.png') }}" alt="" height="22" />
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('admin/images/logo-dark.png') }}" alt="" height="17" />
+                <img src="{{ asset('admin/images/logo-light.png') }}" alt="" height="17" />
             </span>
         </a>
         <!-- Light Logo-->
-        <a href="index.html" class="logo logo-light">
+        <a href="{{ route('dashboard') }}" class="logo logo-light">
             <span class="logo-sm">
-                <img src="{{ asset('admin/images/logo-sm.png') }}" alt="" height="22" />
+                <img src="{{ asset('admin/images/logo-light.png') }}" alt="" height="22" />
             </span>
             <span class="logo-lg">
                 <img src="{{ asset('admin/images/logo-light.png') }}" alt="" height="17" />
@@ -40,35 +40,35 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{ route('dashboard') }}" >
+                    <a class="nav-link menu-link" href="{{ route('service-information') }}" >
                         <i class="ri-dashboard-2-line"></i>
                         <span data-key="t-dashboards">Information</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{ route('dashboard') }}" >
+                    <a class="nav-link menu-link" href="javascript:void(0)" >
                         <i class="ri-dashboard-2-line"></i>
                         <span data-key="t-dashboards">My Application</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{ route('dashboard') }}" >
+                    <a class="nav-link menu-link" href="javascript:void(0)" >
                         <i class="ri-dashboard-2-line"></i>
                         <span data-key="t-dashboards">Search Application</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{ route('dashboard') }}" >
+                    <a class="nav-link menu-link" href="javascript:void(0)" >
                         <i class="ri-dashboard-2-line"></i>
                         <span data-key="t-dashboards">RTS Guideline</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{ route('dashboard') }}" >
+                    <a class="nav-link menu-link" href="javascript:void(0)" >
                         <i class="ri-dashboard-2-line"></i>
                         <span data-key="t-dashboards">My Profile</span>
                     </a>

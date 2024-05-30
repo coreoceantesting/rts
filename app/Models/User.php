@@ -23,6 +23,11 @@ class User extends Authenticatable
         'email',
         'mobile',
         'password',
+        'age',
+        'gender',
+        'user_id',
+        'trackid',
+        'is_aapale_sarkar_user'
     ];
 
     /**

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-layout="horizontal" data-topbar="dark" data-sidebar="dark" data-sidebar-size="lg" data-bs-theme="{{ $themeMode }}" data-body-image="img-1" data-preloader="enable" data-sidebar-visibility="show" data-layout-style="default"
+<html lang="en" data-layout="horizontal" data-topbar="dark" data-sidebar="dark" data-sidebar-size="lg" data-body-image="img-1" data-preloader="enable" data-sidebar-visibility="show" data-layout-style="default"
     data-layout-width="fluid" data-layout-position="fixed">
 
 <head>
@@ -40,6 +40,7 @@
                 <div class="container-fluid">
 
 
+                    @if(isset($heading))
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between bg-transparent">
@@ -63,6 +64,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
 
 
                     {{ $slot }}
