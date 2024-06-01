@@ -43,7 +43,8 @@
 
                                         <div class="tab-content">
                                             <div class="tab-pane fade show active" id="marriage-registration-form" role="tabpanel" aria-labelledby="marriage-registration-form-tab">
-                                                <form action="" method="post">
+                                                <form action="" method="post" id="marriageRegistrationForm">
+                                                    @csrf
                                                     <div class="row">
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                             <div class="mb-3">
@@ -133,7 +134,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="d-flex justify-content-end">
-                                                        <button class="btn btn-primary">Submit</button>
+                                                        <button class="btn btn-primary" idmarriageRegistrationFormBtn>Submit</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -1535,3 +1536,43 @@
         </div>
     </div>
 </x-layout>
+
+
+{{-- Add --}}
+<script>
+    $("#marriageRegistrationForm").submit(function(e) {
+        e.preventDefault();
+        $("#idmarriageRegistrationFormBtn").prop('disabled', true);
+
+        var formdata = new FormData(this);
+        $.ajax({
+            url: '{{ route('dashboard') }}',
+            type: 'POST',
+            data: formdata,
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                $("#idmarriageRegistrationFormBtn").prop('disabled', false);
+                if (!data.error2)
+                    swal("Successful!", data.success, "success")
+                    .then((action) => {
+                        window.location.href = '{{ route('dashboard') }}';
+                    });
+                else
+                    swal("Error!", data.error2, "error");
+            },
+            statusCode: {
+                422: function(responseObject, textStatus, jqXHR) {
+                    $("#idmarriageRegistrationFormBtn").prop('disabled', false);
+                    resetErrors();
+                    printErrMsg(responseObject.responseJSON.errors);
+                },
+                500: function(responseObject, textStatus, errorThrown) {
+                    $("#idmarriageRegistrationFormBtn").prop('disabled', false);
+                    swal("Error occured!", "Something went wrong please try again", "error");
+                }
+            }
+        });
+
+    });
+</script>

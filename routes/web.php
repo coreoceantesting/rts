@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MarriageController;
 use App\Http\Controllers\AapaleSarkarLoginCheckController;
 use App\Http\Controllers\ServiceInformationController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MyProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,18 +46,19 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::get('show-change-password', [App\Http\Controllers\Registeration\AuthController::class, 'showChangePassword'])->name('show-change-password');
     Route::post('change-password', [App\Http\Controllers\Registeration\AuthController::class, 'changePassword'])->name('change-password');
     Route::get('home', fn () => redirect()->route('dashboard'))->name('home');
-    Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('my-application', [DashboardController::class, 'myApplication'])->name('my-application');
 
 
 
     // Users Roles n Permissions
-    Route::resource('users', App\Http\Controllers\Admin\UserController::class);
-    Route::get('users/{user}/toggle', [App\Http\Controllers\Admin\UserController::class, 'toggle'])->name('users.toggle');
-    Route::get('users/{user}/retire', [App\Http\Controllers\Admin\UserController::class, 'retire'])->name('users.retire');
-    Route::put('users/{user}/change-password', [App\Http\Controllers\Admin\UserController::class, 'changePassword'])->name('users.change-password');
-    Route::get('users/{user}/get-role', [App\Http\Controllers\Admin\UserController::class, 'getRole'])->name('users.get-role');
-    Route::put('users/{user}/assign-role', [App\Http\Controllers\Admin\UserController::class, 'assignRole'])->name('users.assign-role');
-    Route::resource('roles', App\Http\Controllers\Admin\RoleController::class);
+    // Route::resource('users', App\Http\Controllers\Admin\UserController::class);
+    // Route::get('users/{user}/toggle', [App\Http\Controllers\Admin\UserController::class, 'toggle'])->name('users.toggle');
+    // Route::get('users/{user}/retire', [App\Http\Controllers\Admin\UserController::class, 'retire'])->name('users.retire');
+    // Route::put('users/{user}/change-password', [App\Http\Controllers\Admin\UserController::class, 'changePassword'])->name('users.change-password');
+    // Route::get('users/{user}/get-role', [App\Http\Controllers\Admin\UserController::class, 'getRole'])->name('users.get-role');
+    // Route::put('users/{user}/assign-role', [App\Http\Controllers\Admin\UserController::class, 'assignRole'])->name('users.assign-role');
+    // Route::resource('roles', App\Http\Controllers\Admin\RoleController::class);
 
 
     // Route::get('marriage-registration-certificate/list', [MarriageController::class, 'list'])->name('marriage.list');
@@ -67,6 +70,9 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('marriage-registration', MarriageController::class);
 
     Route::get('service-information', [ServiceInformationController::class, 'serviceInformation'])->name('service-information');
+
+    // profile route
+    Route::get('/profile', [MyProfileController::class, 'profile'])->name('user.profile');
 });
 
 // Route::get('check-aapalesarkar-user', [AapaleSarkarLoginCheckController::class, 'check']);

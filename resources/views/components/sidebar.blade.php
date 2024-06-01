@@ -40,9 +40,9 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{ route('service-information') }}" >
+                    <a class="nav-link menu-link" href="javascript:void(0)" >
                         <i class="ri-dashboard-2-line"></i>
-                        <span data-key="t-dashboards">Information</span>
+                        <span data-key="t-dashboards">My Profile</span>
                     </a>
                 </li>
 
@@ -56,13 +56,6 @@
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="javascript:void(0)" >
                         <i class="ri-dashboard-2-line"></i>
-                        <span data-key="t-dashboards">Search Application</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="javascript:void(0)" >
-                        <i class="ri-dashboard-2-line"></i>
                         <span data-key="t-dashboards">RTS Guideline</span>
                     </a>
                 </li>
@@ -70,7 +63,14 @@
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="javascript:void(0)" >
                         <i class="ri-dashboard-2-line"></i>
-                        <span data-key="t-dashboards">My Profile</span>
+                        <span data-key="t-dashboards">Important Link</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="javascript:void(0)" >
+                        <i class="ri-dashboard-2-line"></i>
+                        <span data-key="t-dashboards">Contact</span>
                     </a>
                 </li>
 
