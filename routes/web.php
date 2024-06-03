@@ -67,7 +67,21 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     // Route::get('marriage-registration-certificate/edit/{id}', [MarriageController::class, 'edit'])->name('marriage.edit');
     // Route::put('marriage-registration-certificate/update', [MarriageController::class, 'update'])->name('marriage.update');
 
+    // start of marriage registration form
+    Route::post('marriage-registration/store-marriage-registration-form', [MarriageController::class, 'storeMarriageRegistrationForm'])->name('marriage-registration.store-marriage-registration-form');
+
+    Route::post('marriage-registration/store-marriage-registration-details', [MarriageController::class, 'storeMarriageRegistrationDetails'])->name('marriage-registration.store-marriage-registration-details');
+
+    Route::post('marriage-registration/store-groom-information', [MarriageController::class, 'storeGroomInformation'])->name('marriage-registration.store-groom-information');
+
+    Route::post('marriage-registration/store-bride-information', [MarriageController::class, 'storeBrideInformation'])->name('marriage-registration.store-bride-information');
+
+    Route::post('marriage-registration/store-priest-information', [MarriageController::class, 'storePriestInformation'])->name('marriage-registration.store-priest-information');
+
+    Route::post('marriage-registration/store-witness_information', [MarriageController::class, 'storeWitnessInformation'])->name('marriage-registration.store-witness-information');
+
     Route::resource('marriage-registration', MarriageController::class);
+    // end of marriage registration form
 
     Route::get('service-information', [ServiceInformationController::class, 'serviceInformation'])->name('service-information');
 

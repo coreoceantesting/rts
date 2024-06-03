@@ -11,16 +11,19 @@
         <style>
             body{
                 background-color: #f0f8ff;
-                overflow-x: hidden;
+                overflow: hidden;
             }
 
             .bg-img{
-                background-image: url('{{ asset('admin/images/login/desktop-curve-image.jpg') }}');
+                background-image: url('{{ asset('admin/images/bg-login-page.svg') }}');
+                background-position: 100%;
                 background-repeat: no-repeat;
-                background-position: 0%;
-                background-size: cover;
+                background-size: auto 100%;
                 content: "";
                 height: 100vh;
+                display: grid;
+                align-items: center;
+                text-align: center;
             }
             .right-content-div{
                 background: #284db2;
@@ -41,86 +44,32 @@
                 border: 1px solid #2b5de4;
             }
 
-            @media only screen and (min-width: 1200px) {
+            @media only screen and (max-width: 991px) {
                 .bg-img {
-                    background-position: 1%;
-                }
-            }
-
-            @media only screen and (max-width: 1999px) {
-                .bg-img {
-                    background-position: 1%;
-                }
-            }
-
-            @media only screen and (max-width: 1115px) {
-                .bg-img {
-                    background-position: 16%;
-                }
-            }
-
-            @media only screen and (max-width: 1060px) {
-                .bg-img {
-                    background-position: 24%;
-                }
-            }
-
-            @media only screen and (max-width: 992px) {
-                .bg-img {
-                    background-position: 30%;
-                }
-            }
-
-            @media only screen and (max-width: 767px) {
-                .bg-img {
-                    background-image: none;
-                    background-color: #fff;
-                    height: auto;
-                    display: flex: 
-                    justify-content: center;
-                }
-
-                .mobile-view-bgcolor{
-                    background-color: #234cb3;
-                }
-
-                .mobile-view-bgcolor, body{
-                    background-color: #234cb3;
-                }
-
-                .form-control{
-                    padding: 10px;
-                    background-color: #fff;
-                    border: 1px solid #fff;
-                }
-
-                .form-label, .form-check-label{
-                    color: #fff;
-                }
-
-                #loginForm_submit{
-                    background-color: #fff;
-                    color: #234cb3;
-                    font-weight: 900;
-                    font-size: 18px;
-                    width : 50% !important;
+                    display: none;
                 }
             }
         </style>
     </head>
     <body>
-        <section class="">
+        <section>
             <div class="container-flud">
                 <div class="row">
-                    <div class="bg-img col-lg-6 col-md-6 col-12 d-flex justify-content-center">
-                        <img class="d-md-none d-lg-none d-xl-none d-sm-block d-block mt-4" src="{{ asset('admin/images/login/login.png') }}" style="width: 300px;">
+                    <div class="col-lg-6 col-12 bg-img">
+                        <div class="margin-auto">
+                            <img src="{{ asset('admin/images/logo.png') }}" style="width: 250px;">
+                            <div class="-intro-x text-white fw-medium fs-4xl lh-base mt-10 " style="margin-left:0%;">
+                                <span style="font-size: 40px;font-weight: 600;">पनवेल महानगरपालिका</span>  
+                                <br/>
+                                <h4>Budget Control Register</h4>
+                            </div>
+                                
+                        </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-12 d-md-none d-lg-none d-xl-none d-sm-block d-block mobile-view-bgcolor">
-                        <img src="{{ asset('admin/images/login/mobile.png') }}" style="width: 100%" alt="">
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-12 mobile-view-bgcolor">
-                        <div class="d-flex justify-content-center mt-3">
-                            <img class="d-md-block d-lg-block d-xl-block d-sm-none d-none" src="{{ asset('admin/images/login/login.png') }}" style="width: 300px;">
+                    <div class="col-lg-6 col-12">
+                        <div class="text-center">
+                            <img src="{{ asset('admin/images/logo.png') }}" style="width: 250px;">  
+                            <div class="right-content-div">Budget Control Register</div>
                         </div>
                         <div class="container custompadding">
                             <form id="loginForm">
@@ -145,7 +94,7 @@
                                     <label class="form-check-label" for="remember_me">Remember me</label>
                                 </div>
 
-                                <div class="mt-4 text-center">
+                                <div class="mt-4">
                                     <button class="btn btn-primary w-100" type="submit" id="loginForm_submit">Sign In</button>
                                 </div>
 

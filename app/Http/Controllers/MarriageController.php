@@ -17,21 +17,57 @@ class MarriageController extends Controller
         return view('marriage.create');
     }
 
-    public function store(Request $request)
+    // store marriage registration form
+    public function storeMarriageRegistrationForm(Request $request)
     {
-        Log::info($request->all());
-
         return response()->json([
-            'success' => 'Marriage created successfully'
+            'success' => 'Marriage created successfully',
+            'data' => $request->all()
         ]);
     }
 
-    public function edit(Request $request)
+    // store marriage registration details
+    public function storeMarriageRegistrationDetails(Request $request)
     {
-        return view('marriage.edit');
+        return response()->json([
+            'success' => 'Marriage created successfully',
+            'data' => $request->all()
+        ]);
     }
 
-    public function show()
+    // store groom information
+    public function storeGroomInformation(Request $request)
     {
+        return response()->json([
+            'success' => 'Marriage created successfully',
+            'data' => $request->all()
+        ]);
+    }
+
+    // store bride information
+    public function storeBrideInformation(Request $request)
+    {
+        return response()->json([
+            'success' => 'Marriage created successfully',
+            'data' => $request->all()
+        ]);
+    }
+
+    // store priest information
+    public function storePriestInformation(Request $request)
+    {
+        return response()->json([
+            'success' => 'Marriage created successfully',
+            'data' => $request->all()
+        ]);
+    }
+
+    // store witness information
+    public function storeWitnessInformation(Request $request)
+    {
+        return response()->json([
+            'success' => 'Marriage created successfully',
+            'data' => $request->all()
+        ]);
     }
 }
