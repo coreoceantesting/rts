@@ -49,7 +49,6 @@ class AapaleSarkarLoginCheckService
     // function to check aapale sarkar data is proper and send request to aapale sarkar for get user data with status
     function checkDecryptData($soapEndpoint, $soapAction, $checkSumKey, $clientCode, $encryptedData, $strKey, $strIV)
     {
-
         $decryptedText = $this->decryptTripleDES($encryptedData, $strKey, $strIV);
 
         $rowData = explode('|', $decryptedText);
@@ -61,11 +60,9 @@ class AapaleSarkarLoginCheckService
 
         $formattedString = sprintf("%s|%s|%s|%s|%s", $usrId, $usrTimeStamp, $usrSession, $checkSumKey, $strServiceCookie);
 
-
         $caluculatedCheckSumValue = $this->generateCheckSumValue($formattedString);
         // check the client provided checksum key and generated checksum key is equal or not
         if ($clientCheckSumValue == $caluculatedCheckSumValue) {
-
             // generate soap xml request to send the data for user request
             $requestXml = '<?xml version="1.0" encoding="utf-8"?>
                 <soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -151,7 +148,6 @@ class AapaleSarkarLoginCheckService
 
         // Make the SOAP request
         $response = $client->__doRequest($requestXml, $soapEndpoint, $soapAction, SOAP_1_2);
-
 
         // Load the XML string
         $doc = new \DOMDocument();

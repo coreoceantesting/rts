@@ -4,9 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use App\Http\Requests\Marriage\BrideInformationRequest;
+use App\Http\Requests\Marriage\GroomInformationRequest;
+use App\Http\Requests\Marriage\MarriageRegistrationDetailsRequest;
+use App\Http\Requests\Marriage\MarriageRegistrationFormRequest;
+use App\Http\Requests\Marriage\PriestInformationRequest;
+use App\Http\Requests\Marriage\WitnessInformationRequest;
+use App\Services\MarriageRegistrationService;
 
 class MarriageController extends Controller
 {
+    protected $marriageRegistrationService;
+
+    public function __construct(MarriageRegistrationService $marriageRegistrationService)
+    {
+        $this->marriageRegistrationService = $marriageRegistrationService;
+    }
+
     public function index(Request $request)
     {
         return view('marriage.index');
@@ -18,8 +32,10 @@ class MarriageController extends Controller
     }
 
     // store marriage registration form
-    public function storeMarriageRegistrationForm(Request $request)
+    public function storeMarriageRegistrationForm(MarriageRegistrationFormRequest $request)
     {
+        $storeMarriageRegistrationForm = $this->marriageRegistrationService->storeMarriageRegistrationForm($request);
+
         return response()->json([
             'success' => 'Marriage created successfully',
             'data' => $request->all()
@@ -27,8 +43,10 @@ class MarriageController extends Controller
     }
 
     // store marriage registration details
-    public function storeMarriageRegistrationDetails(Request $request)
+    public function storeMarriageRegistrationDetails(MarriageRegistrationDetailsRequest $request)
     {
+        $storeMarriageRegistrationDetails = $this->marriageRegistrationService->storeMarriageRegistrationDetails($request);
+
         return response()->json([
             'success' => 'Marriage created successfully',
             'data' => $request->all()
@@ -36,8 +54,10 @@ class MarriageController extends Controller
     }
 
     // store groom information
-    public function storeGroomInformation(Request $request)
+    public function storeGroomInformation(GroomInformationRequest $request)
     {
+        $storeGroomInformation = $this->marriageRegistrationService->storeGroomInformation($request);
+
         return response()->json([
             'success' => 'Marriage created successfully',
             'data' => $request->all()
@@ -45,8 +65,10 @@ class MarriageController extends Controller
     }
 
     // store bride information
-    public function storeBrideInformation(Request $request)
+    public function storeBrideInformation(BrideInformationRequest $request)
     {
+        $storeBrideInformation = $this->marriageRegistrationService->storeBrideInformation($request);
+
         return response()->json([
             'success' => 'Marriage created successfully',
             'data' => $request->all()
@@ -54,8 +76,10 @@ class MarriageController extends Controller
     }
 
     // store priest information
-    public function storePriestInformation(Request $request)
+    public function storePriestInformation(PriestInformationRequest $request)
     {
+        $storePriestInformation = $this->marriageRegistrationService->storePriestInformation($request);
+
         return response()->json([
             'success' => 'Marriage created successfully',
             'data' => $request->all()
@@ -63,8 +87,10 @@ class MarriageController extends Controller
     }
 
     // store witness information
-    public function storeWitnessInformation(Request $request)
+    public function storeWitnessInformation(WitnessInformationRequest $request)
     {
+        $storeWitnessInformation = $this->marriageRegistrationService->storeWitnessInformation($request);
+
         return response()->json([
             'success' => 'Marriage created successfully',
             'data' => $request->all()

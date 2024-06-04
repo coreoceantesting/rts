@@ -69,17 +69,11 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
 
     // start of marriage registration form
     Route::post('marriage-registration/store-marriage-registration-form', [MarriageController::class, 'storeMarriageRegistrationForm'])->name('marriage-registration.store-marriage-registration-form');
-
     Route::post('marriage-registration/store-marriage-registration-details', [MarriageController::class, 'storeMarriageRegistrationDetails'])->name('marriage-registration.store-marriage-registration-details');
-
     Route::post('marriage-registration/store-groom-information', [MarriageController::class, 'storeGroomInformation'])->name('marriage-registration.store-groom-information');
-
     Route::post('marriage-registration/store-bride-information', [MarriageController::class, 'storeBrideInformation'])->name('marriage-registration.store-bride-information');
-
     Route::post('marriage-registration/store-priest-information', [MarriageController::class, 'storePriestInformation'])->name('marriage-registration.store-priest-information');
-
     Route::post('marriage-registration/store-witness_information', [MarriageController::class, 'storeWitnessInformation'])->name('marriage-registration.store-witness-information');
-
     Route::resource('marriage-registration', MarriageController::class);
     // end of marriage registration form
 
