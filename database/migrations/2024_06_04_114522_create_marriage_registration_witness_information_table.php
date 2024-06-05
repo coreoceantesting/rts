@@ -18,7 +18,7 @@ return new class extends Migration
 
             // Columns for first witness information
             $table->string('first_witness_info_fname_in_english')->nullable();
-            $table->string('first_witness_info_mname_in_english')->nullable();
+            $table->string('first_witness_info_fname_in_marathi')->nullable();
             $table->string('first_witness_info_mobile_no')->nullable();
             $table->string('first_witness_info_dob')->nullable();
             $table->string('first_witness_info_age')->nullable();
@@ -33,7 +33,7 @@ return new class extends Migration
 
             // Columns for second witness information
             $table->string('second_witness_info_fname_in_english')->nullable();
-            $table->string('second_witness_info_mname_in_english')->nullable();
+            $table->string('second_witness_info_fname_in_marathi')->nullable();
             $table->string('second_witness_info_mobile_no')->nullable();
             $table->string('second_witness_info_dob')->nullable();
             $table->string('second_witness_info_age')->nullable();
@@ -48,7 +48,7 @@ return new class extends Migration
 
             // Columns for third witness information
             $table->string('third_witness_info_fname_in_english')->nullable();
-            $table->string('third_witness_info_mname_in_english')->nullable();
+            $table->string('third_witness_info_fname_in_marathi')->nullable();
             $table->string('third_witness_info_mobile_no')->nullable();
             $table->string('third_witness_info_dob')->nullable();
             $table->string('third_witness_info_age')->nullable();

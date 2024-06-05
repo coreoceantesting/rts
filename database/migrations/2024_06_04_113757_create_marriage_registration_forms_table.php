@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('registration_from_pincode')->nullable();
             $table->string('registration_from_applicant_email')->nullable();
             $table->bigInteger('registration_from_aadhar_card_no')->nullable();
+            $table->string('registration_from_alternate_mobile_number')->nullable();
             $table->string('registration_from_pan_card_no')->nullable();
             $table->string('registration_from_residential_ward_name')->nullable();
             $table->string('registration_from_marriage_solemnized_within_maharashtra_state')->nullable();

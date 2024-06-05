@@ -22,14 +22,37 @@ class MarriageRegistrationDetailsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            // 'marriage_reg_form_id' => 'required',
+            // 'registration_details_form_filled_date' => 'required',
+            // 'registration_details_marriage_date_in_english' => 'required',
+            // 'registration_details_marriage_date_in_marathi' => 'required',
+            // 'registration_details_marriage_place_in_english' => 'required',
+            // 'registration_details_marriage_place_in_marathi' => 'required',
+            // 'registration_details_couple_photo' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            // 'registration_details_is_widow' => 'required',
+            // 'registration_details_is_previously_divorced' => 'required',
+            // 'registration_details_is_marriage_intercaste' => 'required',
+            // 'registration_details_wedding_card_image' => 'required|file|mimes:pdf,PDF|max:2048',
         ];
     }
 
     public function messages()
     {
         return [
-            //
+            'registration_details_form_filled_date.required' => 'Please select form filled date',
+            'registration_details_marriage_date_in_english.required' => 'Please select marriage date',
+            'registration_details_marriage_date_in_marathi.required' => 'Please enter marriage date in marathi',
+            'registration_details_marriage_place_in_english.required' => 'Please enter marriage place in english',
+            'registration_details_marriage_place_in_marathi.required' => 'Please enter marriage place in marathi',
+            'registration_details_couple_photo.required' => 'Please upload couple photo',
+            'registration_details_couple_photo.mimes' => 'Pdf and image file only supported',
+            'registration_details_couple_photo.max' => 'File should be less than 2mb',
+            'registration_details_is_widow.required' => 'Please select Is Husband/Wife Widower/Widow',
+            'registration_details_is_previously_divorced.required' => 'Please select Is Husband/Wife previously divorced',
+            'registration_details_is_marriage_intercaste.required' => 'Please select marriage intercast',
+            'registration_details_wedding_card_image.required' => 'Please select wedding card image',
+            'registration_details_wedding_card_image.mimes' => 'Only pdf file supported',
+            'registration_details_wedding_card_image.max' => 'File must be less than 2 mb',
         ];
     }
 }

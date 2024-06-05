@@ -10,7 +10,7 @@
 
                     <div class="col-md-3 col-lg-3 col-6">
                         <div class="card">
-                            <div class="card-header d-flex justify-content-between" style="background:#f3b610">
+                            <div class="card-header d-flex justify-content-between" style="background:#b73107">
                                 <img src="{{ asset('admin/images/icon/Construction Department.png') }}" width="25px" alt="बांधकाम विभाग">
                                 <h5 class="card-title text-white">बांधकाम विभाग</h5>
                             </div>
@@ -90,7 +90,7 @@
 
                     <div class="col-md-3 col-lg-3 col-6">
                         <div class="card">
-                            <div class="card-header d-flex justify-content-between" style="background:#f3b610">
+                            <div class="card-header d-flex justify-content-between" style="background:#b73107">
                                 <img src="{{ asset('admin/images/icon/Property Tax Department.png') }}" width="25px" alt="मालमत्ता कर विभाग">
                                 <h5 class="card-title text-white">मालमत्ता कर विभाग</h5>
                             </div>

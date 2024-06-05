@@ -22,7 +22,19 @@ class PriestInformationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            // 'marriage_reg_form_id' => 'required',
+            // 'priest_info_fname_in_english' => 'required',
+            // 'priest_info_mname_in_english' => 'required',
+            // 'priest_info_lname_in_english' => 'required',
+            // 'priest_info_fname_in_marathi' => 'required',
+            // 'priest_info_mname_in_marathi' => 'required',
+            // 'priest_info_lname_in_marathi' => 'required',
+            // 'priest_info_address_in_english' => 'required',
+            // 'priest_info_address_in_marathi' => 'required',
+            // 'priest_info_mobile_no' => 'required',
+            // 'priest_info_age' => 'required',
+            // 'priest_info_religion' => 'required',
+            // 'priest_info_upload_signature' => 'required',
         ];
     }
 

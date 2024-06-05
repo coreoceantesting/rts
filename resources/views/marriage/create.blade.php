@@ -46,87 +46,98 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Applicant Mobile Number (अर्जदाराचा मोबाईल क्रमांक) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" oninput="this.value = this.value.replace(/\D/g, '')" name="applicant_mobile_number" placeholder="Enter applicant mobile number" />
+                                                    <input type="text" class="form-control" oninput="this.value = this.value.replace(/\D/g, '')" name="registration_from_applicant_mobile_no" placeholder="Enter applicant mobile number" required />
+                                                    <span class="text-danger is-invalid registration_from_applicant_mobile_no_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Applicant Full Name (अर्जदाराचे पूर्ण नाव)<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="applicant_full_name" placeholder="Enter applicant full name" />
+                                                    <input type="text" class="form-control" name="registration_from_applicant_full_name" placeholder="Enter applicant full name" required />
+                                                    <span class="text-danger is-invalid registration_from_applicant_full_name_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Applicant Home Address (अर्जदाराच्या घराचा पत्ता) <span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" name="applicant_home_address" placeholder="Enter applicant home address"></textarea>
+                                                    <textarea class="form-control" name="registration_from_applicant_home_address" placeholder="Enter applicant home address" required></textarea>
+                                                    <span class="text-danger is-invalid registration_from_applicant_home_address_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Pincode (पिनकोड) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="pincode" placeholder="Enter pincode" />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="registration_from_pincode" placeholder="Enter pincode" required />
+                                                    <span class="text-danger is-invalid registration_from_pincode_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Applicant E-mail (अर्जदाराचा ई-मेल) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="applicant_email" placeholder="Enter applicant email" />
+                                                    <input type="text" class="form-control" name="registration_from_applicant_email" placeholder="Enter applicant email" required />
+                                                    <span class="text-danger is-invalid registration_from_applicant_email_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Aadhar Card No. (आधार कार्ड क्र) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="aadhar_card_no" placeholder="Enter aadhar card no." />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="registration_from_aadhar_card_no" placeholder="Enter aadhar card no." required />
+                                                    <span class="text-danger is-invalid registration_from_aadhar_card_no_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Applicant alternate Mobile Number (अर्जदाराचा पर्यायी मोबाईल क्रमांक)</label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="applicant_alternate_mobile_number" placeholder="Enter applicant alternate mobile number" />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="registration_from_alternate_mobile_number" placeholder="Enter applicant alternate mobile number" required />
+                                                    <span class="text-danger is-invalid registration_from_alternate_mobile_number_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Pan Card No. (पॅन कार्ड क्र.) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="pan_card_no" placeholder="Enter pan card no." />
+                                                    <input type="text" class="form-control" name="registration_from_pan_card_no" placeholder="Enter pan card no." required />
+                                                    <span class="text-danger is-invalid registration_from_pan_card_no_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Residential Ward Name (रहिवाशीच्या प्रभागाचे नाव) <span class="text-danger">*</span></label>
-                                                    <select name="residential_ward_name" class="form-select">
+                                                    <select name="registration_from_residential_ward_name" class="form-select" required>
                                                         <option value="">Select Ward</option>
                                                         <option value="1">Kharghar</option>
                                                         <option value="2">Kalamboli</option>
                                                         <option value="3">Kamothe</option>
                                                         <option value="4">Panvel</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid registration_from_residential_ward_name_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Marriage solemnized within Maharashtra State? (विवाह सोहळा महाराष्ट्र राज्यात झाला आहे का ?) <span class="text-danger">*</span></label>
-                                                    <select name="marriage_solemnized_within_maharashtra_state" class="form-select">
+                                                    <select name="registration_from_marriage_solemnized_within_maharashtra_state" class="form-select" required>
                                                         <option value="">Choose one</option>
                                                         <option value="1">Yes</option>
                                                         <option value="2">No</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid registration_from_marriage_solemnized_within_maharashtra_state_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Affidavit for Marriage Outside Maharashtra <span class="text-danger">Upload PDF Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="affidavit_for_marriage_outside_maharashtra" placeholder="Enter affidavit for marriage outside maharashtra" />
+                                                    <input type="file" class="form-control" name="registration_from_affidavit_for_marriage_outside_maharashtra" placeholder="Enter affidavit for marriage outside maharashtra" required />
+                                                    <span class="text-danger is-invalid registration_from_affidavit_for_marriage_outside_maharashtra_err"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -144,82 +155,92 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Form Filled Date (फॉर्म भरण्याची तारीख) <span class="text-danger">*</span></label>
-                                                    <input type="text" value="{{ date('Y-m-d') }}" class="form-control datepicker" name="form_filled_date" placeholder="Enter form filled date" autocomplete="off" readonly />
+                                                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="registration_details_form_filled_date" placeholder="Enter form filled date" autocomplete="off" required readonly />
+                                                    <span class="text-danger is-invalid registration_details_form_filled_date_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Marriage Date in English (लग्नाची तारीख इंग्रजीमध्ये)<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control datepicker" name="marriage_date_in_english" placeholder="Enter marriage date in english" max="{{ date('Y-m-d') }}" autocomplete="off" />
+                                                    <input type="text" class="form-control datepicker" name="registration_details_marriage_date_in_english" placeholder="Enter marriage date in english" max="{{ date('Y-m-d') }}" autocomplete="off" required />
+                                                    <span class="text-danger is-invalid registration_details_marriage_date_in_english_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Marriage Date in Marathi (लग्नाची तारीख मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="marriage_date_in_marathi" placeholder="Enter marriage date in marathi" />
+                                                    <input type="text" class="form-control" name="registration_details_marriage_date_in_marathi" placeholder="Enter marriage date in marathi" required />
+                                                    <span class="text-danger is-invalid registration_details_marriage_date_in_marathi_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Marriage Place, Full Address in English (इंग्रजीमध्ये लग्नाच्या ठिकाणाचा पत्ता) <span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" name="marriage_place_in_english" placeholder="Enter marriage place, full address in english" ></textarea>
+                                                    <textarea class="form-control" name="registration_details_marriage_place_in_english" placeholder="Enter marriage place, full address in english" required></textarea>
+                                                    <span class="text-danger is-invalid registration_details_marriage_place_in_english_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Marriage Place, Full Address in Marathi (मराठीमध्ये लग्नाच्या ठिकाणाचा पत्ता) <span class="text-danger">*</span></label>
-                                                    <textarea type="text" class="form-control" name="marriage_place_in_marathi" placeholder="Enter marriage place, full address in marathi"></textarea>
+                                                    <textarea type="text" class="form-control" name="registration_details_marriage_place_in_marathi" placeholder="Enter marriage place, full address in marathi" required></textarea>
+                                                    <span class="text-danger is-invalid registration_details_marriage_place_in_marathi_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Couple Photo of Wedding (लग्न विधी चा फोटो) <span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="couple_photo_of_wedding" />
+                                                    <input type="file" class="form-control" name="registration_details_couple_photo" required />
+                                                    <span class="text-danger is-invalid registration_details_couple_photo_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Is Husband/Wife Widower/Widow? (वर/वधू -- विधुर / विधवा आहे का ?) <span class="text-danger">*</span></label>
-                                                    <select name="is_husband_wife_widower_widow" class="form-select">
+                                                    <select name="registration_details_is_widow" class="form-select" required>
                                                         <option value="">Select option</option>
                                                         <option value="1">Yes</option>
                                                         <option value="2">No</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid registration_details_is_widow_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Is Husband/Wife previously divorced? (वर वधू यांचे घटस्पोट झाला आहे का ?) <span class="text-danger">*</span></label>
-                                                    <select name="is_husband_wife_previously_divorced" class="form-select">
+                                                    <select name="registration_details_is_previously_divorced" class="form-select" required>
                                                         <option value="">Select option</option>
                                                         <option value="1">Yes</option>
                                                         <option value="2">No</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid registration_details_is_previously_divorced_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Is Marriage Intercaste?  (आंतरजातीय विवाह झाला आहे का ?) <span class="text-danger">*</span></label>
-                                                    <select name="is_marriage_intercaste" class="form-select">
+                                                    <select name="registration_details_is_marriage_intercaste" class="form-select" required>
                                                         <option value="">Select option</option>
                                                         <option value="1">Yes</option>
                                                         <option value="2">No</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid registration_details_is_marriage_intercaste_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Wedding card Image. If not available, attach Affidavit (लग्न पत्रिका चा फोटो नसल्यास, प्रतिज्ञापत्र जोडावे ) <span class="text-danger">Upload PDF Format Only (Max size 2mb) *</span></label>
-                                                    <input type="File" class="form-control" name="wedding_card_image" />
+                                                    <input type="file" class="form-control" name="registration_details_wedding_card_image" required />
+                                                    <span class="text-danger is-invalid registration_details_wedding_card_image_err"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -237,108 +258,124 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">First Name in English (पहिले नाव इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="first_name_in_english" placeholder="Enter first name in english" />
+                                                    <input type="text" class="form-control" name="groom_info_fname_in_english" placeholder="Enter first name in english" />
+                                                    <span class="text-danger is-invalid groom_info_fname_in_english_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Middle Name In English (मधले नाव इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="middle_name_in_english" placeholder="Enter middle name in english" />
+                                                    <input type="text" class="form-control" name="groom_info_mname_in_english" placeholder="Enter middle name in english" />
+                                                    <span class="text-danger is-invalid groom_info_mname_in_english_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Last Name In English (आडनाव इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="last_name_in_english" placeholder="Enter last name in english" />
+                                                    <input type="text" class="form-control" name="groom_info_lname_in_english" placeholder="Enter last name in english" />
+                                                    <span class="text-danger is-invalid groom_info_lname_in_english_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">First Name In Marathi (पहिले नाव मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="first_name_in_marathi" placeholder="Enter first name in marathi" />
+                                                    <input type="text" class="form-control" name="groom_info_fname_in_marathi" placeholder="Enter first name in marathi" />
+                                                    <span class="text-danger is-invalid groom_info_fname_in_marathi_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Middle Name In Marathi (मधले नाव मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="middle_name_in_marathi" placeholder="Enter middle name in marathi" />
+                                                    <input type="text" class="form-control" name="groom_info_mname_in_marathi" placeholder="Enter middle name in marathi" />
+                                                    <span class="text-danger is-invalid groom_info_mname_in_marathi_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Last Name In Marathi (आडनाव मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="last_name_in_marathi" placeholder="Enter last name in marathi" />
+                                                    <input type="text" class="form-control" name="groom_info_lname_in_marathi" placeholder="Enter last name in marathi" />
+                                                    <span class="text-danger is-invalid groom_info_lname_in_marathi_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In English (पत्ता इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" name="address_in_english" placeholder="Enter address in english"></textarea>
+                                                    <textarea class="form-control" name="groom_info_address_in_english" placeholder="Enter address in english"></textarea>
+                                                    <span class="text-danger is-invalid groom_info_address_in_english_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In Marathi (पत्ता मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" name="address_in_marathi" placeholder="Enter address in marathi"></textarea>
+                                                    <textarea class="form-control" name="groom_info_address_in_marathi" placeholder="Enter address in marathi"></textarea>
+                                                    <span class="text-danger is-invalid groom_info_address_in_marathi_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Pincode (पिनकोड) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="pincode" placeholder="Enter pincode" />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="groom_info_pincode" placeholder="Enter pincode" />
+                                                    <span class="text-danger is-invalid groom_info_pincode_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Pincode in Marathi (पिनकोड मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="pincode_in_marathi" placeholder="Enter pincode in marathi" />
+                                                    <input type="text" class="form-control" name="groom_info_pincode_in_marathi" placeholder="Enter pincode in marathi" />
+                                                    <span class="text-danger is-invalid groom_info_pincode_in_marathi_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Mobile No (मोबाईल क्र) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="mobile_no" placeholder="Enter mobile no." />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="groom_info_mobile_no" placeholder="Enter mobile no." />
+                                                    <span class="text-danger is-invalid groom_info_mobile_no_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Email (ईमेल) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="email" placeholder="Enter email" />
+                                                    <input type="text" class="form-control" name="groom_info_email" placeholder="Enter email" />
+                                                    <span class="text-danger is-invalid groom_info_email_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Aadhar Card No. <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="aadhar_card_no" placeholder="Enter aadhar card no." />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="groom_info_aadhar_card_no" placeholder="Enter aadhar card no." />
+                                                    <span class="text-danger is-invalid groom_info_aadhar_card_no_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Date of Birth (जन्मतारीख) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control datepicker" name="date_of_birth" placeholder="Select date of birth" autocomplete="off" />
+                                                    <input type="text" class="form-control datepicker" name="groom_info_dob" placeholder="Select date of birth" autocomplete="off" />
+                                                    <span class="text-danger is-invalid groom_info_dob_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Age (वय) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="age" placeholder="Enter age" />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="groom_info_age" placeholder="Enter age" />
+                                                    <span class="text-danger is-invalid groom_info_age_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Gender <span class="text-danger">*</span></label>
-                                                    <select name="gender" class="form-select">
+                                                    <select name="groom_info_gender" class="form-select">
                                                         <option value="">Choose one</option>
                                                         <option value="1">Male</option>
                                                         <option value="2">Female</option>
                                                         <option value="3">Other</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid groom_info_gender_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Religion by birth (जन्माने धर्म) <span class="text-danger">*</span></label>
-                                                    <select name="religion_by_birth" class="form-select">
+                                                    <select name="groom_info_religion_by_birth" class="form-select">
                                                         <option value="">Choose one</option>
                                                         <option value="1">Hindu</option>
                                                         <option value="2">Muslim</option>
@@ -349,12 +386,13 @@
                                                         <option value="7">Parsi</option>
                                                         <option value="8">Other</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid groom_info_religion_by_birth_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Religion by adoption (दत्तक घेऊन धर्म) <span class="text-danger">*</span></label>
-                                                    <select name="religion_by_adoption" class="form-select">
+                                                    <select name="groom_info_religion_by_adoption" class="form-select">
                                                         <option value="">Choose one</option>
                                                         <option value="1">Hindu</option>
                                                         <option value="2">Muslim</option>
@@ -365,41 +403,45 @@
                                                         <option value="7">Parsi</option>
                                                         <option value="8">Other</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid groom_info_religion_by_adoption_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Groom Photo (वराचा फोटो) <span class="text-danger">Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="groom_photo" />
+                                                    <input type="file" class="form-control" name="groom_info_photo" />
+                                                    <span class="text-danger is-invalid groom_info_photo_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Id Proof (आयडी पुरावा) <span class="text-danger">*</span></label>
-                                                    <select name="id_proof" class="form-select">
+                                                    <select name="groom_info_id_proof" class="form-select">
                                                         <option value="2">Aadhaar Card</option>
                                                         <option value="3">Passport</option>
                                                         <option value="4">Voter ID</option>
                                                         <option value="5">Pan Card</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid groom_info_id_proof_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Residential Proof (निवासी पुरावा) <span class="text-danger">*</span></label>
-                                                    <select name="residential_proof" class="form-select">
+                                                    <select name="groom_info_residential_proof" class="form-select">
                                                         <option value="">Choose one</option>
                                                         <option value="1">Ration Card</option>
                                                         <option value="2">Aadhaar Card</option>
                                                         <option value="3">Passport</option>
                                                         <option value="4">Voter ID</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid groom_info_residential_proof_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Age Proof (वयाचा पुरावा) <span class="text-danger">*</span></label>
-                                                    <select name="age_proof" class="form-select">
+                                                    <select name="groom_info_age_proof" class="form-select">
                                                         <option value="">Choose one</option>
                                                         <option value="1">Birth Certificate</option>
                                                         <option value="2">School Leaving Certificate</option>
@@ -407,55 +449,63 @@
                                                         <option value="4">HSC Board Certificate</option>
                                                         <option value="5">Higher Education</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid groom_info_age_proof_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Id Proof (आयडी पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="upload_id_proof" />
+                                                    <input type="file" class="form-control" name="groom_info_id_proof_file" />
+                                                    <span class="text-danger is-invalid groom_info_id_proof_file_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Residential Proof (निवासी पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="upload_residential_proof" />
+                                                    <input type="file" class="form-control" name="groom_info_residential_proof_file" />
+                                                    <span class="text-danger is-invalid groom_info_residential_proof_file_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Age Proof (वयाचा पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="upload_age_proof" />
+                                                    <input type="file" class="form-control" name="groom_info_age_proof_file" />
+                                                    <span class="text-danger is-invalid groom_info_age_proof_file_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="upload_signature" />
+                                                    <input type="file" class="form-control" name="groom_info_upload_signature" />
+                                                    <span class="text-danger is-invalid groom_info_upload_signature_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Previous Status (मागील स्थिती) <span class="text-danger">*</span></label>
-                                                    <select name="previous_status" class="form-select">
+                                                    <select name="groom_info_previous_status" class="form-select">
                                                         <option value="">Choose one</option>
                                                         <option value="1">Unmarried</option>
                                                         <option value="2">Widow/Widower</option>
                                                         <option value="3">Divorce</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid groom_info_previous_status_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Previous Status Proof (मागील स्थितीचा पुरावा) <span class="text-danger">*</span></label>
-                                                    <select name="previous_status_proof" class="form-select">
+                                                    <select name="groom_info_previous_status_proof" class="form-select">
                                                         <option value="">Choose one</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid groom_info_previous_status_proof_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Previous Status Proof (मागील स्थितीचा पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="upload_previous_status_proof" />
+                                                    <input type="file" class="form-control" name="groom_info_upload_previous_status_proof" />
+                                                    <span class="text-danger is-invalid groom_info_upload_previous_status_proof_err"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -473,108 +523,124 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">First Name in English (पहिले नाव इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="first_name_in_english" placeholder="Enter first name in english" />
+                                                    <input type="text" class="form-control" name="bride_info_fname_in_english" placeholder="Enter first name in english" required />
+                                                    <span class="text-danger is-invalid bride_info_fname_in_english_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Middle Name In English (मधले नाव इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="middle_name_in_english" placeholder="Enter middle name in english" />
+                                                    <input type="text" class="form-control" name="bride_info_mname_in_english" placeholder="Enter middle name in english" required />
+                                                    <span class="text-danger is-invalid bride_info_mname_in_english_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Last Name In English (आडनाव इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="last_name_in_english" placeholder="Enter last name in english" />
+                                                    <input type="text" class="form-control" name="bride_info_lname_in_english" placeholder="Enter last name in english" required />
+                                                    <span class="text-danger is-invalid bride_info_lname_in_english_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">First Name In Marathi (पहिले नाव मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="first_name_in_marathi" placeholder="Enter first name in marathi" />
+                                                    <input type="text" class="form-control" name="bride_info_fname_in_marathi" placeholder="Enter first name in marathi" required />
+                                                    <span class="text-danger is-invalid bride_info_fname_in_marathi_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Middle Name In Marathi (मधले नाव मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="middle_name_in_marathi" placeholder="Enter middle name in marathi" />
+                                                    <input type="text" class="form-control" name="bride_info_mname_in_marathi" placeholder="Enter middle name in marathi" required />
+                                                    <span class="text-danger is-invalid bride_info_mname_in_marathi_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Last Name In Marathi (आडनाव मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="last_name_in_marathi" placeholder="Enter last name in marathi" />
+                                                    <input type="text" class="form-control" name="bride_info_lname_in_marathi" placeholder="Enter last name in marathi" required />
+                                                    <span class="text-danger is-invalid bride_info_lname_in_marathi_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In English (पत्ता इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" name="address_in_english" placeholder="Enter address in english"></textarea>
+                                                    <textarea class="form-control" name="bride_info_address_in_english" placeholder="Enter address in english" required></textarea>
+                                                    <span class="text-danger is-invalid bride_info_address_in_english_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In Marathi (पत्ता मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" name="address_in_marathi" placeholder="Enter address in marathi"></textarea>
+                                                    <textarea class="form-control" name="bride_info_address_in_marathi" placeholder="Enter address in marathi" required></textarea>
+                                                    <span class="text-danger is-invalid bride_info_address_in_marathi_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Pincode (पिनकोड) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="pincode" placeholder="Enter pincode" />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="bride_info_pincode" placeholder="Enter pincode" required />
+                                                    <span class="text-danger is-invalid bride_info_pincode_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Pincode in Marathi (पिनकोड मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="pincode_in_marathi" placeholder="Enter pincode in marathi" />
+                                                    <input type="text" class="form-control" name="bride_info_pincode_in_marathi" placeholder="Enter pincode in marathi" required />
+                                                    <span class="text-danger is-invalid bride_info_pincode_in_marathi_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Mobile No (मोबाईल क्र) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="mobile_no" placeholder="Enter mobile no" />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="bride_info_mobile_no" placeholder="Enter mobile no" required />
+                                                    <span class="text-danger is-invalid bride_info_mobile_no_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Email (ईमेल) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="email" placeholder="Enter email" />
+                                                    <input type="text" class="form-control" name="bride_info_email" placeholder="Enter email" required />
+                                                    <span class="text-danger is-invalid bride_info_email_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Aadhar Card No. <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="aadhar_card_no" placeholder="Enter name" />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="bride_info_aadhar_card_no" placeholder="Enter name" required />
+                                                    <span class="text-danger is-invalid bride_info_aadhar_card_no_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Date of Birth (जन्मतारीख) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control datepicker" name="date_of_birth" autocomplete="off" />
+                                                    <input type="text" class="form-control datepicker" name="bride_info_dob" autocomplete="off" required />
+                                                    <span class="text-danger is-invalid bride_info_dob_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Age (वय) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="age" placeholder="Enter age" />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="bride_info_age" placeholder="Enter age" required />
+                                                    <span class="text-danger is-invalid bride_info_age_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Gender <span class="text-danger">*</span></label>
-                                                    <select name="gender" class="form-select">
+                                                    <select name="bride_info_gender" class="form-select" required>
                                                         <option value="">Choose one</option>
                                                         <option value="1">Male</option>
                                                         <option value="2">Female</option>
                                                         <option value="3">Other</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid bride_info_gender_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Religion by birth (जन्माने धर्म) <span class="text-danger">*</span></label>
-                                                    <select name="religion_by_birth" class="form-select">
+                                                    <select name="bride_info_religion_by_birth" class="form-select" required>
                                                         <option value="">Choose one</option>
                                                         <option value="1">Hindu</option>
                                                         <option value="2">Muslim</option>
@@ -585,12 +651,13 @@
                                                         <option value="7">Parsi</option>
                                                         <option value="8">Other</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid bride_info_religion_by_birth_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Religion by adoption (दत्तक घेऊन धर्म) <span class="text-danger">*</span></label>
-                                                    <select name="religion_by_adoption" class="form-select">
+                                                    <select name="bride_info_religion_by_adoption" class="form-select" required>
                                                         <option value="">Choose one</option>
                                                         <option value="1">Hindu</option>
                                                         <option value="2">Muslim</option>
@@ -601,18 +668,20 @@
                                                         <option value="7">Parsi</option>
                                                         <option value="8">Other</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid bride_info_religion_by_adoption_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Bride Photo (वधूचा फोटो) <span class="text-danger">Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="bride_photo"  />
+                                                    <input type="file" class="form-control" name="bride_info_photo" required />
+                                                    <span class="text-danger is-invalid bride_info_photo_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Id Proof (आयडी पुरावा) <span class="text-danger">*</span></label>
-                                                    <select name="id_proof" class="form-select">
+                                                    <select name="bride_info_id_proof" class="form-select" required>
                                                         <option value="">Choose one</option>
                                                         <!--<option value="1">Ration Card</option>-->
                                                         <option value="2">Aadhaar Card</option>
@@ -620,24 +689,26 @@
                                                         <option value="4">Voter ID</option>
                                                         <option value="5">Pan Card</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid bride_info_id_proof_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Residential Proof (निवासी पुरावा) <span class="text-danger">*</span></label>
-                                                    <select name="residential_proof" class="form-select">
+                                                    <select name="bride_info_residential_proof" class="form-select" required>
                                                         <option value="">Choose one</option>
                                                         <option value="1">Ration Card</option>
                                                         <option value="2">Aadhaar Card</option>
                                                         <option value="3">Passport</option>
                                                         <option value="4">Voter ID</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid bride_info_residential_proof_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Age Proof (वयाचा पुरावा) <span class="text-danger">*</span></label>
-                                                    <select name="age_proof" class="form-select">
+                                                    <select name="bride_info_age_proof" class="form-select" required>
                                                         <option value="">Choose one</option>
                                                         <option value="1">Birth Certificate</option>
                                                         <option value="2">School Leaving Certificate</option>
@@ -645,55 +716,63 @@
                                                         <option value="4">HSC Board Certificate</option>
                                                         <option value="5">Higher Education</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid bride_info_age_proof_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Id Proof (आयडी पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="upload_id_proof" />
+                                                    <input type="file" class="form-control" name="bride_info_id_proof_file" required />
+                                                    <span class="text-danger is-invalid bride_info_id_proof_file_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Residential Proof (निवासी पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="upload_residential_proof" />
+                                                    <input type="file" class="form-control" name="bride_info_residential_proof_file" required />
+                                                    <span class="text-danger is-invalid bride_info_residential_proof_file_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Age Proof (वयाचा पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="upload_age_proof" />
+                                                    <input type="file" class="form-control" name="bride_info_age_proof_file" required />
+                                                    <span class="text-danger is-invalid bride_info_age_proof_file_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="name" placeholder="Enter name" />
+                                                    <input type="file" class="form-control" name="bride_info_upload_signature" placeholder="Enter name" required />
+                                                    <span class="text-danger is-invalid bride_info_upload_signature_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Previous Status (मागील स्थिती) <span class="text-danger">*</span></label>
-                                                    <select name="previous_status" class="form-select">
+                                                    <select name="bride_info_previous_status" class="form-select" required>
                                                         <option value="">Choose one</option>
                                                         <option value="1">Unmarried</option>
                                                         <option value="2">Widow/Widower</option>
                                                         <option value="3">Divorce</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid bride_info_previous_status_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Previous Status Proof (मागील स्थितीचा पुरावा) <span class="text-danger">*</span></label>
-                                                    <select name="previous_status_proof" class="form-select">
+                                                    <select name="bride_info_previous_status_proof" class="form-select" required>
                                                         <option value="">Choose one</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid bride_info_previous_status_proof_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Previous Status Proof (मागील स्थितीचा पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="upload_previous_status_proof" />
+                                                    <input type="file" class="form-control" name="bride_info_upload_previous_status_proof" required />
+                                                    <span class="text-danger is-invalid bride_info_upload_previous_status_proof_err"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -712,77 +791,87 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">First Name in English (पहिले नाव इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="first_name_in_english" placeholder="Enter first name in english" />
+                                                    <input type="text" class="form-control" name="priest_info_fname_in_english" placeholder="Enter first name in english" required />
+                                                    <span class="text-danger is-invalid priest_info_fname_in_english_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Middle Name In English (मधले नाव इंग्रजीमध्ये)<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="middle_name_in_english" placeholder="Enter middle name in english" />
+                                                    <input type="text" class="form-control" name="priest_info_mname_in_english" placeholder="Enter middle name in english" required />
+                                                    <span class="text-danger is-invalid priest_info_mname_in_english_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Last Name In English (आडनाव इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="last_name_in_english" placeholder="Enter last name in english" />
+                                                    <input type="text" class="form-control" name="priest_info_lname_in_english" placeholder="Enter last name in english" required />
+                                                    <span class="text-danger is-invalid priest_info_lname_in_english_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">First Name In Marathi (पहिले नाव मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="first_name_in_marathi" placeholder="Enter first name in marathi" />
+                                                    <input type="text" class="form-control" name="priest_info_fname_in_marathi" placeholder="Enter first name in marathi" required />
+                                                    <span class="text-danger is-invalid priest_info_fname_in_marathi_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Middle Name In Marathi (मधले नाव मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="middle_name_in_marathi" placeholder="Enter middle name in marathi" />
+                                                    <input type="text" class="form-control" name="priest_info_mname_in_marathi" placeholder="Enter middle name in marathi" required />
+                                                    <span class="text-danger is-invalid priest_info_mname_in_marathi_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Last Name In Marathi (आडनाव मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="last_name_in_marathi" placeholder="Enter last name in marathi" />
+                                                    <input type="text" class="form-control" name="priest_info_lname_in_marathi" placeholder="Enter last name in marathi" required />
+                                                    <span class="text-danger is-invalid priest_info_lname_in_marathi_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In English (पत्ता इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <textarea type="text" class="form-control" name="address_in_english" placeholder="Enter address in english"></textarea>
+                                                    <textarea type="text" class="form-control" name="priest_info_address_in_english" placeholder="Enter address in english" required></textarea>
+                                                    <span class="text-danger is-invalid priest_info_address_in_english_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In Marathi (पत्ता मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <textarea type="text" class="form-control" name="address_in_marathi" placeholder="Enter name"></textarea>
+                                                    <textarea type="text" class="form-control" name="priest_info_address_in_marathi" placeholder="Enter name" required></textarea>
+                                                    <span class="text-danger is-invalid priest_info_address_in_marathi_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Mobile No (मोबाईल क्र) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="mobile_no" placeholder="Enter mobile no" />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="priest_info_mobile_no" placeholder="Enter mobile no" required />
+                                                    <span class="text-danger is-invalid priest_info_mobile_no_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Age (वय) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="age" placeholder="Enter age" />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="priest_info_age" placeholder="Enter age" required />
+                                                    <span class="text-danger is-invalid priest_info_age_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Religion (धर्म) <span class="text-danger">*</span></label>
-                                                    <select name="religion" class="form-select">
+                                                    <select name="priest_info_religion" class="form-select" required>
                                                         <option value="">Choose one</option>
                                                         <option value="1">Hindu</option>
                                                         <option value="2">Muslim</option>
@@ -790,14 +879,16 @@
                                                         <option value="4">Shikh</option>
                                                         <option value="5">Buddhism</option>
                                                         <option value="6">Other</option>
-                                                        </select>
+                                                    </select>
+                                                    <span class="text-danger is-invalid priest_info_religion_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="upload_signature" />
+                                                    <input type="file" class="form-control" name="priest_info_upload_signature" required />
+                                                    <span class="text-danger is-invalid priest_info_upload_signature_err"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -818,100 +909,113 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Full Name In English (पूर्ण नाव इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="first_witness_full_name_in_english" placeholder="Enter full name in english" />
+                                                    <input type="text" class="form-control" name="first_witness_info_fname_in_english" placeholder="Enter full name in english" required />
+                                                    <span class="text-danger is-invalid first_witness_info_fname_in_english_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Full Name In Marathi (पूर्ण नाव मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="first_witness_full_name_in_marathi" placeholder="Enter full name in marathi" />
+                                                    <input type="text" class="form-control" name="first_witness_info_fname_in_marathi" placeholder="Enter full name in marathi" required />
+                                                    <span class="text-danger is-invalid first_witness_info_fname_in_marathi_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Mobile No (मोबाईल क्र) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="first_witness_mobile_no" placeholder="Enter mobile no" />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="first_witness_info_mobile_no" placeholder="Enter mobile no" required />
+                                                    <span class="text-danger is-invalid first_witness_info_mobile_no_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Date of Birth (जन्मतारीख) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control datepicker" name="first_witness_date_of_birth" placeholder="Select date of birth" autocomplete="off" />
+                                                    <input type="text" class="form-control datepicker" name="first_witness_info_dob" placeholder="Select date of birth" autocomplete="off" required />
+                                                    <span class="text-danger is-invalid first_witness_info_dob_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Age (वय) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="first_witness_age" placeholder="Enter age" />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="first_witness_info_age" placeholder="Enter age" required />
+                                                    <span class="text-danger is-invalid first_witness_info_age_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Gender <span class="text-danger">*</span></label>
-                                                    <select name="first_witness_gender" class="form-select">
+                                                    <select name="first_witness_info_gender" class="form-select" required>
                                                         <option value="">Select gender</option>
                                                         <option value="1">Male</option>
                                                         <option value="2">Female</option>
                                                         <option value="3">Other</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid first_witness_info_gender_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Relation (संबंध) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="first_witness_relation" placeholder="Enter relation" />
+                                                    <input type="text" class="form-control" name="first_witness_info_relation" placeholder="Enter relation" required />
+                                                    <span class="text-danger is-invalid first_witness_info_relation_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In English (पत्ता इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" name="first_witness_address" placeholder="Enter address"></textarea>
+                                                    <textarea class="form-control" name="first_witness_info_address_in_english" placeholder="Enter address" required></textarea>
+                                                    <span class="text-danger is-invalid first_witness_info_address_in_english_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In Marathi (पत्ता मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" name="first_witness_address_in_marathi" placeholder="Enter address in marathi"></textarea>
+                                                    <textarea class="form-control" name="first_witness_info_address_in_marathi" placeholder="Enter address in marathi" required></textarea>
+                                                    <span class="text-danger is-invalid first_witness_info_address_in_marathi_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Id Proof (कागदपत्र सादर केले) <span class="text-danger">*</span></label>
-                                                    <select name="first_witness_id_proof" class="form-select">
+                                                    <select name="first_witness_info_id_proof" class="form-select" required>
                                                         <option value="">Choose one</option>
                                                         <option value="1">Aadhar Card</option>
                                                         <option value="2">Voter Id</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid first_witness_info_id_proof_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Witness Photo (साक्षीदाराचा फोटो) <span class="text-danger"> Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="first_witness_witness_photo" />
+                                                    <input type="file" class="form-control" name="first_witness_info_witness_photo" required />
+                                                    <span class="text-danger is-invalid first_witness_info_witness_photo_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="first_witness_upload_signature" />
+                                                    <input type="file" class="form-control" name="first_witness_info_upload_signature" required />
+                                                    <span class="text-danger is-invalid first_witness_info_upload_signature_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Document (कागदपत्र सादर केले) <span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="first_witness_upload_document" />
+                                                    <input type="file" class="form-control" name="first_witness_info_upload_document" required />
+                                                    <span class="text-danger is-invalid first_witness_info_upload_document_err"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -924,100 +1028,113 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Full Name In English (पूर्ण नाव इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="second_witness_full_name_in_english" placeholder="Enter full name in english" />
+                                                    <input type="text" class="form-control" name="second_witness_info_fname_in_english" placeholder="Enter full name in english" required />
+                                                    <span class="text-danger is-invalid second_witness_info_fname_in_english_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Full Name In Marathi (पूर्ण नाव मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="second_witness_full_name_in_marathi" placeholder="Enter full name in marathi" />
+                                                    <input type="text" class="form-control" name="second_witness_info_fname_in_marathi" placeholder="Enter full name in marathi" required />
+                                                    <span class="text-danger is-invalid second_witness_info_fname_in_marathi_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Mobile No (मोबाईल क्र) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="second_witness_mobile_no" placeholder="Enter mobile no" />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="second_witness_info_mobile_no" placeholder="Enter mobile no" required />
+                                                    <span class="text-danger is-invalid second_witness_info_mobile_no_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Date of Birth (जन्मतारीख) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control datepicker" name="second_witness_date_of_birth" placeholder="Select date of birth" autocomplete="off" />
+                                                    <input type="text" class="form-control datepicker" name="second_witness_info_dob" placeholder="Select date of birth" autocomplete="off" required />
+                                                    <span class="text-danger is-invalid second_witness_info_dob_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Age (वय) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="second_witness_age" placeholder="Age" />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="second_witness_info_age" placeholder="Age" required />
+                                                    <span class="text-danger is-invalid second_witness_info_age_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Gender <span class="text-danger">*</span></label>
-                                                    <select name="second_witness_gender" class="form-select">
+                                                    <select name="second_witness_info_gender" class="form-select" required>
                                                         <option value="">Choose one</option>
                                                         <option value="1">Male</option>
                                                         <option value="2">Female</option>
                                                         <option value="3">Other</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid second_witness_info_gender_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Relation (संबंध) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="second_witness_relation" placeholder="Enter relation" />
+                                                    <input type="text" class="form-control" name="second_witness_info_relation" placeholder="Enter relation" required />
+                                                    <span class="text-danger is-invalid second_witness_info_relation_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In English (पत्ता इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" name="second_witness_address_in_english" placeholder="Enter address in english"></textarea>
+                                                    <textarea class="form-control" name="second_witness_info_address_in_english" placeholder="Enter address in english" required></textarea>
+                                                    <span class="text-danger is-invalid second_witness_info_address_in_english_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In Marathi (पत्ता मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" name="second_witness_address_in_marathi" placeholder="Enter address in marathi"></textarea>
+                                                    <textarea class="form-control" name="second_witness_info_address_in_marathi" placeholder="Enter address in marathi" required></textarea>
+                                                    <span class="text-danger is-invalid second_witness_info_address_in_marathi_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Id Proof (कागदपत्र सादर केले) <span class="text-danger">*</span></label>
-                                                    <select name="second_witness_id_proof" class="form-select">
+                                                    <select name="second_witness_info_id_proof" class="form-select" required>
                                                         <option value="">Choose one</option>
                                                         <option value="1">Aadhar Card</option>
                                                         <option value="2">Voter Id</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid second_witness_info_id_proof_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Witness Photo (साक्षीदाराचा फोटो) <span class="text-danger"> Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="second_witness_photo" />
+                                                    <label class="form-label">Witness Photo (साक्षीदाराचा फोटो) <br><span class="text-danger"> Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
+                                                    <input type="file" class="form-control" name="second_witness_info_witness_photo" required />
+                                                    <span class="text-danger is-invalid second_witness_info_witness_photo_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="second_witness_upload_signature" />
+                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
+                                                    <input type="file" class="form-control" name="second_witness_info_upload_signature" required />
+                                                    <span class="text-danger is-invalid second_witness_info_upload_signature_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Document (कागदपत्र सादर केले) <span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="second_witness_upload_document" />
+                                                    <label class="form-label">Upload Document (कागदपत्र सादर केले) <br><span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
+                                                    <input type="file" class="form-control" name="second_witness_info_upload_document" required />
+                                                    <span class="text-danger is-invalid second_witness_info_upload_document_err"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1029,100 +1146,113 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Full Name In English (पूर्ण नाव इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="third_witness_full_name_in_english" placeholder="Enter full name in english" />
+                                                    <input type="text" class="form-control" name="third_witness_info_fname_in_english" placeholder="Enter full name in english" required />
+                                                    <span class="text-danger is-invalid third_witness_info_fname_in_english_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Full Name In Marathi (पूर्ण नाव मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="third_witness_full_name_in_marathi" placeholder="Enter full name in marathi" />
+                                                    <input type="text" class="form-control" name="third_witness_info_fname_in_marathi" placeholder="Enter full name in marathi" required />
+                                                    <span class="text-danger is-invalid third_witness_info_fname_in_marathi_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Mobile No (मोबाईल क्र) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="third_witness_mobile_no" placeholder="Enter mobile no" />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="third_witness_info_mobile_no" placeholder="Enter mobile no" required />
+                                                    <span class="text-danger is-invalid third_witness_info_mobile_no_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Date of Birth (जन्मतारीख) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control datepicker" name="third_witness_date_of_birth" placeholder="Enter date of birth" autocomplete="off" />
+                                                    <input type="text" class="form-control datepicker" name="third_witness_info_dob" placeholder="Enter date of birth" autocomplete="off" required />
+                                                    <span class="text-danger is-invalid third_witness_info_dob_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Age (वय) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="third_witness_age" placeholder="Enter age" />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="third_witness_info_age" placeholder="Enter age" required />
+                                                    <span class="text-danger is-invalid third_witness_info_age_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Gender <span class="text-danger">*</span></label>
-                                                    <select name="third_witness_gender" class="form-select">
+                                                    <select name="third_witness_info_gender" class="form-select" required>
                                                         <option value="">Choose one</option>
                                                         <option value="1">Male</option>
                                                         <option value="2">Female</option>
                                                         <option value="3">Other</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid third_witness_info_gender_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Relation (संबंध) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="third_witness_relation" placeholder="Enter relation" />
+                                                    <input type="text" class="form-control" name="third_witness_info_relation" placeholder="Enter relation" required />
+                                                    <span class="text-danger is-invalid third_witness_info_relation_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In English (पत्ता इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" name="third_witness_address_in_english" placeholder="Enter address in english"></textarea>
+                                                    <textarea class="form-control" name="third_witness_info_address_in_english" placeholder="Enter address in english" required></textarea>
+                                                    <span class="text-danger is-invalid third_witness_info_address_in_english_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In Marathi (पत्ता मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" name="third_witness_address_in_marathi" placeholder="Enter address in marathi"></textarea>
+                                                    <textarea class="form-control" name="third_witness_info_address_in_marathi" placeholder="Enter address in marathi" required></textarea>
+                                                    <span class="text-danger is-invalid third_witness_info_address_in_marathi_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Id Proof (कागदपत्र सादर केले) <span class="text-danger">*</span></label>
-                                                    <select name="third_witness_id_proof" class="form-select">
+                                                    <select name="third_witness_info_id_proof" class="form-select" required>
                                                         <option value="">Choose one</option>
                                                         <option value="1">Aadhar Card</option>
                                                         <option value="2">Voter Id</option>
                                                     </select>
+                                                    <span class="text-danger is-invalid third_witness_info_id_proof_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Witness Photo (साक्षीदाराचा फोटो) <span class="text-danger"> Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="third_witness_photo" />
+                                                    <label class="form-label">Witness Photo (साक्षीदाराचा फोटो) <br><span class="text-danger"> Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
+                                                    <input type="file" class="form-control" name="third_witness_info_witness_photo" required />
+                                                    <span class="text-danger is-invalid third_witness_info_witness_photo_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="third_witness_upload_signature" />
+                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
+                                                    <input type="file" class="form-control" name="third_witness_info_upload_signature" required />
+                                                    <span class="text-danger is-invalid third_witness_info_upload_signature_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Document (कागदपत्र सादर केले) <span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="third_witness_upload_document" />
+                                                    <label class="form-label">Upload Document (कागदपत्र सादर केले) <br><span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
+                                                    <input type="file" class="form-control" name="third_witness_info_upload_document" required />
+                                                    <span class="text-danger is-invalid third_witness_info_upload_document_err"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1166,13 +1296,15 @@
             },
             success: function(data) {
                 $("#marriageRegistrationFormBtn").prop('disabled', false);
-                if (!data.error2)
+                if (!data.error2){
                     swal("Successful!", data.success, "success")
                     .then((action) => {
-                        console.log(data)
+                        console.log(data)  
                     });
-                else
+                }
+                else{
                     swal("Error!", data.error2, "error");
+                }
             },
             statusCode: {
                 422: function(responseObject, textStatus, jqXHR) {
@@ -1184,9 +1316,6 @@
                     $("#marriageRegistrationFormBtn").prop('disabled', false);
                     swal("Error occured!", "Something went wrong please try again", "error");
                 }
-            },
-            error: function(error, jqXHR, textStatus, errorThrown) {
-                swal("Error!", "Something went wrong", "error");
             },
             complete: function() {
                 $('#preloader').css('opacity', '0');
@@ -1238,9 +1367,6 @@
                     swal("Error occured!", "Something went wrong please try again", "error");
                 }
             },
-            error: function(error, jqXHR, textStatus, errorThrown) {
-                swal("Error!", "Something went wrong", "error");
-            },
             complete: function() {
                 $('#preloader').css('opacity', '0');
                 $('#preloader').css('visibility', 'hidden');
@@ -1291,9 +1417,6 @@
                     swal("Error occured!", "Something went wrong please try again", "error");
                 }
             },
-            error: function(error, jqXHR, textStatus, errorThrown) {
-                swal("Error!", "Something went wrong", "error");
-            },
             complete: function() {
                 $('#preloader').css('opacity', '0');
                 $('#preloader').css('visibility', 'hidden');
@@ -1342,9 +1465,6 @@
                     $("#brideInformationBtn").prop('disabled', false);
                     swal("Error occured!", "Something went wrong please try again", "error");
                 }
-            },
-            error: function(error, jqXHR, textStatus, errorThrown) {
-                swal("Error!", "Something went wrong", "error");
             },
             complete: function() {
                 $('#preloader').css('opacity', '0');
@@ -1395,9 +1515,6 @@
                     swal("Error occured!", "Something went wrong please try again", "error");
                 }
             },
-            error: function(error, jqXHR, textStatus, errorThrown) {
-                swal("Error!", "Something went wrong", "error");
-            },
             complete: function() {
                 $('#preloader').css('opacity', '0');
                 $('#preloader').css('visibility', 'hidden');
@@ -1446,9 +1563,6 @@
                     $("#witnessInformationBtn").prop('disabled', false);
                     swal("Error occured!", "Something went wrong please try again", "error");
                 }
-            },
-            error: function(error, jqXHR, textStatus, errorThrown) {
-                swal("Error!", "Something went wrong", "error");
             },
             complete: function() {
                 $('#preloader').css('opacity', '0');
