@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Login Page</title>
         <link rel="shortcut icon" href="{{ asset('admin/images/favicon.png') }}">
         <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -146,7 +146,11 @@
                                 </div>
 
                                 <div class="mt-4 text-center">
-                                    <button class="btn btn-primary w-100" type="submit" id="loginForm_submit">Sign In</button>
+                                    <button class="btn btn-primary w-50" type="submit" id="loginForm_submit">Sign In</button>
+                                </div>
+
+                                <div class="mt-4 text-center">
+                                    <p class="mb-0">Don't have an account ? <a href="{{ route('register') }}" class="fw-semibold text-primary text-decoration-underline"> Signup </a> </p>
                                 </div>
 
                             </form>

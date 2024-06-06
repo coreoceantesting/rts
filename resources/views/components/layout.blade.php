@@ -7,7 +7,7 @@
         <title>{{ config('app.name') }} | {{ $title }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="shortcut icon" href="{{ asset('admin/images/favicon.ico') }}">
+        <link rel="shortcut icon" href="{{ asset('admin/images/favicon.png') }}">
         <!--datatable css-->
         <link rel="stylesheet" href="{{ asset('admin/datatables/1.11.5/css/dataTables.bootstrap5.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('admin/datatables/responsive/2.2.9/css/responsive.bootstrap.min.css') }}" />
