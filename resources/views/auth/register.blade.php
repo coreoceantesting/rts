@@ -28,7 +28,7 @@
                 position: relative;
             }
 
-            .form-control{
+            .form-control, .form-select{
                 border: 1px solid #635d5d85;
             }
             .register-user{
@@ -47,103 +47,163 @@
             <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6 col-md-6 col-xl-6 col-12">
-                        <div class="rowbgimage p-3">
-                            <img src="{{ asset('admin/images/login/register-logo.png') }}" class="mt-4" width="150px" alt="">
-                            <div style="text-align: left; padding: 5%;">
-                                <h4 class="registertext">Register</h4>
-                                <div class="row">
-                                    <div class="col-3">
-                                        <p>Full Name :</p>
+                        <form id="registerForm">
+                            @csrf
+                            <div class="rowbgimage p-3">
+                                <img src="{{ asset('admin/images/login/register-logo.png') }}" class="mt-4" width="150px" alt="">
+                                <div style="text-align: left; padding: 5%;">
+                                    <h4 class="registertext">Register</h4>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <p>Full Name <span class="text-danger">*</span>:</p>
+                                        </div>
+                                        <div class="col-9">
+                                            <input type="text" class="form-control p-1" name="name" />
+                                            <span class="text-danger is-invalid name_err"></span>
+                                        </div>
                                     </div>
-                                    <div class="col-9">
-                                        <input type="text" class="form-control p-1" name="" />
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-3">
-                                        <p>Email :</p>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <p>Email <span class="text-danger">*</span>:</p>
+                                        </div>
+                                        <div class="col-9">
+                                            <input type="text" class="form-control p-1" name="email" />
+                                            <span class="text-danger is-invalid email_err"></span>
+                                        </div>
                                     </div>
-                                    <div class="col-9">
-                                        <input type="text" class="form-control p-1" name="" />
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-3">
-                                        <p>Password :</p>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <p>Password <span class="text-danger">*</span>:</p>
+                                        </div>
+                                        <div class="col-9">
+                                            <input type="text" class="form-control p-1" name="password" />
+                                            <span class="text-danger is-invalid password_err"></span>
+                                        </div>
                                     </div>
-                                    <div class="col-9">
-                                        <input type="text" class="form-control p-1" name="" />
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-3">
-                                        <p>Mobile No. :</p>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <p>Mobile No. <span class="text-danger">*</span>:</p>
+                                        </div>
+                                        <div class="col-9">
+                                            <input type="text" class="form-control p-1" name="mobile" />
+                                            <span class="text-danger is-invalid mobile_err"></span>
+                                        </div>
                                     </div>
-                                    <div class="col-9">
-                                        <input type="text" class="form-control p-1" name="" />
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-3">
-                                        <p>Age :</p>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <p>Age <span class="text-danger">*</span>:</p>
+                                        </div>
+                                        <div class="col-9">
+                                            <input type="text" class="form-control p-1" name="age" />
+                                            <span class="text-danger is-invalid age_err"></span>
+                                        </div>
                                     </div>
-                                    <div class="col-9">
-                                        <input type="text" class="form-control p-1" name="" />
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-3">
-                                        <p>Gender :</p>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <p>Gender <span class="text-danger">*</span>:</p>
+                                        </div>
+                                        <div class="col-9">
+                                            <select name="gender" class="form-select p-1">
+                                                <option value="">Select Gender</option>
+                                                <option value="M">Male</option>
+                                                <option value="F">Female</option>
+                                            </select>
+                                            <span class="text-danger is-invalid gender_err"></span>
+                                        </div>
                                     </div>
-                                    <div class="col-9">
-                                        <input type="text" class="form-control p-1" name="" />
-                                    </div>
-                                </div>
-                                <div class="register-user mt-4">
-                                    <button class="btn btn-sm text-center w-50" style="background:#64006e; color:#fff; font-size:15px;">Sign Up</button>
-                                    <div class="mt-2 mb-4">
-                                        <p class="mb-0">Already have an account ? <a href="{{ route('login') }}" class="fw-semibold text-primary text-decoration-underline"> Signin </a> </p>
+                                    <div class="register-user mt-4">
+                                        <button class="btn btn-sm text-center w-50" style="background:#64006e; color:#fff; font-size:15px;" id="registerForm_submit">Sign Up</button>
+                                        <div class="mt-2 mb-4">
+                                            <p class="mb-0">Already have an account ? <a href="{{ route('login') }}" class="fw-semibold text-primary text-decoration-underline"> Signin </a> </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        {{-- <img src="{{ asset('admin/images/login/image.png') }}" width="100%" alt=""> --}}
-                        {{-- <div class="card">
-                            <div class="card-header text-center bg-white">
-                                <img src="{{ asset('admin/images/login/register-logo.png') }}" style="width: 150px" alt="">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">Register</h3>
-                                <div class="row">
-                                    <div class="col-3">
-                                        <p>Full Name :</p>
-                                    </div>
-                                    <div class="col-9">
-                                        <input type="text" class="form-control" name="" />
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-2 col-md-2 col-xl-2 col-12">
-                                        <p>Full Name :</p>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-xl-10 col-12">
-                                        <input type="text" class="form-control" name="" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
 
-        <script src="{{ asset('admin/js/jquery.min.js') }}" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="{{ asset('admin/js/sweetalert.min.js') }}" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="{{ asset('admin/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('admin/js/sweetalert.min.js') }}"></script>
+
+        <script>
+            $(document).ready(function(){
+                $("#registerForm").submit(function(e) {
+                    e.preventDefault();
+                    $("#registerForm_submit").prop('disabled', true);
+                    var formdata = new FormData(this);
+                    $.ajax({
+                        url: '{{ route('signup') }}',
+                        type: 'POST',
+                        data: formdata,
+                        contentType: false,
+                        processData: false,
+                        beforeSend: function()
+                        {
+                            $('#preloader').css('opacity', '0.5');
+                            $('#preloader').css('visibility', 'visible');
+                        },
+                        success: function(data) {
+                            if (!data.error && !data.error2) {
+                                swal("Successful!", "Account created succesfully, please login", "success")
+                                .then((action) => { 
+                                    window.location.href = '{{ route('login') }}';
+                                });
+                            } else {
+                                if (data.error2) {
+                                    swal("Error!", data.error2, "error");
+                                    $("#registerForm_submit").prop('disabled', false);
+                                } else {
+                                    $("#registerForm_submit").prop('disabled', false);
+                                    resetErrors();
+                                    printErrMsg(data.error);
+                                }
+                            }
+                        },
+                        statusCode: {
+                            422: function(responseObject, textStatus, jqXHR) {
+                                $("#addSubmit").prop('disabled', false);
+                                resetErrors();
+                                printErrMsg(responseObject.responseJSON.errors);
+                            },
+                            500: function(responseObject, textStatus, errorThrown) {
+                                $("#addSubmit").prop('disabled', false);
+                                swal("Error occured!", "Something went wrong please try again", "error");
+                            }
+                        },
+                        error: function(error) {
+                            $("#registerForm_submit").prop('disabled', false);
+                        },
+                    });
+            
+                });
+
+                
+            
+                function resetErrors() {
+                    var form = document.getElementById('registerForm');
+                    var data = new FormData(form);
+                    for (var [key, value] of data) {
+                        $('.' + key + '_err').text('');
+                        $('#' + key).removeClass('is-invalid');
+                        $('#' + key).addClass('is-valid');
+                    }
+                }
+        
+                function printErrMsg(msg) {
+                    $.each(msg, function(key, value) {
+                        $('.' + key + '_err').text(value);
+                        $('#' + key).addClass('is-invalid');
+                    });
+                }
+            });
+        </script>
     </body>
 </html>

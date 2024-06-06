@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('marriage_reg_forms', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('registration_from_applicant_mobile_no')->nullable();
+            $table->string('registration_from_applicant_mobile_no')->nullable();
             $table->string('registration_from_applicant_full_name')->nullable();
             $table->text('registration_from_applicant_home_address')->nullable();
-            $table->integer('registration_from_pincode')->nullable();
+            $table->string('registration_from_pincode')->nullable();
             $table->string('registration_from_applicant_email')->nullable();
-            $table->bigInteger('registration_from_aadhar_card_no')->nullable();
+            $table->string('registration_from_aadhar_card_no')->nullable();
             $table->string('registration_from_alternate_mobile_number')->nullable();
             $table->string('registration_from_pan_card_no')->nullable();
             $table->string('registration_from_residential_ward_name')->nullable();

@@ -24,13 +24,13 @@ return new class extends Migration
             $table->string('bride_info_lname_in_marathi')->nullable();
             $table->text('bride_info_address_in_english')->nullable();
             $table->text('bride_info_address_in_marathi')->nullable();
-            $table->bigInteger('bride_info_pincode')->nullable();
+            $table->string('bride_info_pincode')->nullable();
             $table->string('bride_info_pincode_in_marathi')->nullable();
-            $table->bigInteger('bride_info_mobile_no')->nullable();
+            $table->string('bride_info_mobile_no')->nullable();
             $table->string('bride_info_email')->nullable();
-            $table->bigInteger('bride_info_aadhar_card_no')->nullable();
+            $table->string('bride_info_aadhar_card_no')->nullable();
             $table->date('bride_info_dob')->nullable();
-            $table->bigInteger('bride_info_age')->nullable();
+            $table->string('bride_info_age')->nullable();
             $table->string('bride_info_gender')->nullable();
             $table->string('bride_info_religion_by_birth')->nullable();
             $table->string('bride_info_religion_by_adoption')->nullable();

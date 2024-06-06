@@ -17,8 +17,8 @@ class MarriageRegistrationService
     {
         DB::beginTransaction();
         try {
-            if ($request->hasFile('registration_from_affidavit_for_marriage_outside_maharashtra')) {
-                $request['registration_from_affidavit_for_marriage_outside_maharashtra'] = $request->registration_from_affidavit_for_marriage_outside_maharashtra->store('marriage/registration-form');
+            if ($request->hasFile('registration_from_affidavit_for_marriage_outside_maharashtras')) {
+                $request['registration_from_affidavit_for_marriage_outside_maharashtra'] = $request->registration_from_affidavit_for_marriage_outside_maharashtras->store('marriage/registration-form');
             }
             $marriageRegistrationForm = MarriageRegistrationForm::create($request->all());
             DB::commit();
@@ -35,12 +35,12 @@ class MarriageRegistrationService
     {
         DB::beginTransaction();
         try {
-            if ($request->hasFile('registration_details_couple_photo')) {
-                $request['registration_details_couple_photo'] = $request->registration_details_couple_photo->store('marriage/registration-details');
+            if ($request->hasFile('registration_details_couple_photos')) {
+                $request['registration_details_couple_photo'] = $request->registration_details_couple_photos->store('marriage/registration-details');
             }
 
-            if ($request->hasFile('registration_details_wedding_card_image')) {
-                $request['registration_details_wedding_card_image'] = $request->registration_details_wedding_card_image->store('marriage/registration-details');
+            if ($request->hasFile('registration_details_wedding_card_images')) {
+                $request['registration_details_wedding_card_image'] = $request->registration_details_wedding_card_images->store('marriage/registration-details');
             }
 
             $marriageRegistrationDetail = MarriageRegistrationDetail::create($request->all());
@@ -59,28 +59,28 @@ class MarriageRegistrationService
         DB::beginTransaction();
         try {
 
-            if ($request->hasFile('groom_info_photo')) {
-                $request['groom_info_photo'] = $request->groom_info_photo->store('marriage/groom-information');
+            if ($request->hasFile('groom_info_photos')) {
+                $request['groom_info_photo'] = $request->groom_info_photos->store('marriage/groom-information');
             }
 
-            if ($request->hasFile('groom_info_id_proof_file')) {
-                $request['groom_info_id_proof_file'] = $request->groom_info_id_proof_file->store('marriage/groom-information');
+            if ($request->hasFile('groom_info_id_proof_files')) {
+                $request['groom_info_id_proof_file'] = $request->groom_info_id_proof_files->store('marriage/groom-information');
             }
 
-            if ($request->hasFile('groom_info_residential_proof_file')) {
-                $request['groom_info_residential_proof_file'] = $request->groom_info_residential_proof_file->store('marriage/groom-information');
+            if ($request->hasFile('groom_info_residential_proof_files')) {
+                $request['groom_info_residential_proof_file'] = $request->groom_info_residential_proof_files->store('marriage/groom-information');
             }
 
-            if ($request->hasFile('groom_info_age_proof_file')) {
-                $request['groom_info_age_proof_file'] = $request->groom_info_age_proof_file->store('marriage/groom-information');
+            if ($request->hasFile('groom_info_age_proof_files')) {
+                $request['groom_info_age_proof_file'] = $request->groom_info_age_proof_files->store('marriage/groom-information');
             }
 
-            if ($request->hasFile('groom_info_upload_signature')) {
-                $request['groom_info_upload_signature'] = $request->groom_info_upload_signature->store('marriage/groom-information');
+            if ($request->hasFile('groom_info_upload_signatures')) {
+                $request['groom_info_upload_signature'] = $request->groom_info_upload_signatures->store('marriage/groom-information');
             }
 
-            if ($request->hasFile('groom_info_upload_previous_status_proof')) {
-                $request['groom_info_upload_previous_status_proof'] = $request->groom_info_upload_previous_status_proof->store('marriage/groom-information');
+            if ($request->hasFile('groom_info_upload_previous_status_proofs')) {
+                $request['groom_info_upload_previous_status_proof'] = $request->groom_info_upload_previous_status_proofs->store('marriage/groom-information');
             }
 
             $groomDetail = MarriageRegistrationGroomDetail::create($request->all());
@@ -99,28 +99,28 @@ class MarriageRegistrationService
         DB::beginTransaction();
         try {
 
-            if ($request->hasFile('bride_info_photo')) {
-                $request['bride_info_photo'] = $request->bride_info_photo->store('marriage/bride-information');
+            if ($request->hasFile('bride_info_photos')) {
+                $request['bride_info_photo'] = $request->bride_info_photos->store('marriage/bride-information');
             }
 
-            if ($request->hasFile('bride_info_id_proof_file')) {
-                $request['bride_info_id_proof_file'] = $request->bride_info_id_proof_file->store('marriage/bride-information');
+            if ($request->hasFile('bride_info_id_proof_files')) {
+                $request['bride_info_id_proof_file'] = $request->bride_info_id_proof_files->store('marriage/bride-information');
             }
 
-            if ($request->hasFile('bride_info_residential_proof_file')) {
-                $request['bride_info_residential_proof_file'] = $request->bride_info_residential_proof_file->store('marriage/bride-information');
+            if ($request->hasFile('bride_info_residential_proof_files')) {
+                $request['bride_info_residential_proof_file'] = $request->bride_info_residential_proof_files->store('marriage/bride-information');
             }
 
-            if ($request->hasFile('bride_info_age_proof_file')) {
-                $request['bride_info_age_proof_file'] = $request->bride_info_age_proof_file->store('marriage/bride-information');
+            if ($request->hasFile('bride_info_age_proof_files')) {
+                $request['bride_info_age_proof_file'] = $request->bride_info_age_proof_files->store('marriage/bride-information');
             }
 
-            if ($request->hasFile('bride_info_upload_signature')) {
-                $request['bride_info_upload_signature'] = $request->bride_info_upload_signature->store('marriage/bride-information');
+            if ($request->hasFile('bride_info_upload_signatures')) {
+                $request['bride_info_upload_signature'] = $request->bride_info_upload_signatures->store('marriage/bride-information');
             }
 
-            if ($request->hasFile('bride_info_upload_previous_status_proof')) {
-                $request['bride_info_upload_previous_status_proof'] = $request->bride_info_upload_previous_status_proof->store('marriage/bride-information');
+            if ($request->hasFile('bride_info_upload_previous_status_proofs')) {
+                $request['bride_info_upload_previous_status_proof'] = $request->bride_info_upload_previous_status_proofs->store('marriage/bride-information');
             }
 
             $brideDetail = MarriageRegistrationBrideInformation::create($request->all());
@@ -138,8 +138,8 @@ class MarriageRegistrationService
     {
         DB::beginTransaction();
         try {
-            if ($request->hasFile('priest_info_upload_signature')) {
-                $request['priest_info_upload_signature'] = $request->priest_info_upload_signature->store('marriage/priest-information');
+            if ($request->hasFile('priest_info_upload_signatures')) {
+                $request['priest_info_upload_signature'] = $request->priest_info_upload_signatures->store('marriage/priest-information');
             }
 
             $priestInfo = MarriageRegistrationPriestInformation::create($request->all());
@@ -157,43 +157,43 @@ class MarriageRegistrationService
     {
         DB::beginTransaction();
         try {
-            if ($request->hasFile('first_witness_info_witness_photo')) {
-                $request['first_witness_info_witness_photo'] = $request->first_witness_info_witness_photo->store('marriage/witness-information');
+            if ($request->hasFile('first_witness_info_witness_photos')) {
+                $request['first_witness_info_witness_photo'] = $request->first_witness_info_witness_photos->store('marriage/witness-information');
             }
 
-            if ($request->hasFile('first_witness_info_upload_signature')) {
-                $request['first_witness_info_upload_signature'] = $request->first_witness_info_upload_signature->store('marriage/witness-information');
+            if ($request->hasFile('first_witness_info_upload_signatures')) {
+                $request['first_witness_info_upload_signature'] = $request->first_witness_info_upload_signatures->store('marriage/witness-information');
             }
 
-            if ($request->hasFile('first_witness_info_upload_document')) {
-                $request['first_witness_info_upload_document'] = $request->first_witness_info_upload_document->store('marriage/witness-information');
-            }
-
-
-
-            if ($request->hasFile('second_witness_info_witness_photo')) {
-                $request['second_witness_info_witness_photo'] = $request->second_witness_info_witness_photo->store('marriage/witness-information');
-            }
-
-            if ($request->hasFile('second_witness_info_upload_signature')) {
-                $request['second_witness_info_upload_signature'] = $request->second_witness_info_upload_signature->store('marriage/witness-information');
-            }
-
-            if ($request->hasFile('second_witness_info_upload_document')) {
-                $request['second_witness_info_upload_document'] = $request->second_witness_info_upload_document->store('marriage/witness-information');
+            if ($request->hasFile('first_witness_info_upload_documents')) {
+                $request['first_witness_info_upload_document'] = $request->first_witness_info_upload_documents->store('marriage/witness-information');
             }
 
 
-            if ($request->hasFile('third_witness_info_witness_photo')) {
-                $request['third_witness_info_witness_photo'] = $request->third_witness_info_witness_photo->store('marriage/witness-information');
+
+            if ($request->hasFile('second_witness_info_witness_photos')) {
+                $request['second_witness_info_witness_photo'] = $request->second_witness_info_witness_photos->store('marriage/witness-information');
             }
 
-            if ($request->hasFile('third_witness_info_upload_signature')) {
-                $request['third_witness_info_upload_signature'] = $request->third_witness_info_upload_signature->store('marriage/witness-information');
+            if ($request->hasFile('second_witness_info_upload_signatures')) {
+                $request['second_witness_info_upload_signature'] = $request->second_witness_info_upload_signatures->store('marriage/witness-information');
             }
 
-            if ($request->hasFile('third_witness_info_upload_document')) {
-                $request['third_witness_info_upload_document'] = $request->third_witness_info_upload_document->store('marriage/witness-information');
+            if ($request->hasFile('second_witness_info_upload_documents')) {
+                $request['second_witness_info_upload_document'] = $request->second_witness_info_upload_documents->store('marriage/witness-information');
+            }
+
+
+            if ($request->hasFile('third_witness_info_witness_photos')) {
+                $request['third_witness_info_witness_photo'] = $request->third_witness_info_witness_photos->store('marriage/witness-information');
+            }
+
+            if ($request->hasFile('third_witness_info_upload_signatures')) {
+                $request['third_witness_info_upload_signature'] = $request->third_witness_info_upload_signatures->store('marriage/witness-information');
+            }
+
+            if ($request->hasFile('third_witness_info_upload_documents')) {
+                $request['third_witness_info_upload_document'] = $request->third_witness_info_upload_documents->store('marriage/witness-information');
             }
 
             $witnessInfo = MarriageRegistrationWitnessInformation::create($request->all());

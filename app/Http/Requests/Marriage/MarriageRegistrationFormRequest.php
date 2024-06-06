@@ -22,17 +22,17 @@ class MarriageRegistrationFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // 'registration_from_applicant_mobile_no' => 'required|string|min:10|max:10|regex:/^([0|\+[0-9]{1,5})?([7-9][0-9]{9})$/',
-            // 'registration_from_applicant_full_name' => 'required',
-            // 'registration_from_applicant_home_address' => 'required',
-            // 'registration_from_pincode' => 'required|string|min:6|max:6|regex:/^([0|\+[0-9])$/',
-            // 'registration_from_applicant_email' => 'required|email',
-            // 'registration_from_aadhar_card_no' => 'required|string|min:12|max:12|regex:/^([0|\+[0-9])$/',
-            // 'registration_from_alternate_mobile_number' => 'nullable',
-            // 'registration_from_pan_card_no' => 'required',
-            // 'registration_from_residential_ward_name' => 'required',
-            // 'registration_from_marriage_solemnized_within_maharashtra_state' => 'required',
-            // 'registration_from_affidavit_for_marriage_outside_maharashtra' => 'required|file|mimes:pdf,PDF|max:2048'
+            'registration_from_applicant_mobile_no' => 'required|string|min:10|max:10|regex:/^[0-9]{10}$/',
+            'registration_from_applicant_full_name' => 'required',
+            'registration_from_applicant_home_address' => 'required',
+            'registration_from_pincode' => 'required|string|min:6|max:6|regex:/^[0-9]{6}$/',
+            'registration_from_applicant_email' => 'required|email',
+            'registration_from_aadhar_card_no' => 'required|string|min:12|max:12|regex:/^[0-9]{12}$/',
+            'registration_from_alternate_mobile_number' => 'nullable',
+            'registration_from_pan_card_no' => 'required',
+            'registration_from_residential_ward_name' => 'required',
+            'registration_from_marriage_solemnized_within_maharashtra_state' => 'required',
+            'registration_from_affidavit_for_marriage_outside_maharashtras' => 'required|file|mimes:pdf,PDF|max:2048'
         ];
     }
 
@@ -58,10 +58,10 @@ class MarriageRegistrationFormRequest extends FormRequest
             'registration_from_pan_card_no.required' => 'Please enter pan card no',
             'registration_from_residential_ward_name.required' => 'Please select ward name',
             'registration_from_marriage_solemnized_within_maharashtra_state.required' => 'Please select state',
-            'registration_from_affidavit_for_marriage_outside_maharashtra.required' => 'Please upload affidavit file for marriage outside maharastra',
-            'registration_from_affidavit_for_marriage_outside_maharashtra.file' => 'Please upload proper file',
-            'registration_from_affidavit_for_marriage_outside_maharashtra.mimes' => 'Please upload only pdf file',
-            'registration_from_affidavit_for_marriage_outside_maharashtra.max' => 'File should be less than 2mb',
+            'registration_from_affidavit_for_marriage_outside_maharashtras.required' => 'Please upload affidavit file for marriage outside maharastra',
+            'registration_from_affidavit_for_marriage_outside_maharashtras.file' => 'Please upload proper file',
+            'registration_from_affidavit_for_marriage_outside_maharashtras.mimes' => 'Please upload only pdf file',
+            'registration_from_affidavit_for_marriage_outside_maharashtras.max' => 'File should be less than 2mb',
 
         ];
     }

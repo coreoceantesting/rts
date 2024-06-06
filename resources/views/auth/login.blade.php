@@ -150,7 +150,7 @@
                                 </div>
 
                                 <div class="mt-4 text-center">
-                                    <p class="mb-0">Don't have an account ? <a href="{{ route('register') }}" class="fw-semibold text-primary text-decoration-underline"> Signup </a> </p>
+                                    <p class="mb-0">Don't have an account ? <a href="{{ route('register') }}" class="fw-semibold text-primary text-decoration-underline text-white"> Signup </a> </p>
                                 </div>
 
                             </form>
@@ -194,7 +194,6 @@
                     },
                     error: function(error) {
                         $("#loginForm_submit").prop('disabled', false);
-                        swal("Error occured!", "Something went wrong please try again", "error");
                     },
                     statusCode: {
                         422: function(responseObject, textStatus, jqXHR) {
@@ -206,9 +205,6 @@
                             $("#addSubmit").prop('disabled', false);
                             swal("Error occured!", "Something went wrong please try again", "error");
                         }
-                    },
-                    error: function(error, jqXHR, textStatus, errorThrown) {
-                        swal("Error!", "Something went wrong", "error");
                     },
                     complete: function() {
                         $('#preloader').css('opacity', '0');

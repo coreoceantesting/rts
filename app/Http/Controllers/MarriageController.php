@@ -36,10 +36,6 @@ class MarriageController extends Controller
     // store marriage registration form
     public function storeMarriageRegistrationForm(MarriageRegistrationFormRequest $request)
     {
-        // return response()->json([
-        //     'success' => 'Marriage created successfully',
-        //     'data' => 'storeMarriageRegistrationForm'
-        // ]);
         $storeMarriageRegistrationForm = $this->marriageRegistrationService->storeMarriageRegistrationForm($request);
 
         return response()->json([
@@ -51,10 +47,6 @@ class MarriageController extends Controller
     // store marriage registration details
     public function storeMarriageRegistrationDetails(MarriageRegistrationDetailsRequest $request)
     {
-        return response()->json([
-            'success' => 'Marriage created successfully',
-            'data' => 'storeMarriageRegistrationForm'
-        ]);
         $storeMarriageRegistrationDetails = $this->marriageRegistrationService->storeMarriageRegistrationDetails($request);
 
         return response()->json([
@@ -66,10 +58,6 @@ class MarriageController extends Controller
     // store groom information
     public function storeGroomInformation(GroomInformationRequest $request)
     {
-        return response()->json([
-            'success' => 'Marriage created successfully',
-            'data' => 'storeMarriageRegistrationForm'
-        ]);
         $storeGroomInformation = $this->marriageRegistrationService->storeGroomInformation($request);
 
         return response()->json([
@@ -81,10 +69,6 @@ class MarriageController extends Controller
     // store bride information
     public function storeBrideInformation(BrideInformationRequest $request)
     {
-        return response()->json([
-            'success' => 'Marriage created successfully',
-            'data' => 'storeMarriageRegistrationForm'
-        ]);
         $storeBrideInformation = $this->marriageRegistrationService->storeBrideInformation($request);
 
         return response()->json([
@@ -96,10 +80,6 @@ class MarriageController extends Controller
     // store priest information
     public function storePriestInformation(PriestInformationRequest $request)
     {
-        return response()->json([
-            'success' => 'Marriage created successfully',
-            'data' => 'storeMarriageRegistrationForm'
-        ]);
         $storePriestInformation = $this->marriageRegistrationService->storePriestInformation($request);
 
         return response()->json([
@@ -111,10 +91,6 @@ class MarriageController extends Controller
     // store witness information
     public function storeWitnessInformation(WitnessInformationRequest $request)
     {
-        return response()->json([
-            'success' => 'Marriage created successfully',
-            'data' => 'storeMarriageRegistrationForm'
-        ]);
         $storeWitnessInformation = $this->marriageRegistrationService->storeWitnessInformation($request);
 
         return response()->json([

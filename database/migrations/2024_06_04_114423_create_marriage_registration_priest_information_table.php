@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('priest_info_lname_in_marathi')->nullable();
             $table->text('priest_info_address_in_english')->nullable();
             $table->text('priest_info_address_in_marathi')->nullable();
-            $table->bigInteger('priest_info_mobile_no')->nullable();
-            $table->bigInteger('priest_info_age')->nullable();
+            $table->string('priest_info_mobile_no')->nullable();
+            $table->string('priest_info_age')->nullable();
             $table->string('priest_info_religion')->nullable();
             $table->string('priest_info_upload_signature')->nullable();
             $table->timestamps();

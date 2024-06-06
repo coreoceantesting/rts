@@ -26,8 +26,8 @@ return new class extends Migration
             $table->string('first_witness_info_relation')->nullable();
             $table->text('first_witness_info_address_in_english')->nullable();
             $table->text('first_witness_info_address_in_marathi')->nullable();
-            $table->bigInteger('first_witness_info_id_proof')->nullable();
-            $table->bigInteger('first_witness_info_witness_photo')->nullable();
+            $table->string('first_witness_info_id_proof')->nullable();
+            $table->string('first_witness_info_witness_photo')->nullable();
             $table->string('first_witness_info_upload_signature')->nullable();
             $table->string('first_witness_info_upload_document')->nullable();
 
@@ -41,8 +41,8 @@ return new class extends Migration
             $table->string('second_witness_info_relation')->nullable();
             $table->text('second_witness_info_address_in_english')->nullable();
             $table->text('second_witness_info_address_in_marathi')->nullable();
-            $table->bigInteger('second_witness_info_id_proof')->nullable();
-            $table->bigInteger('second_witness_info_witness_photo')->nullable();
+            $table->string('second_witness_info_id_proof')->nullable();
+            $table->string('second_witness_info_witness_photo')->nullable();
             $table->string('second_witness_info_upload_signature')->nullable();
             $table->string('second_witness_info_upload_document')->nullable();
 
@@ -56,8 +56,8 @@ return new class extends Migration
             $table->string('third_witness_info_relation')->nullable();
             $table->text('third_witness_info_address_in_english')->nullable();
             $table->text('third_witness_info_address_in_marathi')->nullable();
-            $table->bigInteger('third_witness_info_id_proof')->nullable();
-            $table->bigInteger('third_witness_info_witness_photo')->nullable();
+            $table->string('third_witness_info_id_proof')->nullable();
+            $table->string('third_witness_info_witness_photo')->nullable();
             $table->string('third_witness_info_upload_signature')->nullable();
             $table->string('third_witness_info_upload_document')->nullable();
 

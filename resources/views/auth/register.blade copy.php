@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
@@ -154,7 +153,9 @@
                     <div class="col-lg-12">
                         <div class="text-center">
                             <p class="mb-0">&copy;
-                                <script>document.write(new Date().getFullYear())</script> Velzon. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand
+                                <script>
+                                    document.write(new Date().getFullYear())
+                                </script> Velzon. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand
                             </p>
                         </div>
                     </div>
@@ -181,20 +182,21 @@
     <script src="{{ asset('admin/js/pages/passowrd-create.init.js') }}"></script>
 
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
             $("#registerForm").submit(function(e) {
                 e.preventDefault();
                 $("#registerForm_submit").prop('disabled', true);
                 var formdata = new FormData(this);
                 $.ajax({
-                    url: '{{ route('signup') }}',
+                    url: "{{ route('signup') }}",
                     type: 'POST',
                     data: formdata,
                     contentType: false,
                     processData: false,
                     success: function(data) {
                         if (!data.error && !data.error2) {
-                                window.location.href = '{{ route('login') }}';
+                            window.location.href = '{{ route('
+                            login ') }}';
                         } else {
                             if (data.error2) {
                                 swal("Error!", data.error2, "error");
@@ -211,7 +213,7 @@
                         swal("Error occured!", "Something went wrong please try again", "error");
                     },
                 });
-        
+
                 function resetErrors() {
                     var form = document.getElementById('loginForm');
                     var data = new FormData(form);
@@ -222,7 +224,7 @@
                         $('#' + key).addClass('is-valid');
                     }
                 }
-        
+
                 function printErrMsg(msg) {
                     $.each(msg, function(key, value) {
                         console.log(key);
@@ -230,7 +232,7 @@
                         $('#' + key).addClass('is-invalid');
                     });
                 }
-        
+
             });
         });
     </script>

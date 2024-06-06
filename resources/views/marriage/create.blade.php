@@ -135,9 +135,9 @@
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Affidavit for Marriage Outside Maharashtra <span class="text-danger">Upload PDF Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="registration_from_affidavit_for_marriage_outside_maharashtra" placeholder="Enter affidavit for marriage outside maharashtra" required />
-                                                    <span class="text-danger is-invalid registration_from_affidavit_for_marriage_outside_maharashtra_err"></span>
+                                                    <label class="form-label">Affidavit for Marriage Outside Maharashtra <br><span class="text-danger">Upload PDF Format Only (Max size 2mb) *</span></label>
+                                                    <input type="file" class="form-control" name="registration_from_affidavit_for_marriage_outside_maharashtras" placeholder="Enter affidavit for marriage outside maharashtra" required />
+                                                    <span class="text-danger is-invalid registration_from_affidavit_for_marriage_outside_maharashtras_err"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -194,9 +194,9 @@
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Couple Photo of Wedding (लग्न विधी चा फोटो) <span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="registration_details_couple_photo" required />
-                                                    <span class="text-danger is-invalid registration_details_couple_photo_err"></span>
+                                                    <label class="form-label">Couple Photo of Wedding (लग्न विधी चा फोटो) <br><span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
+                                                    <input type="file" class="form-control" name="registration_details_couple_photos" required />
+                                                    <span class="text-danger is-invalid registration_details_couple_photos_err"></span>
                                                 </div>
                                             </div>
                 
@@ -238,9 +238,9 @@
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Wedding card Image. If not available, attach Affidavit (लग्न पत्रिका चा फोटो नसल्यास, प्रतिज्ञापत्र जोडावे ) <span class="text-danger">Upload PDF Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="registration_details_wedding_card_image" required />
-                                                    <span class="text-danger is-invalid registration_details_wedding_card_image_err"></span>
+                                                    <label class="form-label">Wedding card Image. If not available, attach Affidavit (लग्न पत्रिका चा फोटो नसल्यास, प्रतिज्ञापत्र जोडावे ) <br><span class="text-danger">Upload PDF Format Only (Max size 2mb) *</span></label>
+                                                    <input type="file" class="form-control" name="registration_details_wedding_card_images" required />
+                                                    <span class="text-danger is-invalid registration_details_wedding_card_images_err"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -408,9 +408,9 @@
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Groom Photo (वराचा फोटो) <span class="text-danger">Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="groom_info_photo" />
-                                                    <span class="text-danger is-invalid groom_info_photo_err"></span>
+                                                    <label class="form-label">Groom Photo (वराचा फोटो) <br><span class="text-danger">Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
+                                                    <input type="file" class="form-control" name="groom_info_photos" />
+                                                    <span class="text-danger is-invalid groom_info_photos_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
@@ -454,30 +454,30 @@
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Id Proof (आयडी पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="groom_info_id_proof_file" />
-                                                    <span class="text-danger is-invalid groom_info_id_proof_file_err"></span>
+                                                    <label class="form-label">Upload Id Proof (आयडी पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <input type="file" class="form-control" name="groom_info_id_proof_files" />
+                                                    <span class="text-danger is-invalid groom_info_id_proof_files_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Residential Proof (निवासी पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="groom_info_residential_proof_file" />
-                                                    <span class="text-danger is-invalid groom_info_residential_proof_file_err"></span>
+                                                    <label class="form-label">Upload Residential Proof (निवासी पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <input type="file" class="form-control" name="groom_info_residential_proof_files" />
+                                                    <span class="text-danger is-invalid groom_info_residential_proof_files_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Age Proof (वयाचा पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="groom_info_age_proof_file" />
-                                                    <span class="text-danger is-invalid groom_info_age_proof_file_err"></span>
+                                                    <label class="form-label">Upload Age Proof (वयाचा पुरावा)  <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <input type="file" class="form-control" name="groom_info_age_proof_files" />
+                                                    <span class="text-danger is-invalid groom_info_age_proof_files_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="groom_info_upload_signature" />
-                                                    <span class="text-danger is-invalid groom_info_upload_signature_err"></span>
+                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 400kb) *</span></label>
+                                                    <input type="file" class="form-control" name="groom_info_upload_signatures" />
+                                                    <span class="text-danger is-invalid groom_info_upload_signatures_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
@@ -503,9 +503,9 @@
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Previous Status Proof (मागील स्थितीचा पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="groom_info_upload_previous_status_proof" />
-                                                    <span class="text-danger is-invalid groom_info_upload_previous_status_proof_err"></span>
+                                                    <label class="form-label">Upload Previous Status Proof (मागील स्थितीचा पुरावा)<br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <input type="file" class="form-control" name="groom_info_upload_previous_status_proofs" />
+                                                    <span class="text-danger is-invalid groom_info_upload_previous_status_proofs_err"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -673,9 +673,9 @@
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Bride Photo (वधूचा फोटो) <span class="text-danger">Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="bride_info_photo" required />
-                                                    <span class="text-danger is-invalid bride_info_photo_err"></span>
+                                                    <label class="form-label">Bride Photo (वधूचा फोटो) <br><span class="text-danger">Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
+                                                    <input type="file" class="form-control" name="bride_info_photos" required />
+                                                    <span class="text-danger is-invalid bride_info_photos_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
@@ -721,30 +721,30 @@
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Id Proof (आयडी पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="bride_info_id_proof_file" required />
-                                                    <span class="text-danger is-invalid bride_info_id_proof_file_err"></span>
+                                                    <label class="form-label">Upload Id Proof (आयडी पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <input type="file" class="form-control" name="bride_info_id_proof_files" required />
+                                                    <span class="text-danger is-invalid bride_info_id_proof_files_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Residential Proof (निवासी पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="bride_info_residential_proof_file" required />
-                                                    <span class="text-danger is-invalid bride_info_residential_proof_file_err"></span>
+                                                    <label class="form-label">Upload Residential Proof (निवासी पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <input type="file" class="form-control" name="bride_info_residential_proof_files" required />
+                                                    <span class="text-danger is-invalid bride_info_residential_proof_files_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Age Proof (वयाचा पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="bride_info_age_proof_file" required />
-                                                    <span class="text-danger is-invalid bride_info_age_proof_file_err"></span>
+                                                    <label class="form-label">Upload Age Proof (वयाचा पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <input type="file" class="form-control" name="bride_info_age_proof_files" required />
+                                                    <span class="text-danger is-invalid bride_info_age_proof_files_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="bride_info_upload_signature" placeholder="Enter name" required />
-                                                    <span class="text-danger is-invalid bride_info_upload_signature_err"></span>
+                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 400kb) *</span></label>
+                                                    <input type="file" class="form-control" name="bride_info_upload_signatures" placeholder="Enter name" required />
+                                                    <span class="text-danger is-invalid bride_info_upload_signatures_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
@@ -770,9 +770,9 @@
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Previous Status Proof (मागील स्थितीचा पुरावा) <span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="bride_info_upload_previous_status_proof" required />
-                                                    <span class="text-danger is-invalid bride_info_upload_previous_status_proof_err"></span>
+                                                    <label class="form-label">Upload Previous Status Proof (मागील स्थितीचा पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <input type="file" class="form-control" name="bride_info_upload_previous_status_proofs" required />
+                                                    <span class="text-danger is-invalid bride_info_upload_previous_status_proofs_err"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -886,9 +886,9 @@
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="priest_info_upload_signature" required />
-                                                    <span class="text-danger is-invalid priest_info_upload_signature_err"></span>
+                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
+                                                    <input type="file" class="form-control" name="priest_info_upload_signatures" required />
+                                                    <span class="text-danger is-invalid priest_info_upload_signatures_err"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -997,25 +997,25 @@
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Witness Photo (साक्षीदाराचा फोटो) <span class="text-danger"> Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="first_witness_info_witness_photo" required />
-                                                    <span class="text-danger is-invalid first_witness_info_witness_photo_err"></span>
+                                                    <label class="form-label">Witness Photo (साक्षीदाराचा फोटो) <br><span class="text-danger"> Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
+                                                    <input type="file" class="form-control" name="first_witness_info_witness_photos" required />
+                                                    <span class="text-danger is-invalid first_witness_info_witness_photos_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="first_witness_info_upload_signature" required />
-                                                    <span class="text-danger is-invalid first_witness_info_upload_signature_err"></span>
+                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
+                                                    <input type="file" class="form-control" name="first_witness_info_upload_signatures" required />
+                                                    <span class="text-danger is-invalid first_witness_info_upload_signatures_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Document (कागदपत्र सादर केले) <span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="first_witness_info_upload_document" required />
-                                                    <span class="text-danger is-invalid first_witness_info_upload_document_err"></span>
+                                                    <input type="file" class="form-control" name="first_witness_info_upload_documents" required />
+                                                    <span class="text-danger is-invalid first_witness_info_upload_documents_err"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1117,24 +1117,24 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Witness Photo (साक्षीदाराचा फोटो) <br><span class="text-danger"> Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="second_witness_info_witness_photo" required />
-                                                    <span class="text-danger is-invalid second_witness_info_witness_photo_err"></span>
+                                                    <input type="file" class="form-control" name="second_witness_info_witness_photos" required />
+                                                    <span class="text-danger is-invalid second_witness_info_witness_photos_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="second_witness_info_upload_signature" required />
-                                                    <span class="text-danger is-invalid second_witness_info_upload_signature_err"></span>
+                                                    <input type="file" class="form-control" name="second_witness_info_upload_signatures" required />
+                                                    <span class="text-danger is-invalid second_witness_info_upload_signatures_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Document (कागदपत्र सादर केले) <br><span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="second_witness_info_upload_document" required />
-                                                    <span class="text-danger is-invalid second_witness_info_upload_document_err"></span>
+                                                    <input type="file" class="form-control" name="second_witness_info_upload_documents" required />
+                                                    <span class="text-danger is-invalid second_witness_info_upload_documents_err"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1235,24 +1235,24 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Witness Photo (साक्षीदाराचा फोटो) <br><span class="text-danger"> Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="third_witness_info_witness_photo" required />
-                                                    <span class="text-danger is-invalid third_witness_info_witness_photo_err"></span>
+                                                    <input type="file" class="form-control" name="third_witness_info_witness_photos" required />
+                                                    <span class="text-danger is-invalid third_witness_info_witness_photos_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
-                                                    <input type="file" class="form-control" name="third_witness_info_upload_signature" required />
-                                                    <span class="text-danger is-invalid third_witness_info_upload_signature_err"></span>
+                                                    <input type="file" class="form-control" name="third_witness_info_upload_signatures" required />
+                                                    <span class="text-danger is-invalid third_witness_info_upload_signatures_err"></span>
                                                 </div>
                                             </div>
                 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Document (कागदपत्र सादर केले) <br><span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="third_witness_info_upload_document" required />
-                                                    <span class="text-danger is-invalid third_witness_info_upload_document_err"></span>
+                                                    <input type="file" class="form-control" name="third_witness_info_upload_documents" required />
+                                                    <span class="text-danger is-invalid third_witness_info_upload_documents_err"></span>
                                                 </div>
                                             </div>
                                         </div>
