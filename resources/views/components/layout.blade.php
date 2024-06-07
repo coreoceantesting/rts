@@ -178,7 +178,12 @@
         }
 
         $( function() {
-            $(".datepicker").datepicker({ dateFormat: 'dd-mm-yy' });
+            $(".datepicker").datepicker({ 
+                dateFormat: 'dd-mm-yy',
+                changeMonth: true,
+                changeYear: true,
+                maxDate:0
+            });
         } );
     </script>
 

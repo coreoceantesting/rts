@@ -16,6 +16,6 @@ class MarriageRegistrationBrideInformation extends Model
 
     public function marriageRegForm()
     {
-        return $this->hasOne(MarriageRegistrationForm::class, 'marriage_reg_form_id', 'id');
+        return $this->belongsTo(MarriageRegistrationForm::class, 'marriage_reg_form_id', 'id');
     }
 }

@@ -50,7 +50,7 @@ class GroomInformationRequest extends FormRequest
             'groom_info_age_proof_files' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
             'groom_info_upload_signatures' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
             'groom_info_previous_status' => 'required',
-            'groom_info_previous_status_proof' => 'required',
+            'groom_info_previous_status_proof' => 'nullable',
             'groom_info_upload_previous_status_proofs' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
         ];
     }

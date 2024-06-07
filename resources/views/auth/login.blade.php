@@ -105,6 +105,10 @@
                     font-size: 18px;
                     width : 50% !important;
                 }
+
+                .textSignup{
+                    color: #fff!important;
+                }
             }
         </style>
     </head>
@@ -150,7 +154,7 @@
                                 </div>
 
                                 <div class="mt-4 text-center">
-                                    <p class="mb-0">Don't have an account ? <a href="{{ route('register') }}" class="fw-semibold text-primary text-decoration-underline text-white"> Signup </a> </p>
+                                    <p class="mb-0">Don't have an account ? <a href="{{ route('register') }}" class="fw-semibold text-primary text-decoration-underline textSignup"> Signup </a> </p>
                                 </div>
 
                             </form>

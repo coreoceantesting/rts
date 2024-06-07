@@ -33,15 +33,30 @@ class MarriageController extends Controller
         return view('marriage.create');
     }
 
+    public function edit($id)
+    {
+        $marriageRegistration = $this->marriageRegistrationService->edit($id);
+
+        return view('marriage.edit')->with([
+            'marriageRegistration' => $marriageRegistration
+        ]);
+    }
+
     // store marriage registration form
     public function storeMarriageRegistrationForm(MarriageRegistrationFormRequest $request)
     {
         $storeMarriageRegistrationForm = $this->marriageRegistrationService->storeMarriageRegistrationForm($request);
 
-        return response()->json([
-            'success' => 'Marriage created successfully',
-            'data' => $storeMarriageRegistrationForm
-        ]);
+        if ($storeMarriageRegistrationForm) {
+            return response()->json([
+                'success' => 'Marriage created successfully',
+                'data' => $storeMarriageRegistrationForm
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     // store marriage registration details
@@ -49,10 +64,16 @@ class MarriageController extends Controller
     {
         $storeMarriageRegistrationDetails = $this->marriageRegistrationService->storeMarriageRegistrationDetails($request);
 
-        return response()->json([
-            'success' => 'Marriage created successfully',
-            'data' => $storeMarriageRegistrationDetails
-        ]);
+        if ($storeMarriageRegistrationDetails) {
+            return response()->json([
+                'success' => 'Marriage created successfully',
+                'data' => $storeMarriageRegistrationDetails
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     // store groom information
@@ -60,10 +81,16 @@ class MarriageController extends Controller
     {
         $storeGroomInformation = $this->marriageRegistrationService->storeGroomInformation($request);
 
-        return response()->json([
-            'success' => 'Marriage created successfully',
-            'data' => $storeGroomInformation
-        ]);
+        if ($storeGroomInformation) {
+            return response()->json([
+                'success' => 'Marriage created successfully',
+                'data' => $storeGroomInformation
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again',
+            ]);
+        }
     }
 
     // store bride information
@@ -71,10 +98,16 @@ class MarriageController extends Controller
     {
         $storeBrideInformation = $this->marriageRegistrationService->storeBrideInformation($request);
 
-        return response()->json([
-            'success' => 'Marriage created successfully',
-            'data' => $storeBrideInformation
-        ]);
+        if ($storeBrideInformation) {
+            return response()->json([
+                'success' => 'Marriage created successfully',
+                'data' => $storeBrideInformation
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again',
+            ]);
+        }
     }
 
     // store priest information
@@ -82,10 +115,16 @@ class MarriageController extends Controller
     {
         $storePriestInformation = $this->marriageRegistrationService->storePriestInformation($request);
 
-        return response()->json([
-            'success' => 'Marriage created successfully',
-            'data' => $storePriestInformation
-        ]);
+        if ($storePriestInformation) {
+            return response()->json([
+                'success' => 'Marriage created successfully',
+                'data' => $storePriestInformation
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again',
+            ]);
+        }
     }
 
     // store witness information
@@ -93,9 +132,15 @@ class MarriageController extends Controller
     {
         $storeWitnessInformation = $this->marriageRegistrationService->storeWitnessInformation($request);
 
-        return response()->json([
-            'success' => 'Marriage created successfully',
-            'data' => $storeWitnessInformation
-        ]);
+        if ($storeWitnessInformation) {
+            return response()->json([
+                'success' => 'Marriage created successfully',
+                'data' => $storeWitnessInformation
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again',
+            ]);
+        }
     }
 }

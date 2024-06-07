@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="mb-0 text-dark" style="font-weight: 600">
-                                ISSUANCE OF MARRIAGE REGISTRATION CERTIFICATE / विवाह नोंदणी प्रमाणपत्र देणे
+                                Edit ISSUANCE OF MARRIAGE REGISTRATION CERTIFICATE / विवाह नोंदणी प्रमाणपत्र देणे
                             </h4>
                         </div><!-- end card header -->
                         <div class="card-body">
@@ -21,19 +21,19 @@
                                         <button class="nav-link active" id="marriage-registration-form-tab" data-bs-toggle="pill" data-bs-target="#marriage-registration-form" type="button" role="tab" aria-controls="marriage-registration-form" aria-selected="true">Marriage Registration Form (विवाह नोंदणी फॉर्म)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="marriage-registration-details-tab" data-bs-toggle="pill" disabled data-bs-target="#marriage-registration-details" type="button" role="tab" aria-controls="marriage-registration-details-form" aria-selected="false">Marriage Registration Details (विवाह नोंदणी माहिती)</button>
+                                        <button class="nav-link" id="marriage-registration-details-tab" data-bs-toggle="pill" data-bs-target="#marriage-registration-details" type="button" role="tab" aria-controls="marriage-registration-details-form" aria-selected="false">Marriage Registration Details (विवाह नोंदणी माहिती)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="groom-information-tab" data-bs-toggle="pill" disabled data-bs-target="#groom-information" type="button" role="tab" aria-controls="groom-information" aria-selected="false">Groom Information (वराची माहिती)</button>
+                                        <button class="nav-link" id="groom-information-tab" data-bs-toggle="pill" data-bs-target="#groom-information" type="button" role="tab" aria-controls="groom-information" aria-selected="false">Groom Information (वराची माहिती)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="bride-information-tab" data-bs-toggle="pill" disabled data-bs-target="#bride-information" type="button" role="tab" aria-controls="bride-information" aria-selected="false">Bride Information (वधूची माहिती)</button>
+                                        <button class="nav-link" id="bride-information-tab" data-bs-toggle="pill" data-bs-target="#bride-information" type="button" role="tab" aria-controls="bride-information" aria-selected="false">Bride Information (वधूची माहिती)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="priest-information-tab" data-bs-toggle="pill" disabled data-bs-target="#priest-information" type="button" role="tab" aria-controls="priest-information" aria-selected="false">Priest Information (पुरोहिताची माहिती)</button>
+                                        <button class="nav-link" id="priest-information-tab" data-bs-toggle="pill" data-bs-target="#priest-information" type="button" role="tab" aria-controls="priest-information" aria-selected="false">Priest Information (पुरोहिताची माहिती)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="witness-information-tab" data-bs-toggle="pill" disabled data-bs-target="#witness-information" type="button" role="tab" aria-controls="witness-information" aria-selected="false">Witness Information (साक्षीदाराची माहिती)</button>
+                                        <button class="nav-link" id="witness-information-tab" data-bs-toggle="pill" data-bs-target="#witness-information" type="button" role="tab" aria-controls="witness-information" aria-selected="false">Witness Information (साक्षीदाराची माहिती)</button>
                                     </li>
                                 </ul>
                             </div>
@@ -47,7 +47,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Applicant Mobile Number (अर्जदाराचा मोबाईल क्रमांक) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" oninput="this.value = this.value.replace(/\D/g, '')" name="registration_from_applicant_mobile_no" placeholder="Enter applicant mobile number" required />
+                                                    <input type="text" class="form-control" oninput="this.value = this.value.replace(/\D/g, '')" name="registration_from_applicant_mobile_no" placeholder="Enter applicant mobile number" value="{{ ($marriageRegistration->registration_from_applicant_mobile_no) ? $marriageRegistration->registration_from_applicant_mobile_no : '' }}" required />
                                                     <span class="text-danger is-invalid registration_from_applicant_mobile_no_err"></span>
                                                 </div>
                                             </div>
@@ -55,7 +55,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Applicant Full Name (अर्जदाराचे पूर्ण नाव)<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="registration_from_applicant_full_name" placeholder="Enter applicant full name" required />
+                                                    <input type="text" class="form-control" name="registration_from_applicant_full_name" placeholder="Enter applicant full name" value="{{ ($marriageRegistration->registration_from_applicant_full_name) ? $marriageRegistration->registration_from_applicant_full_name : '' }}" required />
                                                     <span class="text-danger is-invalid registration_from_applicant_full_name_err"></span>
                                                 </div>
                                             </div>
@@ -63,7 +63,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Applicant Home Address (अर्जदाराच्या घराचा पत्ता) <span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" name="registration_from_applicant_home_address" placeholder="Enter applicant home address" required></textarea>
+                                                    <textarea class="form-control" name="registration_from_applicant_home_address" placeholder="Enter applicant home address" required>{{ ($marriageRegistration->registration_from_applicant_home_address) ? $marriageRegistration->registration_from_applicant_home_address : '' }}</textarea>
                                                     <span class="text-danger is-invalid registration_from_applicant_home_address_err"></span>
                                                 </div>
                                             </div>
@@ -71,7 +71,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Pincode (पिनकोड) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="registration_from_pincode" placeholder="Enter pincode" required />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="registration_from_pincode" value="{{ ($marriageRegistration->registration_from_pincode) ? $marriageRegistration->registration_from_pincode : '' }}" placeholder="Enter pincode" required />
                                                     <span class="text-danger is-invalid registration_from_pincode_err"></span>
                                                 </div>
                                             </div>
@@ -79,7 +79,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Applicant E-mail (अर्जदाराचा ई-मेल) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="registration_from_applicant_email" placeholder="Enter applicant email" required />
+                                                    <input type="text" class="form-control" name="registration_from_applicant_email" placeholder="Enter applicant email" value="{{ ($marriageRegistration->registration_from_applicant_email) ? $marriageRegistration->registration_from_applicant_email : '' }}" required />
                                                     <span class="text-danger is-invalid registration_from_applicant_email_err"></span>
                                                 </div>
                                             </div>
@@ -87,7 +87,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Aadhar Card No. (आधार कार्ड क्र) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="registration_from_aadhar_card_no" placeholder="Enter aadhar card no." required />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="registration_from_aadhar_card_no" placeholder="Enter aadhar card no." value="{{ ($marriageRegistration->registration_from_aadhar_card_no) ? $marriageRegistration->registration_from_aadhar_card_no : '' }}" required />
                                                     <span class="text-danger is-invalid registration_from_aadhar_card_no_err"></span>
                                                 </div>
                                             </div>
@@ -95,7 +95,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Applicant alternate Mobile Number (अर्जदाराचा पर्यायी मोबाईल क्रमांक)</label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="registration_from_alternate_mobile_number" placeholder="Enter applicant alternate mobile number" required />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="registration_from_alternate_mobile_number" placeholder="Enter applicant alternate mobile number" value="{{ ($marriageRegistration->registration_from_alternate_mobile_number) ? $marriageRegistration->registration_from_alternate_mobile_number : '' }}" required />
                                                     <span class="text-danger is-invalid registration_from_alternate_mobile_number_err"></span>
                                                 </div>
                                             </div>
@@ -103,7 +103,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Pan Card No. (पॅन कार्ड क्र.) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="registration_from_pan_card_no" placeholder="Enter pan card no." required />
+                                                    <input type="text" class="form-control" name="registration_from_pan_card_no" placeholder="Enter pan card no." value="{{ ($marriageRegistration->registration_from_pan_card_no) ? $marriageRegistration->registration_from_pan_card_no : '' }}" required />
                                                     <span class="text-danger is-invalid registration_from_pan_card_no_err"></span>
                                                 </div>
                                             </div>
@@ -137,7 +137,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12 d-none" id="registrationFromAffidavitForMarriageOutsideMaharashtras">
                                                 <div class="mb-3">
                                                     <label class="form-label">Affidavit for Marriage Outside Maharashtra <br><span class="text-danger">Upload PDF Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="registration_from_affidavit_for_marriage_outside_maharashtras" placeholder="Enter affidavit for marriage outside maharashtra" />
+                                                    <input type="file" class="form-control" name="registration_from_affidavit_for_marriage_outside_maharashtras" placeholder="Enter affidavit for marriage outside maharashtra" required />
                                                     <span class="text-danger is-invalid registration_from_affidavit_for_marriage_outside_maharashtras_err"></span>
                                                 </div>
                                             </div>
@@ -486,8 +486,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Previous Status (मागील स्थिती) <span class="text-danger">*</span></label>
-                                                    <select name="groom_info_previous_status" class="form-select">
-                                                        <option value="">Choose one</option>
+                                                    <select name="groom_info_previous_status" class="form-select" id="groomInfoPreviousStatus">
                                                         <option value="1">Unmarried</option>
                                                         <option value="2">Widow/Widower</option>
                                                         <option value="3">Divorce</option>
@@ -495,7 +494,7 @@
                                                     <span class="text-danger is-invalid groom_info_previous_status_err"></span>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <div class="col-lg-4 col-md-4 col-sm-6 col-12 d-none" id="groomInfoPreviousStatusProof">
                                                 <div class="mb-3">
                                                     <label class="form-label">Previous Status Proof (मागील स्थितीचा पुरावा) <span class="text-danger">*</span></label>
                                                     <select name="groom_info_previous_status_proof" class="form-select">
@@ -506,7 +505,7 @@
                                                     <span class="text-danger is-invalid groom_info_previous_status_proof_err"></span>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <div class="col-lg-4 col-md-4 col-sm-6 col-12" id="groomInfoUploadPreviousStatusProofs">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Previous Status Proof (मागील स्थितीचा पुरावा)<br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
                                                     <input type="file" class="form-control" name="groom_info_upload_previous_status_proofs" />
@@ -1591,6 +1590,7 @@
 </script>
 {{-- End of add bride information --}}
 
+
 {{-- event --}}
 <script>
     $(document).ready(function(){
@@ -1609,7 +1609,7 @@
 
         $("#gdate_of_birth").change(function() {
             var today = new Date();
-            var dateString = $(this).val();
+            dateString = $(this).val();
             var birthDate = new Date(dateString);
             var age = today.getFullYear() - birthDate.getFullYear();
             var m = today.getMonth() - birthDate.getMonth();
@@ -1619,11 +1619,30 @@
             
             if (age >= 21) {
                 $("#gage").val(age);
-                $("#groomInformationBtn").show();
+                $("#groomInformationBtn").removeClass('d-none');
             } else {
                 $("#gage").val("");
                 alert("Your Age is less than 21 you are not eligible");
-                $("#groomInformationBtn").hide();
+                $("#groomInformationBtn").addClass('d-none');
+            }
+        });
+
+
+        $('#groomInfoPreviousStatus').change(function(){
+            let checkValue = $(this).val();
+
+            if(checkValue == "2"){
+                $('#groomInfoPreviousStatusProof').removeClass('d-none');
+                $('#groomInfoPreviousStatusProof').find('select').html(`<option value="1"> Death Certificate </option>`);
+                $('#groomInfoUploadPreviousStatusProofs').removeClass('d-none');
+            }else if(checkValue == "3"){
+                $('#groomInfoPreviousStatusProof').removeClass('d-none');
+                $('#groomInfoPreviousStatusProof').find('select').html(`<option value="2"> Decree &amp; Court Judgement </option>`);
+                $('#groomInfoUploadPreviousStatusProofs').removeClass('d-none');
+            }else{
+                $('#groomInfoPreviousStatusProof').addClass('d-none');
+                $('#groomInfoPreviousStatusProof').find('select').html(`<option value=""></option>`);
+                $('#groomInfoUploadPreviousStatusProofs').addClass('d-none');
             }
         });
     })

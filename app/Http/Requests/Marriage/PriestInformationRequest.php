@@ -34,7 +34,7 @@ class PriestInformationRequest extends FormRequest
             'priest_info_mobile_no' => 'required|string|min:10|max:10|regex:/^[0-9]{10}$/',
             'priest_info_age' => 'required',
             'priest_info_religion' => 'required',
-            'priest_info_upload_signature' => 'required',
+            'priest_info_upload_signatures' => 'required',
         ];
     }
 
@@ -55,7 +55,7 @@ class PriestInformationRequest extends FormRequest
             'priest_info_mobile_no.regex' => 'Please enter valid mobile number',
             'priest_info_age.required' => 'Please enter age',
             'priest_info_religion.required' => 'Please select religion',
-            'priest_info_upload_signature.required' => 'Please upload signature'
+            'priest_info_upload_signatures.required' => 'Please upload signature'
         ];
     }
 }

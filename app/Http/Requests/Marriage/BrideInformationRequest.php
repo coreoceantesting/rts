@@ -50,7 +50,7 @@ class BrideInformationRequest extends FormRequest
             'bride_info_age_proof_files' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
             'bride_info_upload_signatures' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
             'bride_info_previous_status' => 'required',
-            'bride_info_previous_status_proof' => 'required',
+            'bride_info_previous_status_proof' => 'nullable',
             'bride_info_upload_previous_status_proofs' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
         ];
     }
