@@ -3,7 +3,7 @@
     {{-- <x-slot name="heading">Issuance Of Marriage Registration Certificate / विवाह नोंदणी प्रमाणपत्र देणे</x-slot> --}}
 
 
-    
+
     <div class="row">
         <div class="col-lg-12">
             <div class="row">
@@ -21,19 +21,19 @@
                                         <button class="nav-link active" id="marriage-registration-form-tab" data-bs-toggle="pill" data-bs-target="#marriage-registration-form" type="button" role="tab" aria-controls="marriage-registration-form" aria-selected="true">Marriage Registration Form (विवाह नोंदणी फॉर्म)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="marriage-registration-details-tab" data-bs-toggle="pill" data-bs-target="#marriage-registration-details" type="button" role="tab" aria-controls="marriage-registration-details-form" aria-selected="false">Marriage Registration Details (विवाह नोंदणी माहिती)</button>
+                                        <button class="nav-link" id="marriage-registration-details-tab" data-bs-toggle="pill" {{ (is_null($marriageRegistration->marriageRegistrationDetail)) ? 'disabled' : '' }} data-bs-target="#marriage-registration-details" type="button" role="tab" aria-controls="marriage-registration-details-form" aria-selected="false">Marriage Registration Details (विवाह नोंदणी माहिती)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="groom-information-tab" data-bs-toggle="pill" data-bs-target="#groom-information" type="button" role="tab" aria-controls="groom-information" aria-selected="false">Groom Information (वराची माहिती)</button>
+                                        <button class="nav-link" id="groom-information-tab" data-bs-toggle="pill" {{ (is_null($marriageRegistration->marriageRegistrationGroomDetail)) ? 'disabled' : '' }} data-bs-target="#groom-information" type="button" role="tab" aria-controls="groom-information" aria-selected="false">Groom Information (वराची माहिती)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="bride-information-tab" data-bs-toggle="pill" data-bs-target="#bride-information" type="button" role="tab" aria-controls="bride-information" aria-selected="false">Bride Information (वधूची माहिती)</button>
+                                        <button class="nav-link" id="bride-information-tab" data-bs-toggle="pill" {{ (is_null($marriageRegistration->marriageRegistrationBrideInformation)) ? 'disabled' : '' }} data-bs-target="#bride-information" type="button" role="tab" aria-controls="bride-information" aria-selected="false">Bride Information (वधूची माहिती)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="priest-information-tab" data-bs-toggle="pill" data-bs-target="#priest-information" type="button" role="tab" aria-controls="priest-information" aria-selected="false">Priest Information (पुरोहिताची माहिती)</button>
+                                        <button class="nav-link" id="priest-information-tab" data-bs-toggle="pill" data-bs-target="#priest-information" type="button" role="tab" {{ (is_null($marriageRegistration->marriageRegistrationPriestInformation)) ? 'disabled' : '' }} aria-controls="priest-information" aria-selected="false">Priest Information (पुरोहिताची माहिती)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="witness-information-tab" data-bs-toggle="pill" data-bs-target="#witness-information" type="button" role="tab" aria-controls="witness-information" aria-selected="false">Witness Information (साक्षीदाराची माहिती)</button>
+                                        <button class="nav-link" id="witness-information-tab" data-bs-toggle="pill" data-bs-target="#witness-information" type="button" role="tab" {{ (is_null($marriageRegistration->marriageRegistrationWitnessInformation)) ? 'disabled' : '' }} aria-controls="witness-information" aria-selected="false">Witness Information (साक्षीदाराची माहिती)</button>
                                     </li>
                                 </ul>
                             </div>
@@ -51,7 +51,7 @@
                                                     <span class="text-danger is-invalid registration_from_applicant_mobile_no_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Applicant Full Name (अर्जदाराचे पूर्ण नाव)<span class="text-danger">*</span></label>
@@ -59,7 +59,7 @@
                                                     <span class="text-danger is-invalid registration_from_applicant_full_name_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Applicant Home Address (अर्जदाराच्या घराचा पत्ता) <span class="text-danger">*</span></label>
@@ -67,7 +67,7 @@
                                                     <span class="text-danger is-invalid registration_from_applicant_home_address_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Pincode (पिनकोड) <span class="text-danger">*</span></label>
@@ -75,7 +75,7 @@
                                                     <span class="text-danger is-invalid registration_from_pincode_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Applicant E-mail (अर्जदाराचा ई-मेल) <span class="text-danger">*</span></label>
@@ -83,7 +83,7 @@
                                                     <span class="text-danger is-invalid registration_from_applicant_email_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Aadhar Card No. (आधार कार्ड क्र) <span class="text-danger">*</span></label>
@@ -91,7 +91,7 @@
                                                     <span class="text-danger is-invalid registration_from_aadhar_card_no_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Applicant alternate Mobile Number (अर्जदाराचा पर्यायी मोबाईल क्रमांक)</label>
@@ -99,7 +99,7 @@
                                                     <span class="text-danger is-invalid registration_from_alternate_mobile_number_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Pan Card No. (पॅन कार्ड क्र.) <span class="text-danger">*</span></label>
@@ -107,36 +107,37 @@
                                                     <span class="text-danger is-invalid registration_from_pan_card_no_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Residential Ward Name (रहिवाशीच्या प्रभागाचे नाव) <span class="text-danger">*</span></label>
                                                     <select name="registration_from_residential_ward_name" class="form-select" required>
                                                         <option value="">Select Ward</option>
-                                                        <option value="1">Kharghar</option>
-                                                        <option value="2">Kalamboli</option>
-                                                        <option value="3">Kamothe</option>
-                                                        <option value="4">Panvel</option>
+                                                        <option {{ ($marriageRegistration->registration_from_residential_ward_name == "1") ? 'selected' : '' }} value="1">Kharghar</option>
+                                                        <option {{ ($marriageRegistration->registration_from_residential_ward_name == "2") ? 'selected' : '' }} value="2">Kalamboli</option>
+                                                        <option {{ ($marriageRegistration->registration_from_residential_ward_name == "3") ? 'selected' : '' }} value="3">Kamothe</option>
+                                                        <option {{ ($marriageRegistration->registration_from_residential_ward_name == "4") ? 'selected' : '' }} value="4">Panvel</option>
                                                     </select>
                                                     <span class="text-danger is-invalid registration_from_residential_ward_name_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Marriage solemnized within Maharashtra State? (विवाह सोहळा महाराष्ट्र राज्यात झाला आहे का ?) <span class="text-danger">*</span></label>
                                                     <select name="registration_from_marriage_solemnized_within_maharashtra_state" id="registrationFromMarriageSolemnizedWithinMaharashtraState" class="form-select" required>
                                                         <option value="">Choose one</option>
-                                                        <option value="1">Yes</option>
-                                                        <option value="2">No</option>
+                                                        <option {{ ($marriageRegistration->registration_from_marriage_solemnized_within_maharashtra_state == "1") ? 'selected' : '' }} value="1">Yes</option>
+                                                        <option {{ ($marriageRegistration->registration_from_marriage_solemnized_within_maharashtra_state == "2") ? 'selected' : '' }} value="2">No</option>
                                                     </select>
                                                     <span class="text-danger is-invalid registration_from_marriage_solemnized_within_maharashtra_state_err"></span>
                                                 </div>
                                             </div>
-                
-                                            <div class="col-lg-4 col-md-4 col-sm-6 col-12 d-none" id="registrationFromAffidavitForMarriageOutsideMaharashtras">
+
+                                            <div class="col-lg-4 col-md-4 col-sm-6 col-12 {{ ($marriageRegistration->registration_from_marriage_solemnized_within_maharashtra_state == "2") ? '' : 'd-none' }} " id="registrationFromAffidavitForMarriageOutsideMaharashtras">
                                                 <div class="mb-3">
                                                     <label class="form-label">Affidavit for Marriage Outside Maharashtra <br><span class="text-danger">Upload PDF Format Only (Max size 2mb) *</span></label>
+                                                    <a href="{{ asset('storage/'.$marriageRegistration->registration_from_affidavit_for_marriage_outside_maharashtras) }}">View file</a>
                                                     <input type="file" class="form-control" name="registration_from_affidavit_for_marriage_outside_maharashtras" placeholder="Enter affidavit for marriage outside maharashtra" required />
                                                     <span class="text-danger is-invalid registration_from_affidavit_for_marriage_outside_maharashtras_err"></span>
                                                 </div>
@@ -157,87 +158,88 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Form Filled Date (फॉर्म भरण्याची तारीख) <span class="text-danger">*</span></label>
-                                                    <input type="date" value="{{ date('Y-m-d') }}" class="form-control" name="registration_details_form_filled_date" placeholder="Enter form filled date" autocomplete="off" required readonly />
+                                                    <input type="text" class="form-control" name="registration_details_form_filled_date" value="{{ ($marriageRegistration?->marriageRegistrationDetail?->registration_details_form_filled_date) ? date('d-m-Y', strtotime($marriageRegistration?->marriageRegistrationDetail?->registration_details_form_filled_date)) : '' }}" placeholder="Enter form filled date" autocomplete="off" required readonly />
                                                     <span class="text-danger is-invalid registration_details_form_filled_date_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Marriage Date in English (लग्नाची तारीख इंग्रजीमध्ये)<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control datepicker" name="registration_details_marriage_date_in_english" placeholder="Enter marriage date in english" max="{{ date('Y-m-d') }}" autocomplete="off" required />
+                                                    <input type="text" class="form-control datepicker" name="registration_details_marriage_date_in_english" value="{{ ($marriageRegistration?->marriageRegistrationDetail?->registration_details_marriage_date_in_english) ? date('d-m-Y', strtotime($marriageRegistration?->marriageRegistrationDetail?->registration_details_marriage_date_in_english)) : '' }}" placeholder="Enter marriage date in english" max="{{ date('Y-m-d') }}" autocomplete="off" required />
                                                     <span class="text-danger is-invalid registration_details_marriage_date_in_english_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Marriage Date in Marathi (लग्नाची तारीख मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="registration_details_marriage_date_in_marathi" placeholder="Enter marriage date in marathi" required />
+                                                    <input type="text" class="form-control" name="registration_details_marriage_date_in_marathi" value="{{ ($marriageRegistration?->marriageRegistrationDetail?->registration_details_marriage_date_in_marathi) ? $marriageRegistration?->marriageRegistrationDetail?->registration_details_marriage_date_in_marathi : '' }}" placeholder="Enter marriage date in marathi" required />
                                                     <span class="text-danger is-invalid registration_details_marriage_date_in_marathi_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Marriage Place, Full Address in English (इंग्रजीमध्ये लग्नाच्या ठिकाणाचा पत्ता) <span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" name="registration_details_marriage_place_in_english" placeholder="Enter marriage place, full address in english" required></textarea>
+                                                    <textarea class="form-control" name="registration_details_marriage_place_in_english" placeholder="Enter marriage place, full address in english" value="{{ ($marriageRegistration?->marriageRegistrationDetail?->registration_details_marriage_place_in_english) ? $marriageRegistration?->marriageRegistrationDetail?->registration_details_marriage_place_in_english : '' }}" required></textarea>
                                                     <span class="text-danger is-invalid registration_details_marriage_place_in_english_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Marriage Place, Full Address in Marathi (मराठीमध्ये लग्नाच्या ठिकाणाचा पत्ता) <span class="text-danger">*</span></label>
-                                                    <textarea type="text" class="form-control" name="registration_details_marriage_place_in_marathi" placeholder="Enter marriage place, full address in marathi" required></textarea>
+                                                    <textarea type="text" class="form-control" name="registration_details_marriage_place_in_marathi" placeholder="Enter marriage place, full address in marathi" required>{{ ($marriageRegistration?->marriageRegistrationDetail?->registration_details_marriage_place_in_marathi) ? $marriageRegistration?->marriageRegistrationDetail?->registration_details_marriage_place_in_marathi : '' }}</textarea>
                                                     <span class="text-danger is-invalid registration_details_marriage_place_in_marathi_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Couple Photo of Wedding (लग्न विधी चा फोटो) <br><span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
+                                                    <a href="{{ asset('storage/'.$marriageRegistration?->marriageRegistrationDetail?->registration_details_couple_photos) }}">View File</a>
                                                     <input type="file" class="form-control" name="registration_details_couple_photos" required />
                                                     <span class="text-danger is-invalid registration_details_couple_photos_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Is Husband/Wife Widower/Widow? (वर/वधू -- विधुर / विधवा आहे का ?) <span class="text-danger">*</span></label>
                                                     <select name="registration_details_is_widow" class="form-select" required>
                                                         <option value="">Select option</option>
-                                                        <option value="1">Yes</option>
-                                                        <option value="2">No</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationDetail?->registration_details_is_widow == "1") ? 'selected' : '' }} value="1">Yes</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationDetail?->registration_details_is_widow == "2") ? 'selected' : '' }} value="2">No</option>
                                                     </select>
                                                     <span class="text-danger is-invalid registration_details_is_widow_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Is Husband/Wife previously divorced? (वर वधू यांचे घटस्पोट झाला आहे का ?) <span class="text-danger">*</span></label>
                                                     <select name="registration_details_is_previously_divorced" class="form-select" required>
                                                         <option value="">Select option</option>
-                                                        <option value="1">Yes</option>
-                                                        <option value="2">No</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationDetail?->registration_details_is_previously_divorced == "1") ? 'selected' : '' }} value="1">Yes</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationDetail?->registration_details_is_previously_divorced == "2") ? 'selected' : '' }} value="2">No</option>
                                                     </select>
                                                     <span class="text-danger is-invalid registration_details_is_previously_divorced_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Is Marriage Intercaste?  (आंतरजातीय विवाह झाला आहे का ?) <span class="text-danger">*</span></label>
                                                     <select name="registration_details_is_marriage_intercaste" class="form-select" required>
                                                         <option value="">Select option</option>
-                                                        <option value="1">Yes</option>
-                                                        <option value="2">No</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationDetail?->registration_details_is_marriage_intercaste == "1") ? 'selected' : '' }} value="1">Yes</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationDetail?->registration_details_is_marriage_intercaste == "2") ? 'selected' : '' }} value="2">No</option>
                                                     </select>
                                                     <span class="text-danger is-invalid registration_details_is_marriage_intercaste_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Wedding card Image. If not available, attach Affidavit (लग्न पत्रिका चा फोटो नसल्यास, प्रतिज्ञापत्र जोडावे ) <br><span class="text-danger">Upload PDF Format Only (Max size 2mb) *</span></label>
@@ -801,7 +803,7 @@
                                                     <span class="text-danger is-invalid priest_info_fname_in_english_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Middle Name In English (मधले नाव इंग्रजीमध्ये)<span class="text-danger">*</span></label>
@@ -809,7 +811,7 @@
                                                     <span class="text-danger is-invalid priest_info_mname_in_english_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Last Name In English (आडनाव इंग्रजीमध्ये) <span class="text-danger">*</span></label>
@@ -817,7 +819,7 @@
                                                     <span class="text-danger is-invalid priest_info_lname_in_english_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">First Name In Marathi (पहिले नाव मराठीमध्ये) <span class="text-danger">*</span></label>
@@ -825,7 +827,7 @@
                                                     <span class="text-danger is-invalid priest_info_fname_in_marathi_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Middle Name In Marathi (मधले नाव मराठीमध्ये) <span class="text-danger">*</span></label>
@@ -833,7 +835,7 @@
                                                     <span class="text-danger is-invalid priest_info_mname_in_marathi_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Last Name In Marathi (आडनाव मराठीमध्ये) <span class="text-danger">*</span></label>
@@ -841,7 +843,7 @@
                                                     <span class="text-danger is-invalid priest_info_lname_in_marathi_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In English (पत्ता इंग्रजीमध्ये) <span class="text-danger">*</span></label>
@@ -849,7 +851,7 @@
                                                     <span class="text-danger is-invalid priest_info_address_in_english_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In Marathi (पत्ता मराठीमध्ये) <span class="text-danger">*</span></label>
@@ -857,7 +859,7 @@
                                                     <span class="text-danger is-invalid priest_info_address_in_marathi_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Mobile No (मोबाईल क्र) <span class="text-danger">*</span></label>
@@ -865,7 +867,7 @@
                                                     <span class="text-danger is-invalid priest_info_mobile_no_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Age (वय) <span class="text-danger">*</span></label>
@@ -873,7 +875,7 @@
                                                     <span class="text-danger is-invalid priest_info_age_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Religion (धर्म) <span class="text-danger">*</span></label>
@@ -889,7 +891,7 @@
                                                     <span class="text-danger is-invalid priest_info_religion_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
@@ -920,7 +922,7 @@
                                                     <span class="text-danger is-invalid first_witness_info_fname_in_english_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Full Name In Marathi (पूर्ण नाव मराठीमध्ये) <span class="text-danger">*</span></label>
@@ -928,7 +930,7 @@
                                                     <span class="text-danger is-invalid first_witness_info_fname_in_marathi_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Mobile No (मोबाईल क्र) <span class="text-danger">*</span></label>
@@ -936,7 +938,7 @@
                                                     <span class="text-danger is-invalid first_witness_info_mobile_no_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Date of Birth (जन्मतारीख) <span class="text-danger">*</span></label>
@@ -944,7 +946,7 @@
                                                     <span class="text-danger is-invalid first_witness_info_dob_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Age (वय) <span class="text-danger">*</span></label>
@@ -952,7 +954,7 @@
                                                     <span class="text-danger is-invalid first_witness_info_age_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Gender <span class="text-danger">*</span></label>
@@ -965,7 +967,7 @@
                                                     <span class="text-danger is-invalid first_witness_info_gender_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Relation (संबंध) <span class="text-danger">*</span></label>
@@ -973,7 +975,7 @@
                                                     <span class="text-danger is-invalid first_witness_info_relation_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In English (पत्ता इंग्रजीमध्ये) <span class="text-danger">*</span></label>
@@ -981,7 +983,7 @@
                                                     <span class="text-danger is-invalid first_witness_info_address_in_english_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In Marathi (पत्ता मराठीमध्ये) <span class="text-danger">*</span></label>
@@ -989,7 +991,7 @@
                                                     <span class="text-danger is-invalid first_witness_info_address_in_marathi_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Id Proof (कागदपत्र सादर केले) <span class="text-danger">*</span></label>
@@ -1001,7 +1003,7 @@
                                                     <span class="text-danger is-invalid first_witness_info_id_proof_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Witness Photo (साक्षीदाराचा फोटो) <br><span class="text-danger"> Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
@@ -1009,7 +1011,7 @@
                                                     <span class="text-danger is-invalid first_witness_info_witness_photos_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
@@ -1017,7 +1019,7 @@
                                                     <span class="text-danger is-invalid first_witness_info_upload_signatures_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Document (कागदपत्र सादर केले) <span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
@@ -1039,7 +1041,7 @@
                                                     <span class="text-danger is-invalid second_witness_info_fname_in_english_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Full Name In Marathi (पूर्ण नाव मराठीमध्ये) <span class="text-danger">*</span></label>
@@ -1047,7 +1049,7 @@
                                                     <span class="text-danger is-invalid second_witness_info_fname_in_marathi_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Mobile No (मोबाईल क्र) <span class="text-danger">*</span></label>
@@ -1055,7 +1057,7 @@
                                                     <span class="text-danger is-invalid second_witness_info_mobile_no_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Date of Birth (जन्मतारीख) <span class="text-danger">*</span></label>
@@ -1063,7 +1065,7 @@
                                                     <span class="text-danger is-invalid second_witness_info_dob_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Age (वय) <span class="text-danger">*</span></label>
@@ -1071,7 +1073,7 @@
                                                     <span class="text-danger is-invalid second_witness_info_age_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Gender <span class="text-danger">*</span></label>
@@ -1084,7 +1086,7 @@
                                                     <span class="text-danger is-invalid second_witness_info_gender_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Relation (संबंध) <span class="text-danger">*</span></label>
@@ -1092,7 +1094,7 @@
                                                     <span class="text-danger is-invalid second_witness_info_relation_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In English (पत्ता इंग्रजीमध्ये) <span class="text-danger">*</span></label>
@@ -1100,7 +1102,7 @@
                                                     <span class="text-danger is-invalid second_witness_info_address_in_english_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In Marathi (पत्ता मराठीमध्ये) <span class="text-danger">*</span></label>
@@ -1108,7 +1110,7 @@
                                                     <span class="text-danger is-invalid second_witness_info_address_in_marathi_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Id Proof (कागदपत्र सादर केले) <span class="text-danger">*</span></label>
@@ -1120,7 +1122,7 @@
                                                     <span class="text-danger is-invalid second_witness_info_id_proof_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Witness Photo (साक्षीदाराचा फोटो) <br><span class="text-danger"> Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
@@ -1128,7 +1130,7 @@
                                                     <span class="text-danger is-invalid second_witness_info_witness_photos_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
@@ -1136,7 +1138,7 @@
                                                     <span class="text-danger is-invalid second_witness_info_upload_signatures_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Document (कागदपत्र सादर केले) <br><span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
@@ -1157,7 +1159,7 @@
                                                     <span class="text-danger is-invalid third_witness_info_fname_in_english_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Full Name In Marathi (पूर्ण नाव मराठीमध्ये) <span class="text-danger">*</span></label>
@@ -1165,7 +1167,7 @@
                                                     <span class="text-danger is-invalid third_witness_info_fname_in_marathi_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Mobile No (मोबाईल क्र) <span class="text-danger">*</span></label>
@@ -1173,7 +1175,7 @@
                                                     <span class="text-danger is-invalid third_witness_info_mobile_no_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Date of Birth (जन्मतारीख) <span class="text-danger">*</span></label>
@@ -1181,7 +1183,7 @@
                                                     <span class="text-danger is-invalid third_witness_info_dob_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Age (वय) <span class="text-danger">*</span></label>
@@ -1189,7 +1191,7 @@
                                                     <span class="text-danger is-invalid third_witness_info_age_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Gender <span class="text-danger">*</span></label>
@@ -1202,7 +1204,7 @@
                                                     <span class="text-danger is-invalid third_witness_info_gender_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Relation (संबंध) <span class="text-danger">*</span></label>
@@ -1210,7 +1212,7 @@
                                                     <span class="text-danger is-invalid third_witness_info_relation_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In English (पत्ता इंग्रजीमध्ये) <span class="text-danger">*</span></label>
@@ -1218,7 +1220,7 @@
                                                     <span class="text-danger is-invalid third_witness_info_address_in_english_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In Marathi (पत्ता मराठीमध्ये) <span class="text-danger">*</span></label>
@@ -1226,7 +1228,7 @@
                                                     <span class="text-danger is-invalid third_witness_info_address_in_marathi_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Id Proof (कागदपत्र सादर केले) <span class="text-danger">*</span></label>
@@ -1238,7 +1240,7 @@
                                                     <span class="text-danger is-invalid third_witness_info_id_proof_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Witness Photo (साक्षीदाराचा फोटो) <br><span class="text-danger"> Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
@@ -1246,7 +1248,7 @@
                                                     <span class="text-danger is-invalid third_witness_info_witness_photos_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
@@ -1254,7 +1256,7 @@
                                                     <span class="text-danger is-invalid third_witness_info_upload_signatures_err"></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Document (कागदपत्र सादर केले) <br><span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
@@ -1582,7 +1584,7 @@
 
     function checkStatuActive(id){
         $('.nav-link').removeClass('active');
-        $('#'+id+'-tab').addClass('active'); 
+        $('#'+id+'-tab').addClass('active');
         $('#'+id+'-tab').prop("disabled", false);
         $('.tab-pane.fade').removeClass('show active');
         $('#'+id).addClass('show active')
@@ -1616,7 +1618,7 @@
             if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
                 age--;
             }
-            
+
             if (age >= 21) {
                 $("#gage").val(age);
                 $("#groomInformationBtn").removeClass('d-none');

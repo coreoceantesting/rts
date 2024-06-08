@@ -36,7 +36,7 @@ class MarriageController extends Controller
     public function edit($id)
     {
         $marriageRegistration = $this->marriageRegistrationService->edit($id);
-
+        // return $marriageRegistration;
         return view('marriage.edit')->with([
             'marriageRegistration' => $marriageRegistration
         ]);

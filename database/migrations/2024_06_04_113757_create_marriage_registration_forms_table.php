@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('marriage_reg_forms', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('registration_from_applicant_mobile_no')->nullable();
             $table->string('registration_from_applicant_full_name')->nullable();
             $table->text('registration_from_applicant_home_address')->nullable();

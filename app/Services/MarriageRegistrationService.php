@@ -11,6 +11,7 @@ use App\Models\Marriage\MarriageRegistrationWitnessInformation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class MarriageRegistrationService
 {
@@ -24,7 +25,7 @@ class MarriageRegistrationService
         DB::beginTransaction();
         try {
             $data = $request->all();
-
+            $data['user_id'] = Auth::user()->id;
             if ($request->hasFile('registration_from_affidavit_for_marriage_outside_maharashtras')) {
                 $filePath = $request->file('registration_from_affidavit_for_marriage_outside_maharashtras')->store('marriage/registration-form');
 
