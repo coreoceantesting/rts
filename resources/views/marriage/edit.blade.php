@@ -137,7 +137,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12 {{ ($marriageRegistration->registration_from_marriage_solemnized_within_maharashtra_state == "2") ? '' : 'd-none' }} " id="registrationFromAffidavitForMarriageOutsideMaharashtras">
                                                 <div class="mb-3">
                                                     <label class="form-label">Affidavit for Marriage Outside Maharashtra <br><span class="text-danger">Upload PDF Format Only (Max size 2mb) *</span></label>
-                                                    <a href="{{ asset('storage/'.$marriageRegistration->registration_from_affidavit_for_marriage_outside_maharashtras) }}">View file</a>
+                                                    <a href="{{ asset('storage/'.$marriageRegistration->registration_from_affidavit_for_marriage_outside_maharashtra) }}">View file</a>
                                                     <input type="file" class="form-control" name="registration_from_affidavit_for_marriage_outside_maharashtras" placeholder="Enter affidavit for marriage outside maharashtra" required />
                                                     <span class="text-danger is-invalid registration_from_affidavit_for_marriage_outside_maharashtras_err"></span>
                                                 </div>
@@ -198,7 +198,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Couple Photo of Wedding (लग्न विधी चा फोटो) <br><span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
-                                                    <a href="{{ asset('storage/'.$marriageRegistration?->marriageRegistrationDetail?->registration_details_couple_photos) }}">View File</a>
+                                                    <a href="{{ asset('storage/'.$marriageRegistration?->marriageRegistrationDetail?->registration_details_couple_photo) }}">View File</a>
                                                     <input type="file" class="form-control" name="registration_details_couple_photos" required />
                                                     <span class="text-danger is-invalid registration_details_couple_photos_err"></span>
                                                 </div>
@@ -243,6 +243,8 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Wedding card Image. If not available, attach Affidavit (लग्न पत्रिका चा फोटो नसल्यास, प्रतिज्ञापत्र जोडावे ) <br><span class="text-danger">Upload PDF Format Only (Max size 2mb) *</span></label>
+
+                                                    <a href="{{ ($marriageRegistration?->marriageRegistrationDetail?->registration_details_wedding_card_image) ? asset('storage/'. $marriageRegistration?->marriageRegistrationDetail?->registration_details_wedding_card_image) : 'javascript:void(0)' }}">View File</a>
                                                     <input type="file" class="form-control" name="registration_details_wedding_card_images" required />
                                                     <span class="text-danger is-invalid registration_details_wedding_card_images_err"></span>
                                                 </div>
@@ -258,110 +260,110 @@
                                 <div class="tab-pane fade" id="groom-information" role="tabpanel" role="tabpanel" aria-labelledby="groom-information-tab">
                                     <form name="groomInformation" id="groomInformation" enctype="multipart/form-data">
                                         @csrf
-                                        <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId">
+                                        <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->marriage_reg_form_id) ? $marriageRegistration?->marriageRegistrationGroomDetail?->marriage_reg_form_id : '' }}">
                                         <div class="row mt-3">
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">First Name in English (पहिले नाव इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="groom_info_fname_in_english" placeholder="Enter first name in english" />
+                                                    <input type="text" value="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_fname_in_english) ? $marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_fname_in_english : '' }}" class="form-control" name="groom_info_fname_in_english" placeholder="Enter first name in english" />
                                                     <span class="text-danger is-invalid groom_info_fname_in_english_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Middle Name In English (मधले नाव इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="groom_info_mname_in_english" placeholder="Enter middle name in english" />
+                                                    <input type="text" class="form-control" name="groom_info_mname_in_english" placeholder="Enter middle name in english" value="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_mname_in_english) ? $marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_mname_in_english : '' }}" />
                                                     <span class="text-danger is-invalid groom_info_mname_in_english_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Last Name In English (आडनाव इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="groom_info_lname_in_english" placeholder="Enter last name in english" />
+                                                    <input type="text" class="form-control" name="groom_info_lname_in_english" placeholder="Enter last name in english" value="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_lname_in_english) ? $marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_lname_in_english : '' }}" />
                                                     <span class="text-danger is-invalid groom_info_lname_in_english_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">First Name In Marathi (पहिले नाव मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="groom_info_fname_in_marathi" placeholder="Enter first name in marathi" />
+                                                    <input type="text" class="form-control" name="groom_info_fname_in_marathi" placeholder="Enter first name in marathi" value="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_fname_in_marathi) ? $marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_fname_in_marathi : '' }}" />
                                                     <span class="text-danger is-invalid groom_info_fname_in_marathi_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Middle Name In Marathi (मधले नाव मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="groom_info_mname_in_marathi" placeholder="Enter middle name in marathi" />
+                                                    <input type="text" class="form-control" name="groom_info_mname_in_marathi" placeholder="Enter middle name in marathi" value="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_mname_in_marathi) ? $marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_mname_in_marathi : '' }}" />
                                                     <span class="text-danger is-invalid groom_info_mname_in_marathi_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Last Name In Marathi (आडनाव मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="groom_info_lname_in_marathi" placeholder="Enter last name in marathi" />
+                                                    <input type="text" class="form-control" name="groom_info_lname_in_marathi" placeholder="Enter last name in marathi" value="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_lname_in_marathi) ? $marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_lname_in_marathi : '' }}" />
                                                     <span class="text-danger is-invalid groom_info_lname_in_marathi_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In English (पत्ता इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" name="groom_info_address_in_english" placeholder="Enter address in english"></textarea>
+                                                    <textarea class="form-control" name="groom_info_address_in_english" placeholder="Enter address in english">{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_address_in_english) ? $marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_address_in_english : '' }}</textarea>
                                                     <span class="text-danger is-invalid groom_info_address_in_english_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In Marathi (पत्ता मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" name="groom_info_address_in_marathi" placeholder="Enter address in marathi"></textarea>
+                                                    <textarea class="form-control" name="groom_info_address_in_marathi" placeholder="Enter address in marathi">{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_address_in_marathi) ? $marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_address_in_marathi : '' }}</textarea>
                                                     <span class="text-danger is-invalid groom_info_address_in_marathi_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Pincode (पिनकोड) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="groom_info_pincode" placeholder="Enter pincode" />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="groom_info_pincode" placeholder="Enter pincode" value="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_pincode) ? $marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_pincode : '' }}" />
                                                     <span class="text-danger is-invalid groom_info_pincode_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Pincode in Marathi (पिनकोड मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="groom_info_pincode_in_marathi" placeholder="Enter pincode in marathi" />
+                                                    <input type="text" class="form-control" name="groom_info_pincode_in_marathi" placeholder="Enter pincode in marathi" value="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_pincode_in_marathi) ? $marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_pincode_in_marathi : '' }}" />
                                                     <span class="text-danger is-invalid groom_info_pincode_in_marathi_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Mobile No (मोबाईल क्र) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="groom_info_mobile_no" placeholder="Enter mobile no." />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="groom_info_mobile_no" placeholder="Enter mobile no." value="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_mobile_no) ? $marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_mobile_no : '' }}" />
                                                     <span class="text-danger is-invalid groom_info_mobile_no_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Email (ईमेल) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="groom_info_email" placeholder="Enter email" />
+                                                    <input type="text" class="form-control" name="groom_info_email" placeholder="Enter email" value="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_email) ? $marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_email : '' }}" />
                                                     <span class="text-danger is-invalid groom_info_email_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Aadhar Card No. <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="groom_info_aadhar_card_no" placeholder="Enter aadhar card no." />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="groom_info_aadhar_card_no" placeholder="Enter aadhar card no." value="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_aadhar_card_no) ? $marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_aadhar_card_no : '' }}" />
                                                     <span class="text-danger is-invalid groom_info_aadhar_card_no_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Date of Birth (जन्मतारीख) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control datepicker" name="groom_info_dob" id="gdate_of_birth" placeholder="Select date of birth" autocomplete="off" />
+                                                    <input type="text" class="form-control datepicker" name="groom_info_dob" id="gdate_of_birth" placeholder="Select date of birth" autocomplete="off" value="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_dob) ? date('d-m-Y', strtotime($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_dob)) : '' }}" />
                                                     <span class="text-danger is-invalid groom_info_dob_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Age (वय) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" id="gage" class="form-control" name="groom_info_age" placeholder="Enter age" />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" id="gage" class="form-control" name="groom_info_age" placeholder="Enter age" value="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_age) ? $marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_age : '' }}" />
                                                     <span class="text-danger is-invalid groom_info_age_err"></span>
                                                 </div>
                                             </div>
@@ -370,9 +372,9 @@
                                                     <label class="form-label">Gender <span class="text-danger">*</span></label>
                                                     <select name="groom_info_gender" class="form-select">
                                                         <option value="">Choose one</option>
-                                                        <option value="1">Male</option>
-                                                        <option value="2">Female</option>
-                                                        <option value="3">Other</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_gender == "1") ? 'selected': '' }} value="1">Male</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_gender == "2") ? 'selected': '' }} value="2">Female</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_gender == "3") ? 'selected': '' }} value="3">Other</option>
                                                     </select>
                                                     <span class="text-danger is-invalid groom_info_gender_err"></span>
                                                 </div>
@@ -382,14 +384,14 @@
                                                     <label class="form-label">Religion by birth (जन्माने धर्म) <span class="text-danger">*</span></label>
                                                     <select name="groom_info_religion_by_birth" class="form-select">
                                                         <option value="">Choose one</option>
-                                                        <option value="1">Hindu</option>
-                                                        <option value="2">Muslim</option>
-                                                        <option value="3">Jain</option>
-                                                        <option value="4">Shikh</option>
-                                                        <option value="5">Buddhism</option>
-                                                        <option value="6">Christian</option>
-                                                        <option value="7">Parsi</option>
-                                                        <option value="8">Other</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_religion_by_birth == "1") ? 'selected': '' }} value="1">Hindu</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_religion_by_birth == "2") ? 'selected': '' }} value="2">Muslim</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_religion_by_birth == "3") ? 'selected': '' }} value="3">Jain</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_religion_by_birth == "4") ? 'selected': '' }} value="4">Shikh</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_religion_by_birth == "5") ? 'selected': '' }} value="5">Buddhism</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_religion_by_birth == "6") ? 'selected': '' }} value="6">Christian</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_religion_by_birth == "7") ? 'selected': '' }} value="7">Parsi</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_religion_by_birth == "8") ? 'selected': '' }} value="8">Other</option>
                                                     </select>
                                                     <span class="text-danger is-invalid groom_info_religion_by_birth_err"></span>
                                                 </div>
@@ -399,14 +401,14 @@
                                                     <label class="form-label">Religion by adoption (दत्तक घेऊन धर्म) <span class="text-danger">*</span></label>
                                                     <select name="groom_info_religion_by_adoption" class="form-select">
                                                         <option value="">Choose one</option>
-                                                        <option value="1">Hindu</option>
-                                                        <option value="2">Muslim</option>
-                                                        <option value="3">Jain</option>
-                                                        <option value="4">Shikh</option>
-                                                        <option value="5">Buddhism</option>
-                                                        <option value="6">Christian</option>
-                                                        <option value="7">Parsi</option>
-                                                        <option value="8">Other</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_religion_by_adoption == "1") ? 'selected': '' }} value="1">Hindu</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_religion_by_adoption == "2") ? 'selected': '' }} value="2">Muslim</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_religion_by_adoption == "3") ? 'selected': '' }} value="3">Jain</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_religion_by_adoption == "4") ? 'selected': '' }} value="4">Shikh</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_religion_by_adoption == "5") ? 'selected': '' }} value="5">Buddhism</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_religion_by_adoption == "6") ? 'selected': '' }} value="6">Christian</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_religion_by_adoption == "7") ? 'selected': '' }} value="7">Parsi</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_religion_by_adoption == "8") ? 'selected': '' }} value="8">Other</option>
                                                     </select>
                                                     <span class="text-danger is-invalid groom_info_religion_by_adoption_err"></span>
                                                 </div>
@@ -414,6 +416,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Groom Photo (वराचा फोटो) <br><span class="text-danger">Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
+                                                    <a href=" {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_photo) ? asset('storage/'.$marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_photo) : 'javascript:void(0)' }}">View File</a>
                                                     <input type="file" class="form-control" name="groom_info_photos" />
                                                     <span class="text-danger is-invalid groom_info_photos_err"></span>
                                                 </div>
@@ -422,10 +425,10 @@
                                                 <div class="mb-3">
                                                     <label class="form-label">Id Proof (आयडी पुरावा) <span class="text-danger">*</span></label>
                                                     <select name="groom_info_id_proof" class="form-select">
-                                                        <option value="2">Aadhaar Card</option>
-                                                        <option value="3">Passport</option>
-                                                        <option value="4">Voter ID</option>
-                                                        <option value="5">Pan Card</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_id_proof == "2") ? 'selected': '' }} value="2">Aadhaar Card</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_id_proof == "3") ? 'selected': '' }} value="3">Passport</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_id_proof == "4") ? 'selected': '' }} value="4">Voter ID</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_id_proof == "5") ? 'selected': '' }} value="5">Pan Card</option>
                                                     </select>
                                                     <span class="text-danger is-invalid groom_info_id_proof_err"></span>
                                                 </div>
@@ -435,10 +438,10 @@
                                                     <label class="form-label">Residential Proof (निवासी पुरावा) <span class="text-danger">*</span></label>
                                                     <select name="groom_info_residential_proof" class="form-select">
                                                         <option value="">Choose one</option>
-                                                        <option value="1">Ration Card</option>
-                                                        <option value="2">Aadhaar Card</option>
-                                                        <option value="3">Passport</option>
-                                                        <option value="4">Voter ID</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_residential_proof == "1") ? 'selected': '' }} value="1">Ration Card</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_residential_proof == "2") ? 'selected': '' }} value="2">Aadhaar Card</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_residential_proof == "3") ? 'selected': '' }} value="3">Passport</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_residential_proof == "4") ? 'selected': '' }} value="4">Voter ID</option>
                                                     </select>
                                                     <span class="text-danger is-invalid groom_info_residential_proof_err"></span>
                                                 </div>
@@ -448,11 +451,11 @@
                                                     <label class="form-label">Age Proof (वयाचा पुरावा) <span class="text-danger">*</span></label>
                                                     <select name="groom_info_age_proof" class="form-select">
                                                         <option value="">Choose one</option>
-                                                        <option value="1">Birth Certificate</option>
-                                                        <option value="2">School Leaving Certificate</option>
-                                                        <option value="3">SSC Board Certificate</option>
-                                                        <option value="4">HSC Board Certificate</option>
-                                                        <option value="5">Higher Education</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_age_proof == "1") ? 'selected': '' }} value="1">Birth Certificate</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_age_proof == "2") ? 'selected': '' }} value="2">School Leaving Certificate</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_age_proof == "3") ? 'selected': '' }} value="3">SSC Board Certificate</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_age_proof == "4") ? 'selected': '' }} value="4">HSC Board Certificate</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_age_proof == "5") ? 'selected': '' }} value="5">Higher Education</option>
                                                     </select>
                                                     <span class="text-danger is-invalid groom_info_age_proof_err"></span>
                                                 </div>
@@ -460,6 +463,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Id Proof (आयडी पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <a href=" {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_id_proof_file) ? asset('storage/'.$marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_id_proof_file) : 'javascript:void(0)' }}"></a>
                                                     <input type="file" class="form-control" name="groom_info_id_proof_files" />
                                                     <span class="text-danger is-invalid groom_info_id_proof_files_err"></span>
                                                 </div>
@@ -467,6 +471,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Residential Proof (निवासी पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <a href=" {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_residential_proof_file) ? asset('storage/'.$marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_residential_proof_file) : 'javascript:void(0)' }}"></a>
                                                     <input type="file" class="form-control" name="groom_info_residential_proof_files" />
                                                     <span class="text-danger is-invalid groom_info_residential_proof_files_err"></span>
                                                 </div>
@@ -474,6 +479,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Age Proof (वयाचा पुरावा)  <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <a href=" {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_age_proof_file) ? asset('storage/'.$marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_age_proof_file) : 'javascript:void(0)' }}"></a>
                                                     <input type="file" class="form-control" name="groom_info_age_proof_files" />
                                                     <span class="text-danger is-invalid groom_info_age_proof_files_err"></span>
                                                 </div>
@@ -481,6 +487,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 400kb) *</span></label>
+                                                    <a href=" {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_upload_signature) ? asset('storage/'.$marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_upload_signature) : 'javascript:void(0)' }}"></a>
                                                     <input type="file" class="form-control" name="groom_info_upload_signatures" />
                                                     <span class="text-danger is-invalid groom_info_upload_signatures_err"></span>
                                                 </div>
@@ -489,9 +496,9 @@
                                                 <div class="mb-3">
                                                     <label class="form-label">Previous Status (मागील स्थिती) <span class="text-danger">*</span></label>
                                                     <select name="groom_info_previous_status" class="form-select" id="groomInfoPreviousStatus">
-                                                        <option value="1">Unmarried</option>
-                                                        <option value="2">Widow/Widower</option>
-                                                        <option value="3">Divorce</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_previous_status == "1") ? 'selected': '' }} value="1">Unmarried</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_previous_status == "2") ? 'selected': '' }} value="2">Widow/Widower</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_previous_status == "3") ? 'selected': '' }} value="3">Divorce</option>
                                                     </select>
                                                     <span class="text-danger is-invalid groom_info_previous_status_err"></span>
                                                 </div>
@@ -501,8 +508,8 @@
                                                     <label class="form-label">Previous Status Proof (मागील स्थितीचा पुरावा) <span class="text-danger">*</span></label>
                                                     <select name="groom_info_previous_status_proof" class="form-select">
                                                         <option value="">Choose one</option>
-                                                        <option value="1"> Death Certificate </option>
-                                                        <option value="2"> Decree &amp; Court Judgement </option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_previous_status_proof == "1") ? 'selected': '' }} value="1"> Death Certificate </option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_previous_status_proof == "2") ? 'selected': '' }} value="2"> Decree &amp; Court Judgement </option>
                                                     </select>
                                                     <span class="text-danger is-invalid groom_info_previous_status_proof_err"></span>
                                                 </div>
@@ -510,6 +517,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12" id="groomInfoUploadPreviousStatusProofs">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Previous Status Proof (मागील स्थितीचा पुरावा)<br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <a href=" {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_upload_previous_status_proof) ? asset('storage/'.$marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_upload_previous_status_proof) : 'javascript:void(0)' }}"></a>
                                                     <input type="file" class="form-control" name="groom_info_upload_previous_status_proofs" />
                                                     <span class="text-danger is-invalid groom_info_upload_previous_status_proofs_err"></span>
                                                 </div>
