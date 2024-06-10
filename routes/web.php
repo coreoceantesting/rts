@@ -8,6 +8,7 @@ use App\Http\Controllers\AapaleSarkarLoginCheckController;
 use App\Http\Controllers\ServiceInformationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MyProfileController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,7 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::post('change-password', [App\Http\Controllers\Registeration\AuthController::class, 'changePassword'])->name('change-password');
     Route::get('home', fn () => redirect()->route('dashboard'))->name('home');
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('service/{id}', [DashboardController::class, 'subService'])->name('service.my-service');
     Route::get('my-application', [DashboardController::class, 'myApplication'])->name('my-application');
 
 
@@ -81,6 +83,11 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
 
     // profile route
     Route::get('/profile', [MyProfileController::class, 'profile'])->name('user.profile');
+
+    // service route
+    Route::prefix('master')->name('master.')->group(function () {
+        Route::resource('service', ServiceController::class);
+    });
 });
 
 // Route::get('check-aapalesarkar-user', [AapaleSarkarLoginCheckController::class, 'check']);
