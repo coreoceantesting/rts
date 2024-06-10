@@ -8,6 +8,7 @@ use App\Http\Controllers\AapaleSarkarLoginCheckController;
 use App\Http\Controllers\ServiceInformationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MyProfileController;
+use App\Http\Controllers\PropertyTaxController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,6 +82,14 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
 
     // profile route
     Route::get('/profile', [MyProfileController::class, 'profile'])->name('user.profile');
+
+    // property Tax Routes
+    Route::resource('issuance-of-property-tax', PropertyTaxController::class);
+    Route::get('/create-no-dues-certificate', [PropertyTaxController::class, 'create_no_dues_certificate'])->name('create_no_dues_certificate');
+    Route::get('/create-transfer-of-property', [PropertyTaxController::class, 'create_transfer_of_property_certificate'])->name('create_transfer_of_property_certificate');
+    Route::get('/create-new-taxation', [PropertyTaxController::class, 'create_new_taxation'])->name('create_new_taxation');
+    Route::get('/create-retaxation', [PropertyTaxController::class, 'create_retaxation'])->name('create_retaxation');
+    Route::get('/create-tax-demand', [PropertyTaxController::class, 'create_taxdemand'])->name('create_taxdemand');
 });
 
 // Route::get('check-aapalesarkar-user', [AapaleSarkarLoginCheckController::class, 'check']);
