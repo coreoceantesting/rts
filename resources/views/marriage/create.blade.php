@@ -21,19 +21,19 @@
                                         <button class="nav-link active" id="marriage-registration-form-tab" data-bs-toggle="pill" data-bs-target="#marriage-registration-form" type="button" role="tab" aria-controls="marriage-registration-form" aria-selected="true">Marriage Registration Form (विवाह नोंदणी फॉर्म)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="marriage-registration-details-tab" data-bs-toggle="pill" disabled data-bs-target="#marriage-registration-details" type="button" role="tab" aria-controls="marriage-registration-details-form" aria-selected="false">Marriage Registration Details (विवाह नोंदणी माहिती)</button>
+                                        <button class="nav-link" id="marriage-registration-details-tab" data-bs-toggle="pill" data-bs-target="#marriage-registration-details" type="button" role="tab" aria-controls="marriage-registration-details-form" aria-selected="false">Marriage Registration Details (विवाह नोंदणी माहिती)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="groom-information-tab" data-bs-toggle="pill" disabled data-bs-target="#groom-information" type="button" role="tab" aria-controls="groom-information" aria-selected="false">Groom Information (वराची माहिती)</button>
+                                        <button class="nav-link" id="groom-information-tab" data-bs-toggle="pill" data-bs-target="#groom-information" type="button" role="tab" aria-controls="groom-information" aria-selected="false">Groom Information (वराची माहिती)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="bride-information-tab" data-bs-toggle="pill" disabled data-bs-target="#bride-information" type="button" role="tab" aria-controls="bride-information" aria-selected="false">Bride Information (वधूची माहिती)</button>
+                                        <button class="nav-link" id="bride-information-tab" data-bs-toggle="pill" data-bs-target="#bride-information" type="button" role="tab" aria-controls="bride-information" aria-selected="false">Bride Information (वधूची माहिती)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="priest-information-tab" data-bs-toggle="pill" disabled data-bs-target="#priest-information" type="button" role="tab" aria-controls="priest-information" aria-selected="false">Priest Information (पुरोहिताची माहिती)</button>
+                                        <button class="nav-link" id="priest-information-tab" data-bs-toggle="pill" data-bs-target="#priest-information" type="button" role="tab" aria-controls="priest-information" aria-selected="false">Priest Information (पुरोहिताची माहिती)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="witness-information-tab" data-bs-toggle="pill" disabled data-bs-target="#witness-information" type="button" role="tab" aria-controls="witness-information" aria-selected="false">Witness Information (साक्षीदाराची माहिती)</button>
+                                        <button class="nav-link" id="witness-information-tab" data-bs-toggle="pill" data-bs-target="#witness-information" type="button" role="tab" aria-controls="witness-information" aria-selected="false">Witness Information (साक्षीदाराची माहिती)</button>
                                     </li>
                                 </ul>
                             </div>
@@ -486,7 +486,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Previous Status (मागील स्थिती) <span class="text-danger">*</span></label>
-                                                    <select name="groom_info_previous_status" class="form-select">
+                                                    <select name="groom_info_previous_status" class="form-select" id="groomInfoPreviousStatus">
                                                         <option value="">Choose one</option>
                                                         <option value="1">Unmarried</option>
                                                         <option value="2">Widow/Widower</option>
@@ -495,7 +495,7 @@
                                                     <span class="text-danger is-invalid groom_info_previous_status_err"></span>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <div class="col-lg-4 col-md-4 col-sm-6 col-12 d-none" id="groomInfoPreviousStatusProof">
                                                 <div class="mb-3">
                                                     <label class="form-label">Previous Status Proof (मागील स्थितीचा पुरावा) <span class="text-danger">*</span></label>
                                                     <select name="groom_info_previous_status_proof" class="form-select">
@@ -506,7 +506,7 @@
                                                     <span class="text-danger is-invalid groom_info_previous_status_proof_err"></span>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <div class="col-lg-4 col-md-4 col-sm-6 col-12 d-none" id="groomInfoUploadPreviousStatusProofs">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Previous Status Proof (मागील स्थितीचा पुरावा)<br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
                                                     <input type="file" class="form-control" name="groom_info_upload_previous_status_proofs" />
@@ -620,14 +620,14 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Date of Birth (जन्मतारीख) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control datepicker" name="bride_info_dob" autocomplete="off" required />
+                                                    <input type="text" class="form-control datepicker" name="bride_info_dob" id="bdate_of_birth" autocomplete="off" required />
                                                     <span class="text-danger is-invalid bride_info_dob_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Age (वय) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="bride_info_age" placeholder="Enter age" required />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="bride_info_age" placeholder="Enter age" id="bage" required />
                                                     <span class="text-danger is-invalid bride_info_age_err"></span>
                                                 </div>
                                             </div>
@@ -756,7 +756,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Previous Status (मागील स्थिती) <span class="text-danger">*</span></label>
-                                                    <select name="bride_info_previous_status" class="form-select" required>
+                                                    <select name="bride_info_previous_status" class="form-select" id="brideInfoPreviousStatus" required>
                                                         <option value="">Choose one</option>
                                                         <option value="1">Unmarried</option>
                                                         <option value="2">Widow/Widower</option>
@@ -765,7 +765,7 @@
                                                     <span class="text-danger is-invalid bride_info_previous_status_err"></span>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <div class="col-lg-4 col-md-4 col-sm-6 col-12 d-none" id="brideInfoPreviousStatusProof">
                                                 <div class="mb-3">
                                                     <label class="form-label">Previous Status Proof (मागील स्थितीचा पुरावा) <span class="text-danger">*</span></label>
                                                     <select name="bride_info_previous_status_proof" class="form-select" required>
@@ -774,7 +774,7 @@
                                                     <span class="text-danger is-invalid bride_info_previous_status_proof_err"></span>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <div class="col-lg-4 col-md-4 col-sm-6 col-12 d-none" id="brideInfoUploadPreviousStatusProofs">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Previous Status Proof (मागील स्थितीचा पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
                                                     <input type="file" class="form-control" name="bride_info_upload_previous_status_proofs" required />
@@ -783,7 +783,7 @@
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end">
-                                            <button class="btn btn-primary" id="brideInformationBtn">Submit</button>
+                                            <button class="btn btn-primary d-none" id="brideInformationBtn">Submit</button>
                                         </div>
                                     </form>
                                 </div>
@@ -1624,6 +1624,64 @@
                 $("#gage").val("");
                 alert("Your Age is less than 21 you are not eligible");
                 $("#groomInformationBtn").hide();
+            }
+        });
+
+
+        $('#groomInfoPreviousStatus').change(function(){
+            let checkValue = $(this).val();
+
+            if(checkValue == "2"){
+                $('#groomInfoPreviousStatusProof').removeClass('d-none');
+                $('#groomInfoPreviousStatusProof').find('select').html(`<option value="1"> Death Certificate </option>`);
+                $('#groomInfoUploadPreviousStatusProofs').removeClass('d-none');
+            }else if(checkValue == "3"){
+                $('#groomInfoPreviousStatusProof').removeClass('d-none');
+                $('#groomInfoPreviousStatusProof').find('select').html(`<option value="2"> Decree &amp; Court Judgement </option>`);
+                $('#groomInfoUploadPreviousStatusProofs').removeClass('d-none');
+            }else{
+                $('#groomInfoPreviousStatusProof').addClass('d-none');
+                $('#groomInfoPreviousStatusProof').find('select').html(`<option value=""></option>`);
+                $('#groomInfoUploadPreviousStatusProofs').addClass('d-none');
+            }
+        });
+
+
+        $("#bdate_of_birth").change(function() {
+            var today = new Date();
+            var dateString = $(this).val();
+            var birthDate = new Date(dateString);
+            var age = today.getFullYear() - birthDate.getFullYear();
+            var m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            
+            if (age >= 18) {
+                $("#bage").val(age);
+                $("#brideInformationBtn").removeClass('d-none');
+            } else {
+                $("#bage").val("");
+                alert("Your Age is less than 18 you are not eligible");
+                $("#brideInformationBtn").addClass('d-none');
+            }
+        });
+
+        $('#brideInfoPreviousStatus').change(function(){
+            let checkValue = $(this).val();
+
+            if(checkValue == "2"){
+                $('#brideInfoPreviousStatusProof').removeClass('d-none');
+                $('#brideInfoPreviousStatusProof').find('select').html(`<option value="1"> Death Certificate </option>`);
+                $('#brideInfoUploadPreviousStatusProofs').removeClass('d-none');
+            }else if(checkValue == "3"){
+                $('#brideInfoPreviousStatusProof').removeClass('d-none');
+                $('#brideInfoPreviousStatusProof').find('select').html(`<option value="2"> Decree &amp; Court Judgement </option>`);
+                $('#brideInfoUploadPreviousStatusProofs').removeClass('d-none');
+            }else{
+                $('#brideInfoPreviousStatusProof').addClass('d-none');
+                $('#brideInfoPreviousStatusProof').find('select').html(`<option value=""></option>`);
+                $('#brideInfoUploadPreviousStatusProofs').addClass('d-none');
             }
         });
     })
