@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\TaxProperty;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PropertyTaxController extends Controller
+class SelfAssessmentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-
+        //
     }
 
     /**
@@ -20,7 +20,7 @@ class PropertyTaxController extends Controller
      */
     public function create()
     {
-       
+        return view('PropertyTax.selfAssessment.create');
     }
 
     /**
@@ -28,7 +28,7 @@ class PropertyTaxController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
@@ -62,5 +62,4 @@ class PropertyTaxController extends Controller
     {
         //
     }
-
 }
