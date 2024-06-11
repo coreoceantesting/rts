@@ -26,9 +26,6 @@ class CurlAPiService
             }
         }
 
-        // Log the post fields for debugging
-        Log::info($postFields);
-
         // Configure cURL options
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
@@ -41,9 +38,6 @@ class CurlAPiService
         if ($response === false) {
             $error = curl_error($ch);
             Log::error($error);
-        } else {
-            // Log the response
-            Log::info($response);
         }
 
         // Close cURL session
