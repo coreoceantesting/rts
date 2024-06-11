@@ -20,6 +20,8 @@ use App\Http\Controllers\TaxProperty\TransferPropertyController;
 use App\Http\Controllers\TaxProperty\TaxExemptionNonResidentController;
 use App\Http\Controllers\TaxProperty\SelfAssessmentController;
 use App\Http\Controllers\TaxProperty\RegistrationOfObjectionController;
+use App\Http\Controllers\fireDepartment\FireNoObjectionController;
+use App\Http\Controllers\fireDepartment\FinalFireNoObjectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,6 +105,10 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('tax-exemption-non-resident', TaxExemptionNonResidentController::class);
     Route::resource('self-assessment', SelfAssessmentController::class);
     Route::resource('registration-of-objection', RegistrationOfObjectionController::class);
+
+    // Fire Department Routes
+    Route::resource('fire-no-objection-certificate', FireNoObjectionController::class);
+    Route::resource('fire-final-no-objection-certificate', FinalFireNoObjectionController::class);
 
     // profile route
     Route::get('/profile', [MyProfileController::class, 'profile'])->name('user.profile');
