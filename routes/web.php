@@ -10,6 +10,16 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PropertyTaxController;
+use App\Http\Controllers\TaxProperty\IssuanceController;
+use App\Http\Controllers\TaxProperty\NewTaxationController;
+use App\Http\Controllers\TaxProperty\NoDueController;
+use App\Http\Controllers\TaxProperty\RetaxationController;
+use App\Http\Controllers\TaxProperty\TaxDemandController;
+use App\Http\Controllers\TaxProperty\TaxExemptionController;
+use App\Http\Controllers\TaxProperty\TransferPropertyController;
+use App\Http\Controllers\TaxProperty\TaxExemptionNonResidentController;
+use App\Http\Controllers\TaxProperty\SelfAssessmentController;
+use App\Http\Controllers\TaxProperty\RegistrationOfObjectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,12 +93,16 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::get('service-information', [ServiceInformationController::class, 'serviceInformation'])->name('service-information');
 
     // property Tax Routes
-    Route::resource('issuance-of-property-tax', PropertyTaxController::class);
-    Route::get('/create-no-dues-certificate', [PropertyTaxController::class, 'create_no_dues_certificate'])->name('create_no_dues_certificate');
-    Route::get('/create-transfer-of-property', [PropertyTaxController::class, 'create_transfer_of_property_certificate'])->name('create_transfer_of_property_certificate');
-    Route::get('/create-new-taxation', [PropertyTaxController::class, 'create_new_taxation'])->name('create_new_taxation');
-    Route::get('/create-retaxation', [PropertyTaxController::class, 'create_retaxation'])->name('create_retaxation');
-    Route::get('/create-tax-demand', [PropertyTaxController::class, 'create_taxdemand'])->name('create_taxdemand');
+    Route::resource('issuance-of-property-tax', IssuanceController::class);
+    Route::resource('transfer-property', TransferPropertyController::class);
+    Route::resource('tax-exemption', TaxExemptionController::class);
+    Route::resource('tax-demand', TaxDemandController::class);
+    Route::resource('retaxation', RetaxationController::class);
+    Route::resource('new-taxation', NewTaxationController::class);
+    Route::resource('no-dues', NoDueController::class);
+    Route::resource('tax-exemption-non-resident', TaxExemptionNonResidentController::class);
+    Route::resource('self-assessment', SelfAssessmentController::class);
+    Route::resource('registration-of-objection', RegistrationOfObjectionController::class);
 
     // profile route
     Route::get('/profile', [MyProfileController::class, 'profile'])->name('user.profile');
