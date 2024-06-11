@@ -32,7 +32,7 @@ class MarriageRegistrationFormRequest extends FormRequest
             'registration_from_pan_card_no' => 'required',
             'registration_from_residential_ward_name' => 'required',
             'registration_from_marriage_solemnized_within_maharashtra_state' => 'required',
-            'registration_from_affidavit_for_marriage_outside_maharashtras' => 'required|file|mimes:pdf,PDF|max:2048'
+            'registration_from_affidavit_for_marriage_outside_maharashtras' => 'required_if:registration_from_marriage_solemnized_within_maharashtra_state,2|file|mimes:pdf,PDF|max:2048'
         ];
     }
 
