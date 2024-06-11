@@ -47,7 +47,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="javascript:void(0)">
+                    <a class="nav-link menu-link" href="{{ route('my-application') }}">
                         <i class="ri-dashboard-2-line"></i>
                         <span data-key="t-dashboards">My Application</span>
                     </a>

@@ -11,9 +11,9 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="d-flex justify-content-end">
-                                <a href="{{ route('marriage-registration.create') }}" class="btn btn-primary">Add <i class="fa fa-plus"></i></a>
-                            </div>
+                            <h4 class="card-title">
+                                Issuance Of Marriage Registration Certificate / विवाह नोंदणी प्रमाणपत्र देणे
+                            </h4>
                         </div>
                     </div>
                 </div>
@@ -23,17 +23,16 @@
                             <thead>
                                 <tr>
                                     <th>Sr No</th>
-                                    <th>Applicant Name</th>
-                                    <th>Applicant Mobile</th>
-                                    <th>Applicant Email</th>
-                                    <th>Applicant Aadhar</th>
-                                    <th>Applicant Pancard</th>
+                                    <th>Application No</th>
+                                    <th>Service Name</th>
+                                    <th>Date</th>
+                                    <th>Current Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr align="center">
-                                    <td colspan="7">No Data Found</td>
+                                    <td colspan="6">No Service Found</td>
                                 </tr>
                             </tbody>
                         </table>
