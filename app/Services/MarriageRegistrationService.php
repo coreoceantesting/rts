@@ -12,9 +12,17 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use App\Services\CurlAPiService;
 
 class MarriageRegistrationService
 {
+    protected $curlAPiService;
+
+    public function __construct(CurlAPiService $curlAPiService)
+    {
+        $this->curlAPiService = $curlAPiService;
+    }
+
     public function edit($id)
     {
         return MarriageRegistrationForm::with(['marriageRegistrationDetail', 'marriageRegistrationGroomDetail', 'marriageRegistrationBrideInformation', 'marriageRegistrationPriestInformation', 'marriageRegistrationWitnessInformation'])->first();
@@ -42,6 +50,23 @@ class MarriageRegistrationService
 
             $marriageRegistrationForm = MarriageRegistrationForm::updateOrCreate(['id' => $data['marriage_reg_form_id'] ?? null], $data);
 
+            // code to send data to marriage portal
+            $fileData = [
+                'registration_from_affidavit_for_marriage_outside_maharashtras' => $request->file('registration_from_affidavit_for_marriage_outside_maharashtras')
+            ];
+            $data = $this->curlAPiService->sendPostRequest($request->all(), config('rtsapiurl.marriage') . 'ApiController/insert_marriage', $fileData);
+
+            $arr = json_decode($data);
+
+            if ($arr->success) {
+                MarriageRegistrationForm::where('id', $marriageRegistrationForm->id)->update([
+                    'mp_id' => $arr->result->mp_id,
+                    'application_no' => $arr->result->application_id
+                ]);
+            } else {
+                DB::rollback();
+                return false;
+            }
             DB::commit();
 
             return $marriageRegistrationForm;
