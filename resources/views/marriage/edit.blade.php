@@ -629,14 +629,14 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Date of Birth (जन्मतारीख) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control datepicker" name="bride_info_dob" autocomplete="off" value="{{ ($marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_dob) ? date('d-m-Y', strtotime($marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_dob)) : '' }}" required />
+                                                    <input type="text" class="form-control datepicker" name="bride_info_dob" autocomplete="off" value="{{ ($marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_dob) ? date('d-m-Y', strtotime($marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_dob)) : '' }}" id="bdate_of_birth" required />
                                                     <span class="text-danger is-invalid bride_info_dob_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Age (वय) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="bride_info_age" placeholder="Enter age" value="{{ ($marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_age) ? $marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_age : '' }}" required />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="bride_info_age" placeholder="Enter age" value="{{ ($marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_age) ? $marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_age : '' }}" id="bage" required />
                                                     <span class="text-danger is-invalid bride_info_age_err"></span>
                                                 </div>
                                             </div>
@@ -797,7 +797,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="d-flex justify-content-end">
+                                        <div class="d-flex justify-content-end d-none">
                                             <button class="btn btn-primary" id="brideInformationBtn">Submit</button>
                                         </div>
                                     </form>
@@ -1669,6 +1669,44 @@
                 $('#groomInfoPreviousStatusProof').addClass('d-none');
                 $('#groomInfoPreviousStatusProof').find('select').html(`<option value=""></option>`);
                 $('#groomInfoUploadPreviousStatusProofs').addClass('d-none');
+            }
+        });
+        
+        $("#bdate_of_birth").change(function() {
+            var today = new Date();
+            var dateString = $(this).val();
+            var birthDate = new Date(dateString);
+            var age = today.getFullYear() - birthDate.getFullYear();
+            var m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            
+            if (age >= 18) {
+                $("#bage").val(age);
+                $("#brideInformationBtn").removeClass('d-none');
+            } else {
+                $("#bage").val("");
+                alert("Your Age is less than 18 you are not eligible");
+                $("#brideInformationBtn").addClass('d-none');
+            }
+        });
+
+        $('#brideInfoPreviousStatus').change(function(){
+            let checkValue = $(this).val();
+
+            if(checkValue == "2"){
+                $('#brideInfoPreviousStatusProof').removeClass('d-none');
+                $('#brideInfoPreviousStatusProof').find('select').html(`<option value="1"> Death Certificate </option>`);
+                $('#brideInfoUploadPreviousStatusProofs').removeClass('d-none');
+            }else if(checkValue == "3"){
+                $('#brideInfoPreviousStatusProof').removeClass('d-none');
+                $('#brideInfoPreviousStatusProof').find('select').html(`<option value="2"> Decree &amp; Court Judgement </option>`);
+                $('#brideInfoUploadPreviousStatusProofs').removeClass('d-none');
+            }else{
+                $('#brideInfoPreviousStatusProof').addClass('d-none');
+                $('#brideInfoPreviousStatusProof').find('select').html(`<option value=""></option>`);
+                $('#brideInfoUploadPreviousStatusProofs').addClass('d-none');
             }
         });
     })
