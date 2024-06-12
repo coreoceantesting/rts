@@ -26,6 +26,8 @@ use App\Http\Controllers\TownPlaning\BhagNakashaController;
 use App\Http\Controllers\TownPlaning\ZoneCertificateController;
 use App\Http\Controllers\WaterSupplyDepartment\NewWaterConnectionController;
 use App\Http\Controllers\WaterSupplyDepartment\IllegalWaterConnectionController;
+use App\Http\Controllers\ConstructionDepartment\DrainageConnectionController;
+use App\Http\Controllers\ConstructionDepartment\RoadCuttingPermissionController;
 use App\Http\Controllers\WaterSupplyDepartment\ChangeInOwnershipController;
 use App\Http\Controllers\WaterSupplyDepartment\ChangeWaterConnectionSizeController;
 use App\Http\Controllers\WaterSupplyDepartment\WaterReConnectionController;
@@ -134,6 +136,10 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     // route for town planing
     Route::resource('town-planing-zone-certificate', ZoneCertificateController::class);
     Route::resource('town-planing-bhag-nakasha', BhagNakashaController::class);
+
+    // route for construction department
+    Route::resource('construction-drainage-connection', DrainageConnectionController::class);
+    Route::resource('construction-road-cutting', RoadCuttingPermissionController::class);
 });
 
 // Route::get('check-aapalesarkar-user', [AapaleSarkarLoginCheckController::class, 'check']);

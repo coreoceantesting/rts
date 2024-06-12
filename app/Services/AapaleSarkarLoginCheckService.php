@@ -206,4 +206,26 @@ class AapaleSarkarLoginCheckService
             return $response;
         }
     }
+
+    // function to send request to aapale sarkar
+    public function encryptAndSendRequestToAapaleSarkar($trackId, $clientCode, $userId, $serviceId, $applicationId, $paymentStatus, $paymentDate, $digitalSignStatus, $digitalSignDate, $estimateServiceDays, $estimateServiceDate, $amount, $requestFlag, $applicationStatus, $remark, $ud1, $ud2, $ud3, $ud4, $ud5, $checkSumKey, $strKey, $strIV, $soapEndPoint, $soapActionSetAppStatus)
+    {
+        $request1 = sprintf("%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s", $trackId, $clientCode, $userId, $serviceId, $applicationId, $paymentStatus, $paymentDate, $digitalSignStatus, $digitalSignDate, $estimateServiceDays, $estimateServiceDate, $amount, $requestFlag, $applicationStatus, $remark, $ud1, $ud2, $ud3, $ud4, $ud5, $checkSumKey);
+        $checksumvalue = $this->GenerateCheckSumValue($request1);
+
+        $request2 = sprintf("%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s", $trackId, $clientCode, $userId, $serviceId, $applicationId, $paymentStatus, $paymentDate, $digitalSignStatus, $digitalSignDate, $estimateServiceDays, $estimateServiceDate, $amount, $requestFlag, $applicationStatus, $remark, $ud1, $ud2, $ud3, $ud4, $ud5, $checksumvalue);
+
+        $encryptedKey = $this->encryptTripleDES($request2, $strKey, $strIV);
+
+
+        $response = $this->sendRequestToAapaleSarkar($soapEndPoint, $soapActionSetAppStatus, $strKey, $strIV, $encryptedKey, $clientCode);
+
+        if ($response[0]) {
+            if ($response[1]['status'] == "Success") {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
 }

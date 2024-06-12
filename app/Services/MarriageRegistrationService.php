@@ -51,22 +51,23 @@ class MarriageRegistrationService
             $marriageRegistrationForm = MarriageRegistrationForm::updateOrCreate(['id' => $data['marriage_reg_form_id'] ?? null], $data);
 
             // code to send data to marriage portal
-            $fileData = [
-                'registration_from_affidavit_for_marriage_outside_maharashtras' => $request->file('registration_from_affidavit_for_marriage_outside_maharashtras')
-            ];
-            $data = $this->curlAPiService->sendPostRequest($request->all(), config('rtsapiurl.marriage') . 'ApiController/insert_marriage', $fileData);
+            // $fileData = [
+            //     'registration_from_affidavit_for_marriage_outside_maharashtras' => $request->file('registration_from_affidavit_for_marriage_outside_maharashtras')
+            // ];
+            // $data = $this->curlAPiService->sendPostRequest($request->all(), config('rtsapiurl.marriage') . 'ApiController/insert_marriage', $fileData);
 
-            $arr = json_decode($data);
+            // $arr = json_decode($data);
 
-            if ($arr->success) {
-                MarriageRegistrationForm::where('id', $marriageRegistrationForm->id)->update([
-                    'mp_id' => $arr->result->mp_id,
-                    'application_no' => $arr->result->application_id
-                ]);
-            } else {
-                DB::rollback();
-                return false;
-            }
+            // if ($arr->success) {
+            //     MarriageRegistrationForm::where('id', $marriageRegistrationForm->id)->update([
+            //         'mp_id' => $arr->result->mp_id,
+            //         'application_no' => $arr->result->application_id
+            //     ]);
+            // } else {
+            //     DB::rollback();
+            //     return false;
+            // }
+            // // end of code to send data to marriage portal
             DB::commit();
 
             return $marriageRegistrationForm;
