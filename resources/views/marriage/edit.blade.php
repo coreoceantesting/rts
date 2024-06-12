@@ -95,7 +95,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Applicant alternate Mobile Number (अर्जदाराचा पर्यायी मोबाईल क्रमांक)</label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="registration_from_alternate_mobile_number" placeholder="Enter applicant alternate mobile number" value="{{ ($marriageRegistration->registration_from_alternate_mobile_number) ? $marriageRegistration->registration_from_alternate_mobile_number : '' }}" required />
+                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="registration_from_alternate_mobile_number" placeholder="Enter applicant alternate mobile number" value="{{ ($marriageRegistration->registration_from_alternate_mobile_number) ? $marriageRegistration->registration_from_alternate_mobile_number : '' }}" />
                                                     <span class="text-danger is-invalid registration_from_alternate_mobile_number_err"></span>
                                                 </div>
                                             </div>
