@@ -22,6 +22,8 @@ use App\Http\Controllers\TaxProperty\SelfAssessmentController;
 use App\Http\Controllers\TaxProperty\RegistrationOfObjectionController;
 use App\Http\Controllers\fireDepartment\FireNoObjectionController;
 use App\Http\Controllers\fireDepartment\FinalFireNoObjectionController;
+use App\Http\Controllers\TownPlaning\BhagNakashaController;
+use App\Http\Controllers\TownPlaning\ZoneCertificateController;
 use App\Http\Controllers\WaterSupplyDepartment\NewWaterConnectionController;
 use App\Http\Controllers\WaterSupplyDepartment\IllegalWaterConnectionController;
 use App\Http\Controllers\WaterSupplyDepartment\ChangeInOwnershipController;
@@ -120,6 +122,10 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
 
     // profile route
     Route::get('/profile', [MyProfileController::class, 'profile'])->name('user.profile');
+
+    // route for town planing
+    Route::resource('town-planing-zone-certificate', ZoneCertificateController::class);
+    Route::resource('town-planing-bhag-nakasha', BhagNakashaController::class);
 });
 
 // Route::get('check-aapalesarkar-user', [AapaleSarkarLoginCheckController::class, 'check']);
