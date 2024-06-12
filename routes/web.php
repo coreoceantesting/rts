@@ -27,6 +27,10 @@ use App\Http\Controllers\TownPlaning\ZoneCertificateController;
 use App\Http\Controllers\WaterSupplyDepartment\NewWaterConnectionController;
 use App\Http\Controllers\WaterSupplyDepartment\IllegalWaterConnectionController;
 use App\Http\Controllers\WaterSupplyDepartment\ChangeInOwnershipController;
+use App\Http\Controllers\WaterSupplyDepartment\ChangeWaterConnectionSizeController;
+use App\Http\Controllers\WaterSupplyDepartment\WaterReConnectionController;
+use App\Http\Controllers\WaterSupplyDepartment\DisconnectWaterSupplyController;
+use App\Http\Controllers\WaterSupplyDepartment\ChangeConnecionUsageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -119,6 +123,10 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('water-dept-new-connection', NewWaterConnectionController::class);
     Route::resource('water-dept-illegal-connection', IllegalWaterConnectionController::class);
     Route::resource('water-change-ownership', ChangeInOwnershipController::class);
+    Route::resource('water-connection-size-change', ChangeWaterConnectionSizeController::class);
+    Route::resource('water-reconnection', WaterReConnectionController::class);
+    Route::resource('water-disconnect-supply', DisconnectWaterSupplyController::class);
+    Route::resource('water-change-connection-usage', ChangeConnecionUsageController::class);
 
     // profile route
     Route::get('/profile', [MyProfileController::class, 'profile'])->name('user.profile');
