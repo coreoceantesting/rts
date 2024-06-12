@@ -24,6 +24,7 @@ use App\Http\Controllers\fireDepartment\FireNoObjectionController;
 use App\Http\Controllers\fireDepartment\FinalFireNoObjectionController;
 use App\Http\Controllers\WaterSupplyDepartment\NewWaterConnectionController;
 use App\Http\Controllers\WaterSupplyDepartment\IllegalWaterConnectionController;
+use App\Http\Controllers\WaterSupplyDepartment\ChangeInOwnershipController;
 
 /*
 |--------------------------------------------------------------------------
@@ -115,6 +116,7 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     // Water Supply Department Routes
     Route::resource('water-dept-new-connection', NewWaterConnectionController::class);
     Route::resource('water-dept-illegal-connection', IllegalWaterConnectionController::class);
+    Route::resource('water-change-ownership', ChangeInOwnershipController::class);
 
     // profile route
     Route::get('/profile', [MyProfileController::class, 'profile'])->name('user.profile');
