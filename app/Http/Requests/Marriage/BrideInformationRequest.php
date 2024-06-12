@@ -50,8 +50,8 @@ class BrideInformationRequest extends FormRequest
             'bride_info_age_proof_files' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
             'bride_info_upload_signatures' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
             'bride_info_previous_status' => 'required',
-            'bride_info_previous_status_proof' => 'nullable',
-            'bride_info_upload_previous_status_proofs' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
+            'bride_info_previous_status_proof' => 'required_if:bride_info_previous_status,1|required_if:bride_info_previous_status,2',
+            'bride_info_upload_previous_status_proofs' => 'required_if:bride_info_previous_status,1|required_if:bride_info_previous_status,2|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
         ];
     }
 
@@ -106,8 +106,8 @@ class BrideInformationRequest extends FormRequest
             'bride_info_upload_signatures.mimes' => 'Only jpg, png, jpeg and pdf file supported',
             'bride_info_upload_signatures.max' => 'Max 400kb file is supported',
             'bride_info_previous_status.required' => 'Please select previous status',
-            'bride_info_previous_status_proof.required' => 'Please select previous status proof',
-            'bride_info_upload_previous_status_proofs.required' => 'Please upload previous status proof',
+            'bride_info_previous_status_proof.required_if' => 'Please select previous status proof',
+            'bride_info_upload_previous_status_proofs.required_if' => 'Please upload previous status proof',
             'bride_info_upload_previous_status_proofs.mimes' => 'Only jpg, png, jpeg and pdf file supported',
             'bride_info_upload_previous_status_proofs.max' => 'Max 400kb file is supported',
         ];

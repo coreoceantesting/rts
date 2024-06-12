@@ -32,7 +32,7 @@ class MarriageRegistrationFormRequest extends FormRequest
             'registration_from_pan_card_no' => 'required',
             'registration_from_residential_ward_name' => 'required',
             'registration_from_marriage_solemnized_within_maharashtra_state' => 'required',
-            'registration_from_affidavit_for_marriage_outside_maharashtras' => 'required|file|mimes:pdf,PDF|max:2048'
+            'registration_from_affidavit_for_marriage_outside_maharashtras' => 'required_if:registration_from_marriage_solemnized_within_maharashtra_state,2|file|mimes:pdf,PDF|max:2048'
         ];
     }
 
@@ -58,11 +58,10 @@ class MarriageRegistrationFormRequest extends FormRequest
             'registration_from_pan_card_no.required' => 'Please enter pan card no',
             'registration_from_residential_ward_name.required' => 'Please select ward name',
             'registration_from_marriage_solemnized_within_maharashtra_state.required' => 'Please select state',
-            'registration_from_affidavit_for_marriage_outside_maharashtras.required' => 'Please upload affidavit file for marriage outside maharastra',
+            'registration_from_affidavit_for_marriage_outside_maharashtras.required_if' => 'Please upload affidavit file for marriage outside maharastra',
             'registration_from_affidavit_for_marriage_outside_maharashtras.file' => 'Please upload proper file',
             'registration_from_affidavit_for_marriage_outside_maharashtras.mimes' => 'Please upload only pdf file',
             'registration_from_affidavit_for_marriage_outside_maharashtras.max' => 'File should be less than 2mb',
-
         ];
     }
 }
