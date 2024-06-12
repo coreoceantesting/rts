@@ -20,8 +20,6 @@ class CurlAPiService
                 if ($file) {
                     // Create a CurlFile instance
                     $postFields[$key] = new \CurlFile($file->getPathname(), $file->getMimeType(), $file->getClientOriginalName());
-
-                    // $postFields[$key] = new \CurlFile($file, $request->file($key)->getMimeType(), basename($request->file($key)->getClientOriginalName()));
                 }
             }
         }
