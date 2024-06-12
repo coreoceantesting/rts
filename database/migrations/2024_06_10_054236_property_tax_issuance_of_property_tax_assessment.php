@@ -11,21 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('property_tax_issuance_of_property_tax_assessment', function (Blueprint $table) {
+        Schema::create('property_tax_issuance_of_property_tax_assessments', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
+            $table->boolean('is_aapale_sarkar_payment_paid')->nullable();
             $table->string('applicant_name')->nullable();
             $table->text('applicant_full_address')->nullable();
-            $table->integer('applicant_mobile_no')->nullable();
+            $table->string('applicant_mobile_no')->nullable();
             $table->string('email_id')->nullable();
-            $table->integer('aadhar_no')->nullable();
+            $table->string('aadhar_no')->nullable();
             $table->string('property_owner_name')->nullable();
             $table->string('index_number')->nullable();
             $table->string('property_no')->nullable();
             $table->text('property_address')->nullable();
             $table->integer('assessment_for_year')->nullable();
-            $table->integer('zone')->nullable();
-            $table->integer('ward_area')->nullable();
+            $table->string('zone')->nullable();
+            $table->string('ward_area')->nullable();
             $table->string('house_no')->nullable();
             $table->string('property_usage')->nullable();
             $table->string('construction_type')->nullable();
@@ -34,7 +35,6 @@ return new class extends Migration
             $table->text('property_area')->nullable();
             $table->string('uploaded_application')->nullable();
             $table->string('certificate_of_no_dues')->nullable();
-            $table->string('is_correct_info')->nullable();
             $table->timestamps();
         });
     }
