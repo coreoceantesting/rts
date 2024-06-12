@@ -22,6 +22,8 @@ use App\Http\Controllers\TaxProperty\SelfAssessmentController;
 use App\Http\Controllers\TaxProperty\RegistrationOfObjectionController;
 use App\Http\Controllers\fireDepartment\FireNoObjectionController;
 use App\Http\Controllers\fireDepartment\FinalFireNoObjectionController;
+use App\Http\Controllers\WaterSupplyDepartment\NewWaterConnectionController;
+use App\Http\Controllers\WaterSupplyDepartment\IllegalWaterConnectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,8 +109,12 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('registration-of-objection', RegistrationOfObjectionController::class);
 
     // Fire Department Routes
-    Route::resource('fire-no-objection-certificate', FireNoObjectionController::class);
-    Route::resource('fire-final-no-objection-certificate', FinalFireNoObjectionController::class);
+    Route::resource('fire-no-objection', FireNoObjectionController::class);
+    Route::resource('fire-final-no-objection', FinalFireNoObjectionController::class);
+
+    // Water Supply Department Routes
+    Route::resource('water-dept-new-connection', NewWaterConnectionController::class);
+    Route::resource('water-dept-illegal-connection', IllegalWaterConnectionController::class);
 
     // profile route
     Route::get('/profile', [MyProfileController::class, 'profile'])->name('user.profile');
