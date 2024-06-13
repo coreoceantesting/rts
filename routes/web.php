@@ -33,6 +33,12 @@ use App\Http\Controllers\WaterSupplyDepartment\ChangeWaterConnectionSizeControll
 use App\Http\Controllers\WaterSupplyDepartment\WaterReConnectionController;
 use App\Http\Controllers\WaterSupplyDepartment\DisconnectWaterSupplyController;
 use App\Http\Controllers\WaterSupplyDepartment\ChangeConnecionUsageController;
+use App\Http\Controllers\WaterSupplyDepartment\WaterTaxController;
+use App\Http\Controllers\WaterSupplyDepartment\NoDuesController;
+use App\Http\Controllers\WaterSupplyDepartment\UnavailabilityOfWaterSupplyController;
+use App\Http\Controllers\WaterSupplyDepartment\DefectiveWaterMeterController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -129,6 +135,10 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('water-reconnection', WaterReConnectionController::class);
     Route::resource('water-disconnect-supply', DisconnectWaterSupplyController::class);
     Route::resource('water-change-connection-usage', ChangeConnecionUsageController::class);
+    Route::resource('water-Tax-bill', WaterTaxController::class);
+    Route::resource('water-no-dues', NoDuesController::class);
+    Route::resource('water-unavailability-supply', UnavailabilityOfWaterSupplyController::class);
+    Route::resource('water-defective-meter', DefectiveWaterMeterController::class);
 
     // profile route
     Route::get('/profile', [MyProfileController::class, 'profile'])->name('user.profile');
