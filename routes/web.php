@@ -37,6 +37,10 @@ use App\Http\Controllers\WaterSupplyDepartment\WaterTaxController;
 use App\Http\Controllers\WaterSupplyDepartment\NoDuesController;
 use App\Http\Controllers\WaterSupplyDepartment\UnavailabilityOfWaterSupplyController;
 use App\Http\Controllers\WaterSupplyDepartment\DefectiveWaterMeterController;
+use App\Http\Controllers\WaterSupplyDepartment\WaterPressureController;
+use App\Http\Controllers\WaterSupplyDepartment\PlumberLicenseController;
+use App\Http\Controllers\WaterSupplyDepartment\RenewalPlumberLicenseController;
+use App\Http\Controllers\WaterSupplyDepartment\WaterQualityComplaintController;
 
 
 
@@ -139,6 +143,10 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('water-no-dues', NoDuesController::class);
     Route::resource('water-unavailability-supply', UnavailabilityOfWaterSupplyController::class);
     Route::resource('water-defective-meter', DefectiveWaterMeterController::class);
+    Route::resource('water-pressure-complaint', WaterPressureController::class);
+    Route::resource('water-plumber-license', PlumberLicenseController::class);
+    Route::resource('water-renewal-plumber-license', RenewalPlumberLicenseController::class);
+    Route::resource('water-quality-complaint', WaterQualityComplaintController::class);
 
     // profile route
     Route::get('/profile', [MyProfileController::class, 'profile'])->name('user.profile');
