@@ -4,9 +4,18 @@ namespace App\Http\Controllers\TaxProperty;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\PropertyTax\TaxExemptionRequest;
+use App\Services\PropertyTax\TaxExemptionService;
 
 class TaxExemptionController extends Controller
 {
+    protected $taxExemptionService;
+
+    public function __construct(TaxExemptionService $taxExemptionService)
+    {
+        $this->taxExemptionService = $taxExemptionService;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -26,9 +35,19 @@ class TaxExemptionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TaxExemptionRequest $request)
     {
-        //
+        $taxExemption = $this->taxExemptionService->store($request);
+
+        if ($taxExemption) {
+            return response()->json([
+                'success' => 'Tax exemption created successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**
@@ -50,9 +69,19 @@ class TaxExemptionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(TaxExemptionRequest $request, string $id)
     {
-        //
+        $taxExemption = $this->taxExemptionService->update($request);
+
+        if ($taxExemption) {
+            return response()->json([
+                'success' => 'Tax exemption updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**

@@ -4,9 +4,17 @@ namespace App\Http\Controllers\TaxProperty;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\PropertyTax\PropertyTaxAssessmentRequest;
+use App\Services\PropertyTax\PropertyTaxAssessmentService;
 
 class IssuanceController extends Controller
 {
+    protected $propertyTaxAssessmentService;
+
+    public function __construct(PropertyTaxAssessmentService $propertyTaxAssessmentService)
+    {
+        $this->propertyTaxAssessmentService = $propertyTaxAssessmentService;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -26,9 +34,19 @@ class IssuanceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PropertyTaxAssessmentRequest $request)
     {
-        //
+        $propertyTaxAssessment = $this->propertyTaxAssessmentService->store($request);
+
+        if ($propertyTaxAssessment) {
+            return response()->json([
+                'success' => 'Property tax assessment created successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**
@@ -44,15 +62,29 @@ class IssuanceController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $propertyTaxAssessment = $this->propertyTaxAssessmentService->edit($id);
+
+        return view('PropertyTax.issuanceOfPropertyTax.edit')->with([
+            'propertyTaxAssessment' => $propertyTaxAssessment
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PropertyTaxAssessmentRequest $request, string $id)
     {
-        //
+        $propertyTaxAssessment = $this->propertyTaxAssessmentService->update($request);
+
+        if ($propertyTaxAssessment) {
+            return response()->json([
+                'success' => 'Property tax assessment updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**

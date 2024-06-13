@@ -4,9 +4,18 @@ namespace App\Http\Controllers\TaxProperty;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\PropertyTax\TaxDemandRequest;
+use App\Services\PropertyTax\TaxDemandService;
 
 class TaxDemandController extends Controller
 {
+    protected $taxDemandService;
+
+    public function __construct(TaxDemandService $taxDemandService)
+    {
+        $this->taxDemandService = $taxDemandService;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -26,9 +35,19 @@ class TaxDemandController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TaxDemandRequest $request)
     {
-        //
+        $taxDemand = $this->taxDemandService->store($request);
+
+        if ($taxDemand) {
+            return response()->json([
+                'success' => 'Tax demand created successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**
@@ -50,9 +69,19 @@ class TaxDemandController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(TaxDemandRequest $request, string $id)
     {
-        //
+        $taxDemand = $this->taxDemandService->update($request);
+
+        if ($taxDemand) {
+            return response()->json([
+                'success' => 'Tax demand updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**

@@ -4,9 +4,18 @@ namespace App\Http\Controllers\TaxProperty;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\PropertyTax\NoDueCertificateRequest;
+use App\Services\PropertyTax\NoDueCertificateService;
 
 class NoDueController extends Controller
 {
+    protected $noDueCertificateService;
+
+    public function __construct(NoDueCertificateService $noDueCertificateService)
+    {
+        $this->noDueCertificateService = $noDueCertificateService;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -26,9 +35,19 @@ class NoDueController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(NoDueCertificateRequest $request)
     {
-        //
+        $noDue = $this->noDueCertificateService->store($request);
+
+        if ($noDue) {
+            return response()->json([
+                'success' => 'No due certificate created successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**
@@ -50,9 +69,19 @@ class NoDueController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(NoDueCertificateRequest $request, string $id)
     {
-        //
+        $noDue = $this->noDueCertificateService->update($request);
+
+        if ($noDue) {
+            return response()->json([
+                'success' => 'No due certificate updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**

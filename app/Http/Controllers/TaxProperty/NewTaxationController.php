@@ -4,9 +4,17 @@ namespace App\Http\Controllers\TaxProperty;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\PropertyTax\NewTaxationRequest;
+use App\Services\PropertyTax\NewtaxationService;
 
 class NewTaxationController extends Controller
 {
+    protected $newtaxationService;
+
+    public function __construct(NewtaxationService $newtaxationService)
+    {
+        $this->newtaxationService = $newtaxationService;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -26,9 +34,19 @@ class NewTaxationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(NewTaxationRequest $request)
     {
-        //
+        $newTax = $this->newtaxationService->store($request);
+
+        if ($newTax) {
+            return response()->json([
+                'success' => 'New tax created successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**
@@ -50,9 +68,19 @@ class NewTaxationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(NewTaxationRequest $request, string $id)
     {
-        //
+        $newTax = $this->newtaxationService->update($request);
+
+        if ($newTax) {
+            return response()->json([
+                'success' => 'New tax update successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**

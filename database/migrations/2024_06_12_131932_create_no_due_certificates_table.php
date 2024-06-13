@@ -13,6 +13,23 @@ return new class extends Migration
     {
         Schema::create('no_due_certificates', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id')->nullable();
+            $table->boolean('is_aapale_sarkar_payment_paid')->nullable();
+            $table->string('applicant_name_eng')->nullable();
+            $table->string('applicant_name_mar')->nullable();
+            $table->text('applicant_full_address_eng')->nullable();
+            $table->text('applicant_full_address_mar')->nullable();
+            $table->text('applicant_mobile_no')->nullable();
+            $table->string('email_id')->nullable();
+            $table->string('aadhar_no')->nullable();
+            $table->string('zone')->nullable();
+            $table->string('ward_area')->nullable();
+            $table->string('property_address')->nullable();
+            $table->string('house_no')->nullable();
+            $table->string('index_number')->nullable();
+            $table->string('property_no')->nullable();
+            $table->string('annual_period')->nullable();
+            $table->string('uploaded_application')->nullable();
             $table->timestamps();
         });
     }

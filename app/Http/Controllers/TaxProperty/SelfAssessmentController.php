@@ -4,9 +4,18 @@ namespace App\Http\Controllers\TaxProperty;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\PropertyTax\SelfAssessmentRequest;
+use App\Services\PropertyTax\SelfAssessmentService;
 
 class SelfAssessmentController extends Controller
 {
+    protected $selfAssessmentService;
+
+    public function __construct(SelfAssessmentService $selfAssessmentService)
+    {
+        $this->selfAssessmentService = $selfAssessmentService;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -26,9 +35,19 @@ class SelfAssessmentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SelfAssessmentRequest $request)
     {
-        //
+        $selfAssessment = $this->selfAssessmentService->store($request);
+
+        if ($selfAssessment) {
+            return response()->json([
+                'success' => 'Self assessment created successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**
@@ -50,9 +69,19 @@ class SelfAssessmentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(SelfAssessmentRequest $request, string $id)
     {
-        //
+        $selfAssessment = $this->selfAssessmentService->update($request);
+
+        if ($selfAssessment) {
+            return response()->json([
+                'success' => 'Self assessment updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**
