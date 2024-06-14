@@ -6,6 +6,7 @@ use App\Models\PropertyTax\NoDueCertificate;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class NoDueCertificateService
 {
@@ -15,6 +16,10 @@ class NoDueCertificateService
 
         try {
             $request['user_id'] = Auth::user()->id;
+            if ($request->hasFile('uploaded_applications')) {
+                $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/no-due');
+            }
+
             NoDueCertificate::create($request->all());
             DB::commit();
 
@@ -37,6 +42,14 @@ class NoDueCertificateService
 
         try {
             $noDueCertificate = NoDueCertificate::find($request->id);
+
+            if ($request->hasFile('uploaded_applications')) {
+                if ($noDueCertificate && Storage::exists($noDueCertificate->uploaded_application)) {
+                    Storage::delete($noDueCertificate->uploaded_application);
+                }
+                $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/no-due');
+            }
+
             $noDueCertificate->update($request->all());
 
             DB::commit();
