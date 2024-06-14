@@ -4,9 +4,20 @@ namespace App\Http\Controllers\WaterSupplyDepartment;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\WaterDepartment\NewWaterConnection\CreateNewConnectionRequest;
+use App\Http\Requests\WaterDepartment\NewWaterConnection\UpdateNewConnectionRequest;
+use App\Services\WaterDepartment\NewWaterConnection\NewWaterConnectionService;
+use App\Models\WaterDepartment\Waternewconnection;
 
 class NewWaterConnectionController extends Controller
 {
+
+    protected $NewWaterConnectionService;
+
+    public function __construct(NewWaterConnectionService $NewWaterConnectionService)
+    {
+        $this->NewWaterConnectionService = $NewWaterConnectionService;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -26,9 +37,19 @@ class NewWaterConnectionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateNewConnectionRequest $request)
     {
-        //
+        $NewWaterConnectionService = $this->NewWaterConnectionService->store($request);
+
+        if ($NewWaterConnectionService) {
+            return response()->json([
+                'success' => 'New tax created successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**
@@ -44,15 +65,26 @@ class NewWaterConnectionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = Waternewconnection::findOrFail($id);
+        return view('WaterSupplyDepartment.NewWaterConnection.edit', compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateNewConnectionRequest $request, string $id)
     {
-        //
+        $NewWaterConnectionService = $this->NewWaterConnectionService->update($request, $id);
+
+        if ($NewWaterConnectionService) {
+            return response()->json([
+                'success' => 'New tax update successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**

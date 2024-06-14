@@ -132,8 +132,8 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('fire-final-no-objection', FinalFireNoObjectionController::class);
 
     // Water Supply Department Routes
-    Route::resource('water-dept-new-connection', NewWaterConnectionController::class);
-    Route::resource('water-dept-illegal-connection', IllegalWaterConnectionController::class);
+    Route::resource('water-new-connection', NewWaterConnectionController::class);
+    Route::resource('water-illegal-connection', IllegalWaterConnectionController::class);
     Route::resource('water-change-ownership', ChangeInOwnershipController::class);
     Route::resource('water-connection-size-change', ChangeWaterConnectionSizeController::class);
     Route::resource('water-reconnection', WaterReConnectionController::class);
