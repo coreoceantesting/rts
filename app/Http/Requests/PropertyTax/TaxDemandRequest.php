@@ -31,7 +31,6 @@ class TaxDemandRequest extends FormRequest
             'property_address' => 'required',
             'property_no' => 'required',
             'survey_number' => 'required',
-            'index_number' => 'required',
             'house_no' => 'required',
             'zone' => 'required',
             'ward_area' => 'required',
@@ -40,7 +39,7 @@ class TaxDemandRequest extends FormRequest
             'construction_type' => 'required',
             'is_construction_authorized' => 'required',
             'is_there_water_connection' => 'required',
-            'uploaded_application' => 'required',
+            'uploaded_applications' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'is_correct_info' => 'required'
         ];
     }
@@ -48,25 +47,26 @@ class TaxDemandRequest extends FormRequest
     public function messages()
     {
         return [
-            'applicant_full_name.required' => '',
-            'applicant_full_address.required' => '',
-            'applicant_mobile_no.required' => '',
-            'email_id.required' => '',
-            'aadhar_no.required' => '',
-            'property_owner_name.required' => '',
-            'property_address.required' => '',
-            'property_no.required' => '',
-            'survey_number.required' => '',
-            'index_number.required' => '',
-            'house_no.required' => '',
-            'zone.required' => '',
-            'ward_area.required' => '',
-            'property_area.required' => '',
-            'property_usage.required' => '',
-            'construction_type.required' => '',
-            'is_construction_authorized.required' => '',
-            'is_there_water_connection.required' => '',
-            'uploaded_application.required' => '',
+            'applicant_full_name.required' => 'Please enter full name',
+            'applicant_full_address.required' => 'Please enter full address',
+            'applicant_mobile_no.required' => 'Please enter mobile no',
+            'email_id.required' => 'Please enter email',
+            'aadhar_no.required' => 'Please enter aadhar no',
+            'property_owner_name.required' => 'Please enter property owner name',
+            'property_address.required' => 'Please enter property address',
+            'property_no.required' => 'Please enter property no',
+            'survey_number.required' => 'Please enter survey no',
+            'house_no.required' => 'Please enter house no',
+            'zone.required' => 'Please select zone',
+            'ward_area.required' => 'Please enter ward area',
+            'property_area.required' => 'Please enter property area',
+            'property_usage.required' => 'Please select property usage',
+            'construction_type.required' => 'Please select construction type',
+            'is_construction_authorized.required' => 'Please confirm is construction authorized',
+            'is_there_water_connection.required' => 'Please confirm is there water connection',
+            'uploaded_applications.required' => 'Please upload application file',
+            'uploaded_applications.mimes' => 'File should be png, jpg and pdf type',
+            'uploaded_applications.max' => 'File should be less than 2mb',
             'is_correct_info.required' => 'Please accept declaration'
         ];
     }

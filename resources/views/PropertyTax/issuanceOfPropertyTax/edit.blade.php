@@ -17,32 +17,32 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="applicant_name">Applicant Name / अर्जदाराचे नाव<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="applicant_name" name="applicant_name" type="text" placeholder="Enter Applicant Name" value="{{ $propertyTaxAssessment->applicant_name }}">
+                                    <input class="form-control" id="applicant_name" name="applicant_name" type="text" placeholder="Enter Applicant Name" value="{{ $propertyTaxAssessment->applicant_name }}" required>
                                     <span class="text-danger is-invalid applicant_name_err"></span>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="applicant_full_address">Applicant's Full Address / अर्जदाराचा पूर्ण पत्ता <span class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="applicant_full_address" id="applicant_full_address" cols="30" rows="2"  placeholder="Enter Applicant Address">{{ $propertyTaxAssessment->applicant_full_address }}</textarea>
+                                    <textarea class="form-control" name="applicant_full_address" id="applicant_full_address" cols="30" rows="2"  placeholder="Enter Applicant Address" required>{{ $propertyTaxAssessment->applicant_full_address }}</textarea>
                                     <span class="text-danger is-invalid applicant_full_address_err"></span>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="applicant_mobile_no">Mobile Number / मोबाईल नंबर<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="applicant_mobile_no" name="applicant_mobile_no" type="number" oninput="this.value = this.value.replace(/\D/g, '')" placeholder="Enter Mobile Number" value="{{ $propertyTaxAssessment->applicant_mobile_no }}">
+                                    <input class="form-control" id="applicant_mobile_no" name="applicant_mobile_no" type="number" oninput="this.value = this.value.replace(/\D/g, '')" placeholder="Enter Mobile Number" value="{{ $propertyTaxAssessment->applicant_mobile_no }}" required>
                                     <span class="text-danger is-invalid applicant_mobile_no_err"></span>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="email_id">Email ID / ई-मेल आयडी<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email" value="{{ $propertyTaxAssessment->email_id }}">
+                                    <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email" value="{{ $propertyTaxAssessment->email_id }}" required>
                                     <span class="text-danger is-invalid email_id_err"></span>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="aadhar_no">Aadhar Number / आधार क्रमांक <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="aadhar_no" oninput="this.value = this.value.replace(/\D/g, '')" name="aadhar_no" type="number" placeholder="Enter Aadhar Card No" value="{{ $propertyTaxAssessment->aadhar_no }}">
+                                    <input class="form-control" id="aadhar_no" oninput="this.value = this.value.replace(/\D/g, '')" name="aadhar_no" type="number" placeholder="Enter Aadhar Card No" value="{{ $propertyTaxAssessment->aadhar_no }}" required>
                                     <span class="text-danger is-invalid aadhar_no_err"></span>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="property_owner_name">Property Owner Name / मालमत्तेच्या मालकाचे नाव<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="property_owner_name" name="property_owner_name" type="text" placeholder="Enter Property Owner Name" value="{{ $propertyTaxAssessment->property_owner_name }}">
+                                    <input class="form-control" id="property_owner_name" name="property_owner_name" type="text" placeholder="Enter Property Owner Name" value="{{ $propertyTaxAssessment->property_owner_name }}" required>
                                     <span class="text-danger is-invalid property_owner_name_err"></span>
                                 </div>
                                 <div class="col-md-4">
@@ -52,22 +52,22 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="property_no">Property No / मालमत्ता क्र <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="property_no" name="property_no" type="text" placeholder="Enter Property Number" value="{{ $propertyTaxAssessment->property_no }}">
+                                    <input class="form-control" id="property_no" name="property_no" type="text" placeholder="Enter Property Number" value="{{ $propertyTaxAssessment->property_no }}" required>
                                     <span class="text-danger is-invalid property_no_err"></span>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="property_address">Property Address / मालमत्तेचा पत्ता <span class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="property_address" id="property_address" cols="30" rows="2"  placeholder="Enter Property Address">{{ $propertyTaxAssessment->property_address }}</textarea>
+                                    <textarea class="form-control" name="property_address" id="property_address" cols="30" rows="2"  placeholder="Enter Property Address" required>{{ $propertyTaxAssessment->property_address }}</textarea>
                                     <span class="text-danger is-invalid property_address_err"></span>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="assessment_for_year">Assessment For Year / वर्षासाठी मूल्यांकन <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="assessment_for_year" name="assessment_for_year" oninput="this.value = this.value.replace(/\D/g, '')" type="number" placeholder="Enter Year" value="{{ $propertyTaxAssessment->assessment_for_year }}">
+                                    <input class="form-control" id="assessment_for_year" name="assessment_for_year" oninput="this.value = this.value.replace(/\D/g, '')" type="number" placeholder="Enter Year" value="{{ $propertyTaxAssessment->assessment_for_year }}" required>
                                     <span class="text-danger is-invalid assessment_for_year_err"></span>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="zone" id="zone">
+                                    <select class="form-select" name="zone" id="zone" required>
                                         <option value="">Select Zone</option>
                                         <option {{ ($propertyTaxAssessment->zone == "1") ? 'selected' : '' }} value="1">Prabhag1</option>
                                         <option {{ ($propertyTaxAssessment->zone == "2") ? 'selected' : '' }} value="2">Prabhag2</option>
@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="ward_area" id="ward_area">
+                                    <select class="form-select" name="ward_area" id="ward_area" required>
                                         <option value="">Select Ward Area</option>
                                         <option {{ ($propertyTaxAssessment->ward_area == "1") ? 'selected' : '' }} value="1">firstward</option>
                                     </select>
@@ -88,12 +88,12 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="house_no">House No / घर क्र<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="house_no" name="house_no" type="text" placeholder="Enter House Number" value="{{ $propertyTaxAssessment->house_no }}">
+                                    <input class="form-control" id="house_no" name="house_no" type="text" placeholder="Enter House Number" value="{{ $propertyTaxAssessment->house_no }}" required>
                                     <span class="text-danger is-invalid house_no_err"></span>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="property_usage">Property Usage / मालमत्ता वापर<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="property_usage" id="property_usage">
+                                    <select class="form-select" name="property_usage" id="property_usage" required>
                                         <option value="">Select Property Usage</option>
                                         <option {{ ($propertyTaxAssessment->property_usage == "निवासी") ? 'selected' : '' }} value="निवासी">निवासी</option>
                                         <option {{ ($propertyTaxAssessment->property_usage == "बिगर निवासी") ? 'selected' : '' }} value="बिगर निवासी">बिगर निवासी</option>
@@ -104,7 +104,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="construction_type">Construction Type / बांधकाम प्रकार<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="construction_type" id="construction_type">
+                                    <select class="form-control" name="construction_type" id="construction_type" required>
                                         <option value="">Select Construction Type</option>
                                         <option {{ ($propertyTaxAssessment->construction_type == "सिमेंट कॉँक्रिट संरचना") ? 'selected' : '' }} value="सिमेंट कॉँक्रिट संरचना">सिमेंट कॉँक्रिट संरचना</option>
                                         <option {{ ($propertyTaxAssessment->construction_type == "सिमेंट / चुना / विटांच्या भिंती व स्ल्याब चे छत") ? 'selected' : '' }} value="सिमेंट / चुना / विटांच्या भिंती व स्ल्याब चे छत">सिमेंट / चुना / विटांच्या भिंती व स्ल्याब चे छत</option>
@@ -117,7 +117,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="is_construction_authorized">Is Construction Authorized ? / बांधकाम अधिकृत आहे का ?<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="is_construction_authorized" id="is_construction_authorized">
+                                    <select class="form-select" name="is_construction_authorized" id="is_construction_authorized" required>
                                         <option value="">Select Option</option>
                                         <option {{ ($propertyTaxAssessment->is_construction_authorized == "1") ? 'selected' : '' }} value="1">Yes</option>
                                         <option {{ ($propertyTaxAssessment->is_construction_authorized == "0") ? 'selected' : '' }} value="0">No</option>
@@ -126,7 +126,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="is_there_water_connection">Is there a Water(Tap) Connection ? / पाणी (नळ) कनेक्शन आहे का ?<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="is_there_water_connection" id="is_there_water_connection">
+                                    <select class="form-select" name="is_there_water_connection" id="is_there_water_connection" required>
                                         <option value="">Select Option</option>
                                         <option {{ ($propertyTaxAssessment->is_there_water_connection == "1") ? 'selected' : '' }} value="1">Yes</option>
                                         <option {{ ($propertyTaxAssessment->is_there_water_connection == "0") ? 'selected' : '' }} value="0">No</option>
@@ -135,23 +135,23 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="property_area">Property Area / मालमत्ता क्षेत्रफळ<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="property_area" name="property_area" type="text" placeholder="Enter Property Area" value="{{ $propertyTaxAssessment->property_area }}">
+                                    <input class="form-control" id="property_area" name="property_area" type="text" placeholder="Enter Property Area" value="{{ $propertyTaxAssessment->property_area }}" required>
                                     <span class="text-danger is-invalid property_area_err"></span>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="col-form-label" for="uploaded_application">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="uploaded_application" name="uploaded_applications" type="file" value="{{ $propertyTaxAssessment->uploaded_application }}">
+                                    <input class="form-control" id="uploaded_application" name="uploaded_applications" type="file" value="{{ $propertyTaxAssessment->uploaded_application }}" required>
                                     <span class="text-danger is-invalid uploaded_application_err"></span>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="col-form-label" for="certificate_of_no_dues">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="certificate_of_no_dues" name="certificate_of_no_duess" type="file" value="{{ $propertyTaxAssessment->certificate_of_no_duess }}">
+                                    <input class="form-control" id="certificate_of_no_dues" name="certificate_of_no_duess" type="file" value="{{ $propertyTaxAssessment->certificate_of_no_duess }}" required>
                                     <span class="text-danger is-invalid certificate_of_no_dues_err"></span>
                                 </div>
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
                                 <div class="col-md-12">
                                     <div class="form-check d-flex align-items-start">
-                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" checked value="yes">
+                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" checked value="yes" required>
                                         <label class="form-check-label ms-2" for="is_correct_info">
                                             "All information provided above is correct and I shall be fully responsible for any discrepancy. <br> वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार असेन."
                                         </label>
@@ -180,10 +180,13 @@
     $("#addForm").submit(function(e) {
         e.preventDefault();
         $("#addSubmit").prop('disabled', true);
+        formdata.append('_method', 'PUT');
+        var model_id = $('#editId').val();
+        var url = "{{ route('issuance-of-property-tax.update', ":model_id") }}";
 
         var formdata = new FormData(this);
         $.ajax({
-            url: '{{ route("issuance-of-property-tax.update") }}',
+            url: url.replace(':model_id', model_id),
             type: 'POST',
             data: formdata,
             contentType: false,

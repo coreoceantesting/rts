@@ -27,7 +27,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="applicant_mobile_no">Mobile Number / मोबाईल नंबर<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="applicant_mobile_no" name="applicant_mobile_no" type="number" placeholder="Enter Mobile Number">
+                                    <input class="form-control" id="applicant_mobile_no" name="applicant_mobile_no" type="number" oninput="this.value = this.value.replace(/\D/g, '')" placeholder="Enter Mobile Number">
                                     <span class="text-danger is-invalid applicant_mobile_no_err"></span>
                                 </div>
                                 <div class="col-md-4">
@@ -37,12 +37,12 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="aadhar_no">Aadhar Number / आधार क्रमांक <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="aadhar_no" name="aadhar_no" type="number" placeholder="Enter Aadhar Card No">
+                                    <input class="form-control" id="aadhar_no" oninput="this.value = this.value.replace(/\D/g, '')" name="aadhar_no" type="number" placeholder="Enter Aadhar Card No">
                                     <span class="text-danger is-invalid aadhar_no_err"></span>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="zone" id="zone">
+                                    <select class="form-select" name="zone" id="zone">
                                         <option value="">Select Zone</option>
                                         <option value="1">Prabhag1</option>
                                         <option value="2">Prabhag2</option>
@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="ward_area" id="ward_area">
+                                    <select class="form-select" name="ward_area" id="ward_area">
                                         <option value="">Select Ward Area</option>
                                         <option value="1">firstward</option>
                                     </select>
@@ -90,7 +90,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="property_usage">Property Usage / मालमत्ता वापर<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="property_usage" id="property_usage">
+                                    <select class="form-select" name="property_usage" id="property_usage">
                                         <option value="">Select Property Usage</option>
                                         <option value="निवासी">निवासी</option>
                                         <option value="बिगर निवासी">बिगर निवासी</option>
@@ -101,7 +101,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="construction_type">Construction Type / बांधकाम प्रकार<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="construction_type" id="construction_type">
+                                    <select class="form-select" name="construction_type" id="construction_type">
                                         <option value="">Select Construction Type</option>
                                         <option value="सिमेंट कॉँक्रिट संरचना">सिमेंट कॉँक्रिट संरचना</option>
                                         <option value="सिमेंट / चुना / विटांच्या भिंती व स्ल्याब चे छत">सिमेंट / चुना / विटांच्या भिंती व स्ल्याब चे छत</option>
@@ -114,7 +114,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="is_construction_authorized">Is Construction Authorized ? / बांधकाम अधिकृत आहे का ?</label>
-                                    <select class="form-control" name="is_construction_authorized" id="is_construction_authorized">
+                                    <select class="form-select" name="is_construction_authorized" id="is_construction_authorized">
                                         <option value="">Select Option</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
@@ -123,7 +123,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="is_there_water_connection">Is there a Water(Tap) Connection ? / पाणी (नळ) कनेक्शन आहे का ?<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="is_there_water_connection" id="is_there_water_connection">
+                                    <select class="form-select" name="is_there_water_connection" id="is_there_water_connection">
                                         <option value="">Select Option</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
@@ -156,7 +156,7 @@
                                     <div class="form-check d-flex align-items-start">
                                         <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" value="yes">
                                         <label class="form-check-label ms-2" for="is_correct_info">
-                                            "All information provided above is correct and I shall be fully responsible for any discrepancy. / वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार असेन."
+                                            "All information provided above is correct and I shall be fully responsible for any discrepancy. <br> वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार असेन."
                                         </label>
                                     </div>
                                     <span class="text-danger is-invalid is_correct_info_err"></span>
@@ -186,7 +186,7 @@
 
         var formdata = new FormData(this);
         $.ajax({
-            url: '',
+            url: '{{ route("retaxation.store") }}',
             type: 'POST',
             data: formdata,
             contentType: false,

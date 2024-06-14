@@ -63,7 +63,11 @@ class TransferPropertyController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $transferProperty = $this->transferPropertyCertificateService->store($id);
+
+        return view('PropertyTax.transferOfProperty.edit')->with([
+            'transferProperty' => $transferProperty
+        ]);
     }
 
     /**
