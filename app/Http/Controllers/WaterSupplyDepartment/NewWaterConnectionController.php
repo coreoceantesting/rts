@@ -43,7 +43,7 @@ class NewWaterConnectionController extends Controller
 
         if ($NewWaterConnectionService) {
             return response()->json([
-                'success' => 'New tax created successfully'
+                'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
@@ -78,7 +78,7 @@ class NewWaterConnectionController extends Controller
 
         if ($NewWaterConnectionService) {
             return response()->json([
-                'success' => 'New tax update successfully'
+                'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
