@@ -9,7 +9,7 @@
                         @csrf
 
                         <div class="card-header">
-                            <h4 class="card-title">Add Details</h4>
+                            <h4 class="card-title">Edit Details</h4>
                         </div>
                         <div class="card-body">
                             <div class="mb-3 row">
