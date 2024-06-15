@@ -63,7 +63,9 @@ class SelfAssessmentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $selfAssessment = $this->selfAssessmentService->edit($id);
+
+        return view('PropertyTax.selfAssessment.edit');
     }
 
     /**

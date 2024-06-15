@@ -63,7 +63,11 @@ class RegistrationOfObjectionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $registrationofObjection = $this->registrationOfObjectionService->edit($id);
+
+        return view('PropertyTax.RegistrationOfObjection.edit')->with([
+            'registrationofObjection' => $registrationofObjection
+        ]);
     }
 
     /**

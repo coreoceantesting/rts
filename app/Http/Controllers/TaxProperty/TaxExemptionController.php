@@ -63,7 +63,11 @@ class TaxExemptionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $taxExemption = $this->taxExemptionService->edit($id);
+
+        return view('PropertyTax.taxExemption.edit')->with([
+            'taxExemption' => $taxExemption
+        ]);
     }
 
     /**
