@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\WaterDepartment\ChangeOwnership;
+namespace App\Http\Requests\WaterDepartment\ChangeInUse;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,29 +22,29 @@ class CreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'new_owner_name' => 'required',
+            'property_owner_name' => 'required',
             'aadhar_no' => 'required|min:12|max:12',
             'mobile_no' => 'required|min:10|max:10',
-            'address' => 'required',
             'email_id' => 'required',
-            'property_no' => 'required',
             'zone' => 'required',
             'ward_area' => 'required',
-            'new_tap_connection' => 'required',
+            'plot_no' => 'required',
             'house_no' => 'required',
             'landmark' => 'required',
-            'current_connection_is_authorized' => 'required',
+            'address' => 'required',
+            'property_type' => 'required',
+            'water_connection_no' => 'required',
+            'applicant_is_on_rent' => 'required',
+            'water_connection_size' => 'required',
+            'water_usage' => 'required',
+            'new_water_con_usage' => 'required',
+            'usage_residence_type' => 'required',
+            'current_connection_is_illegal' => 'required',
             'no_of_user' => 'required',
-            'applicant_or_tenant' => 'required',
-            'criminal_judicial_issue' => 'required',
-            'old_owner_name' => 'required',
-            'tap_size' => 'required',
-            'existing_connection_detail' => 'required',
             'place_belongs_to_municipal' => 'required',
-            'comment' => 'nullable',
-            'application_document' => 'required',
-            'ownership_document' => 'required',
-            'nodues_document' => 'required',
+            'any_police_complaint' => 'required',
+            'application_document' => 'nullable',
+            'nodues_document' => 'nullable',
             'is_correct_info' => 'required'
         ];
     }

@@ -207,7 +207,7 @@
 
         var formdata = new FormData(this);
         $.ajax({
-            url: '',
+            url: '{{ route("water-disconnect-supply.store") }}',
             type: 'POST',
             data: formdata,
             contentType: false,
@@ -218,7 +218,7 @@
                 if (!data.error2)
                     swal("Successful!", data.success, "success")
                         .then((action) => {
-                            window.location.href = '';
+                            window.location.href = '{{ route("water-disconnect-supply.create") }}';
                         });
                 else
                     swal("Error!", data.error2, "error");

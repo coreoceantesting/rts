@@ -36,7 +36,6 @@ class UpdateRequest extends FormRequest
             'current_connection_is_authorized' => 'required',
             'no_of_user' => 'required',
             'applicant_or_tenant' => 'required',
-            'applicant_or_tenant' => 'required',
             'criminal_judicial_issue' => 'required',
             'old_owner_name' => 'required',
             'tap_size' => 'required',
@@ -47,6 +46,13 @@ class UpdateRequest extends FormRequest
             'nodues_document' => 'nullable',
             'comment' => 'nullable',
             'is_correct_info' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'is_correct_info.required' => 'Please Accept Declaration'
         ];
     }
 }

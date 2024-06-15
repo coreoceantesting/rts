@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\WaterDepartment\ChangeOwnership;
+namespace App\Http\Requests\WaterDepartment\TaxBill;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,29 +22,25 @@ class CreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'new_owner_name' => 'required',
+            'property_owner_name' => 'required',
             'aadhar_no' => 'required|min:12|max:12',
             'mobile_no' => 'required|min:10|max:10',
-            'address' => 'required',
             'email_id' => 'required',
-            'property_no' => 'required',
             'zone' => 'required',
             'ward_area' => 'required',
-            'new_tap_connection' => 'required',
+            'plot_no' => 'required',
             'house_no' => 'required',
             'landmark' => 'required',
-            'current_connection_is_authorized' => 'required',
-            'no_of_user' => 'required',
+            'address' => 'required',
+            'property_no' => 'required',
+            'city_serve_no' => 'required',
+            'new_water_con' => 'required',
+            'current_connection_is_illegal' => 'required',
             'applicant_or_tenant' => 'required',
             'criminal_judicial_issue' => 'required',
-            'old_owner_name' => 'required',
-            'tap_size' => 'required',
-            'existing_connection_detail' => 'required',
             'place_belongs_to_municipal' => 'required',
-            'comment' => 'nullable',
+            'comment' => 'required',
             'application_document' => 'required',
-            'ownership_document' => 'required',
-            'nodues_document' => 'required',
             'is_correct_info' => 'required'
         ];
     }
