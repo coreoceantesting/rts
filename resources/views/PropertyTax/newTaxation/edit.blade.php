@@ -179,11 +179,11 @@
     $("#addForm").submit(function(e) {
         e.preventDefault();
         $("#addSubmit").prop('disabled', true);
+
+        var formdata = new FormData(this);
         formdata.append('_method', 'PUT');
         var model_id = $('#editId').val();
         var url = "{{ route('new-taxation.update', ":model_id") }}";
-
-        var formdata = new FormData(this);
         $.ajax({
             url: url.replace(':model_id', model_id),
             type: 'POST',
