@@ -45,6 +45,7 @@ use App\Http\Controllers\Trade\NewTradeLicensePermissionController;
 use App\Http\Controllers\Trade\RenewalOfLicenseController;
 use App\Http\Controllers\Trade\AutoRenewalController;
 use App\Http\Controllers\Trade\LicenseTransferController;
+use App\Http\Controllers\Trade\PerLicenseController;
 
 
 
@@ -157,6 +158,7 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('trade-renewal-license', RenewalOfLicenseController::class);
     Route::resource('trade-autorenewal-license', AutoRenewalController::class);
     Route::resource('trade-license-transfer', LicenseTransferController::class);
+    Route::resource('trade-per-license', PerLicenseController::class);
 
     // profile route
     Route::get('/profile', [MyProfileController::class, 'profile'])->name('user.profile');
