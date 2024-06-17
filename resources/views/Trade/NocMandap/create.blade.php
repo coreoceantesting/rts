@@ -253,13 +253,13 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="fire_last_year_noObjection_document">Last year no objection certificate of fire brigade / अग्निशामक दलाचा मागील वर्षीचा ना हरकत दाखला<span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="fire_last_year_noObjection_document">Last year no objection certificate of fire brigade / अग्निशामक दलाचा मागील वर्षीचा ना हरकत दाखला</label>
                                     <input class="form-control" id="fire_last_year_noObjection_document" name="fire_last_year_noObjection_document" type="file">
                                     <span class="text-danger is-invalid fire_last_year_noObjection_document_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="traffic_last_year_noObjection_document">Last year no objection certificate from concerned traffic police / संबंधित वाहतूक पोलिसांचा मागील वर्षीचा ना हरकत दाखला<span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="traffic_last_year_noObjection_document">Last year no objection certificate from concerned traffic police / संबंधित वाहतूक पोलिसांचा मागील वर्षीचा ना हरकत दाखला</label>
                                     <input class="form-control" id="traffic_last_year_noObjection_document" name="traffic_last_year_noObjection_document" type="file">
                                     <span class="text-danger is-invalid traffic_last_year_noObjection_document_err"></span>
                                 </div>
