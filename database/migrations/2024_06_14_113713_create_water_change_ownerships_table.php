@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id')->nullable();
             $table->boolean('is_aapale_sarkar_payment_paid')->nullable();
+            $table->string('application_no')->nullable();
+            $table->string('service_name')->nullable();
             $table->string('new_owner_name')->nullable();
             $table->text('address')->nullable();
             $table->string('aadhar_no')->nullable();
