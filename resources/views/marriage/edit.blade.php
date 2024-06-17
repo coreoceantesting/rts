@@ -42,6 +42,7 @@
                                 <div class="tab-pane fade show active" id="marriage-registration-form" role="tabpanel" aria-labelledby="marriage-registration-form-tab">
                                     <form name="marriageRegistrationForm" id="marriageRegistrationForm" enctype="multipart/form-data">
                                         @csrf
+                                        <input type="hidden" name="editForm" value="edit">
                                         <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId">
                                         <input type="hidden" name="mp_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration->mp_id) ? $marriageRegistration->mp_id : '' }}">
                                         <div class="row">
@@ -137,9 +138,9 @@
 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12 {{ ($marriageRegistration->registration_from_marriage_solemnized_within_maharashtra_state == "2") ? '' : 'd-none' }} " id="registrationFromAffidavitForMarriageOutsideMaharashtras">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Affidavit for Marriage Outside Maharashtra <br><span class="text-danger">Upload PDF Format Only (Max size 2mb) *</span></label>
+                                                    <label class="form-label">Affidavit for Marriage Outside Maharashtra <br><span class="text-danger">Upload PDF Format Only (Max size 2mb) </span></label>
                                                     <a href="{{ asset('storage/'.$marriageRegistration->registration_from_affidavit_for_marriage_outside_maharashtra) }}" target="_blank">View file</a>
-                                                    <input type="file" class="form-control" name="registration_from_affidavit_for_marriage_outside_maharashtras" placeholder="Enter affidavit for marriage outside maharashtra" required />
+                                                    <input type="file" class="form-control" name="registration_from_affidavit_for_marriage_outside_maharashtras" placeholder="Enter affidavit for marriage outside maharashtra" />
                                                     <span class="text-danger is-invalid registration_from_affidavit_for_marriage_outside_maharashtras_err"></span>
                                                 </div>
                                             </div>
@@ -154,6 +155,7 @@
                                 <div class="tab-pane fade" id="marriage-registration-details" role="tabpanel" aria-labelledby="marriage-registration-details-tab">
                                     <form name="marriageRegistrationDetails" id="marriageRegistrationDetails" enctype="multipart/form-data">
                                         @csrf
+                                        <input type="hidden" name="editForm" value="edit">
                                         <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId">
                                         <input type="hidden" name="mp_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration->mp_id) ? $marriageRegistration->mp_id : '' }}">
                                         <div class="row mt-3">
@@ -199,9 +201,9 @@
 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Couple Photo of Wedding (लग्न विधी चा फोटो) <br><span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
+                                                    <label class="form-label">Couple Photo of Wedding (लग्न विधी चा फोटो) <br><span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) </span></label>
                                                     <a href="{{ asset('storage/'.$marriageRegistration?->marriageRegistrationDetail?->registration_details_couple_photo) }}" target="_blank">View File</a>
-                                                    <input type="file" class="form-control" name="registration_details_couple_photos" required />
+                                                    <input type="file" class="form-control" name="registration_details_couple_photos" />
                                                     <span class="text-danger is-invalid registration_details_couple_photos_err"></span>
                                                 </div>
                                             </div>
@@ -244,10 +246,10 @@
 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Wedding card Image. If not available, attach Affidavit (लग्न पत्रिका चा फोटो नसल्यास, प्रतिज्ञापत्र जोडावे ) <br><span class="text-danger">Upload PDF Format Only (Max size 2mb) *</span></label>
+                                                    <label class="form-label">Wedding card Image. If not available, attach Affidavit (लग्न पत्रिका चा फोटो नसल्यास, प्रतिज्ञापत्र जोडावे ) <br><span class="text-danger">Upload PDF Format Only (Max size 2mb) </span></label>
 
                                                     <a href="{{ ($marriageRegistration?->marriageRegistrationDetail?->registration_details_wedding_card_image) ? asset('storage/'. $marriageRegistration?->marriageRegistrationDetail?->registration_details_wedding_card_image) : 'javascript:void(0)' }}" target="_blank">View File</a>
-                                                    <input type="file" class="form-control" name="registration_details_wedding_card_images" required />
+                                                    <input type="file" class="form-control" name="registration_details_wedding_card_images" />
                                                     <span class="text-danger is-invalid registration_details_wedding_card_images_err"></span>
                                                 </div>
                                             </div>
@@ -262,6 +264,7 @@
                                 <div class="tab-pane fade" id="groom-information" role="tabpanel" role="tabpanel" aria-labelledby="groom-information-tab">
                                     <form name="groomInformation" id="groomInformation" enctype="multipart/form-data">
                                         @csrf
+                                        <input type="hidden" name="editForm" value="edit">
                                         <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->marriage_reg_form_id) ? $marriageRegistration?->marriageRegistrationGroomDetail?->marriage_reg_form_id : '' }}">
                                         <input type="hidden" name="mp_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration->mp_id) ? $marriageRegistration->mp_id : '' }}">
                                         <div class="row mt-3">
@@ -418,7 +421,7 @@
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Groom Photo (वराचा फोटो) <br><span class="text-danger">Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
+                                                    <label class="form-label">Groom Photo (वराचा फोटो) <br><span class="text-danger">Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) </span></label>
                                                     <a href=" {{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_photo) ? asset('storage/'.$marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_photo) : 'javascript:void(0)' }}" target="_blank">View File</a>
                                                     <input type="file" class="form-control" name="groom_info_photos" />
                                                     <span class="text-danger is-invalid groom_info_photos_err"></span>
@@ -465,7 +468,7 @@
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Id Proof (आयडी पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <label class="form-label">Upload Id Proof (आयडी पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) </span></label>
                                                     <a href="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_id_proof_file) ? asset('storage/'.$marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_id_proof_file) : 'javascript:void(0)' }}" target="_blank">View File</a>
                                                     <input type="file" class="form-control" name="groom_info_id_proof_files" />
                                                     <span class="text-danger is-invalid groom_info_id_proof_files_err"></span>
@@ -473,7 +476,7 @@
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Residential Proof (निवासी पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <label class="form-label">Upload Residential Proof (निवासी पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) </span></label>
                                                     <a href="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_residential_proof_file) ? asset('storage/'.$marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_residential_proof_file) : 'javascript:void(0)' }}" target="_blank">View File</a>
                                                     <input type="file" class="form-control" name="groom_info_residential_proof_files" />
                                                     <span class="text-danger is-invalid groom_info_residential_proof_files_err"></span>
@@ -481,7 +484,7 @@
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Age Proof (वयाचा पुरावा)  <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <label class="form-label">Upload Age Proof (वयाचा पुरावा)  <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) </span></label>
                                                     <a href="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_age_proof_file) ? asset('storage/'.$marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_age_proof_file) : 'javascript:void(0)' }}" target="_blank">View File</a>
                                                     <input type="file" class="form-control" name="groom_info_age_proof_files" />
                                                     <span class="text-danger is-invalid groom_info_age_proof_files_err"></span>
@@ -489,7 +492,7 @@
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 400kb) *</span></label>
+                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 400kb) </span></label>
                                                     <a href="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_upload_signature) ? asset('storage/'.$marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_upload_signature) : 'javascript:void(0)' }}" target="_blank">View File</a>
                                                     <input type="file" class="form-control" name="groom_info_upload_signatures" />
                                                     <span class="text-danger is-invalid groom_info_upload_signatures_err"></span>
@@ -519,7 +522,7 @@
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12" id="groomInfoUploadPreviousStatusProofs">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Previous Status Proof (मागील स्थितीचा पुरावा)<br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <label class="form-label">Upload Previous Status Proof (मागील स्थितीचा पुरावा)<br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) </span></label>
                                                     <a href="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_upload_previous_status_proof) ? asset('storage/'.$marriageRegistration?->marriageRegistrationGroomDetail?->groom_info_upload_previous_status_proof) : 'javascript:void(0)' }}" target="_blank">View File</a>
                                                     <input type="file" class="form-control" name="groom_info_upload_previous_status_proofs" />
                                                     <span class="text-danger is-invalid groom_info_upload_previous_status_proofs_err"></span>
@@ -536,6 +539,7 @@
                                 <div class="tab-pane fade" id="bride-information" role="tabpanel" aria-labelledby="bride-information-tab">
                                     <form name="brideInformation" id="brideInformation" enctype="multipart/form-data">
                                         @csrf
+                                        <input type="hidden" name="editForm" value="edit">
                                         <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId">
                                         <input type="hidden" name="mp_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration->mp_id) ? $marriageRegistration->mp_id : '' }}">
                                         <div class="row mt-3">
@@ -692,9 +696,9 @@
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Bride Photo (वधूचा फोटो) <br><span class="text-danger">Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
+                                                    <label class="form-label">Bride Photo (वधूचा फोटो) <br><span class="text-danger">Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) </span></label>
                                                     <a href=" {{ ($marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_photo) ? asset('storage/'.$marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_photo) : 'javascript:void(0)' }}" target="_blank">View File</a>
-                                                    <input type="file" class="form-control" name="bride_info_photos" required />
+                                                    <input type="file" class="form-control" name="bride_info_photos" />
                                                     <span class="text-danger is-invalid bride_info_photos_err"></span>
                                                 </div>
                                             </div>
@@ -741,33 +745,33 @@
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Id Proof (आयडी पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <label class="form-label">Upload Id Proof (आयडी पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) </span></label>
                                                     <a href=" {{ ($marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_id_proof_file) ? asset('storage/'.$marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_id_proof_file) : 'javascript:void(0)' }}" target="_blank">View File</a>
-                                                    <input type="file" class="form-control" name="bride_info_id_proof_files" required />
+                                                    <input type="file" class="form-control" name="bride_info_id_proof_files" />
                                                     <span class="text-danger is-invalid bride_info_id_proof_files_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Residential Proof (निवासी पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <label class="form-label">Upload Residential Proof (निवासी पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) </span></label>
                                                     <a href=" {{ ($marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_residential_proof_file) ? asset('storage/'.$marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_residential_proof_file) : 'javascript:void(0)' }}" target="_blank">View File</a>
-                                                    <input type="file" class="form-control" name="bride_info_residential_proof_files" required />
+                                                    <input type="file" class="form-control" name="bride_info_residential_proof_files" />
                                                     <span class="text-danger is-invalid bride_info_residential_proof_files_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Age Proof (वयाचा पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <label class="form-label">Upload Age Proof (वयाचा पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb)</span></label>
                                                     <a href=" {{ ($marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_age_proof_file) ? asset('storage/'.$marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_age_proof_file) : 'javascript:void(0)' }}" target="_blank">View File</a>
-                                                    <input type="file" class="form-control" name="bride_info_age_proof_files" required />
+                                                    <input type="file" class="form-control" name="bride_info_age_proof_files" />
                                                     <span class="text-danger is-invalid bride_info_age_proof_files_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 400kb) *</span></label>
+                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 400kb)</span></label>
                                                     <a href=" {{ ($marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_upload_signature) ? asset('storage/'.$marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_upload_signature) : 'javascript:void(0)' }}" target="_blank">View File</a>
-                                                    <input type="file" class="form-control" name="bride_info_upload_signatures" placeholder="Enter name" required />
+                                                    <input type="file" class="form-control" name="bride_info_upload_signatures" placeholder="Enter name" />
                                                     <span class="text-danger is-invalid bride_info_upload_signatures_err"></span>
                                                 </div>
                                             </div>
@@ -794,9 +798,9 @@
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Previous Status Proof (मागील स्थितीचा पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
+                                                    <label class="form-label">Upload Previous Status Proof (मागील स्थितीचा पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb)</span></label>
                                                     <a href=" {{ ($marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_upload_previous_status_proof) ? asset('storage/'.$marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_upload_previous_status_proof) : 'javascript:void(0)' }}" target="_blank">View File</a>
-                                                    <input type="file" class="form-control" name="bride_info_upload_previous_status_proofs" required />
+                                                    <input type="file" class="form-control" name="bride_info_upload_previous_status_proofs" />
                                                     <span class="text-danger is-invalid bride_info_upload_previous_status_proofs_err"></span>
                                                 </div>
                                             </div>
@@ -812,6 +816,7 @@
                                 <div class="tab-pane fade" id="priest-information" role="tabpanel" aria-labelledby="priest-information-tab">
                                     <form name="priestInformation" id="priestInformation" enctype="multipart/form-data">
                                         @csrf
+                                        <input type="hidden" name="editForm" value="edit">
                                         <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId">
                                         <input type="hidden" name="mp_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration->mp_id) ? $marriageRegistration->mp_id : '' }}">
                                         <div class="row mt-3">
@@ -913,9 +918,9 @@
 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
+                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb)</span></label>
                                                     <a href="{{ ($marriageRegistration?->marriageRegistrationPriestInformation?->priest_info_upload_signature) ? asset('storage/'.$marriageRegistration?->marriageRegistrationPriestInformation?->priest_info_upload_signature) : 'javascript:void(0)' }}" target="_blank">View File</a>
-                                                    <input type="file" class="form-control" name="priest_info_upload_signatures" required />
+                                                    <input type="file" class="form-control" name="priest_info_upload_signatures" />
                                                     <span class="text-danger is-invalid priest_info_upload_signatures_err"></span>
                                                 </div>
                                             </div>
@@ -931,6 +936,7 @@
                                 <div class="tab-pane fade" id="witness-information" role="tabpanel" aria-labelledby="witness-information-tab">
                                     <form name="witnessInformation" id="witnessInformation" enctype="multipart/form-data">
                                         @csrf
+                                        <input type="hidden" name="editForm" value="edit">
                                         <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId">
                                         <input type="hidden" name="mp_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration->mp_id) ? $marriageRegistration->mp_id : '' }}">
                                         <h5 style="font-weight: 800;" class="text-dark">First Witness Information (प्रथम साक्षीदाराची माहिती)</h5>
@@ -1027,27 +1033,27 @@
 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Witness Photo (साक्षीदाराचा फोटो) <br><span class="text-danger"> Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
+                                                    <label class="form-label">Witness Photo (साक्षीदाराचा फोटो) <br><span class="text-danger"> Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb)</span></label>
                                                     <a href=" {{ ($marriageRegistration?->marriageRegistrationWitnessInformation?->first_witness_info_witness_photo) ? asset('storage/'.$marriageRegistration?->marriageRegistrationWitnessInformation?->first_witness_info_witness_photo) : 'javascript:void(0)' }}" target="_blank">View File</a>
-                                                    <input type="file" class="form-control" name="first_witness_info_witness_photos" required />
+                                                    <input type="file" class="form-control" name="first_witness_info_witness_photos" />
                                                     <span class="text-danger is-invalid first_witness_info_witness_photos_err"></span>
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
+                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb)</span></label>
                                                     <a href=" {{ ($marriageRegistration?->marriageRegistrationWitnessInformation?->first_witness_info_upload_signature) ? asset('storage/'.$marriageRegistration?->marriageRegistrationWitnessInformation?->first_witness_info_upload_signature) : 'javascript:void(0)' }}" target="_blank">View File</a>
-                                                    <input type="file" class="form-control" name="first_witness_info_upload_signatures" required />
+                                                    <input type="file" class="form-control" name="first_witness_info_upload_signatures" />
                                                     <span class="text-danger is-invalid first_witness_info_upload_signatures_err"></span>
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Document (कागदपत्र सादर केले) <span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
+                                                    <label class="form-label">Upload Document (कागदपत्र सादर केले) <span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) </span></label>
                                                     <a href=" {{ ($marriageRegistration?->marriageRegistrationWitnessInformation?->first_witness_info_upload_document) ? asset('storage/'.$marriageRegistration?->marriageRegistrationWitnessInformation?->first_witness_info_upload_document) : 'javascript:void(0)' }}" target="_blank">View File</a>
-                                                    <input type="file" class="form-control" name="first_witness_info_upload_documents" required />
+                                                    <input type="file" class="form-control" name="first_witness_info_upload_documents" />
                                                     <span class="text-danger is-invalid first_witness_info_upload_documents_err"></span>
                                                 </div>
                                             </div>
@@ -1149,27 +1155,27 @@
 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Witness Photo (साक्षीदाराचा फोटो) <br><span class="text-danger"> Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
+                                                    <label class="form-label">Witness Photo (साक्षीदाराचा फोटो) <br><span class="text-danger"> Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) </span></label>
                                                     <a href=" {{ ($marriageRegistration?->marriageRegistrationWitnessInformation?->second_witness_info_witness_photo) ? asset('storage/'.$marriageRegistration?->marriageRegistrationWitnessInformation?->second_witness_info_witness_photo) : 'javascript:void(0)' }}" target="_blank">View File</a>
-                                                    <input type="file" class="form-control" name="second_witness_info_witness_photos" required />
+                                                    <input type="file" class="form-control" name="second_witness_info_witness_photos" />
                                                     <span class="text-danger is-invalid second_witness_info_witness_photos_err"></span>
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
+                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) </span></label>
                                                     <a href=" {{ ($marriageRegistration?->marriageRegistrationWitnessInformation?->second_witness_info_upload_signature) ? asset('storage/'.$marriageRegistration?->marriageRegistrationWitnessInformation?->second_witness_info_upload_signature) : 'javascript:void(0)' }}" target="_blank">View File</a>
-                                                    <input type="file" class="form-control" name="second_witness_info_upload_signatures" required />
+                                                    <input type="file" class="form-control" name="second_witness_info_upload_signatures" />
                                                     <span class="text-danger is-invalid second_witness_info_upload_signatures_err"></span>
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Document (कागदपत्र सादर केले) <br><span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
+                                                    <label class="form-label">Upload Document (कागदपत्र सादर केले) <br><span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) </span></label>
                                                     <a href=" {{ ($marriageRegistration?->marriageRegistrationWitnessInformation?->second_witness_info_upload_document) ? asset('storage/'.$marriageRegistration?->marriageRegistrationWitnessInformation?->second_witness_info_upload_document) : 'javascript:void(0)' }}" target="_blank">View File</a>
-                                                    <input type="file" class="form-control" name="second_witness_info_upload_documents" required />
+                                                    <input type="file" class="form-control" name="second_witness_info_upload_documents" />
                                                     <span class="text-danger is-invalid second_witness_info_upload_documents_err"></span>
                                                 </div>
                                             </div>
@@ -1235,7 +1241,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Relation (संबंध) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="third_witness_info_relation" placeholder="Enter relation" required />
+                                                    <input type="text" class="form-control" name="third_witness_info_relation" placeholder="Enter relation" value="{{ ($marriageRegistration?->marriageRegistrationWitnessInformation?->third_witness_info_relation) ? $marriageRegistration?->marriageRegistrationWitnessInformation?->third_witness_info_relation : '' }}" required />
                                                     <span class="text-danger is-invalid third_witness_info_relation_err"></span>
                                                 </div>
                                             </div>
@@ -1243,7 +1249,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In English (पत्ता इंग्रजीमध्ये) <span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" name="third_witness_info_address_in_english" placeholder="Enter address in english" required></textarea>
+                                                    <textarea class="form-control" name="third_witness_info_address_in_english" placeholder="Enter address in english" required>{{ ($marriageRegistration?->marriageRegistrationWitnessInformation?->third_witness_info_address_in_english) ? $marriageRegistration?->marriageRegistrationWitnessInformation?->third_witness_info_address_in_english : '' }}</textarea>
                                                     <span class="text-danger is-invalid third_witness_info_address_in_english_err"></span>
                                                 </div>
                                             </div>
@@ -1251,7 +1257,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Address In Marathi (पत्ता मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" name="third_witness_info_address_in_marathi" placeholder="Enter address in marathi" required></textarea>
+                                                    <textarea class="form-control" name="third_witness_info_address_in_marathi" placeholder="Enter address in marathi" required>{{ ($marriageRegistration?->marriageRegistrationWitnessInformation?->third_witness_info_address_in_marathi) ? $marriageRegistration?->marriageRegistrationWitnessInformation?->third_witness_info_address_in_marathi : '' }}</textarea>
                                                     <span class="text-danger is-invalid third_witness_info_address_in_marathi_err"></span>
                                                 </div>
                                             </div>
@@ -1261,8 +1267,8 @@
                                                     <label class="form-label">Id Proof (कागदपत्र सादर केले) <span class="text-danger">*</span></label>
                                                     <select name="third_witness_info_id_proof" class="form-select" required>
                                                         <option value="">Choose one</option>
-                                                        <option value="1">Aadhar Card</option>
-                                                        <option value="2">Voter Id</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationWitnessInformation?->third_witness_info_id_proof) ? 'selected' : '' }} value="1">Aadhar Card</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationWitnessInformation?->third_witness_info_id_proof) ? 'selected' : '' }} value="2">Voter Id</option>
                                                     </select>
                                                     <span class="text-danger is-invalid third_witness_info_id_proof_err"></span>
                                                 </div>
@@ -1270,27 +1276,27 @@
 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Witness Photo (साक्षीदाराचा फोटो) <br><span class="text-danger"> Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) *</span></label>
+                                                    <label class="form-label">Witness Photo (साक्षीदाराचा फोटो) <br><span class="text-danger"> Upload Passport size -- jpg/jpeg/png Format Only (Max size 400kb) </span></label>
                                                     <a href=" {{ ($marriageRegistration?->marriageRegistrationWitnessInformation?->third_witness_info_witness_photo) ? asset('storage/'.$marriageRegistration?->marriageRegistrationWitnessInformation?->third_witness_info_witness_photo) : 'javascript:void(0)' }}" target="_blank">View File</a>
-                                                    <input type="file" class="form-control" name="third_witness_info_witness_photos" required />
+                                                    <input type="file" class="form-control" name="third_witness_info_witness_photos" />
                                                     <span class="text-danger is-invalid third_witness_info_witness_photos_err"></span>
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) *</span></label>
+                                                    <label class="form-label">Upload Signature(स्वाक्षरी अपलोड करा) <br><span class="text-danger">Upload Image/Pdf Format Only (Max size 400kb) </span></label>
                                                     <a href=" {{ ($marriageRegistration?->marriageRegistrationWitnessInformation?->third_witness_info_upload_signature) ? asset('storage/'.$marriageRegistration?->marriageRegistrationWitnessInformation?->third_witness_info_upload_signature) : 'javascript:void(0)' }}" target="_blank">View File</a>
-                                                    <input type="file" class="form-control" name="third_witness_info_upload_signatures" required />
+                                                    <input type="file" class="form-control" name="third_witness_info_upload_signatures" />
                                                     <span class="text-danger is-invalid third_witness_info_upload_signatures_err"></span>
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Upload Document (कागदपत्र सादर केले) <br><span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) *</span></label>
+                                                    <label class="form-label">Upload Document (कागदपत्र सादर केले) <br><span class="text-danger">Upload Image / PDF Format Only (Max size 2mb) </span></label>
                                                     <a href=" {{ ($marriageRegistration?->marriageRegistrationWitnessInformation?->third_witness_info_upload_document) ? asset('storage/'.$marriageRegistration?->marriageRegistrationWitnessInformation?->third_witness_info_upload_document) : 'javascript:void(0)' }}" target="_blank">View File</a>
-                                                    <input type="file" class="form-control" name="third_witness_info_upload_documents" required />
+                                                    <input type="file" class="form-control" name="third_witness_info_upload_documents" />
                                                     <span class="text-danger is-invalid third_witness_info_upload_documents_err"></span>
                                                 </div>
                                             </div>

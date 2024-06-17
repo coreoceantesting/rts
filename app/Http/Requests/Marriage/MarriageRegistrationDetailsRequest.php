@@ -21,7 +21,7 @@ class MarriageRegistrationDetailsRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $data = [
             'marriage_reg_form_id' => 'required',
             'registration_details_form_filled_date' => 'required',
             'registration_details_marriage_date_in_english' => 'required',
@@ -32,8 +32,14 @@ class MarriageRegistrationDetailsRequest extends FormRequest
             'registration_details_is_widow' => 'required',
             'registration_details_is_previously_divorced' => 'required',
             'registration_details_is_marriage_intercaste' => 'required',
-            'registration_details_wedding_card_images' => 'required|file|mimes:pdf,PDF|max:2048',
         ];
+        if (!$this->editForm) {
+            $data1 = array_merge($data, [
+                'registration_details_wedding_card_images' => 'required|file|mimes:pdf,PDF|max:2048',
+            ]);
+            return $data1;
+        }
+        return $data;
     }
 
     public function messages()

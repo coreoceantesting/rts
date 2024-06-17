@@ -21,7 +21,7 @@ class WitnessInformationRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $data = [
             'marriage_reg_form_id' => 'required',
             'first_witness_info_fname_in_english' => 'required',
             'first_witness_info_fname_in_marathi' => 'required',
@@ -33,9 +33,6 @@ class WitnessInformationRequest extends FormRequest
             'first_witness_info_address_in_english' => 'required',
             'first_witness_info_address_in_marathi' => 'required',
             'first_witness_info_id_proof' => 'required',
-            'first_witness_info_witness_photos' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
-            'first_witness_info_upload_signatures' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
-            'first_witness_info_upload_documents' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
             'second_witness_info_fname_in_english' => 'required',
             'second_witness_info_fname_in_marathi' => 'required',
             'second_witness_info_mobile_no' => 'required|string|min:10|max:10|regex:/^[0-9]{10}$/',
@@ -46,9 +43,6 @@ class WitnessInformationRequest extends FormRequest
             'second_witness_info_address_in_english' => 'required',
             'second_witness_info_address_in_marathi' => 'required',
             'second_witness_info_id_proof' => 'required',
-            'second_witness_info_witness_photos' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
-            'second_witness_info_upload_signatures' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
-            'second_witness_info_upload_documents' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
             'third_witness_info_fname_in_english' => 'required',
             'third_witness_info_fname_in_marathi' => 'required',
             'third_witness_info_mobile_no' => 'required|string|min:10|max:10|regex:/^[0-9]{10}$/',
@@ -59,10 +53,22 @@ class WitnessInformationRequest extends FormRequest
             'third_witness_info_address_in_english' => 'required',
             'third_witness_info_address_in_marathi' => 'required',
             'third_witness_info_id_proof' => 'required',
-            'third_witness_info_witness_photos' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
-            'third_witness_info_upload_signatures' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
-            'third_witness_info_upload_documents' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
         ];
+        if (!$this->editForm) {
+            $data1 = array_merge($data, [
+                'first_witness_info_witness_photos' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
+                'first_witness_info_upload_signatures' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
+                'first_witness_info_upload_documents' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
+                'second_witness_info_witness_photos' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
+                'second_witness_info_upload_signatures' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
+                'second_witness_info_upload_documents' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
+                'third_witness_info_witness_photos' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
+                'third_witness_info_upload_signatures' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
+                'third_witness_info_upload_documents' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
+            ]);
+            return $data1;
+        }
+        return $data;
     }
 
     public function messages()
@@ -134,7 +140,6 @@ class WitnessInformationRequest extends FormRequest
             'third_witness_info_upload_documents.required' => 'Please upload witness file',
             'third_witness_info_upload_documents.mimes' => 'Only png, jpg, jpeg and pdf type file supported',
             'third_witness_info_upload_documents.max' => "Max 2mb file suppoted",
-
         ];
     }
 }

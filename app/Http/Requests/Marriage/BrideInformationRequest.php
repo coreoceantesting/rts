@@ -21,7 +21,7 @@ class BrideInformationRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $data = [
             'marriage_reg_form_id' => 'required',
             'bride_info_fname_in_english' => 'required',
             'bride_info_mname_in_english' => 'required',
@@ -41,18 +41,24 @@ class BrideInformationRequest extends FormRequest
             'bride_info_gender' => 'required',
             'bride_info_religion_by_birth' => 'required',
             'bride_info_religion_by_adoption' => 'required',
-            'bride_info_photos' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
             'bride_info_id_proof' => 'required',
             'bride_info_residential_proof' => 'required',
             'bride_info_age_proof' => 'required',
-            'bride_info_id_proof_files' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
-            'bride_info_residential_proof_files' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
-            'bride_info_age_proof_files' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
-            'bride_info_upload_signatures' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
             'bride_info_previous_status' => 'required',
-            'bride_info_previous_status_proof' => 'required_if:bride_info_previous_status,1|required_if:bride_info_previous_status,2',
-            'bride_info_upload_previous_status_proofs' => 'required_if:bride_info_previous_status,1|required_if:bride_info_previous_status,2|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
+            'bride_info_previous_status_proof' => 'required_if:bride_info_previous_status,1|required_if:bride_info_previous_status,2'
         ];
+        if (!$this->editForm) {
+            $data1 = array_merge($data, [
+                'bride_info_photos' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
+                'bride_info_id_proof_files' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
+                'bride_info_residential_proof_files' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
+                'bride_info_age_proof_files' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
+                'bride_info_upload_signatures' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
+                'bride_info_upload_previous_status_proofs' => 'required_if:bride_info_previous_status,1|required_if:bride_info_previous_status,2|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
+            ]);
+            return $data1;
+        }
+        return $data;
     }
 
     public function messages()
