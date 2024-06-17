@@ -37,7 +37,6 @@ class CurlAPiService
             $error = curl_error($ch);
             Log::error($error);
         }
-
         // Close cURL session
         curl_close($ch);
 
