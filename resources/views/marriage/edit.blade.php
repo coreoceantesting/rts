@@ -43,6 +43,7 @@
                                     <form name="marriageRegistrationForm" id="marriageRegistrationForm" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId">
+                                        <input type="hidden" name="mp_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration->mp_id) ? $marriageRegistration->mp_id : '' }}">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
@@ -154,6 +155,7 @@
                                     <form name="marriageRegistrationDetails" id="marriageRegistrationDetails" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId">
+                                        <input type="hidden" name="mp_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration->mp_id) ? $marriageRegistration->mp_id : '' }}">
                                         <div class="row mt-3">
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
@@ -261,6 +263,7 @@
                                     <form name="groomInformation" id="groomInformation" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration?->marriageRegistrationGroomDetail?->marriage_reg_form_id) ? $marriageRegistration?->marriageRegistrationGroomDetail?->marriage_reg_form_id : '' }}">
+                                        <input type="hidden" name="mp_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration->mp_id) ? $marriageRegistration->mp_id : '' }}">
                                         <div class="row mt-3">
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
@@ -534,6 +537,7 @@
                                     <form name="brideInformation" id="brideInformation" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId">
+                                        <input type="hidden" name="mp_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration->mp_id) ? $marriageRegistration->mp_id : '' }}">
                                         <div class="row mt-3">
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
@@ -809,6 +813,7 @@
                                     <form name="priestInformation" id="priestInformation" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId">
+                                        <input type="hidden" name="mp_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration->mp_id) ? $marriageRegistration->mp_id : '' }}">
                                         <div class="row mt-3">
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
@@ -927,6 +932,7 @@
                                     <form name="witnessInformation" id="witnessInformation" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId">
+                                        <input type="hidden" name="mp_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration->mp_id) ? $marriageRegistration->mp_id : '' }}">
                                         <h5 style="font-weight: 800;" class="text-dark">First Witness Information (प्रथम साक्षीदाराची माहिती)</h5>
                                         <hr>
                                         <div class="row mt-3">

@@ -13,14 +13,18 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Services\CurlAPiService;
+use App\Services\AapaleSarkarLoginCheckService;
+use App\Models\ServiceCredential;
 
 class MarriageRegistrationService
 {
     protected $curlAPiService;
+    protected $aapaleSarkarLoginCheckService;
 
-    public function __construct(CurlAPiService $curlAPiService)
+    public function __construct(CurlAPiService $curlAPiService, AapaleSarkarLoginCheckService $aapaleSarkarLoginCheckService)
     {
         $this->curlAPiService = $curlAPiService;
+        $this->aapaleSarkarLoginCheckService = $aapaleSarkarLoginCheckService;
     }
 
     public function edit($id)
@@ -50,6 +54,7 @@ class MarriageRegistrationService
 
             $marriageRegistrationForm = MarriageRegistrationForm::updateOrCreate(['id' => $data['marriage_reg_form_id'] ?? null], $data);
 
+
             // code to send data to marriage portal
             $fileData = [
                 'registration_from_affidavit_for_marriage_outside_maharashtras' => $request->file('registration_from_affidavit_for_marriage_outside_maharashtras')
@@ -68,6 +73,8 @@ class MarriageRegistrationService
                 return false;
             }
             // end of code to send data to marriage portal
+
+
             DB::commit();
 
             return $marriageRegistrationForm;
@@ -116,18 +123,14 @@ class MarriageRegistrationService
 
             // code to send data to marriage portal
             $fileData = [
-                'registration_from_affidavit_for_marriage_outside_maharashtras' => $request->file('registration_from_affidavit_for_marriage_outside_maharashtras')
+                'registration_details_couple_photos' => $request->file('registration_details_couple_photos'),
+                'registration_details_wedding_card_images' => $request->file('registration_details_wedding_card_images'),
             ];
             $data = $this->curlAPiService->sendPostRequest($request->all(), config('rtsapiurl.marriage') . 'ApiController/insert_marriage_details', $fileData);
 
             $arr = json_decode($data);
 
-            if ($arr->success) {
-                MarriageRegistrationForm::where('id', $marriageRegistrationDetail->id)->update([
-                    'mp_id' => $arr->result->mp_id,
-                    'application_no' => $arr->result->application_id
-                ]);
-            } else {
+            if (!$arr->success) {
                 DB::rollback();
                 return false;
             }
@@ -180,20 +183,21 @@ class MarriageRegistrationService
                 $data
             );
 
+
             // code to send data to marriage portal
             $fileData = [
-                'registration_from_affidavit_for_marriage_outside_maharashtras' => $request->file('registration_from_affidavit_for_marriage_outside_maharashtras')
+                'groom_info_photos' => $request->file('groom_info_photos'),
+                'groom_info_id_proof_files' => $request->file('groom_info_id_proof_files'),
+                'groom_info_residential_proof_files' => $request->file('groom_info_residential_proof_files'),
+                'groom_info_age_proof_files' => $request->file('groom_info_age_proof_files'),
+                'groom_info_upload_signatures' => $request->file('groom_info_upload_signatures'),
+                'groom_info_upload_previous_status_proofs' => $request->file('groom_info_upload_previous_status_proofs'),
             ];
             $data = $this->curlAPiService->sendPostRequest($request->all(), config('rtsapiurl.marriage') . 'ApiController/insert_groom_details', $fileData);
 
             $arr = json_decode($data);
 
-            if ($arr->success) {
-                MarriageRegistrationForm::where('id', $marriageRegistrationDetail->id)->update([
-                    'mp_id' => $arr->result->mp_id,
-                    'application_no' => $arr->result->application_id
-                ]);
-            } else {
+            if (!$arr->success) {
                 DB::rollback();
                 return false;
             }
@@ -248,18 +252,18 @@ class MarriageRegistrationService
 
             // code to send data to marriage portal
             $fileData = [
-                'registration_from_affidavit_for_marriage_outside_maharashtras' => $request->file('registration_from_affidavit_for_marriage_outside_maharashtras')
+                'bride_info_photos' => $request->file('bride_info_photos'),
+                'bride_info_id_proof_files' => $request->file('bride_info_id_proof_files'),
+                'bride_info_residential_proof_files' => $request->file('bride_info_residential_proof_files'),
+                'bride_info_age_proof_files' => $request->file('bride_info_age_proof_files'),
+                'bride_info_upload_signatures' => $request->file('bride_info_upload_signatures'),
+                'bride_info_upload_previous_status_proofs' => $request->file('bride_info_upload_previous_status_proofs'),
             ];
             $data = $this->curlAPiService->sendPostRequest($request->all(), config('rtsapiurl.marriage') . 'ApiController/insert_bride_details', $fileData);
 
             $arr = json_decode($data);
 
-            if ($arr->success) {
-                MarriageRegistrationForm::where('id', $marriageRegistrationDetail->id)->update([
-                    'mp_id' => $arr->result->mp_id,
-                    'application_no' => $arr->result->application_id
-                ]);
-            } else {
+            if (!$arr->success) {
                 DB::rollback();
                 return false;
             }
@@ -299,6 +303,22 @@ class MarriageRegistrationService
                 ['marriage_reg_form_id' => $marriageRegFormId],
                 $data
             );
+
+
+            // code to send data to marriage portal
+            $fileData = [
+                'priest_info_upload_signatures' => $request->file('priest_info_upload_signatures'),
+            ];
+            $data = $this->curlAPiService->sendPostRequest($request->all(), config('rtsapiurl.marriage') . 'ApiController/insert_priest_details', $fileData);
+
+            $arr = json_decode($data);
+
+            if (!$arr->success) {
+                DB::rollback();
+                return false;
+            }
+            // end of code to send data to marriage portal
+
 
             DB::commit();
             return $marriageRegistrationDetail;
@@ -352,6 +372,34 @@ class MarriageRegistrationService
                 ['marriage_reg_form_id' => $marriageRegFormId],
                 $data
             );
+
+
+            // code to send data to marriage portal
+            $fileData = [
+                'priest_info_upload_signatures' => $request->file('priest_info_upload_signatures'),
+            ];
+            $data = $this->curlAPiService->sendPostRequest($request->all(), config('rtsapiurl.marriage') . 'ApiController/insert_priest_details', $fileData);
+
+            $arr = json_decode($data);
+
+            if ($arr->success) {
+                // call function to send data to aapale sarkar portal
+                if (Auth::user()->is_aapale_sarkar_user) {
+                    $aapaleSarkarCredential = ServiceCredential::where('service_name', 'Marriage register certificate')->first();
+
+                    $send = $this->aapaleSarkarLoginCheckService->encryptAndSendRequestToAapaleSarkar(Auth::user()->trackid, $aapaleSarkarCredential->client_code, Auth::user()->user_id, $aapaleSarkarCredential->service_id, 'application number', 'N', 'NA', 'N', 'NA', "20", date('Y-m-d', strtotime('+20 days')), 23.60, 1, 2, 'Payment Pending', $aapaleSarkarCredential->ulb_id, $aapaleSarkarCredential->ulb_district, 'NA', 'NA', 'NA', $aapaleSarkarCredential->check_sum_key, $aapaleSarkarCredential->str_key, $aapaleSarkarCredential->str_iv, $aapaleSarkarCredential->soap_end_point_url, $aapaleSarkarCredential->soap_action_app_status_url);
+
+                    if (!$send) {
+                        return false;
+                    }
+                }
+                // end of call function to send data to aapale sarkar portal
+            } else {
+                DB::rollback();
+                return false;
+            }
+
+            // end of code to send data to marriage portal
 
             DB::commit();
             return $marriageRegistrationDetail;
