@@ -22,12 +22,6 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="address">Applicant Full Address / अर्जदाराचा संपूर्ण पत्ता <span class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="address" id="address" cols="30" rows="2"  placeholder="Enter  Address"></textarea>
-                                    <span class="text-danger is-invalid address_err"></span>
-                                </div>
-
-                                <div class="col-md-4">
                                     <label class="col-form-label" for="office_address">Applicant's Full Office Address / अर्जदाराचा संपूर्ण कार्यालयीन पत्ता <span class="text-danger">*</span></label>
                                     <textarea class="form-control" name="office_address" id="office_address" cols="30" rows="2"  placeholder="Enter Applicant's Full Office Address"></textarea>
                                     <span class="text-danger is-invalid office_address_err"></span>
