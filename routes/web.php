@@ -43,6 +43,7 @@ use App\Http\Controllers\WaterSupplyDepartment\RenewalPlumberLicenseController;
 use App\Http\Controllers\WaterSupplyDepartment\WaterQualityComplaintController;
 use App\Http\Controllers\Trade\NewTradeLicensePermissionController;
 use App\Http\Controllers\Trade\RenewalOfLicenseController;
+use App\Http\Controllers\Trade\AutoRenewalController;
 
 
 
@@ -153,6 +154,7 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     // Trade Routes
     Route::resource('trade-new-license', NewTradeLicensePermissionController::class);
     Route::resource('trade-renewal-license', RenewalOfLicenseController::class);
+    Route::resource('trade-autorenewal-license', AutoRenewalController::class);
 
     // profile route
     Route::get('/profile', [MyProfileController::class, 'profile'])->name('user.profile');
