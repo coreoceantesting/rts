@@ -41,6 +41,7 @@ use App\Http\Controllers\WaterSupplyDepartment\WaterPressureController;
 use App\Http\Controllers\WaterSupplyDepartment\PlumberLicenseController;
 use App\Http\Controllers\WaterSupplyDepartment\RenewalPlumberLicenseController;
 use App\Http\Controllers\WaterSupplyDepartment\WaterQualityComplaintController;
+use App\Http\Controllers\Trade\NewTradeLicensePermissionController;
 
 
 
@@ -147,6 +148,9 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('water-plumber-license', PlumberLicenseController::class);
     Route::resource('water-renewal-plumber-license', RenewalPlumberLicenseController::class);
     Route::resource('water-quality-complaint', WaterQualityComplaintController::class);
+
+    // Trade Routes
+    Route::resource('trade-new-license', NewTradeLicensePermissionController::class);
 
     // profile route
     Route::get('/profile', [MyProfileController::class, 'profile'])->name('user.profile');
