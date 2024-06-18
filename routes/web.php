@@ -48,6 +48,7 @@ use App\Http\Controllers\Trade\LicenseTransferController;
 use App\Http\Controllers\Trade\PerLicenseController;
 use App\Http\Controllers\Trade\NOCForMandapController;
 use App\Http\Controllers\Trade\ChangeLicenseNameController;
+use App\Http\Controllers\Trade\ChangeLicenseTypeController;
 
 
 
@@ -163,6 +164,7 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('trade-per-license', PerLicenseController::class);
     Route::resource('trade-noc-mandap', NOCForMandapController::class);
     Route::resource('trade-change-license-name', ChangeLicenseNameController::class);
+    Route::resource('trade-change-license-type', ChangeLicenseTypeController::class);
 
     // profile route
     Route::get('/profile', [MyProfileController::class, 'profile'])->name('user.profile');
