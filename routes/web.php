@@ -81,6 +81,8 @@ Route::middleware(['guest', 'PreventBackHistory', 'firewall.all'])->group(functi
     Route::post('register', [App\Http\Controllers\Registeration\AuthController::class, 'register'])->name('signup');
 });
 
+Route::get('rts-service', [AapaleSarkarLoginCheckController::class, 'check'])->name('rts.check');
+
 
 
 
