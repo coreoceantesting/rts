@@ -21,7 +21,7 @@ class MarriageRegistrationFormRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $data = [
             'registration_from_applicant_mobile_no' => 'required|string|min:10|max:10|regex:/^[0-9]{10}$/',
             'registration_from_applicant_full_name' => 'required',
             'registration_from_applicant_home_address' => 'required',
@@ -31,9 +31,15 @@ class MarriageRegistrationFormRequest extends FormRequest
             'registration_from_alternate_mobile_number' => 'nullable',
             'registration_from_pan_card_no' => 'required',
             'registration_from_residential_ward_name' => 'required',
-            'registration_from_marriage_solemnized_within_maharashtra_state' => 'required',
-            'registration_from_affidavit_for_marriage_outside_maharashtras' => 'required_if:registration_from_marriage_solemnized_within_maharashtra_state,2|file|mimes:pdf,PDF|max:2048'
+            'registration_from_marriage_solemnized_within_maharashtra_state' => 'required'
         ];
+        if (!$this->editForm) {
+            $data1 = array_merge($data, [
+                'registration_from_affidavit_for_marriage_outside_maharashtras' => 'required_if:registration_from_marriage_solemnized_within_maharashtra_state,2|file|mimes:pdf,PDF|max:2048'
+            ]);
+            return $data1;
+        }
+        return $data;
     }
 
     public function messages()

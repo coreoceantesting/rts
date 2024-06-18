@@ -21,7 +21,7 @@ class PriestInformationRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $data = [
             'marriage_reg_form_id' => 'required',
             'priest_info_fname_in_english' => 'required',
             'priest_info_mname_in_english' => 'required',
@@ -33,9 +33,15 @@ class PriestInformationRequest extends FormRequest
             'priest_info_address_in_marathi' => 'required',
             'priest_info_mobile_no' => 'required|string|min:10|max:10|regex:/^[0-9]{10}$/',
             'priest_info_age' => 'required',
-            'priest_info_religion' => 'required',
-            'priest_info_upload_signatures' => 'required',
+            'priest_info_religion' => 'required'
         ];
+        if (!$this->editForm) {
+            $data1 = array_merge($data, [
+                'priest_info_upload_signatures' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048'
+            ]);
+            return $data1;
+        }
+        return $data;
     }
 
     public function messages()
