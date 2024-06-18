@@ -4,9 +4,19 @@ namespace App\Http\Controllers\WaterSupplyDepartment;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\WaterDepartment\WaterPressure\CreateRequest;
+use App\Http\Requests\WaterDepartment\WaterPressure\UpdateRequest;
+use App\Services\WaterDepartment\WaterPressure\WaterPressureService;
+use App\Models\WaterDepartment\WaterPressureComplaint;
 
 class WaterPressureController extends Controller
 {
+    protected $WaterPressureService;
+
+    public function __construct(WaterPressureService $WaterPressureService)
+    {
+        $this->WaterPressureService = $WaterPressureService;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -26,9 +36,19 @@ class WaterPressureController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
-        //
+        $WaterPressureService = $this->WaterPressureService->store($request);
+
+        if ($WaterPressureService) {
+            return response()->json([
+                'success' => 'Detail Stored successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**
@@ -44,15 +64,26 @@ class WaterPressureController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = WaterPressureComplaint::findOrFail($id);
+        return view('WaterSupplyDepartment.WaterPressure.edit', compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateRequest $request, string $id)
     {
-        //
+        $WaterPressureService = $this->WaterPressureService->update($request, $id);
+
+        if ($WaterPressureService) {
+            return response()->json([
+                'success' => 'Detail updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**
