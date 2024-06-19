@@ -4,9 +4,19 @@ namespace App\Http\Controllers\Trade;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\Trade\PerLicense\CreateRequest;
+use App\Http\Requests\Trade\PerLicense\UpdateRequest;
+use App\Services\Trade\PerLicense\PerLicenseService;
+use App\Models\Trade\TradePerLicense;
 
 class PerLicenseController extends Controller
 {
+    protected $PerLicenseService;
+
+    public function __construct(PerLicenseService $PerLicenseService)
+    {
+        $this->PerLicenseService = $PerLicenseService;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -26,9 +36,19 @@ class PerLicenseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
-        //
+        $PerLicenseService = $this->PerLicenseService->store($request);
+
+        if ($PerLicenseService) {
+            return response()->json([
+                'success' => 'Detail Stored successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**
@@ -44,15 +64,26 @@ class PerLicenseController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = TradePerLicense::findOrFail($id);
+        return view('Trade.PerLicense.edit', compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateRequest $request, string $id)
     {
-        //
+        $PerLicenseService = $this->PerLicenseService->update($request, $id);
+
+        if ($PerLicenseService) {
+            return response()->json([
+                'success' => 'Detail updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**
