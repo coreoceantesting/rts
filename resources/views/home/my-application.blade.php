@@ -26,13 +26,14 @@
                                     <th>Application No</th>
                                     <th>Service Name</th>
                                     <th>Date</th>
+                                    <th>Payment Date</th>
                                     <th>Current Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr align="center">
-                                    <td colspan="6">No Service Found</td>
+                                    <td colspan="7">No Service Found</td>
                                 </tr>
                             </tbody>
                         </table>
