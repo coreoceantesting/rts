@@ -103,7 +103,7 @@ class RenewalPlumberService
                 if ($request->hasFile('educational_certificate_document')) {
                     $filethree = $request->file('educational_certificate_document');
                     $educational_certificate_document = time() . '_' . $filethree->getClientOriginalName();
-                    $filethree->storeAs('public/WaterDepartment/RenewalPlumber', $application_document);
+                    $filethree->storeAs('public/WaterDepartment/RenewalPlumber', $educational_certificate_document);
                     $WaterRenewalOfPlumber->educational_certificate_document = $educational_certificate_document;
                 }
 
