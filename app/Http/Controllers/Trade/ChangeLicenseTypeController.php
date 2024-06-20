@@ -4,9 +4,19 @@ namespace App\Http\Controllers\Trade;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\Trade\ChangeLicenseType\CreateRequest;
+use App\Http\Requests\Trade\ChangeLicenseType\UpdateRequest;
+use App\Services\Trade\ChangeLicenseType\ChangeLicenseTypeService;
+use App\Models\Trade\TradeChangeLicenseType;
 
 class ChangeLicenseTypeController extends Controller
 {
+    protected $ChangeLicenseTypeService;
+
+    public function __construct(ChangeLicenseTypeService $ChangeLicenseTypeService)
+    {
+        $this->ChangeLicenseTypeService = $ChangeLicenseTypeService;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -26,9 +36,19 @@ class ChangeLicenseTypeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
-        //
+        $ChangeLicenseTypeService = $this->ChangeLicenseTypeService->store($request);
+
+        if ($ChangeLicenseTypeService) {
+            return response()->json([
+                'success' => 'Detail Stored successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**
@@ -44,7 +64,8 @@ class ChangeLicenseTypeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = TradeChangeLicenseType::findOrFail($id);
+        return view('Trade.ChangeLicenseType.edit', compact('data'));
     }
 
     /**
@@ -52,7 +73,17 @@ class ChangeLicenseTypeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $ChangeLicenseTypeService = $this->ChangeLicenseTypeService->update($request, $id);
+
+        if ($ChangeLicenseTypeService) {
+            return response()->json([
+                'success' => 'Detail updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
     /**
