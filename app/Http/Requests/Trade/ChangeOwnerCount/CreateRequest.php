@@ -32,7 +32,7 @@ class CreateRequest extends FormRequest
             'zone' => 'required',
             'ward_area' => 'required',
             'remark' => 'required',
-            'application_document' => 'required',
+            'application_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
             'is_correct_info' => 'required'
         ];
     }

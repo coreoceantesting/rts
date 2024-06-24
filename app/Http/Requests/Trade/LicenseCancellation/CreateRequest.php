@@ -44,7 +44,7 @@ class CreateRequest extends FormRequest
             'trade_or_business_type' => 'required',
             'property_no' => 'required',
             'remark' => 'required',
-            'application_document' => 'required',
+            'application_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
             'is_correct_info' => 'required'
         ];
     }

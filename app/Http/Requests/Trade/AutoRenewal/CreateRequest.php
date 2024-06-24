@@ -45,8 +45,8 @@ class CreateRequest extends FormRequest
             'trade_or_business_type' => 'required',
             'property_no' => 'required',
             'remark' => 'nullable',
-            'application_document' => 'required',
-            'no_dues_document' => 'required',
+            'application_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'no_dues_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
             'is_correct_info' => 'required'
         ];
     }

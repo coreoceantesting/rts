@@ -46,8 +46,8 @@ class CreateRequest extends FormRequest
             'partner_count' => 'required',
             'partner_names' => 'required',
             'property_no' => 'required',
-            'no_dues_document' => 'required',
-            'application_document' => 'required',
+            'no_dues_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'application_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
             'is_correct_info' => 'required'
         ];
     }

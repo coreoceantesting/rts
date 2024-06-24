@@ -54,12 +54,12 @@ class CreateRequest extends FormRequest
             'concerned_police_station' => 'required',
             'concerned_traffic_police_station' => 'required',
             'nearest_fire_station' => 'required',
-            'board_registration_document' => 'required',
-            'no_objection_document' => 'required',
-            'location_map_document' => 'required',
-            'fire_last_year_noObjection_document' => 'nullable',
-            'traffic_last_year_noObjection_document' => 'nullable',
-            'annexure' => 'nullable',
+            'board_registration_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'no_objection_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'location_map_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'fire_last_year_noObjection_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'traffic_last_year_noObjection_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'annexure' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
             'is_correct_info' => 'required'
         ];
     }
