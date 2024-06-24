@@ -4,9 +4,19 @@ namespace App\Http\Controllers\TownPlaning;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\CityStructure\ZoneCertificate\CreateRequest;
+use App\Http\Requests\CityStructure\ZoneCertificate\UpdateRequest;
+use App\Services\CityStructure\ZoneCertificate\ZoneCertificateService;
+use App\Models\CityStructure\CityStructureZoneCertificate;
 
 class ZoneCertificateController extends Controller
 {
+    protected $ZoneCertificateService;
+
+    public function __construct(ZoneCertificateService $ZoneCertificateService)
+    {
+        $this->ZoneCertificateService = $ZoneCertificateService;
+    }
     public function index()
     {
         return true;
@@ -17,18 +27,39 @@ class ZoneCertificateController extends Controller
         return view('town-planing.zone-certificate.create');
     }
 
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
-        return true;
+        $ZoneCertificateService = $this->ZoneCertificateService->store($request);
+
+        if ($ZoneCertificateService) {
+            return response()->json([
+                'success' => 'Detail Stored successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
-    public function edit(Request $request)
+    public function edit(string $id)
     {
-        return true;
+        $data = CityStructureZoneCertificate::findOrFail($id);
+        return view('town-planing.zone-certificate.edit', compact('data'));
     }
 
-    public function update(Request $request)
+    public function update(UpdateRequest $request, string $id)
     {
-        return true;
+        $ZoneCertificateService = $this->ZoneCertificateService->update($request, $id);
+
+        if ($ZoneCertificateService) {
+            return response()->json([
+                'success' => 'Detail updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 }
