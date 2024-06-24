@@ -37,9 +37,9 @@ class CreateRequest extends FormRequest
             'no_of_location' => 'required',
             'road_cutting_address' => 'required',
             'location_size' => 'required',
-            'upload_prescribed_format' => 'required',
-            'upload_no_dues_certificate' => 'required',
-            'upload_gov_instructed_doc' => 'required',
+            'upload_prescribed_format' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'upload_no_dues_certificate' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'upload_gov_instructed_doc' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
             'is_correct_info' => 'required'
         ];
     }

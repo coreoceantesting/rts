@@ -33,12 +33,12 @@ class CreateRequest extends FormRequest
             'house_no' => 'required',
             'building_name' => 'required',
             'city_structure' => 'required',
-            'uploaded_application' => 'required',
-            'no_dues_document' => 'required',
-            'architect_application_document' => 'required',
-            'erection_of_fire_document' => 'required',
-            'licensing_agency_document' => 'required',
-            'guarantee_of_developer_document' => 'required',
+            'uploaded_application' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'no_dues_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'architect_application_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'erection_of_fire_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'licensing_agency_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'guarantee_of_developer_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
             'is_correct_info' => 'required'
         ];
     }

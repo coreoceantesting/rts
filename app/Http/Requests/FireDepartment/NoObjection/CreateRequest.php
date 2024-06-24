@@ -32,11 +32,11 @@ class CreateRequest extends FormRequest
             'zone' => 'required',
             'ward_area' => 'required',
             'subject' => 'required',
-            'uploaded_application' => 'required',
-            'no_dues_document' => 'required',
-            'architect_application_document' => 'required',
-            'fire_prevention_document' => 'required',
-            'capitation_fee_document' => 'required',
+            'uploaded_application' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'no_dues_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'architect_application_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'fire_prevention_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'capitation_fee_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
             'is_correct_info' => 'required'
         ];
     }
