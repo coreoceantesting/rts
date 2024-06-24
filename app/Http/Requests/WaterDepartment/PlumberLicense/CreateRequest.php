@@ -34,8 +34,8 @@ class CreateRequest extends FormRequest
             'training_institute_name' => 'required',
             'year_of_passing' => 'required',
             'have_experience' => 'required',
-            'application_document' => 'required',
-            'nodues_document' => 'required',
+            'application_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'nodues_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
             'is_correct_info' => 'required'
         ];
     }

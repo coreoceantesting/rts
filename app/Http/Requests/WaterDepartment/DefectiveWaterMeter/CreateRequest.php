@@ -41,7 +41,7 @@ class CreateRequest extends FormRequest
             'meter_reading' => 'required',
             'size' => 'required',
             'comment' => 'nullable',
-            'application_document' => 'required',
+            'application_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
             'is_correct_info' => 'required'
         ];
     }

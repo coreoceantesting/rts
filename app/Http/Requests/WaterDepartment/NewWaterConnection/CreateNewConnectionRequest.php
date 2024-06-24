@@ -39,9 +39,9 @@ class CreateNewConnectionRequest extends FormRequest
             'no_of_tap' => 'required',
             'current_no_of_tap' => 'required',
             'total_tenants' => 'required',
-            'written_application_document' => 'required',
-            'ownership_document' => 'required',
-            'no_dues_document' => 'required',
+            'written_application_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'ownership_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'no_dues_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
             'is_correct_info' => 'required'
         ];
     }

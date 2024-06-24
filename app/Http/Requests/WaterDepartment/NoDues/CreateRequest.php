@@ -41,7 +41,7 @@ class CreateRequest extends FormRequest
             'current_existing_tap_type' => 'required',
             'place_belongs_to_municipal' => 'required',
             'current_connection_is_illegal' => 'required',
-            'application_document' => 'required',
+            'application_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
             'is_correct_info' => 'required'
         ];
     }
