@@ -29,9 +29,9 @@ class CreateRequest extends FormRequest
             'aadhar_no' => 'required|min:12|max:12',
             'zone' => 'required',
             'servey_number' => 'required',
-            'prescribed_format' => 'required',
-            'upload_city_survey_certificate' => 'required',
-            'upload_city_servey_map' => 'required',
+            'prescribed_format' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'upload_city_survey_certificate' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'upload_city_servey_map' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
             'is_correct_info' => 'required',
         ];
     }
