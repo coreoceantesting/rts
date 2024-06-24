@@ -4,9 +4,19 @@ namespace App\Http\Controllers\TownPlaning;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\CityStructure\PartMap\CreateRequest;
+use App\Http\Requests\CityStructure\PartMap\UpdateRequest;
+use App\Services\CityStructure\PartMap\PartZoneService;
+use App\Models\CityStructure\CityStructurePartMap;
 
 class BhagNakashaController extends Controller
 {
+    protected $PartZoneService;
+
+    public function __construct(PartZoneService $PartZoneService)
+    {
+        $this->PartZoneService = $PartZoneService;
+    }
     public function index()
     {
         return true;
@@ -17,18 +27,39 @@ class BhagNakashaController extends Controller
         return view('town-planing.bhag-nakasha.create');
     }
 
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
-        return true;
+        $PartZoneService = $this->PartZoneService->store($request);
+
+        if ($PartZoneService) {
+            return response()->json([
+                'success' => 'Detail Stored successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 
-    public function edit(Request $request)
+    public function edit(string $id)
     {
-        return true;
+        $data = CityStructurePartMap::findOrFail($id);
+        return view('town-planing.bhag-nakasha.edit', compact('data'));
     }
 
-    public function update(Request $request)
+    public function update(UpdateRequest $request, string $id)
     {
-        return true;
+        $PartZoneService = $this->PartZoneService->update($request, $id);
+
+        if ($PartZoneService) {
+            return response()->json([
+                'success' => 'Detail updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 }

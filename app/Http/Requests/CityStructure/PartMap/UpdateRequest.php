@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\CityStructure\ZoneCertificate;
+namespace App\Http\Requests\CityStructure\PartMap;
 
 use Illuminate\Foundation\Http\FormRequest;
 

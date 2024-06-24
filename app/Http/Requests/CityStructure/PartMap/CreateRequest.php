@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\CityStructure\ZoneCertificate;
+namespace App\Http\Requests\CityStructure\PartMap;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
+class CreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,9 +29,9 @@ class UpdateRequest extends FormRequest
             'aadhar_no' => 'required|min:12|max:12',
             'zone' => 'required',
             'servey_number' => 'required',
-            'prescribed_format' => 'nullable',
-            'upload_city_survey_certificate' => 'nullable',
-            'upload_city_servey_map' => 'nullable',
+            'prescribed_format' => 'required',
+            'upload_city_survey_certificate' => 'required',
+            'upload_city_servey_map' => 'required',
             'is_correct_info' => 'required',
         ];
     }
