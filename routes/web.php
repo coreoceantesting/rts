@@ -184,6 +184,10 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     // route for construction department
     Route::resource('construction-drainage-connection', DrainageConnectionController::class);
     Route::resource('construction-road-cutting', RoadCuttingPermissionController::class);
+
+
+    // aapale sarkar status
+    Route::post('rts-service-status', [AapaleSarkarLoginCheckController::class, 'updateStatus'])->name('rts.status');
 });
 
 // Route::get('check-aapalesarkar-user', [AapaleSarkarLoginCheckController::class, 'check']);

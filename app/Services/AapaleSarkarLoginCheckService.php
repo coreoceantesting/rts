@@ -228,4 +228,18 @@ class AapaleSarkarLoginCheckService
             return false;
         }
     }
+
+    //function to get service details
+    public function serviceDetails($serviceName, $applicationNo)
+    {
+        $arr = ["Marriage register certificate" => 'App\Models\Marriage\MarriageRegistrationForm'];
+
+        $model = $arr[$serviceName];
+
+        if ($model) {
+            $data = $model::query()->where('application_no', $applicationNo)->first();
+
+            return $data;
+        }
+    }
 }
