@@ -1,6 +1,6 @@
 <x-admin.layout>
-    <x-slot name="title">Issuance Of Marriage Registration Certificate / विवाह नोंदणी प्रमाणपत्र देणे</x-slot>
-    <x-slot name="heading">Issuance Of Marriage Registration Certificate / विवाह नोंदणी प्रमाणपत्र देणे</x-slot>
+    <x-slot name="title">My Application</x-slot>
+    <x-slot name="heading">My Application</x-slot>
     {{-- <x-slot name="subheading">Test</x-slot> --}}
 
 
@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <h4 class="card-title">
-                                Issuance Of Marriage Registration Certificate / विवाह नोंदणी प्रमाणपत्र देणे
+                                My Application
                             </h4>
                         </div>
                     </div>
