@@ -32,9 +32,21 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @forelse($datas as $data)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $data->application_no }}</td>
+                                    <td>{{ $data->service_name }}</td>
+                                    <td>{{ date('d-m-Y', strtotime($data->create_at)) }}</td>
+                                    <td>{{ date('d-m-Y', strtotime($data->aapale_sarkar_payment_date)) }}</td>
+                                    <td>{{ $data->status }}</td>
+                                    <td><a href="#" class="btn bnt-primary">Edit</a></td>
+                                </tr>
+                                @empty
                                 <tr align="center">
                                     <td colspan="7">No Service Found</td>
                                 </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
