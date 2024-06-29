@@ -14,8 +14,7 @@ class NewWaterConnectionService
     {
         DB::beginTransaction();
 
-    try
-     {
+        try {
             $user_id = Auth::user()->id;
 
             // Handle file uploads and store original file names
@@ -24,21 +23,15 @@ class NewWaterConnectionService
             $no_dues_document = null;
 
             if ($request->hasFile('written_application_document')) {
-                $fileone = $request->file('written_application_document');
-                $written_application_document = $fileone->getClientOriginalName();
-                $fileone->storeAs('public/WaterDepartment/NewWaterConnection', $written_application_document);
+                $written_application_document = $request->written_application_document->store('WaterDepartment/NewWaterConnection');
             }
 
             if ($request->hasFile('ownership_document')) {
-                $filetwo = $request->file('ownership_document');
-                $ownership_document = $filetwo->getClientOriginalName();
-                $filetwo->storeAs('public/WaterDepartment/NewWaterConnection', $ownership_document);
+                $ownership_document = $request->ownership_document->store('WaterDepartment/NewWaterConnection');
             }
 
             if ($request->hasFile('no_dues_document')) {
-                $filethree = $request->file('no_dues_document');
-                $no_dues_document = $filethree->getClientOriginalName();
-                $filethree->storeAs('public/WaterDepartment/NewWaterConnection', $no_dues_document);
+                $no_dues_document = $request->no_dues_document->store('WaterDepartment/NewWaterConnection');
             }
 
             // Create new Waternewconnection record with merged request data
@@ -86,54 +79,54 @@ class NewWaterConnectionService
 
         try {
 
-                // Find the existing record
-                $newWaterConnection = Waternewconnection::findOrFail($id);
+            // Find the existing record
+            $newWaterConnection = Waternewconnection::findOrFail($id);
 
-                // Handle file uploads and update original file names
-                if ($request->hasFile('written_application_document')) {
-                    $fileone = $request->file('written_application_document');
-                    $written_application_document = $fileone->getClientOriginalName();
-                    $fileone->storeAs('public/WaterDepartment/NewWaterConnection', $written_application_document);
-                    $newWaterConnection->written_application_document = $written_application_document;
+            // Handle file uploads and update original file names
+            if ($request->hasFile('written_application_document')) {
+                if ($newWaterConnection && Storage::exists($newWaterConnection->written_application_document)) {
+                    Storage::delete($newWaterConnection->written_application_document);
                 }
+                $newWaterConnection->written_application_document = $request->written_application_document->store('WaterDepartment/NewWaterConnection');
+            }
 
-                if ($request->hasFile('ownership_document')) {
-                    $filetwo = $request->file('ownership_document');
-                    $ownership_document = $filetwo->getClientOriginalName();
-                    $filetwo->storeAs('public/WaterDepartment/NewWaterConnection', $ownership_document);
-                    $newWaterConnection->ownership_document = $ownership_document;
+            if ($request->hasFile('ownership_document')) {
+                if ($newWaterConnection && Storage::exists($newWaterConnection->ownership_document)) {
+                    Storage::delete($newWaterConnection->ownership_document);
                 }
+                $newWaterConnection->ownership_document = $request->ownership_document->store('WaterDepartment/NewWaterConnection');
+            }
 
-                if ($request->hasFile('no_dues_document')) {
-                    $filethree = $request->file('no_dues_document');
-                    $no_dues_document = $filethree->getClientOriginalName();
-                    $filethree->storeAs('public/WaterDepartment/NewWaterConnection', $no_dues_document);
-                    $newWaterConnection->no_dues_document = $no_dues_document;
+            if ($request->hasFile('no_dues_document')) {
+                if ($newWaterConnection && Storage::exists($newWaterConnection->no_dues_document)) {
+                    Storage::delete($newWaterConnection->no_dues_document);
                 }
+                $newWaterConnection->no_dues_document = $request->no_dues_document->store('WaterDepartment/NewWaterConnection');
+            }
 
-                // Update the rest of the fields
-                $newWaterConnection->update([
-                    'applicant_full_name' => $request->input('applicant_full_name'),
-                    'aadhar_no' => $request->input('aadhar_no'),
-                    'mobile_no' => $request->input('mobile_no'),
-                    'email_id' => $request->input('email_id'),
-                    'zone' => $request->input('zone'),
-                    'ward_area' => $request->input('ward_area'),
-                    'city_servey_no' => $request->input('city_servey_no'),
-                    'address' => $request->input('address'),
-                    'landmark' => $request->input('landmark'),
-                    'property_no' => $request->input('property_no'),
-                    'total_person' => $request->input('total_person'),
-                    'distance' => $request->input('distance'),
-                    'water_connection_use' => $request->input('water_connection_use'),
-                    'pipe_size' => $request->input('pipe_size'),
-                    'no_of_tap' => $request->input('no_of_tap'),
-                    'current_no_of_tap' => $request->input('current_no_of_tap'),
-                    'total_tenants' => $request->input('total_tenants'),
-                ]);
+            // Update the rest of the fields
+            $newWaterConnection->update([
+                'applicant_full_name' => $request->input('applicant_full_name'),
+                'aadhar_no' => $request->input('aadhar_no'),
+                'mobile_no' => $request->input('mobile_no'),
+                'email_id' => $request->input('email_id'),
+                'zone' => $request->input('zone'),
+                'ward_area' => $request->input('ward_area'),
+                'city_servey_no' => $request->input('city_servey_no'),
+                'address' => $request->input('address'),
+                'landmark' => $request->input('landmark'),
+                'property_no' => $request->input('property_no'),
+                'total_person' => $request->input('total_person'),
+                'distance' => $request->input('distance'),
+                'water_connection_use' => $request->input('water_connection_use'),
+                'pipe_size' => $request->input('pipe_size'),
+                'no_of_tap' => $request->input('no_of_tap'),
+                'current_no_of_tap' => $request->input('current_no_of_tap'),
+                'total_tenants' => $request->input('total_tenants'),
+            ]);
 
-                // Commit the transaction
-                DB::commit();
+            // Commit the transaction
+            DB::commit();
 
 
             return true;

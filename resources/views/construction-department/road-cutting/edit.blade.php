@@ -124,21 +124,21 @@
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="upload_prescribed_format">Upload Application in Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
                                     <input class="form-control" id="upload_prescribed_format" name="upload_prescribed_format" type="file">
-                                    <small><a href="{{ asset('storage/ConstructionDepartment/RoadCutting/' . $data->upload_prescribed_format) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->upload_prescribed_format) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid upload_prescribed_format_err"></span>
                                 </div>
                                 
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="upload_no_dues_certificate">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
                                     <input class="form-control" id="upload_no_dues_certificate" name="upload_no_dues_certificate" type="file">
-                                    <small><a href="{{ asset('storage/ConstructionDepartment/RoadCutting/' . $data->upload_no_dues_certificate) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->upload_no_dues_certificate) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid upload_no_dues_certificate_err"></span>
                                 </div>
                                 
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="upload_gov_instructed_doc">Upload Govt . Instructed Documents / शासनाद्वारे विहित केलीली कागदपत्रे <span class="text-danger">*</span></label>
                                     <input class="form-control" id="upload_gov_instructed_doc" name="upload_gov_instructed_doc" type="file">
-                                    <small><a href="{{ asset('storage/ConstructionDepartment/RoadCutting/' . $data->upload_gov_instructed_doc) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->upload_gov_instructed_doc) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid upload_gov_instructed_doc_err"></span>
                                 </div>
 

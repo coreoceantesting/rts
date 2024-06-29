@@ -63,21 +63,21 @@
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="prescribed_format">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
                                     <input class="form-control" id="prescribed_format" name="prescribed_format" type="file" >
-                                    <small><a href="{{ asset('storage/CityStructure/ZoneCertificate/' . $data->prescribed_format) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->prescribed_format) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid prescribed_format_err"></span>
                                 </div>
                                 
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="upload_city_survey_certificate">Upload 7/12 Utara or City Servey Utara / अपलोड ७/१२ उतारा किंवा सिटी सर्व्हे नकाशा उतारा <span class="text-danger">*</span></label>
                                     <input class="form-control" id="upload_city_survey_certificate" name="upload_city_survey_certificate" type="file" >
-                                    <small><a href="{{ asset('storage/CityStructure/ZoneCertificate/' . $data->upload_city_survey_certificate) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->upload_city_survey_certificate) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid upload_city_survey_certificate_err"></span>
                                 </div>
                                 
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="upload_city_servey_map">Calculation map or City Servey Map / मोजणी नकाशा किंवा सिटी सर्व्हे नकाशा <span class="text-danger">*</span></label>
                                     <input class="form-control" id="upload_city_servey_map" name="upload_city_servey_map" type="file" >
-                                    <small><a href="{{ asset('storage/CityStructure/ZoneCertificate/' . $data->upload_city_servey_map) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->upload_city_servey_map) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid upload_city_servey_map_err"></span>
                                 </div>
 

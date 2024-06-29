@@ -177,7 +177,7 @@
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="application_document">Upload Application / अर्ज अपलोड करा <span class="text-danger">*</span></label>
                                     <input class="form-control" id="application_document" name="application_document" type="file">
-                                    <small><a href="{{ asset('storage/WaterDepartment/DefectiveWaterMeter/' . $data->application_document) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->application_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid application_document_err"></span>
                                 </div>
 

@@ -24,33 +24,23 @@ class NoObjectionService
             $capitation_fee_document = null;
 
             if ($request->hasFile('uploaded_application')) {
-                $fileone = $request->file('uploaded_application');
-                $uploaded_application = time() . '_' . $fileone->getClientOriginalName();
-                $fileone->storeAs('public/FireDepartment/NoObjection', $uploaded_application);
+                $uploaded_application = $request->uploaded_application->store('FireDepartment/NoObjection');
             }
 
             if ($request->hasFile('no_dues_document')) {
-                $filetwo = $request->file('no_dues_document');
-                $no_dues_document = time() . '_' . $filetwo->getClientOriginalName();
-                $filetwo->storeAs('public/FireDepartment/NoObjection', $no_dues_document);
+                $no_dues_document = $request->no_dues_document->store('FireDepartment/NoObjection');
             }
 
             if ($request->hasFile('architect_application_document')) {
-                $filethree = $request->file('architect_application_document');
-                $architect_application_document = time() . '_' . $filethree->getClientOriginalName();
-                $filethree->storeAs('public/FireDepartment/NoObjection', $architect_application_document);
+                $architect_application_document = $request->architect_application_document->store('FireDepartment/NoObjection');
             }
 
             if ($request->hasFile('fire_prevention_document')) {
-                $filefour = $request->file('fire_prevention_document');
-                $fire_prevention_document = time() . '_' . $filefour->getClientOriginalName();
-                $filefour->storeAs('public/FireDepartment/NoObjection', $fire_prevention_document);
+                $fire_prevention_document = $request->fire_prevention_document->store('FireDepartment/NoObjection');
             }
 
             if ($request->hasFile('capitation_fee_document')) {
-                $filefive = $request->file('capitation_fee_document');
-                $capitation_fee_document = time() . '_' . $filefive->getClientOriginalName();
-                $filefive->storeAs('public/FireDepartment/NoObjection', $capitation_fee_document);
+                $capitation_fee_document = $request->capitation_fee_document->store('FireDepartment/NoObjection');
             }
 
             FireNoObjection::create([
@@ -93,61 +83,61 @@ class NoObjectionService
 
         try {
 
-                // Find the existing record
-                $FireNoObjection = FireNoObjection::findOrFail($id);
+            // Find the existing record
+            $FireNoObjection = FireNoObjection::findOrFail($id);
 
-                // Handle file uploads and update original file names
-                if ($request->hasFile('uploaded_application')) {
-                    $filetwo = $request->file('uploaded_application');
-                    $uploaded_application = time() . '_' . $filetwo->getClientOriginalName();
-                    $filetwo->storeAs('public/FireDepartment/NoObjection', $uploaded_application);
-                    $FireNoObjection->uploaded_application = $uploaded_application;
+            // Handle file uploads and update original file names
+            if ($request->hasFile('uploaded_application')) {
+                if ($FireNoObjection && Storage::exists($FireNoObjection->uploaded_application)) {
+                    Storage::delete($FireNoObjection->uploaded_application);
                 }
+                $FireNoObjection->uploaded_application = $request->uploaded_application->store('FireDepartment/NoObjection');
+            }
 
-                if ($request->hasFile('no_dues_document')) {
-                    $filetwo = $request->file('no_dues_document');
-                    $no_dues_document = time() . '_' . $filetwo->getClientOriginalName();
-                    $filetwo->storeAs('public/FireDepartment/NoObjection', $no_dues_document);
-                    $FireNoObjection->no_dues_document = $no_dues_document;
+            if ($request->hasFile('no_dues_document')) {
+                if ($FireNoObjection && Storage::exists($FireNoObjection->no_dues_document)) {
+                    Storage::delete($FireNoObjection->no_dues_document);
                 }
+                $FireNoObjection->no_dues_document = $request->no_dues_document->store('FireDepartment/NoObjection');
+            }
 
-                if ($request->hasFile('architect_application_document')) {
-                    $filetwo = $request->file('architect_application_document');
-                    $architect_application_document = time() . '_' . $filetwo->getClientOriginalName();
-                    $filetwo->storeAs('public/FireDepartment/NoObjection', $architect_application_document);
-                    $FireNoObjection->architect_application_document = $architect_application_document;
+            if ($request->hasFile('architect_application_document')) {
+                if ($FireNoObjection && Storage::exists($FireNoObjection->architect_application_document)) {
+                    Storage::delete($FireNoObjection->architect_application_document);
                 }
+                $FireNoObjection->architect_application_document = $request->architect_application_document->store('FireDepartment/NoObjection');
+            }
 
-                if ($request->hasFile('fire_prevention_document')) {
-                    $filetwo = $request->file('fire_prevention_document');
-                    $fire_prevention_document = time() . '_' . $filetwo->getClientOriginalName();
-                    $filetwo->storeAs('public/FireDepartment/NoObjection', $fire_prevention_document);
-                    $FireNoObjection->fire_prevention_document = $fire_prevention_document;
+            if ($request->hasFile('fire_prevention_document')) {
+                if ($FireNoObjection && Storage::exists($FireNoObjection->fire_prevention_document)) {
+                    Storage::delete($FireNoObjection->fire_prevention_document);
                 }
+                $FireNoObjection->fire_prevention_document = $request->fire_prevention_document->store('FireDepartment/NoObjection');
+            }
 
-                if ($request->hasFile('capitation_fee_document')) {
-                    $filetwo = $request->file('capitation_fee_document');
-                    $capitation_fee_document = time() . '_' . $filetwo->getClientOriginalName();
-                    $filetwo->storeAs('public/FireDepartment/NoObjection', $capitation_fee_document);
-                    $FireNoObjection->capitation_fee_document = $capitation_fee_document;
+            if ($request->hasFile('capitation_fee_document')) {
+                if ($FireNoObjection && Storage::exists($FireNoObjection->capitation_fee_document)) {
+                    Storage::delete($FireNoObjection->capitation_fee_document);
                 }
-                
+                $FireNoObjection->capitation_fee_document = $request->capitation_fee_document->store('FireDepartment/NoObjection');
+            }
 
-                $FireNoObjection->update([
-                    'applicant_full_name' => $request->input('applicant_full_name'),
-                    'building_type' => $request->input('building_type'),
-                    'building_name' => $request->input('building_name'),
-                    'address' => $request->input('address'),
-                    'mobile_no' => $request->input('mobile_no'),
-                    'email_id' => $request->input('email_id'),
-                    'aadhar_no' => $request->input('aadhar_no'),
-                    'zone' => $request->input('zone'),
-                    'ward_area' => $request->input('ward_area'),
-                    'subject' => $request->input('subject'),
-                ]);
 
-                // Commit the transaction
-                DB::commit();
+            $FireNoObjection->update([
+                'applicant_full_name' => $request->input('applicant_full_name'),
+                'building_type' => $request->input('building_type'),
+                'building_name' => $request->input('building_name'),
+                'address' => $request->input('address'),
+                'mobile_no' => $request->input('mobile_no'),
+                'email_id' => $request->input('email_id'),
+                'aadhar_no' => $request->input('aadhar_no'),
+                'zone' => $request->input('zone'),
+                'ward_area' => $request->input('ward_area'),
+                'subject' => $request->input('subject'),
+            ]);
+
+            // Commit the transaction
+            DB::commit();
 
 
             return true;

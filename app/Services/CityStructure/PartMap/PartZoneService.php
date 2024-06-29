@@ -22,21 +22,15 @@ class PartZoneService
             $upload_city_servey_map = null;
 
             if ($request->hasFile('prescribed_format')) {
-                $fileone = $request->file('prescribed_format');
-                $prescribed_format = time() . '_' . $fileone->getClientOriginalName();
-                $fileone->storeAs('public/CityStructure/PartMap', $prescribed_format);
+                $prescribed_format = $request->prescribed_format->store('CityStructure/PartMap');
             }
 
             if ($request->hasFile('upload_city_survey_certificate')) {
-                $filetwo = $request->file('upload_city_survey_certificate');
-                $upload_city_survey_certificate = time() . '_' . $filetwo->getClientOriginalName();
-                $filetwo->storeAs('public/CityStructure/PartMap', $upload_city_survey_certificate);
+                $upload_city_survey_certificate = $request->upload_city_survey_certificate->store('CityStructure/PartMap');
             }
 
             if ($request->hasFile('upload_city_servey_map')) {
-                $filethree = $request->file('upload_city_servey_map');
-                $upload_city_servey_map = time() . '_' . $filethree->getClientOriginalName();
-                $filethree->storeAs('public/CityStructure/PartMap', $upload_city_servey_map);
+                $upload_city_servey_map = $request->upload_city_servey_map->store('CityStructure/PartMap');
             }
 
             CityStructurePartMap::create([
@@ -74,43 +68,43 @@ class PartZoneService
 
         try {
 
-                // Find the existing record
-                $CityStructurePartMap = CityStructurePartMap::findOrFail($id);
+            // Find the existing record
+            $cityStructurePartMap = CityStructurePartMap::findOrFail($id);
 
-                // Handle file uploads and update original file names
-                if ($request->hasFile('prescribed_format')) {
-                    $fileone = $request->file('prescribed_format');
-                    $prescribed_format = time() . '_' . $fileone->getClientOriginalName();
-                    $fileone->storeAs('public/CityStructure/PartMap', $prescribed_format);
-                    $CityStructurePartMap->prescribed_format = $prescribed_format;
+            // Handle file uploads and update original file names
+            if ($request->hasFile('prescribed_format')) {
+                if ($cityStructurePartMap && Storage::exists($cityStructurePartMap->prescribed_format)) {
+                    Storage::delete($cityStructurePartMap->prescribed_format);
                 }
+                $cityStructurePartMap->prescribed_format = $request->prescribed_format->store('CityStructure/PartMap');
+            }
 
-                if ($request->hasFile('upload_city_survey_certificate')) {
-                    $filetwo = $request->file('upload_city_survey_certificate');
-                    $upload_city_survey_certificate = time() . '_' . $filetwo->getClientOriginalName();
-                    $filetwo->storeAs('public/CityStructure/PartMap', $upload_city_survey_certificate);
-                    $CityStructurePartMap->upload_city_survey_certificate = $upload_city_survey_certificate;
+            if ($request->hasFile('upload_city_survey_certificate')) {
+                if ($cityStructurePartMap && Storage::exists($cityStructurePartMap->upload_city_survey_certificate)) {
+                    Storage::delete($cityStructurePartMap->upload_city_survey_certificate);
                 }
+                $cityStructurePartMap->upload_city_survey_certificate = $request->upload_city_survey_certificate->store('CityStructure/PartMap');
+            }
 
-                if ($request->hasFile('upload_city_servey_map')) {
-                    $filethree = $request->file('upload_city_servey_map');
-                    $upload_city_servey_map = time() . '_' . $filethree->getClientOriginalName();
-                    $filethree->storeAs('public/CityStructure/PartMap', $upload_city_servey_map);
-                    $CityStructurePartMap->upload_city_servey_map = $upload_city_servey_map;
+            if ($request->hasFile('upload_city_servey_map')) {
+                if ($cityStructurePartMap && Storage::exists($cityStructurePartMap->upload_city_servey_map)) {
+                    Storage::delete($cityStructurePartMap->upload_city_servey_map);
                 }
+                $cityStructurePartMap->upload_city_servey_map = $request->upload_city_servey_map->store('CityStructure/PartMap');
+            }
 
-                $CityStructurePartMap->update([
-                    'applicant_name' => $request->input('applicant_name'),
-                    'applicant_full_address' => $request->input('applicant_full_address'),
-                    'mobile_no' => $request->input('mobile_no'),
-                    'email_id' => $request->input('email_id'),
-                    'aadhar_no' => $request->input('aadhar_no'),
-                    'zone' => $request->input('zone'),
-                    'servey_number' => $request->input('servey_number'),
-                ]);
+            $cityStructurePartMap->update([
+                'applicant_name' => $request->input('applicant_name'),
+                'applicant_full_address' => $request->input('applicant_full_address'),
+                'mobile_no' => $request->input('mobile_no'),
+                'email_id' => $request->input('email_id'),
+                'aadhar_no' => $request->input('aadhar_no'),
+                'zone' => $request->input('zone'),
+                'servey_number' => $request->input('servey_number'),
+            ]);
 
-                // Commit the transaction
-                DB::commit();
+            // Commit the transaction
+            DB::commit();
 
 
             return true;

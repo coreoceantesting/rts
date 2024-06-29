@@ -22,15 +22,11 @@ class DisconnectSupplyService
             $nodues_document = null;
 
             if ($request->hasFile('application_document')) {
-                $fileone = $request->file('application_document');
-                $application_document = time() . '_' . $fileone->getClientOriginalName();
-                $fileone->storeAs('public/WaterDepartment/DisconnectSupply', $application_document);
+                $application_document = $request->application_document->store('WaterDepartment/DisconnectSupply');
             }
 
             if ($request->hasFile('nodues_document')) {
-                $filethree = $request->file('nodues_document');
-                $nodues_document = time() . '_' . $filethree->getClientOriginalName();
-                $filethree->storeAs('public/WaterDepartment/DisconnectSupply', $nodues_document);
+                $nodues_document = $request->nodues_document->store('WaterDepartment/DisconnectSupply');
             }
 
 
@@ -78,47 +74,47 @@ class DisconnectSupplyService
 
         try {
 
-                // Find the existing record
-                $WaterDisconnectSupply = WaterDisconnectSupply::findOrFail($id);
+            // Find the existing record
+            $waterDisconnectSupply = WaterDisconnectSupply::findOrFail($id);
 
-                // Handle file uploads and update original file names
-                if ($request->hasFile('application_document')) {
-                    $fileone = $request->file('application_document');
-                    $application_document = time() . '_' . $fileone->getClientOriginalName();
-                    $fileone->storeAs('public/WaterDepartment/DisconnectSupply', $application_document);
-                    $WaterDisconnectSupply->application_document = $application_document;
+            // Handle file uploads and update original file names
+            if ($request->hasFile('application_document')) {
+                if ($waterDisconnectSupply && Storage::exists($waterDisconnectSupply->application_document)) {
+                    Storage::delete($waterDisconnectSupply->application_document);
                 }
+                $waterDisconnectSupply->application_document = $request->application_document->store('WaterDepartment/DisconnectSupply');
+            }
 
-                if ($request->hasFile('nodues_document')) {
-                    $filethree = $request->file('nodues_document');
-                    $nodues_document = time() . '_' . $filethree->getClientOriginalName();
-                    $filethree->storeAs('public/WaterDepartment/DisconnectSupply', $nodues_document);
-                    $WaterDisconnectSupply->nodues_document = $nodues_document;
+            if ($request->hasFile('nodues_document')) {
+                if ($waterDisconnectSupply && Storage::exists($waterDisconnectSupply->nodues_document)) {
+                    Storage::delete($waterDisconnectSupply->nodues_document);
                 }
+                $waterDisconnectSupply->nodues_document = $request->nodues_document->store('WaterDepartment/DisconnectSupply');
+            }
 
-                // Update the rest of the fields
-                $WaterDisconnectSupply->update([
-                    'new_owner_name' => $request->input('new_owner_name'),
-                    'aadhar_no' => $request->input('aadhar_no'),
-                    'mobile_no' => $request->input('mobile_no'),
-                    'email_id' => $request->input('email_id'),
-                    'zone' => $request->input('zone'),
-                    'ward_area' => $request->input('ward_area'),
-                    'plot_no' => $request->input('plot_no'),
-                    'house_no' => $request->input('house_no'),
-                    'landmark' => $request->input('landmark'),
-                    'address' => $request->input('address'),
-                    'current_connection_is_authorized' => $request->input('current_connection_is_authorized'),
-                    'applicant_or_tenant' => $request->input('applicant_or_tenant'),
-                    'criminal_judicial_issue' => $request->input('criminal_judicial_issue'),
-                    'tap_size' => $request->input('tap_size'),
-                    'existing_connection_detail' => $request->input('existing_connection_detail'),
-                    'place_belongs_to_municipal' => $request->input('place_belongs_to_municipal'),
-                    'comment' => $request->input('comment'),
-                ]);
+            // Update the rest of the fields
+            $waterDisconnectSupply->update([
+                'new_owner_name' => $request->input('new_owner_name'),
+                'aadhar_no' => $request->input('aadhar_no'),
+                'mobile_no' => $request->input('mobile_no'),
+                'email_id' => $request->input('email_id'),
+                'zone' => $request->input('zone'),
+                'ward_area' => $request->input('ward_area'),
+                'plot_no' => $request->input('plot_no'),
+                'house_no' => $request->input('house_no'),
+                'landmark' => $request->input('landmark'),
+                'address' => $request->input('address'),
+                'current_connection_is_authorized' => $request->input('current_connection_is_authorized'),
+                'applicant_or_tenant' => $request->input('applicant_or_tenant'),
+                'criminal_judicial_issue' => $request->input('criminal_judicial_issue'),
+                'tap_size' => $request->input('tap_size'),
+                'existing_connection_detail' => $request->input('existing_connection_detail'),
+                'place_belongs_to_municipal' => $request->input('place_belongs_to_municipal'),
+                'comment' => $request->input('comment'),
+            ]);
 
-                // Commit the transaction
-                DB::commit();
+            // Commit the transaction
+            DB::commit();
 
 
             return true;

@@ -22,15 +22,11 @@ class ChangeLicenseNameService
 
 
             if ($request->hasFile('no_dues_document')) {
-                $fileone = $request->file('no_dues_document');
-                $no_dues_document = time() . '_' . $fileone->getClientOriginalName();
-                $fileone->storeAs('public/Trade/ChangeLicenseName', $no_dues_document);
+                $no_dues_document = $request->no_dues_document->store('Trade/ChangeLicenseName');
             }
 
             if ($request->hasFile('application_document')) {
-                $filetwo = $request->file('application_document');
-                $application_document = time() . '_' . $filetwo->getClientOriginalName();
-                $filetwo->storeAs('public/Trade/ChangeLicenseName', $application_document);
+                $application_document = $request->application_document->store('Trade/ChangeLicenseName');
             }
 
             TradeChangeLicenseName::create([
@@ -40,7 +36,7 @@ class ChangeLicenseNameService
                 'mobile_no' => $request->input('mobile_no'),
                 'email_id' => $request->input('email_id'),
                 'zone' => $request->input('zone'),
-                'ward_area' => $request->input('ward_area'), 
+                'ward_area' => $request->input('ward_area'),
                 'current_permission_no' => $request->input('current_permission_no'),
                 'old_treade_license_name' => $request->input('old_treade_license_name'),
                 'new_treade_license_name' => $request->input('new_treade_license_name'),
@@ -70,40 +66,40 @@ class ChangeLicenseNameService
 
         try {
 
-                // Find the existing record
-                $TradeChangeLicenseName = TradeChangeLicenseName::findOrFail($id);
+            // Find the existing record
+            $tradeChangeLicenseName = TradeChangeLicenseName::findOrFail($id);
 
-                // Handle file uploads and update original file names
-                if ($request->hasFile('no_dues_document')) {
-                    $fileone = $request->file('no_dues_document');
-                    $no_dues_document = time() . '_' . $fileone->getClientOriginalName();
-                    $fileone->storeAs('public/Trade/ChangeLicenseName', $no_dues_document);
-                    $TradeChangeLicenseName->no_dues_document = $no_dues_document;
+            // Handle file uploads and update original file names
+            if ($request->hasFile('no_dues_document')) {
+                if ($tradeChangeLicenseName && Storage::exists($tradeChangeLicenseName->no_dues_document)) {
+                    Storage::delete($tradeChangeLicenseName->no_dues_document);
                 }
+                $tradeChangeLicenseName->no_dues_document = $request->no_dues_document->store('Trade/ChangeLicenseName');
+            }
 
-                if ($request->hasFile('application_document')) {
-                    $filetwo = $request->file('application_document');
-                    $application_document = time() . '_' . $filetwo->getClientOriginalName();
-                    $filetwo->storeAs('public/Trade/ChangeLicenseName', $application_document);
-                    $TradeChangeLicenseName->application_document = $application_document;
+            if ($request->hasFile('application_document')) {
+                if ($tradeChangeLicenseName && Storage::exists($tradeChangeLicenseName->application_document)) {
+                    Storage::delete($tradeChangeLicenseName->application_document);
                 }
-                
+                $tradeChangeLicenseName->application_document = $request->application_document->store('Trade/ChangeLicenseName');
+            }
 
-                $TradeChangeLicenseName->update([
-                    'applicant_full_name' => $request->input('applicant_full_name'),
-                    'address' => $request->input('address'),
-                    'mobile_no' => $request->input('mobile_no'),
-                    'email_id' => $request->input('email_id'),
-                    'zone' => $request->input('zone'),
-                    'ward_area' => $request->input('ward_area'), 
-                    'current_permission_no' => $request->input('current_permission_no'),
-                    'old_treade_license_name' => $request->input('old_treade_license_name'),
-                    'new_treade_license_name' => $request->input('new_treade_license_name'),
-                    'remark' => $request->input('remark'),
-                ]);
 
-                // Commit the transaction
-                DB::commit();
+            $tradeChangeLicenseName->update([
+                'applicant_full_name' => $request->input('applicant_full_name'),
+                'address' => $request->input('address'),
+                'mobile_no' => $request->input('mobile_no'),
+                'email_id' => $request->input('email_id'),
+                'zone' => $request->input('zone'),
+                'ward_area' => $request->input('ward_area'),
+                'current_permission_no' => $request->input('current_permission_no'),
+                'old_treade_license_name' => $request->input('old_treade_license_name'),
+                'new_treade_license_name' => $request->input('new_treade_license_name'),
+                'remark' => $request->input('remark'),
+            ]);
+
+            // Commit the transaction
+            DB::commit();
 
 
             return true;

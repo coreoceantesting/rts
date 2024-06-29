@@ -99,42 +99,42 @@
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="uploaded_application">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
                                     <input class="form-control" id="uploaded_application" name="uploaded_application" type="file">
-                                    <small><a href="{{ asset('storage/FireDepartment/FinalNoObjection/' . $data->uploaded_application) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->uploaded_application) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid uploaded_application_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="no_dues_document">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
                                     <input class="form-control" id="no_dues_document" name="no_dues_document" type="file">
-                                    <small><a href="{{ asset('storage/FireDepartment/FinalNoObjection/' . $data->no_dues_document) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->no_dues_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid no_dues_document_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="architect_application_document">Upload Architect Application / वास्तुविशारद अर्ज अपलोड करा <span class="text-danger">*</span></label>
                                     <input class="form-control" id="architect_application_document" name="architect_application_document" type="file">
-                                    <small><a href="{{ asset('storage/FireDepartment/FinalNoObjection/' . $data->architect_application_document) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->architect_application_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid architect_application_document_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="erection_of_fire_document">Upload Certificate Of Erection Of Fire Fighting System / अग्निशमन यंत्रणेच्या उभारणीचे प्रमाणपत्र अपलोड करा<span class="text-danger">*</span></label>
                                     <input class="form-control" id="erection_of_fire_document" name="erection_of_fire_document" type="file">
-                                    <small><a href="{{ asset('storage/FireDepartment/FinalNoObjection/' . $data->erection_of_fire_document) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->erection_of_fire_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid erection_of_fire_document_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="licensing_agency_document">Upload Sample A Certificate From Licensing Agency / परवाना देणार्‍या एजन्सीकडून प्रमाणपत्राचा नमुना अपलोड करा<span class="text-danger">*</span></label>
                                     <input class="form-control" id="licensing_agency_document" name="licensing_agency_document" type="file">
-                                    <small><a href="{{ asset('storage/FireDepartment/FinalNoObjection/' . $data->licensing_agency_document) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->licensing_agency_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid licensing_agency_document_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="guarantee_of_developer_document">Upload Guarantee Of The Developer Society To Keep The Fire Figh / आग विझवण्यासाठी विकासक सोसायटीची हमी अपलोड करा <span class="text-danger">*</span></label>
                                     <input class="form-control" id="guarantee_of_developer_document" name="guarantee_of_developer_document" type="file">
-                                    <small><a href="{{ asset('storage/FireDepartment/FinalNoObjection/' . $data->guarantee_of_developer_document) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->guarantee_of_developer_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid guarantee_of_developer_document_err"></span>
                                 </div>
 

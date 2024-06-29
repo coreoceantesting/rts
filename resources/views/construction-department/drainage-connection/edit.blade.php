@@ -171,21 +171,21 @@
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="upload_prescribed_format">Upload Application in Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
                                     <input class="form-control" id="upload_prescribed_format" name="upload_prescribed_format" type="file">
-                                    <small><a href="{{ asset('storage/ConstructionDepartment/DrainageConnection/' . $data->upload_prescribed_format) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->upload_prescribed_format) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid upload_prescribed_format_err"></span>
                                 </div>
                                 
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="upload_no_dues_certificate">Upload Tax No Dues Certificate / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
                                     <input class="form-control" id="upload_no_dues_certificate" name="upload_no_dues_certificate" type="file">
-                                    <small><a href="{{ asset('storage/ConstructionDepartment/DrainageConnection/' . $data->upload_no_dues_certificate) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->upload_no_dues_certificate) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid upload_no_dues_certificate_err"></span>
                                 </div>
                                 
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="upload_property_ownership">Upload Documents of Property Ownership / जागा मालकीचे कागदपत्रे अपलोड करा <span class="text-danger">*</span></label>
                                     <input class="form-control" id="upload_property_ownership" name="upload_property_ownership" type="file">
-                                    <small><a href="{{ asset('storage/ConstructionDepartment/DrainageConnection/' . $data->upload_property_ownership) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->upload_property_ownership) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid upload_property_ownership_err"></span>
                                 </div>
 

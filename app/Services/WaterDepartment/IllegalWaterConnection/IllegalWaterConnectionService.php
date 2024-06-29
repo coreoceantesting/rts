@@ -21,9 +21,7 @@ class IllegalWaterConnectionService
             $application_document = null;
 
             if ($request->hasFile('application_document')) {
-                $fileone = $request->file('application_document');
-                $application_document = time() . '_' . $fileone->getClientOriginalName();
-                $fileone->storeAs('public/WaterDepartment/IllegalWaterConnection', $application_document);
+                $application_document = $request->application_document->store('WaterDepartment/IllegalWaterConnection');
             }
 
             // Create new Illegalwaterconnection record with merged request data
@@ -72,42 +70,42 @@ class IllegalWaterConnectionService
 
         try {
 
-                // Find the existing record
-                $Illegalwaterconnection = Illegalwaterconnection::findOrFail($id);
+            // Find the existing record
+            $illegalwaterconnection = Illegalwaterconnection::findOrFail($id);
 
-                // Handle file uploads and update original file names
-                if ($request->hasFile('application_document')) {
-                    $fileone = $request->file('application_document');
-                    $application_document = time() . '_' . $fileone->getClientOriginalName();
-                    $fileone->storeAs('public/WaterDepartment/IllegalWaterConnection', $application_document);
-                    $Illegalwaterconnection->application_document = $application_document;
+            // Handle file uploads and update original file names
+            if ($request->hasFile('application_document')) {
+                if ($illegalwaterconnection && Storage::exists($illegalwaterconnection->application_document)) {
+                    Storage::delete($illegalwaterconnection->application_document);
                 }
+                $illegalwaterconnection->application_document = $request->application_document->store('WaterDepartment/IllegalWaterConnection');
+            }
 
-                // Update the rest of the fields
-                $Illegalwaterconnection->update([
-                    'complainants_full_name' => $request->input('complainants_full_name'),
-                    'address' => $request->input('address'),
-                    'aadhar_no' => $request->input('aadhar_no'),
-                    'mobile_no' => $request->input('mobile_no'),
-                    'email_id' => $request->input('email_id'),
-                    'unauthorized_tap_connection' => $request->input('unauthorized_tap_connection'),
-                    'zone' => $request->input('zone'),
-                    'ward_area' => $request->input('ward_area'),
-                    'plot_no' => $request->input('plot_no'),
-                    'house_no' => $request->input('house_no'),
-                    'landmark' => $request->input('landmark'),
-                    'unauthorized_connection_address' => $request->input('unauthorized_connection_address'),
-                    'current_connection_is_authorized' => $request->input('current_connection_is_authorized'),
-                    'applicant_or_tenant' => $request->input('applicant_or_tenant'),
-                    'unauthorized_is_tenant' => $request->input('unauthorized_is_tenant'),
-                    'criminal_judicial_issue' => $request->input('criminal_judicial_issue'),
-                    'existing_connection_detail' => $request->input('existing_connection_detail'),
-                    'place_belongs_to_municipal' => $request->input('place_belongs_to_municipal'),
-                    'comment' => $request->input('comment'),
-                ]);
+            // Update the rest of the fields
+            $illegalwaterconnection->update([
+                'complainants_full_name' => $request->input('complainants_full_name'),
+                'address' => $request->input('address'),
+                'aadhar_no' => $request->input('aadhar_no'),
+                'mobile_no' => $request->input('mobile_no'),
+                'email_id' => $request->input('email_id'),
+                'unauthorized_tap_connection' => $request->input('unauthorized_tap_connection'),
+                'zone' => $request->input('zone'),
+                'ward_area' => $request->input('ward_area'),
+                'plot_no' => $request->input('plot_no'),
+                'house_no' => $request->input('house_no'),
+                'landmark' => $request->input('landmark'),
+                'unauthorized_connection_address' => $request->input('unauthorized_connection_address'),
+                'current_connection_is_authorized' => $request->input('current_connection_is_authorized'),
+                'applicant_or_tenant' => $request->input('applicant_or_tenant'),
+                'unauthorized_is_tenant' => $request->input('unauthorized_is_tenant'),
+                'criminal_judicial_issue' => $request->input('criminal_judicial_issue'),
+                'existing_connection_detail' => $request->input('existing_connection_detail'),
+                'place_belongs_to_municipal' => $request->input('place_belongs_to_municipal'),
+                'comment' => $request->input('comment'),
+            ]);
 
-                // Commit the transaction
-                DB::commit();
+            // Commit the transaction
+            DB::commit();
 
 
             return true;

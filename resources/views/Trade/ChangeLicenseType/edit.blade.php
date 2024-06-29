@@ -228,14 +228,14 @@
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="no_dues_document">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
                                     <input class="form-control" id="no_dues_document" name="no_dues_document" type="file">
-                                    <small><a href="{{ asset('storage/Trade/ChangeLicenseType/' . $data->no_dues_document) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->no_dues_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid no_dues_document_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="application_document">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा<span class="text-danger">*</span></label>
                                     <input class="form-control" id="application_document" name="application_document" type="file">
-                                    <small><a href="{{ asset('storage/Trade/ChangeLicenseType/' . $data->application_document) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->application_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid application_document_err"></span>
                                 </div>
 

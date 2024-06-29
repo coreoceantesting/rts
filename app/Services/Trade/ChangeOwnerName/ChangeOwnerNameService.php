@@ -22,15 +22,11 @@ class ChangeOwnerNameService
 
 
             if ($request->hasFile('no_dues_document')) {
-                $fileone = $request->file('no_dues_document');
-                $no_dues_document = time() . '_' . $fileone->getClientOriginalName();
-                $fileone->storeAs('public/Trade/ChangeOwnerName', $no_dues_document);
+                $no_dues_document = $request->no_dues_document->store('Trade/ChangeOwnerName');
             }
 
             if ($request->hasFile('application_document')) {
-                $filetwo = $request->file('application_document');
-                $application_document = time() . '_' . $filetwo->getClientOriginalName();
-                $filetwo->storeAs('public/Trade/ChangeOwnerName', $application_document);
+                $application_document = $request->application_document->store('Trade/ChangeOwnerName');
             }
 
             TradeChangeOwnerName::create([
@@ -72,42 +68,42 @@ class ChangeOwnerNameService
 
         try {
 
-                // Find the existing record
-                $TradeChangeOwnerName = TradeChangeOwnerName::findOrFail($id);
+            // Find the existing record
+            $tradeChangeOwnerName = TradeChangeOwnerName::findOrFail($id);
 
-                // Handle file uploads and update original file names
-                if ($request->hasFile('no_dues_document')) {
-                    $fileone = $request->file('no_dues_document');
-                    $no_dues_document = time() . '_' . $fileone->getClientOriginalName();
-                    $fileone->storeAs('public/Trade/ChangeOwnerName', $no_dues_document);
-                    $TradeChangeOwnerName->no_dues_document = $no_dues_document;
+            // Handle file uploads and update original file names
+            if ($request->hasFile('no_dues_document')) {
+                if ($tradeChangeOwnerName && Storage::exists($tradeChangeOwnerName->no_dues_document)) {
+                    Storage::delete($tradeChangeOwnerName->no_dues_document);
                 }
+                $tradeChangeOwnerName->no_dues_document = $request->no_dues_document->store('Trade/ChangeOwnerName');
+            }
 
-                if ($request->hasFile('application_document')) {
-                    $filetwo = $request->file('application_document');
-                    $application_document = time() . '_' . $filetwo->getClientOriginalName();
-                    $filetwo->storeAs('public/Trade/ChangeOwnerName', $application_document);
-                    $TradeChangeOwnerName->application_document = $application_document;
+            if ($request->hasFile('application_document')) {
+                if ($tradeChangeOwnerName && Storage::exists($tradeChangeOwnerName->application_document)) {
+                    Storage::delete($tradeChangeOwnerName->application_document);
                 }
-                
+                $tradeChangeOwnerName->application_document = $request->application_document->store('Trade/ChangeOwnerName');
+            }
 
-                $TradeChangeOwnerName->update([
-                    'current_permission_no' => $request->input('current_permission_no'),
-                    'applicant_full_name' => $request->input('applicant_full_name'),
-                    'old_owner_name' => $request->input('old_owner_name'),
-                    'new_owner_name' => $request->input('new_owner_name'),
-                    'old_partner_name' => $request->input('old_partner_name'),
-                    'new_partner_name' => $request->input('new_partner_name'),
-                    'address' => $request->input('address'),
-                    'mobile_no' => $request->input('mobile_no'),
-                    'email_id' => $request->input('email_id'),
-                    'zone' => $request->input('zone'),
-                    'ward_area' => $request->input('ward_area'),
-                    'remark' => $request->input('remark'),
-                ]);
 
-                // Commit the transaction
-                DB::commit();
+            $tradeChangeOwnerName->update([
+                'current_permission_no' => $request->input('current_permission_no'),
+                'applicant_full_name' => $request->input('applicant_full_name'),
+                'old_owner_name' => $request->input('old_owner_name'),
+                'new_owner_name' => $request->input('new_owner_name'),
+                'old_partner_name' => $request->input('old_partner_name'),
+                'new_partner_name' => $request->input('new_partner_name'),
+                'address' => $request->input('address'),
+                'mobile_no' => $request->input('mobile_no'),
+                'email_id' => $request->input('email_id'),
+                'zone' => $request->input('zone'),
+                'ward_area' => $request->input('ward_area'),
+                'remark' => $request->input('remark'),
+            ]);
+
+            // Commit the transaction
+            DB::commit();
 
 
             return true;

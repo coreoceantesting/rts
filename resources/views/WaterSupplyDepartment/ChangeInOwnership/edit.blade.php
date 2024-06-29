@@ -192,21 +192,21 @@
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="application_document">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा  <span class="text-danger">*</span></label>
                                     <input class="form-control" id="application_document" name="application_document" type="file">
-                                    <small><a href="{{ asset('storage/WaterDepartment/ChangeOwnership/' . $data->application_document) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->application_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid application_document_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ownership_document">Upload ownership documents / मालकी असल्याबाबतचे कागदपत्रे जोडा <span class="text-danger">*</span></label>
                                     <input class="form-control" id="ownership_document" name="ownership_document" type="file">
-                                    <small><a href="{{ asset('storage/WaterDepartment/ChangeOwnership/' . $data->ownership_document) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->ownership_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid ownership_document_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="nodues_document">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
                                     <input class="form-control" id="nodues_document" name="nodues_document" type="file">
-                                    <small><a href="{{ asset('storage/WaterDepartment/ChangeOwnership/' . $data->nodues_document) }}" target="_blank">View Document</a></small>
+                                    <small><a href="{{ asset('storage/' . $data->nodues_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid nodues_document_err"></span>
                                 </div>
 

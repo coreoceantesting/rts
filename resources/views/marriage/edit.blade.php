@@ -1341,7 +1341,7 @@
             },
             success: function(data) {
                 $("#marriageRegistrationFormBtn").prop('disabled', false);
-                if (!data.error2){
+                if (!data.error){
                     swal("Successful!", data.success, "success")
                     .then((action) => {
                         checkStatuActive("marriage-registration-details")
@@ -1349,7 +1349,7 @@
                     });
                 }
                 else{
-                    swal("Error!", data.error2, "error");
+                    swal("Error!", data.error, "error");
                 }
             },
             statusCode: {
@@ -1394,13 +1394,13 @@
             },
             success: function(data) {
                 $("#marriageRegistrationDetailsBtn").prop('disabled', false);
-                if (!data.error2)
+                if (!data.error)
                     swal("Successful!", data.success, "success")
                     .then((action) => {
                         checkStatuActive("groom-information")
                     });
                 else
-                    swal("Error!", data.error2, "error");
+                    swal("Error!", data.error, "error");
             },
             statusCode: {
                 422: function(responseObject, textStatus, jqXHR) {
@@ -1444,13 +1444,13 @@
             },
             success: function(data) {
                 $("#groomInformationBtn").prop('disabled', false);
-                if (!data.error2)
+                if (!data.error)
                     swal("Successful!", data.success, "success")
                     .then((action) => {
                         checkStatuActive("bride-information")
                     });
                 else
-                    swal("Error!", data.error2, "error");
+                    swal("Error!", data.error, "error");
             },
             statusCode: {
                 422: function(responseObject, textStatus, jqXHR) {
@@ -1493,13 +1493,13 @@
             },
             success: function(data) {
                 $("#brideInformationBtn").prop('disabled', false);
-                if (!data.error2)
+                if (!data.error)
                     swal("Successful!", data.success, "success")
                     .then((action) => {
                         checkStatuActive("priest-information")
                     });
                 else
-                    swal("Error!", data.error2, "error");
+                    swal("Error!", data.error, "error");
             },
             statusCode: {
                 422: function(responseObject, textStatus, jqXHR) {
@@ -1542,13 +1542,13 @@
             },
             success: function(data) {
                 $("#priestInformationBtn").prop('disabled', false);
-                if (!data.error2)
+                if (!data.error)
                     swal("Successful!", data.success, "success")
                     .then((action) => {
                         checkStatuActive("witness-information")
                     });
                 else
-                    swal("Error!", data.error2, "error");
+                    swal("Error!", data.error, "error");
             },
             statusCode: {
                 422: function(responseObject, textStatus, jqXHR) {
@@ -1591,13 +1591,13 @@
             },
             success: function(data) {
                 $("#witnessInformationBtn").prop('disabled', false);
-                if (!data.error2)
+                if (!data.error)
                     swal("Successful!", data.success, "success")
                     .then((action) => {
                         window.location.href = "{{ route('marriage-registration.index') }}"
                     });
                 else
-                    swal("Error!", data.error2, "error");
+                    swal("Error!", data.error, "error");
             },
             statusCode: {
                 422: function(responseObject, textStatus, jqXHR) {

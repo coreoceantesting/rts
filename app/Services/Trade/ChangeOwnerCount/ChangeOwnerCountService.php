@@ -20,9 +20,7 @@ class ChangeOwnerCountService
             $application_document = null;
 
             if ($request->hasFile('application_document')) {
-                $filetwo = $request->file('application_document');
-                $application_document = time() . '_' . $filetwo->getClientOriginalName();
-                $filetwo->storeAs('public/Trade/ChangeOwnerCount', $application_document);
+                $application_document = $request->application_document->store('Trade/ChangeOwnerCount');
             }
 
             TradeChangeOwnerCount::create([
@@ -61,33 +59,33 @@ class ChangeOwnerCountService
 
         try {
 
-                // Find the existing record
-                $TradeChangeOwnerCount = TradeChangeOwnerCount::findOrFail($id);
+            // Find the existing record
+            $tradeChangeOwnerCount = TradeChangeOwnerCount::findOrFail($id);
 
-                // Handle file uploads and update original file names
-                if ($request->hasFile('application_document')) {
-                    $filetwo = $request->file('application_document');
-                    $application_document = time() . '_' . $filetwo->getClientOriginalName();
-                    $filetwo->storeAs('public/Trade/ChangeOwnerCount', $application_document);
-                    $TradeChangeOwnerCount->application_document = $application_document;
+            // Handle file uploads and update original file names
+            if ($request->hasFile('application_document')) {
+                if ($tradeChangeOwnerCount && Storage::exists($tradeChangeOwnerCount->application_document)) {
+                    Storage::delete($tradeChangeOwnerCount->application_document);
                 }
-                
+                $tradeChangeOwnerCount->application_document = $request->application_document->store('Trade/ChangeOwnerCount');
+            }
 
-                $TradeChangeOwnerCount->update([
-                    'current_permission_no' => $request->input('current_permission_no'),
-                    'applicant_full_name' => $request->input('applicant_full_name'),
-                    'old_partner_count' => $request->input('old_partner_count'),
-                    'new_partner_count' => $request->input('new_partner_count'),
-                    'address' => $request->input('address'),
-                    'mobile_no' => $request->input('mobile_no'),
-                    'email_id' => $request->input('email_id'),
-                    'zone' => $request->input('zone'),
-                    'ward_area' => $request->input('ward_area'),
-                    'remark' => $request->input('remark'),
-                ]);
 
-                // Commit the transaction
-                DB::commit();
+            $tradeChangeOwnerCount->update([
+                'current_permission_no' => $request->input('current_permission_no'),
+                'applicant_full_name' => $request->input('applicant_full_name'),
+                'old_partner_count' => $request->input('old_partner_count'),
+                'new_partner_count' => $request->input('new_partner_count'),
+                'address' => $request->input('address'),
+                'mobile_no' => $request->input('mobile_no'),
+                'email_id' => $request->input('email_id'),
+                'zone' => $request->input('zone'),
+                'ward_area' => $request->input('ward_area'),
+                'remark' => $request->input('remark'),
+            ]);
+
+            // Commit the transaction
+            DB::commit();
 
 
             return true;

@@ -22,15 +22,11 @@ class RenewalLicenseService
 
 
             if ($request->hasFile('application_document')) {
-                $fileone = $request->file('application_document');
-                $application_document = time() . '_' . $fileone->getClientOriginalName();
-                $fileone->storeAs('public/Trade/RenewalLicense', $application_document);
+                $application_document = $request->application_document->store('Trade/RenewalLicense');
             }
 
             if ($request->hasFile('no_dues_document')) {
-                $filetwo = $request->file('no_dues_document');
-                $no_dues_document = time() . '_' . $filetwo->getClientOriginalName();
-                $filetwo->storeAs('public/Trade/RenewalLicense', $no_dues_document);
+                $no_dues_document = $request->no_dues_document->store('Trade/RenewalLicense');
             }
 
             TradeRenewalLicensePermission::create([
@@ -40,7 +36,7 @@ class RenewalLicenseService
                 'office_address' => $request->input('office_address'),
                 'mobile_no' => $request->input('mobile_no'),
                 'email_id' => $request->input('email_id'),
-                'aadhar_no' => $request->input('aadhar_no'), 
+                'aadhar_no' => $request->input('aadhar_no'),
                 'old_permission_no' => $request->input('old_permission_no'),
                 'old_permission_date' => $request->input('old_permission_date'),
                 'business_start_date' => $request->input('business_start_date'),
@@ -85,54 +81,54 @@ class RenewalLicenseService
 
         try {
 
-                // Find the existing record
-                $TradeRenewalLicensePermission = TradeRenewalLicensePermission::findOrFail($id);
+            // Find the existing record
+            $tradeRenewalLicensePermission = TradeRenewalLicensePermission::findOrFail($id);
 
-                // Handle file uploads and update original file names
-                if ($request->hasFile('application_document')) {
-                    $fileone = $request->file('application_document');
-                    $application_document = time() . '_' . $fileone->getClientOriginalName();
-                    $fileone->storeAs('public/Trade/RenewalLicense', $application_document);
-                    $TradeRenewalLicensePermission->application_document = $application_document;
+            // Handle file uploads and update original file names
+            if ($request->hasFile('application_document')) {
+                if ($tradeRenewalLicensePermission && Storage::exists($tradeRenewalLicensePermission->application_document)) {
+                    Storage::delete($tradeRenewalLicensePermission->application_document);
                 }
+                $tradeRenewalLicensePermission->application_document = $request->application_document->store('Trade/RenewalLicense');
+            }
 
-                if ($request->hasFile('no_dues_document')) {
-                    $filetwo = $request->file('no_dues_document');
-                    $no_dues_document = time() . '_' . $filetwo->getClientOriginalName();
-                    $filetwo->storeAs('public/Trade/RenewalLicense', $no_dues_document);
-                    $TradeRenewalLicensePermission->no_dues_document = $no_dues_document;
+            if ($request->hasFile('no_dues_document')) {
+                if ($tradeRenewalLicensePermission && Storage::exists($tradeRenewalLicensePermission->no_dues_document)) {
+                    Storage::delete($tradeRenewalLicensePermission->no_dues_document);
                 }
+                $tradeRenewalLicensePermission->no_dues_document = $request->no_dues_document->store('Trade/RenewalLicense');
+            }
 
-                $TradeRenewalLicensePermission->update([
-                    'applicant_full_name' => $request->input('applicant_full_name'),
-                    'address' => $request->input('address'),
-                    'office_address' => $request->input('office_address'),
-                    'mobile_no' => $request->input('mobile_no'),
-                    'email_id' => $request->input('email_id'),
-                    'aadhar_no' => $request->input('aadhar_no'), 
-                    'old_permission_no' => $request->input('old_permission_no'),
-                    'old_permission_date' => $request->input('old_permission_date'),
-                    'business_start_date' => $request->input('business_start_date'),
-                    'business_or_trade_name' => $request->input('business_or_trade_name'),
-                    'area_size' => $request->input('area_size'),
-                    'new_permission_details' => $request->input('new_permission_details'),
-                    'zone' => $request->input('zone'),
-                    'ward_area' => $request->input('ward_area'),
-                    'plot_no' => $request->input('plot_no'),
-                    'description_of_new_trade_place' => $request->input('description_of_new_trade_place'),
-                    'is_preveious_permission_declined_by_council' => $request->input('is_preveious_permission_declined_by_council'),
-                    'previous_permission_decline_reason' => $request->input('previous_permission_decline_reason'),
-                    'is_place_owned_by_council' => $request->input('is_place_owned_by_council'),
-                    'is_any_dues_pending_of_council' => $request->input('is_any_dues_pending_of_council'),
-                    'trade_or_business_type' => $request->input('trade_or_business_type'),
-                    'is_any_partnership_in_trade' => $request->input('is_any_partnership_in_trade'),
-                    'partner_count' => $request->input('partner_count'),
-                    'partner_names' => $request->input('partner_names'),
-                    'property_no' => $request->input('property_no'),
-                ]);
+            $tradeRenewalLicensePermission->update([
+                'applicant_full_name' => $request->input('applicant_full_name'),
+                'address' => $request->input('address'),
+                'office_address' => $request->input('office_address'),
+                'mobile_no' => $request->input('mobile_no'),
+                'email_id' => $request->input('email_id'),
+                'aadhar_no' => $request->input('aadhar_no'),
+                'old_permission_no' => $request->input('old_permission_no'),
+                'old_permission_date' => $request->input('old_permission_date'),
+                'business_start_date' => $request->input('business_start_date'),
+                'business_or_trade_name' => $request->input('business_or_trade_name'),
+                'area_size' => $request->input('area_size'),
+                'new_permission_details' => $request->input('new_permission_details'),
+                'zone' => $request->input('zone'),
+                'ward_area' => $request->input('ward_area'),
+                'plot_no' => $request->input('plot_no'),
+                'description_of_new_trade_place' => $request->input('description_of_new_trade_place'),
+                'is_preveious_permission_declined_by_council' => $request->input('is_preveious_permission_declined_by_council'),
+                'previous_permission_decline_reason' => $request->input('previous_permission_decline_reason'),
+                'is_place_owned_by_council' => $request->input('is_place_owned_by_council'),
+                'is_any_dues_pending_of_council' => $request->input('is_any_dues_pending_of_council'),
+                'trade_or_business_type' => $request->input('trade_or_business_type'),
+                'is_any_partnership_in_trade' => $request->input('is_any_partnership_in_trade'),
+                'partner_count' => $request->input('partner_count'),
+                'partner_names' => $request->input('partner_names'),
+                'property_no' => $request->input('property_no'),
+            ]);
 
-                // Commit the transaction
-                DB::commit();
+            // Commit the transaction
+            DB::commit();
 
 
             return true;

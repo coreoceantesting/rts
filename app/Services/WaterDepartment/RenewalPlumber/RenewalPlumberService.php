@@ -23,21 +23,15 @@ class RenewalPlumberService
 
 
             if ($request->hasFile('application_document')) {
-                $fileone = $request->file('application_document');
-                $application_document = time() . '_' . $fileone->getClientOriginalName();
-                $fileone->storeAs('public/WaterDepartment/RenewalPlumber', $application_document);
+                $application_document = $request->application_document->store('WaterDepartment/RenewalPlumber');
             }
 
             if ($request->hasFile('nodues_document')) {
-                $filetwo = $request->file('nodues_document');
-                $nodues_document = time() . '_' . $filetwo->getClientOriginalName();
-                $filetwo->storeAs('public/WaterDepartment/RenewalPlumber', $nodues_document);
+                $nodues_document = $request->nodues_document->store('WaterDepartment/RenewalPlumber');
             }
 
             if ($request->hasFile('educational_certificate_document')) {
-                $filethree = $request->file('educational_certificate_document');
-                $educational_certificate_document = time() . '_' . $filethree->getClientOriginalName();
-                $filethree->storeAs('public/WaterDepartment/RenewalPlumber', $educational_certificate_document);
+                $educational_certificate_document = $request->educational_certificate_document->store('WaterDepartment/RenewalPlumber');
             }
 
             WaterRenewalOfPlumber::create([
@@ -45,7 +39,7 @@ class RenewalPlumberService
                 'plumber_license_no' => $request->input('plumber_license_no'),
                 'applicant_name' => $request->input('applicant_name'),
                 'address' => $request->input('address'),
-                'aadhar_no' => $request->input('aadhar_no'), 
+                'aadhar_no' => $request->input('aadhar_no'),
                 'mobile_no' => $request->input('mobile_no'),
                 'email_id' => $request->input('email_id'),
                 'zone' => $request->input('zone'),
@@ -82,50 +76,50 @@ class RenewalPlumberService
 
         try {
 
-                // Find the existing record
-                $WaterRenewalOfPlumber = WaterRenewalOfPlumber::findOrFail($id);
+            // Find the existing record
+            $WaterRenewalOfPlumber = WaterRenewalOfPlumber::findOrFail($id);
 
-                // Handle file uploads and update original file names
-                if ($request->hasFile('application_document')) {
-                    $fileone = $request->file('application_document');
-                    $application_document = time() . '_' . $fileone->getClientOriginalName();
-                    $fileone->storeAs('public/WaterDepartment/RenewalPlumber', $application_document);
-                    $WaterRenewalOfPlumber->application_document = $application_document;
+            // Handle file uploads and update original file names
+            if ($request->hasFile('application_document')) {
+                if ($WaterRenewalOfPlumber && Storage::exists($WaterRenewalOfPlumber->application_document)) {
+                    Storage::delete($WaterRenewalOfPlumber->application_document);
                 }
+                $WaterRenewalOfPlumber->application_document = $request->application_document->store('WaterDepartment/RenewalPlumber');
+            }
 
-                if ($request->hasFile('nodues_document')) {
-                    $filetwo = $request->file('nodues_document');
-                    $nodues_document = time() . '_' . $filetwo->getClientOriginalName();
-                    $filetwo->storeAs('public/WaterDepartment/RenewalPlumber', $nodues_document);
-                    $WaterRenewalOfPlumber->nodues_document = $nodues_document;
+            if ($request->hasFile('nodues_document')) {
+                if ($WaterRenewalOfPlumber && Storage::exists($WaterRenewalOfPlumber->nodues_document)) {
+                    Storage::delete($WaterRenewalOfPlumber->nodues_document);
                 }
+                $WaterRenewalOfPlumber->nodues_document = $request->nodues_document->store('WaterDepartment/RenewalPlumber');
+            }
 
-                if ($request->hasFile('educational_certificate_document')) {
-                    $filethree = $request->file('educational_certificate_document');
-                    $educational_certificate_document = time() . '_' . $filethree->getClientOriginalName();
-                    $filethree->storeAs('public/WaterDepartment/RenewalPlumber', $educational_certificate_document);
-                    $WaterRenewalOfPlumber->educational_certificate_document = $educational_certificate_document;
+            if ($request->hasFile('educational_certificate_document')) {
+                if ($WaterRenewalOfPlumber && Storage::exists($WaterRenewalOfPlumber->educational_certificate_document)) {
+                    Storage::delete($WaterRenewalOfPlumber->educational_certificate_document);
                 }
+                $WaterRenewalOfPlumber->educational_certificate_document = $request->educational_certificate_document->store('WaterDepartment/RenewalPlumber');
+            }
 
-                $WaterRenewalOfPlumber->update([
-                    'plumber_license_no' => $request->input('plumber_license_no'),
-                    'applicant_name' => $request->input('applicant_name'),
-                    'address' => $request->input('address'),
-                    'aadhar_no' => $request->input('aadhar_no'), 
-                    'mobile_no' => $request->input('mobile_no'),
-                    'email_id' => $request->input('email_id'),
-                    'zone' => $request->input('zone'),
-                    'ward_area' => $request->input('ward_area'),
-                    'education_institutation' => $request->input('education_institutation'),
-                    'education_qualification' => $request->input('education_qualification'),
-                    'training_institute_name' => $request->input('training_institute_name'),
-                    'year_of_passing' => $request->input('year_of_passing'),
-                    'have_experience' => $request->input('have_experience'),
-                    'remark' => $request->input('remark'),
-                ]);
+            $WaterRenewalOfPlumber->update([
+                'plumber_license_no' => $request->input('plumber_license_no'),
+                'applicant_name' => $request->input('applicant_name'),
+                'address' => $request->input('address'),
+                'aadhar_no' => $request->input('aadhar_no'),
+                'mobile_no' => $request->input('mobile_no'),
+                'email_id' => $request->input('email_id'),
+                'zone' => $request->input('zone'),
+                'ward_area' => $request->input('ward_area'),
+                'education_institutation' => $request->input('education_institutation'),
+                'education_qualification' => $request->input('education_qualification'),
+                'training_institute_name' => $request->input('training_institute_name'),
+                'year_of_passing' => $request->input('year_of_passing'),
+                'have_experience' => $request->input('have_experience'),
+                'remark' => $request->input('remark'),
+            ]);
 
-                // Commit the transaction
-                DB::commit();
+            // Commit the transaction
+            DB::commit();
 
 
             return true;
