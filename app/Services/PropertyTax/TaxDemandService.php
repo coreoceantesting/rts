@@ -31,21 +31,31 @@ class TaxDemandService
             if ($request->hasFile('uploaded_applications')) {
                 $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/tax-demand');
             }
-            $taxdemand = TaxDemand::create($request->all());
+            $taxDemand = TaxDemand::create($request->all());
 
 
 
-            // code to send data to city structure portal
-            $fileData = [
-                'uploaded_application' => storage_path('app/' . $taxdemand->uploaded_application),
-            ];
-            Log::info($fileData);
+
+            $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+
             $request['service_id'] = '1';
             $request['upic_id'] = 'PNVL000041';
-            $data = $this->curlAPiService->sendPostRequest($request->all(), 'http://panvelrtstest.ptaxcollection.com:8080/Pages/TaxDemands.asmx/RequestForTaxDemand', $fileData);
 
-            $arr = json_decode($data);
-            Log::info($arr);
+            $newData = $request->except(['uploaded_applications']);
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, 'http://panvelrtstest.ptaxcollection.com:8080/Pages/TaxDemands.asmx/RequestForTaxDemand', 'applicantDetails');
+
+            // $jsonString = '{"d":{"application_id":"PTRTS00000201"}}';
+
+            // Decode JSON string to PHP array
+            $data = json_decode($data, true);
+
+            // Access the application_id
+            $applicationId = $data['d']['application_id'];
+            // Log::info($applicationId);
+
+            TaxDemand::where('id', $taxDemand->id)->update([
+                'application_no' => $applicationId
+            ]);
 
             // if ($arr->success) {
             //     CityStructurePartMap::where('id', $cityStructurePartMap->id)->update([
@@ -69,7 +79,7 @@ class TaxDemandService
             // }
             // end of code to send data to city structure portal
 
-            return false;
+            // return false;
             DB::commit();
 
             return true;

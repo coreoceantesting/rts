@@ -8,7 +8,6 @@ class CurlAPiService
 {
     public function sendPostRequest($data, $url, $files)
     {
-        // Log::info($data);
         // Initialize cURL session
         $ch = curl_init($url);
 
@@ -24,7 +23,7 @@ class CurlAPiService
                 }
             }
         }
-        Log::info($postFields);
+
         // Configure cURL options
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
@@ -42,5 +41,50 @@ class CurlAPiService
         curl_close($ch);
         Log::error($response);
         return $response;
+    }
+
+    public function sendPostRequestInObject($data, $url, $object)
+    {
+        $ch = curl_init($url);
+
+        // Initialize post fields
+        $postFields[$object] = $data;
+
+        // Log::info($postFields);
+        // Configure cURL options
+
+        $payload = json_encode($postFields);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+            'Content-Length: ' . strlen($payload)
+        ]);
+
+        // Execute cURL request
+        $response = curl_exec($ch);
+
+        // Check for errors
+        if ($response === false) {
+            $error = curl_error($ch);
+            Log::error($error);
+        }
+        // Close cURL session
+        curl_close($ch);
+        Log::error($response);
+        return $response;
+    }
+
+    public function convertFileInBase64($file){
+        // Get the file contents
+        $fileContents = file_get_contents($file->getRealPath());
+
+        // Encode the file contents to a base64 string
+        $base64String = base64_encode($fileContents);
+
+        return $base64String;
     }
 }
