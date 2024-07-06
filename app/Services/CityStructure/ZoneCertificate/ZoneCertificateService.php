@@ -47,6 +47,40 @@ class ZoneCertificateService
                 'upload_city_servey_map' => $upload_city_servey_map,
             ]);
 
+
+            // code to send data to city structure portal
+            $fileData = [
+                'prescribed_format' => $request->file('prescribed_format'),
+                'upload_city_survey_certificate' => $request->file('upload_city_survey_certificate'),
+                'upload_city_servey_map' => $request->file('upload_city_servey_map'),
+            ];
+            $data = $this->curlAPiService->sendPostRequest($request->all(), 'https://api.com/api/demo', $fileData);
+
+            $arr = json_decode($data);
+
+            if ($arr->success) {
+                CityStructurePartMap::where('id', $cityStructurePartMap->id)->update([
+                    'application_no' => $arr->result->application_no
+                ]);
+
+                // call function to send data to aapale sarkar portal
+                if (Auth::user()->is_aapale_sarkar_user) {
+                    $aapaleSarkarCredential = ServiceCredential::where('service_name', 'Marriage register certificate')->first();
+
+                    $send = $this->aapaleSarkarLoginCheckService->encryptAndSendRequestToAapaleSarkar(Auth::user()->trackid, $aapaleSarkarCredential->client_code, Auth::user()->user_id, $aapaleSarkarCredential->service_id, 'application number', 'N', 'NA', 'N', 'NA', "20", date('Y-m-d', strtotime("+$aapaleSarkarCredential->service_day days")), 23.60, 1, 2, 'Payment Pending', $aapaleSarkarCredential->ulb_id, $aapaleSarkarCredential->ulb_district, 'NA', 'NA', 'NA', $aapaleSarkarCredential->check_sum_key, $aapaleSarkarCredential->str_key, $aapaleSarkarCredential->str_iv, $aapaleSarkarCredential->soap_end_point_url, $aapaleSarkarCredential->soap_action_app_status_url);
+
+                    if (!$send) {
+                        return false;
+                    }
+                }
+                // end of call function to send data to aapale sarkar portal
+            } else {
+                DB::rollback();
+                return false;
+            }
+            // end of code to send data to city structure portal
+
+
             DB::commit();
             return true;
         } catch (\Exception $e) {

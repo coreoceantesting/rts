@@ -8,6 +8,7 @@ class CurlAPiService
 {
     public function sendPostRequest($data, $url, $files)
     {
+        // Log::info($data);
         // Initialize cURL session
         $ch = curl_init($url);
 
@@ -23,7 +24,7 @@ class CurlAPiService
                 }
             }
         }
-
+        Log::info($postFields);
         // Configure cURL options
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);

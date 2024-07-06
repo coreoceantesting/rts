@@ -149,11 +149,28 @@ class PartZoneService
                 'servey_number' => $request->input('servey_number'),
             ]);
 
-            // Commit the transaction
-            DB::commit();
 
 
-            return true;
+            // code to send data to city structure portal
+            $fileData = [
+                'prescribed_format' => $request->file('prescribed_format'),
+                'upload_city_survey_certificate' => $request->file('upload_city_survey_certificate'),
+                'upload_city_servey_map' => $request->file('upload_city_servey_map'),
+            ];
+            $data = $this->curlAPiService->sendPostRequest($request->all(), 'https://api.com/api/demo', $fileData);
+
+            $arr = json_decode($data);
+
+            if ($arr->success) {
+                // Commit the transaction
+                DB::commit();
+                return true;
+            } else {
+                DB::rollback();
+                return false;
+            }
+            // end of code to send data to city structure portal
+
         } catch (\Exception $e) {
             DB::rollback();
             Log::info($e);
