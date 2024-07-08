@@ -23,6 +23,7 @@ class NewTaxationRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'upic_id' => 'required',
             'applicant_full_name' => 'required',
             'applicant_full_address' => 'required',
             'owner_name' => 'required',

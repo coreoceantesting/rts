@@ -14,7 +14,12 @@
                         </div>
                         <div class="card-body">
                             <div class="mb-3 row">
-
+                                
+                                <div class="col-md-4">
+                                    <label class="col-form-label" for="upic_id">UPIC No<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="upic_id" name="upic_id" type="text" placeholder="Enter UPIC No" value="{{ $propertyTaxAssessment->upic_id }}" required>
+                                    <span class="text-danger is-invalid upic_id_err"></span>
+                                </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="applicant_name">Applicant Name / अर्जदाराचे नाव<span class="text-danger">*</span></label>
                                     <input class="form-control" id="applicant_name" name="applicant_name" type="text" placeholder="Enter Applicant Name" value="{{ $propertyTaxAssessment->applicant_name }}" required>

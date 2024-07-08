@@ -16,6 +16,11 @@
                             <div class="mb-3 row">
                                 <input type="hidden" name="id" id="editId" value="{{ $retax->applicant_name }}">
                                 <div class="col-md-4">
+                                    <label class="col-form-label" for="upic_id">UPIC No<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="upic_id" name="upic_id" type="text" placeholder="Enter UPIC No" value="{{ $retax->upic_id }}" required>
+                                    <span class="text-danger is-invalid upic_id_err"></span>
+                                </div>
+                                <div class="col-md-4">
                                     <label class="col-form-label" for="applicant_name">Applicant Name / अर्जदाराचे नाव<span class="text-danger">*</span></label>
                                     <input class="form-control" id="applicant_name" name="applicant_name" type="text" placeholder="Enter Applicant Name" value="{{ $retax->applicant_name }}">
                                     <span class="text-danger is-invalid applicant_name_err"></span>

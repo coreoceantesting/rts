@@ -11,5 +11,5 @@ class Newtaxation extends Model
 
     protected $table = "newtaxations";
 
-    protected $fillable = ['user_id', 'is_aapale_sarkar_payment_paid', 'applicant_full_name', 'applicant_full_address', 'owner_name', 'applicant_mobile_no', 'email_id', 'aadhar_no', 'property_address', 'property_no', 'survey_number', 'zone', 'ward_area', 'property_usage', 'construction_type', 'is_construction_authorized', 'is_there_water_connection', 'property_area', 'uploaded_application', 'certificate_of_no_dues'];
+    protected $fillable = ['upic_id', 'user_id', 'is_aapale_sarkar_payment_paid', 'applicant_full_name', 'applicant_full_address', 'owner_name', 'applicant_mobile_no', 'email_id', 'aadhar_no', 'property_address', 'property_no', 'survey_number', 'zone', 'ward_area', 'property_usage', 'construction_type', 'is_construction_authorized', 'is_there_water_connection', 'property_area', 'uploaded_application', 'certificate_of_no_dues'];
 }

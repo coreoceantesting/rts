@@ -23,6 +23,7 @@ class NoDueCertificateRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'upic_id' => 'required',
             'applicant_name_eng' => 'required',
             'applicant_name_mar' => 'required',
             'applicant_full_address_eng' => 'required',

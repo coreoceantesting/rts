@@ -17,6 +17,11 @@
                                 
                                 <input type="hidden" name="id" id="editId" value="{{ $noDue->id }}">
                                 <div class="col-md-4">
+                                    <label class="col-form-label" for="upic_id">UPIC No<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="upic_id" name="upic_id" type="text" placeholder="Enter UPIC No" value="{{ $noDue->upic_id }}" required>
+                                    <span class="text-danger is-invalid upic_id_err"></span>
+                                </div>
+                                <div class="col-md-4">
                                     <label class="col-form-label" for="applicant_name_eng">Applicant's Name ( English ) / अर्जदाराचे नाव ( इंग्रजी )<span class="text-danger">*</span></label>
                                     <input class="form-control" id="applicant_name_eng" name="applicant_name_eng" type="text" value="{{ $noDue->applicant_name_eng }}" placeholder="Enter Applicant Name" required>
                                     <span class="text-danger is-invalid applicant_name_eng_err"></span>

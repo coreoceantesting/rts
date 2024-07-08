@@ -14,7 +14,12 @@
                         </div>
                         <div class="card-body">
                             <div class="mb-3 row">
-
+                                <input type="hidden" value="{{ $selfAssessment->id }}" name="id" id="editId">
+                                <div class="col-md-4">
+                                    <label class="col-form-label" for="upic_id">UPIC No<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="upic_id" name="upic_id" type="text" placeholder="Enter UPIC No" value="{{ $selfAssessment->upic_id }}" required>
+                                    <span class="text-danger is-invalid upic_id_err"></span>
+                                </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="applicant_full_name">Applicant Full Name / अर्जदाराचे संपूर्ण नाव<span class="text-danger">*</span></label>
                                     <input class="form-control" id="applicant_full_name" name="applicant_full_name" type="text" placeholder="Enter Applicant Full Name" value="{{ $selfAssessment->applicant_full_name }}" required>
