@@ -41,7 +41,7 @@ class RegistrationOfObjectionRequest extends FormRequest
             'is_there_water_connection' => 'required',
             'property_area' => 'required',
             'uploaded_applications' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
-            'no_dues_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'no_dues_documents' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'is_correct_info' => 'required'
         ];
     }
@@ -69,9 +69,9 @@ class RegistrationOfObjectionRequest extends FormRequest
             'uploaded_applications.required' => 'Please select upload applicant file',
             'uploaded_applications.mimes' => 'File should be png, jpg and pdf type',
             'uploaded_applications.max' => 'File should be less than 2mb',
-            'no_dues_document.required' => 'Please select no due document file',
-            'no_dues_document.mimes' => 'File should be png, jpg and pdf type',
-            'no_dues_document.max' => 'File should be less than 2mb',
+            'no_dues_documents.required' => 'Please select no due document file',
+            'no_dues_documents.mimes' => 'File should be png, jpg and pdf type',
+            'no_dues_documents.max' => 'File should be less than 2mb',
             'is_correct_info.required' => 'Please accept declaration'
         ];
     }

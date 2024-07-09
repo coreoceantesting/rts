@@ -181,7 +181,7 @@
 
         var formdata = new FormData(this);
         $.ajax({
-            url: '{{ route("new-taxation.create") }}',
+            url: '{{ route("new-taxation.store") }}',
             type: 'POST',
             data: formdata,
             contentType: false,

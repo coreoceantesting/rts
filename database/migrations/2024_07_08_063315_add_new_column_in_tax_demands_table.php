@@ -66,6 +66,20 @@ return new class extends Migration
                 $table->string('application_no')->nullable();
             });
         });
+
+        Schema::table('re_taxations', function (Blueprint $table) {
+            $table->after('is_aapale_sarkar_payment_paid', function (Blueprint $table) {
+                $table->string('upic_id')->nullable();
+                $table->string('application_no')->nullable();
+            });
+        });
+
+        Schema::table('tax_exemption_non_resident_properties', function (Blueprint $table) {
+            $table->after('is_aapale_sarkar_payment_paid', function (Blueprint $table) {
+                $table->string('upic_id')->nullable();
+                $table->string('application_no')->nullable();
+            });
+        });
     }
 
     /**
@@ -109,6 +123,16 @@ return new class extends Migration
         });
 
         Schema::table('transfer_property_certificates', function (Blueprint $table) {
+            $table->dropColumn('upic_id');
+            $table->dropColumn('application_no');
+        });
+
+        Schema::table('re_taxations', function (Blueprint $table) {
+            $table->dropColumn('upic_id');
+            $table->dropColumn('application_no');
+        });
+
+        Schema::table('tax_exemption_non_resident_properties', function (Blueprint $table) {
             $table->dropColumn('upic_id');
             $table->dropColumn('application_no');
         });

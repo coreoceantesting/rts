@@ -219,7 +219,7 @@
 
         var formdata = new FormData(this);
         $.ajax({
-            url: '{{ route("transfer-property.create") }}',
+            url: '{{ route("transfer-property.store") }}',
             type: 'POST',
             data: formdata,
             contentType: false,

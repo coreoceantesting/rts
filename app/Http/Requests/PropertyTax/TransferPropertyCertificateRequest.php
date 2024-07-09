@@ -44,7 +44,7 @@ class TransferPropertyCertificateRequest extends FormRequest
             'border' => 'required',
             'uploaded_applications' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'certificate_of_no_duess' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
-            'copy_of_document' => 'required',
+            'copy_of_documents' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'remark' => 'required',
             'is_correct_info' => 'required'
         ];
@@ -77,9 +77,9 @@ class TransferPropertyCertificateRequest extends FormRequest
             'no_of_officer.required' => 'Please enter officer no',
             'length_width_of_land.required' => 'Please enter land with length',
             'border.required' => 'Please enter border',
-            'uploaded_application.required' => 'Please upload application file',
-            'certificate_of_no_dues.required' => 'Please select dues no certificate',
-            'copy_of_document.required' => 'Please select document copy',
+            'uploaded_applications.required' => 'Please upload application file',
+            'certificate_of_no_duess.required' => 'Please select dues no certificate',
+            'copy_of_documents.required' => 'Please select document copy',
             'remark.required' => 'Please enter remark',
             'is_correct_info.required' => 'Please accept declaration'
         ];

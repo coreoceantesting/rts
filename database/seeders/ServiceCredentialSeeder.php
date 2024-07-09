@@ -14,6 +14,7 @@ class ServiceCredentialSeeder extends Seeder
     public function run(): void
     {
         DB::table('service_credentials')->insert([
+            'dept_service_id' => '42',
             'service_name' => 'Marriage register certificate',
             'service_url' => 'marriage-registration-certificate/list',
             'client_code' => 'PNL224',

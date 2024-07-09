@@ -141,7 +141,7 @@
 
         var formdata = new FormData(this);
         $.ajax({
-            url: '{{ route("no-dues.create") }}',
+            url: '{{ route("no-dues.store") }}',
             type: 'POST',
             data: formdata,
             contentType: false,

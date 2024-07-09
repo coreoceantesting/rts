@@ -7,9 +7,21 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use App\Models\ServiceCredential;
+use App\Services\CurlAPiService;
+use App\Services\AapaleSarkarLoginCheckService;
 
 class ReTaxationService
 {
+    protected $curlAPiService;
+    protected $aapaleSarkarLoginCheckService;
+
+    public function __construct(CurlAPiService $curlAPiService, AapaleSarkarLoginCheckService $aapaleSarkarLoginCheckService)
+    {
+        $this->curlAPiService = $curlAPiService;
+        $this->aapaleSarkarLoginCheckService = $aapaleSarkarLoginCheckService;
+    }
+
     public function store($request)
     {
         DB::beginTransaction();
@@ -27,14 +39,13 @@ class ReTaxationService
             $request['service_id'] = '1';
 
             $newData = $request->except(['uploaded_applications']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, 'http://panvelrtstest.ptaxcollection.com:8080/Pages/TaxDemands.asmx/RequestForTaxDemand', 'applicantDetails');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/ReassessmentOfPropertyTax.asmx/RequestForReassessmentOfPropertyTax', 'applicantDetails');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
             // Access the application_id
             $applicationId = $data['d']['application_id'];
-            // Log::info($applicationId);
 
             if ($applicationId != "") {
                 ReTaxation::where('id', $reTaxation->id)->update([
@@ -42,7 +53,7 @@ class ReTaxationService
                 ]);
 
                 if (Auth::user()->is_aapale_sarkar_user) {
-                    $aapaleSarkarCredential = ServiceCredential::where('service_name', 'Marriage register certificate')->first();
+                    $aapaleSarkarCredential = ServiceCredential::where('dept_service_id', $request->service_id)->first();
 
                     $send = $this->aapaleSarkarLoginCheckService->encryptAndSendRequestToAapaleSarkar(Auth::user()->trackid, $aapaleSarkarCredential->client_code, Auth::user()->user_id, $aapaleSarkarCredential->service_id, $applicationId, 'N', 'NA', 'N', 'NA', "20", date('Y-m-d', strtotime("+$aapaleSarkarCredential->service_day days")), 23.60, 1, 2, 'Payment Pending', $aapaleSarkarCredential->ulb_id, $aapaleSarkarCredential->ulb_district, 'NA', 'NA', 'NA', $aapaleSarkarCredential->check_sum_key, $aapaleSarkarCredential->str_key, $aapaleSarkarCredential->str_iv, $aapaleSarkarCredential->soap_end_point_url, $aapaleSarkarCredential->soap_action_app_status_url);
 
@@ -60,7 +71,7 @@ class ReTaxationService
 
             return true;
         } catch (\Exception $e) {
-            DB::roolback();
+            DB::rollback();
             Log::info($e);
             return false;
         }
@@ -91,7 +102,7 @@ class ReTaxationService
 
             return true;
         } catch (\Exception $e) {
-            DB::roolback();
+            DB::rollback();
             Log::info($e);
             return false;
         }

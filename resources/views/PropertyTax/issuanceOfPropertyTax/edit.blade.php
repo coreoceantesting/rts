@@ -144,14 +144,14 @@
                                     <span class="text-danger is-invalid property_area_err"></span>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="col-form-label" for="uploaded_application">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="uploaded_application" name="uploaded_applications" type="file" value="{{ $propertyTaxAssessment->uploaded_application }}" required>
-                                    <span class="text-danger is-invalid uploaded_application_err"></span>
+                                    <label class="col-form-label" for="uploaded_applications">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="uploaded_applications" name="uploaded_applications" type="file" value="{{ $propertyTaxAssessment->uploaded_application }}" required>
+                                    <span class="text-danger is-invalid uploaded_applications_err"></span>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="col-form-label" for="certificate_of_no_dues">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="certificate_of_no_dues" name="certificate_of_no_duess" type="file" value="{{ $propertyTaxAssessment->certificate_of_no_duess }}" required>
-                                    <span class="text-danger is-invalid certificate_of_no_dues_err"></span>
+                                    <label class="col-form-label" for="certificate_of_no_duess">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="certificate_of_no_duess" name="certificate_of_no_duess" type="file" value="{{ $propertyTaxAssessment->certificate_of_no_dues }}" required>
+                                    <span class="text-danger is-invalid certificate_of_no_duess_err"></span>
                                 </div>
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
                                 <div class="col-md-12">

@@ -6,9 +6,21 @@ use App\Models\PropertyTax\TaxExemptionNonResidentProperties;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use App\Models\ServiceCredential;
+use App\Services\CurlAPiService;
+use App\Services\AapaleSarkarLoginCheckService;
 
 class TaxExemptionNonResidentPropertiesService
 {
+    protected $curlAPiService;
+    protected $aapaleSarkarLoginCheckService;
+
+    public function __construct(CurlAPiService $curlAPiService, AapaleSarkarLoginCheckService $aapaleSarkarLoginCheckService)
+    {
+        $this->curlAPiService = $curlAPiService;
+        $this->aapaleSarkarLoginCheckService = $aapaleSarkarLoginCheckService;
+    }
+
     public function store($request)
     {
         DB::beginTransaction();
@@ -18,15 +30,14 @@ class TaxExemptionNonResidentPropertiesService
             $taxExemptionNonResidentProperties = TaxExemptionNonResidentProperties::create($request->all());
 
 
-            $request['service_id'] = '1';
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, 'http://panvelrtstest.ptaxcollection.com:8080/Pages/TaxDemands.asmx/RequestForTaxDemand', 'applicantDetails');
+            $request['service_id'] = '10';
+            $data = $this->curlAPiService->sendPostRequestInObject($request->all(), config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TaxExemptionForNonResidentProperties.asmx/RequestForTaxExemptionForNonResidentProperties', 'applicantDetails');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
             // Access the application_id
             $applicationId = $data['d']['application_id'];
-            // Log::info($applicationId);
 
             if ($applicationId != "") {
                 TaxExemptionNonResidentProperties::where('id', $taxExemptionNonResidentProperties->id)->update([
@@ -34,7 +45,7 @@ class TaxExemptionNonResidentPropertiesService
                 ]);
 
                 if (Auth::user()->is_aapale_sarkar_user) {
-                    $aapaleSarkarCredential = ServiceCredential::where('service_name', 'Marriage register certificate')->first();
+                    $aapaleSarkarCredential = ServiceCredential::where('dept_service_id', $request->service_id)->first();
 
                     $send = $this->aapaleSarkarLoginCheckService->encryptAndSendRequestToAapaleSarkar(Auth::user()->trackid, $aapaleSarkarCredential->client_code, Auth::user()->user_id, $aapaleSarkarCredential->service_id, $applicationId, 'N', 'NA', 'N', 'NA', "20", date('Y-m-d', strtotime("+$aapaleSarkarCredential->service_day days")), 23.60, 1, 2, 'Payment Pending', $aapaleSarkarCredential->ulb_id, $aapaleSarkarCredential->ulb_district, 'NA', 'NA', 'NA', $aapaleSarkarCredential->check_sum_key, $aapaleSarkarCredential->str_key, $aapaleSarkarCredential->str_iv, $aapaleSarkarCredential->soap_end_point_url, $aapaleSarkarCredential->soap_action_app_status_url);
 
@@ -52,7 +63,7 @@ class TaxExemptionNonResidentPropertiesService
 
             return true;
         } catch (\Exception $e) {
-            DB::roolback();
+            DB::rollback();
             Log::info($e);
             return false;
         }
@@ -75,7 +86,7 @@ class TaxExemptionNonResidentPropertiesService
 
             return true;
         } catch (\Exception $e) {
-            DB::roolback();
+            DB::rollback();
             Log::info($e);
             return false;
         }

@@ -152,9 +152,9 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label class="col-form-label" for="uploaded_application">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="uploaded_application" name="uploaded_application" type="file">
-                                    <span class="text-danger is-invalid uploaded_application_err"></span>
+                                    <label class="col-form-label" for="uploaded_applications">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="uploaded_applications" name="uploaded_applications" type="file">
+                                    <span class="text-danger is-invalid uploaded_applications_err"></span>
                                 </div>
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
                                 <div class="col-md-12">

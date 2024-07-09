@@ -41,7 +41,7 @@ class NewTaxationRequest extends FormRequest
             'is_there_water_connection' => 'required',
             'property_area' => 'required',
             'uploaded_applications' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
-            'certificate_of_no_dues' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'certificate_of_no_duess' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'is_correct_info' => 'required'
         ];
     }
@@ -68,9 +68,9 @@ class NewTaxationRequest extends FormRequest
             'uploaded_applications.required' => 'Please select upload application file',
             'uploaded_applications.mimes' => 'File should be png, jpg and pdf type',
             'uploaded_applications.max' => 'File should be less than 2mb',
-            'certificate_of_no_dues.required' => 'Please select no due certificate file',
-            'certificate_of_no_dues.mimes' => 'File should be png, jpg and pdf type',
-            'certificate_of_no_dues.max' => 'File should be less than 2mb',
+            'certificate_of_no_duess.required' => 'Please select no due certificate file',
+            'certificate_of_no_duess.mimes' => 'File should be png, jpg and pdf type',
+            'certificate_of_no_duess.max' => 'File should be less than 2mb',
             'is_correct_info.required' => 'Please accept declaration'
         ];
     }

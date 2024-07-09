@@ -40,8 +40,8 @@ class PropertyTaxAssessmentRequest extends FormRequest
             'is_construction_authorized' => 'required',
             'is_there_water_connection' => 'required',
             'property_area' => 'required',
-            'uploaded_application' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
-            'certificate_of_no_dues' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'uploaded_applications' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'certificate_of_no_duess' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'is_correct_info' => 'required'
         ];
     }
@@ -66,12 +66,12 @@ class PropertyTaxAssessmentRequest extends FormRequest
             'is_construction_authorized.required' => 'Please select construction is authorize',
             'is_there_water_connection.required' => 'Please select is water connection',
             'property_area.required' => 'Please enter property area',
-            'uploaded_application.required' => 'Please upload application prescribed format',
-            'uploaded_application.mimes' => 'File should be png, jpg and pdf type',
-            'uploaded_application.max' => 'File should be less than 2mb',
-            'certificate_of_no_dues.required' => 'Please upload no of dues certificate',
-            'certificate_of_no_dues.mimes' => 'File should be png, jpg and pdf type',
-            'certificate_of_no_dues.max' => 'File should be less than 2mb',
+            'uploaded_applications.required' => 'Please upload application prescribed format',
+            'uploaded_applications.mimes' => 'File should be png, jpg and pdf type',
+            'uploaded_applications.max' => 'File should be less than 2mb',
+            'certificate_of_no_duess.required' => 'Please upload no of dues certificate',
+            'certificate_of_no_duess.mimes' => 'File should be png, jpg and pdf type',
+            'certificate_of_no_duess.max' => 'File should be less than 2mb',
             'is_correct_info.required' => 'Please accept declaration'
         ];
     }
