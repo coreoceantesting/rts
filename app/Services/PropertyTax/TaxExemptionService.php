@@ -32,11 +32,21 @@ class TaxExemptionService
             if ($request->hasFile('uploaded_applications')) {
                 $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/tax-exemption');
             }
-
             $taxExemption = TaxExemption::create($request->all());
 
-            $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
-            $request['no_dues_document'] = $this->curlAPiService->convertFileInBase64($request->file('no_dues_documents'));
+
+            // code to send data to department
+            if ($request->hasFile('no_dues_documents')) {
+                $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+            } else {
+                $request['uploaded_application'] = "";
+            }
+            if ($request->hasFile('uploaded_applications')) {
+                $request['no_dues_document'] = $this->curlAPiService->convertFileInBase64($request->file('no_dues_documents'));
+            } else {
+                $request['no_dues_document'] = "";
+            }
+
             $request['service_id'] = '1';
 
             $newData = $request->except(['no_dues_documents', 'uploaded_applications']);
@@ -45,11 +55,9 @@ class TaxExemptionService
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
-            // Access the application_id
-            $applicationId = $data['d']['application_id'];
-
-
-            if ($applicationId != "") {
+            if ($data['d']['Status'] == "200") {
+                // Access the application_id
+                $applicationId = $data['d']['application_id'];
                 TaxExemption::where('id', $taxExemption->id)->update([
                     'application_no' => $applicationId
                 ]);
@@ -67,10 +75,9 @@ class TaxExemptionService
                 DB::rollback();
                 return false;
             }
-
+            // end of code to send data to department
 
             DB::commit();
-
             return true;
         } catch (\Exception $e) {
             DB::rollback();
@@ -92,9 +99,33 @@ class TaxExemptionService
             $taxExemption = TaxExemption::find($request->id);
             $taxExemption->update($request->all());
 
-            DB::commit();
+            // code to send data to department
+            if ($request->hasFile('no_dues_documents')) {
+                $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+            } else {
+                $request['uploaded_application'] = "";
+            }
+            if ($request->hasFile('uploaded_applications')) {
+                $request['no_dues_document'] = $this->curlAPiService->convertFileInBase64($request->file('no_dues_documents'));
+            } else {
+                $request['no_dues_document'] = "";
+            }
 
-            return true;
+            $request['application_no'] = $taxExemption->application_no;
+            $newData = $request->except(['no_dues_documents', 'uploaded_applications']);
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/PropertyTaxExemption.asmx/RequestForPropertyTaxExemption', 'applicantDetails');
+
+            // Decode JSON string to PHP array
+            $data = json_decode($data, true);
+
+            if ($data['d']['Status'] == "200") {
+                DB::commit();
+                return true;
+            } else {
+                DB::rollback();
+                return false;
+            }
+            // end of code to send data to department
         } catch (\Exception $e) {
             DB::rollback();
             Log::info($e);

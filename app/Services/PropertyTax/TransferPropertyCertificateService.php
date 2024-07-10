@@ -44,10 +44,22 @@ class TransferPropertyCertificateService
             $transferPropertyCertificate = TransferPropertyCertificate::create($request->all());
 
 
-            $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
-            $request['certificate_of_no_dues'] = $this->curlAPiService->convertFileInBase64($request->file('certificate_of_no_duess'));
-            $request['copy_of_document'] = $this->curlAPiService->convertFileInBase64($request->file('copy_of_documents'));
-
+            // code to send data to department
+            if ($request->hasFile('uploaded_applications')) {
+                $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+            } else {
+                $request['uploaded_application'] = "";
+            }
+            if ($request->hasFile('certificate_of_no_duess')) {
+                $request['certificate_of_no_dues'] = $this->curlAPiService->convertFileInBase64($request->file('certificate_of_no_duess'));
+            } else {
+                $request['certificate_of_no_dues'] = "";
+            }
+            if ($request->hasFile('copy_of_documents')) {
+                $request['copy_of_document'] = $this->curlAPiService->convertFileInBase64($request->file('copy_of_documents'));
+            } else {
+                $request['copy_of_document'] = "";
+            }
             $request['service_id'] = '1';
 
             $newData = $request->except(['uploaded_applications', 'certificate_of_no_duess', 'copy_of_documents']);
@@ -56,10 +68,9 @@ class TransferPropertyCertificateService
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
-            // Access the application_id
-            $applicationId = $data['d']['application_id'];
-
-            if ($applicationId != "") {
+            if ($data['d']['Status'] == "200") {
+                // Access the application_id
+                $applicationId = $data['d']['application_id'];
                 TransferPropertyCertificate::where('id', $transferPropertyCertificate->id)->update([
                     'application_no' => $applicationId
                 ]);
@@ -77,10 +88,9 @@ class TransferPropertyCertificateService
                 DB::rollback();
                 return false;
             }
-
+            // end of code to send data to department
 
             DB::commit();
-
             return true;
         } catch (\Exception $e) {
             DB::rollback();
@@ -106,26 +116,53 @@ class TransferPropertyCertificateService
                 }
                 $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/transfer-property');
             }
-
             if ($request->hasFile('certificate_of_no_duess')) {
                 if ($transferPropertyCertificate && Storage::exists($transferPropertyCertificate->certificate_of_no_dues)) {
                     Storage::delete($transferPropertyCertificate->certificate_of_no_dues);
                 }
                 $request['certificate_of_no_dues'] = $request->certificate_of_no_duess->store('propertyTax/transfer-property');
             }
-
             if ($request->hasFile('copy_of_documents')) {
                 if ($transferPropertyCertificate && Storage::exists($transferPropertyCertificate->copy_of_document)) {
                     Storage::delete($transferPropertyCertificate->copy_of_document);
                 }
                 $request['copy_of_document'] = $request->copy_of_documents->store('propertyTax/transfer-property');
             }
-
             $transferPropertyCertificate->update($request->all());
 
-            DB::commit();
 
-            return true;
+            // code to send data to department
+            if ($request->hasFile('uploaded_applications')) {
+                $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+            } else {
+                $request['uploaded_application'] = "";
+            }
+            if ($request->hasFile('certificate_of_no_duess')) {
+                $request['certificate_of_no_dues'] = $this->curlAPiService->convertFileInBase64($request->file('certificate_of_no_duess'));
+            } else {
+                $request['certificate_of_no_dues'] = "";
+            }
+            if ($request->hasFile('copy_of_documents')) {
+                $request['copy_of_document'] = $this->curlAPiService->convertFileInBase64($request->file('copy_of_documents'));
+            } else {
+                $request['copy_of_document'] = "";
+            }
+            $request['application_no'] = $transferPropertyCertificate->application_no;
+            $newData = $request->except(['uploaded_applications', 'certificate_of_no_duess', 'copy_of_documents']);
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TransferOfPropertyCertificate.asmx/RequestForTransferOfPropertyCertificate', 'applicantDetails');
+
+            // Decode JSON string to PHP array
+            $data = json_decode($data, true);
+
+            if ($data['d']['Status'] == "200") {
+                // Access the application_id
+                DB::commit();
+                return true;
+            } else {
+                DB::rollback();
+                return false;
+            }
+            // end of code to send data to department
         } catch (\Exception $e) {
             DB::rollback();
             Log::info($e);

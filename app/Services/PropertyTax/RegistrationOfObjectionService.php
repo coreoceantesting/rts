@@ -34,25 +34,34 @@ class RegistrationOfObjectionService
             if ($request->hasFile('no_dues_documents')) {
                 $request['no_dues_document'] = $request->no_dues_documents->store('propertyTax/reg-of-obj');
             }
-
             $registrationOfObjection = RegistrationOfObjection::create($request->all());
 
 
-            $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
-            $request['no_dues_document'] = $this->curlAPiService->convertFileInBase64($request->file('no_dues_documents'));
 
-            $request['service_id'] = '11';
+            // code to send data to department
+            if ($request->hasFile('uploaded_applications')) {
+                $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+            } else {
+                $request['uploaded_application'] = "";
+            }
+
+            if ($request->hasFile('no_dues_documents')) {
+                $request['no_dues_document'] = $this->curlAPiService->convertFileInBase64($request->file('no_dues_documents'));
+            } else {
+                $request['no_dues_document'] = "";
+            }
+            $request['service_id'] = '10';
 
             $newData = $request->except(['no_dues_documents', 'uploaded_applications']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/FileAnObjection.asmx/RequestForFileObjection', 'applicantDetails');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/FileAnObjection.asmx/RequestForFileAnObjection', 'fileforobjection');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
-            // Access the application_id
-            $applicationId = $data['d']['application_id'];
 
-            if ($applicationId != "") {
+            if ($data['d']['Status'] == "200") {
+                // Access the application_id
+                $applicationId = $data['d']['application_id'];
                 RegistrationOfObjection::where('id', $registrationOfObjection->id)->update([
                     'application_no' => $applicationId
                 ]);
@@ -70,10 +79,9 @@ class RegistrationOfObjectionService
                 DB::rollback();
                 return false;
             }
-
+            // end of code to send data to department
 
             DB::commit();
-
             return true;
         } catch (\Exception $e) {
             DB::rollback();
@@ -107,9 +115,35 @@ class RegistrationOfObjectionService
             }
             $registrationOfObjection->update($request->all());
 
-            DB::commit();
 
-            return true;
+
+            // code to send data to department
+            if ($request->hasFile('uploaded_applications')) {
+                $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+            } else {
+                $request['uploaded_application'] = "";
+            }
+
+            if ($request->hasFile('no_dues_documents')) {
+                $request['no_dues_document'] = $this->curlAPiService->convertFileInBase64($request->file('no_dues_documents'));
+            } else {
+                $request['no_dues_document'] = "";
+            }
+            $request['application_no'] = $registrationOfObjection->application_no;
+            $newData = $request->except(['no_dues_documents', 'uploaded_applications']);
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/FileAnObjection.asmx/RequestForUpdateFileAnObjection', 'applicantDetails');
+
+            // Decode JSON string to PHP array
+            $data = json_decode($data, true);
+
+            if ($data['d']['Status'] == "200") {
+                DB::commit();
+                return true;
+            } else {
+                DB::rollback();
+                return false;
+            }
+            // end of code to send data to department
         } catch (\Exception $e) {
             DB::rollback();
             Log::info($e);

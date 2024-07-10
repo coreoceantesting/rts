@@ -31,10 +31,15 @@ class ReTaxationService
             if ($request->hasFile('uploaded_applications')) {
                 $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/retaxation');
             }
-
             $reTaxation = ReTaxation::create($request->all());
 
-            $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+
+            // code to send data to department
+            if ($request->hasFile('uploaded_applications')) {
+                $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+            } else {
+                $request['uploaded_application'] = "";
+            }
 
             $request['service_id'] = '1';
 
@@ -44,10 +49,10 @@ class ReTaxationService
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
-            // Access the application_id
-            $applicationId = $data['d']['application_id'];
 
-            if ($applicationId != "") {
+            if ($data['d']['Status'] == "200") {
+                // Access the application_id
+                $applicationId = $data['d']['application_id'];
                 ReTaxation::where('id', $reTaxation->id)->update([
                     'application_no' => $applicationId
                 ]);
@@ -65,10 +70,9 @@ class ReTaxationService
                 DB::rollback();
                 return false;
             }
-
+            // end of code to send data to department
 
             DB::commit();
-
             return true;
         } catch (\Exception $e) {
             DB::rollback();
@@ -98,9 +102,28 @@ class ReTaxationService
 
             $reTaxation->update($request->all());
 
-            DB::commit();
+            // code to send data to department
+            if ($request->hasFile('uploaded_applications')) {
+                $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+            } else {
+                $request['uploaded_application'] = "";
+            }
+            $request['application_no'] = $reTaxation->application_no;
+            $newData = $request->except(['uploaded_applications']);
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/ReassessmentOfPropertyTax.asmx/RequestForReassessmentOfPropertyTax', 'applicantDetails');
 
-            return true;
+            // Decode JSON string to PHP array
+            $data = json_decode($data, true);
+
+
+            if ($data['d']['Status'] == "200") {
+                DB::commit();
+                return true;
+            } else {
+                DB::rollback();
+                return false;
+            }
+            // end of code to send data to department
         } catch (\Exception $e) {
             DB::rollback();
             Log::info($e);

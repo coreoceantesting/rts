@@ -35,12 +35,21 @@ class PropertyTaxAssessmentService
             if ($request->hasFile('certificate_of_no_duess')) {
                 $request['certificate_of_no_dues'] = $request->certificate_of_no_duess->store('propertyTax/tax-assessment');
             }
-
             $propertyTaxAssessment = PropertyTaxAssessment::create($request->all());
 
-            // Log::info($propertyTaxAssessment);
-            $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
-            $request['certificate_of_no_dues'] = $this->curlAPiService->convertFileInBase64($request->file('certificate_of_no_duess'));
+
+            // code to send data to department
+            if ($request->hasFile('uploaded_applications')) {
+                $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+            } else {
+                $request['uploaded_application'] = "";
+            }
+
+            if ($request->hasFile('certificate_of_no_duess')) {
+                $request['certificate_of_no_dues'] = $this->curlAPiService->convertFileInBase64($request->file('certificate_of_no_duess'));
+            } else {
+                $request['certificate_of_no_dues'] = "";
+            }
             $request['service_id'] = '10';
 
             $newData = $request->except(['certificate_of_no_duess', 'uploaded_applications']);
@@ -49,10 +58,10 @@ class PropertyTaxAssessmentService
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
-            // Access the application_id
-            $applicationId = $data['d']['application_id'];
 
-            if ($applicationId != "") {
+            if ($data['d']['Status'] == "200") {
+                // Access the application_id
+                $applicationId = $data['d']['application_id'];
                 PropertyTaxAssessment::where('id', $propertyTaxAssessment->id)->update([
                     'application_no' => $applicationId
                 ]);
@@ -70,11 +79,9 @@ class PropertyTaxAssessmentService
                 DB::rollback();
                 return false;
             }
-
-
+            // end of code to send data to department
 
             DB::commit();
-
             return true;
         } catch (\Exception $e) {
             DB::rollback();
@@ -108,12 +115,36 @@ class PropertyTaxAssessmentService
                 }
                 $request['certificate_of_no_dues'] = $request->certificate_of_no_duess->store('propertyTax/tax-assessment');
             }
-
             $propertyTax->update($request->all());
 
-            DB::commit();
 
-            return true;
+            // code to send data to department
+            if ($request->hasFile('uploaded_applications')) {
+                $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+            } else {
+                $request['uploaded_application'] = "";
+            }
+
+            if ($request->hasFile('certificate_of_no_duess')) {
+                $request['certificate_of_no_dues'] = $this->curlAPiService->convertFileInBase64($request->file('certificate_of_no_duess'));
+            } else {
+                $request['certificate_of_no_dues'] = "";
+            }
+            $request['application_no'] = $propertyTax->application_no;
+            $newData = $request->except(['certificate_of_no_duess', 'uploaded_applications']);
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/PropertyTaxAssessment.asmx/RequestForPropertyTaxAssessment', 'applicantDetails');
+
+            // Decode JSON string to PHP array
+            $data = json_decode($data, true);
+
+            if ($data['d']['Status'] == "200") {
+                DB::commit();
+                return true;
+            } else {
+                DB::rollback();
+                return false;
+            }
+            // end of code to send data to department
         } catch (\Exception $e) {
             DB::rollback();
             Log::info($e);

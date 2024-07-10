@@ -32,11 +32,15 @@ class SelfAssessmentService
             if ($request->hasFile('uploaded_applications')) {
                 $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/self-assessment');
             }
-
             $selfAssessment = SelfAssessment::create($request->all());
 
-            $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
 
+            // code to send data to department
+            if ($request->hasFile('uploaded_applications')) {
+                $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+            } else {
+                $request['uploaded_application'] = "";
+            }
             $request['service_id'] = '6';
 
             $newData = $request->except(['uploaded_applications']);
@@ -45,10 +49,10 @@ class SelfAssessmentService
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
-            // Access the application_id
-            $applicationId = $data['d']['application_id'];
 
-            if ($applicationId != "") {
+            if ($data['d']['Status'] != "") {
+                // Access the application_id
+                $applicationId = $data['d']['application_id'];
                 SelfAssessment::where('id', $selfAssessment->id)->update([
                     'application_no' => $applicationId
                 ]);
@@ -66,10 +70,9 @@ class SelfAssessmentService
                 DB::rollback();
                 return false;
             }
-
+            // end of code to send data to department
 
             DB::commit();
-
             return true;
         } catch (\Exception $e) {
             DB::rollback();
@@ -98,9 +101,28 @@ class SelfAssessmentService
             }
             $selfAssessment->update($request->all());
 
-            DB::commit();
 
-            return true;
+            // code to send data to department
+            if ($request->hasFile('uploaded_applications')) {
+                $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+            } else {
+                $request['uploaded_application'] = "";
+            }
+            $request['application_no'] = $selfAssessment->application_no;
+            $newData = $request->except(['uploaded_applications']);
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/SelfAssessmentService.asmx/RequestForSelfAssessmentService', 'applicantDetails');
+
+            // Decode JSON string to PHP array
+            $data = json_decode($data, true);
+
+            if ($data['d']['Status'] != "") {
+                DB::commit();
+                return true;
+            } else {
+                DB::rollback();
+                return false;
+            }
+            // end of code to send data to department
         } catch (\Exception $e) {
             DB::rollback();
             Log::info($e);

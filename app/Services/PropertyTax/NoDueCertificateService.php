@@ -35,7 +35,11 @@ class NoDueCertificateService
             $noDueCertificate = NoDueCertificate::create($request->all());
 
             // code to send data to department
-            $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+            if ($request->hasFile('uploaded_applications')) {
+                $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+            } else {
+                $request['uploaded_application'] = "";
+            }
 
             $request['service_id'] = '2';
             $newData = $request->except(['uploaded_applications']);
@@ -45,10 +49,9 @@ class NoDueCertificateService
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
-            // Access the application_id
-            $applicationId = $data['d']['application_id'];
-
-            if ($applicationId != "") {
+            if ($data['d']['Status'] == "200") {
+                // Access the application_id
+                $applicationId = $data['d']['application_id'];
                 NoDueCertificate::where('id', $noDueCertificate->id)->update([
                     'application_no' => $applicationId
                 ]);
@@ -96,12 +99,32 @@ class NoDueCertificateService
                 }
                 $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/no-due');
             }
-
             $noDueCertificate->update($request->all());
 
-            DB::commit();
 
-            return true;
+
+            // code to send data to department
+            if ($request->hasFile('uploaded_applications')) {
+                $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+            } else {
+                $request['uploaded_application'] = "";
+            }
+            $request['application_no'] = $noDueCertificate->application_no;
+            $newData = $request->except(['uploaded_applications']);
+
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/NoDueCertificate.asmx/RequestForNoDueCertificate', 'applicantDetails');
+
+            // Decode JSON string to PHP array
+            $data = json_decode($data, true);
+
+            if ($data['d']['Status'] == "200") {
+                DB::commit();
+                return true;
+            } else {
+                DB::rollback();
+                return false;
+            }
+            // end of code to send data to department
         } catch (\Exception $e) {
             DB::rollback();
             Log::info($e);

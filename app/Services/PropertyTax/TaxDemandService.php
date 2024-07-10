@@ -34,23 +34,24 @@ class TaxDemandService
             $taxDemand = TaxDemand::create($request->all());
 
 
+            // code to send data to department
+            if ($request->hasFile('uploaded_applications')) {
+                $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+            } else {
+                $request['uploaded_application'] = "";
+            }
 
-
-            $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
-
-            $request['service_id'] = '1';
-            $request['upic_id'] = 'PNVL000041';
+            $request['service_id'] = '6';
 
             $newData = $request->except(['uploaded_applications']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TaxDemands.asmx/RequestForTaxDemand', 'applicantDetails');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TaxDemands.asmx/RequestForTaxDemand', 'TaxDemandss');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
-            // Access the application_id
-            $applicationId = $data['d']['application_id'];
-
-            if ($applicationId != "") {
+            if ($data['d']['Status'] == "200") {
+                // Access the application_id
+                $applicationId = $data['d']['application_id'];
                 TaxDemand::where('id', $taxDemand->id)->update([
                     'application_no' => $applicationId
                 ]);
@@ -68,6 +69,7 @@ class TaxDemandService
                 DB::rollback();
                 return false;
             }
+            // end of code to send data to department
 
             DB::commit();
             return true;
@@ -97,9 +99,28 @@ class TaxDemandService
             }
             $taxDemand->update($request->all());
 
-            DB::commit();
 
-            return true;
+            // code to send data to department
+            if ($request->hasFile('uploaded_applications')) {
+                $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+            } else {
+                $request['uploaded_application'] = "";
+            }
+            $request['application_no'] = $taxDemand->application_no;
+            $newData = $request->except(['uploaded_applications']);
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TaxDemands.asmx/RequestForUpdateTaxDemands', 'TaxDemandss');
+
+            // Decode JSON string to PHP array
+            $data = json_decode($data, true);
+
+            if ($data['d']['Status'] == "200") {
+                DB::commit();
+                return true;
+            } else {
+                DB::rollback();
+                return false;
+            }
+            // end of code to send data to department
         } catch (\Exception $e) {
             DB::rollback();
             Log::info($e);

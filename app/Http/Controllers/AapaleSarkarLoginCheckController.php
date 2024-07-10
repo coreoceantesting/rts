@@ -86,11 +86,12 @@ class AapaleSarkarLoginCheckController extends Controller
 
         if (!$user) {
             return response()->json([
-                'status' => 200
+                'status' => 404,
+                'message' => "User not found"
             ]);
         }
 
-        $serviceCredential = ServiceCredential::query()->where('service_name', $request->service_name)->first();
+        $serviceCredential = ServiceCredential::query()->where('dept_service_id', $request->service_name)->first();
 
         $service = $this->aapaleSarkarLoginCheckService->serviceDetails($request->service_name, $request->application_no);
 

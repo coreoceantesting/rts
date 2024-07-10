@@ -29,17 +29,16 @@ class TaxExemptionNonResidentPropertiesService
             $request['user_id'] = Auth::user()->id;
             $taxExemptionNonResidentProperties = TaxExemptionNonResidentProperties::create($request->all());
 
-
+            // code to send data to department
             $request['service_id'] = '10';
             $data = $this->curlAPiService->sendPostRequestInObject($request->all(), config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TaxExemptionForNonResidentProperties.asmx/RequestForTaxExemptionForNonResidentProperties', 'applicantDetails');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
-            // Access the application_id
-            $applicationId = $data['d']['application_id'];
-
-            if ($applicationId != "") {
+            if ($data['d']['Status'] == "200") {
+                // Access the application_id
+                $applicationId = $data['d']['application_id'];
                 TaxExemptionNonResidentProperties::where('id', $taxExemptionNonResidentProperties->id)->update([
                     'application_no' => $applicationId
                 ]);
@@ -57,6 +56,7 @@ class TaxExemptionNonResidentPropertiesService
                 DB::rollback();
                 return false;
             }
+            // end of code to send data to department
 
 
             DB::commit();
@@ -82,9 +82,22 @@ class TaxExemptionNonResidentPropertiesService
             $taxExemptionNonResidentProperties = TaxExemptionNonResidentProperties::find($request->id);
             $taxExemptionNonResidentProperties->update($request->all());
 
-            DB::commit();
+            // code to send data to department
+            $request['application_no'] = $taxExemptionNonResidentProperties->application_no;
+            $data = $this->curlAPiService->sendPostRequestInObject($request->all(), config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TaxExemptionForNonResidentProperties.asmx/RequestForTaxExemptionForNonResidentProperties', 'applicantDetails');
 
-            return true;
+            // Decode JSON string to PHP array
+            $data = json_decode($data, true);
+
+            if ($data['d']['Status'] == "200") {
+                // Access the application_id
+                DB::commit();
+                return true;
+            } else {
+                DB::rollback();
+                return false;
+            }
+            // end of code to send data to department
         } catch (\Exception $e) {
             DB::rollback();
             Log::info($e);
