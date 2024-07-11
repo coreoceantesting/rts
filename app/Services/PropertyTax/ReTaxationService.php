@@ -41,7 +41,8 @@ class ReTaxationService
                 $request['uploaded_application'] = "";
             }
 
-            $request['service_id'] = '1';
+            $request['service_id'] = '8';
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
 
             $newData = $request->except(['uploaded_applications']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/ReassessmentOfPropertyTax.asmx/RequestForReassessmentOfPropertyTax', 'applicantDetails');
@@ -109,8 +110,9 @@ class ReTaxationService
                 $request['uploaded_application'] = "";
             }
             $request['application_no'] = $reTaxation->application_no;
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['uploaded_applications']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/ReassessmentOfPropertyTax.asmx/RequestForReassessmentOfPropertyTax', 'applicantDetails');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/ReassessmentOfPropertyTax.asmx/RequestForUpdateReassesmentofPropertyTax', 'applicantDetails');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);

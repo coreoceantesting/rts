@@ -60,7 +60,8 @@ class TransferPropertyCertificateService
             } else {
                 $request['copy_of_document'] = "";
             }
-            $request['service_id'] = '1';
+            $request['service_id'] = '4';
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
 
             $newData = $request->except(['uploaded_applications', 'certificate_of_no_duess', 'copy_of_documents']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TransferOfPropertyCertificate.asmx/RequestForTransferOfPropertyCertificate', 'applicantDetails');
@@ -148,8 +149,9 @@ class TransferPropertyCertificateService
                 $request['copy_of_document'] = "";
             }
             $request['application_no'] = $transferPropertyCertificate->application_no;
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['uploaded_applications', 'certificate_of_no_duess', 'copy_of_documents']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TransferOfPropertyCertificate.asmx/RequestForTransferOfPropertyCertificate', 'applicantDetails');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TransferOfPropertyCertificate.asmx/RequestForUpdateTransferOfPropertyCertificate', 'applicantDetails');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);

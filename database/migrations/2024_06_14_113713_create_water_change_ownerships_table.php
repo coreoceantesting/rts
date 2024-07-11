@@ -14,7 +14,11 @@ return new class extends Migration
         Schema::create('water_change_ownerships', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
+            $table->integer('service_id')->nullable();
+            $table->date('aapale_sarkar_payment_date')->nullable();
+            $table->date('status')->nullable();
             $table->boolean('is_aapale_sarkar_payment_paid')->nullable();
+            $table->string('upic_id')->nullable();
             $table->string('application_no')->nullable();
             $table->string('service_name')->nullable();
             $table->string('new_owner_name')->nullable();

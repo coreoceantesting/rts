@@ -42,6 +42,7 @@ class TaxDemandService
             }
 
             $request['service_id'] = '6';
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
 
             $newData = $request->except(['uploaded_applications']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TaxDemands.asmx/RequestForTaxDemand', 'TaxDemandss');
@@ -107,6 +108,7 @@ class TaxDemandService
                 $request['uploaded_application'] = "";
             }
             $request['application_no'] = $taxDemand->application_no;
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['uploaded_applications']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TaxDemands.asmx/RequestForUpdateTaxDemands', 'TaxDemandss');
 

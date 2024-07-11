@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             PermissionTableSeeder::class,
             DefaultLoginUserSeeder::class,
             ServiceCredentialSeeder::class,
-            ServiceNameSeeder::class
+            ServiceNameSeeder::class,
+            ServiceSeeder::class
         ]);
     }
 }

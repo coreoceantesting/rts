@@ -42,6 +42,7 @@ class NoDueCertificateService
             }
 
             $request['service_id'] = '2';
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['uploaded_applications']);
 
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/NoDueCertificate.asmx/RequestForNoDueCertificate', 'applicantDetails');
@@ -109,10 +110,11 @@ class NoDueCertificateService
             } else {
                 $request['uploaded_application'] = "";
             }
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $request['application_no'] = $noDueCertificate->application_no;
             $newData = $request->except(['uploaded_applications']);
 
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/NoDueCertificate.asmx/RequestForNoDueCertificate', 'applicantDetails');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/NoDueCertificate.asmx/RequestForUpdateNoDueCertificate', 'applicantDetails');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);

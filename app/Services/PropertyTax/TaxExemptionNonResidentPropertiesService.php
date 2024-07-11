@@ -30,7 +30,8 @@ class TaxExemptionNonResidentPropertiesService
             $taxExemptionNonResidentProperties = TaxExemptionNonResidentProperties::create($request->all());
 
             // code to send data to department
-            $request['service_id'] = '10';
+            $request['service_id'] = '11';
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $data = $this->curlAPiService->sendPostRequestInObject($request->all(), config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TaxExemptionForNonResidentProperties.asmx/RequestForTaxExemptionForNonResidentProperties', 'applicantDetails');
 
             // Decode JSON string to PHP array
@@ -84,7 +85,8 @@ class TaxExemptionNonResidentPropertiesService
 
             // code to send data to department
             $request['application_no'] = $taxExemptionNonResidentProperties->application_no;
-            $data = $this->curlAPiService->sendPostRequestInObject($request->all(), config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TaxExemptionForNonResidentProperties.asmx/RequestForTaxExemptionForNonResidentProperties', 'applicantDetails');
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            $data = $this->curlAPiService->sendPostRequestInObject($request->all(), config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TaxExemptionForNonResidentProperties.asmx/RequestForUpdateTaxExemptionForNonResidentProperties', 'applicantDetails');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);

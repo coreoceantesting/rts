@@ -50,7 +50,8 @@ class PropertyTaxAssessmentService
             } else {
                 $request['certificate_of_no_dues'] = "";
             }
-            $request['service_id'] = '10';
+            $request['service_id'] = '3';
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
 
             $newData = $request->except(['certificate_of_no_duess', 'uploaded_applications']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/PropertyTaxAssessment.asmx/RequestForPropertyTaxAssessment', 'applicantDetails');
@@ -131,8 +132,9 @@ class PropertyTaxAssessmentService
                 $request['certificate_of_no_dues'] = "";
             }
             $request['application_no'] = $propertyTax->application_no;
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['certificate_of_no_duess', 'uploaded_applications']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/PropertyTaxAssessment.asmx/RequestForPropertyTaxAssessment', 'applicantDetails');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/PropertyTaxAssessment.asmx/RequestForUpdatePropertyTaxAssessment', 'applicantDetails');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);

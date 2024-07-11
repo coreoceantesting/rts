@@ -52,6 +52,7 @@ class NewtaxationService
                 $request['certificate_of_no_dues'] = "";
             }
             $request['service_id'] = '5';
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['certificate_of_no_duess', 'uploaded_applications']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForNewTaxation', 'applicantDetails');
 
@@ -133,8 +134,9 @@ class NewtaxationService
                 $request['certificate_of_no_dues'] = "";
             }
             $request['application_no'] = $newTaxation->application_no;
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['certificate_of_no_duess', 'uploaded_applications']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForNewTaxation', 'applicantDetails');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForUpdateNewTaxation', 'applicantDetails');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);

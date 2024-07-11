@@ -14,10 +14,14 @@ return new class extends Migration
         Schema::create('transfer_property_certificates', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
+            $table->integer('service_id')->nullable();
+            $table->date('aapale_sarkar_payment_date')->nullable();
+            $table->date('status')->nullable();
             $table->boolean('is_aapale_sarkar_payment_paid')->nullable();
+            $table->string('upic_id')->nullable();
             $table->string('application_no')->nullable();
             $table->string('service_name')->nullable();
-            $table->boolean('applicant_full_name')->nullable();
+            $table->string('applicant_full_name')->nullable();
             $table->string('applicant_full_address')->nullable();
             $table->string('applicant_mobile_no')->nullable();
             $table->string('email_id')->nullable();

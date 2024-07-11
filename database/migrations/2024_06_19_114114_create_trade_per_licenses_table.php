@@ -14,7 +14,12 @@ return new class extends Migration
         Schema::create('trade_per_licenses', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
+            $table->integer('service_id')->nullable();
+            $table->date('aapale_sarkar_payment_date')->nullable();
+            $table->date('status')->nullable();
             $table->boolean('is_aapale_sarkar_payment_paid')->nullable();
+            $table->string('upic_id')->nullable();
+            $table->string('application_no')->nullable();
             $table->string('applicant_full_name')->nullable();
             $table->text('address')->nullable();
             $table->text('office_address')->nullable();

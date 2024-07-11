@@ -41,7 +41,8 @@ class SelfAssessmentService
             } else {
                 $request['uploaded_application'] = "";
             }
-            $request['service_id'] = '6';
+            $request['service_id'] = '5';
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
 
             $newData = $request->except(['uploaded_applications']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/SelfAssessmentService.asmx/RequestForSelfAssessmentService', 'applicantDetails');
@@ -109,8 +110,9 @@ class SelfAssessmentService
                 $request['uploaded_application'] = "";
             }
             $request['application_no'] = $selfAssessment->application_no;
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['uploaded_applications']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/SelfAssessmentService.asmx/RequestForSelfAssessmentService', 'applicantDetails');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/SelfAssessmentService.asmx/RequestForUpdateSelfAssessmentService', 'applicantDetails');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);

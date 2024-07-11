@@ -14,7 +14,11 @@ return new class extends Migration
         Schema::create('registration_of_objections', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
+            $table->integer('service_id')->nullable();
+            $table->date('aapale_sarkar_payment_date')->nullable();
+            $table->date('status')->nullable();
             $table->boolean('is_aapale_sarkar_payment_paid')->nullable();
+            $table->string('upic_id')->nullable();
             $table->string('application_no')->nullable();
             $table->string('service_name')->nullable();
             $table->string('applicant_full_name')->nullable();
@@ -32,8 +36,8 @@ return new class extends Migration
             $table->string('index_number')->nullable();
             $table->string('property_usage')->nullable();
             $table->string('construction_type')->nullable();
-            $table->boolean('is_construction_authorized')->default(1)->nullable();
-            $table->boolean('is_there_water_connection')->default(1)->nullable();
+            $table->string('is_construction_authorized')->default(1)->nullable();
+            $table->string('is_there_water_connection')->default(1)->nullable();
             $table->text('property_area')->nullable();
             $table->string('uploaded_application')->nullable();
             $table->string('no_dues_document')->nullable();

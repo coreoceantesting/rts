@@ -17,7 +17,7 @@ class RegistrationOfObjection extends Model
     protected function serviceId(): Attribute
     {
         return Attribute::make(
-            set: fn (string $value) => 1,
+            set: fn (string $value) => 10,
         );
     }
 }

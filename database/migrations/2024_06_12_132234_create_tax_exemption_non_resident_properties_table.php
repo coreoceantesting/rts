@@ -14,7 +14,11 @@ return new class extends Migration
         Schema::create('tax_exemption_non_resident_properties', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
+            $table->integer('service_id')->nullable();
+            $table->date('aapale_sarkar_payment_date')->nullable();
+            $table->date('status')->nullable();
             $table->boolean('is_aapale_sarkar_payment_paid')->nullable();
+            $table->string('upic_id')->nullable();
             $table->string('application_no')->nullable();
             $table->string('service_name')->nullable();
             $table->string('applicant_full_name')->nullable();
@@ -31,8 +35,8 @@ return new class extends Migration
             $table->string('property_area')->nullable();
             $table->string('property_usage')->nullable();
             $table->string('construction_type')->nullable();
-            $table->boolean('is_construction_authorized')->default(1)->nullable();
-            $table->boolean('is_there_water_connection')->default(1)->nullable();
+            $table->string('is_construction_authorized')->default(1)->nullable();
+            $table->string('is_there_water_connection')->default(1)->nullable();
             $table->date('date_of_commencement')->nullable();
             $table->string('no_dues_document')->nullable();
             $table->string('uploaded_application')->nullable();

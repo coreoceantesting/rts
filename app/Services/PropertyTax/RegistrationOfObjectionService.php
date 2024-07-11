@@ -51,6 +51,7 @@ class RegistrationOfObjectionService
                 $request['no_dues_document'] = "";
             }
             $request['service_id'] = '10';
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
 
             $newData = $request->except(['no_dues_documents', 'uploaded_applications']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/FileAnObjection.asmx/RequestForFileAnObjection', 'fileforobjection');
@@ -130,6 +131,7 @@ class RegistrationOfObjectionService
                 $request['no_dues_document'] = "";
             }
             $request['application_no'] = $registrationOfObjection->application_no;
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['no_dues_documents', 'uploaded_applications']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/FileAnObjection.asmx/RequestForUpdateFileAnObjection', 'applicantDetails');
 
