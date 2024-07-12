@@ -27,6 +27,7 @@ class PropertyTaxAssessmentService
         DB::beginTransaction();
         try {
             $request['user_id'] = Auth::user()->id;
+            $request['service_id'] = '3';
 
             if ($request->hasFile('uploaded_applications')) {
                 $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/tax-assessment');
@@ -50,7 +51,6 @@ class PropertyTaxAssessmentService
             } else {
                 $request['certificate_of_no_dues'] = "";
             }
-            $request['service_id'] = '3';
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
 
             $newData = $request->except(['certificate_of_no_duess', 'uploaded_applications']);
@@ -61,8 +61,8 @@ class PropertyTaxAssessmentService
 
 
             if ($data['d']['Status'] == "200") {
-                // Access the application_id
-                $applicationId = $data['d']['application_id'];
+                // Access the application_no
+                $applicationId = $data['d']['application_no'];
                 PropertyTaxAssessment::where('id', $propertyTaxAssessment->id)->update([
                     'application_no' => $applicationId
                 ]);

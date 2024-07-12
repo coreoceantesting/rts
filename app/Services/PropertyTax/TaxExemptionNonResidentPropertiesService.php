@@ -27,10 +27,10 @@ class TaxExemptionNonResidentPropertiesService
 
         try {
             $request['user_id'] = Auth::user()->id;
+            $request['service_id'] = '11';
             $taxExemptionNonResidentProperties = TaxExemptionNonResidentProperties::create($request->all());
 
             // code to send data to department
-            $request['service_id'] = '11';
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $data = $this->curlAPiService->sendPostRequestInObject($request->all(), config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TaxExemptionForNonResidentProperties.asmx/RequestForTaxExemptionForNonResidentProperties', 'applicantDetails');
 
@@ -38,8 +38,8 @@ class TaxExemptionNonResidentPropertiesService
             $data = json_decode($data, true);
 
             if ($data['d']['Status'] == "200") {
-                // Access the application_id
-                $applicationId = $data['d']['application_id'];
+                // Access the application_no
+                $applicationId = $data['d']['application_no'];
                 TaxExemptionNonResidentProperties::where('id', $taxExemptionNonResidentProperties->id)->update([
                     'application_no' => $applicationId
                 ]);
@@ -92,7 +92,7 @@ class TaxExemptionNonResidentPropertiesService
             $data = json_decode($data, true);
 
             if ($data['d']['Status'] == "200") {
-                // Access the application_id
+                // Access the application_no
                 DB::commit();
                 return true;
             } else {

@@ -28,6 +28,7 @@ class SelfAssessmentService
 
         try {
             $request['user_id'] = Auth::user()->id;
+            $request['service_id'] = '5';
 
             if ($request->hasFile('uploaded_applications')) {
                 $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/self-assessment');
@@ -41,7 +42,6 @@ class SelfAssessmentService
             } else {
                 $request['uploaded_application'] = "";
             }
-            $request['service_id'] = '5';
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
 
             $newData = $request->except(['uploaded_applications']);
@@ -52,8 +52,8 @@ class SelfAssessmentService
 
 
             if ($data['d']['Status'] != "") {
-                // Access the application_id
-                $applicationId = $data['d']['application_id'];
+                // Access the application_no
+                $applicationId = $data['d']['application_no'];
                 SelfAssessment::where('id', $selfAssessment->id)->update([
                     'application_no' => $applicationId
                 ]);

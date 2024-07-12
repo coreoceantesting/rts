@@ -144,13 +144,15 @@
                                     <span class="text-danger is-invalid property_area_err"></span>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="col-form-label" for="uploaded_applications">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="uploaded_applications" name="uploaded_applications" type="file" value="{{ $propertyTaxAssessment->uploaded_application }}" required>
+                                    <label class="col-form-label" for="uploaded_applications">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा </label>
+                                    <a target="_blank" href="{{ asset('storage/'.$propertyTaxAssessment->uploaded_application) }}">View File</a>
+                                    <input class="form-control" id="uploaded_applications" name="uploaded_applications" type="file">
                                     <span class="text-danger is-invalid uploaded_applications_err"></span>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="col-form-label" for="certificate_of_no_duess">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="certificate_of_no_duess" name="certificate_of_no_duess" type="file" value="{{ $propertyTaxAssessment->certificate_of_no_dues }}" required>
+                                    <label class="col-form-label" for="certificate_of_no_duess">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा </label>
+                                    <a target="_blank" href="{{ asset('storage/'.$propertyTaxAssessment->certificate_of_no_dues) }}">View File</a>
+                                    <input class="form-control" id="certificate_of_no_duess" name="certificate_of_no_duess" type="file">
                                     <span class="text-danger is-invalid certificate_of_no_duess_err"></span>
                                 </div>
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>

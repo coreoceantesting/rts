@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('service_id')->nullable();
             $table->string('service_name')->nullable();
             $table->string('model')->nullable();
+            $table->string('add_route')->nullable();
+            $table->string('edit_route')->nullable();
             $table->timestamps();
         });
     }

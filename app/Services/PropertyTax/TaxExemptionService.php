@@ -26,6 +26,7 @@ class TaxExemptionService
         DB::beginTransaction();
         try {
             $request['user_id'] = Auth::user()->id;
+            $request['service_id'] = '7';
             if ($request->hasFile('no_dues_documents')) {
                 $request['no_dues_document'] = $request->no_dues_documents->store('propertyTax/tax-exemption');
             }
@@ -47,7 +48,6 @@ class TaxExemptionService
                 $request['no_dues_document'] = "";
             }
 
-            $request['service_id'] = '7';
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
 
             $newData = $request->except(['no_dues_documents', 'uploaded_applications']);
@@ -57,8 +57,8 @@ class TaxExemptionService
             $data = json_decode($data, true);
 
             if ($data['d']['Status'] == "200") {
-                // Access the application_id
-                $applicationId = $data['d']['application_id'];
+                // Access the application_no
+                $applicationId = $data['d']['application_no'];
                 TaxExemption::where('id', $taxExemption->id)->update([
                     'application_no' => $applicationId
                 ]);

@@ -40,6 +40,8 @@ class DashboardController extends Controller
 
         $serviceName = ServiceName::pluck('service_name', 'service_id')->toArray();
 
+        $editRoute = ServiceName::pluck('edit_route', 'service_id')->toArray();
+
         $tables = ['newtaxations', 'no_due_certificates', 'property_tax_issuance_of_property_tax_assessments', 'registration_of_objections', 're_taxations', 'self_assessments', 'tax_demands', 'tax_exemptions', 'tax_exemption_non_resident_properties', 'transfer_property_certificates'];
         $data = [];
 
@@ -55,7 +57,8 @@ class DashboardController extends Controller
 
         return view('home.my-application')->with([
             'datas' => $data,
-            'serviceName' => $serviceName
+            'serviceName' => $serviceName,
+            'editRoute' => $editRoute
         ]);
     }
 

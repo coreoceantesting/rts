@@ -28,6 +28,7 @@ class ReTaxationService
 
         try {
             $request['user_id'] = Auth::user()->id;
+            $request['service_id'] = '8';
             if ($request->hasFile('uploaded_applications')) {
                 $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/retaxation');
             }
@@ -41,7 +42,6 @@ class ReTaxationService
                 $request['uploaded_application'] = "";
             }
 
-            $request['service_id'] = '8';
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
 
             $newData = $request->except(['uploaded_applications']);
@@ -52,8 +52,8 @@ class ReTaxationService
 
 
             if ($data['d']['Status'] == "200") {
-                // Access the application_id
-                $applicationId = $data['d']['application_id'];
+                // Access the application_no
+                $applicationId = $data['d']['application_no'];
                 ReTaxation::where('id', $reTaxation->id)->update([
                     'application_no' => $applicationId
                 ]);

@@ -28,6 +28,7 @@ class TransferPropertyCertificateService
 
         try {
             $request['user_id'] = Auth::user()->id;
+            $request['service_id'] = '4';
 
             if ($request->hasFile('uploaded_applications')) {
                 $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/transfer-property');
@@ -60,7 +61,6 @@ class TransferPropertyCertificateService
             } else {
                 $request['copy_of_document'] = "";
             }
-            $request['service_id'] = '4';
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
 
             $newData = $request->except(['uploaded_applications', 'certificate_of_no_duess', 'copy_of_documents']);
@@ -70,8 +70,8 @@ class TransferPropertyCertificateService
             $data = json_decode($data, true);
 
             if ($data['d']['Status'] == "200") {
-                // Access the application_id
-                $applicationId = $data['d']['application_id'];
+                // Access the application_no
+                $applicationId = $data['d']['application_no'];
                 TransferPropertyCertificate::where('id', $transferPropertyCertificate->id)->update([
                     'application_no' => $applicationId
                 ]);
@@ -157,7 +157,7 @@ class TransferPropertyCertificateService
             $data = json_decode($data, true);
 
             if ($data['d']['Status'] == "200") {
-                // Access the application_id
+                // Access the application_no
                 DB::commit();
                 return true;
             } else {

@@ -28,6 +28,7 @@ class NoDueCertificateService
 
         try {
             $request['user_id'] = Auth::user()->id;
+            $request['service_id'] = '2';
             if ($request->hasFile('uploaded_applications')) {
                 $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/no-due');
             }
@@ -41,7 +42,6 @@ class NoDueCertificateService
                 $request['uploaded_application'] = "";
             }
 
-            $request['service_id'] = '2';
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['uploaded_applications']);
 
@@ -51,8 +51,8 @@ class NoDueCertificateService
             $data = json_decode($data, true);
 
             if ($data['d']['Status'] == "200") {
-                // Access the application_id
-                $applicationId = $data['d']['application_id'];
+                // Access the application_no
+                $applicationId = $data['d']['application_no'];
                 NoDueCertificate::where('id', $noDueCertificate->id)->update([
                     'application_no' => $applicationId
                 ]);

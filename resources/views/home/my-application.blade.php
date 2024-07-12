@@ -36,11 +36,25 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $data->application_no }}</td>
-                                    <td>{{ (array_key_exists($serviceName[$data->service_id])) ? $serviceName[$data->service_id] : '' }}</td>
-                                    <td>{{ date('d-m-Y', strtotime($data->create_at)) }}</td>
-                                    <td>{{ date('d-m-Y', strtotime($data->aapale_sarkar_payment_date)) }}</td>
-                                    <td>{{ $data->status }}</td>
-                                    <td><a href="#" class="btn bnt-primary">Edit</a></td>
+                                    <td>{{ (array_key_exists($data->service_id, $serviceName)) ? $serviceName[$data->service_id] : '' }}</td>
+                                    <td>{{ date('d-m-Y', strtotime($data->created_at)) }}</td>
+                                    <td>{{ ($data->aapale_sarkar_payment_date) ? date('d-m-Y', strtotime($data->aapale_sarkar_payment_date)) : '-' }}</td>
+                                    <td>
+                                        @if($data->status == "1")
+                                        <span class="badge bg-warning">Pending</span>
+                                        @elseif($data->status == "2")
+                                        <span class="badge bg-info">Payment Pending</span>
+                                        @elseif($data->status == "3")
+                                        <span class="badge bg-secondry">Under Scrutiny</span>
+                                        @elseif($data->status == "4")
+                                        <span class="badge bg-success">Accepted</span>
+                                        @elseif($data->status == "5")
+                                        <span class="badge bg-danger">Reject</span>
+                                        @else
+                                        <span class="badge bg-warning">Pending</span>
+                                        @endif
+                                    </td>
+                                    <td><a href="{{ (array_key_exists($data->service_id, $editRoute) && $editRoute[$data->service_id] != "") ? route($editRoute[$data->service_id], $data->id) : '#' }}" class="btn bnt-primary">Edit</a></td>
                                 </tr>
                                 @empty
                                 <tr align="center">

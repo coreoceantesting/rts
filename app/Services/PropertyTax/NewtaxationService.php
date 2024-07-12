@@ -28,6 +28,7 @@ class NewtaxationService
 
         try {
             $request['user_id'] = Auth::user()->id;
+            $request['service_id'] = '5';
 
             if ($request->hasFile('uploaded_applications')) {
                 $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/new-taxation');
@@ -51,7 +52,6 @@ class NewtaxationService
             } else {
                 $request['certificate_of_no_dues'] = "";
             }
-            $request['service_id'] = '5';
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['certificate_of_no_duess', 'uploaded_applications']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForNewTaxation', 'applicantDetails');
@@ -60,8 +60,8 @@ class NewtaxationService
             $data = json_decode($data, true);
 
             if ($data['d']['Status'] == "200") {
-                // Access the application_id
-                $applicationId = $data['d']['application_id'];
+                // Access the application_no
+                $applicationId = $data['d']['application_no'];
                 Newtaxation::where('id', $newtaxation->id)->update([
                     'application_no' => $applicationId
                 ]);
@@ -142,7 +142,7 @@ class NewtaxationService
             $data = json_decode($data, true);
 
             if ($data['d']['Status'] == "200") {
-                // Access the application_id
+                // Access the application_no
                 DB::commit();
                 return true;
             } else {

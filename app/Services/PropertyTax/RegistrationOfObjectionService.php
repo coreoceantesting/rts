@@ -28,6 +28,7 @@ class RegistrationOfObjectionService
 
         try {
             $request['user_id'] = Auth::user()->id;
+            $request['service_id'] = '10';
             if ($request->hasFile('uploaded_applications')) {
                 $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/reg-of-obj');
             }
@@ -50,7 +51,6 @@ class RegistrationOfObjectionService
             } else {
                 $request['no_dues_document'] = "";
             }
-            $request['service_id'] = '10';
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
 
             $newData = $request->except(['no_dues_documents', 'uploaded_applications']);
@@ -61,8 +61,8 @@ class RegistrationOfObjectionService
 
 
             if ($data['d']['Status'] == "200") {
-                // Access the application_id
-                $applicationId = $data['d']['application_id'];
+                // Access the application_no
+                $applicationId = $data['d']['application_no'];
                 RegistrationOfObjection::where('id', $registrationOfObjection->id)->update([
                     'application_no' => $applicationId
                 ]);
