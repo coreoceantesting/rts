@@ -64,7 +64,8 @@ class DefectiveWaterMeterController extends Controller
      */
     public function edit(string $id)
     {
-        $data = WaterDefectiveMeter::findOrFail($id);
+        $data = WaterDefectiveMeter::findOrFail(decrypt($id));
+
         return view('WaterSupplyDepartment.DefectiveWaterMeter.edit', compact('data'));
     }
 

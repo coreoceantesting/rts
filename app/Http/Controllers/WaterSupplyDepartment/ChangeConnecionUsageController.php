@@ -64,7 +64,8 @@ class ChangeConnecionUsageController extends Controller
      */
     public function edit(string $id)
     {
-        $data = WaterChangeInUse::findOrFail($id);
+        $data = WaterChangeInUse::findOrFail(decrypt($id));
+
         return view('WaterSupplyDepartment.ChangeConnectionUsage.edit', compact('data'));
     }
 

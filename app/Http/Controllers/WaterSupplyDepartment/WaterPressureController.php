@@ -64,7 +64,8 @@ class WaterPressureController extends Controller
      */
     public function edit(string $id)
     {
-        $data = WaterPressureComplaint::findOrFail($id);
+        $data = WaterPressureComplaint::findOrFail(decrypt($id));
+
         return view('WaterSupplyDepartment.WaterPressure.edit', compact('data'));
     }
 

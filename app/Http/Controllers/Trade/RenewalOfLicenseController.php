@@ -64,7 +64,8 @@ class RenewalOfLicenseController extends Controller
      */
     public function edit(string $id)
     {
-        $data = TradeRenewalLicensePermission::findOrFail($id);
+        $data = TradeRenewalLicensePermission::findOrFail(decrypt($id));
+
         return view('Trade.RenewalOfLicense.edit', compact('data'));
     }
 

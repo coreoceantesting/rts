@@ -64,7 +64,8 @@ class RenewalPlumberLicenseController extends Controller
      */
     public function edit(string $id)
     {
-        $data = WaterRenewalOfPlumber::findOrFail($id);
+        $data = WaterRenewalOfPlumber::findOrFail(decrypt($id));
+
         return view('WaterSupplyDepartment.RenewalPlumberLicense.edit', compact('data'));
     }
 

@@ -62,7 +62,7 @@ class NewTaxationController extends Controller
      */
     public function edit(string $id)
     {
-        $newTax = $this->newtaxationService->store($id);
+        $newTax = $this->newtaxationService->edit(decrypt($id));
 
         return view('PropertyTax.newTaxation.edit')->with([
             'newTax' => $newTax

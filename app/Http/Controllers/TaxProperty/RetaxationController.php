@@ -63,7 +63,7 @@ class RetaxationController extends Controller
      */
     public function edit(string $id)
     {
-        $retax = $this->reTaxationService->edit($id);
+        $retax = $this->reTaxationService->edit(decrypt($id));
 
         return view('PropertyTax.reTaxation.edit')->with([
             'retax' => $retax

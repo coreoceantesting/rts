@@ -37,7 +37,7 @@ class TaxExemptionController extends Controller
      */
     public function store(TaxExemptionRequest $request)
     {
-        $taxExemption = $this->taxExemptionService->store($request);
+        $taxExemption = $this->taxExemptionService->store(decrypt($request));
 
         if ($taxExemption) {
             return response()->json([

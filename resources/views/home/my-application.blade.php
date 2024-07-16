@@ -54,7 +54,7 @@
                                         <span class="badge bg-warning">Pending</span>
                                         @endif
                                     </td>
-                                    <td><a href="{{ (array_key_exists($data->service_id, $editRoute) && $editRoute[$data->service_id] != "") ? route($editRoute[$data->service_id], $data->id) : '#' }}" class="btn bnt-primary">Edit</a></td>
+                                    <td><a href="{{ (array_key_exists($data->service_id, $editRoute) && $editRoute[$data->service_id] != "") ? route($editRoute[$data->service_id], encrypt($data->id)) : '#' }}" class="btn bnt-primary">Edit</a></td>
                                 </tr>
                                 @empty
                                 <tr align="center">

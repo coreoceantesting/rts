@@ -64,7 +64,7 @@ class LicenseCancellationController extends Controller
      */
     public function edit(string $id)
     {
-        $data = TradeLicenseCancellation::findOrFail($id);
+        $data = TradeLicenseCancellation::findOrFail(decrypt($id));
         return view('Trade.LicenseCancellation.edit', compact('data'));
     }
 

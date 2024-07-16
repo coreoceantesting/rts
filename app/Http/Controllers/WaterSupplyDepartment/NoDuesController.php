@@ -64,7 +64,8 @@ class NoDuesController extends Controller
      */
     public function edit(string $id)
     {
-        $data = WaterNoDues::findOrFail($id);
+        $data = WaterNoDues::findOrFail(decrypt($id));
+
         return view('WaterSupplyDepartment.NoDuesCertificate.edit', compact('data'));
     }
 

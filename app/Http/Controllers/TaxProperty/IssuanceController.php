@@ -62,7 +62,7 @@ class IssuanceController extends Controller
      */
     public function edit(string $id)
     {
-        $propertyTaxAssessment = $this->propertyTaxAssessmentService->edit($id);
+        $propertyTaxAssessment = $this->propertyTaxAssessmentService->edit(decrypt($id));
 
         return view('PropertyTax.issuanceOfPropertyTax.edit')->with([
             'propertyTaxAssessment' => $propertyTaxAssessment

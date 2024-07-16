@@ -64,7 +64,8 @@ class ChangeOwnerCountController extends Controller
      */
     public function edit(string $id)
     {
-        $data = TradeChangeOwnerCount::findOrFail($id);
+        $data = TradeChangeOwnerCount::findOrFail(decrypt($id));
+
         return view('Trade.ChangeOwnerCount.edit', compact('data'));
     }
 

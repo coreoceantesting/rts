@@ -63,7 +63,7 @@ class NoDueController extends Controller
      */
     public function edit(string $id)
     {
-        $noDue = $this->noDueCertificateService->edit($id);
+        $noDue = $this->noDueCertificateService->edit(decrypt($id));
 
         return view('PropertyTax.noDues.edit')->with([
             'noDue' => $noDue

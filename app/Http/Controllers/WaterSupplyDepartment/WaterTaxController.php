@@ -64,7 +64,8 @@ class WaterTaxController extends Controller
      */
     public function edit(string $id)
     {
-        $data = WaterTaxBill::findOrFail($id);
+        $data = WaterTaxBill::findOrFail(decrypt($id));
+
         return view('WaterSupplyDepartment.WaterTaxBill.edit', compact('data'));
     }
 

@@ -64,7 +64,8 @@ class DisconnectWaterSupplyController extends Controller
      */
     public function edit(string $id)
     {
-        $data = WaterDisconnectSupply::findOrFail($id);
+        $data = WaterDisconnectSupply::findOrFail(decrypt($id));
+
         return view('WaterSupplyDepartment.DisconnectWaterSupply.edit', compact('data'));
     }
 

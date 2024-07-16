@@ -64,7 +64,8 @@ class ChangeLicenseNameController extends Controller
      */
     public function edit(string $id)
     {
-        $data = TradeChangeLicenseName::findOrFail($id);
+        $data = TradeChangeLicenseName::findOrFail(decrypt($id));
+
         return view('Trade.ChangeLicenseName.edit', compact('data'));
     }
 

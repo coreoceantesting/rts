@@ -64,7 +64,8 @@ class FinalFireNoObjectionController extends Controller
      */
     public function edit(string $id)
     {
-        $data = FireFinalNoObjection::findOrFail($id);
+        $data = FireFinalNoObjection::findOrFail(decrypt($id));
+
         return view('FireDepartment.FinalNoObjectionCertificate.edit', compact('data'));
     }
 

@@ -63,7 +63,7 @@ class TaxDemandController extends Controller
      */
     public function edit(string $id)
     {
-        $taxDemand = $this->taxDemandService->edit($id);
+        $taxDemand = $this->taxDemandService->edit(decrypt($id));
 
         return view('PropertyTax.taxDemand.edit')->with([
             'taxDemand' => $taxDemand

@@ -44,7 +44,8 @@ class BhagNakashaController extends Controller
 
     public function edit(string $id)
     {
-        $data = CityStructurePartMap::findOrFail($id);
+        $data = CityStructurePartMap::findOrFail(decrypt($id));
+
         return view('town-planing.bhag-nakasha.edit', compact('data'));
     }
 

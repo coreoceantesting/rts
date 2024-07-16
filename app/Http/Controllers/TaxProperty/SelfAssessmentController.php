@@ -63,7 +63,7 @@ class SelfAssessmentController extends Controller
      */
     public function edit($id)
     {
-        $selfAssessment = $this->selfAssessmentService->edit($id);
+        $selfAssessment = $this->selfAssessmentService->edit(decrypt($id));
         return $selfAssessment;
         return view('PropertyTax.selfAssessment.edit')->with([
             'selfAssessment' => $selfAssessment

@@ -44,7 +44,8 @@ class ZoneCertificateController extends Controller
 
     public function edit(string $id)
     {
-        $data = CityStructureZoneCertificate::findOrFail($id);
+        $data = CityStructureZoneCertificate::findOrFail(decrypt($id));
+
         return view('town-planing.zone-certificate.edit', compact('data'));
     }
 

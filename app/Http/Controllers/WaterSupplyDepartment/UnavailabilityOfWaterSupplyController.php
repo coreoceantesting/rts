@@ -64,7 +64,8 @@ class UnavailabilityOfWaterSupplyController extends Controller
      */
     public function edit(string $id)
     {
-        $data = WaterUnavailabilitySupply::findOrFail($id);
+        $data = WaterUnavailabilitySupply::findOrFail(decrypt($id));
+
         return view('WaterSupplyDepartment.UnAvalibalityWaterSupply.edit', compact('data'));
     }
 

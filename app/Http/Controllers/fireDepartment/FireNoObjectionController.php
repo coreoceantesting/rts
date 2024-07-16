@@ -64,7 +64,8 @@ class FireNoObjectionController extends Controller
      */
     public function edit(string $id)
     {
-        $data = FireNoObjection::findOrFail($id);
+        $data = FireNoObjection::findOrFail(decrypt($id));
+
         return view('FireDepartment.NoObjectionCertificate.edit', compact('data'));
     }
 

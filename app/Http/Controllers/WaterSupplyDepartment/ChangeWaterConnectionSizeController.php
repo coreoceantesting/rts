@@ -64,7 +64,7 @@ class ChangeWaterConnectionSizeController extends Controller
      */
     public function edit(string $id)
     {
-        $data = WaterChangeConnectionSize::findOrFail($id);
+        $data = WaterChangeConnectionSize::findOrFail(decrypt($id));
         return view('WaterSupplyDepartment.ChangeWaterConnectionSize.edit', compact('data'));
     }
 

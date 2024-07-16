@@ -64,7 +64,8 @@ class NewTradeLicensePermissionController extends Controller
      */
     public function edit(string $id)
     {
-        $data = TradeNewLicensePermission::findOrFail($id);
+        $data = TradeNewLicensePermission::findOrFail(decrypt($id));
+
         return view('Trade.NewLicensePermission.edit', compact('data'));
     }
 

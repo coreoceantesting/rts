@@ -64,7 +64,8 @@ class NOCForMandapController extends Controller
      */
     public function edit(string $id)
     {
-        $data = TradeNocForMandap::findOrFail($id);
+        $data = TradeNocForMandap::findOrFail(decrypt($id));
+
         return view('Trade.NocMandap.edit', compact('data'));
     }
 

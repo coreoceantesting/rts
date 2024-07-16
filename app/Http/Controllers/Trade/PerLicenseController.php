@@ -64,7 +64,7 @@ class PerLicenseController extends Controller
      */
     public function edit(string $id)
     {
-        $data = TradePerLicense::findOrFail($id);
+        $data = TradePerLicense::findOrFail(decrypt($id));
         return view('Trade.PerLicense.edit', compact('data'));
     }
 

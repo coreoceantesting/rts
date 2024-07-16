@@ -64,7 +64,8 @@ class AutoRenewalController extends Controller
      */
     public function edit(string $id)
     {
-        $data = TradeAutoRenewalLicensePermission::findOrFail($id);
+        $data = TradeAutoRenewalLicensePermission::findOrFail(decrypt($id));
+
         return view('Trade.AutoRenewal.edit', compact('data'));
     }
 

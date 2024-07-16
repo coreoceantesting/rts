@@ -64,7 +64,8 @@ class WaterReConnectionController extends Controller
      */
     public function edit(string $id)
     {
-        $data = WaterReconnection::findOrFail($id);
+        $data = WaterReconnection::findOrFail(decrypt($id));
+
         return view('WaterSupplyDepartment.WaterReconnection.edit', compact('data'));
     }
 

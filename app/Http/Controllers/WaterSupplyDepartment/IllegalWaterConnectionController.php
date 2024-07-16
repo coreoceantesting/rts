@@ -65,7 +65,8 @@ class IllegalWaterConnectionController extends Controller
      */
     public function edit(string $id)
     {
-        $data = Illegalwaterconnection::findOrFail($id);
+        $data = Illegalwaterconnection::findOrFail(decrypt($id));
+
         return view('WaterSupplyDepartment.IllegalWaterConnection.edit', compact('data'));
     }
 

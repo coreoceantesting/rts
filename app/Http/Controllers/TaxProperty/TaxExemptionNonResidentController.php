@@ -63,7 +63,7 @@ class TaxExemptionNonResidentController extends Controller
      */
     public function edit(string $id)
     {
-        $taxExemptionNonResidentialProp = $this->taxExemptionNonResidentPropertiesService->edit($id);
+        $taxExemptionNonResidentialProp = $this->taxExemptionNonResidentPropertiesService->edit(decrypt($id));
 
         return view('PropertyTax.taxExemptionNonResident.edit')->with([
             'taxExemptionNonResidentialProp' => $taxExemptionNonResidentialProp

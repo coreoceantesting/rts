@@ -19,7 +19,7 @@ class RoadCuttingPermissionController extends Controller
     }
     public function index()
     {
-        
+
     }
 
     public function create()
@@ -44,7 +44,8 @@ class RoadCuttingPermissionController extends Controller
 
     public function edit(string $id)
     {
-        $data = ConstructionRoadCutting::findOrFail($id);
+        $data = ConstructionRoadCutting::findOrFail(decrypt($id));
+
         return view('construction-department.road-cutting.edit', compact('data'));
     }
 

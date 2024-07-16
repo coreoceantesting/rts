@@ -19,7 +19,7 @@ class DrainageConnectionController extends Controller
     }
     public function index()
     {
-       
+
     }
 
     public function create()
@@ -44,7 +44,8 @@ class DrainageConnectionController extends Controller
 
     public function edit(string $id)
     {
-        $data = ConstructionDrainageConnection::findOrFail($id);
+        $data = ConstructionDrainageConnection::findOrFail(decrypt($id));
+
         return view('construction-department.drainage-connection.edit', compact('data'));
     }
 

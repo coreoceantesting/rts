@@ -64,7 +64,8 @@ class ChangeOwnerNameController extends Controller
      */
     public function edit(string $id)
     {
-        $data = TradeChangeOwnerName::findOrFail($id);
+        $data = TradeChangeOwnerName::findOrFail(decrypt($id));
+
         return view('Trade.ChangeOwnerName.edit', compact('data'));
     }
 

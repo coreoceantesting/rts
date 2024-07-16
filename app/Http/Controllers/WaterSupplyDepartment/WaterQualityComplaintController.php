@@ -64,7 +64,8 @@ class WaterQualityComplaintController extends Controller
      */
     public function edit(string $id)
     {
-        $data = WaterQualityComplaint::findOrFail($id);
+        $data = WaterQualityComplaint::findOrFail(decrypt($id));
+
         return view('WaterSupplyDepartment.WaterQualityComplaints.edit', compact('data'));
     }
 
