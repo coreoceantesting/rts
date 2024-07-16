@@ -14,7 +14,7 @@
                         </div>
                         <div class="card-body">
                             <div class="mb-3 row">
-                                
+
                                 <input type="hidden" name="id" id="editId" value="{{ $noDue->id }}">
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="upic_id">UPIC No<span class="text-danger">*</span></label>

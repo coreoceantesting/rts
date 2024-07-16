@@ -154,7 +154,7 @@
                                     @if($taxDemand->uploaded_application)
                                     <a href="{{ asset('storage/'.$taxDemand->uploaded_application) }}">View File</a>
                                     @endif
-                                    <input class="form-control" id="uploaded_applications" name="uploaded_applications" type="file" required>
+                                    <input class="form-control" id="uploaded_applications" name="uploaded_applications" type="file">
                                     <span class="text-danger is-invalid uploaded_applications_err"></span>
                                 </div>
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>

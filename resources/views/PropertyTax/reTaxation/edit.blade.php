@@ -14,7 +14,7 @@
                         </div>
                         <div class="card-body">
                             <div class="mb-3 row">
-                                <input type="hidden" name="id" id="editId" value="{{ $retax->applicant_name }}">
+                                <input type="hidden" name="id" id="editId" value="{{ $retax->id }}">
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="upic_id">UPIC No<span class="text-danger">*</span></label>
                                     <input class="form-control" id="upic_id" name="upic_id" type="text" placeholder="Enter UPIC No" value="{{ $retax->upic_id }}" required>
@@ -162,7 +162,7 @@
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
                                 <div class="col-md-12">
                                     <div class="form-check d-flex align-items-start">
-                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" value="yes">
+                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" checked value="yes">
                                         <label class="form-check-label ms-2" for="is_correct_info">
                                             "All information provided above is correct and I shall be fully responsible for any discrepancy. <br> वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार असेन."
                                         </label>

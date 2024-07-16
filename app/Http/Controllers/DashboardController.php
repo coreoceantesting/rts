@@ -52,8 +52,10 @@ class DashboardController extends Controller
         }
 
         usort($data, function ($a, $b) {
-            return strtotime($a->created_at) - strtotime($b->created_at);
+            return strtotime($b->created_at) - strtotime($a->created_at);
         });
+
+        // return $data;
 
         return view('home.my-application')->with([
             'datas' => $data,

@@ -14,7 +14,7 @@
                         </div>
                         <div class="card-body">
                             <div class="mb-3 row">
-                                <input type="hidden" name="editId" name="id" value="{{ $newTax->applicant_full_name }}">
+                                <input type="hidden" name="id" value="{{ $newTax->id }}" id="editId">
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="upic_id">UPIC No<span class="text-danger">*</span></label>
                                     <input class="form-control" id="upic_id" name="upic_id" type="text" placeholder="Enter UPIC No" value="{{ $newTax->upic_id }}" required>

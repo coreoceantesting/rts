@@ -22,28 +22,53 @@ class PropertyTaxAssessmentRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'applicant_name' => 'required',
-            'applicant_full_address' => 'required',
-            'applicant_mobile_no' => 'required',
-            'email_id' => 'required',
-            'aadhar_no' => 'required',
-            'property_owner_name' => 'required',
-            'property_no' => 'required',
-            'property_address' => 'required',
-            'assessment_for_year' => 'required',
-            'zone' => 'required',
-            'ward_area' => 'required',
-            'house_no' => 'required',
-            'property_usage' => 'required',
-            'construction_type' => 'required',
-            'is_construction_authorized' => 'required',
-            'is_there_water_connection' => 'required',
-            'property_area' => 'required',
-            'uploaded_applications' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
-            'certificate_of_no_duess' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
-            'is_correct_info' => 'required'
-        ];
+        if ($this->id && $this->id != "") {
+            return [
+                'applicant_name' => 'required',
+                'applicant_full_address' => 'required',
+                'applicant_mobile_no' => 'required',
+                'email_id' => 'required',
+                'aadhar_no' => 'required',
+                'property_owner_name' => 'required',
+                'property_no' => 'required',
+                'property_address' => 'required',
+                'assessment_for_year' => 'required',
+                'zone' => 'required',
+                'ward_area' => 'required',
+                'house_no' => 'required',
+                'property_usage' => 'required',
+                'construction_type' => 'required',
+                'is_construction_authorized' => 'required',
+                'is_there_water_connection' => 'required',
+                'property_area' => 'required',
+                'uploaded_applications' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+                'certificate_of_no_duess' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+                'is_correct_info' => 'required'
+            ];
+        } else {
+            return [
+                'applicant_name' => 'required',
+                'applicant_full_address' => 'required',
+                'applicant_mobile_no' => 'required',
+                'email_id' => 'required',
+                'aadhar_no' => 'required',
+                'property_owner_name' => 'required',
+                'property_no' => 'required',
+                'property_address' => 'required',
+                'assessment_for_year' => 'required',
+                'zone' => 'required',
+                'ward_area' => 'required',
+                'house_no' => 'required',
+                'property_usage' => 'required',
+                'construction_type' => 'required',
+                'is_construction_authorized' => 'required',
+                'is_there_water_connection' => 'required',
+                'property_area' => 'required',
+                'uploaded_applications' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+                'certificate_of_no_duess' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+                'is_correct_info' => 'required'
+            ];
+        }
     }
 
     public function messages()

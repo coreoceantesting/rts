@@ -124,7 +124,7 @@
                                         <option {{ ($registrationofObjection->construction_type == "सिमेंट / चुना / विटांच्या भिंती व स्ल्याब चे छत") ? 'selected' : '' }} value="सिमेंट / चुना / विटांच्या भिंती व स्ल्याब चे छत">सिमेंट / चुना / विटांच्या भिंती व स्ल्याब चे छत</option>
                                         <option {{ ($registrationofObjection->construction_type == "सिमेंट / चुना / विटांच्या भिंती व टीन / कवेलु चे छत") ? 'selected' : '' }} value="सिमेंट / चुना / विटांच्या भिंती व टीन / कवेलु चे छत">सिमेंट / चुना / विटांच्या भिंती व टीन / कवेलु चे छत</option>
                                         <option {{ ($registrationofObjection->construction_type == "मातीच्या भिंतीवर टीन / कवेलु चे छत") ? 'selected' : '' }} value="मातीच्या भिंतीवर टीन / कवेलु चे छत">मातीच्या भिंतीवर टीन / कवेलु चे छत</option>
-                                        <option {{ ($registrationofObjection->construction_type == "मिश्र") ? 'selected' : 'खुला भूखंड">खुला भूखंड' }} value="खुला भूखंड">खुला भूखंड</option>
+                                        <option {{ ($registrationofObjection->construction_type == "खुला भूखंड") ? 'selected' : '' }} value="खुला भूखंड">खुला भूखंड</option>
                                         <option {{ ($registrationofObjection->construction_type == "इतर") ? 'selected' : '' }} value="इतर">इतर</option>
                                     </select>
                                     <span class="text-danger is-invalid construction_type_err"></span>
@@ -159,7 +159,7 @@
                                     @if($registrationofObjection->uploaded_application)
                                     <a href="{{ asset('storage/'.$registrationofObjection->uploaded_application) }}">View File</a>
                                     @endif
-                                    <input class="form-control" id="uploaded_applications" name="uploaded_applications" type="file" required>
+                                    <input class="form-control" id="uploaded_applications" name="uploaded_applications" type="file">
                                     <span class="text-danger is-invalid uploaded_applications_err"></span>
                                 </div>
 
@@ -168,7 +168,7 @@
                                     @if($registrationofObjection->no_dues_document)
                                     <a href="{{ asset('storage/'.$registrationofObjection->no_dues_document) }}">View File</a>
                                     @endif
-                                    <input class="form-control" id="no_dues_documents" name="no_dues_documents" type="file" required>
+                                    <input class="form-control" id="no_dues_documents" name="no_dues_documents" type="file">
                                     <span class="text-danger is-invalid no_dues_documents_err"></span>
                                 </div>
 

@@ -22,24 +22,45 @@ class NoDueCertificateRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'upic_id' => 'required',
-            'applicant_name_eng' => 'required',
-            'applicant_name_mar' => 'required',
-            'applicant_full_address_eng' => 'required',
-            'applicant_full_address_mar' => 'required',
-            'applicant_mobile_no' => 'required',
-            'email_id' => 'required',
-            'aadhar_no' => 'required',
-            'zone' => 'required',
-            'ward_area' => 'required',
-            'property_address' => 'required',
-            'house_no' => 'required',
-            'property_no' => 'required',
-            'annual_period' => 'required',
-            'uploaded_applications' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
-            'is_correct_info' => 'required'
-        ];
+        if ($this->id && $this->id != "") {
+            return [
+                'upic_id' => 'required',
+                'applicant_name_eng' => 'required',
+                'applicant_name_mar' => 'required',
+                'applicant_full_address_eng' => 'required',
+                'applicant_full_address_mar' => 'required',
+                'applicant_mobile_no' => 'required',
+                'email_id' => 'required',
+                'aadhar_no' => 'required',
+                'zone' => 'required',
+                'ward_area' => 'required',
+                'property_address' => 'required',
+                'house_no' => 'required',
+                'property_no' => 'required',
+                'annual_period' => 'required',
+                'uploaded_applications' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+                'is_correct_info' => 'required'
+            ];
+        } else {
+            return [
+                'upic_id' => 'required',
+                'applicant_name_eng' => 'required',
+                'applicant_name_mar' => 'required',
+                'applicant_full_address_eng' => 'required',
+                'applicant_full_address_mar' => 'required',
+                'applicant_mobile_no' => 'required',
+                'email_id' => 'required',
+                'aadhar_no' => 'required',
+                'zone' => 'required',
+                'ward_area' => 'required',
+                'property_address' => 'required',
+                'house_no' => 'required',
+                'property_no' => 'required',
+                'annual_period' => 'required',
+                'uploaded_applications' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+                'is_correct_info' => 'required'
+            ];
+        }
     }
 
     public function messages()

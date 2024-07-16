@@ -61,9 +61,9 @@ class TransferPropertyController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        $transferProperty = $this->transferPropertyCertificateService->store($id);
+        $transferProperty = $this->transferPropertyCertificateService->edit($id);
 
         return view('PropertyTax.transferOfProperty.edit')->with([
             'transferProperty' => $transferProperty
@@ -73,7 +73,7 @@ class TransferPropertyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(TransferPropertyCertificateRequest $request, string $id)
+    public function update(TransferPropertyCertificateRequest $request, $id)
     {
         $transferProperty = $this->transferPropertyCertificateService->update($request);
 

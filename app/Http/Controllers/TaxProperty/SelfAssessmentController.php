@@ -61,11 +61,13 @@ class SelfAssessmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
         $selfAssessment = $this->selfAssessmentService->edit($id);
-
-        return view('PropertyTax.selfAssessment.edit');
+        return $selfAssessment;
+        return view('PropertyTax.selfAssessment.edit')->with([
+            'selfAssessment' => $selfAssessment
+        ]);
     }
 
     /**

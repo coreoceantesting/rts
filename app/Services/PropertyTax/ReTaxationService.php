@@ -45,7 +45,7 @@ class ReTaxationService
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
 
             $newData = $request->except(['uploaded_applications']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/ReassessmentOfPropertyTax.asmx/RequestForReassessmentOfPropertyTax', 'applicantDetails');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/ReassessmentOfPropertyTax.asmx/RequestForReassessmentOfPropertyTax', 'reassessmentPropertyTax');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
@@ -90,7 +90,6 @@ class ReTaxationService
     public function update($request)
     {
         DB::beginTransaction();
-
         try {
             $reTaxation = ReTaxation::find($request->id);
 
@@ -111,7 +110,7 @@ class ReTaxationService
             }
             $request['application_no'] = $reTaxation->application_no;
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
-            $newData = $request->except(['uploaded_applications']);
+            $newData = $request->except(['uploaded_applications', '_token', 'id']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/ReassessmentOfPropertyTax.asmx/RequestForUpdateReassesmentofPropertyTax', 'applicantDetails');
 
             // Decode JSON string to PHP array

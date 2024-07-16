@@ -37,7 +37,7 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $data->application_no }}</td>
                                     <td>{{ (array_key_exists($data->service_id, $serviceName)) ? $serviceName[$data->service_id] : '' }}</td>
-                                    <td>{{ date('d-m-Y', strtotime($data->created_at)) }}</td>
+                                    <td>{{ date('d-m-Y h:i A', strtotime($data->created_at)) }}</td>
                                     <td>{{ ($data->aapale_sarkar_payment_date) ? date('d-m-Y', strtotime($data->aapale_sarkar_payment_date)) : '-' }}</td>
                                     <td>
                                         @if($data->status == "1")

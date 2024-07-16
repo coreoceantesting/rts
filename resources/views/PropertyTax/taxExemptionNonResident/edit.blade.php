@@ -103,9 +103,9 @@
                                     <label class="col-form-label" for="property_usage">Property Usage / मालमत्ता वापर<span class="text-danger">*</span></label>
                                     <select class="form-control" name="property_usage" id="property_usage" required>
                                         <option value="">Select Property Usage</option>
-                                        <option {{ ($taxExemptionNonResidentialProp->property_area == "निवासी") ? 'selected' : '' }} value="निवासी">निवासी</option>
-                                        <option {{ ($taxExemptionNonResidentialProp->property_area == "बिगर निवासी") ? 'selected' : '' }} value="बिगर निवासी">बिगर निवासी</option>
-                                        <option {{ ($taxExemptionNonResidentialProp->property_area == "मिश्र") ? 'selected' : '' }} value="मिश्र">मिश्र</option>
+                                        <option {{ ($taxExemptionNonResidentialProp->property_usage == "निवासी") ? 'selected' : '' }} value="निवासी">निवासी</option>
+                                        <option {{ ($taxExemptionNonResidentialProp->property_usage == "बिगर निवासी") ? 'selected' : '' }} value="बिगर निवासी">बिगर निवासी</option>
+                                        <option {{ ($taxExemptionNonResidentialProp->property_usage == "मिश्र") ? 'selected' : '' }} value="मिश्र">मिश्र</option>
                                     </select>
                                     <span class="text-danger is-invalid property_usage_err"></span>
                                 </div>
@@ -153,24 +153,24 @@
                                     @if($taxExemptionNonResidentialProp->no_dues_document)
                                     <a href="{{ asset('storage/'.$taxExemptionNonResidentialProp->no_dues_document) }}">View File</a>
                                     @endif
-                                    <input class="form-control" id="no_dues_documents" name="no_dues_documents" type="file" required>
+                                    <input class="form-control" id="no_dues_documents" name="no_dues_documents" type="file">
                                     <span class="text-danger is-invalid no_dues_documents_err"></span>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="uploaded_applications">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
 
-                                    @if($taxExemptionNonResidentialProp->uploaded_applications)
-                                    <a href="{{ asset('storage/'.$taxExemptionNonResidentialProp->uploaded_applications) }}">View File</a>
+                                    @if($taxExemptionNonResidentialProp->uploaded_application)
+                                    <a href="{{ asset('storage/'.$taxExemptionNonResidentialProp->uploaded_application) }}">View File</a>
                                     @endif
 
-                                    <input class="form-control" id="uploaded_applications" name="uploaded_applications" type="file" required>
+                                    <input class="form-control" id="uploaded_applications" name="uploaded_applications" type="file">
                                     <span class="text-danger is-invalid uploaded_applications_err"></span>
                                 </div>
 
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
                                 <div class="col-md-12">
                                     <div class="form-check d-flex align-items-start">
-                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" required value="yes">
+                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" checked required value="yes">
                                         <label class="form-check-label ms-2" for="is_correct_info">
                                             "All information provided above is correct and I shall be fully responsible for any discrepancy. <br> वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार असेन."
                                         </label>

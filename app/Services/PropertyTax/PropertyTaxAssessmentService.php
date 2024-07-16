@@ -133,7 +133,8 @@ class PropertyTaxAssessmentService
             }
             $request['application_no'] = $propertyTax->application_no;
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
-            $newData = $request->except(['certificate_of_no_duess', 'uploaded_applications']);
+            $newData = $request->except(['certificate_of_no_duess', 'uploaded_applications', '_token', 'id']);
+
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/PropertyTaxAssessment.asmx/RequestForUpdatePropertyTaxAssessment', 'applicantDetails');
 
             // Decode JSON string to PHP array

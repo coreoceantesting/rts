@@ -21,33 +21,63 @@ class TransferPropertyCertificateRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'applicant_full_name' => 'required',
-            'applicant_full_address' => 'required',
-            'applicant_mobile_no' => 'required',
-            'email_id' => 'required',
-            'aadhar_no' => 'required',
-            'property_owner_name' => 'required',
-            'property_address' => 'required',
-            'zone' => 'required',
-            'ward_area' => 'required',
-            'property_no' => 'required',
-            'house_no' => 'required',
-            'date_of_notice' => 'required',
-            'date_of_documentation' => 'required',
-            'name_of_seller' => 'required',
-            'name_of_buyer' => 'required',
-            'what_are_they' => 'required',
-            'date_of_registration_document' => 'required',
-            'place' => 'required',
-            'length_width_of_land' => 'required',
-            'border' => 'required',
-            'uploaded_applications' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
-            'certificate_of_no_duess' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
-            'copy_of_documents' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
-            'remark' => 'required',
-            'is_correct_info' => 'required'
-        ];
+        if ($this->id && $this->id != "") {
+            return [
+                'applicant_full_name' => 'required',
+                'applicant_full_address' => 'required',
+                'applicant_mobile_no' => 'required',
+                'email_id' => 'required',
+                'aadhar_no' => 'required',
+                'property_owner_name' => 'required',
+                'property_address' => 'required',
+                'zone' => 'required',
+                'ward_area' => 'required',
+                'property_no' => 'required',
+                'house_no' => 'required',
+                'date_of_notice' => 'required',
+                'date_of_documentation' => 'required',
+                'name_of_seller' => 'required',
+                'name_of_buyer' => 'required',
+                'what_are_they' => 'required',
+                'date_of_registration_document' => 'required',
+                'place' => 'required',
+                'length_width_of_land' => 'required',
+                'border' => 'required',
+                'uploaded_applications' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+                'certificate_of_no_duess' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+                'copy_of_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+                'remark' => 'required',
+                'is_correct_info' => 'required'
+            ];
+        } else {
+            return [
+                'applicant_full_name' => 'required',
+                'applicant_full_address' => 'required',
+                'applicant_mobile_no' => 'required',
+                'email_id' => 'required',
+                'aadhar_no' => 'required',
+                'property_owner_name' => 'required',
+                'property_address' => 'required',
+                'zone' => 'required',
+                'ward_area' => 'required',
+                'property_no' => 'required',
+                'house_no' => 'required',
+                'date_of_notice' => 'required',
+                'date_of_documentation' => 'required',
+                'name_of_seller' => 'required',
+                'name_of_buyer' => 'required',
+                'what_are_they' => 'required',
+                'date_of_registration_document' => 'required',
+                'place' => 'required',
+                'length_width_of_land' => 'required',
+                'border' => 'required',
+                'uploaded_applications' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+                'certificate_of_no_duess' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+                'copy_of_documents' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+                'remark' => 'required',
+                'is_correct_info' => 'required'
+            ];
+        }
     }
 
     public function messages()

@@ -149,7 +149,7 @@ class ServiceSeeder extends Seeder
             [
                 "id" => 13,
                 "service_id" => 5,
-                "name" => "पुन =>कर आकारणी",
+                "name" => "पुन कर आकारणी",
                 "image" => null,
                 "is_parent" => 1,
                 "route_name" => "retaxation.create",

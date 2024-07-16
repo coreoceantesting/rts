@@ -112,7 +112,7 @@ class NoDueCertificateService
             }
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $request['application_no'] = $noDueCertificate->application_no;
-            $newData = $request->except(['uploaded_applications']);
+            $newData = $request->except(['uploaded_applications', '_token', 'id']);
 
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/NoDueCertificate.asmx/RequestForUpdateNoDueCertificate', 'applicantDetails');
 

@@ -109,7 +109,7 @@ class TaxDemandService
             }
             $request['application_no'] = $taxDemand->application_no;
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
-            $newData = $request->except(['uploaded_applications']);
+            $newData = $request->except(['uploaded_applications', '_token', 'id']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TaxDemands.asmx/RequestForUpdateTaxDemands', 'TaxDemandss');
 
             // Decode JSON string to PHP array

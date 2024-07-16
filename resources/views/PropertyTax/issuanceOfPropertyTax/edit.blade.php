@@ -6,7 +6,7 @@
         <div class="row" id="addContainer">
             <div class="col-sm-12">
                 <div class="card">
-                    <form class="theme-form" name="addForm" id="addForm" enctype="multipart/form-data">
+                    <form class="theme-form" name="editForm" id="editForm" enctype="multipart/form-data">
                         @csrf
 
                         <div class="card-header">
@@ -14,7 +14,7 @@
                         </div>
                         <div class="card-body">
                             <div class="mb-3 row">
-                                
+                                <input type="hidden" name="id" value="{{ $propertyTaxAssessment->id }}" id="editId">
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="upic_id">UPIC No<span class="text-danger">*</span></label>
                                     <input class="form-control" id="upic_id" name="upic_id" type="text" placeholder="Enter UPIC No" value="{{ $propertyTaxAssessment->upic_id }}" required>
@@ -169,7 +169,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary" id="addSubmit">Submit</button>
+                            <button type="submit" class="btn btn-primary" id="editSubmit">Submit</button>
                             <button type="reset" class="btn btn-warning">Reset</button>
                         </div>
                     </form>
@@ -182,11 +182,11 @@
 
 
 
-{{-- Add --}}
+{{-- Edit --}}
 <script>
-    $("#addForm").submit(function(e) {
+    $("#editForm").submit(function(e) {
         e.preventDefault();
-        $("#addSubmit").prop('disabled', true);
+        $("#editSubmit").prop('disabled', true);
 
         var formdata = new FormData(this);
         formdata.append('_method', 'PUT');
@@ -205,7 +205,7 @@
             },
             success: function(data)
             {
-                $("#addSubmit").prop('disabled', false);
+                $("#editSubmit").prop('disabled', false);
                 if (!data.error2)
                     swal("Successful!", data.success, "success")
                         .then((action) => {
@@ -216,12 +216,12 @@
             },
             statusCode: {
                 422: function(responseObject, textStatus, jqXHR) {
-                    $("#addSubmit").prop('disabled', false);
+                    $("#editSubmit").prop('disabled', false);
                     resetErrors();
                     printErrMsg(responseObject.responseJSON.errors);
                 },
                 500: function(responseObject, textStatus, errorThrown) {
-                    $("#addSubmit").prop('disabled', false);
+                    $("#editSubmit").prop('disabled', false);
                     swal("Error occured!", "Something went wrong please try again", "error");
                 }
             },

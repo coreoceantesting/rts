@@ -45,6 +45,7 @@ class SelfAssessmentService
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
 
             $newData = $request->except(['uploaded_applications']);
+            // Log::info($newData);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/SelfAssessmentService.asmx/RequestForSelfAssessmentService', 'applicantDetails');
 
             // Decode JSON string to PHP array

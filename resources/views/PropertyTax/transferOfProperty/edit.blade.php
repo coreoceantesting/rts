@@ -62,22 +62,22 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="zone" id="zone" required>
+                                    <select class="form-select" name="zone" id="zone" required>
                                         <option value="">Select Zone</option>
-                                        <option {{ ($transferProperty->zone == "") ? 'selected' : '' }} value="1">Prabhag1</option>
-                                        <option {{ ($transferProperty->zone == "") ? 'selected' : '' }} value="2">Prabhag2</option>
-                                        <option {{ ($transferProperty->zone == "") ? 'selected' : '' }} value="3">Prabhag3</option>
-                                        <option {{ ($transferProperty->zone == "") ? 'selected' : '' }} value="4">Prabhag4</option>
-                                        <option {{ ($transferProperty->zone == "") ? 'selected' : '' }} value="5">Prabhag5</option>
-                                        <option {{ ($transferProperty->zone == "") ? 'selected' : '' }} value="6">Prabhag6</option>
+                                        <option {{ ($transferProperty->zone == "1") ? 'selected' : '' }} value="1">Prabhag1</option>
+                                        <option {{ ($transferProperty->zone == "2") ? 'selected' : '' }} value="2">Prabhag2</option>
+                                        <option {{ ($transferProperty->zone == "3") ? 'selected' : '' }} value="3">Prabhag3</option>
+                                        <option {{ ($transferProperty->zone == "4") ? 'selected' : '' }} value="4">Prabhag4</option>
+                                        <option {{ ($transferProperty->zone == "5") ? 'selected' : '' }} value="5">Prabhag5</option>
+                                        <option {{ ($transferProperty->zone == "6") ? 'selected' : '' }} value="6">Prabhag6</option>
                                     </select>
                                     <span class="text-danger is-invalid zone_err"></span>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="ward_area" id="ward_area" required>
+                                    <select class="form-select" name="ward_area" id="ward_area" required>
                                         <option value="">Select Ward Area</option>
-                                        <option value="1">firstward</option>
+                                        <option {{ ($transferProperty->ward_area == "1") ? 'selected' : '' }} value="1">firstward</option>
                                     </select>
                                     <span class="text-danger is-invalid ward_area_err"></span>
                                 </div>
@@ -94,13 +94,13 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="date_of_notice">Date Of Notice / नोटीसाची तारीख<span class="text-danger">*</span></label>
-                                    <input class="form-control datepicker" id="date_of_notice" name="date_of_notice" value="{{ date('d-m-Y', strtotime($transferProperty->house_no)) }}" type="text" required>
+                                    <input class="form-control" id="date_of_notice" name="date_of_notice" value="{{ date('Y-m-d', strtotime($transferProperty->date_of_notice)) }}" type="date" required>
                                     <span class="text-danger is-invalid date_of_notice_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="date_of_documentation">Date Of Documentation / लेख करून दिल्याची तारीख<span class="text-danger">*</span></label>
-                                    <input class="form-control datepicker" id="date_of_documentation" name="date_of_documentation" placeholder="Select documentation date" type="text" value="{{ date('d-m-Y', strtotime($transferProperty->date_of_documentation)) }}" required>
+                                    <input class="form-control" id="date_of_documentation" name="date_of_documentation" placeholder="Select documentation date" type="date" value="{{ date('Y-m-d', strtotime($transferProperty->date_of_documentation)) }}" required>
                                     <span class="text-danger is-invalid date_of_documentation_err"></span>
                                 </div>
 
@@ -129,7 +129,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="date_of_registration_document">Date of Registration if any Document has been Registered / कोणताही लेख नोंदण्यात आला असेल तर नोंदणीची तारीख<span class="text-danger">*</span></label>
-                                    <input class="form-control datepicker" id="date_of_registration_document" name="date_of_registration_document" placeholder="Select date of registration" type="text" value="{{ date('d-m-Y', strtotime($transferProperty->date_of_registration_document)) }}" required>
+                                    <input class="form-control" id="date_of_registration_document" name="date_of_registration_document" placeholder="Select date of registration" type="date" value="{{ date('Y-m-d', strtotime($transferProperty->date_of_registration_document)) }}" required>
                                     <span class="text-danger is-invalid date_of_registration_document_err"></span>
                                 </div>
 
@@ -163,27 +163,27 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label class="col-form-label" for="uploaded_applications">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
-                                    @if($transferProperty->uploaded_applications)
-                                        <a href="{{ asset('storage/'.$transferProperty->uploaded_applications) }}">View File</a>
+                                    @if($transferProperty->uploaded_application)
+                                        <a href="{{ asset('storage/'.$transferProperty->uploaded_application) }}">View File</a>
                                     @endif
-                                    <input class="form-control" id="uploaded_applications" name="uploaded_applications" type="file" required>
+                                    <input class="form-control" id="uploaded_applications" name="uploaded_applications" type="file">
                                     <span class="text-danger is-invalid uploaded_applications_err"></span>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="col-form-label" for="certificate_of_no_duess">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
-                                    @if($transferProperty->certificate_of_no_duess)
-                                        <a href="{{ asset('storage/'.$transferProperty->certificate_of_no_duess) }}">View File</a>
+                                    @if($transferProperty->certificate_of_no_dues)
+                                        <a href="{{ asset('storage/'.$transferProperty->certificate_of_no_dues) }}">View File</a>
                                     @endif
-                                    <input class="form-control" id="certificate_of_no_duess" name="certificate_of_no_duess" type="file" required>
+                                    <input class="form-control" id="certificate_of_no_duess" name="certificate_of_no_duess" type="file">
                                     <span class="text-danger is-invalid certificate_of_no_duess_err"></span>
                                 </div>
 
                                 <div class="col-md-6">
                                     <label class="col-form-label" for="copy_of_documents">Upload Copy Of Deed Purchase Deed Prize Letter Allotment / दस्तएवाजाची प्रत (खरेदी खत / बक्षीस पत्र /वाटणी पत्र व इतर )<span class="text-danger">*</span></label>
-                                    @if($transferProperty->copy_of_documents)
-                                        <a href="{{ asset('storage/'.$transferProperty->copy_of_documents) }}">View File</a>
+                                    @if($transferProperty->copy_of_document)
+                                        <a href="{{ asset('storage/'.$transferProperty->copy_of_document) }}">View File</a>
                                     @endif
-                                    <input class="form-control" id="copy_of_documents" name="copy_of_documents" type="file" required>
+                                    <input class="form-control" id="copy_of_documents" name="copy_of_documents" type="file">
                                     <span class="text-danger is-invalid copy_of_documents_err"></span>
                                 </div>
 
