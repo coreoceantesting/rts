@@ -15,38 +15,14 @@ class TaxBillService
         DB::beginTransaction();
 
         try {
-            $user_id = Auth::user()->id;
+            $request['user_id'] = Auth::user()->id;
 
             // Handle file uploads and store original file names
-            $application_document = null;
-
-            if ($request->hasFile('application_document')) {
-                $application_document = $request->application_document->store('WaterDepartment/TaxBill');
+            if ($request->hasFile('application_documents')) {
+                $request['application_document'] = $request->application_documents->store('water-department/tax-bill');
             }
 
-
-            WaterTaxBill::create([
-                'user_id' => $user_id,
-                'property_owner_name' => $request->input('property_owner_name'),
-                'aadhar_no' => $request->input('aadhar_no'),
-                'email_id' => $request->input('email_id'),
-                'mobile_no' => $request->input('mobile_no'),
-                'zone' => $request->input('zone'),
-                'ward_area' => $request->input('ward_area'),
-                'address' => $request->input('address'),
-                'city_serve_no' => $request->input('city_serve_no'),
-                'property_no' => $request->input('property_no'),
-                'house_no' => $request->input('house_no'),
-                'plot_no' => $request->input('plot_no'),
-                'landmark' => $request->input('landmark'),
-                'new_water_con' => $request->input('new_water_con'),
-                'current_connection_is_illegal' => $request->input('current_connection_is_illegal'),
-                'applicant_or_tenant' => $request->input('applicant_or_tenant'),
-                'criminal_judicial_issue' => $request->input('criminal_judicial_issue'),
-                'place_belongs_to_municipal' => $request->input('place_belongs_to_municipal'),
-                'comment' => $request->input('comment'),
-                'application_document' => $application_document,
-            ]);
+            WaterTaxBill::create($request->all());
 
             DB::commit();
             return true;
@@ -70,37 +46,18 @@ class TaxBillService
         try {
 
             // Find the existing record
-            $WaterTaxBill = WaterTaxBill::findOrFail($id);
+            $waterTaxBill = WaterTaxBill::findOrFail($id);
 
             // Handle file uploads and update original file names
-            if ($request->hasFile('application_document')) {
-                if ($WaterTaxBill && Storage::exists($WaterTaxBill->application_document)) {
-                    Storage::delete($WaterTaxBill->application_document);
+            if ($request->hasFile('application_documents')) {
+                if ($waterTaxBill && Storage::exists($waterTaxBill->application_document)) {
+                    Storage::delete($waterTaxBill->application_document);
                 }
-                $WaterTaxBill->application_document = $request->application_document->store('WaterDepartment/TaxBill');
+                $request['application_document'] = $request->application_documents->store('water-department/tax-bill');
             }
 
             // Update the rest of the fields
-            $WaterTaxBill->update([
-                'property_owner_name' => $request->input('property_owner_name'),
-                'aadhar_no' => $request->input('aadhar_no'),
-                'email_id' => $request->input('email_id'),
-                'mobile_no' => $request->input('mobile_no'),
-                'zone' => $request->input('zone'),
-                'ward_area' => $request->input('ward_area'),
-                'address' => $request->input('address'),
-                'city_serve_no' => $request->input('city_serve_no'),
-                'property_no' => $request->input('property_no'),
-                'house_no' => $request->input('house_no'),
-                'plot_no' => $request->input('plot_no'),
-                'landmark' => $request->input('landmark'),
-                'new_water_con' => $request->input('new_water_con'),
-                'current_connection_is_illegal' => $request->input('current_connection_is_illegal'),
-                'applicant_or_tenant' => $request->input('applicant_or_tenant'),
-                'criminal_judicial_issue' => $request->input('criminal_judicial_issue'),
-                'place_belongs_to_municipal' => $request->input('place_belongs_to_municipal'),
-                'comment' => $request->input('comment'),
-            ]);
+            $waterTaxBill->update($request->all());
 
             // Commit the transaction
             DB::commit();

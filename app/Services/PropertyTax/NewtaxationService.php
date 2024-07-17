@@ -55,7 +55,6 @@ class NewtaxationService
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $request['property_owner_name'] = $request->owner_name;
             $newData = $request->except(['certificate_of_no_duess', 'uploaded_applications']);
-            // Log::info($newData);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForNewTaxation', 'NewTaxation');
 
             // Decode JSON string to PHP array

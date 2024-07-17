@@ -149,21 +149,21 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="written_application_document">Upload Written Application Of Applicant<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="written_application_document" name="written_application_document" type="file">
+                                    <input class="form-control" id="written_application_document" name="written_application_documents" type="file">
                                     <small><a href="{{ asset('storage/' . $data->written_application_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid written_application_document_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ownership_document">Upload Ownership Documents / मालकी हक्काची कागदपत्रे अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="ownership_document" name="ownership_document" type="file">
+                                    <input class="form-control" id="ownership_document" name="ownership_documents" type="file">
                                     <small><a href="{{ asset('storage/' . $data->ownership_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid ownership_document_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="no_dues_document">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="no_dues_document" name="no_dues_document" type="file">
+                                    <input class="form-control" id="no_dues_document" name="no_dues_documents" type="file">
                                     <small><a href="{{ asset('storage/' . $data->no_dues_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid no_dues_document_err"></span>
                                 </div>
@@ -205,7 +205,7 @@
         var updateUrl = '{{ route("water-new-connection.update", $data->id) }}';
 
         formdata.append('_method', 'PUT');
-        
+
         $.ajax({
             url: updateUrl,
             type: 'POST',

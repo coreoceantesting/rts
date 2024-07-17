@@ -41,9 +41,9 @@ class UpdateRequest extends FormRequest
             'tap_size' => 'required',
             'existing_connection_detail' => 'required',
             'place_belongs_to_municipal' => 'required',
-            'application_document' => 'nullable',
-            'application_document' => 'nullable',
-            'nodues_document' => 'nullable',
+            'application_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'application_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'nodues_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'comment' => 'nullable',
             'is_correct_info' => 'required'
         ];

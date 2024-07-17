@@ -54,12 +54,12 @@ class UpdateRequest extends FormRequest
             'concerned_police_station' => 'required',
             'concerned_traffic_police_station' => 'required',
             'nearest_fire_station' => 'required',
-            'board_registration_document' => 'nullable',
-            'no_objection_document' => 'nullable',
-            'location_map_document' => 'nullable',
-            'fire_last_year_noObjection_document' => 'nullable',
-            'traffic_last_year_noObjection_document' => 'nullable',
-            'annexure' => 'nullable',
+            'board_registration_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'no_objection_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'location_map_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'fire_last_year_noObjection_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'traffic_last_year_noObjection_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'annexures' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'is_correct_info' => 'required'
         ];
     }

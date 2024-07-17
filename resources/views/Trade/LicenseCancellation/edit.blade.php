@@ -156,8 +156,8 @@
                                     <select class="form-control" name="trade_or_business_type" id="trade_or_business_type">
                                         <option value="">Select a value ...</option>
                                         <option value="42" {{ $data->trade_or_business_type == 42 ? 'selected' : '' }}>असोसिएट्स</option>
-                                        <option value="6" {{ $data->trade_or_business_type == 6 ? 'selected' : '' }}>आईस्क्रिम पार्लर </option>                                                                                                
-                                        <option value="53" {{ $data->trade_or_business_type == 53 ? 'selected' : '' }}>इंजिनियरींग वर्क्स</option>                                                                                           
+                                        <option value="6" {{ $data->trade_or_business_type == 6 ? 'selected' : '' }}>आईस्क्रिम पार्लर </option>
+                                        <option value="53" {{ $data->trade_or_business_type == 53 ? 'selected' : '' }}>इंजिनियरींग वर्क्स</option>
                                         <option value="48" {{ $data->trade_or_business_type == 48 ? 'selected' : '' }}>इंटिरियल</option>
                                         <option value="65" {{ $data->trade_or_business_type == 65 ? 'selected' : '' }}>इतर</option>
                                         <option value="12" {{ $data->trade_or_business_type == 12 ? 'selected' : '' }}>इलेक्ट्रिकल</option>
@@ -223,7 +223,7 @@
                                     </select>
                                     <span class="text-danger is-invalid trade_or_business_type_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="property_no">Property Number / मालमत्ता क्र<span class="text-danger">*</span></label>
                                     <input class="form-control" id="property_no" name="property_no" type="number" placeholder="Enter Property Number" value="{{ $data->property_no }}">
@@ -238,7 +238,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="application_document">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="application_document" name="application_document" type="file">
+                                    <input class="form-control" id="application_document" name="application_documents" type="file">
                                     <small><a href="{{ asset('storage/' . $data->application_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid application_document_err"></span>
                                 </div>

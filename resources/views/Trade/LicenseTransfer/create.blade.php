@@ -156,193 +156,193 @@
                                     <select class="form-control" name="trade_or_business_type" id="trade_or_business_type">
                                         <option value="">Select a value ...</option>
                                         <option value="42">असोसिएट्स</option>
-                                        <option value="6">आईस्क्रिम पार्लर </option>                                                                                                
-                                        <option value="53">इंजिनियरींग वर्क्स</option>                                                                                           
+                                        <option value="6">आईस्क्रिम पार्लर </option>
+                                        <option value="53">इंजिनियरींग वर्क्स</option>
                                         <option value="48">
-                                        इंटिरियल                                                                                                    
+                                        इंटिरियल
                                         </option>
                                         <option value="65">
-                                        इतर                                                                                                    
+                                        इतर
                                         </option>
                                         <option value="12">
-                                        इलेक्ट्रिकल                                                                                                    
+                                        इलेक्ट्रिकल
                                         </option>
                                         <option value="49">
-                                        इलेक्ट्रीक अँड हार्डवेअर                                                                                                    
+                                        इलेक्ट्रीक अँड हार्डवेअर
                                         </option>
                                         <option value="61">
-                                        इंशुरन्स                                                                                                    
+                                        इंशुरन्स
                                         </option>
                                         <option value="1">
-                                        उपहारगृह                                                                                                    
+                                        उपहारगृह
                                         </option>
                                         <option value="34">
-                                        ऑप्टीकल                                                                                                    
+                                        ऑप्टीकल
                                         </option>
                                         <option value="27">
-                                        ओल्ड् पेपर मार्ट                                                                                                    
+                                        ओल्ड् पेपर मार्ट
                                         </option>
                                         <option value="59">
-                                        कंट्रक्शन                                                                                                    
+                                        कंट्रक्शन
                                         </option>
                                         <option value="29">
-                                        कपडा विक्री                                                                                                    
+                                        कपडा विक्री
                                         </option>
                                         <option value="60">
-                                        कपड्याचे दुकान                                                                                                    
+                                        कपड्याचे दुकान
                                         </option>
                                         <option value="26">
-                                        कांदा-बटाटा दुकान                                                                                                    
+                                        कांदा-बटाटा दुकान
                                         </option>
                                         <option value="21">
-                                        कारखाना                                                                                                    
+                                        कारखाना
                                         </option>
                                         <option value="15">
-                                        किराणा दुकान                                                                                                    
+                                        किराणा दुकान
                                         </option>
                                         <option value="58">
-                                        कुरीअर सर्विस                                                                                                    
+                                        कुरीअर सर्विस
                                         </option>
                                         <option value="45">
-                                        कॅटरींग सर्विसेस                                                                                                    
+                                        कॅटरींग सर्विसेस
                                         </option>
                                         <option value="5">
-                                        केक शॉप                                                                                                    
+                                        केक शॉप
                                         </option>
                                         <option value="10">
-                                        केशकर्तनालय / सलुन                                                                                                    
+                                        केशकर्तनालय / सलुन
                                         </option>
                                         <option value="64">
-                                        कोल्ड्रींग अँड आईस्क्रीम                                                                                                    
+                                        कोल्ड्रींग अँड आईस्क्रीम
                                         </option>
                                         <option value="33">
-                                        क्लासेस                                                                                                    
+                                        क्लासेस
                                         </option>
                                         <option value="43">
-                                        क्लीनर                                                                                                    
+                                        क्लीनर
                                         </option>
                                         <option value="30">
-                                        खादयपदार्थ विक्री                                                                                                    
+                                        खादयपदार्थ विक्री
                                         </option>
                                         <option value="3">
-                                        खानावळ                                                                                                    
+                                        खानावळ
                                         </option>
                                         <option value="13">
-                                        गॅरेज                                                                                                    
+                                        गॅरेज
                                         </option>
                                         <option value="47">
-                                        चक्की                                                                                                    
+                                        चक्की
                                         </option>
                                         <option value="55">
-                                        चाइनीज पॉईंट                                                                                                    
+                                        चाइनीज पॉईंट
                                         </option>
                                         <option value="63">
-                                        चाय पॉईंट                                                                                                    
+                                        चाय पॉईंट
                                         </option>
                                         <option value="24">
-                                        चिकन शॉप                                                                                                    
+                                        चिकन शॉप
                                         </option>
                                         <option value="14">
-                                        जनरल स्टोर                                                                                                    
+                                        जनरल स्टोर
                                         </option>
                                         <option value="38">
-                                        जिम फिटनेस                                                                                                    
+                                        जिम फिटनेस
                                         </option>
                                         <option value="32">
-                                        टेलर                                                                                                    
+                                        टेलर
                                         </option>
                                         <option value="17">
-                                        नर्सरी                                                                                                    
+                                        नर्सरी
                                         </option>
                                         <option value="18">
-                                        पान बिडी शॉप                                                                                                    
+                                        पान बिडी शॉप
                                         </option>
                                         <option value="40">
-                                        पुस्तक विक्री                                                                                                    
+                                        पुस्तक विक्री
                                         </option>
                                         <option value="16">
-                                        फर्निचर दुकान                                                                                                    
+                                        फर्निचर दुकान
                                         </option>
                                         <option value="62">
-                                        फर्निचर वर्क                                                                                                    
+                                        फर्निचर वर्क
                                         </option>
                                         <option value="46">
-                                        फाटो शॉप                                                                                                    
+                                        फाटो शॉप
                                         </option>
                                         <option value="20">
-                                        बांगडी बनविणे                                                                                                    
+                                        बांगडी बनविणे
                                         </option>
                                         <option value="52">
-                                        बेकरी                                                                                                    
+                                        बेकरी
                                         </option>
                                         <option value="7">
-                                        बेकरी शॉप / बेकरी प्रोडक्टस                                                                                                    
+                                        बेकरी शॉप / बेकरी प्रोडक्टस
                                         </option>
                                         <option value="11">
-                                        ब्युटी पार्लर                                                                                                    
+                                        ब्युटी पार्लर
                                         </option>
                                         <option value="23">
-                                        मटण शॉप                                                                                                    
+                                        मटण शॉप
                                         </option>
                                         <option value="22">
-                                        मटण-चिकन शॉप                                                                                                    
+                                        मटण-चिकन शॉप
                                         </option>
                                         <option value="39">
-                                        मसाला विक्री                                                                                                    
+                                        मसाला विक्री
                                         </option>
                                         <option value="36">
-                                        मॅन्युफॅक्चरींग                                                                                                    
+                                        मॅन्युफॅक्चरींग
                                         </option>
                                         <option value="56">
-                                        मेटल पार्ट वर्क                                                                                                    
+                                        मेटल पार्ट वर्क
                                         </option>
                                         <option value="31">
-                                        मेडिकल                                                                                                    
+                                        मेडिकल
                                         </option>
                                         <option value="51">
-                                        रबर प्रोडक्ट                                                                                                    
+                                        रबर प्रोडक्ट
                                         </option>
                                         <option value="35">
-                                        रेडीमेंड गारमेंट                                                                                                    
+                                        रेडीमेंड गारमेंट
                                         </option>
                                         <option value="2">
-                                        रेस्टॉरंट                                                                                                    
+                                        रेस्टॉरंट
                                         </option>
                                         <option value="44">
-                                        लाँड्री                                                                                                    
+                                        लाँड्री
                                         </option>
                                         <option value="9">
-                                        लॉजिंग / बोर्डींग                                                                                                    
+                                        लॉजिंग / बोर्डींग
                                         </option>
                                         <option value="54">
-                                        वेल्डींग                                                                                                    
+                                        वेल्डींग
                                         </option>
                                         <option value="41">
-                                        सायकल रिपेरींग                                                                                                    
+                                        सायकल रिपेरींग
                                         </option>
                                         <option value="57">
-                                        सिट कवर असेसरीज                                                                                                    
+                                        सिट कवर असेसरीज
                                         </option>
                                         <option value="37">
-                                        सेल्स सर्विस                                                                                                    
+                                        सेल्स सर्विस
                                         </option>
                                         <option value="19">
-                                        स्टील फर्निचर                                                                                                    
+                                        स्टील फर्निचर
                                         </option>
                                         <option value="50">
-                                        स्टेनलेस स्टील                                                                                                    
+                                        स्टेनलेस स्टील
                                         </option>
                                         <option value="28">
-                                        स्टेशनरी                                                                                                    
+                                        स्टेशनरी
                                         </option>
                                         <option value="4">
-                                        स्नॅक्स सेंटर                                                                                                    
+                                        स्नॅक्स सेंटर
                                         </option>
                                         <option value="8">
-                                        स्विट मार्ट / मिठाईचे दुकान                                                                                                    
+                                        स्विट मार्ट / मिठाईचे दुकान
                                         </option>
                                         <option value="25">
-                                        हार्डवेअर                                                                                                    
+                                        हार्डवेअर
                                         </option>
                                     </select>
                                     <span class="text-danger is-invalid trade_or_business_type_err"></span>
@@ -401,19 +401,19 @@
                                     <input class="form-control" id="remark" name="remark" type="text" placeholder="Enter Remark ">
                                     <span class="text-danger is-invalid remark_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="no_dues_document">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="no_dues_document" name="no_dues_document" type="file">
+                                    <input class="form-control" id="no_dues_document" name="no_dues_documents" type="file" required>
                                     <span class="text-danger is-invalid no_dues_document_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="application_document">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="application_document" name="application_document" type="file">
+                                    <input class="form-control" id="application_document" name="application_documents" type="file" required>
                                     <span class="text-danger is-invalid application_document_err"></span>
-                                </div>  
-                            
+                                </div>
+
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
                                 <div class="col-md-12">
                                     <div class="form-check d-flex align-items-start">

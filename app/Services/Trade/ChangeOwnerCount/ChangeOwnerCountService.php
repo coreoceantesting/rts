@@ -7,36 +7,35 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 use App\Models\Trade\TradeChangeOwnerCount;
+use App\Models\ServiceCredential;
+use App\Services\CurlAPiService;
+use App\Services\AapaleSarkarLoginCheckService;
 
 class ChangeOwnerCountService
 {
+    protected $curlAPiService;
+    protected $aapaleSarkarLoginCheckService;
+
+    public function __construct(CurlAPiService $curlAPiService, AapaleSarkarLoginCheckService $aapaleSarkarLoginCheckService)
+    {
+        $this->curlAPiService = $curlAPiService;
+        $this->aapaleSarkarLoginCheckService = $aapaleSarkarLoginCheckService;
+    }
+
     public function store($request)
     {
         DB::beginTransaction();
 
         try {
-            $user_id = Auth::user()->id;
+            $request['user_id'] = Auth::user()->id;
             // Handle file uploads and store original file names
             $application_document = null;
 
-            if ($request->hasFile('application_document')) {
-                $application_document = $request->application_document->store('Trade/ChangeOwnerCount');
+            if ($request->hasFile('application_documents')) {
+                $request['application_document'] = $request->application_documents->store('trade/change-owner-count');
             }
 
-            TradeChangeOwnerCount::create([
-                'user_id' => $user_id,
-                'current_permission_no' => $request->input('current_permission_no'),
-                'applicant_full_name' => $request->input('applicant_full_name'),
-                'old_partner_count' => $request->input('old_partner_count'),
-                'new_partner_count' => $request->input('new_partner_count'),
-                'address' => $request->input('address'),
-                'mobile_no' => $request->input('mobile_no'),
-                'email_id' => $request->input('email_id'),
-                'zone' => $request->input('zone'),
-                'ward_area' => $request->input('ward_area'),
-                'remark' => $request->input('remark'),
-                'application_document' => $application_document,
-            ]);
+            TradeChangeOwnerCount::create($request->all());
 
             DB::commit();
             return true;
@@ -63,31 +62,16 @@ class ChangeOwnerCountService
             $tradeChangeOwnerCount = TradeChangeOwnerCount::findOrFail($id);
 
             // Handle file uploads and update original file names
-            if ($request->hasFile('application_document')) {
+            if ($request->hasFile('application_documents')) {
                 if ($tradeChangeOwnerCount && Storage::exists($tradeChangeOwnerCount->application_document)) {
                     Storage::delete($tradeChangeOwnerCount->application_document);
                 }
-                $tradeChangeOwnerCount->application_document = $request->application_document->store('Trade/ChangeOwnerCount');
+                $request['application_document'] = $request->application_documents->store('trade/change-owner-count');
             }
-
-
-            $tradeChangeOwnerCount->update([
-                'current_permission_no' => $request->input('current_permission_no'),
-                'applicant_full_name' => $request->input('applicant_full_name'),
-                'old_partner_count' => $request->input('old_partner_count'),
-                'new_partner_count' => $request->input('new_partner_count'),
-                'address' => $request->input('address'),
-                'mobile_no' => $request->input('mobile_no'),
-                'email_id' => $request->input('email_id'),
-                'zone' => $request->input('zone'),
-                'ward_area' => $request->input('ward_area'),
-                'remark' => $request->input('remark'),
-            ]);
+            $tradeChangeOwnerCount->update($request->all());
 
             // Commit the transaction
             DB::commit();
-
-
             return true;
         } catch (\Exception $e) {
             DB::rollback();

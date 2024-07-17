@@ -15,37 +15,18 @@ class PlumberLicenseService
         DB::beginTransaction();
 
         try {
-            $user_id = Auth::user()->id;
+            $request['user_id'] = Auth::user()->id;
 
             // Handle file uploads and store original file names
-            $application_document = null;
-            $nodues_document = null;
-
-            if ($request->hasFile('application_document')) {
-                $application_document = $request->application_document->store('WaterDepartment/PlumberLicense');
+            if ($request->hasFile('application_documents')) {
+                $request['application_document'] = $request->application_documents->store('water-department/plumber-license');
             }
 
-            if ($request->hasFile('nodues_document')) {
-                $nodues_document = $request->nodues_document->store('WaterDepartment/PlumberLicense');
+            if ($request->hasFile('nodues_documents')) {
+                $request['nodues_document'] = $request->nodues_documents->store('water-department/plumber-license');
             }
 
-            WaterPlumberLicense::create([
-                'user_id' => $user_id,
-                'applicant_name' => $request->input('applicant_name'),
-                'address' => $request->input('address'),
-                'aadhar_no' => $request->input('aadhar_no'),
-                'mobile_no' => $request->input('mobile_no'),
-                'email_id' => $request->input('email_id'),
-                'zone' => $request->input('zone'),
-                'ward_area' => $request->input('ward_area'),
-                'education_institutation' => $request->input('education_institutation'),
-                'education_qualification' => $request->input('education_qualification'),
-                'training_institute_name' => $request->input('training_institute_name'),
-                'year_of_passing' => $request->input('year_of_passing'),
-                'have_experience' => $request->input('have_experience'),
-                'application_document' => $application_document,
-                'nodues_document' => $nodues_document,
-            ]);
+            WaterPlumberLicense::create($request->all());
 
             DB::commit();
             return true;
@@ -72,35 +53,22 @@ class PlumberLicenseService
             $waterPlumberLicense = WaterPlumberLicense::findOrFail($id);
 
             // Handle file uploads and update original file names
-            if ($request->hasFile('application_document')) {
+            if ($request->hasFile('application_documents')) {
                 if ($waterPlumberLicense && Storage::exists($waterPlumberLicense->application_document)) {
                     Storage::delete($waterPlumberLicense->application_document);
                 }
-                $waterPlumberLicense->application_document = $request->application_document->store('WaterDepartment/PlumberLicense');
+                $request['application_document'] = $request->application_documents->store('water-department/plumber-license');
             }
 
-            if ($request->hasFile('nodues_document')) {
+            if ($request->hasFile('nodues_documents')) {
                 if ($waterPlumberLicense && Storage::exists($waterPlumberLicense->nodues_document)) {
                     Storage::delete($waterPlumberLicense->nodues_document);
                 }
-                $waterPlumberLicense->nodues_document = $request->nodues_document->store('WaterDepartment/PlumberLicense');
+                $request['nodues_document'] = $request->nodues_documents->store('water-department/plumber-license');
             }
 
             // Update the rest of the fields
-            $waterPlumberLicense->update([
-                'applicant_name' => $request->input('applicant_name'),
-                'address' => $request->input('address'),
-                'aadhar_no' => $request->input('aadhar_no'),
-                'mobile_no' => $request->input('mobile_no'),
-                'email_id' => $request->input('email_id'),
-                'zone' => $request->input('zone'),
-                'ward_area' => $request->input('ward_area'),
-                'education_institutation' => $request->input('education_institutation'),
-                'education_qualification' => $request->input('education_qualification'),
-                'training_institute_name' => $request->input('training_institute_name'),
-                'year_of_passing' => $request->input('year_of_passing'),
-                'have_experience' => $request->input('have_experience'),
-            ]);
+            $waterPlumberLicense->update($request->all());
 
             // Commit the transaction
             DB::commit();

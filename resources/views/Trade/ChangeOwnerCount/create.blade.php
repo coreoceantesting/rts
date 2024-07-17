@@ -87,7 +87,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="application_document">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="application_document" name="application_document" type="file">
+                                    <input class="form-control" id="application_document" name="application_documents" type="file" required>
                                     <span class="text-danger is-invalid application_document_err"></span>
                                 </div>
 

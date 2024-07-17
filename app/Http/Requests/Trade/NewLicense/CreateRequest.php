@@ -24,7 +24,7 @@ class CreateRequest extends FormRequest
         return [
             'applicant_full_name' => 'required',
             'address' => 'required',
-            'office_address' => 'required', 
+            'office_address' => 'required',
             'mobile_no' => 'required|min:10|max:10',
             'email_id' => 'required',
             'aadhar_no' => 'required|min:12|max:12',
@@ -46,8 +46,8 @@ class CreateRequest extends FormRequest
             'partner_count' => 'required',
             'partner_names' => 'required',
             'property_tax_no' => 'nullable',
-            'no_dues_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
-            'application_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'no_dues_documents' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'application_documents' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'is_correct_info' => 'required'
         ];
     }

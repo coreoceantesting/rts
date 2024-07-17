@@ -41,7 +41,7 @@ class UpdateRequest extends FormRequest
             'meter_reading' => 'required',
             'size' => 'required',
             'comment' => 'nullable',
-            'application_document' => 'nullable',
+            'application_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'is_correct_info' => 'required'
         ];
     }

@@ -15,38 +15,14 @@ class DefectiveWaterMeterService
         DB::beginTransaction();
 
         try {
-            $user_id = Auth::user()->id;
+            $request['user_id'] = Auth::user()->id;
 
             // Handle file uploads and store original file names
-            $application_document = null;
-
-            if ($request->hasFile('application_document')) {
-                $application_document = $request->application_document->store('WaterDepartment/DefectiveWaterMeter');
+            if ($request->hasFile('application_documents')) {
+                $request['application_document'] = $request->application_documents->store('water-department/defective-meter');
             }
 
-            WaterDefectiveMeter::create([
-                'user_id' => $user_id,
-                'owner_name' => $request->input('owner_name'),
-                'aadhar_no' => $request->input('aadhar_no'),
-                'mobile_no' => $request->input('mobile_no'),
-                'email_id' => $request->input('email_id'),
-                'zone' => $request->input('zone'),
-                'ward_area' => $request->input('ward_area'),
-                'plot_no' => $request->input('plot_no'),
-                'house_no' => $request->input('house_no'),
-                'landmark' => $request->input('landmark'),
-                'address' => $request->input('address'),
-                'place_belongs_to_municipal' => $request->input('place_belongs_to_municipal'),
-                'current_connection_is_illegal' => $request->input('current_connection_is_illegal'),
-                'applicant_or_tenant' => $request->input('applicant_or_tenant'),
-                'criminal_judicial_issue' => $request->input('criminal_judicial_issue'),
-                'current_tap_detail' => $request->input('current_tap_detail'),
-                'property_no' => $request->input('property_no'),
-                'meter_reading' => $request->input('meter_reading'),
-                'size' => $request->input('size'),
-                'comment' => $request->input('comment'),
-                'application_document' => $application_document,
-            ]);
+            WaterDefectiveMeter::create($request->all());
 
             DB::commit();
             return true;
@@ -68,40 +44,19 @@ class DefectiveWaterMeterService
         DB::beginTransaction();
 
         try {
-
             // Find the existing record
             $waterDefectiveMeter = WaterDefectiveMeter::findOrFail($id);
 
             // Handle file uploads and update original file names
-            if ($request->hasFile('application_document')) {
+            if ($request->hasFile('application_documents')) {
                 if ($waterDefectiveMeter && Storage::exists($waterDefectiveMeter->application_document)) {
                     Storage::delete($waterDefectiveMeter->application_document);
                 }
-                $waterDefectiveMeter->application_document = $request->application_document->store('WaterDepartment/DefectiveWaterMeter');
+                $request['application_document'] = $request->application_documents->store('water-department/defective-meter');
             }
 
             // Update the rest of the fields
-            $waterDefectiveMeter->update([
-                'owner_name' => $request->input('owner_name'),
-                'aadhar_no' => $request->input('aadhar_no'),
-                'mobile_no' => $request->input('mobile_no'),
-                'email_id' => $request->input('email_id'),
-                'zone' => $request->input('zone'),
-                'ward_area' => $request->input('ward_area'),
-                'plot_no' => $request->input('plot_no'),
-                'house_no' => $request->input('house_no'),
-                'landmark' => $request->input('landmark'),
-                'address' => $request->input('address'),
-                'place_belongs_to_municipal' => $request->input('place_belongs_to_municipal'),
-                'current_connection_is_illegal' => $request->input('current_connection_is_illegal'),
-                'applicant_or_tenant' => $request->input('applicant_or_tenant'),
-                'criminal_judicial_issue' => $request->input('criminal_judicial_issue'),
-                'current_tap_detail' => $request->input('current_tap_detail'),
-                'property_no' => $request->input('property_no'),
-                'meter_reading' => $request->input('meter_reading'),
-                'size' => $request->input('size'),
-                'comment' => $request->input('comment'),
-            ]);
+            $waterDefectiveMeter->update($request->alll());
 
             // Commit the transaction
             DB::commit();

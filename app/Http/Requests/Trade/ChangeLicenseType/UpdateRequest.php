@@ -33,8 +33,8 @@ class UpdateRequest extends FormRequest
             'old_treade_license_name' => 'required',
             'new_treade_license_name' => 'required',
             'remark' => 'required',
-            'no_dues_document' => 'nullable',
-            'application_document' => 'nullable',
+            'no_dues_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'application_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'is_correct_info' => 'required'
         ];
     }

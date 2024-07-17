@@ -35,10 +35,10 @@ class UpdateRequest extends FormRequest
             'training_institute_name' => 'required',
             'year_of_passing' => 'required',
             'have_experience' => 'required',
-            'nodues_document' => 'required',
+            'nodues_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'educational_certificate_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'application_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'remark' => 'required',
-            'educational_certificate_document' => 'nullable',
-            'application_document' => 'nullable',
             'is_correct_info' => 'nullable'
         ];
     }

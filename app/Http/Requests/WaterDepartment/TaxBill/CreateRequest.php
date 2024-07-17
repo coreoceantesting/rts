@@ -40,7 +40,7 @@ class CreateRequest extends FormRequest
             'criminal_judicial_issue' => 'required',
             'place_belongs_to_municipal' => 'required',
             'comment' => 'required',
-            'application_document' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'application_documents' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'is_correct_info' => 'required'
         ];
     }

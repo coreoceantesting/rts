@@ -236,40 +236,40 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="board_registration_document">Board Registration Certificate/Permission/Guarantee of Hon'ble Charity Commissioner to deposit subscription / मंडळ नोदणी प्रमाणपत्र/वर्गणी जमा करण्याची मा.धर्मादाय आयुक्तांची परवानगी/हमीपत्र <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="board_registration_document" name="board_registration_document" type="file">
+                                    <input class="form-control" id="board_registration_document" name="board_registration_documents" type="file" required>
                                     <span class="text-danger is-invalid board_registration_document_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="no_objection_document">No objection certificate from the owner of the premises / जागेच्या मालकाचा ना हरकत दाखला<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="no_objection_document" name="no_objection_document" type="file">
+                                    <input class="form-control" id="no_objection_document" name="no_objection_documents" type="file" required>
                                     <span class="text-danger is-invalid no_objection_document_err"></span>
-                                </div>  
+                                </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="location_map_document">Location Map of Pandol / Stage / मंडप / स्टेजचा स्थळदर्शक नकाशा<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="location_map_document" name="location_map_document" type="file">
+                                    <input class="form-control" id="location_map_document" name="location_map_documents" type="file" required>
                                     <span class="text-danger is-invalid location_map_document_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="fire_last_year_noObjection_document">Last year no objection certificate of fire brigade / अग्निशामक दलाचा मागील वर्षीचा ना हरकत दाखला</label>
-                                    <input class="form-control" id="fire_last_year_noObjection_document" name="fire_last_year_noObjection_document" type="file">
+                                    <input class="form-control" id="fire_last_year_noObjection_document" name="fire_last_year_noObjection_documents" type="file" required>
                                     <span class="text-danger is-invalid fire_last_year_noObjection_document_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="traffic_last_year_noObjection_document">Last year no objection certificate from concerned traffic police / संबंधित वाहतूक पोलिसांचा मागील वर्षीचा ना हरकत दाखला</label>
-                                    <input class="form-control" id="traffic_last_year_noObjection_document" name="traffic_last_year_noObjection_document" type="file">
+                                    <input class="form-control" id="traffic_last_year_noObjection_document" name="traffic_last_year_noObjection_documents" type="file" required>
                                     <span class="text-danger is-invalid traffic_last_year_noObjection_document_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="annexure">annexure -1 / घोषणापत्र </label>
-                                    <input class="form-control" id="annexure" name="annexure" type="file">
+                                    <input class="form-control" id="annexure" name="annexures" type="file" required>
                                     <span class="text-danger is-invalid annexure_err"></span>
                                 </div>
-                            
+
                                 <label class="col-form-label" for="is_correct_info">स्वीकरण:</label>
                                 <div class="col-md-12">
                                     <div class="form-check d-flex align-items-start">

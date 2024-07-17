@@ -39,7 +39,7 @@ class UpdateRequest extends FormRequest
             'current_existing_tap_type' => 'required',
             'place_belongs_to_municipal' => 'required',
             'comment' => 'nullable',
-            'application_document' => 'nullable',
+            'application_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'is_correct_info' => 'required'
         ];
     }

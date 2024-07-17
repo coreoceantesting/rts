@@ -32,8 +32,8 @@ class UpdateRequest extends FormRequest
             'zone' => 'required',
             'ward_area' => 'required',
             'remark' => 'required',
-            'application_document' => 'nullable',
-            'is_correct_info' => 'required'        
+            'application_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'is_correct_info' => 'required'
         ];
     }
 

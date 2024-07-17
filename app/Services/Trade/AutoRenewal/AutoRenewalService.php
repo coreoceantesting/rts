@@ -7,56 +7,79 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 use App\Models\Trade\TradeAutoRenewalLicensePermission;
+use App\Models\ServiceCredential;
+use App\Services\CurlAPiService;
+use App\Services\AapaleSarkarLoginCheckService;
 
 class AutoRenewalService
 {
+    protected $curlAPiService;
+    protected $aapaleSarkarLoginCheckService;
+
+    public function __construct(CurlAPiService $curlAPiService, AapaleSarkarLoginCheckService $aapaleSarkarLoginCheckService)
+    {
+        $this->curlAPiService = $curlAPiService;
+        $this->aapaleSarkarLoginCheckService = $aapaleSarkarLoginCheckService;
+    }
+
     public function store($request)
     {
         DB::beginTransaction();
 
         try {
-            $user_id = Auth::user()->id;
+            $request['user_id'] = Auth::user()->id;
             // Handle file uploads and store original file names
-            $application_document = null;
-            $no_dues_document = null;
-
-
-            if ($request->hasFile('application_document')) {
-                $application_document = $request->application_document->store('Trade/AutoRenewal');
+            if ($request->hasFile('application_documents')) {
+                $request['application_document'] = $request->application_documents->store('trade/auto-renewal');
             }
 
-            if ($request->hasFile('no_dues_document')) {
-                $no_dues_document = $request->no_dues_document->store('Trade/AutoRenewal');
+            if ($request->hasFile('no_dues_documents')) {
+                $request['no_dues_document'] = $request->no_dues_documents->store('trade/auto-renewal');
             }
 
-            TradeAutoRenewalLicensePermission::create([
-                'user_id' => $user_id,
-                'applicant_full_name' => $request->input('applicant_full_name'),
-                'address' => $request->input('address'),
-                'mobile_no' => $request->input('mobile_no'),
-                'email_id' => $request->input('email_id'),
-                'aadhar_no' => $request->input('aadhar_no'),
-                'zone' => $request->input('zone'),
-                'ward_area' => $request->input('ward_area'),
-                'current_permission_no' => $request->input('current_permission_no'),
-                'current_permission_date' => $request->input('current_permission_date'),
-                'current_permission_expiry_date' => $request->input('current_permission_expiry_date'),
-                'current_permission_validity_date' => $request->input('current_permission_validity_date'),
-                'business_start_date' => $request->input('business_start_date'),
-                'business_or_trade_name' => $request->input('business_or_trade_name'),
-                'permission_detail' => $request->input('permission_detail'),
-                'plot_no' => $request->input('plot_no'),
-                'description_of_trade_place' => $request->input('description_of_trade_place'),
-                'is_preveious_permission_declined_by_council' => $request->input('is_preveious_permission_declined_by_council'),
-                'previous_permission_decline_reason' => $request->input('previous_permission_decline_reason'),
-                'is_place_owned_by_council' => $request->input('is_place_owned_by_council'),
-                'is_any_dues_pending_of_council' => $request->input('is_any_dues_pending_of_council'),
-                'trade_or_business_type' => $request->input('trade_or_business_type'),
-                'property_no' => $request->input('property_no'),
-                'remark' => $request->input('remark'),
-                'no_dues_document' => $no_dues_document,
-                'application_document' => $application_document,
-            ]);
+            $tradeAutoRenewalLicensePermission = TradeAutoRenewalLicensePermission::create($request->all());
+
+            // code to send data to department
+            if ($request->hasFile('application_documents')) {
+                $request['application_document'] = $this->curlAPiService->convertFileInBase64($request->file('application_documents'));
+            } else {
+                $request['application_document'] = "";
+            }
+
+            if ($request->hasFile('no_dues_documents')) {
+                $request['no_dues_document'] = $this->curlAPiService->convertFileInBase64($request->file('no_dues_documents'));
+            } else {
+                $request['no_dues_document'] = "";
+            }
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            $newData = $request->except(['application_documents', 'no_dues_documents', '_token']);
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForNewTaxation', 'NewTaxation');
+
+            // Decode JSON string to PHP array
+            $data = json_decode($data, true);
+
+            if ($data['d']['Status'] == "200") {
+                // Access the application_no
+                $applicationId = $data['d']['application_no'];
+                TradeAutoRenewalLicensePermission::where('id', $tradeAutoRenewalLicensePermission->id)->update([
+                    'application_no' => $applicationId
+                ]);
+
+                if (Auth::user()->is_aapale_sarkar_user) {
+                    $aapaleSarkarCredential = ServiceCredential::where('dept_service_id', $request->service_id)->first();
+
+                    $send = $this->aapaleSarkarLoginCheckService->encryptAndSendRequestToAapaleSarkar(Auth::user()->trackid, $aapaleSarkarCredential->client_code, Auth::user()->user_id, $aapaleSarkarCredential->service_id, $applicationId, 'N', 'NA', 'N', 'NA', "20", date('Y-m-d', strtotime("+$aapaleSarkarCredential->service_day days")), 23.60, 1, 2, 'Payment Pending', $aapaleSarkarCredential->ulb_id, $aapaleSarkarCredential->ulb_district, 'NA', 'NA', 'NA', $aapaleSarkarCredential->check_sum_key, $aapaleSarkarCredential->str_key, $aapaleSarkarCredential->str_iv, $aapaleSarkarCredential->soap_end_point_url, $aapaleSarkarCredential->soap_action_app_status_url);
+
+                    if (!$send) {
+                        return false;
+                    }
+                }
+            } else {
+                DB::rollback();
+                return false;
+            }
+            // end of code to send data to department
+
 
             DB::commit();
             return true;
@@ -83,45 +106,21 @@ class AutoRenewalService
             $tradeAutoRenewalLicensePermission = TradeAutoRenewalLicensePermission::findOrFail($id);
 
             // Handle file uploads and update original file names
-            if ($request->hasFile('application_document')) {
+            if ($request->hasFile('application_documents')) {
                 if ($tradeAutoRenewalLicensePermission && Storage::exists($tradeAutoRenewalLicensePermission->application_document)) {
                     Storage::delete($tradeAutoRenewalLicensePermission->application_document);
                 }
-                $tradeAutoRenewalLicensePermission->application_document = $request->application_document->store('Trade/AutoRenewal');
+                $request['application_document'] = $request->application_documents->store('trade/auto-renewal');
             }
 
-            if ($request->hasFile('no_dues_document')) {
+            if ($request->hasFile('no_dues_documents')) {
                 if ($tradeAutoRenewalLicensePermission && Storage::exists($tradeAutoRenewalLicensePermission->no_dues_document)) {
                     Storage::delete($tradeAutoRenewalLicensePermission->no_dues_document);
                 }
-                $tradeAutoRenewalLicensePermission->no_dues_document = $request->no_dues_document->store('Trade/AutoRenewal');
+                $request['no_dues_document']  = $request->no_dues_documents->store('trade/auto-renewal');
             }
 
-            $tradeAutoRenewalLicensePermission->update([
-                'applicant_full_name' => $request->input('applicant_full_name'),
-                'address' => $request->input('address'),
-                'mobile_no' => $request->input('mobile_no'),
-                'email_id' => $request->input('email_id'),
-                'aadhar_no' => $request->input('aadhar_no'),
-                'zone' => $request->input('zone'),
-                'ward_area' => $request->input('ward_area'),
-                'current_permission_no' => $request->input('current_permission_no'),
-                'current_permission_date' => $request->input('current_permission_date'),
-                'current_permission_expiry_date' => $request->input('current_permission_expiry_date'),
-                'current_permission_validity_date' => $request->input('current_permission_validity_date'),
-                'business_start_date' => $request->input('business_start_date'),
-                'business_or_trade_name' => $request->input('business_or_trade_name'),
-                'permission_detail' => $request->input('permission_detail'),
-                'plot_no' => $request->input('plot_no'),
-                'description_of_trade_place' => $request->input('description_of_trade_place'),
-                'is_preveious_permission_declined_by_council' => $request->input('is_preveious_permission_declined_by_council'),
-                'previous_permission_decline_reason' => $request->input('previous_permission_decline_reason'),
-                'is_place_owned_by_council' => $request->input('is_place_owned_by_council'),
-                'is_any_dues_pending_of_council' => $request->input('is_any_dues_pending_of_council'),
-                'trade_or_business_type' => $request->input('trade_or_business_type'),
-                'property_no' => $request->input('property_no'),
-                'remark' => $request->input('remark'),
-            ]);
+            $tradeAutoRenewalLicensePermission->update($request->all());
 
             // Commit the transaction
             DB::commit();

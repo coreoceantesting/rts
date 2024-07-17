@@ -15,35 +15,15 @@ class WaterPressureService
         DB::beginTransaction();
 
         try {
-            $user_id = Auth::user()->id;
+            $request['user_id'] = Auth::user()->id;
             // Handle file uploads and store original file names
             $application_document = null;
 
-            if ($request->hasFile('application_document')) {
-                $application_document = $request->application_document->store('WaterDepartment/WaterPressure');
+            if ($request->hasFile('application_documents')) {
+                $request['application_document'] = $request->application_documents->store('water-department/water-pressure');
             }
 
-            WaterPressureComplaint::create([
-                'user_id' => $user_id,
-                'property_owner_name' => $request->input('property_owner_name'),
-                'aadhar_no' => $request->input('aadhar_no'),
-                'mobile_no' => $request->input('mobile_no'),
-                'email_id' => $request->input('email_id'),
-                'zone' => $request->input('zone'),
-                'ward_area' => $request->input('ward_area'),
-                'plot_no' => $request->input('plot_no'),
-                'house_no' => $request->input('house_no'),
-                'landmark' => $request->input('landmark'),
-                'address' => $request->input('address'),
-                'current_connection_is_illegal' => $request->input('current_connection_is_illegal'),
-                'applicant_is_on_rent' => $request->input('applicant_is_on_rent'),
-                'criminal_judicial_issue' => $request->input('criminal_judicial_issue'),
-                'tap_size' => $request->input('tap_size'),
-                'current_existing_tap_type' => $request->input('current_existing_tap_type'),
-                'place_belongs_to_municipal' => $request->input('place_belongs_to_municipal'),
-                'comment' => $request->input('comment'),
-                'application_document' => $application_document,
-            ]);
+            WaterPressureComplaint::create($request->all());
 
             DB::commit();
             return true;
@@ -67,40 +47,20 @@ class WaterPressureService
         try {
 
             // Find the existing record
-            $WaterPressureComplaint = WaterPressureComplaint::findOrFail($id);
+            $waterPressureComplaint = WaterPressureComplaint::findOrFail($id);
 
             // Handle file uploads and update original file names
-            if ($request->hasFile('application_document')) {
-                if ($WaterPressureComplaint && Storage::exists($WaterPressureComplaint->application_document)) {
-                    Storage::delete($WaterPressureComplaint->application_document);
+            if ($request->hasFile('application_documents')) {
+                if ($waterPressureComplaint && Storage::exists($waterPressureComplaint->application_document)) {
+                    Storage::delete($waterPressureComplaint->application_document);
                 }
-                $WaterPressureComplaint->application_document = $request->application_document->store('WaterDepartment/WaterPressure');
+                $request['application_document'] = $request->application_documents->store('water-department/water-pressure');
             }
 
-            $WaterPressureComplaint->update([
-                'property_owner_name' => $request->input('property_owner_name'),
-                'aadhar_no' => $request->input('aadhar_no'),
-                'mobile_no' => $request->input('mobile_no'),
-                'email_id' => $request->input('email_id'),
-                'zone' => $request->input('zone'),
-                'ward_area' => $request->input('ward_area'),
-                'plot_no' => $request->input('plot_no'),
-                'house_no' => $request->input('house_no'),
-                'landmark' => $request->input('landmark'),
-                'address' => $request->input('address'),
-                'current_connection_is_illegal' => $request->input('current_connection_is_illegal'),
-                'applicant_is_on_rent' => $request->input('applicant_is_on_rent'),
-                'criminal_judicial_issue' => $request->input('criminal_judicial_issue'),
-                'tap_size' => $request->input('tap_size'),
-                'current_existing_tap_type' => $request->input('current_existing_tap_type'),
-                'place_belongs_to_municipal' => $request->input('place_belongs_to_municipal'),
-                'comment' => $request->input('comment'),
-            ]);
+            $waterPressureComplaint->update($request->all());
 
             // Commit the transaction
             DB::commit();
-
-
             return true;
         } catch (\Exception $e) {
             DB::rollback();
