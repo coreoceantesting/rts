@@ -14,13 +14,13 @@
                         </div>
                         <div class="card-body">
                             <div class="mb-3 row">
-                                
+
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="applicant_type">Applicant Type ( Indivisual/Company) / अर्ज प्रकार (वैयक्तिक / कंपनी) <span class="text-danger">*</span></label>
                                     <input class="form-control" id="applicant_type" name="applicant_type" type="text" placeholder="Enter Applicant Area" value="{{ $data->applicant_type }}">
                                     <span class="text-danger is-invalid applicant_type_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="applicant_name">Applicant's Full Name / अर्जदाराचे संपूर्ण नाव<span class="text-danger">*</span></label>
                                     <input class="form-control" id="applicant_name" name="applicant_name" type="text" placeholder="Enter Applicant Name" value="{{ $data->applicant_name }}">
@@ -46,7 +46,7 @@
                                     </select>
                                     <span class="text-danger is-invalid zone_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="ward">Ward Area / प्रभाग क्षेत्र <span class="text-danger">*</span></label>
                                     <select name="ward" id="ward" class="form-select">
@@ -60,7 +60,7 @@
                                     </select>
                                     <span class="text-danger is-invalid ward_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="company_name">Name of Company / कंपनीचे नाव</label>
                                     <input class="form-control" id="company_name" name="company_name" type="text" placeholder="Enter Company Name" value="{{ $data->company_name }}">
@@ -108,7 +108,7 @@
                                     <input class="form-control" id="no_of_location" name="no_of_location" type="number" placeholder="Enter Number of Locations" value="{{ $data->no_of_location }}">
                                     <span class="text-danger is-invalid no_of_location_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="road_cutting_address">Address of the Road for cutting / रस्ता खोदण्याच्या ठिकाणाचा पत्ता <span class="text-danger">*</span></label>
                                     <input class="form-control" id="road_cutting_address" name="road_cutting_address" type="text" placeholder="Enter road cutting address " value="{{ $data->road_cutting_address }}">
@@ -120,24 +120,24 @@
                                     <input class="form-control" id="location_size" name="location_size" type="number" placeholder="Enter Size in MM for each location" value="{{ $data->location_size }}">
                                     <span class="text-danger is-invalid location_size_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="upload_prescribed_format">Upload Application in Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="upload_prescribed_format" name="upload_prescribed_format" type="file">
+                                    <input class="form-control" id="upload_prescribed_format" name="upload_prescribed_formats" type="file">
                                     <small><a href="{{ asset('storage/' . $data->upload_prescribed_format) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid upload_prescribed_format_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="upload_no_dues_certificate">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="upload_no_dues_certificate" name="upload_no_dues_certificate" type="file">
+                                    <input class="form-control" id="upload_no_dues_certificate" name="upload_no_dues_certificates" type="file">
                                     <small><a href="{{ asset('storage/' . $data->upload_no_dues_certificate) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid upload_no_dues_certificate_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="upload_gov_instructed_doc">Upload Govt . Instructed Documents / शासनाद्वारे विहित केलीली कागदपत्रे <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="upload_gov_instructed_doc" name="upload_gov_instructed_doc" type="file">
+                                    <input class="form-control" id="upload_gov_instructed_doc" name="upload_gov_instructed_docs" type="file">
                                     <small><a href="{{ asset('storage/' . $data->upload_gov_instructed_doc) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid upload_gov_instructed_doc_err"></span>
                                 </div>

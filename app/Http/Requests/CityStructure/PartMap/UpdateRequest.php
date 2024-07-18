@@ -29,9 +29,9 @@ class UpdateRequest extends FormRequest
             'aadhar_no' => 'required|min:12|max:12',
             'zone' => 'required',
             'servey_number' => 'required',
-            'prescribed_format' => 'nullable',
-            'upload_city_survey_certificate' => 'nullable',
-            'upload_city_servey_map' => 'nullable',
+            'prescribed_formats' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'upload_city_survey_certificates' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'upload_city_servey_maps' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'is_correct_info' => 'required',
         ];
     }

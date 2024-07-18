@@ -32,11 +32,11 @@ class UpdateRequest extends FormRequest
             'zone' => 'required',
             'ward_area' => 'required',
             'subject' => 'required',
-            'uploaded_application' => 'nullable',
-            'no_dues_document' => 'nullable',
-            'architect_application_document' => 'nullable',
-            'fire_prevention_document' => 'nullable',
-            'capitation_fee_document' => 'nullable',
+            'uploaded_applications' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'no_dues_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'architect_application_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'fire_prevention_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'capitation_fee_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'is_correct_info' => 'required'
         ];
     }

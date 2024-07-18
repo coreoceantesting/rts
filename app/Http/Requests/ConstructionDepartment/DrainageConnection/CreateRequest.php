@@ -43,9 +43,9 @@ class CreateRequest extends FormRequest
             'total_residencial_people_count' => 'required',
             'total_renter_count' => 'required',
             'connection_size_feet' => 'required',
-            'upload_prescribed_format' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
-            'upload_no_dues_certificate' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
-            'upload_property_ownership' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG',
+            'upload_prescribed_formats' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'upload_no_dues_certificates' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'upload_property_ownerships' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'is_correct_info' => 'required'
         ];
     }

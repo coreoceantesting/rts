@@ -43,9 +43,9 @@ class UpdateRequest extends FormRequest
             'total_residencial_people_count' => 'required',
             'total_renter_count' => 'required',
             'connection_size_feet' => 'required',
-            'upload_prescribed_format' => 'nullable',
-            'upload_no_dues_certificate' => 'nullable',
-            'upload_property_ownership' => 'nullable',
+            'upload_prescribed_formats' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'upload_no_dues_certificates' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'upload_property_ownerships' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'is_correct_info' => 'required'
         ];
     }

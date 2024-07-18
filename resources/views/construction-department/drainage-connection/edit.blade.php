@@ -44,7 +44,7 @@
                                     </select>
                                     <span class="text-danger is-invalid zone_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="ward">Ward Area / प्रभाग क्षेत्र <span class="text-danger">*</span></label>
                                     <select name="ward" id="ward" class="form-select">
@@ -108,19 +108,19 @@
                                     </select>
                                     <span class="text-danger is-invalid connection_size_inches_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="construction_date">Construction Date / बांधकाम दिनांक <span class="text-danger">*</span></label>
                                     <input class="form-control" id="construction_date" name="construction_date" type="Date" placeholder="Select Construction Date" value="{{ $data->construction_date }}">
                                     <span class="text-danger is-invalid construction_date_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="flat_assesment_date">Hous or flat Assesment Date / घर किंवा सदनिकेची कर आकारणी दिनांक <span class="text-danger">*</span></label>
                                     <input class="form-control" id="flat_assesment_date" name="flat_assesment_date" type="date" placeholder="Select Flat Assesment Date" value="{{ $data->flat_assesment_date }}">
                                     <span class="text-danger is-invalid flat_assesment_date_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="flat_map_date">House or flat Map Date / घर किंवा सदनिकेचा नकाशा दिनांक <span class="text-danger">*</span></label>
                                     <input class="form-control" id="flat_map_date" name="flat_map_date" type="date" placeholder="Select Flat Map Date" value="{{ $data->flat_map_date }}">
@@ -131,7 +131,7 @@
                                     <input class="form-control" id="current_water_tax_amount" name="current_water_tax_amount" type="number" placeholder="Enter Current Water Tax Amount" value="{{ $data->current_water_tax_amount }}">
                                     <span class="text-danger is-invalid current_water_tax_amount_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="current_tax_paid_date">Current Tax paid date / चालू कर रक्कम भरणा दिनांक <span class="text-danger">*</span></label>
                                     <input class="form-control" id="current_tax_paid_date" name="current_tax_paid_date" type="date" placeholder="Select Current Tax Paid Date" value="{{ $data->current_tax_paid_date }}">
@@ -142,7 +142,7 @@
                                     <input class="form-control" id="lichpit_count" name="lichpit_count" type="number" placeholder="Enter Septic Lichpit Count" value="{{ $data->lichpit_count }}">
                                     <span class="text-danger is-invalid lichpit_count_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="is_toilet_available">Is Toilet Available ? / शौचालय उपलब्ध आहे का? <span class="text-danger">*</span></label>
                                     <select name="is_toilet_available" id="is_toilet_available" class="form-select">
@@ -167,24 +167,24 @@
                                     <input class="form-control" id="connection_size_feet" name="connection_size_feet" type="number" placeholder="Enter Connection Size In Feet" value="{{ $data->connection_size_feet }}">
                                     <span class="text-danger is-invalid connection_size_feet_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="upload_prescribed_format">Upload Application in Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="upload_prescribed_format" name="upload_prescribed_format" type="file">
+                                    <input class="form-control" id="upload_prescribed_format" name="upload_prescribed_formats" type="file">
                                     <small><a href="{{ asset('storage/' . $data->upload_prescribed_format) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid upload_prescribed_format_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="upload_no_dues_certificate">Upload Tax No Dues Certificate / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="upload_no_dues_certificate" name="upload_no_dues_certificate" type="file">
+                                    <input class="form-control" id="upload_no_dues_certificate" name="upload_no_dues_certificates" type="file">
                                     <small><a href="{{ asset('storage/' . $data->upload_no_dues_certificate) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid upload_no_dues_certificate_err"></span>
                                 </div>
-                                
+
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="upload_property_ownership">Upload Documents of Property Ownership / जागा मालकीचे कागदपत्रे अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="upload_property_ownership" name="upload_property_ownership" type="file">
+                                    <input class="form-control" id="upload_property_ownership" name="upload_property_ownerships" type="file">
                                     <small><a href="{{ asset('storage/' . $data->upload_property_ownership) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid upload_property_ownership_err"></span>
                                 </div>

@@ -15,59 +15,33 @@ class FinalNoObjectionService
         DB::beginTransaction();
 
         try {
-            $user_id = Auth::user()->id;
+            $request['user_id'] = Auth::user()->id;
             // Handle file uploads and store original file names
-            $uploaded_application = null;
-            $no_dues_document = null;
-            $architect_application_document = null;
-            $erection_of_fire_document = null;
-            $licensing_agency_document = null;
-            $guarantee_of_developer_document = null;
-
-            if ($request->hasFile('uploaded_application')) {
-                $uploaded_application = $request->uploaded_application->store('FireDepartment/FinalNoObjection');
+            if ($request->hasFile('uploaded_applications')) {
+                $request['uploaded_application'] = $request->uploaded_applications->store('FireDepartment/FinalNoObjection');
             }
 
-            if ($request->hasFile('no_dues_document')) {
-                $no_dues_document = $request->no_dues_document->store('FireDepartment/FinalNoObjection');
+            if ($request->hasFile('no_dues_documents')) {
+                $request['no_dues_document'] = $request->no_dues_documents->store('FireDepartment/FinalNoObjection');
             }
 
-            if ($request->hasFile('architect_application_document')) {
-                $architect_application_document = $request->architect_application_document->store('FireDepartment/FinalNoObjection');
+            if ($request->hasFile('architect_application_documents')) {
+                $request['architect_application_document'] = $request->architect_application_documents->store('FireDepartment/FinalNoObjection');
             }
 
-            if ($request->hasFile('erection_of_fire_document')) {
-                $erection_of_fire_document = $request->erection_of_fire_document->store('FireDepartment/FinalNoObjection');
+            if ($request->hasFile('erection_of_fire_documents')) {
+                $request['erection_of_fire_document'] = $request->erection_of_fire_documents->store('FireDepartment/FinalNoObjection');
             }
 
-            if ($request->hasFile('licensing_agency_document')) {
-                $licensing_agency_document = $request->licensing_agency_document->store('FireDepartment/FinalNoObjection');
+            if ($request->hasFile('licensing_agency_documents')) {
+                $request['licensing_agency_document'] = $request->licensing_agency_documents->store('FireDepartment/FinalNoObjection');
             }
 
-            if ($request->hasFile('guarantee_of_developer_document')) {
-                $guarantee_of_developer_document = $request->guarantee_of_developer_document->store('FireDepartment/FinalNoObjection');
+            if ($request->hasFile('guarantee_of_developer_documents')) {
+                $request['guarantee_of_developer_document'] = $request->guarantee_of_developer_documents->store('FireDepartment/FinalNoObjection');
             }
 
-            FireFinalNoObjection::create([
-                'user_id' => $user_id,
-                'applicant_full_name' => $request->input('applicant_full_name'),
-                'address' => $request->input('address'),
-                'mobile_no' => $request->input('mobile_no'),
-                'email_id' => $request->input('email_id'),
-                'aadhar_no' => $request->input('aadhar_no'),
-                'zone' => $request->input('zone'),
-                'ward_area' => $request->input('ward_area'),
-                'building_type' => $request->input('building_type'),
-                'house_no' => $request->input('house_no'),
-                'building_name' => $request->input('building_name'),
-                'city_structure' => $request->input('city_structure'),
-                'uploaded_application' => $uploaded_application,
-                'no_dues_document' => $no_dues_document,
-                'architect_application_document' => $architect_application_document,
-                'erection_of_fire_document' => $erection_of_fire_document,
-                'licensing_agency_document' => $licensing_agency_document,
-                'guarantee_of_developer_document' => $guarantee_of_developer_document,
-            ]);
+            FireFinalNoObjection::create($request->all());
 
             DB::commit();
             return true;
@@ -91,65 +65,53 @@ class FinalNoObjectionService
         try {
 
             // Find the existing record
-            $FireFinalNoObjection = FireFinalNoObjection::findOrFail($id);
+            $fireFinalNoObjection = FireFinalNoObjection::findOrFail($id);
 
             // Handle file uploads and update original file names
-            if ($request->hasFile('uploaded_application')) {
-                if ($FireFinalNoObjection && Storage::exists($FireFinalNoObjection->uploaded_application)) {
-                    Storage::delete($FireFinalNoObjection->uploaded_application);
+            if ($request->hasFile('uploaded_applications')) {
+                if ($fireFinalNoObjection && Storage::exists($fireFinalNoObjection->uploaded_application)) {
+                    Storage::delete($fireFinalNoObjection->uploaded_application);
                 }
-                $FireFinalNoObjection->uploaded_application = $request->uploaded_application->store('FireDepartment/FinalNoObjection');
+                $request['uploaded_application'] = $request->uploaded_applications->store('FireDepartment/FinalNoObjection');
             }
 
-            if ($request->hasFile('no_dues_document')) {
-                if ($FireFinalNoObjection && Storage::exists($FireFinalNoObjection->no_dues_document)) {
-                    Storage::delete($FireFinalNoObjection->no_dues_document);
+            if ($request->hasFile('no_dues_documents')) {
+                if ($fireFinalNoObjection && Storage::exists($fireFinalNoObjection->no_dues_document)) {
+                    Storage::delete($fireFinalNoObjection->no_dues_document);
                 }
-                $FireFinalNoObjection->no_dues_document = $request->no_dues_document->store('FireDepartment/FinalNoObjection');
+                $request['no_dues_document'] = $request->no_dues_documents->store('FireDepartment/FinalNoObjection');
             }
 
-            if ($request->hasFile('architect_application_document')) {
-                if ($FireFinalNoObjection && Storage::exists($FireFinalNoObjection->architect_application_document)) {
-                    Storage::delete($FireFinalNoObjection->architect_application_document);
+            if ($request->hasFile('architect_application_documents')) {
+                if ($fireFinalNoObjection && Storage::exists($fireFinalNoObjection->architect_application_document)) {
+                    Storage::delete($fireFinalNoObjection->architect_application_document);
                 }
-                $FireFinalNoObjection->architect_application_document = $request->architect_application_document->store('FireDepartment/FinalNoObjection');
+                $request['architect_application_document'] = $request->architect_application_documents->store('FireDepartment/FinalNoObjection');
             }
 
-            if ($request->hasFile('erection_of_fire_document')) {
-                if ($FireFinalNoObjection && Storage::exists($FireFinalNoObjection->erection_of_fire_document)) {
-                    Storage::delete($FireFinalNoObjection->erection_of_fire_document);
+            if ($request->hasFile('erection_of_fire_documents')) {
+                if ($fireFinalNoObjection && Storage::exists($fireFinalNoObjection->erection_of_fire_document)) {
+                    Storage::delete($fireFinalNoObjection->erection_of_fire_document);
                 }
-                $FireFinalNoObjection->erection_of_fire_document = $request->erection_of_fire_document->store('FireDepartment/FinalNoObjection');
+                $request['erection_of_fire_document'] = $request->erection_of_fire_documents->store('FireDepartment/FinalNoObjection');
             }
 
-            if ($request->hasFile('licensing_agency_document')) {
-                if ($FireFinalNoObjection && Storage::exists($FireFinalNoObjection->licensing_agency_document)) {
-                    Storage::delete($FireFinalNoObjection->licensing_agency_document);
+            if ($request->hasFile('licensing_agency_documents')) {
+                if ($fireFinalNoObjection && Storage::exists($fireFinalNoObjection->licensing_agency_document)) {
+                    Storage::delete($fireFinalNoObjection->licensing_agency_document);
                 }
-                $FireFinalNoObjection->licensing_agency_document = $request->licensing_agency_document->store('FireDepartment/FinalNoObjection');
+                $request['licensing_agency_document'] = $request->licensing_agency_documents->store('FireDepartment/FinalNoObjection');
             }
 
-            if ($request->hasFile('guarantee_of_developer_document')) {
-                if ($FireFinalNoObjection && Storage::exists($FireFinalNoObjection->guarantee_of_developer_document)) {
-                    Storage::delete($FireFinalNoObjection->guarantee_of_developer_document);
+            if ($request->hasFile('guarantee_of_developer_documents')) {
+                if ($fireFinalNoObjection && Storage::exists($fireFinalNoObjection->guarantee_of_developer_document)) {
+                    Storage::delete($fireFinalNoObjection->guarantee_of_developer_document);
                 }
-                $FireFinalNoObjection->guarantee_of_developer_document = $request->guarantee_of_developer_document->store('FireDepartment/FinalNoObjection');
+                $request['guarantee_of_developer_document'] = $request->guarantee_of_developer_documents->store('FireDepartment/FinalNoObjection');
             }
 
 
-            $FireFinalNoObjection->update([
-                'applicant_full_name' => $request->input('applicant_full_name'),
-                'address' => $request->input('address'),
-                'mobile_no' => $request->input('mobile_no'),
-                'email_id' => $request->input('email_id'),
-                'aadhar_no' => $request->input('aadhar_no'),
-                'zone' => $request->input('zone'),
-                'ward_area' => $request->input('ward_area'),
-                'building_type' => $request->input('building_type'),
-                'house_no' => $request->input('house_no'),
-                'building_name' => $request->input('building_name'),
-                'city_structure' => $request->input('city_structure'),
-            ]);
+            $fireFinalNoObjection->update($request->all());
 
             // Commit the transaction
             DB::commit();

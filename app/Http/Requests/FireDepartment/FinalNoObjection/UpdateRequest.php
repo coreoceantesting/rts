@@ -33,12 +33,12 @@ class UpdateRequest extends FormRequest
             'house_no' => 'required',
             'building_name' => 'required',
             'city_structure' => 'required',
-            'uploaded_application' => 'nullable',
-            'no_dues_document' => 'nullable',
-            'architect_application_document' => 'nullable',
-            'erection_of_fire_document' => 'nullable',
-            'licensing_agency_document' => 'nullable',
-            'guarantee_of_developer_document' => 'nullable',
+            'uploaded_applications' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'no_dues_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'architect_application_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'erection_of_fire_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'licensing_agency_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'guarantee_of_developer_documents' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
         ];
     }
 
