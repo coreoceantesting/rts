@@ -30,10 +30,10 @@ class RegistrationOfObjectionService
             $request['user_id'] = Auth::user()->id;
             $request['service_id'] = '10';
             if ($request->hasFile('uploaded_applications')) {
-                $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/reg-of-obj');
+                $request['uploaded_application'] = $request->uploaded_applications->store('property-tax/reg-of-obj');
             }
             if ($request->hasFile('no_dues_documents')) {
-                $request['no_dues_document'] = $request->no_dues_documents->store('propertyTax/reg-of-obj');
+                $request['no_dues_document'] = $request->no_dues_documents->store('property-tax/reg-of-obj');
             }
             $registrationOfObjection = RegistrationOfObjection::create($request->all());
 
@@ -53,7 +53,7 @@ class RegistrationOfObjectionService
             }
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
 
-            $newData = $request->except(['no_dues_documents', 'uploaded_applications']);
+            $newData = $request->except(['_token', 'no_dues_documents', 'uploaded_applications']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/FileAnObjection.asmx/RequestForFileAnObjection', 'fileforobjection');
 
             // Decode JSON string to PHP array
@@ -106,13 +106,13 @@ class RegistrationOfObjectionService
                 if ($registrationOfObjection && Storage::exists($registrationOfObjection->uploaded_application)) {
                     Storage::delete($registrationOfObjection->uploaded_application);
                 }
-                $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/reg-of-obj');
+                $request['uploaded_application'] = $request->uploaded_applications->store('property-tax/reg-of-obj');
             }
             if ($request->hasFile('no_dues_documents')) {
                 if ($registrationOfObjection && Storage::exists($registrationOfObjection->no_dues_document)) {
                     Storage::delete($registrationOfObjection->no_dues_document);
                 }
-                $request['no_dues_document'] = $request->no_dues_documents->store('propertyTax/reg-of-obj');
+                $request['no_dues_document'] = $request->no_dues_documents->store('property-tax/reg-of-obj');
             }
             $registrationOfObjection->update($request->all());
 
@@ -132,7 +132,7 @@ class RegistrationOfObjectionService
             }
             $request['application_no'] = $registrationOfObjection->application_no;
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
-            $newData = $request->except(['no_dues_documents', 'uploaded_applications']);
+            $newData = $request->except(['_token', 'id', 'no_dues_documents', 'uploaded_applications']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/FileAnObjection.asmx/RequestForUpdateFileAnObjection', 'fileanobjection');
 
             // Decode JSON string to PHP array

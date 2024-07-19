@@ -6,6 +6,7 @@ use App\Models\PropertyTax\TaxExemption;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use App\Models\ServiceCredential;
 use App\Services\CurlAPiService;
 use App\Services\AapaleSarkarLoginCheckService;
@@ -28,10 +29,10 @@ class TaxExemptionService
             $request['user_id'] = Auth::user()->id;
             $request['service_id'] = '7';
             if ($request->hasFile('no_dues_documents')) {
-                $request['no_dues_document'] = $request->no_dues_documents->store('propertyTax/tax-exemption');
+                $request['no_dues_document'] = $request->no_dues_documents->store('property-tax/tax-exemption');
             }
             if ($request->hasFile('uploaded_applications')) {
-                $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/tax-exemption');
+                $request['uploaded_application'] = $request->uploaded_applications->store('property-tax/tax-exemption');
             }
             $taxExemption = TaxExemption::create($request->all());
 
@@ -50,7 +51,7 @@ class TaxExemptionService
 
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
 
-            $newData = $request->except(['no_dues_documents', 'uploaded_applications']);
+            $newData = $request->except(['_token', 'no_dues_documents', 'uploaded_applications']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/PropertyTaxExemption.asmx/RequestForPropertyTaxExemption', 'applicantDetails');
 
             // Decode JSON string to PHP array
@@ -98,6 +99,20 @@ class TaxExemptionService
 
         try {
             $taxExemption = TaxExemption::find($request->id);
+
+            if ($request->hasFile('no_dues_documents')) {
+                if ($taxExemption && Storage::exists($taxExemption->no_dues_document)) {
+                    Storage::delete($taxExemption->no_dues_document);
+                }
+                $request['no_dues_document'] = $request->no_dues_documents->store('property-tax/tax-exemption');
+            }
+            if ($request->hasFile('uploaded_applications')) {
+                if ($taxExemption && Storage::exists($taxExemption->uploaded_application)) {
+                    Storage::delete($taxExemption->uploaded_application);
+                }
+                $request['uploaded_application'] = $request->uploaded_applications->store('property-tax/tax-exemption');
+            }
+
             $taxExemption->update($request->all());
 
             // code to send data to department
@@ -114,7 +129,7 @@ class TaxExemptionService
 
             $request['application_no'] = $taxExemption->application_no;
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
-            $newData = $request->except(['no_dues_documents', 'uploaded_applications']);
+            $newData = $request->except(['_token', 'id', 'no_dues_documents', 'uploaded_applications']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/PropertyTaxExemption.asmx/RequestForUpdatePropertyTaxExemption', 'applicantDetails');
 
             // Decode JSON string to PHP array

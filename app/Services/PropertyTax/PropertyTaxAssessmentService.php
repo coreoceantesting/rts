@@ -30,11 +30,11 @@ class PropertyTaxAssessmentService
             $request['service_id'] = '3';
 
             if ($request->hasFile('uploaded_applications')) {
-                $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/tax-assessment');
+                $request['uploaded_application'] = $request->uploaded_applications->store('property-tax/tax-assessment');
             }
 
             if ($request->hasFile('certificate_of_no_duess')) {
-                $request['certificate_of_no_dues'] = $request->certificate_of_no_duess->store('propertyTax/tax-assessment');
+                $request['certificate_of_no_dues'] = $request->certificate_of_no_duess->store('property-tax/tax-assessment');
             }
             $propertyTaxAssessment = PropertyTaxAssessment::create($request->all());
 
@@ -53,7 +53,7 @@ class PropertyTaxAssessmentService
             }
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
 
-            $newData = $request->except(['certificate_of_no_duess', 'uploaded_applications']);
+            $newData = $request->except(['_token', 'certificate_of_no_duess', 'uploaded_applications']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/PropertyTaxAssessment.asmx/RequestForPropertyTaxAssessment', 'applicantDetails');
 
             // Decode JSON string to PHP array
@@ -107,14 +107,14 @@ class PropertyTaxAssessmentService
                 if ($propertyTax && Storage::exists($propertyTax->uploaded_application)) {
                     Storage::delete($propertyTax->uploaded_application);
                 }
-                $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/tax-assessment');
+                $request['uploaded_application'] = $request->uploaded_applications->store('property-tax/tax-assessment');
             }
 
             if ($request->hasFile('certificate_of_no_duess')) {
                 if ($propertyTax && Storage::exists($propertyTax->certificate_of_no_dues)) {
                     Storage::delete($propertyTax->certificate_of_no_dues);
                 }
-                $request['certificate_of_no_dues'] = $request->certificate_of_no_duess->store('propertyTax/tax-assessment');
+                $request['certificate_of_no_dues'] = $request->certificate_of_no_duess->store('property-tax/tax-assessment');
             }
             $propertyTax->update($request->all());
 
@@ -133,7 +133,7 @@ class PropertyTaxAssessmentService
             }
             $request['application_no'] = $propertyTax->application_no;
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
-            $newData = $request->except(['certificate_of_no_duess', 'uploaded_applications', '_token', 'id']);
+            $newData = $request->except(['_token', 'id', 'certificate_of_no_duess', 'uploaded_applications']);
 
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/PropertyTaxAssessment.asmx/RequestForUpdatePropertyTaxAssessment', 'applicantDetails');
 

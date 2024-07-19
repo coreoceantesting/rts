@@ -29,19 +29,15 @@ class TransferPropertyCertificateService
         try {
             $request['user_id'] = Auth::user()->id;
             $request['service_id'] = '4';
-
             if ($request->hasFile('uploaded_applications')) {
-                $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/transfer-property');
+                $request['uploaded_application'] = $request->uploaded_applications->store('property-tax/transfer-property');
             }
-
             if ($request->hasFile('certificate_of_no_duess')) {
-                $request['certificate_of_no_dues'] = $request->certificate_of_no_duess->store('propertyTax/transfer-property');
+                $request['certificate_of_no_dues'] = $request->certificate_of_no_duess->store('property-tax/transfer-property');
             }
-
             if ($request->hasFile('copy_of_documents')) {
-                $request['copy_of_document'] = $request->copy_of_documents->store('propertyTax/transfer-property');
+                $request['copy_of_document'] = $request->copy_of_documents->store('property-tax/transfer-property');
             }
-
             $transferPropertyCertificate = TransferPropertyCertificate::create($request->all());
 
 
@@ -63,7 +59,7 @@ class TransferPropertyCertificateService
             }
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
 
-            $newData = $request->except(['uploaded_applications', 'certificate_of_no_duess', 'copy_of_documents']);
+            $newData = $request->except(['_token', 'uploaded_applications', 'certificate_of_no_duess', 'copy_of_documents']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TransferOfPropertyCertificate.asmx/RequestForTransferOfPropertyCertificate', 'applicantDetails');
 
             // Decode JSON string to PHP array
@@ -115,19 +111,19 @@ class TransferPropertyCertificateService
                 if ($transferPropertyCertificate && Storage::exists($transferPropertyCertificate->uploaded_application)) {
                     Storage::delete($transferPropertyCertificate->uploaded_application);
                 }
-                $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/transfer-property');
+                $request['uploaded_application'] = $request->uploaded_applications->store('property-tax/transfer-property');
             }
             if ($request->hasFile('certificate_of_no_duess')) {
                 if ($transferPropertyCertificate && Storage::exists($transferPropertyCertificate->certificate_of_no_dues)) {
                     Storage::delete($transferPropertyCertificate->certificate_of_no_dues);
                 }
-                $request['certificate_of_no_dues'] = $request->certificate_of_no_duess->store('propertyTax/transfer-property');
+                $request['certificate_of_no_dues'] = $request->certificate_of_no_duess->store('property-tax/transfer-property');
             }
             if ($request->hasFile('copy_of_documents')) {
                 if ($transferPropertyCertificate && Storage::exists($transferPropertyCertificate->copy_of_document)) {
                     Storage::delete($transferPropertyCertificate->copy_of_document);
                 }
-                $request['copy_of_document'] = $request->copy_of_documents->store('propertyTax/transfer-property');
+                $request['copy_of_document'] = $request->copy_of_documents->store('property-tax/transfer-property');
             }
             $transferPropertyCertificate->update($request->all());
 
@@ -150,7 +146,7 @@ class TransferPropertyCertificateService
             }
             $request['application_no'] = $transferPropertyCertificate->application_no;
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
-            $newData = $request->except(['uploaded_applications', 'certificate_of_no_duess', 'copy_of_documents']);
+            $newData = $request->except(['_token', 'id', 'uploaded_applications', 'certificate_of_no_duess', 'copy_of_documents']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TransferOfPropertyCertificate.asmx/RequestForUpdateTransferOfPropertyCertificate', 'applicantDetails');
 
             // Decode JSON string to PHP array

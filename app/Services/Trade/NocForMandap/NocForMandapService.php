@@ -32,27 +32,80 @@ class NocForMandapService
             if ($request->hasFile('board_registration_documents')) {
                 $request['board_registration_document'] = $request->board_registration_documents->store('trade/noc-for-mandap');
             }
-
             if ($request->hasFile('no_objection_documents')) {
                 $request['no_objection_document'] = $request->no_objection_documents->store('trade/noc-for-mandap');
             }
-
             if ($request->hasFile('location_map_documents')) {
                 $request['location_map_document'] = $request->location_map_documents->store('trade/noc-for-mandap');
             }
-
             if ($request->hasFile('fire_last_year_noObjection_documents')) {
                 $request['fire_last_year_noObjection_document'] = $request->fire_last_year_noObjection_documents->store('trade/noc-for-mandap');
             }
-
             if ($request->hasFile('traffic_last_year_noObjection_documents')) {
                 $request['traffic_last_year_noObjection_document'] = $request->traffic_last_year_noObjection_documents->store('trade/noc-for-mandap');
             }
-
             if ($request->hasFile('annexures')) {
                 $request['annexure'] = $request->annexures->store('trade/noc-for-mandap');
             }
-            TradeNocForMandap::create($request->all());
+            $tradeNocForMandap = TradeNocForMandap::create($request->all());
+
+            // code to send data to department
+            if ($request->hasFile('board_registration_documents')) {
+                $request['board_registration_document'] = $this->curlAPiService->convertFileInBase64($request->file('board_registration_documents'));
+            } else {
+                $request['board_registration_document'] = "";
+            }
+            if ($request->hasFile('no_objection_documents')) {
+                $request['no_objection_document'] = $this->curlAPiService->convertFileInBase64($request->file('no_objection_documents'));
+            } else {
+                $request['no_objection_document'] = "";
+            }
+            if ($request->hasFile('location_map_documents')) {
+                $request['location_map_document'] = $this->curlAPiService->convertFileInBase64($request->file('location_map_documents'));
+            } else {
+                $request['location_map_document'] = "";
+            }
+            if ($request->hasFile('fire_last_year_noObjection_documents')) {
+                $request['fire_last_year_noObjection_document'] = $this->curlAPiService->convertFileInBase64($request->file('fire_last_year_noObjection_documents'));
+            } else {
+                $request['fire_last_year_noObjection_document'] = "";
+            }
+            if ($request->hasFile('traffic_last_year_noObjection_documents')) {
+                $request['traffic_last_year_noObjection_document'] = $this->curlAPiService->convertFileInBase64($request->file('traffic_last_year_noObjection_documents'));
+            } else {
+                $request['traffic_last_year_noObjection_document'] = "";
+            }
+            if ($request->hasFile('annexures')) {
+                $request['annexure'] = $this->curlAPiService->convertFileInBase64($request->file('annexures'));
+            } else {
+                $request['annexure'] = "";
+            }
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            $newData = $request->except(['_token', 'board_registration_documents', 'no_objection_documents', 'location_map_documents', 'fire_last_year_noObjection_documents', 'traffic_last_year_noObjection_documents', 'annexures']);
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForNewTaxation', 'NewTaxation');
+
+            // Decode JSON string to PHP array
+            $data = json_decode($data, true);
+            if ($data['d']['Status'] == "200") {
+                // Access the application_no
+                $applicationId = $data['d']['application_no'];
+                TradeNocForMandap::where('id', $tradeNocForMandap->id)->update([
+                    'application_no' => $applicationId
+                ]);
+
+                if (Auth::user()->is_aapale_sarkar_user) {
+                    $aapaleSarkarCredential = ServiceCredential::where('dept_service_id', $request->service_id)->first();
+                    $send = $this->aapaleSarkarLoginCheckService->encryptAndSendRequestToAapaleSarkar(Auth::user()->trackid, $aapaleSarkarCredential->client_code, Auth::user()->user_id, $aapaleSarkarCredential->service_id, $applicationId, 'N', 'NA', 'N', 'NA', "20", date('Y-m-d', strtotime("+$aapaleSarkarCredential->service_day days")), 23.60, 1, 2, 'Payment Pending', $aapaleSarkarCredential->ulb_id, $aapaleSarkarCredential->ulb_district, 'NA', 'NA', 'NA', $aapaleSarkarCredential->check_sum_key, $aapaleSarkarCredential->str_key, $aapaleSarkarCredential->str_iv, $aapaleSarkarCredential->soap_end_point_url, $aapaleSarkarCredential->soap_action_app_status_url);
+
+                    if (!$send) {
+                        return false;
+                    }
+                }
+            } else {
+                DB::rollback();
+                return false;
+            }
+            // end of code to send data to department
 
             DB::commit();
             return true;
@@ -117,11 +170,54 @@ class NocForMandapService
             }
             $tradeNocForMandap->update($request->all());
 
-            // Commit the transaction
-            DB::commit();
+            // code to send data to department
+            if ($request->hasFile('board_registration_documents')) {
+                $request['board_registration_document'] = $this->curlAPiService->convertFileInBase64($request->file('board_registration_documents'));
+            } else {
+                $request['board_registration_document'] = "";
+            }
+            if ($request->hasFile('no_objection_documents')) {
+                $request['no_objection_document'] = $this->curlAPiService->convertFileInBase64($request->file('no_objection_documents'));
+            } else {
+                $request['no_objection_document'] = "";
+            }
+            if ($request->hasFile('location_map_documents')) {
+                $request['location_map_documents'] = $this->curlAPiService->convertFileInBase64($request->file('location_map_documents'));
+            } else {
+                $request['location_map_documents'] = "";
+            }
+            if ($request->hasFile('fire_last_year_noObjection_documents')) {
+                $request['fire_last_year_noObjection_document'] = $this->curlAPiService->convertFileInBase64($request->file('fire_last_year_noObjection_documents'));
+            } else {
+                $request['fire_last_year_noObjection_document'] = "";
+            }
+            if ($request->hasFile('traffic_last_year_noObjection_documents')) {
+                $request['traffic_last_year_noObjection_document'] = $this->curlAPiService->convertFileInBase64($request->file('traffic_last_year_noObjection_documents'));
+            } else {
+                $request['traffic_last_year_noObjection_document'] = "";
+            }
+            if ($request->hasFile('annexures')) {
+                $request['annexure'] = $this->curlAPiService->convertFileInBase64($request->file('annexures'));
+            } else {
+                $request['annexure'] = "";
+            }
+            $request['application_no'] = $tradeNocForMandap->application_no;
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            $newData = $request->except(['_token', 'id', 'board_registration_documents', 'no_objection_documents', 'location_map_documents', 'fire_last_year_noObjection_documents', 'traffic_last_year_noObjection_documents', 'annexures']);
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForUpdateNewTaxation', 'NewTaxation');
 
+            // Decode JSON string to PHP array
+            $data = json_decode($data, true);
 
-            return true;
+            if ($data['d']['Status'] == "200") {
+                // Access the application_no
+                DB::commit();
+                return true;
+            } else {
+                DB::rollback();
+                return false;
+            }
+            // end of code to send data to department
         } catch (\Exception $e) {
             DB::rollback();
             Log::info($e);

@@ -30,9 +30,8 @@ class NoDueCertificateService
             $request['user_id'] = Auth::user()->id;
             $request['service_id'] = '2';
             if ($request->hasFile('uploaded_applications')) {
-                $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/no-due');
+                $request['uploaded_application'] = $request->uploaded_applications->store('property-tax/no-due');
             }
-
             $noDueCertificate = NoDueCertificate::create($request->all());
 
             // code to send data to department
@@ -41,9 +40,8 @@ class NoDueCertificateService
             } else {
                 $request['uploaded_application'] = "";
             }
-
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
-            $newData = $request->except(['uploaded_applications']);
+            $newData = $request->except(['_token', 'uploaded_applications']);
 
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/NoDueCertificate.asmx/RequestForNoDueCertificate', 'applicantDetails');
 
@@ -98,7 +96,7 @@ class NoDueCertificateService
                 if ($noDueCertificate && Storage::exists($noDueCertificate->uploaded_application)) {
                     Storage::delete($noDueCertificate->uploaded_application);
                 }
-                $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/no-due');
+                $request['uploaded_application'] = $request->uploaded_applications->store('property-tax/no-due');
             }
             $noDueCertificate->update($request->all());
 
@@ -112,7 +110,7 @@ class NoDueCertificateService
             }
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $request['application_no'] = $noDueCertificate->application_no;
-            $newData = $request->except(['uploaded_applications', '_token', 'id']);
+            $newData = $request->except(['_token', 'id', 'uploaded_applications']);
 
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/NoDueCertificate.asmx/RequestForUpdateNoDueCertificate', 'applicantDetails');
 

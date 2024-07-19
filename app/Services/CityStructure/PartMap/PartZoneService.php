@@ -29,23 +29,60 @@ class PartZoneService
         try {
             $user_id = Auth::user()->id;
             // Handle file uploads and store original file names
-            $prescribed_format = null;
-            $upload_city_survey_certificate = null;
-            $upload_city_servey_map = null;
-
             if ($request->hasFile('prescribed_formats')) {
                 $request['prescribed_format'] = $request->prescribed_formats->store('city-structure/part-map');
             }
-
             if ($request->hasFile('upload_city_survey_certificates')) {
                 $request['upload_city_survey_certificate'] = $request->upload_city_survey_certificates->store('city-structure/part-map');
             }
-
             if ($request->hasFile('upload_city_servey_maps')) {
                 $request['upload_city_servey_map'] = $request->upload_city_servey_maps->store('city-structure/part-map');
             }
-
             $cityStructurePartMap = CityStructurePartMap::create($request->all());
+
+
+            // code to send data to department
+            if ($request->hasFile('prescribed_formats')) {
+                $request['prescribed_format'] = $this->curlAPiService->convertFileInBase64($request->file('prescribed_formats'));
+            } else {
+                $request['prescribed_format'] = "";
+            }
+            if ($request->hasFile('upload_city_survey_certificates')) {
+                $request['upload_city_survey_certificate'] = $this->curlAPiService->convertFileInBase64($request->file('upload_city_survey_certificates'));
+            } else {
+                $request['upload_city_survey_certificate'] = "";
+            }
+            if ($request->hasFile('upload_city_servey_maps')) {
+                $request['upload_city_servey_map'] = $this->curlAPiService->convertFileInBase64($request->file('upload_city_servey_maps'));
+            } else {
+                $request['upload_city_servey_map'] = "";
+            }
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            $newData = $request->except(['_token', 'prescribed_formats', 'upload_city_survey_certificates', 'upload_city_servey_maps']);
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForNewTaxation', 'NewTaxation');
+
+            // Decode JSON string to PHP array
+            $data = json_decode($data, true);
+            if ($data['d']['Status'] == "200") {
+                // Access the application_no
+                $applicationId = $data['d']['application_no'];
+                CityStructurePartMap::where('id', $cityStructurePartMap->id)->update([
+                    'application_no' => $applicationId
+                ]);
+
+                if (Auth::user()->is_aapale_sarkar_user) {
+                    $aapaleSarkarCredential = ServiceCredential::where('dept_service_id', $request->service_id)->first();
+                    $send = $this->aapaleSarkarLoginCheckService->encryptAndSendRequestToAapaleSarkar(Auth::user()->trackid, $aapaleSarkarCredential->client_code, Auth::user()->user_id, $aapaleSarkarCredential->service_id, $applicationId, 'N', 'NA', 'N', 'NA', "20", date('Y-m-d', strtotime("+$aapaleSarkarCredential->service_day days")), 23.60, 1, 2, 'Payment Pending', $aapaleSarkarCredential->ulb_id, $aapaleSarkarCredential->ulb_district, 'NA', 'NA', 'NA', $aapaleSarkarCredential->check_sum_key, $aapaleSarkarCredential->str_key, $aapaleSarkarCredential->str_iv, $aapaleSarkarCredential->soap_end_point_url, $aapaleSarkarCredential->soap_action_app_status_url);
+
+                    if (!$send) {
+                        return false;
+                    }
+                }
+            } else {
+                DB::rollback();
+                return false;
+            }
+            // end of code to send data to department
 
             DB::commit();
             return true;
@@ -65,12 +102,9 @@ class PartZoneService
     public function update($request, $id)
     {
         DB::beginTransaction();
-
         try {
-
             // Find the existing record
             $cityStructurePartMap = CityStructurePartMap::findOrFail($id);
-
             // Handle file uploads and update original file names
             if ($request->hasFile('prescribed_formats')) {
                 if ($cityStructurePartMap && Storage::exists($cityStructurePartMap->prescribed_format)) {
@@ -78,26 +112,55 @@ class PartZoneService
                 }
                 $request['prescribed_format'] = $request->prescribed_formats->store('city-structure/part-map');
             }
-
             if ($request->hasFile('upload_city_survey_certificates')) {
                 if ($cityStructurePartMap && Storage::exists($cityStructurePartMap->upload_city_survey_certificate)) {
                     Storage::delete($cityStructurePartMap->upload_city_survey_certificate);
                 }
                 $request['upload_city_survey_certificate'] = $request->upload_city_survey_certificates->store('city-structure/part-map');
             }
-
             if ($request->hasFile('upload_city_servey_maps')) {
                 if ($cityStructurePartMap && Storage::exists($cityStructurePartMap->upload_city_servey_map)) {
                     Storage::delete($cityStructurePartMap->upload_city_servey_map);
                 }
                 $request['upload_city_servey_map'] = $request->upload_city_servey_maps->store('city-structure/part-map');
             }
-
             $cityStructurePartMap->update($request->all());
 
-            // Commit the transaction
-            DB::commit();
-            return true;
+
+
+            // code to send data to department
+            if ($request->hasFile('prescribed_formats')) {
+                $request['prescribed_format'] = $this->curlAPiService->convertFileInBase64($request->file('prescribed_formats'));
+            } else {
+                $request['prescribed_format'] = "";
+            }
+            if ($request->hasFile('upload_city_survey_certificates')) {
+                $request['upload_city_survey_certificate'] = $this->curlAPiService->convertFileInBase64($request->file('upload_city_survey_certificates'));
+            } else {
+                $request['upload_city_survey_certificate'] = "";
+            }
+            if ($request->hasFile('upload_city_servey_maps')) {
+                $request['upload_city_servey_map'] = $this->curlAPiService->convertFileInBase64($request->file('upload_city_servey_maps'));
+            } else {
+                $request['upload_city_servey_map'] = "";
+            }
+            $request['application_no'] = $cityStructurePartMap->application_no;
+            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            $newData = $request->except(['_token', 'id', 'prescribed_formats', 'upload_city_survey_certificates', 'upload_city_servey_maps']);
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForUpdateNewTaxation', 'NewTaxation');
+
+            // Decode JSON string to PHP array
+            $data = json_decode($data, true);
+
+            if ($data['d']['Status'] == "200") {
+                // Access the application_no
+                DB::commit();
+                return true;
+            } else {
+                DB::rollback();
+                return false;
+            }
+            // end of code to send data to department
         } catch (\Exception $e) {
             DB::rollback();
             Log::info($e);

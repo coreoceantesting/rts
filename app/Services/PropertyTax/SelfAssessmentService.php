@@ -31,7 +31,7 @@ class SelfAssessmentService
             $request['service_id'] = '5';
 
             if ($request->hasFile('uploaded_applications')) {
-                $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/self-assessment');
+                $request['uploaded_application'] = $request->uploaded_applications->store('property-tax/self-assessment');
             }
             $selfAssessment = SelfAssessment::create($request->all());
 
@@ -44,7 +44,7 @@ class SelfAssessmentService
             }
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
 
-            $newData = $request->except(['uploaded_applications']);
+            $newData = $request->except(['_token', 'uploaded_applications']);
             // Log::info($newData);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/SelfAssessmentService.asmx/RequestForSelfAssessmentService', 'applicantDetails');
 
@@ -99,7 +99,7 @@ class SelfAssessmentService
                 if ($selfAssessment && Storage::exists($selfAssessment->uploaded_application)) {
                     Storage::delete($selfAssessment->uploaded_application);
                 }
-                $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/self-assessment');
+                $request['uploaded_application'] = $request->uploaded_applications->store('property-tax/self-assessment');
             }
             $selfAssessment->update($request->all());
 
@@ -112,7 +112,7 @@ class SelfAssessmentService
             }
             $request['application_no'] = $selfAssessment->application_no;
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
-            $newData = $request->except(['uploaded_applications']);
+            $newData = $request->except(['_token', 'id', 'uploaded_applications']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/SelfAssessmentService.asmx/RequestForUpdateSelfAssessmentService', 'applicantDetails');
 
             // Decode JSON string to PHP array

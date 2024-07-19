@@ -31,10 +31,10 @@ class NewtaxationService
             $request['service_id'] = '5';
 
             if ($request->hasFile('uploaded_applications')) {
-                $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/new-taxation');
+                $request['uploaded_application'] = $request->uploaded_applications->store('property-tax/new-taxation');
             }
             if ($request->hasFile('certificate_of_no_duess')) {
-                $request['certificate_of_no_dues'] = $request->certificate_of_no_duess->store('propertyTax/new-taxation');
+                $request['certificate_of_no_dues'] = $request->certificate_of_no_duess->store('property-tax/new-taxation');
             }
 
             $newtaxation = Newtaxation::create($request->all());
@@ -54,7 +54,7 @@ class NewtaxationService
             }
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $request['property_owner_name'] = $request->owner_name;
-            $newData = $request->except(['certificate_of_no_duess', 'uploaded_applications']);
+            $newData = $request->except(['_token', 'certificate_of_no_duess', 'uploaded_applications']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForNewTaxation', 'NewTaxation');
 
             // Decode JSON string to PHP array
@@ -109,14 +109,14 @@ class NewtaxationService
                 if ($newTaxation && Storage::exists($newTaxation->uploaded_application)) {
                     Storage::delete($newTaxation->uploaded_application);
                 }
-                $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/new-taxation');
+                $request['uploaded_application'] = $request->uploaded_applications->store('property-tax/new-taxation');
             }
 
             if ($request->hasFile('certificate_of_no_duess')) {
                 if ($newTaxation && Storage::exists($newTaxation->certificate_of_no_dues)) {
                     Storage::delete($newTaxation->certificate_of_no_dues);
                 }
-                $request['certificate_of_no_dues'] = $request->certificate_of_no_duess->store('propertyTax/new-taxation');
+                $request['certificate_of_no_dues'] = $request->certificate_of_no_duess->store('property-tax/new-taxation');
             }
 
             $newTaxation->update($request->all());
@@ -128,7 +128,6 @@ class NewtaxationService
             } else {
                 $request['uploaded_application'] = "";
             }
-
             if ($request->hasFile('certificate_of_no_duess')) {
                 $request['certificate_of_no_dues'] = $this->curlAPiService->convertFileInBase64($request->file('certificate_of_no_duess'));
             } else {
@@ -137,7 +136,7 @@ class NewtaxationService
             $request['application_no'] = $newTaxation->application_no;
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $request['property_owner_name'] = $request->owner_name;
-            $newData = $request->except(['certificate_of_no_duess', 'uploaded_applications']);
+            $newData = $request->except(['_token', 'id', 'certificate_of_no_duess', 'uploaded_applications']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForUpdateNewTaxation', 'NewTaxation');
 
             // Decode JSON string to PHP array

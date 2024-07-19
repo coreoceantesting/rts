@@ -30,10 +30,10 @@ class TaxExemptionNonResidentPropertiesService
             $request['user_id'] = Auth::user()->id;
             $request['service_id'] = '11';
             if ($request->hasFile('no_dues_documents')) {
-                $request['no_dues_document'] = $request->no_dues_documents->store('propertyTax/tax-demand');
+                $request['no_dues_document'] = $request->no_dues_documents->store('property-tax/tax-demand');
             }
             if ($request->hasFile('uploaded_applications')) {
-                $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/tax-demand');
+                $request['uploaded_application'] = $request->uploaded_applications->store('property-tax/tax-demand');
             }
             $taxExemptionNonResidentProperties = TaxExemptionNonResidentProperties::create($request->all());
 
@@ -51,7 +51,7 @@ class TaxExemptionNonResidentPropertiesService
                 $request['uploaded_application'] = "";
             }
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
-            $newData = $request->except(['uploaded_applications', 'no_dues_documents', '_token']);
+            $newData = $request->except(['_token', 'uploaded_applications', 'no_dues_documents']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TaxExemptionForNonResidentProperties.asmx/RequestForTaxExemptionForNonResidentProperties', 'applicantDetails');
 
             // Decode JSON string to PHP array
@@ -106,13 +106,13 @@ class TaxExemptionNonResidentPropertiesService
                 if ($taxExemptionNonResidentProperties && Storage::exists($taxExemptionNonResidentProperties->no_dues_document)) {
                     Storage::delete($taxExemptionNonResidentProperties->no_dues_document);
                 }
-                $request['no_dues_document'] = $request->no_dues_documents->store('propertyTax/tax-demand');
+                $request['no_dues_document'] = $request->no_dues_documents->store('property-tax/tax-demand');
             }
             if ($request->hasFile('uploaded_applications')) {
                 if ($taxExemptionNonResidentProperties && Storage::exists($taxExemptionNonResidentProperties->uploaded_application)) {
                     Storage::delete($taxExemptionNonResidentProperties->uploaded_application);
                 }
-                $request['uploaded_application'] = $request->uploaded_applications->store('propertyTax/tax-demand');
+                $request['uploaded_application'] = $request->uploaded_applications->store('property-tax/tax-demand');
             }
 
             $taxExemptionNonResidentProperties->update($request->all());
@@ -133,7 +133,7 @@ class TaxExemptionNonResidentPropertiesService
             $request['application_no'] = $taxExemptionNonResidentProperties->application_no;
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $request['service_id'] = '11';
-            $newData = $request->except(['uploaded_applications', 'no_dues_documents', 'id', '_token']);
+            $newData = $request->except(['_token', 'id', 'uploaded_applications', 'no_dues_documents']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.propertyTax') . 'AapaleSarkarAPI/TaxExemptionForNonResidentProperties.asmx/RequestForUpdateTaxExemptionForNonResidentProperties', 'applicantDetails');
 
             // Decode JSON string to PHP array
