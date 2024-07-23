@@ -10,6 +10,7 @@ class WaterTaxBill extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
+        'water_connection_no',
         'is_aapale_sarkar_payment_paid',
         'property_owner_name',
         'aadhar_no',

@@ -218,7 +218,7 @@ class ServiceSeeder extends Seeder
                 "name" => "नविन नळजोडणी",
                 "image" => null,
                 "is_parent" => 1,
-                "route_name" => "water-dept-new-connection.create",
+                "route_name" => "water-new-connection.create",
                 "background_color" => "#037ca2",
                 "created_at" => "2024-06-10 11:34:06",
                 "updated_at" => "2024-06-10 11:34:06"
@@ -229,7 +229,7 @@ class ServiceSeeder extends Seeder
                 "name" => "अनधिकृत नळ जोडणी तक्रार",
                 "image" => null,
                 "is_parent" => 1,
-                "route_name" => "water-dept-illegal-connection.create",
+                "route_name" => "water-illegal-connection.create",
                 "background_color" => "#00aea4",
                 "created_at" => "2024-06-10 11:34:44",
                 "updated_at" => "2024-06-10 11:34:44"
@@ -251,7 +251,7 @@ class ServiceSeeder extends Seeder
                 "name" => "पुनः जोडणी करणे",
                 "image" => null,
                 "is_parent" => 1,
-                "route_name" => null,
+                "route_name" => "water-reconnection.create",
                 "background_color" => "#b73107",
                 "created_at" => null,
                 "updated_at" => null
@@ -291,11 +291,11 @@ class ServiceSeeder extends Seeder
             ],
             [
                 "id" => 27,
-                "service_id" => 6,
+                "service_id" => 5,
                 "name" => "थकबाकी नसल्याचा दाखला ( पाणी पुरवठा )",
                 "image" => null,
                 "is_parent" => 1,
-                "route_name" => null,
+                "route_name" => "water-no-dues.create",
                 "background_color" => "#b73107",
                 "created_at" => null,
                 "updated_at" => null

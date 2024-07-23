@@ -42,7 +42,7 @@ class DashboardController extends Controller
 
         $editRoute = ServiceName::pluck('edit_route', 'service_id')->toArray();
 
-        $tables = ['newtaxations', 'no_due_certificates', 'property_tax_issuance_of_property_tax_assessments', 'registration_of_objections', 're_taxations', 'self_assessments', 'tax_demands', 'tax_exemptions', 'tax_exemption_non_resident_properties', 'transfer_property_certificates'];
+        $tables = ['newtaxations', 'no_due_certificates', 'property_tax_issuance_of_property_tax_assessments', 'registration_of_objections', 're_taxations', 'self_assessments', 'tax_demands', 'tax_exemptions', 'tax_exemption_non_resident_properties', 'transfer_property_certificates', "water_no_dues", "water_tax_bills"];
         $data = [];
 
         foreach ($tables as $table) {

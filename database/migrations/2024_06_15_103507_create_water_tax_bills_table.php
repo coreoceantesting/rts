@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('water_tax_bills', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
+            $table->string('water_connection_no')->nullable();
             $table->integer('service_id')->nullable();
             $table->date('aapale_sarkar_payment_date')->nullable();
             $table->date('status')->nullable();

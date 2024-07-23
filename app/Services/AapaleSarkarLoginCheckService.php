@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Models\ServiceName;
+
 class AapaleSarkarLoginCheckService
 {
     // function to decrypt data
@@ -232,14 +234,19 @@ class AapaleSarkarLoginCheckService
     //function to get service details
     public function serviceDetails($serviceName, $applicationNo)
     {
-        $arr = ["Marriage register certificate" => 'App\Models\Marriage\MarriageRegistrationForm'];
+        // $arr = ["Marriage register certificate" => 'App\Models\Marriage\MarriageRegistrationForm'];
+        $arr = ServiceName::pluck("model", "service_id");
 
         $model = $arr[$serviceName];
 
         if ($model) {
-            $data = $model::query()->where('application_no', $applicationNo)->first();
+            $data = $model::query()
+                  ->where(['application_no' => $applicationNo, 'service_id' => $serviceName])
+                  ->first();
 
             return $data;
         }
+
+        return false;
     }
 }

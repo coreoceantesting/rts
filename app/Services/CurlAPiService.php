@@ -48,12 +48,15 @@ class CurlAPiService
         $ch = curl_init($url);
 
         // Initialize post fields
-        $postFields[$object] = $data;
-
-        // Log::info($postFields);
+        if($object && $object != ""){
+            $postFields[$object] = $data;
+        }else{
+            $postFields = $data;
+        }
         // Configure cURL options
-
         $payload = json_encode($postFields);
+        // Log::info($payload);
+
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -74,7 +77,7 @@ class CurlAPiService
         }
         // Close cURL session
         curl_close($ch);
-        Log::error($response);
+        // Log::error($response);
         return $response;
     }
 

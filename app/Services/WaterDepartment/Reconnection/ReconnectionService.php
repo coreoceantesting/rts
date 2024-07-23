@@ -48,9 +48,10 @@ class ReconnectionService
             } else {
                 $request['nodues_document'] = "";
             }
+            $request['service_id'] = 5;
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['_token', 'application_documents', 'nodues_documents']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForNewTaxation', 'NewTaxation');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'WaterBillMicroService/WaterbillApi/ApleSarkarService/RequestForNoDueCertificate', '');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);

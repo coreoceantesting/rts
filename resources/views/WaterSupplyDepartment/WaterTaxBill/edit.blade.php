@@ -15,6 +15,12 @@
                             <div class="mb-3 row">
 
                                 <div class="col-md-4">
+                                    <label class="col-form-label" for="water_connection_no">Water connection no  <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="water_connection_no" name="water_connection_no" type="text" placeholder="Enter water connection no" value="{{ $data->water_connection_no }}">
+                                    <span class="text-danger is-invalid water_connection_no_err"></span>
+                                </div>
+
+                                <div class="col-md-4">
                                     <label class="col-form-label" for="property_owner_name">Name Of Property Owner  / मालमत्ता मालकाचे नाव  <span class="text-danger">*</span></label>
                                     <input class="form-control" id="property_owner_name" name="property_owner_name" type="text" placeholder="Enter Property Owner Name" value="{{ $data->property_owner_name }}">
                                     <span class="text-danger is-invalid property_owner_name_err"></span>

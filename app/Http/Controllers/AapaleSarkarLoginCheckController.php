@@ -30,7 +30,7 @@ class AapaleSarkarLoginCheckController extends Controller
                 'service_id' => $request->ns
             ])->first();
 
-            // return redirect($serviceCredential->service_url); 
+            // return redirect($serviceCredential->service_url);
 
             // decrypt data and get the reponse data from aapale sarkar
 
