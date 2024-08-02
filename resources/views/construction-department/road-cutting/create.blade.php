@@ -37,12 +37,12 @@
                                     <label class="col-form-label" for="zone">Zone <span class="text-danger">*</span></label>
                                     <select name="zone" id="zone" class="form-select">
                                         <option value="">Select Zone</option>
-                                        <option value="Prabhag1">Prabhag1</option>
-                                        <option value="Prabhag2">Prabhag2</option>
-                                        <option value="Prabhag3">Prabhag3</option>
-                                        <option value="Prabhag4">Prabhag4</option>
-                                        <option value="Prabhag5">Prabhag5</option>
-                                        <option value="Prabhag6">Prabhag6</option>
+                                        @php
+                                            $options = ["Prabhag1", "Prabhag2", "Prabhag3", "Prabhag4", "Prabhag5", "Prabhag6"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid zone_err"></span>
                                 </div>
@@ -51,12 +51,12 @@
                                     <label class="col-form-label" for="ward">Ward Area / प्रभाग क्षेत्र <span class="text-danger">*</span></label>
                                     <select name="ward" id="ward" class="form-select">
                                         <option value="">Select Ward</option>
-                                        <option value="Ward1">Ward1</option>
-                                        <option value="Ward2">Ward2</option>
-                                        <option value="Ward3">Ward3</option>
-                                        <option value="Ward4">Ward4</option>
-                                        <option value="Ward5">Ward5</option>
-                                        <option value="Ward6">Ward6</option>
+                                        @php
+                                            $options = ["Ward1", "Ward2", "Ward3", "Ward4", "Ward5", "Ward6"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid ward_err"></span>
                                 </div>

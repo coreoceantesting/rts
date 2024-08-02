@@ -44,12 +44,12 @@
                                     <label class="col-form-label" for="zone">Zone <span class="text-danger">*</span></label>
                                     <select name="zone" id="zone" class="form-select">
                                         <option value="">Select Zone</option>
-                                        <option value="Prabhag1">Prabhag1</option>
-                                        <option value="Prabhag2">Prabhag2</option>
-                                        <option value="Prabhag3">Prabhag3</option>
-                                        <option value="Prabhag4">Prabhag4</option>
-                                        <option value="Prabhag5">Prabhag5</option>
-                                        <option value="Prabhag6">Prabhag6</option>
+                                        @php
+                                            $options = ["Prabhag1", "Prabhag2", "Prabhag3", "Prabhag4", "Prabhag5", "Prabhag6"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid zone_err"></span>
                                 </div>

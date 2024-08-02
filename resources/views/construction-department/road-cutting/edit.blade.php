@@ -37,12 +37,12 @@
                                     <label class="col-form-label" for="zone">Zone <span class="text-danger">*</span></label>
                                     <select name="zone" id="zone" class="form-select">
                                         <option value="">Select Zone</option>
-                                        <option value="Prabhag1" {{ $data->zone == "Prabhag1" ? 'selected' : '' }}>Prabhag1</option>
-                                        <option value="Prabhag2" {{ $data->zone == "Prabhag2" ? 'selected' : '' }}>Prabhag2</option>
-                                        <option value="Prabhag3" {{ $data->zone == "Prabhag3" ? 'selected' : '' }}>Prabhag3</option>
-                                        <option value="Prabhag4" {{ $data->zone == "Prabhag4" ? 'selected' : '' }}>Prabhag4</option>
-                                        <option value="Prabhag5" {{ $data->zone == "Prabhag5" ? 'selected' : '' }}>Prabhag5</option>
-                                        <option value="Prabhag6" {{ $data->zone == "Prabhag6" ? 'selected' : '' }}>Prabhag6</option>
+                                        @php
+                                            $options = ["Prabhag1", "Prabhag2", "Prabhag3", "Prabhag4", "Prabhag5", "Prabhag6"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option {{ $data->zone == $option ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid zone_err"></span>
                                 </div>
@@ -51,12 +51,12 @@
                                     <label class="col-form-label" for="ward">Ward Area / प्रभाग क्षेत्र <span class="text-danger">*</span></label>
                                     <select name="ward" id="ward" class="form-select">
                                         <option value="">Select Ward</option>
-                                        <option value="Ward1" {{ $data->ward == "Ward1" ? 'selected' : '' }}>Ward1</option>
-                                        <option value="Ward2" {{ $data->ward == "Ward2" ? 'selected' : '' }}>Ward2</option>
-                                        <option value="Ward3" {{ $data->ward == "Ward3" ? 'selected' : '' }}>Ward3</option>
-                                        <option value="Ward4" {{ $data->ward == "Ward4" ? 'selected' : '' }}>Ward4</option>
-                                        <option value="Ward5" {{ $data->ward == "Ward5" ? 'selected' : '' }}>Ward5</option>
-                                        <option value="Ward6" {{ $data->ward == "Ward6" ? 'selected' : '' }}>Ward6</option>
+                                        @php
+                                            $options = ["Ward1", "Ward2", "Ward3", "Ward4", "Ward5", "Ward6"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option {{ $data->ward == $option ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid ward_err"></span>
                                 </div>

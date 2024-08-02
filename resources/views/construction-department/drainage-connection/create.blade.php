@@ -34,12 +34,12 @@
                                     <label class="col-form-label" for="zone">Zone <span class="text-danger">*</span></label>
                                     <select name="zone" id="zone" class="form-select">
                                         <option value="">Select Zone</option>
-                                        <option value="Prabhag1">Prabhag1</option>
-                                        <option value="Prabhag2">Prabhag2</option>
-                                        <option value="Prabhag3">Prabhag3</option>
-                                        <option value="Prabhag4">Prabhag4</option>
-                                        <option value="Prabhag5">Prabhag5</option>
-                                        <option value="Prabhag6">Prabhag6</option>
+                                        @php
+                                            $options = ["Prabhag1", "Prabhag2", "Prabhag3", "Prabhag4", "Prabhag5", "Prabhag6"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid zone_err"></span>
                                 </div>
@@ -48,12 +48,12 @@
                                     <label class="col-form-label" for="ward">Ward <span class="text-danger">*</span></label>
                                     <select name="ward" id="ward" class="form-select">
                                         <option value="">Select Ward</option>
-                                        <option value="Ward1">Ward1</option>
-                                        <option value="Ward2">Ward2</option>
-                                        <option value="Ward3">Ward3</option>
-                                        <option value="Ward4">Ward4</option>
-                                        <option value="Ward5">Ward5</option>
-                                        <option value="Ward6">Ward6</option>
+                                        @php
+                                            $options = ["Ward1", "Ward2", "Ward3", "Ward4", "Ward5", "Ward6"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid ward_err"></span>
                                 </div>
@@ -83,12 +83,12 @@
                                     <label class="col-form-label" for="property_usage">Property Usage / मालमत्ता वापर <span class="text-danger">*</span></label>
                                     <select name="property_usage" id="property_usage" class="form-select">
                                         <option value="">Select Property Usage</option>
-                                        <option value="Property Usage1">Property Usage1</option>
-                                        <option value="Property Usage2">Property Usage2</option>
-                                        <option value="Property Usage3">Property Usage3</option>
-                                        <option value="Property Usage4">Property Usage4</option>
-                                        <option value="Property Usage5">Property Usage5</option>
-                                        <option value="Property Usage6">Property Usage6</option>
+                                        @php
+                                            $options = ["Property Usage1", "Property Usage2", "Property Usage3", "Property Usage4", "Property Usage5", "Property Usage6"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid property_usage_err"></span>
                                 </div>
@@ -97,12 +97,12 @@
                                     <label class="col-form-label" for="connection_size_inches">Connection Size In Inches/ जोडणी आकार इंच मध्ये <span class="text-danger">*</span></label>
                                     <select name="connection_size_inches" id="connection_size_inches" class="form-select">
                                         <option value="">Select Connection Size</option>
-                                        <option value="Connection Size1">Connection Size1</option>
-                                        <option value="Connection Size2">Connection Size2</option>
-                                        <option value="Connection Size3">Connection Size3</option>
-                                        <option value="Connection Size4">Connection Size4</option>
-                                        <option value="Connection Size5">Connection Size5</option>
-                                        <option value="Connection Size6">Connection Size6</option>
+                                        @php
+                                            $options = ["Connection Size1", "Connection Size2", "Connection Size3", "Connection Size4", "Connection Size5", "Connection Size6"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid connection_size_inches_err"></span>
                                 </div>
@@ -145,8 +145,12 @@
                                     <label class="col-form-label" for="is_toilet_available">Is Toilet Available ? / शौचालय उपलब्ध आहे का? <span class="text-danger">*</span></label>
                                     <select name="is_toilet_available" id="is_toilet_available" class="form-select">
                                         <option value="">Select Option</option>
-                                        <option value="1">Yes</option>
-                                        <option value="0">No</option>
+                                        @php
+                                            $options = ["Yes", "No"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid is_toilet_available_err"></span>
                                 </div>
