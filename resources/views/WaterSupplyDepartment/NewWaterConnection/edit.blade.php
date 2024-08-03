@@ -27,8 +27,6 @@
                                     <span class="text-danger is-invalid aadhar_no_err"></span>
                                 </div>
 
-
-
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="mobile_no">Mobile Number / मोबाईल नंबर<span class="text-danger">*</span></label>
                                     <input class="form-control" id="mobile_no" name="mobile_no" type="number" value="{{ $data->mobile_no }}">
@@ -45,12 +43,12 @@
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
                                     <select class="form-control" name="zone" id="zone">
                                         <option value="">Select Zone</option>
-                                        <option value="1" {{ $data->zone == 1 ? 'selected' : '' }}>Prabhag1</option>
-                                        <option value="2" {{ $data->zone == 2 ? 'selected' : '' }}>Prabhag2</option>
-                                        <option value="3" {{ $data->zone == 3 ? 'selected' : '' }}>Prabhag3</option>
-                                        <option value="4" {{ $data->zone == 4 ? 'selected' : '' }}>Prabhag4</option>
-                                        <option value="5" {{ $data->zone == 5 ? 'selected' : '' }}>Prabhag5</option>
-                                        <option value="6" {{ $data->zone == 6 ? 'selected' : '' }}>Prabhag6</option>
+                                        @php
+                                            $options = ["Prabhag1", "Prabhag2", "Prabhag3", "Prabhag4", "Prabhag5", "Prabhag6"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option {{ $data->zone == $option ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid zone_err"></span>
                                 </div>
@@ -58,7 +56,12 @@
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
                                     <select class="form-control" name="ward_area" id="ward_area">
                                         <option value="">Select Ward Area</option>
-                                        <option value="1" {{ $data->ward_area == 1 ? 'selected' : '' }}>firstward</option>
+                                        @php
+                                            $options = ["firstward"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option {{ $data->ward_area == $option ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid ward_area_err"></span>
                                 </div>
@@ -103,11 +106,12 @@
                                     <label class="col-form-label" for="water_connection_use">Usage Of Water Connection / पाणी कनेक्शनचा वापर<span class="text-danger">*</span></label>
                                     <select class="form-control" name="water_connection_use" id="water_connection_use">
                                         <option value="">Select option</option>
-                                        <option value="1" {{ $data->water_connection_use == 1 ? 'selected' : '' }}>अनिवासी व्यवसाय</option>
-                                        <option value="2" {{ $data->water_connection_use == 2 ? 'selected' : '' }}>औद्योगीक</option>
-                                        <option value="3" {{ $data->water_connection_use == 3 ? 'selected' : '' }}>निवासी</option>
-                                        <option value="4" {{ $data->water_connection_use == 4 ? 'selected' : '' }}>विशेष प्रवर्ग (शैक्षणिक संस्था,शासकीय,निमशासकीय कार्यालय,पथसंस्था,इतर)</option>
-                                        <option value="5" {{ $data->water_connection_use == 5 ? 'selected' : '' }}>व्यावसायिक अथवा वाणिज्य</option>
+                                        @php
+                                            $options = ["अनिवासी व्यवसाय", "औद्योगीक", "निवासी", "विशेष प्रवर्ग (शैक्षणिक संस्था,शासकीय,निमशासकीय कार्यालय,पथसंस्था,इतर)", "व्यावसायिक अथवा वाणिज्य"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option {{ $data->water_connection_use == $option ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid water_connection_use_err"></span>
                                 </div>
@@ -116,15 +120,12 @@
                                     <label class="col-form-label" for="pipe_size">Pipe Size / पाईपचा आकार <span class="text-danger">*</span></label>
                                     <select class="form-control" name="pipe_size" id="pipe_size">
                                         <option value="">Select option</option>
-                                        <option value="1" {{ $data->pipe_size == 1 ? 'selected' : '' }}>100mm</option>
-                                        <option value="2" {{ $data->pipe_size == 2 ? 'selected' : '' }}>15mm</option>
-                                        <option value="3" {{ $data->pipe_size == 3 ? 'selected' : '' }}>150mm</option>
-                                        <option value="4" {{ $data->pipe_size == 4 ? 'selected' : '' }}>20mm</option>
-                                        <option value="5" {{ $data->pipe_size == 5 ? 'selected' : '' }}>25mm</option>
-                                        <option value="6" {{ $data->pipe_size == 6 ? 'selected' : '' }}>300mm</option>
-                                        <option value="7" {{ $data->pipe_size == 7 ? 'selected' : '' }}>40mm</option>
-                                        <option value="8" {{ $data->pipe_size == 8 ? 'selected' : '' }}>50mm</option>
-                                        <option value="9" {{ $data->pipe_size == 9 ? 'selected' : '' }}>80mm</option>
+                                        @php
+                                            $options = ["15mm", "20mm", "25mm", "40mm", "50mm", "80mm", "100mm", "150mm", "300mm"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option {{ $data->pipe_size == $option ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid pipe_size_err"></span>
                                 </div>
