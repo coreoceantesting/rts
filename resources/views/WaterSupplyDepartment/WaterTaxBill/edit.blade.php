@@ -48,12 +48,12 @@
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
                                     <select class="form-control" name="zone" id="zone">
                                         <option value="">Select Zone</option>
-                                        <option value="1" {{ $data->zone == 1 ? 'selected' : '' }}>Prabhag1</option>
-                                        <option value="2" {{ $data->zone == 2 ? 'selected' : '' }}>Prabhag2</option>
-                                        <option value="3" {{ $data->zone == 3 ? 'selected' : '' }}>Prabhag3</option>
-                                        <option value="4" {{ $data->zone == 4 ? 'selected' : '' }}>Prabhag4</option>
-                                        <option value="5" {{ $data->zone == 5 ? 'selected' : '' }}>Prabhag5</option>
-                                        <option value="6" {{ $data->zone == 6 ? 'selected' : '' }}>Prabhag6</option>
+                                        @php
+                                            $options = ["Prabhag1", "Prabhag2", "Prabhag3", "Prabhag4", "Prabhag5", "Prabhag6"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option {{ $data->zone == $option ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid zone_err"></span>
                                 </div>
@@ -61,7 +61,12 @@
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
                                     <select class="form-control" name="ward_area" id="ward_area">
                                         <option value="">Select Ward Area</option>
-                                        <option value="1"  {{ $data->ward_area == 1 ? 'selected' : '' }}>firstward</option>
+                                        @php
+                                            $options = ["firstward"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option {{ $data->ward_area == $option ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid ward_area_err"></span>
                                 </div>
@@ -106,10 +111,12 @@
                                     <label class="col-form-label" for="new_water_con">Detail Of New Tap Connection / मिळकतीस नवीन मागणी केलेल्या नळ कनेक्शनचा तपशील<span class="text-danger">*</span></label>
                                     <select class="form-control" name="new_water_con" id="new_water_con">
                                         <option value="">Select option</option>
-                                        <option value="1" {{ $data->new_water_con == 1 ? 'selected' : '' }}>औध्योगिक व्यवसायासाठी </option>
-                                        <option value="2" {{ $data->new_water_con == 2 ? 'selected' : '' }}>घरघुती वापरा साठी</option>
-                                        <option value="3" {{ $data->new_water_con == 3 ? 'selected' : '' }}>बिगर घरघुती वापरासाठी </option>
-                                        <option value="4" {{ $data->new_water_con == 4 ? 'selected' : '' }}>वाणिज्य</option>
+                                        @php
+                                            $options = ["औध्योगिक व्यवसायासाठी", "घरघुती वापरा साठी", "बिगर घरघुती वापरासाठी", "वाणिज्य"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option {{ $data->new_water_con == $option ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid new_water_con_err"></span>
                                 </div>
@@ -118,8 +125,12 @@
                                     <label class="col-form-label" for="current_connection_is_illegal">Currently Existed Tap Connection Unauthorized / मिळकतीस सध्या अस्तित्वात असलेले नळ कनेक्शन अनाधिकृत होते काय ?<span class="text-danger">*</span></label>
                                     <select class="form-control" name="current_connection_is_illegal" id="current_connection_is_illegal">
                                         <option value="">Select option</option>
-                                        <option value="1" {{ $data->current_connection_is_illegal == 1 ? 'selected' : '' }}>Yes</option>
-                                        <option value="2" {{ $data->current_connection_is_illegal == 2 ? 'selected' : '' }}>No</option>
+                                        @php
+                                            $options = ["Yes", "No"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option {{ $data->current_connection_is_illegal == $option ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid current_connection_is_illegal_err"></span>
                                 </div>
@@ -128,8 +139,12 @@
                                     <label class="col-form-label" for="applicant_or_tenant">Applicant Or Tenant / अर्जदार / भाडेकरु आहेत काय ?<span class="text-danger">*</span></label>
                                     <select class="form-control" name="applicant_or_tenant" id="applicant_or_tenant">
                                         <option value="">Select option</option>
-                                        <option value="1" {{ $data->applicant_or_tenant == 1 ? 'selected' : '' }}>Yes</option>
-                                        <option value="2" {{ $data->applicant_or_tenant == 2 ? 'selected' : '' }}>No</option>
+                                        @php
+                                            $options = ["Yes", "No"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option {{ $data->applicant_or_tenant == $option ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid applicant_or_tenant_err"></span>
                                 </div>
@@ -138,8 +153,12 @@
                                     <label class="col-form-label" for="criminal_judicial_issue">Criminal Judicial Issues About Existing Tap Connection / मिळकतीस सध्या असलेल्या नळ कनेक्शनाबाबत काही फौजदारी किंवा न्यायालयीन बाबी सुरु आहेत का ? <span class="text-danger">*</span></label>
                                     <select class="form-control" name="criminal_judicial_issue" id="criminal_judicial_issue">
                                         <option value="">Select option</option>
-                                        <option value="1" {{ $data->criminal_judicial_issue == 1 ? 'selected' : '' }}>Yes</option>
-                                        <option value="2" {{ $data->criminal_judicial_issue == 2 ? 'selected' : '' }}>No</option>
+                                        @php
+                                            $options = ["Yes", "No"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option {{ $data->criminal_judicial_issue == $option ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid criminal_judicial_issue_err"></span>
                                 </div>
@@ -148,8 +167,12 @@
                                     <label class="col-form-label" for="place_belongs_to_municipal">Place Belongs To Municipal Council Limit / सदर जागा नगरपरिषदेच्या हद्दीत आहे का ? <span class="text-danger">*</span></label>
                                     <select class="form-control" name="place_belongs_to_municipal" id="place_belongs_to_municipal">
                                         <option value="">Select option</option>
-                                        <option value="1" {{ $data->place_belongs_to_municipal == 1 ? 'selected' : '' }}>Yes</option>
-                                        <option value="2" {{ $data->place_belongs_to_municipal == 2 ? 'selected' : '' }}>No</option>
+                                        @php
+                                            $options = ["Yes", "No"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option {{ $data->place_belongs_to_municipal == $option ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid place_belongs_to_municipal_err"></span>
                                 </div>

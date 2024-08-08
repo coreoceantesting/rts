@@ -48,12 +48,12 @@
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
                                     <select class="form-control" name="zone" id="zone">
                                         <option value="">Select Zone</option>
-                                        <option value="1">Prabhag1</option>
-                                        <option value="2">Prabhag2</option>
-                                        <option value="3">Prabhag3</option>
-                                        <option value="4">Prabhag4</option>
-                                        <option value="5">Prabhag5</option>
-                                        <option value="6">Prabhag6</option>
+                                        @php
+                                            $options = ["Prabhag1", "Prabhag2", "Prabhag3", "Prabhag4", "Prabhag5", "Prabhag6"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid zone_err"></span>
                                 </div>
@@ -61,7 +61,12 @@
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
                                     <select class="form-control" name="ward_area" id="ward_area">
                                         <option value="">Select Ward Area</option>
-                                        <option value="1">firstward</option>
+                                        @php
+                                            $options = ["firstward"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid ward_area_err"></span>
                                 </div>
@@ -106,10 +111,12 @@
                                     <label class="col-form-label" for="new_water_con">Detail Of New Tap Connection / मिळकतीस नवीन मागणी केलेल्या नळ कनेक्शनचा तपशील<span class="text-danger">*</span></label>
                                     <select class="form-control" name="new_water_con" id="new_water_con">
                                         <option value="">Select option</option>
-                                        <option value="1">औध्योगिक व्यवसायासाठी </option>
-                                        <option value="2">घरघुती वापरा साठी</option>
-                                        <option value="3">बिगर घरघुती वापरासाठी </option>
-                                        <option value="4">वाणिज्य</option>
+                                        @php
+                                            $options = ["औध्योगिक व्यवसायासाठी", "घरघुती वापरा साठी", "बिगर घरघुती वापरासाठी", "वाणिज्य"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid new_water_con_err"></span>
                                 </div>
@@ -118,8 +125,12 @@
                                     <label class="col-form-label" for="current_connection_is_illegal">Currently Existed Tap Connection Unauthorized / मिळकतीस सध्या अस्तित्वात असलेले नळ कनेक्शन अनाधिकृत होते काय ?<span class="text-danger">*</span></label>
                                     <select class="form-control" name="current_connection_is_illegal" id="current_connection_is_illegal">
                                         <option value="">Select option</option>
-                                        <option value="1">Yes</option>
-                                        <option value="2">No</option>
+                                        @php
+                                            $options = ["Yes", "No"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid current_connection_is_illegal_err"></span>
                                 </div>
@@ -128,8 +139,12 @@
                                     <label class="col-form-label" for="applicant_or_tenant">Applicant Or Tenant / अर्जदार / भाडेकरु आहेत काय ?<span class="text-danger">*</span></label>
                                     <select class="form-control" name="applicant_or_tenant" id="applicant_or_tenant">
                                         <option value="">Select option</option>
-                                        <option value="1">Yes</option>
-                                        <option value="2">No</option>
+                                        @php
+                                            $options = ["Yes", "No"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid applicant_or_tenant_err"></span>
                                 </div>
@@ -138,8 +153,12 @@
                                     <label class="col-form-label" for="criminal_judicial_issue">Criminal Judicial Issues About Existing Tap Connection / मिळकतीस सध्या असलेल्या नळ कनेक्शनाबाबत काही फौजदारी किंवा न्यायालयीन बाबी सुरु आहेत का ? <span class="text-danger">*</span></label>
                                     <select class="form-control" name="criminal_judicial_issue" id="criminal_judicial_issue">
                                         <option value="">Select option</option>
-                                        <option value="1">Yes</option>
-                                        <option value="2">No</option>
+                                        @php
+                                            $options = ["Yes", "No"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid criminal_judicial_issue_err"></span>
                                 </div>
@@ -148,8 +167,12 @@
                                     <label class="col-form-label" for="place_belongs_to_municipal">Place Belongs To Municipal Council Limit / सदर जागा नगरपरिषदेच्या हद्दीत आहे का ? <span class="text-danger">*</span></label>
                                     <select class="form-control" name="place_belongs_to_municipal" id="place_belongs_to_municipal">
                                         <option value="">Select option</option>
-                                        <option value="1">Yes</option>
-                                        <option value="2">No</option>
+                                        @php
+                                            $options = ["Yes", "No"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid place_belongs_to_municipal_err"></span>
                                 </div>
