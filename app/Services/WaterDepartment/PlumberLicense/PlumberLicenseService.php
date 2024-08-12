@@ -28,6 +28,7 @@ class PlumberLicenseService
 
         try {
             $request['user_id'] = Auth::user()->id;
+            $request['service_id'] = "";
             // Handle file uploads and store original file names
             if ($request->hasFile('application_documents')) {
                 $request['application_document'] = $request->application_documents->store('water-department/plumber-license');
@@ -55,9 +56,9 @@ class PlumberLicenseService
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
-            if ($data['d']['Status'] == "200") {
+            if ($data['status'] == "200") {
                 // Access the application_no
-                $applicationId = $data['d']['application_no'];
+                $applicationId = $data['applicationId'];
                 WaterPlumberLicense::where('id', $waterPlumberLicense->id)->update([
                     'application_no' => $applicationId
                 ]);
@@ -133,7 +134,7 @@ class PlumberLicenseService
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
-            if ($data['d']['Status'] == "200") {
+            if ($data['status'] == "200") {
                 // Access the application_no
                 DB::commit();
                 return true;

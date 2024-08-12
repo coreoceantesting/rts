@@ -44,13 +44,13 @@ class DefectiveWaterMeterService
             }
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['_token', 'application_documents']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'WaterBillMicroService/WaterbillApi/ApleSarkarService/RequestForComplaintOfDefectiveWaterMeter ', '');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'WaterBillMicroService/WaterbillApi/ApleSarkarService/RequestForComplaintOfDefectiveWaterMeter', '');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
-            if ($data['d']['status'] == "200") {
+            if ($data['status'] == "200") {
                 // Access the application_no
-                $applicationId = $data['d']['applicationId'];
+                $applicationId = $data['applicationId'];
                 WaterDefectiveMeter::where('id', $waterDefectiveMeter->id)->update([
                     'application_no' => $applicationId
                 ]);
@@ -110,12 +110,12 @@ class DefectiveWaterMeterService
             $request['application_no'] = $waterDefectiveMeter->application_no;
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['_token', 'id', 'application_documents']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'WaterBillMicroService/WaterbillApi/ApleSarkarService/RequestForUpdateComplaintOfDefectiveWaterMeter ', '');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'WaterBillMicroService/WaterbillApi/ApleSarkarService/RequestForUpdateComplaintOfDefectiveWaterMeter', '');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
-            if ($data['d']['Status'] == "200") {
+            if ($data['status'] == "200") {
                 // Access the application_no
                 DB::commit();
                 return true;

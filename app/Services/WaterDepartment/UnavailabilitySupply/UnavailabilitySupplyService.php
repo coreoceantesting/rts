@@ -28,6 +28,7 @@ class UnavailabilitySupplyService
 
         try {
             $request['user_id'] = Auth::user()->id;
+            $request['service_id'] = "";
             $waterUnavailabilitySupply = WaterUnavailabilitySupply::create($request->all());
 
 
@@ -38,9 +39,9 @@ class UnavailabilitySupplyService
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
-            if ($data['d']['Status'] == "200") {
+            if ($data['status'] == "200") {
                 // Access the application_no
-                $applicationId = $data['d']['application_no'];
+                $applicationId = $data['applicationId'];
                 WaterUnavailabilitySupply::where('id', $waterUnavailabilitySupply->id)->update([
                     'application_no' => $applicationId
                 ]);
@@ -92,7 +93,7 @@ class UnavailabilitySupplyService
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
-            if ($data['d']['Status'] == "200") {
+            if ($data['status'] == "200") {
                 // Access the application_no
                 DB::commit();
                 return true;

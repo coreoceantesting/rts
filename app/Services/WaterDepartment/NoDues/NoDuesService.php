@@ -28,6 +28,7 @@ class NoDuesService
 
         try {
             $request['user_id'] = Auth::user()->id;
+            $request['service_id'] = "5";
             // Handle file uploads and store original file names
             if ($request->hasFile('application_documents')) {
                 $request['application_document'] = $request->application_documents->store('water-department/no-dues');
@@ -111,12 +112,12 @@ class NoDuesService
             $request['application_no'] = $waterNoDues->application_no;
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['_token', 'id', 'application_documents']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForUpdateNewTaxation', '');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'WaterBillMicroService/WaterbillApi/ApleSarkarService/RequestForUpdateNoDueCertificate', '');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
-            if ($data['d']['Status'] == "200") {
+            if ($data['status'] == "200") {
                 // Access the application_no
                 DB::commit();
                 return true;

@@ -56,6 +56,7 @@ class CurlAPiService
         // Configure cURL options
         $payload = json_encode($postFields);
         // Log::info($payload);
+        Log::info($payload);
 
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);

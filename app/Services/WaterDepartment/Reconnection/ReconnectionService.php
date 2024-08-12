@@ -28,6 +28,7 @@ class ReconnectionService
 
         try {
             $request['user_id'] = Auth::user()->id;
+            $request['service_id'] = "15";
             // Handle file uploads and store original file names
             if ($request->hasFile('application_documents')) {
                 $request['application_document'] = $request->application_documents->store('water-department/reconnection');
@@ -51,13 +52,13 @@ class ReconnectionService
             $request['service_id'] = 5;
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['_token', 'application_documents', 'nodues_documents']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'WaterBillMicroService/WaterbillApi/ApleSarkarService/RequestForNoDueCertificate', '');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'WaterBillMicroService/WaterbillApi/ApleSarkarService/RequestForWaterReConnection', '');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
-            if ($data['d']['Status'] == "200") {
+            if ($data['status'] == "200") {
                 // Access the application_no
-                $applicationId = $data['d']['application_no'];
+                $applicationId = $data['applicationIds'];
                 WaterReconnection::where('id', $waterReconnection->id)->update([
                     'application_no' => $applicationId
                 ]);
@@ -128,12 +129,12 @@ class ReconnectionService
             $request['application_no'] = $waterReconnection->application_no;
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['_token', 'id', 'application_documents', 'nodues_documents']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForUpdateNewTaxation', 'NewTaxation');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'WaterBillMicroService/WaterbillApi/ApleSarkarService/RequestForUpdateWaterReConnection', '');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
-            if ($data['d']['Status'] == "200") {
+            if ($data['status'] == "200") {
                 // Access the application_no
                 DB::commit();
                 return true;
