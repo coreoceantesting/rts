@@ -29,7 +29,7 @@ class TaxExemptionController extends Controller
      */
     public function create()
     {
-        return view('PropertyTax.taxExemption.create');
+        return view('property-tax.taxExemption.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class TaxExemptionController extends Controller
     {
         $taxExemption = $this->taxExemptionService->edit($id);
 
-        return view('PropertyTax.taxExemption.edit')->with([
+        return view('property-tax.taxExemption.edit')->with([
             'taxExemption' => $taxExemption
         ]);
     }

@@ -28,7 +28,7 @@ class NewTaxationController extends Controller
      */
     public function create()
     {
-        return view('PropertyTax.newTaxation.create');
+        return view('property-tax.newTaxation.create');
     }
 
     /**
@@ -64,7 +64,7 @@ class NewTaxationController extends Controller
     {
         $newTax = $this->newtaxationService->edit(decrypt($id));
 
-        return view('PropertyTax.newTaxation.edit')->with([
+        return view('property-tax.newTaxation.edit')->with([
             'newTax' => $newTax
         ]);
     }

@@ -29,7 +29,7 @@ class NoDueController extends Controller
      */
     public function create()
     {
-        return view('PropertyTax.noDues.create');
+        return view('property-tax.noDues.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class NoDueController extends Controller
     {
         $noDue = $this->noDueCertificateService->edit(decrypt($id));
 
-        return view('PropertyTax.noDues.edit')->with([
+        return view('property-tax.noDues.edit')->with([
             'noDue' => $noDue
         ]);
     }

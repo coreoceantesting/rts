@@ -29,7 +29,7 @@ class TaxDemandController extends Controller
      */
     public function create()
     {
-        return view('PropertyTax.taxDemand.create');
+        return view('property-tax.taxDemand.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class TaxDemandController extends Controller
     {
         $taxDemand = $this->taxDemandService->edit(decrypt($id));
 
-        return view('PropertyTax.taxDemand.edit')->with([
+        return view('property-tax.taxDemand.edit')->with([
             'taxDemand' => $taxDemand
         ]);
     }

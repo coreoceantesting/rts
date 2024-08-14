@@ -29,7 +29,7 @@ class TaxExemptionNonResidentController extends Controller
      */
     public function create()
     {
-        return view('PropertyTax.taxExemptionNonResident.create');
+        return view('property-tax.taxExemptionNonResident.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class TaxExemptionNonResidentController extends Controller
     {
         $taxExemptionNonResidentialProp = $this->taxExemptionNonResidentPropertiesService->edit(decrypt($id));
 
-        return view('PropertyTax.taxExemptionNonResident.edit')->with([
+        return view('property-tax.taxExemptionNonResident.edit')->with([
             'taxExemptionNonResidentialProp' => $taxExemptionNonResidentialProp
         ]);
     }

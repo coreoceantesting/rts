@@ -29,7 +29,7 @@ class RegistrationOfObjectionController extends Controller
      */
     public function create()
     {
-        return view('PropertyTax.RegistrationOfObjection.create');
+        return view('property-tax.RegistrationOfObjection.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class RegistrationOfObjectionController extends Controller
     {
         $registrationofObjection = $this->registrationOfObjectionService->edit(decrypt($id));
 
-        return view('PropertyTax.RegistrationOfObjection.edit')->with([
+        return view('property-tax.RegistrationOfObjection.edit')->with([
             'registrationofObjection' => $registrationofObjection
         ]);
     }

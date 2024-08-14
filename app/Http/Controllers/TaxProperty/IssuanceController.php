@@ -28,7 +28,7 @@ class IssuanceController extends Controller
      */
     public function create()
     {
-        return view('PropertyTax.issuanceOfPropertyTax.create');
+        return view('property-tax.issuanceOfPropertyTax.create');
     }
 
     /**
@@ -64,7 +64,7 @@ class IssuanceController extends Controller
     {
         $propertyTaxAssessment = $this->propertyTaxAssessmentService->edit(decrypt($id));
 
-        return view('PropertyTax.issuanceOfPropertyTax.edit')->with([
+        return view('property-tax.issuanceOfPropertyTax.edit')->with([
             'propertyTaxAssessment' => $propertyTaxAssessment
         ]);
     }

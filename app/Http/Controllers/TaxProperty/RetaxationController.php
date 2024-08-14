@@ -29,7 +29,7 @@ class RetaxationController extends Controller
      */
     public function create()
     {
-        return view('PropertyTax.reTaxation.create');
+        return view('property-tax.reTaxation.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class RetaxationController extends Controller
     {
         $retax = $this->reTaxationService->edit(decrypt($id));
 
-        return view('PropertyTax.reTaxation.edit')->with([
+        return view('property-tax.reTaxation.edit')->with([
             'retax' => $retax
         ]);
     }

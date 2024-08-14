@@ -29,7 +29,7 @@ class TransferPropertyController extends Controller
      */
     public function create()
     {
-        return view('PropertyTax.transferOfProperty.create');
+        return view('property-tax.transferOfProperty.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class TransferPropertyController extends Controller
     {
         $transferProperty = $this->transferPropertyCertificateService->edit(decrypt($id));
 
-        return view('PropertyTax.transferOfProperty.edit')->with([
+        return view('property-tax.transferOfProperty.edit')->with([
             'transferProperty' => $transferProperty
         ]);
     }

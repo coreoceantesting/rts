@@ -16,11 +16,13 @@ class TransferRegistrationCertificateController extends Controller
         $this->transferRegistrationCertificateService = $transferRegistrationCertificateService;
     }
 
-    public function create(){
-        return view('PropertyTax.transferRegistrationCertificate.create');
+    public function create()
+    {
+        return view('property-tax.transferRegistrationCertificate.create');
     }
 
-    public function store(PropertyTaxAssessmentRequest $request){
+    public function store(PropertyTaxAssessmentRequest $request)
+    {
         $transferRegistrationCertificate = $this->transferRegistrationCertificateService->store($request);
 
         if ($transferRegistrationCertificate) {
@@ -38,12 +40,13 @@ class TransferRegistrationCertificateController extends Controller
     {
         $transferRegistrationCertificate = $this->transferRegistrationCertificateService->edit(decrypt($id));
 
-        return view('PropertyTax.transferRegistrationCertificate.edit')->with([
+        return view('property-tax.transferRegistrationCertificate.edit')->with([
             'transferRegistrationCertificate' => $transferRegistrationCertificate
         ]);
     }
 
-    public function update(PropertyTaxAssessmentRequest $request){
+    public function update(PropertyTaxAssessmentRequest $request)
+    {
         $transferRegistrationCertificate = $this->transferRegistrationCertificateService->update($request);
 
         if ($transferRegistrationCertificate) {

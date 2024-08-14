@@ -29,7 +29,7 @@ class SelfAssessmentController extends Controller
      */
     public function create()
     {
-        return view('PropertyTax.selfAssessment.create');
+        return view('property-tax.selfAssessment.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class SelfAssessmentController extends Controller
     {
         $selfAssessment = $this->selfAssessmentService->edit(decrypt($id));
         return $selfAssessment;
-        return view('PropertyTax.selfAssessment.edit')->with([
+        return view('property-tax.selfAssessment.edit')->with([
             'selfAssessment' => $selfAssessment
         ]);
     }
