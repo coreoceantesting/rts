@@ -40,7 +40,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="zone" id="zone">
+                                    <select class="form-select" name="zone" id="zone">
                                         <option value="">Select Zone</option>
                                         @php
                                             $options = ["Prabhag1", "Prabhag2", "Prabhag3", "Prabhag4", "Prabhag5", "Prabhag6"];
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="ward_area" id="ward_area">
+                                    <select class="form-select" name="ward_area" id="ward_area">
                                         <option value="">Select Ward Area</option>
                                         @php
                                             $options = ["firstward"];
@@ -93,7 +93,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="property_type">Property Type / मालमत्तेचा प्रकार <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="property_type" id="property_type">
+                                    <select class="form-select" name="property_type" id="property_type">
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["अनिवासी", "कार्यशाळा", "केंद्र सरकारी", "खुला भूखंड", "गोदाम", "दुकान", 'निवासी', 'राज्य सरकारी'];
@@ -114,7 +114,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="applicant_is_on_rent">Is Applicant On Rent / अर्जदार भाड्याने आहे का ?<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="applicant_is_on_rent" id="applicant_is_on_rent">
+                                    <select class="form-select" name="applicant_is_on_rent" id="applicant_is_on_rent">
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["Yes", "No"];
@@ -129,7 +129,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="water_connection_size">Water Connection Size / पाणी कनेक्शनचा आकार <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="water_connection_size" id="water_connection_size">
+                                    <select class="form-select" name="water_connection_size" id="water_connection_size">
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["15mm", "20mm", "25mm", "40mm", "50mm", "80mm", "100mm", "150mm", "300mm"];
@@ -144,7 +144,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="water_usage">Existing Water Connection Usage / विद्यमान पाणी कनेक्शनचा वापर <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="water_usage" id="water_usage">
+                                    <select class="form-select" name="water_usage" id="water_usage">
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["औध्योगिक व्यवसायासाठी", "घरघुती वापरा साठी", "बिगर घरघुती वापरासाठी", "वाणिज्य"];
@@ -159,7 +159,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="new_water_con_usage">New Water Connection Usage / नवीन पाणी कनेक्शनचा वापर<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="new_water_con_usage" id="new_water_con_usage">
+                                    <select class="form-select" name="new_water_con_usage" id="new_water_con_usage">
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["औध्योगिक व्यवसायासाठी", "घरघुती वापरा साठी", "बिगर घरघुती वापरासाठी", "वाणिज्य"];
@@ -174,7 +174,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="usage_residence_type">Water Connection Usage Residence Type / पाणी कनेक्शनचा वापर निवास प्रकार <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="usage_residence_type" id="usage_residence_type">
+                                    <select class="form-select" name="usage_residence_type" id="usage_residence_type">
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["अनिवासी व्यवसाय", "औद्योगीक", "निवासी", "विशेष प्रवर्ग (शैक्षणिक संस्था,शासकीय,निमशासकीय कार्यालय,पथसंस्था,इतर)", "व्यावसायिक अथवा वाणिज्य"];
@@ -189,7 +189,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="current_connection_is_illegal">Is Existing Water Connection Was Illegal / सध्याचे पाणी कनेक्शन बेकायदेशीर होते का ? <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="current_connection_is_illegal" id="current_connection_is_illegal">
+                                    <select class="form-select" name="current_connection_is_illegal" id="current_connection_is_illegal">
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["Yes", "No"];
@@ -210,7 +210,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="place_belongs_to_municipal">Place Belongs To Municipal Council Limit / सदर जागा नगरपरिषदेच्या हद्दीत आहे का ? <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="place_belongs_to_municipal" id="place_belongs_to_municipal">
+                                    <select class="form-select" name="place_belongs_to_municipal" id="place_belongs_to_municipal">
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["Yes", "No"];
@@ -226,7 +226,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="any_police_complaint">Is Any Police Or Court Complaint About Property Connection / मालमत्तेच्या कनेक्शनबद्दल कोणतीही पोलीस किंवा न्यायालयीन तक्रार आहे का ? * <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="any_police_complaint" id="any_police_complaint">
+                                    <select class="form-select" name="any_police_complaint" id="any_police_complaint">
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["Yes", "No"];

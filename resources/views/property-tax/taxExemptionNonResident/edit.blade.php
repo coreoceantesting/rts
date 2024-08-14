@@ -61,7 +61,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="zone" required id="zone">
+                                    <select class="form-select" name="zone" required id="zone">
                                         <option value="">Select Zone</option>
                                         @php
                                             $options = ["Prabhag1", "Prabhag2", "Prabhag3", "Prabhag4", "Prabhag5", "Prabhag6"];
@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-control" required name="ward_area" id="ward_area">
+                                    <select class="form-select" required name="ward_area" id="ward_area">
                                         <option value="">Select Ward Area</option>
                                         @php
                                             $options = ["firstward"];
@@ -106,7 +106,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="property_usage">Property Usage / मालमत्ता वापर<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="property_usage" id="property_usage" required>
+                                    <select class="form-select" name="property_usage" id="property_usage" required>
                                         <option value="">Select Property Usage</option>
                                         @php
                                             $options = ["निवासी", "बिगर निवासी", "मिश्र"];
@@ -120,7 +120,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="construction_type">Construction Type / बांधकाम प्रकार<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="construction_type" id="construction_type" required>
+                                    <select class="form-select" name="construction_type" id="construction_type" required>
                                         <option value="">Select Construction Type</option>
                                         @php
                                             $options = ["सिमेंट कॉँक्रिट संरचना", "सिमेंट / चुना / विटांच्या भिंती व स्ल्याब चे छत", "सिमेंट / चुना / विटांच्या भिंती व टीन / कवेलु चे छत", "मातीच्या भिंतीवर टीन / कवेलु चे छत", "खुला भूखंड", "इतर"];
@@ -133,7 +133,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="is_construction_authorized">Is Construction Authorized ? / बांधकाम अधिकृत आहे का ?</label>
-                                    <select class="form-control" name="is_construction_authorized" id="is_construction_authorized">
+                                    <select class="form-select" name="is_construction_authorized" id="is_construction_authorized">
                                         <option value="">Select Option</option>
                                         @php
                                             $options = ["Yes", "No"];
@@ -146,7 +146,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="is_there_water_connection">Is there a Water(Tap) Connection ? / पाणी (नळ) कनेक्शन आहे का ?<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="is_there_water_connection" id="is_there_water_connection" required>
+                                    <select class="form-select" name="is_there_water_connection" id="is_there_water_connection" required>
                                         <option value="">Select Option</option>
                                         @php
                                             $options = ["Yes", "No"];

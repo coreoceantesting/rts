@@ -47,7 +47,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="zone" id="zone">
+                                    <select class="form-select" name="zone" id="zone">
                                         <option value="">Select Zone</option>
                                         @php
                                         $options = ["Prabhag1", "Prabhag2", "Prabhag3", "Prabhag4", "Prabhag5", "Prabhag6"];
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="ward_area" id="ward_area">
+                                    <select class="form-select" name="ward_area" id="ward_area">
                                         <option value="">Select Ward Area</option>
                                         <option value="1"  {{ $data->ward_area == 1 ? 'selected' : '' }}>firstward</option>
                                     </select>
@@ -124,7 +124,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="is_preveious_permission_declined_by_council">is previouly permission declined by council ? / यापूर्वी अर्जात नमूद जागेला व्यवसाय परवाना नाकारला आहे का ? <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="is_preveious_permission_declined_by_council" id="is_preveious_permission_declined_by_council">
+                                    <select class="form-select" name="is_preveious_permission_declined_by_council" id="is_preveious_permission_declined_by_council">
                                         <option value="">Select Option</option>
                                         <option value="1" {{ $data->is_preveious_permission_declined_by_council == 1 ? 'selected' : '' }}>Yes</option>
                                         <option value="2" {{ $data->is_preveious_permission_declined_by_council == 2 ? 'selected' : '' }}>No</option>
@@ -140,7 +140,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="is_place_owned_by_council">Is place owned by council ? / जागा पालिकेच्या मालकीची आहे का ? <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="is_place_owned_by_council" id="is_place_owned_by_council">
+                                    <select class="form-select" name="is_place_owned_by_council" id="is_place_owned_by_council">
                                         <option value="">Select Option</option>
                                         <option value="1" {{ $data->is_place_owned_by_council == 1 ? 'selected' : '' }}>Yes</option>
                                         <option value="2" {{ $data->is_place_owned_by_council == 2 ? 'selected' : '' }}>No</option>
@@ -150,7 +150,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="is_any_dues_pending_of_council">Is any dues pending of council ? / आपल्याकडे पालिकेची थकबाकी आहे का ? <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="is_any_dues_pending_of_council" id="is_any_dues_pending_of_council">
+                                    <select class="form-select" name="is_any_dues_pending_of_council" id="is_any_dues_pending_of_council">
                                         <option value="">Select Option</option>
                                         <option value="1" {{ $data->is_any_dues_pending_of_council == 1 ? 'selected' : '' }}>Yes</option>
                                         <option value="2" {{ $data->is_any_dues_pending_of_council == 2 ? 'selected' : '' }}>No</option>
@@ -160,7 +160,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="trade_or_business_type">Trade or business type of new permission / व्यवसायाचा प्रकार <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="trade_or_business_type" id="trade_or_business_type">
+                                    <select class="form-select" name="trade_or_business_type" id="trade_or_business_type">
                                         <option value="">Select a value ...</option>
                                         @php
                                             $options = ["असोसिएट्स", "आईस्क्रिम पार्लर", "इंजिनियरींग वर्क्स", "इंटिरियल", "इतर", "इलेक्ट्रिकल", "इलेक्ट्रीक अँड हार्डवेअर", "इंशुरन्स", "उपहारगृह", "ऑप्टीकल", "ओल्ड् पेपर मार्ट", "कंट्रक्शन", "कपडा विक्री", "कपड्याचे दुकान", "कांदा-बटाटा दुकान", "कारखाना", "किराणा दुकान", "कुरीअर सर्विस", "कॅटरींग सर्विसेस", "केक शॉप", "केशकर्तनालय / सलुन", "कोल्ड्रींग अँड आईस्क्रीम", "क्लासेस", "क्लीनर", "खादयपदार्थ विक्री", "खानावळ", "गॅरेज", "चक्की", "चाइनीज पॉईंट", "चाय पॉईंट", "चिकन शॉप", "जनरल स्टोर", "जिम फिटनेस", "टेलर", "नर्सरी", "पान बिडी शॉप", "पुस्तक विक्री", "फर्निचर दुकान", "फर्निचर वर्क", "फाटो शॉप", "बांगडी बनविणे", "बेकरी", "बेकरी शॉप / बेकरी प्रोडक्टस", "ब्युटी पार्लर", "मटण शॉप", "मटण-चिकन शॉप", "मसाला विक्री", "मॅन्युफॅक्चरींग", "मेटल पार्ट वर्क", "मेडिकल", "रबर प्रोडक्ट", "रेडीमेंड गारमेंट", "रेस्टॉरंट", "लाँड्री", "लॉजिंग / बोर्डींग", "वेल्डींग", "सायकल रिपेरींग", "सिट कवर असेसरीज", "सेल्स सर्विस", "स्टील फर्निचर", "स्टेनलेस स्टील", "स्टेशनरी", "स्नॅक्स सेंटर", "स्विट मार्ट / मिठाईचे दुकान", "हार्डवेअर"]

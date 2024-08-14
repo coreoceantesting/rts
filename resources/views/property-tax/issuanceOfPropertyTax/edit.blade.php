@@ -120,7 +120,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="construction_type">Construction Type / बांधकाम प्रकार<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="construction_type" id="construction_type" required>
+                                    <select class="form-select" name="construction_type" id="construction_type" required>
                                         <option value="">Select Construction Type</option>
                                         @php
                                             $options = ["सिमेंट कॉँक्रिट संरचना", "सिमेंट / चुना / विटांच्या भिंती व स्ल्याब चे छत", "सिमेंट / चुना / विटांच्या भिंती व टीन / कवेलु चे छत", "मातीच्या भिंतीवर टीन / कवेलु चे छत", "खुला भूखंड", "इतर"];

@@ -53,7 +53,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="zone" id="zone">
+                                    <select class="form-select" name="zone" id="zone">
                                         <option value="">Select Zone</option>
                                         @php
                                             $options = ["Prabhag1", "Prabhag2", "Prabhag3", "Prabhag4", "Prabhag5", "Prabhag6"];
@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="ward_area" id="ward_area">
+                                    <select class="form-select" name="ward_area" id="ward_area">
                                         <option value="">Select Ward Area</option>
                                         @php
                                             $options = ["firstward"];

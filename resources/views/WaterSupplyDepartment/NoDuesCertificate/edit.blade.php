@@ -52,7 +52,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="zone" id="zone">
+                                    <select class="form-select" name="zone" id="zone">
                                         <option value="">Select Zone</option>
                                         @php
                                             $options = ["Prabhag1", "Prabhag2", "Prabhag3", "Prabhag4", "Prabhag5", "Prabhag6"];
@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="ward_area" id="ward_area">
+                                    <select class="form-select" name="ward_area" id="ward_area">
                                         <option value="">Select Ward Area</option>
                                         @php
                                             $options = ["firstward"];
@@ -103,7 +103,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="applicant_is_on_rent">Is Applicant a Tenant / अर्जदार भाडेकरू आहे ?<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="applicant_is_on_rent" id="applicant_is_on_rent">
+                                    <select class="form-select" name="applicant_is_on_rent" id="applicant_is_on_rent">
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["Yes", "No"];
@@ -123,7 +123,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="criminal_judicial_issue">Criminal Judicial Issues About Existing Tap Connection / मिळकतीस सध्या असलेल्या नळ कनेक्शनाबाबत काही फौजदारी किंवा न्यायालयीन बाबी सुरु आहेत का ? <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="criminal_judicial_issue" id="criminal_judicial_issue">
+                                    <select class="form-select" name="criminal_judicial_issue" id="criminal_judicial_issue">
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["Yes", "No"];
@@ -137,7 +137,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="tap_size">Tap Size / नळ आकार <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="tap_size" id="tap_size">
+                                    <select class="form-select" name="tap_size" id="tap_size">
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["15mm", "20mm", "25mm", "40mm", "50mm", "80mm", "100mm", "150mm", "300mm"];
@@ -151,7 +151,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="current_existing_tap_type">Currently Existing Tap Connection Detail / मिळकतीस सध्या अस्तित्वात असलेल्या नळ कनेक्शनचा तपशील <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="current_existing_tap_type" id="current_existing_tap_type">
+                                    <select class="form-select" name="current_existing_tap_type" id="current_existing_tap_type">
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["बांधकाम", "औद्योगीक", "निवासी", "विशेष प्रवर्ग (शैक्षणिक संस्था,शासकीय,निमशासकीय कार्यालय,पथसंस्था,इतर)", "व्यावसायिक"];
@@ -165,7 +165,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="place_belongs_to_municipal">Place Belongs To Municipal Council Limit / सदर जागा नगरपरिषदेच्या हद्दीत आहे का ? <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="place_belongs_to_municipal" id="place_belongs_to_municipal">
+                                    <select class="form-select" name="place_belongs_to_municipal" id="place_belongs_to_municipal">
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["Yes", "No"];
@@ -179,7 +179,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="current_connection_is_illegal">Currently Existed Tap Connection Unauthorized / मिळकतीस सध्या अस्तित्वात असलेले नळ कनेक्शन अनाधिकृत होते काय ?  <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="current_connection_is_illegal" id="current_connection_is_illegal">
+                                    <select class="form-select" name="current_connection_is_illegal" id="current_connection_is_illegal">
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["Yes", "No"];

@@ -59,7 +59,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ownership_of_place">Ownership of the tent Palce / ज्या जागेवर मंडप उभारावयाचा आहे त्या जागेची मालकी <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="ownership_of_place" id="ownership_of_place">
+                                    <select class="form-select" name="ownership_of_place" id="ownership_of_place">
                                         <option value="">Select Option</option>
                                         <option value="खाजगी" {{ $data->ownership_of_place == "खाजगी" ? 'selected' : '' }}>खाजगी</option>
                                         <option value="निमशासकीय" {{ $data->ownership_of_place == "निमशासकीय" ? 'selected' : '' }}>निमशासकीय</option>
@@ -95,7 +95,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="zone" id="zone">
+                                    <select class="form-select" name="zone" id="zone">
                                         <option value="">Select Zone</option>
                                         <option value="1" {{ $data->zone == 1 ? 'selected' : '' }}>Prabhag1</option>
                                         <option value="2" {{ $data->zone == 2 ? 'selected' : '' }}>Prabhag2</option>
@@ -108,7 +108,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="ward_area" id="ward_area">
+                                    <select class="form-select" name="ward_area" id="ward_area">
                                         <option value="">Select Ward Area</option>
                                         <option value="1"  {{ $data->ward_area == 1 ? 'selected' : '' }}>firstward</option>
                                     </select>
@@ -207,7 +207,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="concerned_police_station">Concerned police station / संबंधित पोलीस स्टेशन<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="concerned_police_station" id="concerned_police_station">
+                                    <select class="form-select" name="concerned_police_station" id="concerned_police_station">
                                         <option value="">Select Option</option>
                                         <option value="पोलीस स्टेशन 1" {{ $data->concerned_police_station == "पोलीस स्टेशन 1" ? 'selected' : '' }}>पोलीस स्टेशन 1</option>
                                         <option value="पोलीस स्टेशन 2" {{ $data->concerned_police_station == "पोलीस स्टेशन 2" ? 'selected' : '' }}>पोलीस स्टेशन 2</option>
@@ -218,7 +218,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="concerned_traffic_police_station">Concerned traffic police station / संबंधित ट्रॅफिक पोलीस स्टेशन<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="concerned_traffic_police_station" id="concerned_traffic_police_station">
+                                    <select class="form-select" name="concerned_traffic_police_station" id="concerned_traffic_police_station">
                                         <option value="">Select Option</option>
                                         <option value="जिल्हा वाहतूक नियंत्रण शाखा भाईंदर" {{ $data->concerned_traffic_police_station == "जिल्हा वाहतूक नियंत्रण शाखा भाईंदर" ? 'selected' : '' }}>जिल्हा वाहतूक नियंत्रण शाखा भाईंदर</option>
                                     </select>
@@ -227,7 +227,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="nearest_fire_station">Nearest fire station / जवळचे अग्निशामक केंद्र <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="nearest_fire_station" id="nearest_fire_station">
+                                    <select class="form-select" name="nearest_fire_station" id="nearest_fire_station">
                                         <option value="">Select Option</option>
                                         <option value="म.न.पा.अग्निशमन केंद्र" {{ $data->nearest_fire_station == "म.न.पा.अग्निशमन केंद्र" ? 'selected' : '' }}>म.न.पा.अग्निशमन केंद्र</option>
                                     </select>

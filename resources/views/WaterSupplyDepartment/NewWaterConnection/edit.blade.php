@@ -41,7 +41,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="zone" id="zone">
+                                    <select class="form-select" name="zone" id="zone">
                                         <option value="">Select Zone</option>
                                         @php
                                             $options = ["Prabhag1", "Prabhag2", "Prabhag3", "Prabhag4", "Prabhag5", "Prabhag6"];
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="ward_area" id="ward_area">
+                                    <select class="form-select" name="ward_area" id="ward_area">
                                         <option value="">Select Ward Area</option>
                                         @php
                                             $options = ["firstward"];
@@ -104,7 +104,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="water_connection_use">Usage Of Water Connection / पाणी कनेक्शनचा वापर<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="water_connection_use" id="water_connection_use">
+                                    <select class="form-select" name="water_connection_use" id="water_connection_use">
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["अनिवासी व्यवसाय", "औद्योगीक", "निवासी", "विशेष प्रवर्ग (शैक्षणिक संस्था,शासकीय,निमशासकीय कार्यालय,पथसंस्था,इतर)", "व्यावसायिक अथवा वाणिज्य"];
@@ -118,7 +118,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="pipe_size">Pipe Size / पाईपचा आकार <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="pipe_size" id="pipe_size">
+                                    <select class="form-select" name="pipe_size" id="pipe_size">
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["15mm", "20mm", "25mm", "40mm", "50mm", "80mm", "100mm", "150mm", "300mm"];

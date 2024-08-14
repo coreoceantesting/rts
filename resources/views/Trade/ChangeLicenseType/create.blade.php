@@ -47,7 +47,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="zone" id="zone">
+                                    <select class="form-select" name="zone" id="zone">
                                         <option value="">Select Zone</option>
                                         <option value="1">Prabhag1</option>
                                         <option value="2">Prabhag2</option>
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="ward_area" id="ward_area">
+                                    <select class="form-select" name="ward_area" id="ward_area">
                                         <option value="">Select Ward Area</option>
                                         <option value="1">firstward</option>
                                     </select>
@@ -75,17 +75,13 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="old_treade_license_name">Old trade license name / जुन्या व्यवसाय परवान्याचे नाव <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="old_treade_license_name" id="old_treade_license_name">
+                                    <select class="form-select" name="old_treade_license_name" id="old_treade_license_name">
                                         <option value="">Select a value ...</option>
                                         <option value="42">असोसिएट्स</option>
                                         <option value="6">आईस्क्रिम पार्लर </option>
                                         <option value="53">इंजिनियरींग वर्क्स</option>
-                                        <option value="48">
-                                        इंटिरियल
-                                        </option>
-                                        <option value="65">
-                                        इतर
-                                        </option>
+                                        <option value="48">इंटिरियल</option>
+                                        <option value="65">इतर</option>
                                         <option value="12">
                                         इलेक्ट्रिकल
                                         </option>
@@ -272,7 +268,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="new_treade_license_name">New name for trade license / नवीन व्यवसाय परवान्याचे नाव<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="new_treade_license_name" id="new_treade_license_name">
+                                    <select class="form-select" name="new_treade_license_name" id="new_treade_license_name">
                                         <option value="">Select a value ...</option>
                                         <option value="42">असोसिएट्स</option>
                                         <option value="6">आईस्क्रिम पार्लर </option>
