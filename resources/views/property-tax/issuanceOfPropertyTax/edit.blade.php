@@ -2,6 +2,8 @@
     <x-slot name="title">Issuance Of Property Tax Assessment Copy / मालमत्ता कर उतारा देणे</x-slot>
     <x-slot name="heading">Issuance Of Property Tax Assessment Copy / मालमत्ता कर उतारा देणे</x-slot>
 
+        
+    
         <!-- Add Form -->
         <div class="row" id="addContainer">
             <div class="col-sm-12">
@@ -188,6 +190,23 @@
                             </div>
                         </div>
                         <div class="card-footer">
+                            <style>
+                                #progress-container {
+                                    width: 100%;
+                                    background-color: #f3f3f3;
+                                    margin-bottom: 10px;
+                                }
+                        
+                                #progress-bar {
+                                    text-align: center;
+                                    line-height: 30px;
+                                    color: white;
+                                }
+                            </style>
+                            <div id="progress-container">
+                                <div id="progress-bar" style="width: 0%; background-color: #4caf50; height: 30px;"></div>
+                            </div>
+                            <p id="progress-percentage">0%</p>
                             <button type="submit" class="btn btn-primary" id="editSubmit">Submit</button>
                             <button type="reset" class="btn btn-warning">Reset</button>
                         </div>
@@ -214,6 +233,18 @@
         $.ajax({
             url: url.replace(':model_id', model_id),
             type: 'POST',
+            xhr: function() {
+        var xhr = new window.XMLHttpRequest();
+        xhr.upload.addEventListener("progress", function(evt) {
+            if (evt.lengthComputable) {
+                var percentComplete = Math.round((evt.loaded / evt.total) * 100);
+                // Update the progress bar and percentage
+                $('#progress-bar').css('width', percentComplete + '%');
+                $('#progress-percentage').text(percentComplete + '%');
+            }
+        }, false);
+        return xhr;
+    },
             data: formdata,
             contentType: false,
             processData: false,
