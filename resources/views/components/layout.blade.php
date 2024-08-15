@@ -22,6 +22,32 @@
         <link href="{{ asset('admin/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('admin/css/font-awesome-all.min.css') }}" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+        <style>
+            #progress-container {
+                width: 100%;
+                background-color: #f3f3f3;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                overflow: hidden;
+            }
+
+            #progress-bar {
+                text-align: center;
+                line-height: 30px;
+                color: white;
+                background-color: #4caf50;
+                height: 30px;
+                width: 0;
+                border-radius: 5px;
+            }
+
+            #progress-percentage {
+                text-align: center;
+                font-size: 16px;
+                margin-top: 5px;
+            }
+
+        </style>
         @stack('styles')
     </head>
 
@@ -78,6 +104,16 @@
                 <div class="spinner-border text-primary avatar-sm" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
+            </div>
+        </div>
+
+
+        <div style="position: fixed;top: 0;left: 0;right: 0;bottom: 0;background-color: #ff0000a8;z-index: 9999;visibility:hidden" id="percentageloader">
+            <div style="width: 50%;height: 40px;position: absolute;left: 27%;top: 50%;margin: -20px 0 0 -20px;">
+                <div id="progress-container">
+                    <div id="progress-bar"></div>
+                </div>
+                <p id="progress-percentage" style="font-size: 25px;color:#fff">0%</p>
             </div>
         </div>
 
@@ -178,7 +214,7 @@
         }
 
         $( function() {
-            $(".datepicker").datepicker({ 
+            $(".datepicker").datepicker({
                 dateFormat: 'dd-mm-yy',
                 changeMonth: true,
                 changeYear: true,
