@@ -30,7 +30,7 @@ class AutoRenewalController extends Controller
      */
     public function create()
     {
-        return view('trade.AutoRenewal.create');
+        return view('trade.auto-renewal.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class AutoRenewalController extends Controller
     {
         $data = TradeAutoRenewalLicensePermission::findOrFail(decrypt($id));
 
-        return view('trade.AutoRenewal.edit', compact('data'));
+        return view('trade.auto-renewal.edit', compact('data'));
     }
 
     /**

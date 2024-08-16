@@ -30,7 +30,7 @@ class WaterTaxController extends Controller
      */
     public function create()
     {
-        return view('WaterSupplyDepartment.WaterTaxBill.create');
+        return view('water-supply-department.water-tax-bill.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class WaterTaxController extends Controller
     {
         $data = WaterTaxBill::findOrFail(decrypt($id));
 
-        return view('WaterSupplyDepartment.WaterTaxBill.edit', compact('data'));
+        return view('water-supply-department.water-tax-bill.edit', compact('data'));
     }
 
     /**

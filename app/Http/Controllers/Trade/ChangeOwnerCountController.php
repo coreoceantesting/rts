@@ -30,7 +30,7 @@ class ChangeOwnerCountController extends Controller
      */
     public function create()
     {
-        return view('trade.ChangeOwnerCount.create');
+        return view('trade.change-owner-count.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class ChangeOwnerCountController extends Controller
     {
         $data = TradeChangeOwnerCount::findOrFail(decrypt($id));
 
-        return view('trade.ChangeOwnerCount.edit', compact('data'));
+        return view('trade.change-owner-count.edit', compact('data'));
     }
 
     /**

@@ -177,7 +177,7 @@
         $("#addSubmit").prop('disabled', true);
 
         var formdata = new FormData(this);
-        var updateUrl = '{{ route("water-renewal-plumber-license.update", $data->id) }}';
+        var updateUrl = '{{ route("renewal-plumber-license.update", $data->id) }}';
         formdata.append('_method', 'PUT');
         $.ajax({
             url: updateUrl,
@@ -191,7 +191,7 @@
                 if (!data.error2)
                     swal("Successful!", data.success, "success")
                         .then((action) => {
-                            window.location.href = '{{ route("water-renewal-plumber-license.create") }}';
+                            window.location.href = '{{ route("renewal-plumber-license.create") }}';
                         });
                 else
                     swal("Error!", data.error2, "error");

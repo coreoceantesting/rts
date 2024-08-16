@@ -30,7 +30,7 @@ class WaterPressureController extends Controller
      */
     public function create()
     {
-        return view('WaterSupplyDepartment.WaterPressure.create');
+        return view('water-supply-department.water-pressure.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class WaterPressureController extends Controller
     {
         $data = WaterPressureComplaint::findOrFail(decrypt($id));
 
-        return view('WaterSupplyDepartment.WaterPressure.edit', compact('data'));
+        return view('water-supply-department.water-pressure.edit', compact('data'));
     }
 
     /**

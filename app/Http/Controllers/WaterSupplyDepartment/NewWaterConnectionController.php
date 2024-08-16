@@ -31,7 +31,7 @@ class NewWaterConnectionController extends Controller
      */
     public function create()
     {
-        return view('WaterSupplyDepartment.NewWaterConnection.create');
+        return view('water-supply-department.new-water-connection.create');
     }
 
     /**
@@ -67,7 +67,7 @@ class NewWaterConnectionController extends Controller
     {
         $data = Waternewconnection::findOrFail(decrypt($id));
 
-        return view('WaterSupplyDepartment.NewWaterConnection.edit', compact('data'));
+        return view('water-supply-department.new-water-connection.edit', compact('data'));
     }
 
     /**

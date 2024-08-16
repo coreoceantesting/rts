@@ -30,7 +30,7 @@ class PlumberLicenseController extends Controller
      */
     public function create()
     {
-        return view('trade.PlumberLicense.create');
+        return view('trade.plumber-license.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class PlumberLicenseController extends Controller
     {
         $data = WaterPlumberLicense::findOrFail(decrypt($id));
 
-        return view('trade.PlumberLicense.edit', compact('data'));
+        return view('trade.plumber-license.edit', compact('data'));
     }
 
     /**

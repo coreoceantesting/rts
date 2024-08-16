@@ -49,7 +49,7 @@ class ServiceSeeder extends Seeder
             ],
             [
                 "id" => 4,
-                "service_id" => null,
+                "service_id" => 75,
                 "name" => "विवाह नोंदणी",
                 "image" => "service/8apAFL7HgTwAWfvScbYuChPeKS2vbgYTajhjh2tR.png",
                 "is_parent" => 0,

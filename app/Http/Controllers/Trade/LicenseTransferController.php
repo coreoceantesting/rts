@@ -30,7 +30,7 @@ class LicenseTransferController extends Controller
      */
     public function create()
     {
-        return view('trade.LicenseTransfer.create');
+        return view('trade.license-transfer.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class LicenseTransferController extends Controller
     {
         $data = TradeLicenseTransfer::findOrFail(decrypt($id));
 
-        return view('trade.LicenseTransfer.edit', compact('data'));
+        return view('trade.license-transfer.edit', compact('data'));
     }
 
     /**

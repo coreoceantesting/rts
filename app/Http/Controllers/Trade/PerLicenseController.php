@@ -30,7 +30,7 @@ class PerLicenseController extends Controller
      */
     public function create()
     {
-        return view('trade.PerLicense.create');
+        return view('trade.per-license.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class PerLicenseController extends Controller
     public function edit(string $id)
     {
         $data = TradePerLicense::findOrFail(decrypt($id));
-        return view('trade.PerLicense.edit', compact('data'));
+        return view('trade.per-license.edit', compact('data'));
     }
 
     /**

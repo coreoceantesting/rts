@@ -11,11 +11,11 @@ use App\Models\CityStructure\CityStructurePartMap;
 
 class BhagNakashaController extends Controller
 {
-    protected $PartZoneService;
+    protected $partZoneService;
 
-    public function __construct(PartZoneService $PartZoneService)
+    public function __construct(PartZoneService $partZoneService)
     {
-        $this->PartZoneService = $PartZoneService;
+        $this->partZoneService = $partZoneService;
     }
     public function index()
     {
@@ -29,9 +29,9 @@ class BhagNakashaController extends Controller
 
     public function store(CreateRequest $request)
     {
-        $PartZoneService = $this->PartZoneService->store($request);
+        $partZoneService = $this->partZoneService->store($request);
 
-        if ($PartZoneService) {
+        if ($partZoneService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -51,9 +51,9 @@ class BhagNakashaController extends Controller
 
     public function update(UpdateRequest $request, string $id)
     {
-        $PartZoneService = $this->PartZoneService->update($request, $id);
+        $partZoneService = $this->partZoneService->update($request, $id);
 
-        if ($PartZoneService) {
+        if ($partZoneService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

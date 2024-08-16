@@ -175,7 +175,7 @@
 
         var formdata = new FormData(this);
         $.ajax({
-            url: '{{ route("water-renewal-plumber-license.store") }}',
+            url: '{{ route("renewal-plumber-license.store") }}',
             type: 'POST',
             data: formdata,
             contentType: false,
@@ -186,7 +186,7 @@
                 if (!data.error2)
                     swal("Successful!", data.success, "success")
                         .then((action) => {
-                            window.location.href = '{{ route("water-renewal-plumber-license.create") }}';
+                            window.location.href = '{{ route("renewal-plumber-license.create") }}';
                         });
                 else
                     swal("Error!", data.error2, "error");

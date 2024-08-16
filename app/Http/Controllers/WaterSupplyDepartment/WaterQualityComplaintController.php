@@ -30,7 +30,7 @@ class WaterQualityComplaintController extends Controller
      */
     public function create()
     {
-        return view('WaterSupplyDepartment.WaterQualityComplaints.create');
+        return view('water-supply-department.water-quality-complaints.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class WaterQualityComplaintController extends Controller
     {
         $data = WaterQualityComplaint::findOrFail(decrypt($id));
 
-        return view('WaterSupplyDepartment.WaterQualityComplaints.edit', compact('data'));
+        return view('water-supply-department.water-quality-complaints.edit', compact('data'));
     }
 
     /**

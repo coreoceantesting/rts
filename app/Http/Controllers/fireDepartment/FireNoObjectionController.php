@@ -11,11 +11,11 @@ use App\Models\FireDepartment\FireNoObjection;
 
 class FireNoObjectionController extends Controller
 {
-    protected $NoObjectionService;
+    protected $noObjectionService;
 
-    public function __construct(NoObjectionService $NoObjectionService)
+    public function __construct(NoObjectionService $noObjectionService)
     {
-        $this->NoObjectionService = $NoObjectionService;
+        $this->noObjectionService = $noObjectionService;
     }
     /**
      * Display a listing of the resource.
@@ -38,9 +38,9 @@ class FireNoObjectionController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $NoObjectionService = $this->NoObjectionService->store($request);
+        $noObjectionService = $this->noObjectionService->store($request);
 
-        if ($NoObjectionService) {
+        if ($noObjectionService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -74,9 +74,9 @@ class FireNoObjectionController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $NoObjectionService = $this->NoObjectionService->update($request, $id);
+        $noObjectionService = $this->noObjectionService->update($request, $id);
 
-        if ($NoObjectionService) {
+        if ($noObjectionService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

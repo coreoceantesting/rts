@@ -30,7 +30,7 @@ class NOCForMandapController extends Controller
      */
     public function create()
     {
-        return view('trade.NocMandap.create');
+        return view('trade.noc-mandap.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class NOCForMandapController extends Controller
     {
         $data = TradeNocForMandap::findOrFail(decrypt($id));
 
-        return view('trade.NocMandap.edit', compact('data'));
+        return view('trade.noc-mandap.edit', compact('data'));
     }
 
     /**

@@ -30,7 +30,7 @@ class DefectiveWaterMeterController extends Controller
      */
     public function create()
     {
-        return view('WaterSupplyDepartment.DefectiveWaterMeter.create');
+        return view('water-supply-department.defective-water-meter.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class DefectiveWaterMeterController extends Controller
     {
         $data = WaterDefectiveMeter::findOrFail(decrypt($id));
 
-        return view('WaterSupplyDepartment.DefectiveWaterMeter.edit', compact('data'));
+        return view('water-supply-department.defective-water-meter.edit', compact('data'));
     }
 
     /**

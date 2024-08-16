@@ -31,7 +31,7 @@ class IllegalWaterConnectionController extends Controller
      */
     public function create()
     {
-        return view('WaterSupplyDepartment.IllegalWaterConnection.create');
+        return view('water-supply-department.illegal-water-connection.create');
     }
 
     /**
@@ -67,7 +67,7 @@ class IllegalWaterConnectionController extends Controller
     {
         $data = Illegalwaterconnection::findOrFail(decrypt($id));
 
-        return view('WaterSupplyDepartment.IllegalWaterConnection.edit', compact('data'));
+        return view('water-supply-department.illegal-water-connection.edit', compact('data'));
     }
 
     /**

@@ -11,16 +11,13 @@ use App\Models\ConstructionDepartment\ConstructionDrainageConnection;
 
 class DrainageConnectionController extends Controller
 {
-    protected $DrainageConnectionService;
+    protected $drainageConnectionService;
 
-    public function __construct(DrainageConnectionService $DrainageConnectionService)
+    public function __construct(DrainageConnectionService $drainageConnectionService)
     {
-        $this->DrainageConnectionService = $DrainageConnectionService;
+        $this->drainageConnectionService = $drainageConnectionService;
     }
-    public function index()
-    {
-
-    }
+    public function index() {}
 
     public function create()
     {
@@ -29,9 +26,9 @@ class DrainageConnectionController extends Controller
 
     public function store(CreateRequest $request)
     {
-        $DrainageConnectionService = $this->DrainageConnectionService->store($request);
+        $drainageConnectionService = $this->drainageConnectionService->store($request);
 
-        if ($DrainageConnectionService) {
+        if ($drainageConnectionService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -51,9 +48,9 @@ class DrainageConnectionController extends Controller
 
     public function update(UpdateRequest $request, string $id)
     {
-        $DrainageConnectionService = $this->DrainageConnectionService->update($request, $id);
+        $drainageConnectionService = $this->drainageConnectionService->update($request, $id);
 
-        if ($DrainageConnectionService) {
+        if ($drainageConnectionService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

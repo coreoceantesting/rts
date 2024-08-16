@@ -175,6 +175,104 @@ class ServiceNameSeeder extends Seeder
                 'add_route' => 'water-quality-complaint.create',
                 'edit_route' => 'water-quality-complaint.edit'
             ],
+            [
+                'service_id' => 29,
+                'service_name' => 'Renewal Of Plumber License',
+                'model' => '\App\Models\WaterDepartment\WaterRenewalOfPlumber',
+                'add_route' => 'renewal-plumber-license.create',
+                'edit_route' => 'renewal-plumber-license.edit'
+            ],
+            [
+                'service_id' => 26,
+                'service_name' => 'Plumber License',
+                'model' => '\App\Models\WaterDepartment\WaterPlumberLicense',
+                'add_route' => 'trade-plumber-license.create',
+                'edit_route' => 'trade-plumber-license.edit'
+            ],
+            [
+                'service_id' => 28,
+                'service_name' => 'New Trade License Permission',
+                'model' => '\App\Models\Trade\TradeNewLicensePermission',
+                'add_route' => 'trade-new-license.create',
+                'edit_route' => 'trade-new-license.edit'
+            ],
+            [
+                'service_id' => 27,
+                'service_name' => 'Renewal Of Trade License Permission',
+                'model' => '\App\Models\Trade\TradeRenewalLicensePermission',
+                'add_route' => 'trade-renewal-license.create',
+                'edit_route' => 'trade-renewal-license.edit'
+            ],
+            [
+                'service_id' => 30,
+                'service_name' => 'Auto Renewal of Trade License',
+                'model' => '\App\Models\Trade\TradeAutoRenewalLicensePermission',
+                'add_route' => 'trade-autorenewal-license.create',
+                'edit_route' => 'trade-autorenewal-license.edit'
+            ],
+            [
+                'service_id' => 31,
+                'service_name' => 'Transfer Of Trade License Permission',
+                'model' => '\App\Models\Trade\TradeLicenseTransfer',
+                'add_route' => 'trade-license-transfer.create',
+                'edit_route' => 'trade-license-transfer.edit'
+            ],
+            [
+                'service_id' => 32,
+                'service_name' => 'Trade License Permission Secondry Copy',
+                'model' => '\App\Models\Trade\TradePerLicense',
+                'add_route' => 'trade-per-license.create',
+                'edit_route' => 'trade-per-license.edit'
+            ],
+            [
+                'service_id' => 33,
+                'service_name' => 'NOC for Pandol/Mandap',
+                'model' => '\App\Models\Trade\TradeNocForMandap',
+                'add_route' => 'trade-noc-mandap.create',
+                'edit_route' => 'trade-noc-mandap.edit'
+            ],
+            [
+                'service_id' => 34,
+                'service_name' => 'Trade License Name Change Request',
+                'model' => '\App\Models\Trade\TradeChangeLicenseName',
+                'add_route' => 'trade-change-license-name.create',
+                'edit_route' => 'trade-change-license-name.edit'
+            ],
+            [
+                'service_id' => 35,
+                'service_name' => 'Trade License Type Change Request',
+                'model' => '\App\Models\Trade\TradeChangeLicenseType',
+                'add_route' => 'trade-change-license-type.create',
+                'edit_route' => 'trade-change-license-type.edit'
+            ],
+            [
+                'service_id' => 39,
+                'service_name' => 'License Partner Count Change',
+                'model' => '\App\Models\Trade\TradeChangeOwnerCount',
+                'add_route' => 'trade-change-owner-count.create',
+                'edit_route' => 'trade-change-owner-count.edit'
+            ],
+            [
+                'service_id' => 36,
+                'service_name' => 'License Partner Name Change',
+                'model' => '\App\Models\Trade\TradeChangeOwnerName',
+                'add_route' => 'trade-change-owner-name.create',
+                'edit_route' => 'trade-change-owner-name.edit'
+            ],
+            [
+                'service_id' => 37,
+                'service_name' => 'Cancellation of Trade License',
+                'model' => '\App\Models\Trade\TradeLicenseCancellation',
+                'add_route' => 'trade-license-cancellation.create',
+                'edit_route' => 'trade-license-cancellation.edit'
+            ],
+            [
+                'service_id' => 75,
+                'service_name' => 'ISSUANCE OF MARRIAGE REGISTRATION CERTIFICATE',
+                'model' => '\App\Models\Marriage\MarriageRegistrationForm',
+                'add_route' => 'marriage-registration.create',
+                'edit_route' => 'marriage-registration.edit'
+            ],
         ];
 
         foreach ($services as $service) {

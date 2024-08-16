@@ -30,7 +30,7 @@ class NewTradeLicensePermissionController extends Controller
      */
     public function create()
     {
-        return view('trade.NewLicensePermission.create');
+        return view('trade.new-license-permission.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class NewTradeLicensePermissionController extends Controller
     {
         $data = TradeNewLicensePermission::findOrFail(decrypt($id));
 
-        return view('trade.NewLicensePermission.edit', compact('data'));
+        return view('trade.new-license-permission.edit', compact('data'));
     }
 
     /**

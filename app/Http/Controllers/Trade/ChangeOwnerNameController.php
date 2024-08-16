@@ -30,7 +30,7 @@ class ChangeOwnerNameController extends Controller
      */
     public function create()
     {
-        return view('trade.ChangeOwnerName.create');
+        return view('trade.change-owner-name.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class ChangeOwnerNameController extends Controller
     {
         $data = TradeChangeOwnerName::findOrFail(decrypt($id));
 
-        return view('trade.ChangeOwnerName.edit', compact('data'));
+        return view('trade.change-owner-name.edit', compact('data'));
     }
 
     /**

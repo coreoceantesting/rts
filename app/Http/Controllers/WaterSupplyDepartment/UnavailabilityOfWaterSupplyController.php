@@ -30,7 +30,7 @@ class UnavailabilityOfWaterSupplyController extends Controller
      */
     public function create()
     {
-        return view('WaterSupplyDepartment.UnAvalibalityWaterSupply.create');
+        return view('water-supply-department.unavalibality-water-supply.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class UnavailabilityOfWaterSupplyController extends Controller
     {
         $data = WaterUnavailabilitySupply::findOrFail(decrypt($id));
 
-        return view('WaterSupplyDepartment.UnAvalibalityWaterSupply.edit', compact('data'));
+        return view('water-supply-department.unavalibality-water-supply.edit', compact('data'));
     }
 
     /**

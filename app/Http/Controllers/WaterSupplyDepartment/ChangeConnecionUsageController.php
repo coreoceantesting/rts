@@ -29,7 +29,7 @@ class ChangeConnecionUsageController extends Controller
      */
     public function create()
     {
-        return view('WaterSupplyDepartment.ChangeConnectionUsage.create');
+        return view('water-supply-department.change-connection-usage.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class ChangeConnecionUsageController extends Controller
     {
         $data = $this->changeInUseService->edit(decrypt($id));
 
-        return view('WaterSupplyDepartment.ChangeConnectionUsage.edit', compact('data'));
+        return view('water-supply-department.change-connection-usage.edit', compact('data'));
     }
 
     /**

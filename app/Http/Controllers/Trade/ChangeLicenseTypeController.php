@@ -30,7 +30,7 @@ class ChangeLicenseTypeController extends Controller
      */
     public function create()
     {
-        return view('trade.ChangeLicenseType.create');
+        return view('trade.change-license-type.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class ChangeLicenseTypeController extends Controller
     {
         $data = TradeChangeLicenseType::findOrFail(decrypt($id));
 
-        return view('trade.ChangeLicenseType.edit', compact('data'));
+        return view('trade.change-license-type.edit', compact('data'));
     }
 
     /**

@@ -11,11 +11,11 @@ use App\Models\CityStructure\CityStructureZoneCertificate;
 
 class ZoneCertificateController extends Controller
 {
-    protected $ZoneCertificateService;
+    protected $zoneCertificateService;
 
-    public function __construct(ZoneCertificateService $ZoneCertificateService)
+    public function __construct(ZoneCertificateService $zoneCertificateService)
     {
-        $this->ZoneCertificateService = $ZoneCertificateService;
+        $this->zoneCertificateService = $zoneCertificateService;
     }
     public function index()
     {
@@ -29,9 +29,9 @@ class ZoneCertificateController extends Controller
 
     public function store(CreateRequest $request)
     {
-        $ZoneCertificateService = $this->ZoneCertificateService->store($request);
+        $zoneCertificateService = $this->zoneCertificateService->store($request);
 
-        if ($ZoneCertificateService) {
+        if ($zoneCertificateService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -51,9 +51,9 @@ class ZoneCertificateController extends Controller
 
     public function update(UpdateRequest $request, string $id)
     {
-        $ZoneCertificateService = $this->ZoneCertificateService->update($request, $id);
+        $zoneCertificateService = $this->zoneCertificateService->update($request, $id);
 
-        if ($ZoneCertificateService) {
+        if ($zoneCertificateService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

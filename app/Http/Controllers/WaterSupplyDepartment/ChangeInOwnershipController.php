@@ -30,7 +30,7 @@ class ChangeInOwnershipController extends Controller
      */
     public function create()
     {
-        return view('WaterSupplyDepartment.ChangeInOwnership.create');
+        return view('water-supply-department.change-in-ownership.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class ChangeInOwnershipController extends Controller
     public function edit(string $id)
     {
         $data = WaterChangeOwnership::findOrFail(decrypt($id));
-        return view('WaterSupplyDepartment.ChangeInOwnership.edit', compact('data'));
+        return view('water-supply-department.change-in-ownership.edit', compact('data'));
     }
 
     /**

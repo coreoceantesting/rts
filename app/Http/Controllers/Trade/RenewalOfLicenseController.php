@@ -30,7 +30,7 @@ class RenewalOfLicenseController extends Controller
      */
     public function create()
     {
-        return view('trade.RenewalOfLicense.create');
+        return view('trade.renewal-of-license.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class RenewalOfLicenseController extends Controller
     {
         $data = TradeRenewalLicensePermission::findOrFail(decrypt($id));
 
-        return view('trade.RenewalOfLicense.edit', compact('data'));
+        return view('trade.renewal-of-license.edit', compact('data'));
     }
 
     /**

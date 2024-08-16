@@ -11,11 +11,11 @@ use App\Models\FireDepartment\FireFinalNoObjection;
 
 class FinalFireNoObjectionController extends Controller
 {
-    protected $FinalNoObjectionService;
+    protected $finalNoObjectionService;
 
-    public function __construct(FinalNoObjectionService $FinalNoObjectionService)
+    public function __construct(FinalNoObjectionService $finalNoObjectionService)
     {
-        $this->FinalNoObjectionService = $FinalNoObjectionService;
+        $this->finalNoObjectionService = $finalNoObjectionService;
     }
     /**
      * Display a listing of the resource.
@@ -38,9 +38,9 @@ class FinalFireNoObjectionController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $FinalNoObjectionService = $this->FinalNoObjectionService->store($request);
+        $finalNoObjectionService = $this->finalNoObjectionService->store($request);
 
-        if ($FinalNoObjectionService) {
+        if ($finalNoObjectionService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -74,9 +74,9 @@ class FinalFireNoObjectionController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $FinalNoObjectionService = $this->FinalNoObjectionService->update($request, $id);
+        $finalNoObjectionService = $this->finalNoObjectionService->update($request, $id);
 
-        if ($FinalNoObjectionService) {
+        if ($finalNoObjectionService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

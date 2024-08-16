@@ -30,7 +30,7 @@ class NoDuesController extends Controller
      */
     public function create()
     {
-        return view('WaterSupplyDepartment.NoDuesCertificate.create');
+        return view('water-supply-department.no-dues-certificate.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class NoDuesController extends Controller
     {
         $data = WaterNoDues::findOrFail(decrypt($id));
 
-        return view('WaterSupplyDepartment.NoDuesCertificate.edit', compact('data'));
+        return view('water-supply-department.no-dues-certificate.edit', compact('data'));
     }
 
     /**

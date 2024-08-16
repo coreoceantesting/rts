@@ -30,7 +30,7 @@ class ChangeWaterConnectionSizeController extends Controller
      */
     public function create()
     {
-        return view('WaterSupplyDepartment.ChangeWaterConnectionSize.create');
+        return view('water-supply-department.change-water-connection-size.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class ChangeWaterConnectionSizeController extends Controller
     public function edit(string $id)
     {
         $data = WaterChangeConnectionSize::findOrFail(decrypt($id));
-        return view('WaterSupplyDepartment.ChangeWaterConnectionSize.edit', compact('data'));
+        return view('water-supply-department.change-water-connection-size.edit', compact('data'));
     }
 
     /**
