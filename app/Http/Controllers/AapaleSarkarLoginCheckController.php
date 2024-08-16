@@ -145,10 +145,6 @@ class AapaleSarkarLoginCheckController extends Controller
 
     public function makePaymentToAapaleSarkar(Request $request)
     {
-        // $this->checkSessionTimeStamp(); // function to check sessiontimestamp
-        $this->load->library('session');
-        $this->load->helper('custom');
-        $this->config->load('custom_config');
 
         // get credential from config file
         $soapEndPoint = $this->config->item('soapEndPoint');
@@ -177,14 +173,14 @@ class AapaleSarkarLoginCheckController extends Controller
         $returnPath = base_url() . 'Marriage_permission_form/paymentReturnUrl';
 
         $request1 = sprintf("%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s", $trackId, $clientCode, $userId, $serviceId, $applicationId, $paymentStatus, $paymentDate, $digitalSignStatus, $digitalSignDate, $estimateServiceDays, $estimateServiceDate, $amount, $requestFlag, $applicationStatus, $remark, $ud1, $ud2, $ud3, $ud4, $ud5, $checkSumKey);
-        $checksumvalue = GenerateCheckSumValue($request1);
+        $checksumvalue = $this->aapaleSarkarLoginCheckService->GenerateCheckSumValue($request1);
 
         $request2 = sprintf("%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s", $clientCode, $checksumvalue, $serviceId, $applicationId, $ud2, date('Y-m-d'), $trackId, $userId, $this->session->userdata('aapalesarkarmobileno'), $this->session->userdata('aapalesarkarusername'), $returnPath, $ud1, $ud2, $ud3, $ud4, $ud5);
 
-        $webstr = encryptTripleDES($request2, $this->config->item('strKey'), $this->config->item('strIV'));
+        $webstr = $this->aapaleSarkarLoginCheckService->encryptTripleDES($request2, $this->config->item('strKey'), $this->config->item('strIV'));
         $url = $this->config->item('validatePayment') . "?webstr=" . $webstr . "&deptcode=" . $clientCode;
 
-        $response = validateAapaleSarkarPayment($url);
+        $response = $this->aapaleSarkarLoginCheckService->validateAapaleSarkarPayment($url);
         $response = json_decode($response);
         // echo $response->Key."<br>";
         // print_r($response);exit;
