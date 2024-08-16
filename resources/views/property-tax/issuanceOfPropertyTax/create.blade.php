@@ -216,22 +216,10 @@
             data: formdata,
             contentType: false,
             processData: false,
-            xhr: function() {
-                var xhr = new window.XMLHttpRequest();
-                xhr.upload.addEventListener("progress", function(evt) {
-                    if (evt.lengthComputable) {
-                        var percentComplete = Math.round((evt.loaded / evt.total) * 100);
-                        // Update the progress bar and percentage
-                        $('#progress-bar').css('width', percentComplete + '%');
-                        $('#progress-percentage').text(percentComplete + '%');
-                    }
-                }, false);
-                return xhr;
-            },
             beforeSend: function()
             {
-                $('#percentageloader').css('opacity', '1');
-                $('#percentageloader').css('visibility', 'visible');
+                $('#preloader').css('opacity', '0.5');
+                $('#preloader').css('visibility', 'visible');
             },
             success: function(data)
             {
@@ -256,8 +244,8 @@
                 }
             },
             complete: function() {
-                $('#percentageloader').css('opacity', '0');
-                $('#percentageloader').css('visibility', 'hidden');
+                $('#preloader').css('opacity', '0');
+                $('#preloader').css('visibility', 'hidden');
             },
         });
 

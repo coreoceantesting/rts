@@ -84,6 +84,97 @@ class ServiceNameSeeder extends Seeder
                 'add_route' => 'tax-exemption-non-resident.create',
                 'edit_route' => 'tax-exemption-non-resident.edit'
             ],
+            [
+                'service_id' => 21,
+                'service_name' => 'New Water Connection',
+                'model' => '\App\Models\WaterDepartment\Waternewconnection',
+                'add_route' => 'water-new-connection.create',
+                'edit_route' => 'water-new-connection.edit'
+            ],
+            [
+                'service_id' => 22,
+                'service_name' => 'Complaint Of Illegal Water Connection',
+                'model' => '\App\Models\WaterDepartment\Illegalwaterconnection',
+                'add_route' => 'water-illegal-connection.create',
+                'edit_route' => 'water-illegal-connection.edit'
+            ],
+            [
+                'service_id' => 23,
+                'service_name' => 'Making Change In Ownership',
+                'model' => '\App\Models\WaterDepartment\WaterChangeOwnership',
+                'add_route' => 'water-change-ownership.create',
+                'edit_route' => 'water-change-ownership.edit'
+            ],
+            [
+                'service_id' => 24,
+                'service_name' => 'Making Change In Water Connection Size',
+                'model' => '\App\Models\WaterDepartment\WaterChangeConnectionSize',
+                'add_route' => 'water-connection-size-change.create',
+                'edit_route' => 'water-connection-size-change.edit'
+            ],
+            [
+                'service_id' => 15,
+                'service_name' => 'Water Reconnection',
+                'model' => '\App\Models\WaterDepartment\WaterReconnection',
+                'add_route' => 'water-reconnection.create',
+                'edit_route' => 'water-reconnection.edit'
+            ],
+            [
+                'service_id' => 16,
+                'service_name' => 'Disconnection Water Supply',
+                'model' => '\App\Models\WaterDepartment\WaterDisconnectSupply',
+                'add_route' => 'water-disconnect-supply.create',
+                'edit_route' => 'water-disconnect-supply.edit'
+            ],
+            [
+                'service_id' => 17,
+                'service_name' => 'Connection Usage Change',
+                'model' => '\App\Models\WaterDepartment\WaterChangeInUse',
+                'add_route' => 'water-change-connection-usage.create',
+                'edit_route' => 'water-change-connection-usage.edit'
+            ],
+            [
+                'service_id' => 18,
+                'service_name' => 'Preparation Of Water Tax Bill',
+                'model' => '\App\Models\WaterDepartment\WaterTaxBill',
+                'add_route' => 'water-Tax-bill.create',
+                'edit_route' => 'water-Tax-bill.edit'
+            ],
+            [
+                'service_id' => 5,
+                'service_name' => 'No Dues Certificate Water Supply',
+                'model' => '\App\Models\WaterDepartment\WaterNoDues',
+                'add_route' => 'water-no-dues.create',
+                'edit_route' => 'water-no-dues.edit'
+            ],
+            [
+                'service_id' => 20,
+                'service_name' => 'Unavailability Of Water Supply',
+                'model' => '\App\Models\WaterDepartment\WaterUnavailabilitySupply',
+                'add_route' => 'water-unavailability-supply.create',
+                'edit_route' => 'water-unavailability-supply.edit'
+            ],
+            [
+                'service_id' => 25,
+                'service_name' => 'Complaint Of Defective Water Meter',
+                'model' => '\App\Models\WaterDepartment\WaterDefectiveMeter',
+                'add_route' => 'water-defective-meter.create',
+                'edit_route' => 'water-defective-meter.edit'
+            ],
+            [
+                'service_id' => 26,
+                'service_name' => 'Complaint Of Water Pressure',
+                'model' => '\App\Models\WaterDepartment\WaterPressureComplaint',
+                'add_route' => 'water-pressure-complaint.create',
+                'edit_route' => 'water-pressure-complaint.edit'
+            ],
+            [
+                'service_id' => 27,
+                'service_name' => 'Complaint Of Water Quality',
+                'model' => '\App\Models\WaterDepartment\WaterQualityComplaint',
+                'add_route' => 'water-quality-complaint.create',
+                'edit_route' => 'water-quality-complaint.edit'
+            ],
         ];
 
         foreach ($services as $service) {

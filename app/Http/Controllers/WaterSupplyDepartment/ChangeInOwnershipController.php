@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\WaterDepartment\ChangeOwnership\CreateRequest;
 use App\Http\Requests\WaterDepartment\ChangeOwnership\UpdateRequest;
-use App\Services\WaterDepartment\ChangeOwnership\ChangeOwnershipService;
+use App\Services\WaterDepartment\ChangeOwnershipService;
 use App\Models\WaterDepartment\WaterChangeOwnership;
 
 class ChangeInOwnershipController extends Controller
 {
-    protected $ChangeOwnershipService;
+    protected $changeOwnershipService;
 
-    public function __construct(ChangeOwnershipService $ChangeOwnershipService)
+    public function __construct(ChangeOwnershipService $changeOwnershipService)
     {
-        $this->ChangeOwnershipService = $ChangeOwnershipService;
+        $this->changeOwnershipService = $changeOwnershipService;
     }
     /**
      * Display a listing of the resource.
@@ -38,9 +38,9 @@ class ChangeInOwnershipController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $ChangeOwnershipService = $this->ChangeOwnershipService->store($request);
+        $changeOwnershipService = $this->changeOwnershipService->store($request);
 
-        if ($ChangeOwnershipService) {
+        if ($changeOwnershipService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -73,9 +73,9 @@ class ChangeInOwnershipController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $ChangeOwnershipService = $this->ChangeOwnershipService->update($request, $id);
+        $changeOwnershipService = $this->changeOwnershipService->update($request, $id);
 
-        if ($ChangeOwnershipService) {
+        if ($changeOwnershipService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

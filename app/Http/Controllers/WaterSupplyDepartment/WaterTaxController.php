@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\WaterDepartment\TaxBill\CreateRequest;
 use App\Http\Requests\WaterDepartment\TaxBill\UpdateRequest;
-use App\Services\WaterDepartment\TaxBill\TaxBillService;
+use App\Services\WaterDepartment\TaxBillService;
 use App\Models\WaterDepartment\WaterTaxBill;
 
 class WaterTaxController extends Controller
 {
-    protected $TaxBillService;
+    protected $taxBillService;
 
-    public function __construct(TaxBillService $TaxBillService)
+    public function __construct(TaxBillService $taxBillService)
     {
-        $this->TaxBillService = $TaxBillService;
+        $this->taxBillService = $taxBillService;
     }
     /**
      * Display a listing of the resource.
@@ -38,9 +38,9 @@ class WaterTaxController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $TaxBillService = $this->TaxBillService->store($request);
+        $taxBillService = $this->taxBillService->store($request);
 
-        if ($TaxBillService) {
+        if ($taxBillService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -74,9 +74,9 @@ class WaterTaxController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $TaxBillService = $this->TaxBillService->update($request, $id);
+        $taxBillService = $this->taxBillService->update($request, $id);
 
-        if ($TaxBillService) {
+        if ($taxBillService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

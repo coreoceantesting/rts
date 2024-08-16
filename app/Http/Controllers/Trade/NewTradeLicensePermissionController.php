@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Trade\NewLicense\CreateRequest;
 use App\Http\Requests\Trade\NewLicense\UpdateRequest;
-use App\Services\Trade\NewLicense\NewLicenseService;
+use App\Services\Trade\NewLicenseService;
 use App\Models\Trade\TradeNewLicensePermission;
 
 class NewTradeLicensePermissionController extends Controller
 {
-    protected $NewLicenseService;
+    protected $newLicenseService;
 
-    public function __construct(NewLicenseService $NewLicenseService)
+    public function __construct(NewLicenseService $newLicenseService)
     {
-        $this->NewLicenseService = $NewLicenseService;
+        $this->newLicenseService = $newLicenseService;
     }
     /**
      * Display a listing of the resource.
@@ -30,7 +30,7 @@ class NewTradeLicensePermissionController extends Controller
      */
     public function create()
     {
-        return view('Trade.NewLicensePermission.create');
+        return view('trade.NewLicensePermission.create');
     }
 
     /**
@@ -38,9 +38,9 @@ class NewTradeLicensePermissionController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $NewLicenseService = $this->NewLicenseService->store($request);
+        $newLicenseService = $this->newLicenseService->store($request);
 
-        if ($NewLicenseService) {
+        if ($newLicenseService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -66,7 +66,7 @@ class NewTradeLicensePermissionController extends Controller
     {
         $data = TradeNewLicensePermission::findOrFail(decrypt($id));
 
-        return view('Trade.NewLicensePermission.edit', compact('data'));
+        return view('trade.NewLicensePermission.edit', compact('data'));
     }
 
     /**
@@ -74,9 +74,9 @@ class NewTradeLicensePermissionController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $NewLicenseService = $this->NewLicenseService->update($request, $id);
+        $newLicenseService = $this->newLicenseService->update($request, $id);
 
-        if ($NewLicenseService) {
+        if ($newLicenseService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

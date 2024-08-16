@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Trade\PerLicense\CreateRequest;
 use App\Http\Requests\Trade\PerLicense\UpdateRequest;
-use App\Services\Trade\PerLicense\PerLicenseService;
+use App\Services\Trade\PerLicenseService;
 use App\Models\Trade\TradePerLicense;
 
 class PerLicenseController extends Controller
 {
-    protected $PerLicenseService;
+    protected $perLicenseService;
 
-    public function __construct(PerLicenseService $PerLicenseService)
+    public function __construct(PerLicenseService $perLicenseService)
     {
-        $this->PerLicenseService = $PerLicenseService;
+        $this->perLicenseService = $perLicenseService;
     }
     /**
      * Display a listing of the resource.
@@ -30,7 +30,7 @@ class PerLicenseController extends Controller
      */
     public function create()
     {
-        return view('Trade.PerLicense.create');
+        return view('trade.PerLicense.create');
     }
 
     /**
@@ -38,9 +38,9 @@ class PerLicenseController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $PerLicenseService = $this->PerLicenseService->store($request);
+        $perLicenseService = $this->perLicenseService->store($request);
 
-        if ($PerLicenseService) {
+        if ($perLicenseService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -65,7 +65,7 @@ class PerLicenseController extends Controller
     public function edit(string $id)
     {
         $data = TradePerLicense::findOrFail(decrypt($id));
-        return view('Trade.PerLicense.edit', compact('data'));
+        return view('trade.PerLicense.edit', compact('data'));
     }
 
     /**
@@ -73,9 +73,9 @@ class PerLicenseController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $PerLicenseService = $this->PerLicenseService->update($request, $id);
+        $perLicenseService = $this->perLicenseService->update($request, $id);
 
-        if ($PerLicenseService) {
+        if ($perLicenseService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

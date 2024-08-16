@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Trade\RenewalLicense\CreateRequest;
 use App\Http\Requests\Trade\RenewalLicense\UpdateRequest;
-use App\Services\Trade\RenewalLicense\RenewalLicenseService;
+use App\Services\Trade\RenewalLicenseService;
 use App\Models\Trade\TradeRenewalLicensePermission;
 
 class RenewalOfLicenseController extends Controller
 {
-    protected $RenewalLicenseService;
+    protected $renewalLicenseService;
 
-    public function __construct(RenewalLicenseService $RenewalLicenseService)
+    public function __construct(RenewalLicenseService $renewalLicenseService)
     {
-        $this->RenewalLicenseService = $RenewalLicenseService;
+        $this->renewalLicenseService = $renewalLicenseService;
     }
     /**
      * Display a listing of the resource.
@@ -30,7 +30,7 @@ class RenewalOfLicenseController extends Controller
      */
     public function create()
     {
-        return view('Trade.RenewalOfLicense.create');
+        return view('trade.RenewalOfLicense.create');
     }
 
     /**
@@ -38,9 +38,9 @@ class RenewalOfLicenseController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $RenewalLicenseService = $this->RenewalLicenseService->store($request);
+        $renewalLicenseService = $this->renewalLicenseService->store($request);
 
-        if ($RenewalLicenseService) {
+        if ($renewalLicenseService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -66,7 +66,7 @@ class RenewalOfLicenseController extends Controller
     {
         $data = TradeRenewalLicensePermission::findOrFail(decrypt($id));
 
-        return view('Trade.RenewalOfLicense.edit', compact('data'));
+        return view('trade.RenewalOfLicense.edit', compact('data'));
     }
 
     /**
@@ -74,9 +74,9 @@ class RenewalOfLicenseController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $RenewalLicenseService = $this->RenewalLicenseService->update($request, $id);
+        $renewalLicenseService = $this->renewalLicenseService->update($request, $id);
 
-        if ($RenewalLicenseService) {
+        if ($renewalLicenseService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\WaterDepartment\ChangeConnectionSize\CreateRequest;
 use App\Http\Requests\WaterDepartment\ChangeConnectionSize\UpdateRequest;
-use App\Services\WaterDepartment\ChangeConnectionSize\ChangeConnectionSizeService;
+use App\Services\WaterDepartment\ChangeConnectionSizeService;
 use App\Models\WaterDepartment\WaterChangeConnectionSize;
 
 class ChangeWaterConnectionSizeController extends Controller
 {
-    protected $ChangeConnectionSizeService;
+    protected $changeConnectionSizeService;
 
-    public function __construct(ChangeConnectionSizeService $ChangeConnectionSizeService)
+    public function __construct(ChangeConnectionSizeService $changeConnectionSizeService)
     {
-        $this->ChangeConnectionSizeService = $ChangeConnectionSizeService;
+        $this->changeConnectionSizeService = $changeConnectionSizeService;
     }
     /**
      * Display a listing of the resource.
@@ -38,9 +38,9 @@ class ChangeWaterConnectionSizeController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $ChangeConnectionSizeService = $this->ChangeConnectionSizeService->store($request);
+        $changeConnectionSizeService = $this->changeConnectionSizeService->store($request);
 
-        if ($ChangeConnectionSizeService) {
+        if ($changeConnectionSizeService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -73,9 +73,9 @@ class ChangeWaterConnectionSizeController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $ChangeConnectionSizeService = $this->ChangeConnectionSizeService->update($request, $id);
+        $changeConnectionSizeService = $this->changeConnectionSizeService->update($request, $id);
 
-        if ($ChangeConnectionSizeService) {
+        if ($changeConnectionSizeService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Trade\NocForMandap\CreateRequest;
 use App\Http\Requests\Trade\NocForMandap\UpdateRequest;
-use App\Services\Trade\NocForMandap\NocForMandapService;
+use App\Services\Trade\NocForMandapService;
 use App\Models\Trade\TradeNocForMandap;
 
 class NOCForMandapController extends Controller
 {
-    protected $NocForMandapService;
+    protected $nocForMandapService;
 
-    public function __construct(NocForMandapService $NocForMandapService)
+    public function __construct(NocForMandapService $nocForMandapService)
     {
-        $this->NocForMandapService = $NocForMandapService;
+        $this->nocForMandapService = $nocForMandapService;
     }
     /**
      * Display a listing of the resource.
@@ -30,7 +30,7 @@ class NOCForMandapController extends Controller
      */
     public function create()
     {
-        return view('Trade.NocMandap.create');
+        return view('trade.NocMandap.create');
     }
 
     /**
@@ -38,9 +38,9 @@ class NOCForMandapController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $NocForMandapService = $this->NocForMandapService->store($request);
+        $nocForMandapService = $this->nocForMandapService->store($request);
 
-        if ($NocForMandapService) {
+        if ($nocForMandapService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -66,7 +66,7 @@ class NOCForMandapController extends Controller
     {
         $data = TradeNocForMandap::findOrFail(decrypt($id));
 
-        return view('Trade.NocMandap.edit', compact('data'));
+        return view('trade.NocMandap.edit', compact('data'));
     }
 
     /**
@@ -74,9 +74,9 @@ class NOCForMandapController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $NocForMandapService = $this->NocForMandapService->update($request, $id);
+        $nocForMandapService = $this->nocForMandapService->update($request, $id);
 
-        if ($NocForMandapService) {
+        if ($nocForMandapService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

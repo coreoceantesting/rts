@@ -38,9 +38,9 @@ use App\Http\Controllers\WaterSupplyDepartment\NoDuesController;
 use App\Http\Controllers\WaterSupplyDepartment\UnavailabilityOfWaterSupplyController;
 use App\Http\Controllers\WaterSupplyDepartment\DefectiveWaterMeterController;
 use App\Http\Controllers\WaterSupplyDepartment\WaterPressureController;
-use App\Http\Controllers\WaterSupplyDepartment\PlumberLicenseController;
-use App\Http\Controllers\WaterSupplyDepartment\RenewalPlumberLicenseController;
+use App\Http\Controllers\Trade\RenewalPlumberLicenseController;
 use App\Http\Controllers\WaterSupplyDepartment\WaterQualityComplaintController;
+use App\Http\Controllers\Trade\PlumberLicenseController;
 use App\Http\Controllers\Trade\NewTradeLicensePermissionController;
 use App\Http\Controllers\Trade\RenewalOfLicenseController;
 use App\Http\Controllers\Trade\AutoRenewalController;
@@ -93,7 +93,7 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::post('logout', [App\Http\Controllers\Registeration\AuthController::class, 'Logout'])->name('logout');
     Route::get('show-change-password', [App\Http\Controllers\Registeration\AuthController::class, 'showChangePassword'])->name('show-change-password');
     Route::post('change-password', [App\Http\Controllers\Registeration\AuthController::class, 'changePassword'])->name('change-password');
-    Route::get('home', fn () => redirect()->route('dashboard'))->name('home');
+    Route::get('home', fn() => redirect()->route('dashboard'))->name('home');
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('service/{id}', [DashboardController::class, 'subService'])->name('service.my-service');
     Route::get('my-application', [DashboardController::class, 'myApplication'])->name('my-application');
@@ -157,11 +157,11 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('water-unavailability-supply', UnavailabilityOfWaterSupplyController::class);
     Route::resource('water-defective-meter', DefectiveWaterMeterController::class);
     Route::resource('water-pressure-complaint', WaterPressureController::class);
-    Route::resource('water-plumber-license', PlumberLicenseController::class);
-    Route::resource('water-renewal-plumber-license', RenewalPlumberLicenseController::class);
     Route::resource('water-quality-complaint', WaterQualityComplaintController::class);
 
     // Trade Routes
+    Route::resource('renewal-plumber-license', RenewalPlumberLicenseController::class);
+    Route::resource('trade-plumber-license', PlumberLicenseController::class);
     Route::resource('trade-new-license', NewTradeLicensePermissionController::class);
     Route::resource('trade-renewal-license', RenewalOfLicenseController::class);
     Route::resource('trade-autorenewal-license', AutoRenewalController::class);

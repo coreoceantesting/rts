@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Trade\LicenseTransfer\CreateRequest;
 use App\Http\Requests\Trade\LicenseTransfer\UpdateRequest;
-use App\Services\Trade\LicenseTransfer\LicenseTransferService;
+use App\Services\Trade\LicenseTransferService;
 use App\Models\Trade\TradeLicenseTransfer;
 
 class LicenseTransferController extends Controller
 {
-    protected $LicenseTransferService;
+    protected $licenseTransferService;
 
-    public function __construct(LicenseTransferService $LicenseTransferService)
+    public function __construct(LicenseTransferService $licenseTransferService)
     {
-        $this->LicenseTransferService = $LicenseTransferService;
+        $this->licenseTransferService = $licenseTransferService;
     }
     /**
      * Display a listing of the resource.
@@ -30,7 +30,7 @@ class LicenseTransferController extends Controller
      */
     public function create()
     {
-        return view('Trade.LicenseTransfer.create');
+        return view('trade.LicenseTransfer.create');
     }
 
     /**
@@ -38,9 +38,9 @@ class LicenseTransferController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $LicenseTransferService = $this->LicenseTransferService->store($request);
+        $licenseTransferService = $this->licenseTransferService->store($request);
 
-        if ($LicenseTransferService) {
+        if ($licenseTransferService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -66,7 +66,7 @@ class LicenseTransferController extends Controller
     {
         $data = TradeLicenseTransfer::findOrFail(decrypt($id));
 
-        return view('Trade.LicenseTransfer.edit', compact('data'));
+        return view('trade.LicenseTransfer.edit', compact('data'));
     }
 
     /**
@@ -74,9 +74,9 @@ class LicenseTransferController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $LicenseTransferService = $this->LicenseTransferService->update($request, $id);
+        $licenseTransferService = $this->licenseTransferService->update($request, $id);
 
-        if ($LicenseTransferService) {
+        if ($licenseTransferService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

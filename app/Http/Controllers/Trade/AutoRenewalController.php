@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Trade\AutoRenewal\CreateRequest;
 use App\Http\Requests\Trade\AutoRenewal\UpdateRequest;
-use App\Services\Trade\AutoRenewal\AutoRenewalService;
+use App\Services\Trade\AutoRenewalService;
 use App\Models\Trade\TradeAutoRenewalLicensePermission;
 
 class AutoRenewalController extends Controller
 {
-    protected $AutoRenewalService;
+    protected $autoRenewalService;
 
-    public function __construct(AutoRenewalService $AutoRenewalService)
+    public function __construct(AutoRenewalService $autoRenewalService)
     {
-        $this->AutoRenewalService = $AutoRenewalService;
+        $this->autoRenewalService = $autoRenewalService;
     }
     /**
      * Display a listing of the resource.
@@ -30,7 +30,7 @@ class AutoRenewalController extends Controller
      */
     public function create()
     {
-        return view('Trade.AutoRenewal.create');
+        return view('trade.AutoRenewal.create');
     }
 
     /**
@@ -38,9 +38,9 @@ class AutoRenewalController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $AutoRenewalService = $this->AutoRenewalService->store($request);
+        $autoRenewalService = $this->autoRenewalService->store($request);
 
-        if ($AutoRenewalService) {
+        if ($autoRenewalService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -66,7 +66,7 @@ class AutoRenewalController extends Controller
     {
         $data = TradeAutoRenewalLicensePermission::findOrFail(decrypt($id));
 
-        return view('Trade.AutoRenewal.edit', compact('data'));
+        return view('trade.AutoRenewal.edit', compact('data'));
     }
 
     /**
@@ -74,9 +74,9 @@ class AutoRenewalController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $AutoRenewalService = $this->AutoRenewalService->update($request, $id);
+        $autoRenewalService = $this->autoRenewalService->update($request, $id);
 
-        if ($AutoRenewalService) {
+        if ($autoRenewalService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

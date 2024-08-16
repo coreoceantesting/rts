@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\WaterDepartment\NoDues\CreateRequest;
 use App\Http\Requests\WaterDepartment\NoDues\UpdateRequest;
-use App\Services\WaterDepartment\NoDues\NoDuesService;
+use App\Services\WaterDepartment\NoDuesService;
 use App\Models\WaterDepartment\WaterNoDues;
 
 class NoDuesController extends Controller
 {
-    protected $NoDuesService;
+    protected $noDuesService;
 
-    public function __construct(NoDuesService $NoDuesService)
+    public function __construct(NoDuesService $noDuesService)
     {
-        $this->NoDuesService = $NoDuesService;
+        $this->noDuesService = $noDuesService;
     }
     /**
      * Display a listing of the resource.
@@ -38,9 +38,9 @@ class NoDuesController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $NoDuesService = $this->NoDuesService->store($request);
+        $noDuesService = $this->noDuesService->store($request);
 
-        if ($NoDuesService) {
+        if ($noDuesService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -74,9 +74,9 @@ class NoDuesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $NoDuesService = $this->NoDuesService->update($request, $id);
+        $noDuesService = $this->noDuesService->update($request, $id);
 
-        if ($NoDuesService) {
+        if ($noDuesService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\WaterDepartment\WaterQuality\CreateRequest;
 use App\Http\Requests\WaterDepartment\WaterQuality\UpdateRequest;
-use App\Services\WaterDepartment\WaterQuality\WaterQualityService;
+use App\Services\WaterDepartment\WaterQualityService;
 use App\Models\WaterDepartment\WaterQualityComplaint;
 
 class WaterQualityComplaintController extends Controller
 {
-    protected $WaterQualityService;
+    protected $waterQualityService;
 
-    public function __construct(WaterQualityService $WaterQualityService)
+    public function __construct(WaterQualityService $waterQualityService)
     {
-        $this->WaterQualityService = $WaterQualityService;
+        $this->waterQualityService = $waterQualityService;
     }
     /**
      * Display a listing of the resource.
@@ -38,9 +38,9 @@ class WaterQualityComplaintController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $WaterQualityService = $this->WaterQualityService->store($request);
+        $waterQualityService = $this->waterQualityService->store($request);
 
-        if ($WaterQualityService) {
+        if ($waterQualityService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -74,9 +74,9 @@ class WaterQualityComplaintController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $WaterQualityService = $this->WaterQualityService->update($request, $id);
+        $waterQualityService = $this->waterQualityService->update($request, $id);
 
-        if ($WaterQualityService) {
+        if ($waterQualityService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

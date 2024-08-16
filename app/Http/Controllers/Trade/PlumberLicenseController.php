@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\WaterSupplyDepartment;
+namespace App\Http\Controllers\Trade;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\WaterDepartment\Reconnection\CreateRequest;
-use App\Http\Requests\WaterDepartment\Reconnection\UpdateRequest;
-use App\Services\WaterDepartment\ReconnectionService;
-use App\Models\WaterDepartment\WaterReconnection;
+use App\Http\Requests\WaterDepartment\PlumberLicense\CreateRequest;
+use App\Http\Requests\WaterDepartment\PlumberLicense\UpdateRequest;
+use App\Services\Trade\PlumberLicenseService;
+use App\Models\WaterDepartment\WaterPlumberLicense;
 
-class WaterReConnectionController extends Controller
+class PlumberLicenseController extends Controller
 {
-    protected $reconnectionService;
+    protected $plumberLicenseService;
 
-    public function __construct(ReconnectionService $reconnectionService)
+    public function __construct(PlumberLicenseService $plumberLicenseService)
     {
-        $this->reconnectionService = $reconnectionService;
+        $this->plumberLicenseService = $plumberLicenseService;
     }
     /**
      * Display a listing of the resource.
@@ -30,7 +30,7 @@ class WaterReConnectionController extends Controller
      */
     public function create()
     {
-        return view('WaterSupplyDepartment.WaterReconnection.create');
+        return view('trade.PlumberLicense.create');
     }
 
     /**
@@ -38,9 +38,9 @@ class WaterReConnectionController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $reconnectionService = $this->reconnectionService->store($request);
+        $plumberLicenseService = $this->plumberLicenseService->store($request);
 
-        if ($reconnectionService) {
+        if ($plumberLicenseService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -64,9 +64,9 @@ class WaterReConnectionController extends Controller
      */
     public function edit(string $id)
     {
-        $data = WaterReconnection::findOrFail(decrypt($id));
+        $data = WaterPlumberLicense::findOrFail(decrypt($id));
 
-        return view('WaterSupplyDepartment.WaterReconnection.edit', compact('data'));
+        return view('trade.PlumberLicense.edit', compact('data'));
     }
 
     /**
@@ -74,9 +74,9 @@ class WaterReConnectionController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $reconnectionService = $this->reconnectionService->update($request, $id);
+        $plumberLicenseService = $this->plumberLicenseService->update($request, $id);
 
-        if ($reconnectionService) {
+        if ($plumberLicenseService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\WaterDepartment\DefectiveWaterMeter\CreateRequest;
 use App\Http\Requests\WaterDepartment\DefectiveWaterMeter\UpdateRequest;
-use App\Services\WaterDepartment\DefectiveWaterMeter\DefectiveWaterMeterService;
+use App\Services\WaterDepartment\DefectiveWaterMeterService;
 use App\Models\WaterDepartment\WaterDefectiveMeter;
 
 class DefectiveWaterMeterController extends Controller
 {
-    protected $DefectiveWaterMeterService;
+    protected $defectiveWaterMeterService;
 
-    public function __construct(DefectiveWaterMeterService $DefectiveWaterMeterService)
+    public function __construct(DefectiveWaterMeterService $defectiveWaterMeterService)
     {
-        $this->DefectiveWaterMeterService = $DefectiveWaterMeterService;
+        $this->defectiveWaterMeterService = $defectiveWaterMeterService;
     }
     /**
      * Display a listing of the resource.
@@ -38,9 +38,9 @@ class DefectiveWaterMeterController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $DefectiveWaterMeterService = $this->DefectiveWaterMeterService->store($request);
+        $defectiveWaterMeterService = $this->defectiveWaterMeterService->store($request);
 
-        if ($DefectiveWaterMeterService) {
+        if ($defectiveWaterMeterService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -74,9 +74,9 @@ class DefectiveWaterMeterController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $DefectiveWaterMeterService = $this->DefectiveWaterMeterService->update($request, $id);
+        $defectiveWaterMeterService = $this->defectiveWaterMeterService->update($request, $id);
 
-        if ($DefectiveWaterMeterService) {
+        if ($defectiveWaterMeterService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

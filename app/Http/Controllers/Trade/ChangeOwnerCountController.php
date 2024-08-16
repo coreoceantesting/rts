@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Trade\ChangeOwnerCount\CreateRequest;
 use App\Http\Requests\Trade\ChangeOwnerCount\UpdateRequest;
-use App\Services\Trade\ChangeOwnerCount\ChangeOwnerCountService;
+use App\Services\Trade\ChangeOwnerCountService;
 use App\Models\Trade\TradeChangeOwnerCount;
 
 class ChangeOwnerCountController extends Controller
 {
-    protected $ChangeOwnerCountService;
+    protected $changeOwnerCountService;
 
-    public function __construct(ChangeOwnerCountService $ChangeOwnerCountService)
+    public function __construct(ChangeOwnerCountService $changeOwnerCountService)
     {
-        $this->ChangeOwnerCountService = $ChangeOwnerCountService;
+        $this->changeOwnerCountService = $changeOwnerCountService;
     }
     /**
      * Display a listing of the resource.
@@ -30,7 +30,7 @@ class ChangeOwnerCountController extends Controller
      */
     public function create()
     {
-        return view('Trade.ChangeOwnerCount.create');
+        return view('trade.ChangeOwnerCount.create');
     }
 
     /**
@@ -38,9 +38,9 @@ class ChangeOwnerCountController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $ChangeOwnerCountService = $this->ChangeOwnerCountService->store($request);
+        $changeOwnerCountService = $this->changeOwnerCountService->store($request);
 
-        if ($ChangeOwnerCountService) {
+        if ($changeOwnerCountService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -66,7 +66,7 @@ class ChangeOwnerCountController extends Controller
     {
         $data = TradeChangeOwnerCount::findOrFail(decrypt($id));
 
-        return view('Trade.ChangeOwnerCount.edit', compact('data'));
+        return view('trade.ChangeOwnerCount.edit', compact('data'));
     }
 
     /**
@@ -74,9 +74,9 @@ class ChangeOwnerCountController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $ChangeOwnerCountService = $this->ChangeOwnerCountService->update($request, $id);
+        $changeOwnerCountService = $this->changeOwnerCountService->update($request, $id);
 
-        if ($ChangeOwnerCountService) {
+        if ($changeOwnerCountService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

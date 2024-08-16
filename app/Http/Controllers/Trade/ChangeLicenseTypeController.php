@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Trade\ChangeLicenseType\CreateRequest;
 use App\Http\Requests\Trade\ChangeLicenseType\UpdateRequest;
-use App\Services\Trade\ChangeLicenseType\ChangeLicenseTypeService;
+use App\Services\Trade\ChangeLicenseTypeService;
 use App\Models\Trade\TradeChangeLicenseType;
 
 class ChangeLicenseTypeController extends Controller
 {
-    protected $ChangeLicenseTypeService;
+    protected $changeLicenseTypeService;
 
-    public function __construct(ChangeLicenseTypeService $ChangeLicenseTypeService)
+    public function __construct(ChangeLicenseTypeService $changeLicenseTypeService)
     {
-        $this->ChangeLicenseTypeService = $ChangeLicenseTypeService;
+        $this->changeLicenseTypeService = $changeLicenseTypeService;
     }
     /**
      * Display a listing of the resource.
@@ -30,7 +30,7 @@ class ChangeLicenseTypeController extends Controller
      */
     public function create()
     {
-        return view('Trade.ChangeLicenseType.create');
+        return view('trade.ChangeLicenseType.create');
     }
 
     /**
@@ -38,9 +38,9 @@ class ChangeLicenseTypeController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $ChangeLicenseTypeService = $this->ChangeLicenseTypeService->store($request);
+        $changeLicenseTypeService = $this->changeLicenseTypeService->store($request);
 
-        if ($ChangeLicenseTypeService) {
+        if ($changeLicenseTypeService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -66,7 +66,7 @@ class ChangeLicenseTypeController extends Controller
     {
         $data = TradeChangeLicenseType::findOrFail(decrypt($id));
 
-        return view('Trade.ChangeLicenseType.edit', compact('data'));
+        return view('trade.ChangeLicenseType.edit', compact('data'));
     }
 
     /**
@@ -74,9 +74,9 @@ class ChangeLicenseTypeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $ChangeLicenseTypeService = $this->ChangeLicenseTypeService->update($request, $id);
+        $changeLicenseTypeService = $this->changeLicenseTypeService->update($request, $id);
 
-        if ($ChangeLicenseTypeService) {
+        if ($changeLicenseTypeService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

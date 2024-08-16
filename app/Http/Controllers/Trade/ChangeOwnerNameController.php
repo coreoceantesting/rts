@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Trade\ChangeOwnerName\CreateRequest;
 use App\Http\Requests\Trade\ChangeOwnerName\UpdateRequest;
-use App\Services\Trade\ChangeOwnerName\ChangeOwnerNameService;
+use App\Services\Trade\ChangeOwnerNameService;
 use App\Models\Trade\TradeChangeOwnerName;
 
 class ChangeOwnerNameController extends Controller
 {
-    protected $ChangeOwnerNameService;
+    protected $changeOwnerNameService;
 
-    public function __construct(ChangeOwnerNameService $ChangeOwnerNameService)
+    public function __construct(ChangeOwnerNameService $changeOwnerNameService)
     {
-        $this->ChangeOwnerNameService = $ChangeOwnerNameService;
+        $this->changeOwnerNameService = $changeOwnerNameService;
     }
     /**
      * Display a listing of the resource.
@@ -30,7 +30,7 @@ class ChangeOwnerNameController extends Controller
      */
     public function create()
     {
-        return view('Trade.ChangeOwnerName.create');
+        return view('trade.ChangeOwnerName.create');
     }
 
     /**
@@ -38,9 +38,9 @@ class ChangeOwnerNameController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $ChangeOwnerNameService = $this->ChangeOwnerNameService->store($request);
+        $changeOwnerNameService = $this->changeOwnerNameService->store($request);
 
-        if ($ChangeOwnerNameService) {
+        if ($changeOwnerNameService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -66,7 +66,7 @@ class ChangeOwnerNameController extends Controller
     {
         $data = TradeChangeOwnerName::findOrFail(decrypt($id));
 
-        return view('Trade.ChangeOwnerName.edit', compact('data'));
+        return view('trade.ChangeOwnerName.edit', compact('data'));
     }
 
     /**
@@ -74,9 +74,9 @@ class ChangeOwnerNameController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $ChangeOwnerNameService = $this->ChangeOwnerNameService->update($request, $id);
+        $changeOwnerNameService = $this->changeOwnerNameService->update($request, $id);
 
-        if ($ChangeOwnerNameService) {
+        if ($changeOwnerNameService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

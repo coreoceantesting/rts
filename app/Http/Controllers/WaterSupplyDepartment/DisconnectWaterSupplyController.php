@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\WaterDepartment\DisconnectSupply\CreateRequest;
 use App\Http\Requests\WaterDepartment\DisconnectSupply\UpdateRequest;
-use App\Services\WaterDepartment\DisconnectSupply\DisconnectSupplyService;
+use App\Services\WaterDepartment\DisconnectSupplyService;
 use App\Models\WaterDepartment\WaterDisconnectSupply;
 
 class DisconnectWaterSupplyController extends Controller
 {
-    protected $DisconnectSupplyService;
+    protected $disconnectSupplyService;
 
-    public function __construct(DisconnectSupplyService $DisconnectSupplyService)
+    public function __construct(DisconnectSupplyService $disconnectSupplyService)
     {
-        $this->DisconnectSupplyService = $DisconnectSupplyService;
+        $this->disconnectSupplyService = $disconnectSupplyService;
     }
     /**
      * Display a listing of the resource.
@@ -38,9 +38,9 @@ class DisconnectWaterSupplyController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $DisconnectSupplyService = $this->DisconnectSupplyService->store($request);
+        $disconnectSupplyService = $this->disconnectSupplyService->store($request);
 
-        if ($DisconnectSupplyService) {
+        if ($disconnectSupplyService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -74,9 +74,9 @@ class DisconnectWaterSupplyController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $DisconnectSupplyService = $this->DisconnectSupplyService->update($request, $id);
+        $disconnectSupplyService = $this->disconnectSupplyService->update($request, $id);
 
-        if ($DisconnectSupplyService) {
+        if ($disconnectSupplyService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

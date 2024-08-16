@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Trade\LicenseCancellation\CreateRequest;
 use App\Http\Requests\Trade\LicenseCancellation\UpdateRequest;
-use App\Services\Trade\LicenseCancellation\LicenseCancellationService;
+use App\Services\Trade\LicenseCancellationService;
 use App\Models\Trade\TradeLicenseCancellation;
 
 class LicenseCancellationController extends Controller
 {
-    protected $LicenseCancellationService;
+    protected $licenseCancellationService;
 
-    public function __construct(LicenseCancellationService $LicenseCancellationService)
+    public function __construct(LicenseCancellationService $licenseCancellationService)
     {
-        $this->LicenseCancellationService = $LicenseCancellationService;
+        $this->licenseCancellationService = $licenseCancellationService;
     }
     /**
      * Display a listing of the resource.
@@ -30,7 +30,7 @@ class LicenseCancellationController extends Controller
      */
     public function create()
     {
-        return view('Trade.LicenseCancellation.create');
+        return view('trade.LicenseCancellation.create');
     }
 
     /**
@@ -38,9 +38,9 @@ class LicenseCancellationController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $LicenseCancellationService = $this->LicenseCancellationService->store($request);
+        $licenseCancellationService = $this->licenseCancellationService->store($request);
 
-        if ($LicenseCancellationService) {
+        if ($licenseCancellationService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -65,7 +65,7 @@ class LicenseCancellationController extends Controller
     public function edit(string $id)
     {
         $data = TradeLicenseCancellation::findOrFail(decrypt($id));
-        return view('Trade.LicenseCancellation.edit', compact('data'));
+        return view('trade.LicenseCancellation.edit', compact('data'));
     }
 
     /**
@@ -73,9 +73,9 @@ class LicenseCancellationController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $LicenseCancellationService = $this->LicenseCancellationService->update($request, $id);
+        $licenseCancellationService = $this->licenseCancellationService->update($request, $id);
 
-        if ($LicenseCancellationService) {
+        if ($licenseCancellationService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

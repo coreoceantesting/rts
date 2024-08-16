@@ -107,16 +107,6 @@
             </div>
         </div>
 
-
-        <div style="position: fixed;top: 0;left: 0;right: 0;bottom: 0;background-color: #ff0000a8;z-index: 9999;visibility:hidden" id="percentageloader">
-            <div style="width: 50%;height: 40px;position: absolute;left: 27%;top: 50%;margin: -20px 0 0 -20px;">
-                <div id="progress-container">
-                    <div id="progress-bar"></div>
-                </div>
-                <p id="progress-percentage" style="font-size: 25px;color:#fff">0%</p>
-            </div>
-        </div>
-
         <!-- JAVASCRIPT -->
         <script src="{{ asset('admin/js/jquery.min.js') }}"></script>
         <script src="{{ asset('admin/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

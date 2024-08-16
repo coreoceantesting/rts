@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Trade\ChangeLicenseName\CreateRequest;
 use App\Http\Requests\Trade\ChangeLicenseName\UpdateRequest;
-use App\Services\Trade\ChangeLicenseName\ChangeLicenseNameService;
+use App\Services\Trade\ChangeLicenseNameService;
 use App\Models\Trade\TradeChangeLicenseName;
 
 class ChangeLicenseNameController extends Controller
 {
-    protected $ChangeLicenseNameService;
+    protected $changeLicenseNameService;
 
-    public function __construct(ChangeLicenseNameService $ChangeLicenseNameService)
+    public function __construct(ChangeLicenseNameService $changeLicenseNameService)
     {
-        $this->ChangeLicenseNameService = $ChangeLicenseNameService;
+        $this->changeLicenseNameService = $changeLicenseNameService;
     }
     /**
      * Display a listing of the resource.
@@ -30,7 +30,7 @@ class ChangeLicenseNameController extends Controller
      */
     public function create()
     {
-        return view('Trade.ChangeLicenseName.create');
+        return view('trade.ChangeLicenseName.create');
     }
 
     /**
@@ -38,9 +38,9 @@ class ChangeLicenseNameController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $ChangeLicenseNameService = $this->ChangeLicenseNameService->store($request);
+        $changeLicenseNameService = $this->changeLicenseNameService->store($request);
 
-        if ($ChangeLicenseNameService) {
+        if ($changeLicenseNameService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -66,7 +66,7 @@ class ChangeLicenseNameController extends Controller
     {
         $data = TradeChangeLicenseName::findOrFail(decrypt($id));
 
-        return view('Trade.ChangeLicenseName.edit', compact('data'));
+        return view('trade.ChangeLicenseName.edit', compact('data'));
     }
 
     /**
@@ -74,9 +74,9 @@ class ChangeLicenseNameController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $ChangeLicenseNameService = $this->ChangeLicenseNameService->update($request, $id);
+        $changeLicenseNameService = $this->changeLicenseNameService->update($request, $id);
 
-        if ($ChangeLicenseNameService) {
+        if ($changeLicenseNameService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

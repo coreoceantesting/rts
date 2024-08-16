@@ -6,17 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\WaterDepartment\IllegalWaterConnection\CreateRequest;
 use App\Http\Requests\WaterDepartment\IllegalWaterConnection\UpdateRequest;
-use App\Services\WaterDepartment\IllegalWaterConnection\IllegalWaterConnectionService;
+use App\Services\WaterDepartment\IllegalWaterConnectionService;
 use App\Models\WaterDepartment\Illegalwaterconnection;
 
 class IllegalWaterConnectionController extends Controller
 {
 
-    protected $IllegalWaterConnectionService;
+    protected $illegalWaterConnectionService;
 
-    public function __construct(IllegalWaterConnectionService $IllegalWaterConnectionService)
+    public function __construct(IllegalWaterConnectionService $illegalWaterConnectionService)
     {
-        $this->IllegalWaterConnectionService = $IllegalWaterConnectionService;
+        $this->illegalWaterConnectionService = $illegalWaterConnectionService;
     }
     /**
      * Display a listing of the resource.
@@ -39,9 +39,9 @@ class IllegalWaterConnectionController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $IllegalWaterConnectionService = $this->IllegalWaterConnectionService->store($request);
+        $illegalWaterConnectionService = $this->illegalWaterConnectionService->store($request);
 
-        if ($IllegalWaterConnectionService) {
+        if ($illegalWaterConnectionService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -75,9 +75,9 @@ class IllegalWaterConnectionController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $IllegalWaterConnectionService = $this->IllegalWaterConnectionService->update($request, $id);
+        $illegalWaterConnectionService = $this->illegalWaterConnectionService->update($request, $id);
 
-        if ($IllegalWaterConnectionService) {
+        if ($illegalWaterConnectionService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

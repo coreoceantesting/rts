@@ -6,17 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\WaterDepartment\NewWaterConnection\CreateNewConnectionRequest;
 use App\Http\Requests\WaterDepartment\NewWaterConnection\UpdateNewConnectionRequest;
-use App\Services\WaterDepartment\NewWaterConnection\NewWaterConnectionService;
+use App\Services\WaterDepartment\NewWaterConnectionService;
 use App\Models\WaterDepartment\Waternewconnection;
 
 class NewWaterConnectionController extends Controller
 {
 
-    protected $NewWaterConnectionService;
+    protected $newWaterConnectionService;
 
-    public function __construct(NewWaterConnectionService $NewWaterConnectionService)
+    public function __construct(NewWaterConnectionService $newWaterConnectionService)
     {
-        $this->NewWaterConnectionService = $NewWaterConnectionService;
+        $this->newWaterConnectionService = $newWaterConnectionService;
     }
     /**
      * Display a listing of the resource.
@@ -39,9 +39,9 @@ class NewWaterConnectionController extends Controller
      */
     public function store(CreateNewConnectionRequest $request)
     {
-        $NewWaterConnectionService = $this->NewWaterConnectionService->store($request);
+        $newWaterConnectionService = $this->newWaterConnectionService->store($request);
 
-        if ($NewWaterConnectionService) {
+        if ($newWaterConnectionService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -75,9 +75,9 @@ class NewWaterConnectionController extends Controller
      */
     public function update(UpdateNewConnectionRequest $request, string $id)
     {
-        $NewWaterConnectionService = $this->NewWaterConnectionService->update($request, $id);
+        $newWaterConnectionService = $this->newWaterConnectionService->update($request, $id);
 
-        if ($NewWaterConnectionService) {
+        if ($newWaterConnectionService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

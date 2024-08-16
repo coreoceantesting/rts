@@ -6,16 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\WaterDepartment\ChangeInUse\CreateRequest;
 use App\Http\Requests\WaterDepartment\ChangeInUse\UpdateRequest;
-use App\Services\WaterDepartment\ChangeInUse\ChangeInUseService;
-use App\Models\WaterDepartment\WaterChangeInUse;
+use App\Services\WaterDepartment\ChangeInUseService;
 
 class ChangeConnecionUsageController extends Controller
 {
-    protected $ChangeInUseService;
+    protected $changeInUseService;
 
-    public function __construct(ChangeInUseService $ChangeInUseService)
+    public function __construct(ChangeInUseService $changeInUseService)
     {
-        $this->ChangeInUseService = $ChangeInUseService;
+        $this->changeInUseService = $changeInUseService;
     }
     /**
      * Display a listing of the resource.
@@ -38,9 +37,9 @@ class ChangeConnecionUsageController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $ChangeInUseService = $this->ChangeInUseService->store($request);
+        $changeInUseService = $this->changeInUseService->store($request);
 
-        if ($ChangeInUseService) {
+        if ($changeInUseService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -64,7 +63,7 @@ class ChangeConnecionUsageController extends Controller
      */
     public function edit(string $id)
     {
-        $data = WaterChangeInUse::findOrFail(decrypt($id));
+        $data = $this->changeInUseService->edit(decrypt($id));
 
         return view('WaterSupplyDepartment.ChangeConnectionUsage.edit', compact('data'));
     }
@@ -74,9 +73,9 @@ class ChangeConnecionUsageController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $ChangeInUseService = $this->ChangeInUseService->update($request, $id);
+        $changeInUseService = $this->changeInUseService->update($request, $id);
 
-        if ($ChangeInUseService) {
+        if ($changeInUseService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\WaterDepartment\WaterPressure\CreateRequest;
 use App\Http\Requests\WaterDepartment\WaterPressure\UpdateRequest;
-use App\Services\WaterDepartment\WaterPressure\WaterPressureService;
+use App\Services\WaterDepartment\WaterPressureService;
 use App\Models\WaterDepartment\WaterPressureComplaint;
 
 class WaterPressureController extends Controller
 {
-    protected $WaterPressureService;
+    protected $waterPressureService;
 
-    public function __construct(WaterPressureService $WaterPressureService)
+    public function __construct(WaterPressureService $waterPressureService)
     {
-        $this->WaterPressureService = $WaterPressureService;
+        $this->waterPressureService = $waterPressureService;
     }
     /**
      * Display a listing of the resource.
@@ -38,9 +38,9 @@ class WaterPressureController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $WaterPressureService = $this->WaterPressureService->store($request);
+        $waterPressureService = $this->waterPressureService->store($request);
 
-        if ($WaterPressureService) {
+        if ($waterPressureService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -74,9 +74,9 @@ class WaterPressureController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $WaterPressureService = $this->WaterPressureService->update($request, $id);
+        $waterPressureService = $this->waterPressureService->update($request, $id);
 
-        if ($WaterPressureService) {
+        if ($waterPressureService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);

@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\WaterDepartment\UnavailabilitySupply\CreateRequest;
 use App\Http\Requests\WaterDepartment\UnavailabilitySupply\UpdateRequest;
-use App\Services\WaterDepartment\UnavailabilitySupply\UnavailabilitySupplyService;
+use App\Services\WaterDepartment\UnavailabilitySupplyService;
 use App\Models\WaterDepartment\WaterUnavailabilitySupply;
 
 class UnavailabilityOfWaterSupplyController extends Controller
 {
-    protected $UnavailabilitySupplyService;
+    protected $unavailabilitySupplyService;
 
-    public function __construct(UnavailabilitySupplyService $UnavailabilitySupplyService)
+    public function __construct(UnavailabilitySupplyService $unavailabilitySupplyService)
     {
-        $this->UnavailabilitySupplyService = $UnavailabilitySupplyService;
+        $this->unavailabilitySupplyService = $unavailabilitySupplyService;
     }
     /**
      * Display a listing of the resource.
@@ -38,9 +38,9 @@ class UnavailabilityOfWaterSupplyController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $UnavailabilitySupplyService = $this->UnavailabilitySupplyService->store($request);
+        $unavailabilitySupplyService = $this->unavailabilitySupplyService->store($request);
 
-        if ($UnavailabilitySupplyService) {
+        if ($unavailabilitySupplyService) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
@@ -74,9 +74,9 @@ class UnavailabilityOfWaterSupplyController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        $UnavailabilitySupplyService = $this->UnavailabilitySupplyService->update($request, $id);
+        $unavailabilitySupplyService = $this->unavailabilitySupplyService->update($request, $id);
 
-        if ($UnavailabilitySupplyService) {
+        if ($unavailabilitySupplyService) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
