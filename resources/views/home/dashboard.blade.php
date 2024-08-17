@@ -197,7 +197,7 @@
                 <div class="card-header bg-primary">
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1 overflow-hidden">
-                            <h5 class="text-capitalize text-center fw-medium text-white text-truncate mb-0"> Property Tax Application</h5>
+                            <h5 class="text-capitalize text-center fw-medium text-white text-truncate mb-0"> Property Application</h5>
                         </div>
                     </div>
                 </div>
@@ -239,7 +239,7 @@
                 <div class="card-header bg-primary">
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1 overflow-hidden">
-                            <h5 class="text-capitalize text-center fw-medium text-white text-truncate mb-0">Water Supply Application</h5>
+                            <h5 class="text-capitalize text-center fw-medium text-white text-truncate mb-0">Water Application</h5>
                         </div>
                     </div>
                 </div>
@@ -520,21 +520,22 @@
                                 </ul>
                             </div>
 
-                            <div class="tab-content" style="height: 300px; overflow-y:scroll">
+                            <div class="tab-content" style="height: 300px; overflow-y:scroll;overflow-x:hidden">
                                 <div class="tab-pane fade show active" id="trade" role="tabpanel" aria-labelledby="trade-tab">
                                     <div class="row">
                                         <div class="col-12">
-                                            <h4>Pending Trade Service</h4>
+                                            <h4>Pending Trade Application</h4>
                                             <div class="table-responsive">
                                                 <table class="table table-bordered">
                                                     <thead>
                                                         <tr>
                                                             <th>Sr No.</th>
                                                             <th>Service Name</th>
-                                                            <th>Pending from 3 days</th>
-                                                            <th>Pending from 5 days</th>
-                                                            <th>Pending from 7 days</th>
-                                                            <th>Pending from 10+ days</th>
+                                                            <th>3 days</th>
+                                                            <th>5 days</th>
+                                                            <th>7 days</th>
+                                                            <th>10 days</th>
+                                                            <th>10+ days</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -546,6 +547,7 @@
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td>{{ $service }}</td>
+                                                            <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
@@ -563,17 +565,18 @@
                                 <div class="tab-pane fade" id="property" role="tabpanel" aria-labelledby="property-tab">
                                     <div class="row">
                                         <div class="col-12">
-                                            <h4>Pending Property Service</h4>
+                                            <h4>Pending Property Application</h4>
                                             <div class="table-responsive">
                                                 <table class="table table-bordered">
                                                     <thead>
                                                         <tr>
                                                             <th>Sr No.</th>
                                                             <th>Service Name</th>
-                                                            <th>Pending from 3 days</th>
-                                                            <th>Pending from 5 days</th>
-                                                            <th>Pending from 7 days</th>
-                                                            <th>Pending from 10+ days</th>
+                                                            <th>3 days</th>
+                                                            <th>5 days</th>
+                                                            <th>7 days</th>
+                                                            <th>10 days</th>
+                                                            <th>10+ days</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -585,6 +588,7 @@
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td>{{ $service }}</td>
+                                                            <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
@@ -602,17 +606,18 @@
                                 <div class="tab-pane fade" id="water" role="tabpanel" role="tabpanel" aria-labelledby="water-tab">
                                     <div class="row">
                                         <div class="col-12">
-                                            <h4>Pending Water Service</h4>
+                                            <h4>Pending Water Application</h4>
                                             <div class="table-responsive">
                                                 <table class="table table-bordered">
                                                     <thead>
                                                         <tr>
                                                             <th>Sr No.</th>
                                                             <th>Service Name</th>
-                                                            <th>Pending from 3 days</th>
-                                                            <th>Pending from 5 days</th>
-                                                            <th>Pending from 7 days</th>
-                                                            <th>Pending from 10+ days</th>
+                                                            <th>3 days</th>
+                                                            <th>5 days</th>
+                                                            <th>7 days</th>
+                                                            <th>10 days</th>
+                                                            <th>10+ days</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -624,6 +629,7 @@
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td>{{ $service }}</td>
+                                                            <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
@@ -641,17 +647,18 @@
                                 <div class="tab-pane fade" id="marriage" role="tabpanel" aria-labelledby="marriage-tab">
                                     <div class="row">
                                         <div class="col-12">
-                                            <h4>Pending Marriage Service</h4>
+                                            <h4>Pending Marriage Application</h4>
                                             <div class="table-responsive">
                                                 <table class="table table-bordered">
                                                     <thead>
                                                         <tr>
                                                             <th>Sr No.</th>
                                                             <th>Service Name</th>
-                                                            <th>Pending from 3 days</th>
-                                                            <th>Pending from 5 days</th>
-                                                            <th>Pending from 7 days</th>
-                                                            <th>Pending from 10+ days</th>
+                                                            <th>3 days</th>
+                                                            <th>5 days</th>
+                                                            <th>7 days</th>
+                                                            <th>10 days</th>
+                                                            <th>10+ days</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -663,6 +670,7 @@
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td>{{ $service }}</td>
+                                                            <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
@@ -681,17 +689,18 @@
                                 <div class="tab-pane fade" id="fire" role="tabpanel" aria-labelledby="fire-tab">
                                     <div class="row">
                                         <div class="col-12">
-                                            <h4>Pending Fire Service</h4>
+                                            <h4>Pending Fire Application</h4>
                                             <div class="table-responsive">
                                                 <table class="table table-bordered">
                                                     <thead>
                                                         <tr>
                                                             <th>Sr No.</th>
                                                             <th>Service Name</th>
-                                                            <th>Pending from 3 days</th>
-                                                            <th>Pending from 5 days</th>
-                                                            <th>Pending from 7 days</th>
-                                                            <th>Pending from 10+ days</th>
+                                                            <th>3 days</th>
+                                                            <th>5 days</th>
+                                                            <th>7 days</th>
+                                                            <th>10 days</th>
+                                                            <th>10+ days</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -703,6 +712,7 @@
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td>{{ $service }}</td>
+                                                            <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
@@ -720,17 +730,18 @@
                                 <div class="tab-pane fade" id="city-structure" role="tabpanel" aria-labelledby="city-structure-tab">
                                     <div class="row">
                                         <div class="col-12">
-                                            <h4>Pending City Structure Service</h4>
+                                            <h4>Pending City Structure Application</h4>
                                             <div class="table-responsive">
                                                 <table class="table table-bordered">
                                                     <thead>
                                                         <tr>
                                                             <th>Sr No.</th>
                                                             <th>Service Name</th>
-                                                            <th>Pending from 3 days</th>
-                                                            <th>Pending from 5 days</th>
-                                                            <th>Pending from 7 days</th>
-                                                            <th>Pending from 10+ days</th>
+                                                            <th>3 days</th>
+                                                            <th>5 days</th>
+                                                            <th>7 days</th>
+                                                            <th>10 days</th>
+                                                            <th>10+ days</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -742,6 +753,7 @@
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td>{{ $service }}</td>
+                                                            <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
@@ -759,17 +771,18 @@
                                 <div class="tab-pane fade" id="construction" role="tabpanel" aria-labelledby="construction-tab">
                                     <div class="row">
                                         <div class="col-12">
-                                            <h4>Pending Construction Service</h4>
+                                            <h4>Pending Construction Application</h4>
                                             <div class="table-responsive">
                                                 <table class="table table-bordered">
                                                     <thead>
                                                         <tr>
                                                             <th>Sr No.</th>
                                                             <th>Service Name</th>
-                                                            <th>Pending from 3 days</th>
-                                                            <th>Pending from 5 days</th>
-                                                            <th>Pending from 7 days</th>
-                                                            <th>Pending from 10+ days</th>
+                                                            <th>3 days</th>
+                                                            <th>5 days</th>
+                                                            <th>7 days</th>
+                                                            <th>10 days</th>
+                                                            <th>10+ days</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -781,6 +794,7 @@
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td>{{ $service }}</td>
+                                                            <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
