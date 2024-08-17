@@ -17,9 +17,9 @@ class ServiceCredentialSeeder extends Seeder
         $services = [
             [
                 "id" => 1,
-                'dept_service_id' => '42',
+                'dept_service_id' => '75',
                 'service_name' => 'Marriage Registration',
-                'service_url' => 'marriage-registration-certificate/create',
+                'service_url' => 'marriage-registration/create',
                 'client_code' => 'PNL224',
                 'check_sum_key' => 'PNMCNN2v247M',
                 'str_key' => '@pn@PNM@m@h@0nl!ne@23523',
@@ -215,7 +215,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 12,
-                'dept_service_id' => '42',
+                'dept_service_id' => '21',
                 'service_name' => 'New Water Connection',
                 'service_url' => 'water-new-connection/create',
                 'client_code' => 'PNL224',
@@ -233,7 +233,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 13,
-                'dept_service_id' => '42',
+                'dept_service_id' => '22',
                 'service_name' => 'Complaint Of Illegal Water Connection',
                 'service_url' => 'water-illegal-connection/create',
                 'client_code' => 'PNL224',
@@ -251,7 +251,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 14,
-                'dept_service_id' => '42',
+                'dept_service_id' => '23',
                 'service_name' => 'Making Change In Ownership',
                 'service_url' => 'water-change-ownership/create',
                 'client_code' => 'PNL224',
@@ -269,7 +269,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 15,
-                'dept_service_id' => '42',
+                'dept_service_id' => '24',
                 'service_name' => 'Making Change In Water Connection Size',
                 'service_url' => 'water-connection-size-change/create',
                 'client_code' => 'PNL224',
@@ -287,7 +287,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 16,
-                'dept_service_id' => '42',
+                'dept_service_id' => '15',
                 'service_name' => 'Water Re Connection',
                 'service_url' => 'water-reconnection/create',
                 'client_code' => 'PNL224',
@@ -305,7 +305,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 17,
-                'dept_service_id' => '42',
+                'dept_service_id' => '16',
                 'service_name' => 'Making Change In Water Connection Size',
                 'service_url' => 'water-disconnect-supply/create',
                 'client_code' => 'PNL224',
@@ -323,7 +323,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 18,
-                'dept_service_id' => '42',
+                'dept_service_id' => '17',
                 'service_name' => 'Water Connection Usage Change',
                 'service_url' => 'water-change-connection-usage/create',
                 'client_code' => 'PNL224',
@@ -341,7 +341,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 19,
-                'dept_service_id' => '42',
+                'dept_service_id' => '18',
                 'service_name' => 'Preparation Of Water Tax Bill',
                 'service_url' => 'water-Tax-bill/create',
                 'client_code' => 'PNL224',
@@ -359,7 +359,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 20,
-                'dept_service_id' => '42',
+                'dept_service_id' => '5',
                 'service_name' => 'No Dues Certificate Water Supply',
                 'service_url' => 'water-no-dues/create',
                 'client_code' => 'PNL224',
@@ -377,7 +377,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 21,
-                'dept_service_id' => '42',
+                'dept_service_id' => '20',
                 'service_name' => 'Certificate Of Unavailability Of Water Supply',
                 'service_url' => 'water-unavailability-supply/create',
                 'client_code' => 'PNL224',
@@ -395,7 +395,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 22,
-                'dept_service_id' => '42',
+                'dept_service_id' => '25',
                 'service_name' => 'Complaint Of Defective Water Meter',
                 'service_url' => 'water-defective-meter/create',
                 'client_code' => 'PNL224',
@@ -413,7 +413,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 23,
-                'dept_service_id' => '42',
+                'dept_service_id' => '26',
                 'service_name' => 'Complaint Of Water Pressure',
                 'service_url' => 'water-pressure-complaint/create',
                 'client_code' => 'PNL224',
@@ -431,7 +431,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 24,
-                'dept_service_id' => '42',
+                'dept_service_id' => '27',
                 'service_name' => 'Complaint Of Water Quality',
                 'service_url' => 'water-quality-complaint/create',
                 'client_code' => 'PNL224',
@@ -449,9 +449,9 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 25,
-                'dept_service_id' => '42',
+                'dept_service_id' => '26',
                 'service_name' => 'Plumber License',
-                'service_url' => 'water-plumber-license/create',
+                'service_url' => 'trade-plumber-license/create',
                 'client_code' => 'PNL224',
                 'check_sum_key' => 'PNMCNN2v247M',
                 'str_key' => '@pn@PNM@m@h@0nl!ne@23523',
@@ -467,9 +467,9 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 26,
-                'dept_service_id' => '42',
+                'dept_service_id' => '27',
                 'service_name' => 'Renewal Of Plumber License',
-                'service_url' => 'water-renewal-plumber-license/create',
+                'service_url' => 'trade-renewal-plumber-license/create',
                 'client_code' => 'PNL224',
                 'check_sum_key' => 'PNMCNN2v247M',
                 'str_key' => '@pn@PNM@m@h@0nl!ne@23523',
@@ -485,7 +485,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 27,
-                'dept_service_id' => '42',
+                'dept_service_id' => '28',
                 'service_name' => 'New Trade License Permission',
                 'service_url' => 'trade-new-license/create',
                 'client_code' => 'PNL224',
@@ -503,7 +503,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 28,
-                'dept_service_id' => '42',
+                'dept_service_id' => '27',
                 'service_name' => 'Renewal Of Trade License Permission',
                 'service_url' => 'trade-renewal-license/create',
                 'client_code' => 'PNL224',
@@ -521,7 +521,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 29,
-                'dept_service_id' => '42',
+                'dept_service_id' => '30',
                 'service_name' => 'Auto Renewal of Trade License',
                 'service_url' => 'trade-autorenewal-license/create',
                 'client_code' => 'PNL224',
@@ -539,7 +539,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 30,
-                'dept_service_id' => '42',
+                'dept_service_id' => '31',
                 'service_name' => 'Transfer Of Trade License Permission',
                 'service_url' => 'trade-license-transfer/create',
                 'client_code' => 'PNL224',
@@ -557,7 +557,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 31,
-                'dept_service_id' => '42',
+                'dept_service_id' => '32',
                 'service_name' => 'Request For Trade License Permission Secondry Copy',
                 'service_url' => 'trade-per-license/create',
                 'client_code' => 'PNL224',
@@ -575,7 +575,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 32,
-                'dept_service_id' => '42',
+                'dept_service_id' => '33',
                 'service_name' => 'NOC for Pandol/ Mandap',
                 'service_url' => 'trade-noc-mandap/create',
                 'client_code' => 'PNL224',
@@ -593,7 +593,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 33,
-                'dept_service_id' => '42',
+                'dept_service_id' => '34',
                 'service_name' => 'Trade License Name Change Request',
                 'service_url' => 'trade-change-license-name/create',
                 'client_code' => 'PNL224',
@@ -611,7 +611,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 34,
-                'dept_service_id' => '42',
+                'dept_service_id' => '35',
                 'service_name' => 'Trade License Type Change Request',
                 'service_url' => 'trade-change-license-type/create',
                 'client_code' => 'PNL224',
@@ -629,7 +629,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 35,
-                'dept_service_id' => '42',
+                'dept_service_id' => '37',
                 'service_name' => 'Cancellation of Trade License',
                 'service_url' => 'trade-license-cancellation/create',
                 'client_code' => 'PNL224',
@@ -647,7 +647,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 36,
-                'dept_service_id' => '42',
+                'dept_service_id' => '39',
                 'service_name' => 'Trade License Owner Or Partner Count Change',
                 'service_url' => 'trade-change-owner-count/create',
                 'client_code' => 'PNL224',
@@ -665,7 +665,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 37,
-                'dept_service_id' => '42',
+                'dept_service_id' => '27',
                 'service_name' => 'Renewal Of Trade License Permission',
                 'service_url' => 'trade-renewal-license/create',
                 'client_code' => 'PNL224',
@@ -683,7 +683,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 38,
-                'dept_service_id' => '42',
+                'dept_service_id' => '28',
                 'service_name' => 'New Trade License Permission',
                 'service_url' => 'trade-new-license/create',
                 'client_code' => 'PNL224',
