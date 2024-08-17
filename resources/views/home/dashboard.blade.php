@@ -210,19 +210,19 @@
                             </h5>
                         </div>
                         <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
-                            <h6>Pending</h6>
-                            <h5 class="counter"> 
-                                <a href="javascript:void(0)">0</a>
-                            </h5>
-                        </div>
-                        <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
                             <h6>Approve</h6>
                             <h5 class="counter"> 
                                 <a href="javascript:void(0)">0</a>
                             </h5>
                         </div>
-                        <div class="col-3 col-sm-3 text-center">
+                        <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
                             <h6>Reject</h6>
+                            <h5 class="counter"> 
+                                <a href="javascript:void(0)">0</a>
+                            </h5>
+                        </div>
+                        <div class="col-3 col-sm-3 text-center">
+                            <h6>Pending</h6>
                             <h5 class="counter"> 
                                 <a href="javascript:void(0)">0</a>
                             </h5>
@@ -252,19 +252,19 @@
                             </h5>
                         </div>
                         <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
-                            <h6>Pending</h6>
-                            <h5 class="counter"> 
-                                <a href="javascript:void(0)">0</a>
-                            </h5>
-                        </div>
-                        <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
                             <h6>Approve</h6>
                             <h5 class="counter"> 
                                 <a href="javascript:void(0)">0</a>
                             </h5>
                         </div>
-                        <div class="col-3 col-sm-3 text-center">
+                        <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
                             <h6>Reject</h6>
+                            <h5 class="counter"> 
+                                <a href="javascript:void(0)">0</a>
+                            </h5>
+                        </div>
+                        <div class="col-3 col-sm-3 text-center">
+                            <h6>Pending</h6>
                             <h5 class="counter"> 
                                 <a href="javascript:void(0)">0</a>
                             </h5>
@@ -294,19 +294,19 @@
                             </h5>
                         </div>
                         <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
-                            <h6>Pending</h6>
-                            <h5 class="counter"> 
-                                <a href="javascript:void(0)">0</a>
-                            </h5>
-                        </div>
-                        <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
                             <h6>Approve</h6>
                             <h5 class="counter"> 
                                 <a href="javascript:void(0)">0</a>
                             </h5>
                         </div>
-                        <div class="col-3 col-sm-3 text-center">
+                        <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
                             <h6>Reject</h6>
+                            <h5 class="counter"> 
+                                <a href="javascript:void(0)">0</a>
+                            </h5>
+                        </div>
+                        <div class="col-3 col-sm-3 text-center">
+                            <h6>Pending</h6>
                             <h5 class="counter"> 
                                 <a href="javascript:void(0)">0</a>
                             </h5>
@@ -336,19 +336,19 @@
                             </h5>
                         </div>
                         <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
-                            <h6>Pending</h6>
-                            <h5 class="counter"> 
-                                <a href="javascript:void(0)">0</a>
-                            </h5>
-                        </div>
-                        <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
                             <h6>Approve</h6>
                             <h5 class="counter"> 
                                 <a href="javascript:void(0)">0</a>
                             </h5>
                         </div>
-                        <div class="col-3 col-sm-3 text-center">
+                        <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
                             <h6>Reject</h6>
+                            <h5 class="counter"> 
+                                <a href="javascript:void(0)">0</a>
+                            </h5>
+                        </div>
+                        <div class="col-3 col-sm-3 text-center">
+                            <h6>Pending</h6>
                             <h5 class="counter"> 
                                 <a href="javascript:void(0)">0</a>
                             </h5>
@@ -377,19 +377,19 @@
                             </h5>
                         </div>
                         <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
-                            <h6>Pending</h6>
-                            <h5 class="counter"> 
-                                <a href="javascript:void(0)">0</a>
-                            </h5>
-                        </div>
-                        <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
                             <h6>Approve</h6>
                             <h5 class="counter"> 
                                 <a href="javascript:void(0)">0</a>
                             </h5>
                         </div>
-                        <div class="col-3 col-sm-3 text-center">
+                        <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
                             <h6>Reject</h6>
+                            <h5 class="counter"> 
+                                <a href="javascript:void(0)">0</a>
+                            </h5>
+                        </div>
+                        <div class="col-3 col-sm-3 text-center">
+                            <h6>Pending</h6>
                             <h5 class="counter"> 
                                 <a href="javascript:void(0)">0</a>
                             </h5>
@@ -418,19 +418,19 @@
                             </h5>
                         </div>
                         <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
-                            <h6>Pending</h6>
-                            <h5 class="counter"> 
-                                <a href="javascript:void(0)">0</a>
-                            </h5>
-                        </div>
-                        <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
                             <h6>Approve</h6>
                             <h5 class="counter"> 
                                 <a href="javascript:void(0)">0</a>
                             </h5>
                         </div>
-                        <div class="col-3 col-sm-3 text-center">
+                        <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
                             <h6>Reject</h6>
+                            <h5 class="counter"> 
+                                <a href="javascript:void(0)">0</a>
+                            </h5>
+                        </div>
+                        <div class="col-3 col-sm-3 text-center">
+                            <h6>Pending</h6>
                             <h5 class="counter"> 
                                 <a href="javascript:void(0)">0</a>
                             </h5>
@@ -459,19 +459,19 @@
                             </h5>
                         </div>
                         <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
-                            <h6>Pending</h6>
-                            <h5 class="counter"> 
-                                <a href="javascript:void(0)">0</a>
-                            </h5>
-                        </div>
-                        <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
                             <h6>Approve</h6>
                             <h5 class="counter"> 
                                 <a href="javascript:void(0)">0</a>
                             </h5>
                         </div>
-                        <div class="col-3 col-sm-3 text-center">
+                        <div class="col-3 col-sm-3 text-center" style="border-right: 1px solid #2422227a">
                             <h6>Reject</h6>
+                            <h5 class="counter"> 
+                                <a href="javascript:void(0)">0</a>
+                            </h5>
+                        </div>
+                        <div class="col-3 col-sm-3 text-center">
+                            <h6>Pending</h6>
                             <h5 class="counter"> 
                                 <a href="javascript:void(0)">0</a>
                             </h5>
@@ -526,15 +526,13 @@
                                         <div class="col-12">
                                             <h4>Pending Trade Application</h4>
                                             <div class="table-responsive">
-                                                <table class="table table-bordered">
+                                                <table class="table table-bordered" style="width:99%">
                                                     <thead>
                                                         <tr>
                                                             <th>Sr No.</th>
                                                             <th>Service Name</th>
-                                                            <th>3 days</th>
-                                                            <th>5 days</th>
-                                                            <th>7 days</th>
-                                                            <th>10 days</th>
+                                                            <th>3+ days</th>
+                                                            <th>7+ days</th>
                                                             <th>10+ days</th>
                                                         </tr>
                                                     </thead>
@@ -547,8 +545,6 @@
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td>{{ $service }}</td>
-                                                            <td>0</td>
-                                                            <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
@@ -567,15 +563,13 @@
                                         <div class="col-12">
                                             <h4>Pending Property Application</h4>
                                             <div class="table-responsive">
-                                                <table class="table table-bordered">
+                                                <table class="table table-bordered" style="width:99%">
                                                     <thead>
                                                         <tr>
                                                             <th>Sr No.</th>
                                                             <th>Service Name</th>
-                                                            <th>3 days</th>
-                                                            <th>5 days</th>
-                                                            <th>7 days</th>
-                                                            <th>10 days</th>
+                                                            <th>3+ days</th>
+                                                            <th>7+ days</th>
                                                             <th>10+ days</th>
                                                         </tr>
                                                     </thead>
@@ -588,8 +582,6 @@
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td>{{ $service }}</td>
-                                                            <td>0</td>
-                                                            <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
@@ -608,15 +600,13 @@
                                         <div class="col-12">
                                             <h4>Pending Water Application</h4>
                                             <div class="table-responsive">
-                                                <table class="table table-bordered">
+                                                <table class="table table-bordered" style="width:99%">
                                                     <thead>
                                                         <tr>
                                                             <th>Sr No.</th>
                                                             <th>Service Name</th>
-                                                            <th>3 days</th>
-                                                            <th>5 days</th>
-                                                            <th>7 days</th>
-                                                            <th>10 days</th>
+                                                            <th>3+ days</th>
+                                                            <th>7+ days</th>
                                                             <th>10+ days</th>
                                                         </tr>
                                                     </thead>
@@ -629,8 +619,6 @@
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td>{{ $service }}</td>
-                                                            <td>0</td>
-                                                            <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
@@ -649,15 +637,13 @@
                                         <div class="col-12">
                                             <h4>Pending Marriage Application</h4>
                                             <div class="table-responsive">
-                                                <table class="table table-bordered">
+                                                <table class="table table-bordered" style="width:99%">
                                                     <thead>
                                                         <tr>
                                                             <th>Sr No.</th>
                                                             <th>Service Name</th>
-                                                            <th>3 days</th>
-                                                            <th>5 days</th>
-                                                            <th>7 days</th>
-                                                            <th>10 days</th>
+                                                            <th>3+ days</th>
+                                                            <th>7+ days</th>
                                                             <th>10+ days</th>
                                                         </tr>
                                                     </thead>
@@ -670,8 +656,6 @@
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td>{{ $service }}</td>
-                                                            <td>0</td>
-                                                            <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
@@ -691,15 +675,13 @@
                                         <div class="col-12">
                                             <h4>Pending Fire Application</h4>
                                             <div class="table-responsive">
-                                                <table class="table table-bordered">
+                                                <table class="table table-bordered" style="width:99%">
                                                     <thead>
                                                         <tr>
                                                             <th>Sr No.</th>
                                                             <th>Service Name</th>
-                                                            <th>3 days</th>
-                                                            <th>5 days</th>
-                                                            <th>7 days</th>
-                                                            <th>10 days</th>
+                                                            <th>3+ days</th>
+                                                            <th>7+ days</th>
                                                             <th>10+ days</th>
                                                         </tr>
                                                     </thead>
@@ -712,8 +694,6 @@
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td>{{ $service }}</td>
-                                                            <td>0</td>
-                                                            <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
@@ -732,15 +712,13 @@
                                         <div class="col-12">
                                             <h4>Pending City Structure Application</h4>
                                             <div class="table-responsive">
-                                                <table class="table table-bordered">
+                                                <table class="table table-bordered" style="width:99%">
                                                     <thead>
                                                         <tr>
                                                             <th>Sr No.</th>
                                                             <th>Service Name</th>
-                                                            <th>3 days</th>
-                                                            <th>5 days</th>
-                                                            <th>7 days</th>
-                                                            <th>10 days</th>
+                                                            <th>3+ days</th>
+                                                            <th>7+ days</th>
                                                             <th>10+ days</th>
                                                         </tr>
                                                     </thead>
@@ -753,8 +731,6 @@
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td>{{ $service }}</td>
-                                                            <td>0</td>
-                                                            <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
@@ -773,15 +749,13 @@
                                         <div class="col-12">
                                             <h4>Pending Construction Application</h4>
                                             <div class="table-responsive">
-                                                <table class="table table-bordered">
+                                                <table class="table table-bordered" style="width:99%">
                                                     <thead>
                                                         <tr>
                                                             <th>Sr No.</th>
                                                             <th>Service Name</th>
-                                                            <th>3 days</th>
-                                                            <th>5 days</th>
-                                                            <th>7 days</th>
-                                                            <th>10 days</th>
+                                                            <th>3+ days</th>
+                                                            <th>7+ days</th>
                                                             <th>10+ days</th>
                                                         </tr>
                                                     </thead>
@@ -794,8 +768,6 @@
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td>{{ $service }}</td>
-                                                            <td>0</td>
-                                                            <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
                                                             <td>0</td>
