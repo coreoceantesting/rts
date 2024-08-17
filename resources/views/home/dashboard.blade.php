@@ -831,11 +831,6 @@
                 <div class="card-header bg-primary d-flex justify-content-between">
                     <h3 class="card-title text-white">Month Wise Application Received</h3>
                     <select name="" id="">
-                        <option value="">2019 &nbsp;&nbsp;</option>
-                        <option value="">2020 &nbsp;&nbsp;</option>
-                        <option value="">2021 &nbsp;&nbsp;</option>
-                        <option value="">2022 &nbsp;&nbsp;</option>
-                        <option value="">2023 &nbsp;&nbsp;</option>
                         <option value="">2024 &nbsp;&nbsp;</option>
                     </select>
                 </div>
