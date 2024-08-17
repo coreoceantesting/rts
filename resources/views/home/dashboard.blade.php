@@ -194,10 +194,10 @@
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <!-- card -->
             <div class="card card-animate">
-                <div class="card-header" style="background: #b73107;">
+                <div class="card-header bg-primary">
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1 overflow-hidden">
-                            <p class="text-uppercase fw-medium text-white text-truncate mb-0"> Total Property Tax Application</p>
+                            <h5 class="text-capitalize text-center fw-medium text-white text-truncate mb-0"> Property Tax Application</h5>
                         </div>
                     </div>
                 </div>
@@ -236,10 +236,10 @@
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <!-- card -->
             <div class="card card-animate">
-                <div class="card-header" style="background: #037ca2;">
+                <div class="card-header bg-primary">
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1 overflow-hidden">
-                            <p class="text-uppercase fw-medium text-white text-truncate mb-0">Total Water Supply Application</p>
+                            <h5 class="text-capitalize text-center fw-medium text-white text-truncate mb-0">Water Supply Application</h5>
                         </div>
                     </div>
                 </div>
@@ -278,10 +278,10 @@
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <!-- card -->
             <div class="card card-animate">
-                <div class="card-header" style="background: #00aea4;">
+                <div class="card-header bg-primary">
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1 overflow-hidden">
-                            <p class="text-uppercase fw-medium text-white text-truncate mb-0">Total Trade Application</p>
+                            <h5 class="text-capitalize text-center fw-medium text-white text-truncate mb-0">Trade Application</h5>
                         </div>
                     </div>
                 </div>
@@ -320,10 +320,10 @@
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <!-- card -->
             <div class="card card-animate">
-                <div class="card-header" style="background: #2a85c7;">
+                <div class="card-header bg-primary">
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1 overflow-hidden">
-                            <p class="text-uppercase fw-medium text-white text-truncate mb-0">Total Marriage Application</p>
+                            <h5 class="text-capitalize text-center fw-medium text-white text-truncate mb-0">Marriage Application</h5>
                         </div>
                     </div>
                 </div>
@@ -361,10 +361,10 @@
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <!-- card -->
             <div class="card card-animate">
-                <div class="card-header" style="background: #6291e7;">
+                <div class="card-header bg-primary">
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1 overflow-hidden">
-                            <p class="text-uppercase fw-medium text-white text-truncate mb-0">Total Fire Application</p>
+                            <h5 class="text-capitalize text-center fw-medium text-white text-truncate mb-0">Fire Application</h5>
                         </div>
                     </div>
                 </div>
@@ -402,10 +402,10 @@
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <!-- card -->
             <div class="card card-animate">
-                <div class="card-header" style="background: #d16619;">
+                <div class="card-header bg-primary">
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1 overflow-hidden">
-                            <p class="text-uppercase fw-medium text-white text-truncate mb-0">Total City Structure Application</p>
+                            <h5 class="text-capitalize text-center fw-medium text-white text-truncate mb-0">City Structure Application</h5>
                         </div>
                     </div>
                 </div>
@@ -443,10 +443,10 @@
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <!-- card -->
             <div class="card card-animate">
-                <div class="card-header" style="background: #006800;">
+                <div class="card-header bg-primary">
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1 overflow-hidden">
-                            <p class="text-uppercase fw-medium text-white text-truncate mb-0">Total Construction Application</p>
+                            <h5 class="text-capitalize text-center fw-medium text-white text-truncate mb-0">Construction Application</h5>
                         </div>
                     </div>
                 </div>
@@ -490,7 +490,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="mb-0 text-dark" style="font-weight: 600">
-                                Pending Service
+                                Pending Application
                             </h4>
                         </div><!-- end card header -->
                         <div class="card-body">
@@ -520,7 +520,7 @@
                                 </ul>
                             </div>
 
-                            <div class="tab-content">
+                            <div class="tab-content" style="height: 300px; overflow-y:scroll">
                                 <div class="tab-pane fade show active" id="trade" role="tabpanel" aria-labelledby="trade-tab">
                                     <div class="row">
                                         <div class="col-12">
@@ -538,9 +538,20 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @php
+                                                            $services = ['Plumber License', 'Renewal Of Plumber License', 'New Trade License Permission', 'Renewal Of Trade License Permission', 'Auto Renewal of Trade License', 'Transfer Of Trade License Permission', 'Request For Trade License Permission Secondry Copy', 'NOC for Pandol/ Mandap', 'Trade License Name Change Request', 'Trade License Type Change Request', 'Cancellation of Trade License', 'Trade License Owner Or Partner Count Change', 'Renewal Of Trade License Permission', 'New Trade License Permission'];
+                                                        @endphp
+
+                                                        @foreach($services as $service)
                                                         <tr>
-                                                            <td colspan="6" class="text-center">No Data Found</td>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $service }}</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
                                                         </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -566,9 +577,20 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @php
+                                                            $services = ['Tax Demands', 'An Objection', 'New Taxation', 'No Due Certificate', 'Property Tax Exemption', 'SelfAssessment', 'Tax Assessment', 'Tax Exemption For Non Resident Properties', 'Transfer Registration Certificate', 'Reassessment Of Property Tax', 'Transfer Of Property Certificate'];
+                                                        @endphp
+
+                                                        @foreach($services as $service)
                                                         <tr>
-                                                            <td colspan="6" class="text-center">No Data Found</td>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $service }}</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
                                                         </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -594,9 +616,20 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @php
+                                                            $services = ['New Water Connection', 'Complaint Of Illegal Water Connection', 'Making Change In Ownership', 'Making Change In Water Connection Size', 'Water Re Connection', 'Making Change In Water Connection Size', 'Water Connection Usage Change', 'Preparation Of Water Tax Bill', 'No Dues Certificate Water Supply', 'Certificate Of Unavailability Of Water Supply', 'Complaint Of Defective Water Meter', 'Complaint Of Water Pressure', 'Complaint Of Water Quality'];
+                                                        @endphp
+
+                                                        @foreach($services as $service)
                                                         <tr>
-                                                            <td colspan="6" class="text-center">No Data Found</td>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $service }}</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
                                                         </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -622,9 +655,20 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @php
+                                                            $services = ['Marriage Registration'];
+                                                        @endphp
+
+                                                        @foreach($services as $service)
                                                         <tr>
-                                                            <td colspan="6" class="text-center">No Data Found</td>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $service }}</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
                                                         </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -651,9 +695,20 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @php
+                                                            $services = ['Issuance Of Fire No Objection Certificate(Fire)', 'Issuance Of Final Fire No Objection Certificate (Fire)'];
+                                                        @endphp
+
+                                                        @foreach($services as $service)
                                                         <tr>
-                                                            <td colspan="6" class="text-center">No Data Found</td>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $service }}</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
                                                         </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -679,9 +734,20 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @php
+                                                            $services = ['Issuance of zone certificate', 'Giving Part Map'];
+                                                        @endphp
+
+                                                        @foreach($services as $service)
                                                         <tr>
-                                                            <td colspan="6" class="text-center">No Data Found</td>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $service }}</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
                                                         </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -707,9 +773,20 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @php
+                                                            $services = ['Road Cutting Permission', 'Jal Mal Nissaran Connection'];
+                                                        @endphp
+
+                                                        @foreach($services as $service)
                                                         <tr>
-                                                            <td colspan="6" class="text-center">No Data Found</td>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $service }}</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
                                                         </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -735,7 +812,7 @@
         <div class="col-xl-6 col-lg-6 col-md-6 col-12">
             <div class="card card-height-100">
                 <div class="card-header align-items-center d-flex bg-primary">
-                    <h4 class="card-title mb-0 flex-grow-1 text-white">Pie Chart</h4>
+                    <h4 class="card-title mb-0 flex-grow-1 text-white">Service Wise Pie Chart</h4>
                     
                 </div><!-- end card header -->
 
@@ -748,7 +825,7 @@
         <div class="col-xl-6 col-lg-6 col-md-6 col-12">
             <div class="card card-height-100">
                 <div class="card-header align-items-center d-flex bg-primary">
-                    <h4 class="card-title mb-0 flex-grow-1 text-white">Pie Chart</h4>
+                    <h4 class="card-title mb-0 flex-grow-1 text-white">Portal Wise Pie Chart</h4>
                     
                 </div><!-- end card header -->
 
@@ -765,8 +842,16 @@
     <div class="row">
         <div class="col-xl-12 col-12">
             <div class="card">
-                <div class="card-header bg-primary">
+                <div class="card-header bg-primary d-flex justify-content-between">
                     <h3 class="card-title text-white">Month Wise Application Received</h3>
+                    <select name="" id="">
+                        <option value="">2019 &nbsp;&nbsp;</option>
+                        <option value="">2020 &nbsp;&nbsp;</option>
+                        <option value="">2021 &nbsp;&nbsp;</option>
+                        <option value="">2022 &nbsp;&nbsp;</option>
+                        <option value="">2023 &nbsp;&nbsp;</option>
+                        <option value="">2024 &nbsp;&nbsp;</option>
+                    </select>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -931,8 +1016,8 @@
         function drawDifferenceChart() {
             var data = google.visualization.arrayToDataTable([
                 ['Service', 'Hours per Day'],
-                ['Application Receive From Aapale Sarkar Portal', 8],
-                ['Application Receive From RTS Portal', 8],
+                ['Application Receive From Aapale Sarkar Portal', 65],
+                ['Application Receive From RTS Portal', 35],
             ]);
 
             // Optional; add a title and set the width and height of the chart
