@@ -12,11 +12,16 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $services = Service::where('is_parent', 0)->get();
+        // return Auth::user()->roles[0]->name;
+        if (Auth::user()->hasRole('Super Admin')) {
+            return view('home.dashboard');
+        } else {
+            $services = Service::where('is_parent', 0)->get();
 
-        return view('home.dashboard')->with([
-            'services' => $services
-        ]);
+            return view('home.user-dashboard')->with([
+                'services' => $services
+            ]);
+        }
     }
 
     public function myApplication()

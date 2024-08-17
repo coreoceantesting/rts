@@ -23,7 +23,7 @@ class UpdateWardRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'initial' => 'required',
+            'status' => 'required',
         ];
     }
 }

@@ -66,6 +66,8 @@ class AapaleSarkarLoginCheckController extends Controller
                             'is_aapale_sarkar_user' => 1,
                         ]);
 
+                        DB::table('model_has_roles')->insert(['role_id' => 2, 'model_type' => 'App\Models\User', 'model_id' => $user->id]);
+
                         Auth::login($user);
                     }
                     if (Auth::check()) {

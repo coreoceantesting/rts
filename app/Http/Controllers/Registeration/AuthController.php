@@ -129,6 +129,8 @@ class AuthController extends Controller
         if ($request->ajax()) {
             $user = User::create($request->all());
 
+            DB::table('model_has_roles')->insert(['role_id' => 2, 'model_type' => 'App\Models\User', 'model_id' => $user->id]);
+
             return response()->json([
                 'success' => 'User created successfully please login',
                 'users' => $user

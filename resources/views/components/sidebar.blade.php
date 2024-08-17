@@ -7,7 +7,7 @@
                 <img src="{{ asset('admin/images/logo-light.png') }}" alt="" height="22" />
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('admin/images/logo-light.png') }}" alt="" height="17" />
+                <img src="{{ asset('admin/images/logo-light.png') }}" alt="" height="55" />
             </span>
         </a>
         <!-- Light Logo-->
@@ -16,7 +16,7 @@
                 <img src="{{ asset('admin/images/logo-light.png') }}" alt="" height="22" />
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('admin/images/logo-light.png') }}" alt="" height="17" />
+                <img src="{{ asset('admin/images/logo-light.png') }}" alt="" height="55" />
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
@@ -39,6 +39,26 @@
                     </a>
                 </li>
 
+                @if(Auth::user()->hasRole('Super Admin'))
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ request()->routeIs('ward.*') ? 'active' : '' }} {{ request()->routeIs('zone.*') ? 'active' : '' }}" href="#sidebarMaster" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarMaster">
+                        <i class="ri-layout-3-line"></i>
+                        <span data-key="t-layouts">Masters</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarMaster">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('ward.index') }}" class="nav-link {{ request()->routeIs('ward.*') ? 'active' : '' }}" data-key="t-horizontal">Ward</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('zone.index') }}" class="nav-link {{ request()->routeIs('zone.*') ? 'active' : '' }}" data-key="t-horizontal">Zone</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                @endif
+
+                @if(!Auth::user()->hasRole('Super Admin'))
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="{{ route('user.profile') }}">
                         <i class="ri-dashboard-2-line"></i>
@@ -52,6 +72,7 @@
                         <span data-key="t-dashboards">My Application</span>
                     </a>
                 </li>
+                @endif
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="javascript:void(0)">

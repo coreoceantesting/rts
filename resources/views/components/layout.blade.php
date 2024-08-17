@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-layout="horizontal" data-topbar="dark" data-sidebar="dark" data-sidebar-size="lg" data-body-image="img-1" data-preloader="enable" data-sidebar-visibility="show" data-layout-style="default"
+<html lang="en" @if(Auth::user()->hasRole('Super Admin'))data-layout="vertical" @else data-layout="horizontal" @endif" data-topbar="dark" data-sidebar="dark" data-sidebar-size="lg" data-body-image="img-1" data-preloader="enable" data-sidebar-visibility="show" data-layout-style="default"
     data-layout-width="fluid" data-layout-position="fixed">
 
     <head>

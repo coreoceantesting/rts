@@ -184,6 +184,9 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     // route for construction department
     Route::resource('construction-drainage-connection', DrainageConnectionController::class);
     Route::resource('construction-road-cutting', RoadCuttingPermissionController::class);
+
+    Route::resource('ward', \App\Http\Controllers\Master\WardController::class);
+    Route::resource('zone', \App\Http\Controllers\Master\ZoneController::class);
 });
 Route::post('rts-service-status', [AapaleSarkarLoginCheckController::class, 'updateStatus'])->name('rts.status');
 

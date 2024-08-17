@@ -22,8 +22,8 @@ class StoreWardRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|unique:wards,name',
-            'initial' => 'required',
+            'name' => 'required',
+            'status' => 'required',
         ];
     }
 }

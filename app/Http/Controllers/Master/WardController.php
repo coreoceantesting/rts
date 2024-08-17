@@ -1,26 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Masters;
+namespace App\Http\Controllers\Master;
 
-use App\Http\Controllers\Admin\Controller;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Http\Requests\Admin\Masters\StoreWardRequest;
 use App\Http\Requests\Admin\Masters\UpdateWardRequest;
 use App\Models\Ward;
-use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
-
 
 class WardController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $wards = Ward::latest()->get();
 
-        return view('admin.masters.wards')->with(['wards'=> $wards]);
+        return view('master.ward')->with(['wards' => $wards]);
     }
 
     /**
@@ -36,18 +31,14 @@ class WardController extends Controller
      */
     public function store(StoreWardRequest $request)
     {
-        try
-        {
+        try {
             DB::beginTransaction();
-            $input = $request->validated();
-            Ward::create( Arr::only( $input, Ward::getFillables() ) );
+            Ward::create($request->all());
             DB::commit();
 
-            return response()->json(['success'=> 'Office created successfully!']);
-        }
-        catch(\Exception $e)
-        {
-            return $this->respondWithAjax($e, 'creating', 'Office');
+            return response()->json(['success' => 'Office created successfully!']);
+        } catch (\Exception $e) {
+            return $this->json($e, 'creating', 'Office');
         }
     }
 
@@ -64,15 +55,12 @@ class WardController extends Controller
      */
     public function edit(Ward $ward)
     {
-        if ($ward)
-        {
+        if ($ward) {
             $response = [
                 'result' => 1,
                 'ward' => $ward,
             ];
-        }
-        else
-        {
+        } else {
             $response = ['result' => 0];
         }
         return $response;
@@ -83,17 +71,13 @@ class WardController extends Controller
      */
     public function update(UpdateWardRequest $request, Ward $ward)
     {
-        try
-        {
+        try {
             DB::beginTransaction();
-            $input = $request->validated();
-            $ward->update( Arr::only( $input, Ward::getFillables() ) );
+            $ward->update($request->all());
             DB::commit();
 
-            return response()->json(['success'=> 'Ward updated successfully!']);
-        }
-        catch(\Exception $e)
-        {
+            return response()->json(['success' => 'Ward updated successfully!']);
+        } catch (\Exception $e) {
             return $this->respondWithAjax($e, 'updating', 'Ward');
         }
     }
@@ -103,16 +87,13 @@ class WardController extends Controller
      */
     public function destroy(Ward $ward)
     {
-        try
-        {
+        try {
             DB::beginTransaction();
             $ward->delete();
             DB::commit();
 
-            return response()->json(['success'=> 'Ward deleted successfully!']);
-        }
-        catch(\Exception $e)
-        {
+            return response()->json(['success' => 'Ward deleted successfully!']);
+        } catch (\Exception $e) {
             return $this->respondWithAjax($e, 'deleting', 'Ward');
         }
     }

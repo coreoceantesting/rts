@@ -6,14 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\PropertyTax\PropertyTaxAssessmentRequest;
 use App\Services\PropertyTax\PropertyTaxAssessmentService;
+use App\Services\CommonService;
 
 class IssuanceController extends Controller
 {
     protected $propertyTaxAssessmentService;
+    protected $commonService;
 
-    public function __construct(PropertyTaxAssessmentService $propertyTaxAssessmentService)
+    public function __construct(PropertyTaxAssessmentService $propertyTaxAssessmentService, CommonService $commonService)
     {
         $this->propertyTaxAssessmentService = $propertyTaxAssessmentService;
+        $this->commonService = $commonService;
     }
     /**
      * Display a listing of the resource.
@@ -28,7 +31,14 @@ class IssuanceController extends Controller
      */
     public function create()
     {
-        return view('property-tax.issuanceOfPropertyTax.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('property-tax.issuanceOfPropertyTax.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -64,8 +74,14 @@ class IssuanceController extends Controller
     {
         $propertyTaxAssessment = $this->propertyTaxAssessmentService->edit(decrypt($id));
 
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
         return view('property-tax.issuanceOfPropertyTax.edit')->with([
-            'propertyTaxAssessment' => $propertyTaxAssessment
+            'propertyTaxAssessment' => $propertyTaxAssessment,
+            'wards' => $wards,
+            'zones' => $zones,
         ]);
     }
 
