@@ -6,14 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\PropertyTax\SelfAssessmentRequest;
 use App\Services\PropertyTax\SelfAssessmentService;
+use App\Services\CommonService;
 
 class SelfAssessmentController extends Controller
 {
     protected $selfAssessmentService;
+    protected $commonService;
 
-    public function __construct(SelfAssessmentService $selfAssessmentService)
+    public function __construct(SelfAssessmentService $selfAssessmentService, CommonService $commonService)
     {
         $this->selfAssessmentService = $selfAssessmentService;
+        $this->commonService = $commonService;
     }
 
     /**
@@ -29,7 +32,14 @@ class SelfAssessmentController extends Controller
      */
     public function create()
     {
-        return view('property-tax.selfAssessment.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('property-tax.selfAssessment.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -64,9 +74,15 @@ class SelfAssessmentController extends Controller
     public function edit($id)
     {
         $selfAssessment = $this->selfAssessmentService->edit(decrypt($id));
-        return $selfAssessment;
+
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
         return view('property-tax.selfAssessment.edit')->with([
-            'selfAssessment' => $selfAssessment
+            'selfAssessment' => $selfAssessment,
+            'wards' => $wards,
+            'zones' => $zones,
         ]);
     }
 

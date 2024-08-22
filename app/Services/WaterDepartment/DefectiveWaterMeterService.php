@@ -98,7 +98,7 @@ class DefectiveWaterMeterService
                 $request['application_document'] = $request->application_documents->store('water-department/defective-meter');
             }
             // Update the rest of the fields
-            $waterDefectiveMeter->update($request->alll());
+            $waterDefectiveMeter->update($request->all());
 
 
             // code to send data to department

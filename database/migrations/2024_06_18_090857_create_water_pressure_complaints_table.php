@@ -20,6 +20,7 @@ return new class extends Migration
             $table->boolean('is_aapale_sarkar_payment_paid')->nullable();
             $table->string('upic_id')->nullable();
             $table->string('application_no')->nullable();
+            $table->string('water_connection_no')->nullable();
             $table->string('property_owner_name')->nullable();
             $table->string('aadhar_no')->nullable();
             $table->string('mobile_no')->nullable();

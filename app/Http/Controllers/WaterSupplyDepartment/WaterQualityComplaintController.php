@@ -8,14 +8,17 @@ use App\Http\Requests\WaterDepartment\WaterQuality\CreateRequest;
 use App\Http\Requests\WaterDepartment\WaterQuality\UpdateRequest;
 use App\Services\WaterDepartment\WaterQualityService;
 use App\Models\WaterDepartment\WaterQualityComplaint;
+use App\Services\CommonService;
 
 class WaterQualityComplaintController extends Controller
 {
     protected $waterQualityService;
+    protected $commonService;
 
-    public function __construct(WaterQualityService $waterQualityService)
+    public function __construct(WaterQualityService $waterQualityService, CommonService $commonService)
     {
         $this->waterQualityService = $waterQualityService;
+        $this->commonService = $commonService;
     }
     /**
      * Display a listing of the resource.
@@ -30,7 +33,14 @@ class WaterQualityComplaintController extends Controller
      */
     public function create()
     {
-        return view('water-supply-department.water-quality-complaints.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.water-quality-complaints.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -66,7 +76,15 @@ class WaterQualityComplaintController extends Controller
     {
         $data = WaterQualityComplaint::findOrFail(decrypt($id));
 
-        return view('water-supply-department.water-quality-complaints.edit', compact('data'));
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.water-quality-complaints.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**

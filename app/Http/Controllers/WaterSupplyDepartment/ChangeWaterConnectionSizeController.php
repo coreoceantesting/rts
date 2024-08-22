@@ -8,29 +8,29 @@ use App\Http\Requests\WaterDepartment\ChangeConnectionSize\CreateRequest;
 use App\Http\Requests\WaterDepartment\ChangeConnectionSize\UpdateRequest;
 use App\Services\WaterDepartment\ChangeConnectionSizeService;
 use App\Models\WaterDepartment\WaterChangeConnectionSize;
+use App\Services\CommonService;
 
 class ChangeWaterConnectionSizeController extends Controller
 {
     protected $changeConnectionSizeService;
+    protected $commonService;
 
-    public function __construct(ChangeConnectionSizeService $changeConnectionSizeService)
+    public function __construct(ChangeConnectionSizeService $changeConnectionSizeService, CommonService $commonService)
     {
         $this->changeConnectionSizeService = $changeConnectionSizeService;
-    }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+        $this->commonService = $commonService;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('water-supply-department.change-water-connection-size.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.change-water-connection-size.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -65,7 +65,16 @@ class ChangeWaterConnectionSizeController extends Controller
     public function edit(string $id)
     {
         $data = WaterChangeConnectionSize::findOrFail(decrypt($id));
-        return view('water-supply-department.change-water-connection-size.edit', compact('data'));
+
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.change-water-connection-size.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**

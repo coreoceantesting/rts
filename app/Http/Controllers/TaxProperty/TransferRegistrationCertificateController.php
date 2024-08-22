@@ -6,19 +6,29 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\PropertyTax\PropertyTaxAssessmentRequest;
 use App\Services\PropertyTax\TransferRegistrationCertificateService;
+use App\Services\CommonService;
 
 class TransferRegistrationCertificateController extends Controller
 {
     protected $transferRegistrationCertificateService;
+    protected $commonService;
 
-    public function __construct(TransferRegistrationCertificateService $transferRegistrationCertificateService)
+    public function __construct(TransferRegistrationCertificateService $transferRegistrationCertificateService, CommonService $commonService)
     {
         $this->transferRegistrationCertificateService = $transferRegistrationCertificateService;
+        $this->commonService = $commonService;
     }
 
     public function create()
     {
-        return view('property-tax.transferRegistrationCertificate.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('property-tax.transferRegistrationCertificate.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     public function store(PropertyTaxAssessmentRequest $request)
@@ -40,8 +50,14 @@ class TransferRegistrationCertificateController extends Controller
     {
         $transferRegistrationCertificate = $this->transferRegistrationCertificateService->edit(decrypt($id));
 
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
         return view('property-tax.transferRegistrationCertificate.edit')->with([
-            'transferRegistrationCertificate' => $transferRegistrationCertificate
+            'transferRegistrationCertificate' => $transferRegistrationCertificate,
+            'wards' => $wards,
+            'zones' => $zones,
         ]);
     }
 

@@ -6,30 +6,29 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\PropertyTax\NoDueCertificateRequest;
 use App\Services\PropertyTax\NoDueCertificateService;
+use App\Services\CommonService;
 
 class NoDueController extends Controller
 {
     protected $noDueCertificateService;
+    protected $commonService;
 
-    public function __construct(NoDueCertificateService $noDueCertificateService)
+    public function __construct(NoDueCertificateService $noDueCertificateService, CommonService $commonService)
     {
         $this->noDueCertificateService = $noDueCertificateService;
+        $this->commonService = $commonService;
     }
 
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('property-tax.noDues.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('property-tax.noDues.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -51,22 +50,21 @@ class NoDueController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
         $noDue = $this->noDueCertificateService->edit(decrypt($id));
 
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+
         return view('property-tax.noDues.edit')->with([
-            'noDue' => $noDue
+            'noDue' => $noDue,
+            'wards' => $wards,
+            'zones' => $zones,
         ]);
     }
 

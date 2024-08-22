@@ -367,17 +367,17 @@ class ServiceSeeder extends Seeder
                 "created_at" => null,
                 "updated_at" => null
             ],
-            [
-                "id" => 33,
-                "service_id" => 6,
-                "name" => "पअनधिकृत नळ जोडणी तक्रार",
-                "image" => null,
-                "is_parent" => 1,
-                "route_name" => null,
-                "background_color" => "#037ca2",
-                "created_at" => null,
-                "updated_at" => null
-            ],
+            // [
+            //     "id" => 33,
+            //     "service_id" => 6,
+            //     "name" => "पअनधिकृत नळ जोडणी तक्रार",
+            //     "image" => null,
+            //     "is_parent" => 1,
+            //     "route_name" => null,
+            //     "background_color" => "#037ca2",
+            //     "created_at" => null,
+            //     "updated_at" => null
+            // ],
             [
                 "id" => 34,
                 "service_id" => 7,

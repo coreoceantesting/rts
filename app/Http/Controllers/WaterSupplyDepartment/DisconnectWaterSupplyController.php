@@ -8,21 +8,17 @@ use App\Http\Requests\WaterDepartment\DisconnectSupply\CreateRequest;
 use App\Http\Requests\WaterDepartment\DisconnectSupply\UpdateRequest;
 use App\Services\WaterDepartment\DisconnectSupplyService;
 use App\Models\WaterDepartment\WaterDisconnectSupply;
+use App\Services\CommonService;
 
 class DisconnectWaterSupplyController extends Controller
 {
     protected $disconnectSupplyService;
+    protected $commonService;
 
-    public function __construct(DisconnectSupplyService $disconnectSupplyService)
+    public function __construct(DisconnectSupplyService $disconnectSupplyService, CommonService $commonService)
     {
         $this->disconnectSupplyService = $disconnectSupplyService;
-    }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+        $this->commonService = $commonService;
     }
 
     /**
@@ -30,7 +26,14 @@ class DisconnectWaterSupplyController extends Controller
      */
     public function create()
     {
-        return view('water-supply-department.disconnect-water-supply.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.disconnect-water-supply.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -66,7 +69,15 @@ class DisconnectWaterSupplyController extends Controller
     {
         $data = WaterDisconnectSupply::findOrFail(decrypt($id));
 
-        return view('water-supply-department.disconnect-water-supply.edit', compact('data'));
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.disconnect-water-supply.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**

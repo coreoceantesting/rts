@@ -8,30 +8,30 @@ use App\Http\Requests\WaterDepartment\IllegalWaterConnection\CreateRequest;
 use App\Http\Requests\WaterDepartment\IllegalWaterConnection\UpdateRequest;
 use App\Services\WaterDepartment\IllegalWaterConnectionService;
 use App\Models\WaterDepartment\Illegalwaterconnection;
+use App\Services\CommonService;
 
 class IllegalWaterConnectionController extends Controller
 {
 
     protected $illegalWaterConnectionService;
+    protected $commonService;
 
-    public function __construct(IllegalWaterConnectionService $illegalWaterConnectionService)
+    public function __construct(IllegalWaterConnectionService $illegalWaterConnectionService, CommonService $commonService)
     {
         $this->illegalWaterConnectionService = $illegalWaterConnectionService;
-    }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+        $this->commonService = $commonService;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('water-supply-department.illegal-water-connection.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.illegal-water-connection.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -52,22 +52,20 @@ class IllegalWaterConnectionController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $data = Illegalwaterconnection::findOrFail(decrypt($id));
 
-        return view('water-supply-department.illegal-water-connection.edit', compact('data'));
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.illegal-water-connection.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**

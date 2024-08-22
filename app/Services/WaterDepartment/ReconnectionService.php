@@ -49,16 +49,17 @@ class ReconnectionService
             } else {
                 $request['nodues_document'] = "";
             }
-            $request['service_id'] = 5;
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['_token', 'application_documents', 'nodues_documents']);
+
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'WaterBillMicroService/WaterbillApi/ApleSarkarService/RequestForWaterReConnection', '');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
+            Log::info($data);
             if ($data['status'] == "200") {
                 // Access the application_no
-                $applicationId = $data['applicationIds'];
+                $applicationId = $data['applicationId'];
                 WaterReconnection::where('id', $waterReconnection->id)->update([
                     'application_no' => $applicationId
                 ]);

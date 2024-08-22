@@ -8,15 +8,18 @@ use App\Http\Requests\WaterDepartment\NewWaterConnection\CreateNewConnectionRequ
 use App\Http\Requests\WaterDepartment\NewWaterConnection\UpdateNewConnectionRequest;
 use App\Services\WaterDepartment\NewWaterConnectionService;
 use App\Models\WaterDepartment\Waternewconnection;
+use App\Services\CommonService;
 
 class NewWaterConnectionController extends Controller
 {
 
     protected $newWaterConnectionService;
+    protected $commonService;
 
-    public function __construct(NewWaterConnectionService $newWaterConnectionService)
+    public function __construct(NewWaterConnectionService $newWaterConnectionService, CommonService $commonService)
     {
         $this->newWaterConnectionService = $newWaterConnectionService;
+        $this->commonService = $commonService;
     }
     /**
      * Display a listing of the resource.
@@ -31,7 +34,14 @@ class NewWaterConnectionController extends Controller
      */
     public function create()
     {
-        return view('water-supply-department.new-water-connection.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.new-water-connection.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -67,7 +77,15 @@ class NewWaterConnectionController extends Controller
     {
         $data = Waternewconnection::findOrFail(decrypt($id));
 
-        return view('water-supply-department.new-water-connection.edit', compact('data'));
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.new-water-connection.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**

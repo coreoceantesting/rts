@@ -8,29 +8,29 @@ use App\Http\Requests\WaterDepartment\DefectiveWaterMeter\CreateRequest;
 use App\Http\Requests\WaterDepartment\DefectiveWaterMeter\UpdateRequest;
 use App\Services\WaterDepartment\DefectiveWaterMeterService;
 use App\Models\WaterDepartment\WaterDefectiveMeter;
+use App\Services\CommonService;
 
 class DefectiveWaterMeterController extends Controller
 {
     protected $defectiveWaterMeterService;
+    protected $commonService;
 
-    public function __construct(DefectiveWaterMeterService $defectiveWaterMeterService)
+    public function __construct(DefectiveWaterMeterService $defectiveWaterMeterService, CommonService $commonService)
     {
         $this->defectiveWaterMeterService = $defectiveWaterMeterService;
-    }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+        $this->commonService = $commonService;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('water-supply-department.defective-water-meter.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.defective-water-meter.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -51,22 +51,19 @@ class DefectiveWaterMeterController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $data = WaterDefectiveMeter::findOrFail(decrypt($id));
 
-        return view('water-supply-department.defective-water-meter.edit', compact('data'));
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.defective-water-meter.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**

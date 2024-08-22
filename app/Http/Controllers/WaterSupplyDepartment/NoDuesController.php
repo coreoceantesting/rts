@@ -8,21 +8,17 @@ use App\Http\Requests\WaterDepartment\NoDues\CreateRequest;
 use App\Http\Requests\WaterDepartment\NoDues\UpdateRequest;
 use App\Services\WaterDepartment\NoDuesService;
 use App\Models\WaterDepartment\WaterNoDues;
+use App\Services\CommonService;
 
 class NoDuesController extends Controller
 {
     protected $noDuesService;
+    protected $commonService;
 
-    public function __construct(NoDuesService $noDuesService)
+    public function __construct(NoDuesService $noDuesService, CommonService $commonService)
     {
         $this->noDuesService = $noDuesService;
-    }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+        $this->commonService = $commonService;
     }
 
     /**
@@ -30,7 +26,14 @@ class NoDuesController extends Controller
      */
     public function create()
     {
-        return view('water-supply-department.no-dues-certificate.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.no-dues-certificate.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -66,7 +69,15 @@ class NoDuesController extends Controller
     {
         $data = WaterNoDues::findOrFail(decrypt($id));
 
-        return view('water-supply-department.no-dues-certificate.edit', compact('data'));
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.no-dues-certificate.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -85,13 +96,5 @@ class NoDuesController extends Controller
                 'error' => 'Something went wrong, please try again'
             ]);
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

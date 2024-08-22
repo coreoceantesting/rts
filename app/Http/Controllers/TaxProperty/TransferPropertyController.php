@@ -6,30 +6,29 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\PropertyTax\TransferPropertyCertificateRequest;
 use App\Services\PropertyTax\TransferPropertyCertificateService;
+use App\Services\CommonService;
 
 class TransferPropertyController extends Controller
 {
     protected $transferPropertyCertificateService;
+    protected $commonService;
 
-    public function __construct(TransferPropertyCertificateService $transferPropertyCertificateService)
+    public function __construct(TransferPropertyCertificateService $transferPropertyCertificateService, CommonService $commonService)
     {
         $this->transferPropertyCertificateService = $transferPropertyCertificateService;
+        $this->commonService = $commonService;
     }
 
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('property-tax.transferOfProperty.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('property-tax.transferOfProperty.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -65,8 +64,14 @@ class TransferPropertyController extends Controller
     {
         $transferProperty = $this->transferPropertyCertificateService->edit(decrypt($id));
 
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
         return view('property-tax.transferOfProperty.edit')->with([
-            'transferProperty' => $transferProperty
+            'transferProperty' => $transferProperty,
+            'wards' => $wards,
+            'zones' => $zones,
         ]);
     }
 

@@ -55,11 +55,9 @@
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
                                     <select class="form-select" name="zone" id="zone">
                                         <option value="">Select Zone</option>
-                                        @php
-                                            $options = ["Prabhag1", "Prabhag2", "Prabhag3", "Prabhag4", "Prabhag5", "Prabhag6"];
-                                        @endphp
-                                        @foreach($options as $option)
-                                        <option {{ $data->zone == $option ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                       
+                                        @foreach($zones as $zone)
+                                        <option {{ $data->zone == $zone->name ? 'selected' : '' }} value="{{ $zone->name }}">{{ $zone->name }}</option>
                                         @endforeach
                                     </select>
                                     <span class="text-danger is-invalid zone_err"></span>
@@ -68,11 +66,9 @@
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
                                     <select class="form-select" name="ward_area" id="ward_area">
                                         <option value="">Select Ward Area</option>
-                                        @php
-                                            $options = ["firstward"];
-                                        @endphp
-                                        @foreach($options as $option)
-                                        <option {{ $data->ward_area == $option ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        
+                                        @foreach($wards as $ward)
+                                        <option {{ $data->ward_area == $ward->name ? 'selected' : '' }} value="{{ $ward->name }}">{{ $ward->name }}</option>
                                         @endforeach
                                     </select>
                                     <span class="text-danger is-invalid ward_area_err"></span>
@@ -100,6 +96,17 @@
                                     <label class="col-form-label" for="other_info">Any other information / इतर कोणतीही माहिती<span class="text-danger">*</span></label>
                                     <input class="form-control" id="other_info" name="other_info" type="text" placeholder="Enter Any other information" value="{{ $data->other_info }}">
                                     <span class="text-danger is-invalid other_info_err"></span>
+                                </div>
+
+                                <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
+                                <div class="col-md-12">
+                                    <div class="form-check d-flex align-items-start">
+                                        <input type="checkbox" checked class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" value="yes">
+                                        <label class="form-check-label ms-2" for="is_correct_info">
+                                            "All information provided above is correct and I shall be fully responsible for any discrepancy. / वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार असेन."
+                                        </label>
+                                    </div>
+                                    <span class="text-danger is-invalid is_correct_info_err"></span>
                                 </div>
 
                             </div>

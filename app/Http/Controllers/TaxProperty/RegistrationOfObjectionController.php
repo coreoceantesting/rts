@@ -6,14 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\PropertyTax\RegistrationOfObjectionRequest;
 use App\Services\PropertyTax\RegistrationOfObjectionService;
+use App\Services\CommonService;
 
 class RegistrationOfObjectionController extends Controller
 {
     protected $registrationOfObjectionService;
+    protected $commonService;
 
-    public function __construct(RegistrationOfObjectionService $registrationOfObjectionService)
+    public function __construct(RegistrationOfObjectionService $registrationOfObjectionService, CommonService $commonService)
     {
         $this->registrationOfObjectionService = $registrationOfObjectionService;
+        $this->commonService = $commonService;
     }
 
     /**
@@ -29,7 +32,14 @@ class RegistrationOfObjectionController extends Controller
      */
     public function create()
     {
-        return view('property-tax.RegistrationOfObjection.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('property-tax.RegistrationOfObjection.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -63,10 +73,16 @@ class RegistrationOfObjectionController extends Controller
      */
     public function edit(string $id)
     {
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
         $registrationofObjection = $this->registrationOfObjectionService->edit(decrypt($id));
 
         return view('property-tax.RegistrationOfObjection.edit')->with([
-            'registrationofObjection' => $registrationofObjection
+            'registrationofObjection' => $registrationofObjection,
+            'wards' => $wards,
+            'zones' => $zones,
         ]);
     }
 

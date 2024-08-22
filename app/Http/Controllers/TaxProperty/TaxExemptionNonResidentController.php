@@ -6,14 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\PropertyTax\TaxExemptionNonResidentPropertiesRequest;
 use App\Services\PropertyTax\TaxExemptionNonResidentPropertiesService;
+use App\Services\CommonService;
 
 class TaxExemptionNonResidentController extends Controller
 {
     protected $taxExemptionNonResidentPropertiesService;
+    protected $commonService;
 
-    public function __construct(TaxExemptionNonResidentPropertiesService $taxExemptionNonResidentPropertiesService)
+    public function __construct(TaxExemptionNonResidentPropertiesService $taxExemptionNonResidentPropertiesService, CommonService $commonService)
     {
         $this->taxExemptionNonResidentPropertiesService = $taxExemptionNonResidentPropertiesService;
+        $this->commonService = $commonService;
     }
 
     /**
@@ -29,7 +32,14 @@ class TaxExemptionNonResidentController extends Controller
      */
     public function create()
     {
-        return view('property-tax.taxExemptionNonResident.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('property-tax.taxExemptionNonResident.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -65,8 +75,14 @@ class TaxExemptionNonResidentController extends Controller
     {
         $taxExemptionNonResidentialProp = $this->taxExemptionNonResidentPropertiesService->edit(decrypt($id));
 
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
         return view('property-tax.taxExemptionNonResident.edit')->with([
-            'taxExemptionNonResidentialProp' => $taxExemptionNonResidentialProp
+            'taxExemptionNonResidentialProp' => $taxExemptionNonResidentialProp,
+            'wards' => $wards,
+            'zones' => $zones,
         ]);
     }
 

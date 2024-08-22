@@ -8,29 +8,29 @@ use App\Http\Requests\WaterDepartment\ChangeOwnership\CreateRequest;
 use App\Http\Requests\WaterDepartment\ChangeOwnership\UpdateRequest;
 use App\Services\WaterDepartment\ChangeOwnershipService;
 use App\Models\WaterDepartment\WaterChangeOwnership;
+use App\Services\CommonService;
 
 class ChangeInOwnershipController extends Controller
 {
     protected $changeOwnershipService;
+    protected $commonService;
 
-    public function __construct(ChangeOwnershipService $changeOwnershipService)
+    public function __construct(ChangeOwnershipService $changeOwnershipService, CommonService $commonService)
     {
         $this->changeOwnershipService = $changeOwnershipService;
-    }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+        $this->commonService = $commonService;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('water-supply-department.change-in-ownership.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.change-in-ownership.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -52,20 +52,21 @@ class ChangeInOwnershipController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
         $data = WaterChangeOwnership::findOrFail(decrypt($id));
-        return view('water-supply-department.change-in-ownership.edit', compact('data'));
+
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.change-in-ownership.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**

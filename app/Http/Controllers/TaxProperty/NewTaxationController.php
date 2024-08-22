@@ -6,14 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\PropertyTax\NewTaxationRequest;
 use App\Services\PropertyTax\NewtaxationService;
+use App\Services\CommonService;
 
 class NewTaxationController extends Controller
 {
     protected $newtaxationService;
+    protected $commonService;
 
-    public function __construct(NewtaxationService $newtaxationService)
+    public function __construct(NewtaxationService $newtaxationService, CommonService $commonService)
     {
         $this->newtaxationService = $newtaxationService;
+        $this->commonService = $commonService;
     }
     /**
      * Display a listing of the resource.
@@ -28,7 +31,14 @@ class NewTaxationController extends Controller
      */
     public function create()
     {
-        return view('property-tax.newTaxation.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('property-tax.newTaxation.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -64,8 +74,14 @@ class NewTaxationController extends Controller
     {
         $newTax = $this->newtaxationService->edit(decrypt($id));
 
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
         return view('property-tax.newTaxation.edit')->with([
-            'newTax' => $newTax
+            'newTax' => $newTax,
+            'wards' => $wards,
+            'zones' => $zones,
         ]);
     }
 

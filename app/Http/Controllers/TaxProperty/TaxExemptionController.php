@@ -6,14 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\PropertyTax\TaxExemptionRequest;
 use App\Services\PropertyTax\TaxExemptionService;
+use App\Services\CommonService;
 
 class TaxExemptionController extends Controller
 {
     protected $taxExemptionService;
+    protected $commonService;
 
-    public function __construct(TaxExemptionService $taxExemptionService)
+    public function __construct(TaxExemptionService $taxExemptionService, CommonService $commonService)
     {
         $this->taxExemptionService = $taxExemptionService;
+        $this->commonService = $commonService;
     }
 
     /**
@@ -29,7 +32,14 @@ class TaxExemptionController extends Controller
      */
     public function create()
     {
-        return view('property-tax.taxExemption.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('property-tax.taxExemption.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -65,8 +75,14 @@ class TaxExemptionController extends Controller
     {
         $taxExemption = $this->taxExemptionService->edit(decrypt($id));
 
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
         return view('property-tax.taxExemption.edit')->with([
-            'taxExemption' => $taxExemption
+            'taxExemption' => $taxExemption,
+            'wards' => $wards,
+            'zones' => $zones,
         ]);
     }
 

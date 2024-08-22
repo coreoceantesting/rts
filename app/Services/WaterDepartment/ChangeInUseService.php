@@ -28,7 +28,7 @@ class ChangeInUseService
 
         try {
             $request['user_id'] = Auth::user()->id;
-            $request['service_id'] = 17;
+            $request['service_id'] = "17";
             // Handle file uploads and store original file names
             if ($request->hasFile('application_documents')) {
                 $request['application_document'] = $request->application_documents->store('water-department/change-in-use');
@@ -52,6 +52,7 @@ class ChangeInUseService
             }
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['_token', 'application_documents', 'nodues_documents']);
+            Log::info($newData);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'WaterBillMicroService/WaterbillApi/ApleSarkarService/RequestForChangeInUseOfWaterConnection', '');
 
             // Decode JSON string to PHP array

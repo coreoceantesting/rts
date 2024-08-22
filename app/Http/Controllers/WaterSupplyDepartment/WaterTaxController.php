@@ -8,14 +8,17 @@ use App\Http\Requests\WaterDepartment\TaxBill\CreateRequest;
 use App\Http\Requests\WaterDepartment\TaxBill\UpdateRequest;
 use App\Services\WaterDepartment\TaxBillService;
 use App\Models\WaterDepartment\WaterTaxBill;
+use App\Services\CommonService;
 
 class WaterTaxController extends Controller
 {
     protected $taxBillService;
+    protected $commonService;
 
-    public function __construct(TaxBillService $taxBillService)
+    public function __construct(TaxBillService $taxBillService, CommonService $commonService)
     {
         $this->taxBillService = $taxBillService;
+        $this->commonService = $commonService;
     }
     /**
      * Display a listing of the resource.
@@ -30,7 +33,14 @@ class WaterTaxController extends Controller
      */
     public function create()
     {
-        return view('water-supply-department.water-tax-bill.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.water-tax-bill.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -66,7 +76,15 @@ class WaterTaxController extends Controller
     {
         $data = WaterTaxBill::findOrFail(decrypt($id));
 
-        return view('water-supply-department.water-tax-bill.edit', compact('data'));
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.water-tax-bill.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**

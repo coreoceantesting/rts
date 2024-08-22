@@ -8,14 +8,17 @@ use App\Http\Requests\WaterDepartment\Reconnection\CreateRequest;
 use App\Http\Requests\WaterDepartment\Reconnection\UpdateRequest;
 use App\Services\WaterDepartment\ReconnectionService;
 use App\Models\WaterDepartment\WaterReconnection;
+use App\Services\CommonService;
 
 class WaterReConnectionController extends Controller
 {
     protected $reconnectionService;
+    protected $commonService;
 
-    public function __construct(ReconnectionService $reconnectionService)
+    public function __construct(ReconnectionService $reconnectionService, CommonService $commonService)
     {
         $this->reconnectionService = $reconnectionService;
+        $this->commonService = $commonService;
     }
     /**
      * Display a listing of the resource.
@@ -30,7 +33,14 @@ class WaterReConnectionController extends Controller
      */
     public function create()
     {
-        return view('water-supply-department.water-reconnection.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.water-reconnection.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -66,7 +76,15 @@ class WaterReConnectionController extends Controller
     {
         $data = WaterReconnection::findOrFail(decrypt($id));
 
-        return view('water-supply-department.water-reconnection.edit', compact('data'));
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.water-reconnection.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**

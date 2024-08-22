@@ -153,7 +153,7 @@ class NewWaterConnectionService
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
-
+            Log::info($data);
             if ($data['status'] == "200") {
                 // Access the application_no
                 DB::commit();

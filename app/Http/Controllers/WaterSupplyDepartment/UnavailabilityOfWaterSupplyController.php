@@ -8,14 +8,17 @@ use App\Http\Requests\WaterDepartment\UnavailabilitySupply\CreateRequest;
 use App\Http\Requests\WaterDepartment\UnavailabilitySupply\UpdateRequest;
 use App\Services\WaterDepartment\UnavailabilitySupplyService;
 use App\Models\WaterDepartment\WaterUnavailabilitySupply;
+use App\Services\CommonService;
 
 class UnavailabilityOfWaterSupplyController extends Controller
 {
     protected $unavailabilitySupplyService;
+    protected $commonService;
 
-    public function __construct(UnavailabilitySupplyService $unavailabilitySupplyService)
+    public function __construct(UnavailabilitySupplyService $unavailabilitySupplyService, CommonService $commonService)
     {
         $this->unavailabilitySupplyService = $unavailabilitySupplyService;
+        $this->commonService = $commonService;
     }
     /**
      * Display a listing of the resource.
@@ -30,7 +33,14 @@ class UnavailabilityOfWaterSupplyController extends Controller
      */
     public function create()
     {
-        return view('water-supply-department.unavalibality-water-supply.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.unavalibality-water-supply.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -66,7 +76,15 @@ class UnavailabilityOfWaterSupplyController extends Controller
     {
         $data = WaterUnavailabilitySupply::findOrFail(decrypt($id));
 
-        return view('water-supply-department.unavalibality-water-supply.edit', compact('data'));
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.unavalibality-water-supply.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**

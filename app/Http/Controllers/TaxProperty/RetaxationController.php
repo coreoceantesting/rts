@@ -6,14 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\PropertyTax\RetaxationRequest;
 use App\Services\PropertyTax\ReTaxationService;
+use App\Services\CommonService;
 
 class RetaxationController extends Controller
 {
     protected $reTaxationService;
+    protected $commonService;
 
-    public function __construct(ReTaxationService $reTaxationService)
+    public function __construct(ReTaxationService $reTaxationService, CommonService $commonService)
     {
         $this->reTaxationService = $reTaxationService;
+        $this->commonService = $commonService;
     }
 
     /**
@@ -29,7 +32,14 @@ class RetaxationController extends Controller
      */
     public function create()
     {
-        return view('property-tax.reTaxation.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('property-tax.reTaxation.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -65,8 +75,14 @@ class RetaxationController extends Controller
     {
         $retax = $this->reTaxationService->edit(decrypt($id));
 
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
         return view('property-tax.reTaxation.edit')->with([
-            'retax' => $retax
+            'retax' => $retax,
+            'wards' => $wards,
+            'zones' => $zones,
         ]);
     }
 

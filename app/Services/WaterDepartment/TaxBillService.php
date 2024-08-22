@@ -42,6 +42,7 @@ class TaxBillService
             } else {
                 $request['application_document'] = "";
             }
+            $request['owner_name'] = $request->property_owner_name;
             $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
             $newData = $request->except(['_token', 'application_documents']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'WaterBillMicroService/WaterbillApi/ApleSarkarService/RequestForPreparationOfWaterPaymentsForPmc', '');

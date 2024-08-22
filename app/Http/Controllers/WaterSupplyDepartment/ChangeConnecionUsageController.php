@@ -7,14 +7,17 @@ use Illuminate\Http\Request;
 use App\Http\Requests\WaterDepartment\ChangeInUse\CreateRequest;
 use App\Http\Requests\WaterDepartment\ChangeInUse\UpdateRequest;
 use App\Services\WaterDepartment\ChangeInUseService;
+use App\Services\CommonService;
 
 class ChangeConnecionUsageController extends Controller
 {
     protected $changeInUseService;
+    protected $commonService;
 
-    public function __construct(ChangeInUseService $changeInUseService)
+    public function __construct(ChangeInUseService $changeInUseService, CommonService $commonService)
     {
         $this->changeInUseService = $changeInUseService;
+        $this->commonService = $commonService;
     }
     /**
      * Display a listing of the resource.
@@ -29,7 +32,14 @@ class ChangeConnecionUsageController extends Controller
      */
     public function create()
     {
-        return view('water-supply-department.change-connection-usage.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.change-connection-usage.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
@@ -65,7 +75,15 @@ class ChangeConnecionUsageController extends Controller
     {
         $data = $this->changeInUseService->edit(decrypt($id));
 
-        return view('water-supply-department.change-connection-usage.edit', compact('data'));
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('water-supply-department.change-connection-usage.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     /**
