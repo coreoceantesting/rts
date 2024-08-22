@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Service;
+use Log;
 
 class ServiceSeeder extends Seeder
 {
@@ -49,7 +50,7 @@ class ServiceSeeder extends Seeder
             ],
             [
                 "id" => 4,
-                "service_id" => 75,
+                "service_id" => null,
                 "name" => "विवाह नोंदणी",
                 "image" => "service/8apAFL7HgTwAWfvScbYuChPeKS2vbgYTajhjh2tR.png",
                 "is_parent" => 0,

@@ -76,12 +76,9 @@
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
                                     <select class="form-select" name="zone" id="zone" required>
                                         <option value="">Select Zone</option>
-                                        @php
-                                            $options = ["Prabhag1", "Prabhag2", "Prabhag3", "Prabhag4", "Prabhag5", "Prabhag6"];
-                                        @endphp
 
-                                        @foreach($options as $option)
-                                        <option {{ ($propertyTaxAssessment->zone == $option) ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        @foreach($zones as $zone)
+                                        <option {{ ($propertyTaxAssessment->zone == $zone->name) ? 'selected' : '' }} value="{{ $zone->name }}">{{ $zone->name }}</option>
                                         @endforeach
                                     </select>
                                     <span class="text-danger is-invalid zone_err"></span>
@@ -95,8 +92,8 @@
                                             $options = ["firstward"];
                                         @endphp
 
-                                        @foreach($options as $option)
-                                        <option {{ ($propertyTaxAssessment->ward_area == $option) ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        @foreach($wards as $ward)
+                                        <option {{ ($propertyTaxAssessment->ward_area == $ward->name) ? 'selected' : '' }} value="{{ $ward->name }}">{{ $ward->name }}</option>
                                         @endforeach
                                     </select>
                                     <span class="text-danger is-invalid ward_area_err"></span>

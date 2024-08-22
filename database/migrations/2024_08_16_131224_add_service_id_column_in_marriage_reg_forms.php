@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('marriage_reg_forms', function (Blueprint $table) {
             $table->integer('service_id')->after('user_id')->nullable();
-            $table->date('status')->after('service_id')->nullable();
+            $table->string('status')->after('service_id')->nullable();
         });
     }
 

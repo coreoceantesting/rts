@@ -48,15 +48,15 @@ class CurlAPiService
         $ch = curl_init($url);
 
         // Initialize post fields
-        if($object && $object != ""){
+        if ($object && $object != "") {
             $postFields[$object] = $data;
-        }else{
+        } else {
             $postFields = $data;
         }
         // Configure cURL options
         $payload = json_encode($postFields);
         // Log::info($payload);
-        Log::info($payload);
+        // Log::info($payload);
 
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
@@ -82,7 +82,8 @@ class CurlAPiService
         return $response;
     }
 
-    public function convertFileInBase64($file){
+    public function convertFileInBase64($file)
+    {
         // Get the file contents
         $fileContents = file_get_contents($file->getRealPath());
 

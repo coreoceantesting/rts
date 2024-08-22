@@ -85,7 +85,7 @@
                                     <select class="form-select" name="ward_area" id="ward_area" required>
                                         <option value="">Select Ward Area</option>
                                         @foreach($wards as $ward)
-                                        <option value="{{ $ward->namr }}">{{ $ward->name }}</option>
+                                        <option value="{{ $ward->name }}">{{ $ward->name }}</option>
                                         @endforeach
                                     </select>
                                     <span class="text-danger is-invalid ward_area_err"></span>

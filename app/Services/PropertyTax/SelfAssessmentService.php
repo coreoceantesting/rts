@@ -51,7 +51,6 @@ class SelfAssessmentService
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
-
             if ($data['d']['Status'] != "") {
                 // Access the application_no
                 $applicationId = $data['d']['application_no'];

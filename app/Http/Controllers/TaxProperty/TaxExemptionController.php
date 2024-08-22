@@ -37,7 +37,7 @@ class TaxExemptionController extends Controller
      */
     public function store(TaxExemptionRequest $request)
     {
-        $taxExemption = $this->taxExemptionService->store(decrypt($request));
+        $taxExemption = $this->taxExemptionService->store($request);
 
         if ($taxExemption) {
             return response()->json([
@@ -63,7 +63,7 @@ class TaxExemptionController extends Controller
      */
     public function edit(string $id)
     {
-        $taxExemption = $this->taxExemptionService->edit($id);
+        $taxExemption = $this->taxExemptionService->edit(decrypt($id));
 
         return view('property-tax.taxExemption.edit')->with([
             'taxExemption' => $taxExemption

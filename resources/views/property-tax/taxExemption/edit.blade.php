@@ -55,7 +55,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="property_address">Property Address / मालमत्तेचा पत्ता <span class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="property_address" id="property_address" cols="30" rows="2"  placeholder="Enter Property Address" value="{{ $taxExemption->property_address }}" required></textarea>
+                                    <textarea class="form-control" name="property_address" id="property_address" cols="30" rows="2"  placeholder="Enter Property Address" required>{{ $taxExemption->property_address }}</textarea>
                                     <span class="text-danger is-invalid property_address_err"></span>
                                 </div>
 
@@ -176,19 +176,25 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="no_dues_documents">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="no_dues_documents" name="no_dues_documents" type="file" value="{{ $taxExemption->no_dues_document }}" required>
+                                    @if($taxExemption->no_dues_document)
+                                    <a href="{{ asset('storage/'.$taxExemption->no_dues_document) }}">View File</a>
+                                    @endif
+                                    <input class="form-control" id="no_dues_documents" name="no_dues_documents" type="file">
                                     <span class="text-danger is-invalid no_dues_documents_err"></span>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="uploaded_applications">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="uploaded_applications" name="uploaded_applications" value="{{ $taxExemption->uploaded_application }}" type="file" required>
+                                    @if($taxExemption->uploaded_application)
+                                    <a href="{{ asset('storage/'.$taxExemption->uploaded_application) }}">View File</a>
+                                    @endif
+                                    <input class="form-control" id="uploaded_applications" name="uploaded_applications" type="file">
                                     <span class="text-danger is-invalid uploaded_applications_err"></span>
                                 </div>
 
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
                                 <div class="col-md-12">
                                     <div class="form-check d-flex align-items-start">
-                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" required value="yes">
+                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" checked required value="yes">
                                         <label class="form-check-label ms-2" for="is_correct_info">
                                             "All information provided above is correct and I shall be fully responsible for any discrepancy. <br> वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार असेन."
                                         </label>

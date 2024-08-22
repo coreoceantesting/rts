@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('user_id')->nullable();
             $table->integer('service_id')->nullable();
             $table->date('aapale_sarkar_payment_date')->nullable();
-            $table->date('status')->nullable();
+            $table->string('status')->nullable();
             $table->boolean('is_aapale_sarkar_payment_paid')->nullable();
             $table->string('upic_id')->nullable();
             $table->string('application_no')->nullable();
