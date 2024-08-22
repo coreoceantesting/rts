@@ -78,7 +78,7 @@
                                             <p>Password <span class="text-danger">*</span>:</p>
                                         </div>
                                         <div class="col-9">
-                                            <input type="text" class="form-control p-1" name="password" />
+                                            <input type="password" class="form-control p-1" name="password" />
                                             <span class="text-danger is-invalid password_err"></span>
                                         </div>
                                     </div>
