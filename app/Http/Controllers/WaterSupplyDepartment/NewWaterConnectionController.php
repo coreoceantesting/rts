@@ -12,7 +12,6 @@ use App\Services\CommonService;
 
 class NewWaterConnectionController extends Controller
 {
-
     protected $newWaterConnectionService;
     protected $commonService;
 
@@ -21,17 +20,7 @@ class NewWaterConnectionController extends Controller
         $this->newWaterConnectionService = $newWaterConnectionService;
         $this->commonService = $commonService;
     }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $wards = $this->commonService->getActiveWard();
@@ -44,9 +33,6 @@ class NewWaterConnectionController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(CreateNewConnectionRequest $request)
     {
         $newWaterConnectionService = $this->newWaterConnectionService->store($request);
@@ -62,17 +48,6 @@ class NewWaterConnectionController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $data = Waternewconnection::findOrFail(decrypt($id));
@@ -88,9 +63,6 @@ class NewWaterConnectionController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateNewConnectionRequest $request, string $id)
     {
         $newWaterConnectionService = $this->newWaterConnectionService->update($request, $id);
@@ -104,13 +76,5 @@ class NewWaterConnectionController extends Controller
                 'error' => 'Something went wrong, please try again'
             ]);
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

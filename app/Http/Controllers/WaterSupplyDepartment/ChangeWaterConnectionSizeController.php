@@ -33,9 +33,6 @@ class ChangeWaterConnectionSizeController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(CreateRequest $request)
     {
         $changeConnectionSizeService = $this->changeConnectionSizeService->store($request);
@@ -51,17 +48,6 @@ class ChangeWaterConnectionSizeController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $data = WaterChangeConnectionSize::findOrFail(decrypt($id));
@@ -77,9 +63,6 @@ class ChangeWaterConnectionSizeController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateRequest $request, string $id)
     {
         $changeConnectionSizeService = $this->changeConnectionSizeService->update($request, $id);
@@ -93,13 +76,5 @@ class ChangeWaterConnectionSizeController extends Controller
                 'error' => 'Something went wrong, please try again'
             ]);
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

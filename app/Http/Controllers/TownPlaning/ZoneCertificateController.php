@@ -17,10 +17,6 @@ class ZoneCertificateController extends Controller
     {
         $this->zoneCertificateService = $zoneCertificateService;
     }
-    public function index()
-    {
-        return true;
-    }
 
     public function create()
     {

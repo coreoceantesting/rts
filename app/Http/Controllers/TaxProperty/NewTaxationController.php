@@ -18,17 +18,7 @@ class NewTaxationController extends Controller
         $this->newtaxationService = $newtaxationService;
         $this->commonService = $commonService;
     }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $wards = $this->commonService->getActiveWard();
@@ -41,9 +31,7 @@ class NewTaxationController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(NewTaxationRequest $request)
     {
         $newTax = $this->newtaxationService->store($request);
@@ -59,17 +47,6 @@ class NewTaxationController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $newTax = $this->newtaxationService->edit(decrypt($id));
@@ -85,9 +62,7 @@ class NewTaxationController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(NewTaxationRequest $request, string $id)
     {
         $newTax = $this->newtaxationService->update($request);
@@ -101,13 +76,5 @@ class NewTaxationController extends Controller
                 'error' => 'Something went wrong, please try again'
             ]);
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

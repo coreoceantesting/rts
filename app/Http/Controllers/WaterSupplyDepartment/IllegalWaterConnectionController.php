@@ -12,7 +12,6 @@ use App\Services\CommonService;
 
 class IllegalWaterConnectionController extends Controller
 {
-
     protected $illegalWaterConnectionService;
     protected $commonService;
 
@@ -34,9 +33,6 @@ class IllegalWaterConnectionController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(CreateRequest $request)
     {
         $illegalWaterConnectionService = $this->illegalWaterConnectionService->store($request);
@@ -68,9 +64,6 @@ class IllegalWaterConnectionController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateRequest $request, string $id)
     {
         $illegalWaterConnectionService = $this->illegalWaterConnectionService->update($request, $id);
@@ -84,13 +77,5 @@ class IllegalWaterConnectionController extends Controller
                 'error' => 'Something went wrong, please try again'
             ]);
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

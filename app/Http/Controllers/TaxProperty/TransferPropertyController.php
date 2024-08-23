@@ -31,9 +31,6 @@ class TransferPropertyController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(TransferPropertyCertificateRequest $request)
     {
         $transferProperty = $this->transferPropertyCertificateService->store($request);
@@ -49,17 +46,6 @@ class TransferPropertyController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($id)
     {
         $transferProperty = $this->transferPropertyCertificateService->edit(decrypt($id));
@@ -75,9 +61,6 @@ class TransferPropertyController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(TransferPropertyCertificateRequest $request, $id)
     {
         $transferProperty = $this->transferPropertyCertificateService->update($request);
@@ -91,13 +74,5 @@ class TransferPropertyController extends Controller
                 'error' => 'Something went wrong, please try again'
             ]);
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

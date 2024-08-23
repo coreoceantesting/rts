@@ -21,9 +21,6 @@ class DisconnectWaterSupplyController extends Controller
         $this->commonService = $commonService;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $wards = $this->commonService->getActiveWard();
@@ -36,9 +33,6 @@ class DisconnectWaterSupplyController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(CreateRequest $request)
     {
         $disconnectSupplyService = $this->disconnectSupplyService->store($request);
@@ -54,17 +48,6 @@ class DisconnectWaterSupplyController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $data = WaterDisconnectSupply::findOrFail(decrypt($id));
@@ -80,9 +63,6 @@ class DisconnectWaterSupplyController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateRequest $request, string $id)
     {
         $disconnectSupplyService = $this->disconnectSupplyService->update($request, $id);
@@ -96,13 +76,5 @@ class DisconnectWaterSupplyController extends Controller
                 'error' => 'Something went wrong, please try again'
             ]);
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

@@ -31,9 +31,6 @@ class NoDueController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(NoDueCertificateRequest $request)
     {
         $noDue = $this->noDueCertificateService->store($request);
@@ -49,9 +46,6 @@ class NoDueController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $noDue = $this->noDueCertificateService->edit(decrypt($id));
@@ -68,9 +62,6 @@ class NoDueController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(NoDueCertificateRequest $request, string $id)
     {
         $noDue = $this->noDueCertificateService->update($request);
@@ -84,13 +75,5 @@ class NoDueController extends Controller
                 'error' => 'Something went wrong, please try again'
             ]);
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

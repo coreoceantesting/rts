@@ -17,25 +17,12 @@ class ChangeLicenseNameController extends Controller
     {
         $this->changeLicenseNameService = $changeLicenseNameService;
     }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('trade.change-license-name.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(CreateRequest $request)
     {
         $changeLicenseNameService = $this->changeLicenseNameService->store($request);
@@ -51,17 +38,6 @@ class ChangeLicenseNameController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $data = TradeChangeLicenseName::findOrFail(decrypt($id));
@@ -69,9 +45,6 @@ class ChangeLicenseNameController extends Controller
         return view('trade.change-license-name.edit', compact('data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateRequest $request, string $id)
     {
         $changeLicenseNameService = $this->changeLicenseNameService->update($request, $id);
@@ -85,13 +58,5 @@ class ChangeLicenseNameController extends Controller
                 'error' => 'Something went wrong, please try again'
             ]);
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

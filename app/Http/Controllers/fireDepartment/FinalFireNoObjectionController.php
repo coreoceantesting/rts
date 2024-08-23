@@ -17,25 +17,12 @@ class FinalFireNoObjectionController extends Controller
     {
         $this->finalNoObjectionService = $finalNoObjectionService;
     }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('FireDepartment.FinalNoObjectionCertificate.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(CreateRequest $request)
     {
         $finalNoObjectionService = $this->finalNoObjectionService->store($request);
@@ -51,17 +38,6 @@ class FinalFireNoObjectionController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $data = FireFinalNoObjection::findOrFail(decrypt($id));
@@ -69,9 +45,6 @@ class FinalFireNoObjectionController extends Controller
         return view('FireDepartment.FinalNoObjectionCertificate.edit', compact('data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateRequest $request, string $id)
     {
         $finalNoObjectionService = $this->finalNoObjectionService->update($request, $id);
@@ -85,13 +58,5 @@ class FinalFireNoObjectionController extends Controller
                 'error' => 'Something went wrong, please try again'
             ]);
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

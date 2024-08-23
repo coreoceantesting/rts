@@ -17,10 +17,6 @@ class BhagNakashaController extends Controller
     {
         $this->partZoneService = $partZoneService;
     }
-    public function index()
-    {
-        return true;
-    }
 
     public function create()
     {

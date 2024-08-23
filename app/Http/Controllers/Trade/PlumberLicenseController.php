@@ -17,25 +17,12 @@ class PlumberLicenseController extends Controller
     {
         $this->plumberLicenseService = $plumberLicenseService;
     }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('trade.plumber-license.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(CreateRequest $request)
     {
         $plumberLicenseService = $this->plumberLicenseService->store($request);
@@ -51,17 +38,6 @@ class PlumberLicenseController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $data = WaterPlumberLicense::findOrFail(decrypt($id));
@@ -69,9 +45,6 @@ class PlumberLicenseController extends Controller
         return view('trade.plumber-license.edit', compact('data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateRequest $request, string $id)
     {
         $plumberLicenseService = $this->plumberLicenseService->update($request, $id);
@@ -85,13 +58,5 @@ class PlumberLicenseController extends Controller
                 'error' => 'Something went wrong, please try again'
             ]);
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

@@ -19,17 +19,6 @@ class TaxDemandController extends Controller
         $this->commonService = $commonService;
     }
 
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $wards = $this->commonService->getActiveWard();
@@ -42,9 +31,6 @@ class TaxDemandController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(TaxDemandRequest $request)
     {
         $taxDemand = $this->taxDemandService->store($request);
@@ -60,17 +46,6 @@ class TaxDemandController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $taxDemand = $this->taxDemandService->edit(decrypt($id));
@@ -86,9 +61,6 @@ class TaxDemandController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(TaxDemandRequest $request, string $id)
     {
         $taxDemand = $this->taxDemandService->update($request);
@@ -102,13 +74,5 @@ class TaxDemandController extends Controller
                 'error' => 'Something went wrong, please try again'
             ]);
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

@@ -21,9 +21,6 @@ class NoDuesController extends Controller
         $this->commonService = $commonService;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $wards = $this->commonService->getActiveWard();
@@ -36,9 +33,6 @@ class NoDuesController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(CreateRequest $request)
     {
         $noDuesService = $this->noDuesService->store($request);
@@ -54,17 +48,6 @@ class NoDuesController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $data = WaterNoDues::findOrFail(decrypt($id));
@@ -80,9 +63,6 @@ class NoDuesController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $noDuesService = $this->noDuesService->update($request, $id);

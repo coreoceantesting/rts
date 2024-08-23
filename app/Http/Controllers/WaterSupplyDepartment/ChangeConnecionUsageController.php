@@ -19,17 +19,7 @@ class ChangeConnecionUsageController extends Controller
         $this->changeInUseService = $changeInUseService;
         $this->commonService = $commonService;
     }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $wards = $this->commonService->getActiveWard();
@@ -42,9 +32,6 @@ class ChangeConnecionUsageController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(CreateRequest $request)
     {
         $changeInUseService = $this->changeInUseService->store($request);
@@ -60,17 +47,6 @@ class ChangeConnecionUsageController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $data = $this->changeInUseService->edit(decrypt($id));
@@ -86,9 +62,6 @@ class ChangeConnecionUsageController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateRequest $request, string $id)
     {
         $changeInUseService = $this->changeInUseService->update($request, $id);
@@ -102,13 +75,5 @@ class ChangeConnecionUsageController extends Controller
                 'error' => 'Something went wrong, please try again'
             ]);
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

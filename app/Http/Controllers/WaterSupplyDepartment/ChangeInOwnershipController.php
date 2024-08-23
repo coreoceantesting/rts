@@ -33,9 +33,6 @@ class ChangeInOwnershipController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(CreateRequest $request)
     {
         $changeOwnershipService = $this->changeOwnershipService->store($request);
@@ -51,9 +48,6 @@ class ChangeInOwnershipController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $data = WaterChangeOwnership::findOrFail(decrypt($id));
@@ -69,9 +63,6 @@ class ChangeInOwnershipController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateRequest $request, string $id)
     {
         $changeOwnershipService = $this->changeOwnershipService->update($request, $id);
@@ -85,13 +76,5 @@ class ChangeInOwnershipController extends Controller
                 'error' => 'Something went wrong, please try again'
             ]);
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

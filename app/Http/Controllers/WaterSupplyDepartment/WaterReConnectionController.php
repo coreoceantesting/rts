@@ -20,17 +20,7 @@ class WaterReConnectionController extends Controller
         $this->reconnectionService = $reconnectionService;
         $this->commonService = $commonService;
     }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $wards = $this->commonService->getActiveWard();
@@ -43,9 +33,6 @@ class WaterReConnectionController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(CreateRequest $request)
     {
         $reconnectionService = $this->reconnectionService->store($request);
@@ -61,17 +48,6 @@ class WaterReConnectionController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $data = WaterReconnection::findOrFail(decrypt($id));
@@ -87,9 +63,6 @@ class WaterReConnectionController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateRequest $request, string $id)
     {
         $reconnectionService = $this->reconnectionService->update($request, $id);
@@ -103,13 +76,5 @@ class WaterReConnectionController extends Controller
                 'error' => 'Something went wrong, please try again'
             ]);
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

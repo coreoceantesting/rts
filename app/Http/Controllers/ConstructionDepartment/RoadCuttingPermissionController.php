@@ -17,10 +17,6 @@ class RoadCuttingPermissionController extends Controller
     {
         $this->RoadCuttingService = $RoadCuttingService;
     }
-    public function index()
-    {
-
-    }
 
     public function create()
     {

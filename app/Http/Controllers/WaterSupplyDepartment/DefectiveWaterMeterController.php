@@ -33,9 +33,6 @@ class DefectiveWaterMeterController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(CreateRequest $request)
     {
         $defectiveWaterMeterService = $this->defectiveWaterMeterService->store($request);
@@ -66,9 +63,6 @@ class DefectiveWaterMeterController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateRequest $request, string $id)
     {
         $defectiveWaterMeterService = $this->defectiveWaterMeterService->update($request, $id);
@@ -82,13 +76,5 @@ class DefectiveWaterMeterController extends Controller
                 'error' => 'Something went wrong, please try again'
             ]);
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

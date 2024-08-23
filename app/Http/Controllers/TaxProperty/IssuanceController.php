@@ -18,17 +18,7 @@ class IssuanceController extends Controller
         $this->propertyTaxAssessmentService = $propertyTaxAssessmentService;
         $this->commonService = $commonService;
     }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $wards = $this->commonService->getActiveWard();
@@ -41,9 +31,6 @@ class IssuanceController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(PropertyTaxAssessmentRequest $request)
     {
         $propertyTaxAssessment = $this->propertyTaxAssessmentService->store($request);
@@ -59,17 +46,6 @@ class IssuanceController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $propertyTaxAssessment = $this->propertyTaxAssessmentService->edit(decrypt($id));
@@ -85,9 +61,7 @@ class IssuanceController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(PropertyTaxAssessmentRequest $request, string $id)
     {
         $propertyTaxAssessment = $this->propertyTaxAssessmentService->update($request);
@@ -101,13 +75,5 @@ class IssuanceController extends Controller
                 'error' => 'Something went wrong, please try again'
             ]);
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }
