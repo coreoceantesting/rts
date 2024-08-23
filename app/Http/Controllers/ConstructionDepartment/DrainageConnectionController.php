@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\ConstructionDepartment\DrainageConnection\CreateRequest;
 use App\Http\Requests\ConstructionDepartment\DrainageConnection\UpdateRequest;
-use App\Services\ConstructionDepartment\DrainageConnection\DrainageConnectionService;
+use App\Services\ConstructionDepartment\DrainageConnectionService;
 use App\Models\ConstructionDepartment\ConstructionDrainageConnection;
 
 class DrainageConnectionController extends Controller

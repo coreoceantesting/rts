@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\FireDepartment\NoObjection\CreateRequest;
 use App\Http\Requests\FireDepartment\NoObjection\UpdateRequest;
-use App\Services\FireDepartment\NoObjection\NoObjectionService;
+use App\Services\FireDepartment\NoObjectionService;
 use App\Models\FireDepartment\FireNoObjection;
 
 class FireNoObjectionController extends Controller

@@ -49,12 +49,9 @@
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
                                     <select class="form-select" name="zone" id="zone">
                                         <option value="">Select Zone</option>
-                                        @php
-                                        $options = ["Prabhag1", "Prabhag2", "Prabhag3", "Prabhag4", "Prabhag5", "Prabhag6"];
-                                        @endphp
-
-                                        @foreach($options as $option)
-                                        <option value="{{ $option }}" {{ $data->zone == $option ? 'selected' : '' }}>{{ $option }}</option>
+                                        
+                                        @foreach($zones as $zone)
+                                        <option value="{{ $zone->name }}" {{ $data->zone == $zone->name ? 'selected' : '' }}>{{ $zone->name }}</option>
                                         @endforeach
                                     </select>
                                     <span class="text-danger is-invalid zone_err"></span>
@@ -63,7 +60,10 @@
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
                                     <select class="form-select" name="ward_area" id="ward_area">
                                         <option value="">Select Ward Area</option>
-                                        <option value="1"  {{ $data->ward_area == 1 ? 'selected' : '' }}>firstward</option>
+
+                                        @foreach($wards as $ward)
+                                        <option value="{{ $ward->name }}" {{ $data->ward_area == $ward->name ? 'selected' : '' }}>{{ $ward->name }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid ward_area_err"></span>
                                 </div>

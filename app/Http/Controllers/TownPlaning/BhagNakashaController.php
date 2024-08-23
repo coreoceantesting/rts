@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\CityStructure\PartMap\CreateRequest;
 use App\Http\Requests\CityStructure\PartMap\UpdateRequest;
-use App\Services\CityStructure\PartMap\PartZoneService;
+use App\Services\CityStructure\PartZoneService;
 use App\Models\CityStructure\CityStructurePartMap;
 
 class BhagNakashaController extends Controller

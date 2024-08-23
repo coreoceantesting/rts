@@ -26,9 +26,9 @@ class RegistrationOfObjectionRequest extends FormRequest
             return [
                 'applicant_full_name' => 'required',
                 'applicant_full_address' => 'required',
-                'applicant_mobile_no' => 'required',
+                'applicant_mobile_no' => 'required|min:10|max:10',
                 'email_id' => 'required',
-                'aadhar_no' => 'required',
+                'aadhar_no' => 'required|min:12|max:12',
                 'property_owner_name' => 'required',
                 'property_address' => 'required',
                 'zone' => 'required',
@@ -49,9 +49,9 @@ class RegistrationOfObjectionRequest extends FormRequest
             return [
                 'applicant_full_name' => 'required',
                 'applicant_full_address' => 'required',
-                'applicant_mobile_no' => 'required',
+                'applicant_mobile_no' => 'required|min:10|max:10',
                 'email_id' => 'required',
-                'aadhar_no' => 'required',
+                'aadhar_no' => 'required|min:12|max:12',
                 'property_owner_name' => 'required',
                 'property_address' => 'required',
                 'zone' => 'required',

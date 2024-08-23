@@ -8,19 +8,29 @@ use App\Http\Requests\Trade\RenewalLicense\CreateRequest;
 use App\Http\Requests\Trade\RenewalLicense\UpdateRequest;
 use App\Services\Trade\RenewalLicenseService;
 use App\Models\Trade\TradeRenewalLicensePermission;
+use App\Services\CommonService;
 
 class RenewalOfLicenseController extends Controller
 {
     protected $renewalLicenseService;
+    protected $commonService;
 
-    public function __construct(RenewalLicenseService $renewalLicenseService)
+    public function __construct(RenewalLicenseService $renewalLicenseService, CommonService $commonService)
     {
         $this->renewalLicenseService = $renewalLicenseService;
+        $this->commonService = $commonService;
     }
 
     public function create()
     {
-        return view('trade.renewal-of-license.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('trade.renewal-of-license.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     public function store(CreateRequest $request)
@@ -42,7 +52,15 @@ class RenewalOfLicenseController extends Controller
     {
         $data = TradeRenewalLicensePermission::findOrFail(decrypt($id));
 
-        return view('trade.renewal-of-license.edit', compact('data'));
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('trade.renewal-of-license.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     public function update(UpdateRequest $request, string $id)

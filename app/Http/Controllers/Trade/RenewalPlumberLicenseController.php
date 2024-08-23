@@ -8,19 +8,29 @@ use App\Http\Requests\WaterDepartment\RenewalPlumber\CreateRequest;
 use App\Http\Requests\WaterDepartment\RenewalPlumber\UpdateRequest;
 use App\Services\Trade\RenewalPlumberService;
 use App\Models\WaterDepartment\WaterRenewalOfPlumber;
+use App\Services\CommonService;
 
 class RenewalPlumberLicenseController extends Controller
 {
     protected $renewalPlumberService;
+    protected $commonService;
 
-    public function __construct(RenewalPlumberService $renewalPlumberService)
+    public function __construct(RenewalPlumberService $renewalPlumberService, CommonService $commonService)
     {
         $this->renewalPlumberService = $renewalPlumberService;
+        $this->commonService = $commonService;
     }
 
     public function create()
     {
-        return view('trade.renewal-plumber-license.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('trade.renewal-plumber-license.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     public function store(CreateRequest $request)
@@ -42,7 +52,15 @@ class RenewalPlumberLicenseController extends Controller
     {
         $data = WaterRenewalOfPlumber::findOrFail(decrypt($id));
 
-        return view('trade.renewal-plumber-license.edit', compact('data'));
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('trade.renewal-plumber-license.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     public function update(UpdateRequest $request, string $id)

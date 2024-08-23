@@ -49,11 +49,9 @@
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
                                     <select class="form-select" name="zone" id="zone">
                                         <option value="">Select Zone</option>
-                                        @php
-                                        $options = ["Prabhag1", "Prabhag2", "Prabhag3", "Prabhag4", "Prabhag5", "Prabhag6"];
-                                        @endphp
-                                        @foreach($options as $option)
-                                        <option value="{{ $option }}">{{ $option }}</option>
+                                        
+                                        @foreach($zones as $zone)
+                                        <option value="{{ $zone->name }}">{{ $zone->name }}</option>
                                         @endforeach
                                     </select>
                                     <span class="text-danger is-invalid zone_err"></span>
@@ -62,11 +60,9 @@
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
                                     <select class="form-select" name="ward_area" id="ward_area">
                                         <option value="">Select Ward Area</option>
-                                        @php
-                                        $options = ["firstward"];
-                                        @endphp
-                                        @foreach($options as $option)
-                                        <option value="{{ $option }}">{{ $option }}</option>
+                                    
+                                        @foreach($wards as $ward)
+                                        <option value="{{ $ward->name }}">{{ $ward->name }}</option>
                                         @endforeach
                                     </select>
                                     <span class="text-danger is-invalid ward_area_err"></span>

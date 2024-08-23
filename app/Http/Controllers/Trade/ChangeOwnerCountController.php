@@ -8,19 +8,29 @@ use App\Http\Requests\Trade\ChangeOwnerCount\CreateRequest;
 use App\Http\Requests\Trade\ChangeOwnerCount\UpdateRequest;
 use App\Services\Trade\ChangeOwnerCountService;
 use App\Models\Trade\TradeChangeOwnerCount;
+use App\Services\CommonService;
 
 class ChangeOwnerCountController extends Controller
 {
     protected $changeOwnerCountService;
+    protected $commonService;
 
-    public function __construct(ChangeOwnerCountService $changeOwnerCountService)
+    public function __construct(ChangeOwnerCountService $changeOwnerCountService, CommonService $commonService)
     {
         $this->changeOwnerCountService = $changeOwnerCountService;
+        $this->commonService = $commonService;
     }
 
     public function create()
     {
-        return view('trade.change-owner-count.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('trade.change-owner-count.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     public function store(CreateRequest $request)
@@ -42,7 +52,15 @@ class ChangeOwnerCountController extends Controller
     {
         $data = TradeChangeOwnerCount::findOrFail(decrypt($id));
 
-        return view('trade.change-owner-count.edit', compact('data'));
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('trade.change-owner-count.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     public function update(UpdateRequest $request, string $id)

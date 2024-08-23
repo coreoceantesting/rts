@@ -8,19 +8,29 @@ use App\Http\Requests\Trade\PerLicense\CreateRequest;
 use App\Http\Requests\Trade\PerLicense\UpdateRequest;
 use App\Services\Trade\PerLicenseService;
 use App\Models\Trade\TradePerLicense;
+use App\Services\CommonService;
 
 class PerLicenseController extends Controller
 {
     protected $perLicenseService;
+    protected $commonService;
 
-    public function __construct(PerLicenseService $perLicenseService)
+    public function __construct(PerLicenseService $perLicenseService, CommonService $commonService)
     {
         $this->perLicenseService = $perLicenseService;
+        $this->commonService = $commonService;
     }
 
     public function create()
     {
-        return view('trade.per-license.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('trade.per-license.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     public function store(CreateRequest $request)
@@ -41,7 +51,16 @@ class PerLicenseController extends Controller
     public function edit(string $id)
     {
         $data = TradePerLicense::findOrFail(decrypt($id));
-        return view('trade.per-license.edit', compact('data'));
+
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('trade.per-license.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     public function update(UpdateRequest $request, string $id)

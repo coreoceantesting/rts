@@ -8,19 +8,29 @@ use App\Http\Requests\Trade\ChangeLicenseType\CreateRequest;
 use App\Http\Requests\Trade\ChangeLicenseType\UpdateRequest;
 use App\Services\Trade\ChangeLicenseTypeService;
 use App\Models\Trade\TradeChangeLicenseType;
+use App\Services\CommonService;
 
 class ChangeLicenseTypeController extends Controller
 {
     protected $changeLicenseTypeService;
+    protected $commonService;
 
-    public function __construct(ChangeLicenseTypeService $changeLicenseTypeService)
+    public function __construct(ChangeLicenseTypeService $changeLicenseTypeService, CommonService $commonService)
     {
         $this->changeLicenseTypeService = $changeLicenseTypeService;
+        $this->commonService = $commonService;
     }
 
     public function create()
     {
-        return view('trade.change-license-type.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('trade.change-license-type.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     public function store(CreateRequest $request)
@@ -42,7 +52,15 @@ class ChangeLicenseTypeController extends Controller
     {
         $data = TradeChangeLicenseType::findOrFail(decrypt($id));
 
-        return view('trade.change-license-type.edit', compact('data'));
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('trade.change-license-type.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     public function update(Request $request, string $id)

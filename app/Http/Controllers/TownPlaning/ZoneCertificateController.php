@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\CityStructure\ZoneCertificate\CreateRequest;
 use App\Http\Requests\CityStructure\ZoneCertificate\UpdateRequest;
-use App\Services\CityStructure\ZoneCertificate\ZoneCertificateService;
+use App\Services\CityStructure\ZoneCertificateService;
 use App\Models\CityStructure\CityStructureZoneCertificate;
 
 class ZoneCertificateController extends Controller

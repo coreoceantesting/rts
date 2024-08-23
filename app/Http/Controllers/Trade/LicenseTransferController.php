@@ -8,19 +8,29 @@ use App\Http\Requests\Trade\LicenseTransfer\CreateRequest;
 use App\Http\Requests\Trade\LicenseTransfer\UpdateRequest;
 use App\Services\Trade\LicenseTransferService;
 use App\Models\Trade\TradeLicenseTransfer;
+use App\Services\CommonService;
 
 class LicenseTransferController extends Controller
 {
     protected $licenseTransferService;
+    protected $commonService;
 
-    public function __construct(LicenseTransferService $licenseTransferService)
+    public function __construct(LicenseTransferService $licenseTransferService, CommonService $commonService)
     {
         $this->licenseTransferService = $licenseTransferService;
+        $this->commonService = $commonService;
     }
 
     public function create()
     {
-        return view('trade.license-transfer.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('trade.license-transfer.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     public function store(CreateRequest $request)
@@ -42,7 +52,15 @@ class LicenseTransferController extends Controller
     {
         $data = TradeLicenseTransfer::findOrFail(decrypt($id));
 
-        return view('trade.license-transfer.edit', compact('data'));
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('trade.license-transfer.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     public function update(UpdateRequest $request, string $id)

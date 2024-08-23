@@ -8,19 +8,29 @@ use App\Http\Requests\Trade\NewLicense\CreateRequest;
 use App\Http\Requests\Trade\NewLicense\UpdateRequest;
 use App\Services\Trade\NewLicenseService;
 use App\Models\Trade\TradeNewLicensePermission;
+use App\Services\CommonService;
 
 class NewTradeLicensePermissionController extends Controller
 {
     protected $newLicenseService;
+    protected $commonService;
 
-    public function __construct(NewLicenseService $newLicenseService)
+    public function __construct(NewLicenseService $newLicenseService, CommonService $commonService)
     {
         $this->newLicenseService = $newLicenseService;
+        $this->commonService = $commonService;
     }
 
     public function create()
     {
-        return view('trade.new-license-permission.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('trade.new-license-permission.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     public function store(CreateRequest $request)
@@ -42,7 +52,15 @@ class NewTradeLicensePermissionController extends Controller
     {
         $data = TradeNewLicensePermission::findOrFail(decrypt($id));
 
-        return view('trade.new-license-permission.edit', compact('data'));
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('trade.new-license-permission.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     public function update(UpdateRequest $request, string $id)

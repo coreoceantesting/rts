@@ -8,19 +8,29 @@ use App\Http\Requests\WaterDepartment\PlumberLicense\CreateRequest;
 use App\Http\Requests\WaterDepartment\PlumberLicense\UpdateRequest;
 use App\Services\Trade\PlumberLicenseService;
 use App\Models\WaterDepartment\WaterPlumberLicense;
+use App\Services\CommonService;
 
 class PlumberLicenseController extends Controller
 {
     protected $plumberLicenseService;
+    protected $commonService;
 
-    public function __construct(PlumberLicenseService $plumberLicenseService)
+    public function __construct(PlumberLicenseService $plumberLicenseService, CommonService $commonService)
     {
         $this->plumberLicenseService = $plumberLicenseService;
+        $this->commonService = $commonService;
     }
 
     public function create()
     {
-        return view('trade.plumber-license.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('trade.plumber-license.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     public function store(CreateRequest $request)
@@ -42,7 +52,15 @@ class PlumberLicenseController extends Controller
     {
         $data = WaterPlumberLicense::findOrFail(decrypt($id));
 
-        return view('trade.plumber-license.edit', compact('data'));
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('trade.plumber-license.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     public function update(UpdateRequest $request, string $id)

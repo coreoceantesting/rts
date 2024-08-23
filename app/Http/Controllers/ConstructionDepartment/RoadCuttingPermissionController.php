@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\ConstructionDepartment\RoadCutting\CreateRequest;
 use App\Http\Requests\ConstructionDepartment\RoadCutting\UpdateRequest;
-use App\Services\ConstructionDepartment\RoadCutting\RoadCuttingService;
+use App\Services\ConstructionDepartment\RoadCuttingService;
 use App\Models\ConstructionDepartment\ConstructionRoadCutting;
 
 class RoadCuttingPermissionController extends Controller

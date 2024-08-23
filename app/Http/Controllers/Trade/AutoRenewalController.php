@@ -8,19 +8,29 @@ use App\Http\Requests\Trade\AutoRenewal\CreateRequest;
 use App\Http\Requests\Trade\AutoRenewal\UpdateRequest;
 use App\Services\Trade\AutoRenewalService;
 use App\Models\Trade\TradeAutoRenewalLicensePermission;
+use App\Services\CommonService;
 
 class AutoRenewalController extends Controller
 {
     protected $autoRenewalService;
+    protected $commonService;
 
-    public function __construct(AutoRenewalService $autoRenewalService)
+    public function __construct(AutoRenewalService $autoRenewalService, CommonService $commonService)
     {
         $this->autoRenewalService = $autoRenewalService;
+        $this->commonService = $commonService;
     }
 
     public function create()
     {
-        return view('trade.auto-renewal.create');
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('trade.auto-renewal.create')->with([
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     public function store(CreateRequest $request)
@@ -42,7 +52,15 @@ class AutoRenewalController extends Controller
     {
         $data = TradeAutoRenewalLicensePermission::findOrFail(decrypt($id));
 
-        return view('trade.auto-renewal.edit', compact('data'));
+        $wards = $this->commonService->getActiveWard();
+
+        $zones = $this->commonService->getActiveZone();
+
+        return view('trade.auto-renewal.edit')->with([
+            'data' => $data,
+            'wards' => $wards,
+            'zones' => $zones,
+        ]);
     }
 
     public function update(UpdateRequest $request, string $id)

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\FireDepartment\FinalNoObjection\CreateRequest;
 use App\Http\Requests\FireDepartment\FinalNoObjection\UpdateRequest;
-use App\Services\FireDepartment\FinalNoObjection\FinalNoObjectionService;
+use App\Services\FireDepartment\FinalNoObjectionService;
 use App\Models\FireDepartment\FireFinalNoObjection;
 
 class FinalFireNoObjectionController extends Controller
