@@ -10,6 +10,8 @@ use App\Models\Trade\TradeLicenseTransfer;
 use App\Models\ServiceCredential;
 use App\Services\CurlAPiService;
 use App\Services\AapaleSarkarLoginCheckService;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
 
 class LicenseTransferService
 {
@@ -49,12 +51,13 @@ class LicenseTransferService
             } else {
                 $request['no_dues_document'] = "";
             }
-            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
             $newData = $request->except(['_token', 'application_documents', 'no_dues_documents']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/AddTransferLicenseFORPMC', '');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
+
             if ($data['status'] == "200") {
                 // Access the application_no
                 $applicationId = $data['applicationId'];
@@ -72,6 +75,9 @@ class LicenseTransferService
                         return false;
                     }
                 }
+                // $subject = "Testing Subject";
+                // $message = "Testing Message";
+                // Mail::to($request->email_id)->send(new SendMail($subject, $message));
             } else {
                 DB::rollback();
                 return false;
@@ -129,7 +135,7 @@ class LicenseTransferService
                 $request['no_dues_document'] = "";
             }
             $request['application_no'] = $tradeLicenseTransfer->application_no;
-            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
             $newData = $request->except(['_token', 'id', 'application_documents', 'no_dues_documents']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/UpdateTransferLicenseFORPMC', '');
 

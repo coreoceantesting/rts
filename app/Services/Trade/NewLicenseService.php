@@ -10,6 +10,8 @@ use App\Models\Trade\TradeNewLicensePermission;
 use App\Models\ServiceCredential;
 use App\Services\CurlAPiService;
 use App\Services\AapaleSarkarLoginCheckService;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
 
 class NewLicenseService
 {
@@ -49,12 +51,15 @@ class NewLicenseService
             } else {
                 $request['no_dues_document'] = "";
             }
-            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+
+            $request['applicant_name'] = $request->applicant_full_name;
+            $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
             $newData = $request->except(['_token', 'application_documents', 'no_dues_documents']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/AddForTradeLicensePermission', '');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
+
             if ($data['status'] == "200") {
                 // Access the application_no
                 $applicationId = $data['applicationId'];
@@ -72,6 +77,9 @@ class NewLicenseService
                         return false;
                     }
                 }
+                // $subject = "Testing Subject";
+                // $message = "Testing Message";
+                // Mail::to($request->email_id)->send(new SendMail($subject, $message));
             } else {
                 DB::rollback();
                 return false;
@@ -126,7 +134,7 @@ class NewLicenseService
                 $request['no_dues_document'] = "";
             }
             $request['application_no'] = $tradeNewLicensePermission->application_no;
-            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
             $newData = $request->except(['_token', 'id', 'application_documents', 'no_dues_documents']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/UpdateForTradeLicensePermission', '');
 

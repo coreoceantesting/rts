@@ -10,7 +10,11 @@ class TradeChangeLicenseName extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
+        'service_id',
+        'water_connection_no',
+        'aapale_sarkar_payment_date',
         'is_aapale_sarkar_payment_paid',
+        'status',
         'applicant_full_name',
         'address',
         'mobile_no',

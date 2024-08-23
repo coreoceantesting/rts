@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\ServiceCredential;
 use App\Services\CurlAPiService;
 use App\Services\AapaleSarkarLoginCheckService;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
 
 class PropertyTaxAssessmentService
 {
@@ -78,6 +80,9 @@ class PropertyTaxAssessmentService
                         return false;
                     }
                 }
+                // $subject = "Testing Subject";
+                // $message = "Testing Message";
+                // Mail::to($request->email_id)->send(new SendMail($subject, $message));
             } else {
                 DB::rollback();
                 return false;

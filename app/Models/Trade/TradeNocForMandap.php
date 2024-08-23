@@ -10,7 +10,11 @@ class TradeNocForMandap extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
+        'service_id',
+        'water_connection_no',
+        'aapale_sarkar_payment_date',
         'is_aapale_sarkar_payment_paid',
+        'status',
         'applicant_name',
         'event_name',
         'commissioner_name',
@@ -35,7 +39,7 @@ class TradeNocForMandap extends Model
         'contractor_contact_no',
         'decorator_or_electrical_contractor_name',
         'decorator_or_contractor_address',
-        'decorator_or_electrical_contractor_contact_no', 
+        'decorator_or_electrical_contractor_contact_no',
         'sound_or_speaker_contractor_name',
         'sound_or_speaker_address',
         'sound_or_speaker_contractor_contact_no',

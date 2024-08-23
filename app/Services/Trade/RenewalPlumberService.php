@@ -10,6 +10,8 @@ use App\Models\WaterDepartment\WaterRenewalOfPlumber;
 use App\Models\ServiceCredential;
 use App\Services\CurlAPiService;
 use App\Services\AapaleSarkarLoginCheckService;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
 
 class RenewalPlumberService
 {
@@ -58,9 +60,9 @@ class RenewalPlumberService
             } else {
                 $request['educational_certificate_document'] = "";
             }
-            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
             $newData = $request->except(['_token', 'application_documents', 'nodues_documents', 'educational_certificate_documents']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/AddForRenewTradeLicensePermission ', '');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/AddForRenewTradeLicensePermission', '');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
@@ -81,6 +83,9 @@ class RenewalPlumberService
                         return false;
                     }
                 }
+                // $subject = "Testing Subject";
+                // $message = "Testing Message";
+                // Mail::to($request->email_id)->send(new SendMail($subject, $message));
             } else {
                 DB::rollback();
                 return false;
@@ -148,7 +153,7 @@ class RenewalPlumberService
                 $request['educational_certificate_document'] = "";
             }
             $request['application_no'] = $waterRenewalOfPlumber->application_no;
-            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
             $newData = $request->except(['_token', 'id', 'application_documents', 'nodues_documents', 'educational_certificate_documents']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/UpdateForRenewTradeLicensePermission', '');
 

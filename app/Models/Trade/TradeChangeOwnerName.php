@@ -10,7 +10,11 @@ class TradeChangeOwnerName extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
+        'service_id',
+        'water_connection_no',
+        'aapale_sarkar_payment_date',
         'is_aapale_sarkar_payment_paid',
+        'status',
         'current_permission_no',
         'applicant_full_name',
         'old_owner_name',

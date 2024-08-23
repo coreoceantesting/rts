@@ -10,6 +10,8 @@ use App\Models\Trade\TradeChangeOwnerName;
 use App\Models\ServiceCredential;
 use App\Services\CurlAPiService;
 use App\Services\AapaleSarkarLoginCheckService;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
 
 class ChangeOwnerNameService
 {
@@ -49,7 +51,7 @@ class ChangeOwnerNameService
             } else {
                 $request['no_dues_document'] = "";
             }
-            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
             $newData = $request->except(['_token', 'application_documents', 'no_dues_documents']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/AddPartnerNameChangeFORPMC', '');
 
@@ -72,6 +74,9 @@ class ChangeOwnerNameService
                         return false;
                     }
                 }
+                // $subject = "Testing Subject";
+                // $message = "Testing Message";
+                // Mail::to($request->email_id)->send(new SendMail($subject, $message));
             } else {
                 DB::rollback();
                 return false;
@@ -129,7 +134,7 @@ class ChangeOwnerNameService
                 $request['no_dues_document'] = "";
             }
             $request['application_no'] = $tradeChangeOwnerName->application_no;
-            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
             $newData = $request->except(['_token', 'id', 'application_documents', 'no_dues_documents']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/UpdatePartnerNameChangeFORPMC', '');
 

@@ -10,6 +10,8 @@ use App\Models\Trade\TradeNocForMandap;
 use App\Models\ServiceCredential;
 use App\Services\CurlAPiService;
 use App\Services\AapaleSarkarLoginCheckService;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
 
 class NocForMandapService
 {
@@ -81,7 +83,7 @@ class NocForMandapService
             } else {
                 $request['annexure'] = "";
             }
-            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
             $newData = $request->except(['_token', 'board_registration_documents', 'no_objection_documents', 'location_map_documents', 'fire_last_year_noObjection_documents', 'traffic_last_year_noObjection_documents', 'annexures']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/AddTempTentAllowFORPMC', '');
 
@@ -104,6 +106,9 @@ class NocForMandapService
                         return false;
                     }
                 }
+                // $subject = "Testing Subject";
+                // $message = "Testing Message";
+                // Mail::to($request->email_id)->send(new SendMail($subject, $message));
             } else {
                 DB::rollback();
                 return false;
@@ -205,7 +210,7 @@ class NocForMandapService
                 $request['annexure'] = "";
             }
             $request['application_no'] = $tradeNocForMandap->application_no;
-            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
             $newData = $request->except(['_token', 'id', 'board_registration_documents', 'no_objection_documents', 'location_map_documents', 'fire_last_year_noObjection_documents', 'traffic_last_year_noObjection_documents', 'annexures']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/UpdateTempTentAllowFORPMC ', '');
 

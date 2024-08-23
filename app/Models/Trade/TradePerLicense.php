@@ -10,7 +10,11 @@ class TradePerLicense extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
+        'service_id',
+        'water_connection_no',
+        'aapale_sarkar_payment_date',
         'is_aapale_sarkar_payment_paid',
+        'status',
         'applicant_full_name',
         'address',
         'office_address',
@@ -34,7 +38,7 @@ class TradePerLicense extends Model
         'is_any_partnership_in_trade',
         'partner_count',
         'partner_names',
-        'property_no', 
+        'property_no',
         'no_dues_document',
         'application_document'
     ];

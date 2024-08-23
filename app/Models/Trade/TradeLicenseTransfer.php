@@ -10,7 +10,11 @@ class TradeLicenseTransfer extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
+        'service_id',
+        'water_connection_no',
+        'aapale_sarkar_payment_date',
         'is_aapale_sarkar_payment_paid',
+        'status',
         'applicant_full_name',
         'office_address',
         'mobile_no',
@@ -34,7 +38,7 @@ class TradeLicenseTransfer extends Model
         'trade_or_business_type',
         'partner_count',
         'partner_names',
-        'property_no',         
+        'property_no',
         'new_applicant_name',
         'new_applicant_email',
         'new_applicant_mobile_no',
