@@ -30,7 +30,7 @@ class SelfAssessmentService
 
         try {
             $request['user_id'] = Auth::user()->id;
-            $request['service_id'] = '5';
+            $request['service_id'] = '9';
 
             if ($request->hasFile('uploaded_applications')) {
                 $request['uploaded_application'] = $request->uploaded_applications->store('property-tax/self-assessment');

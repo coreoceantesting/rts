@@ -43,7 +43,7 @@ class ServiceNameSeeder extends Seeder
                 'edit_route' => 'new-taxation.edit'
             ],
             [
-                'service_id' => 5,
+                'service_id' => 9,
                 'service_name' => 'Self Assessment',
                 'model' => '\App\Models\PropertyTax\SelfAssessment',
                 'add_route' => 'self-assessment.create',
@@ -141,7 +141,7 @@ class ServiceNameSeeder extends Seeder
                 'edit_route' => 'water-Tax-bill.edit'
             ],
             [
-                'service_id' => 5,
+                'service_id' => 19,
                 'service_name' => 'No Dues Certificate Water Supply',
                 'model' => '\App\Models\WaterDepartment\WaterNoDues',
                 'add_route' => 'water-no-dues.create',

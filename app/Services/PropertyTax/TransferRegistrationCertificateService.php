@@ -2,16 +2,11 @@
 
 namespace App\Services\PropertyTax;
 
-class TransferRegistrationCertificateService{
-    public function store($request){
+class TransferRegistrationCertificateService
+{
+    public function store($request) {}
 
-    }
+    public function edit($id) {}
 
-    public function edit($id){
-
-    }
-
-    public function update($id){
-
-    }
+    public function update($id) {}
 }

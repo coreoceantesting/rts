@@ -193,7 +193,7 @@ class ServiceSeeder extends Seeder
             ],
             [
                 "id" => 17,
-                "service_id" => 5,
+                "service_id" => 9,
                 "name" => "स्वयंमुल्यांकन",
                 "image" => null,
                 "is_parent" => 1,

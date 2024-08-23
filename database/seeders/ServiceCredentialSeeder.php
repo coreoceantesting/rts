@@ -89,7 +89,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 5,
-                'dept_service_id' => '42',
+                'dept_service_id' => '5',
                 'service_name' => 'New Taxation',
                 'service_url' => 'new-taxation/create',
                 'client_code' => 'PNL224',
@@ -179,7 +179,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 10,
-                'dept_service_id' => '5',
+                'dept_service_id' => '9',
                 'service_name' => 'Self Assessment',
                 'service_url' => 'self-assessment/create',
                 'client_code' => 'PNL224',
@@ -359,7 +359,7 @@ class ServiceCredentialSeeder extends Seeder
             ],
             [
                 "id" => 20,
-                'dept_service_id' => '5',
+                'dept_service_id' => '19',
                 'service_name' => 'No Dues Certificate Water Supply',
                 'service_url' => 'water-no-dues/create',
                 'client_code' => 'PNL224',
