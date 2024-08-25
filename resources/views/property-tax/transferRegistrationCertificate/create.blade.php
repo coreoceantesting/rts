@@ -56,15 +56,20 @@
                                     <span class="text-danger is-invalid property_address_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="survey_number">Survey No / सर्व्हे क्र.</label>
-                                    <input class="form-control" id="survey_number" name="survey_number" type="text" placeholder="Enter Survey Number">
-                                    <span class="text-danger is-invalid survey_number_err"></span>
+                                    <label class="col-form-label" for="property_no">Property No / मालमत्ता क्र <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="property_no" name="property_no" type="text" placeholder="Enter Property Number" required>
+                                    <span class="text-danger is-invalid property_no_err"></span>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="col-form-label" for="house_no">House No / घर क्र<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="house_no" name="house_no" type="text" placeholder="Enter House Number" required>
+                                    <span class="text-danger is-invalid house_no_err"></span>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
                                     <select class="form-select" name="zone" id="zone" required>
                                         <option value="">Select Zone</option>
-                                        
+
                                         @foreach($zones as $zone)
                                         <option value="{{ $zone->name }}">{{ $zone->name }}</option>
                                         @endforeach
@@ -75,24 +80,23 @@
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
                                     <select class="form-select" name="ward_area" id="ward_area" required>
                                         <option value="">Select Ward Area</option>
-                                        
+
                                         @foreach($wards as $ward)
                                         <option value="{{ $ward->name }}">{{ $ward->name }}</option>
                                         @endforeach
                                     </select>
                                     <span class="text-danger is-invalid ward_area_err"></span>
                                 </div>
-                                <div class="col-md-4">
-                                    <label class="col-form-label" for="property_no">Property No / मालमत्ता क्र <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="property_no" name="property_no" type="text" placeholder="Enter Property Number" required>
-                                    <span class="text-danger is-invalid property_no_err"></span>
+                                <div class="col-md-6">
+                                    <label class="col-form-label" for="uploaded_applications">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="uploaded_applications" name="uploaded_applications" type="file" required>
+                                    <span class="text-danger is-invalid uploaded_applications_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="house_no">House No / घर क्र<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="house_no" name="house_no" type="text" placeholder="Enter House Number" required>
-                                    <span class="text-danger is-invalid house_no_err"></span>
+                                    <label class="col-form-label" for="survey_number">Survey No / सर्व्हे क्र.</label>
+                                    <input class="form-control" id="survey_number" name="survey_number" type="text" placeholder="Enter Survey Number">
+                                    <span class="text-danger is-invalid survey_number_err"></span>
                                 </div>
-
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="date_of_notice">Date Of Notice / नोटीसाची तारीख<span class="text-danger">*</span></label>
                                     <input class="form-control datepicker" id="date_of_notice" name="date_of_notice" type="text" required>
@@ -104,7 +108,6 @@
                                     <input class="form-control datepicker" id="date_of_documentation" name="date_of_documentation" placeholder="Select documentation date" type="text" required>
                                     <span class="text-danger is-invalid date_of_documentation_err"></span>
                                 </div>
-
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="name_of_seller">Name Of Seller / विकणाऱ्याचे किंवा अभिहस्तांकन केल्याचे नाव<span class="text-danger">*</span></label>
                                     <input class="form-control" id="name_of_seller" name="name_of_seller" type="text" required>
@@ -162,21 +165,26 @@
                                     <input class="form-control" id="border" name="border" type="text" required>
                                     <span class="text-danger is-invalid border_err"></span>
                                 </div>
+
+
+
+
+
+
+
+
+
+
                                 <div class="col-md-6">
-                                    <label class="col-form-label" for="uploaded_applications">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="uploaded_applications" name="uploaded_applications" type="file" required>
-                                    <span class="text-danger is-invalid uploaded_applications_err"></span>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="col-form-label" for="certificate_of_no_duess">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="certificate_of_no_duess" name="certificate_of_no_duess" type="file" required>
-                                    <span class="text-danger is-invalid certificate_of_no_duess_err"></span>
+                                    <label class="col-form-label" for="no_dues_document">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="no_dues_document" name="no_dues_document" type="file" required>
+                                    <span class="text-danger is-invalid no_dues_document_err"></span>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label class="col-form-label" for="copy_of_documents">Upload Copy Of Deed Purchase Deed Prize Letter Allotment / दस्तएवाजाची प्रत (खरेदी खत / बक्षीस पत्र /वाटणी पत्र व इतर )<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="copy_of_documents" name="copy_of_documents" type="file" required>
-                                    <span class="text-danger is-invalid copy_of_documents_err"></span>
+                                    <label class="col-form-label" for="copy_of_document">Upload Copy Of Deed Purchase Deed Prize Letter Allotment / दस्तएवाजाची प्रत (खरेदी खत / बक्षीस पत्र /वाटणी पत्र व इतर )<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="copy_of_document" name="copy_of_document" type="file" required>
+                                    <span class="text-danger is-invalid copy_of_document_err"></span>
                                 </div>
 
                                 <div class="col-md-6">
@@ -220,7 +228,7 @@
 
         var formdata = new FormData(this);
         $.ajax({
-            url: '{{ route("transfer-property.store") }}',
+            url: '{{ route("transfer-registration-certificate.store") }}',
             type: 'POST',
             data: formdata,
             contentType: false,

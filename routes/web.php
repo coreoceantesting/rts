@@ -20,6 +20,7 @@ use App\Http\Controllers\TaxProperty\TransferPropertyController;
 use App\Http\Controllers\TaxProperty\TaxExemptionNonResidentController;
 use App\Http\Controllers\TaxProperty\SelfAssessmentController;
 use App\Http\Controllers\TaxProperty\RegistrationOfObjectionController;
+use App\Http\Controllers\TaxProperty\TransferRegistrationCertificateController;
 use App\Http\Controllers\fireDepartment\FireNoObjectionController;
 use App\Http\Controllers\fireDepartment\FinalFireNoObjectionController;
 use App\Http\Controllers\TownPlaning\BhagNakashaController;
@@ -139,6 +140,7 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('tax-exemption-non-resident', TaxExemptionNonResidentController::class);
     Route::resource('self-assessment', SelfAssessmentController::class);
     Route::resource('registration-of-objection', RegistrationOfObjectionController::class);
+    Route::resource('transfer-registration-certificate', TransferRegistrationCertificateController::class);
 
     // Fire Department Routes
     Route::resource('fire-no-objection', FireNoObjectionController::class);

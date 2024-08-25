@@ -2,7 +2,7 @@
 
 namespace App\Services\PropertyTax;
 
-use App\Models\PropertyTax\transferPropertyCertificate;
+use App\Models\PropertyTax\TransferPropertyCertificate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
