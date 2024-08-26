@@ -14,11 +14,11 @@
                         <div class="card-body">
                             <div class="mb-3 row">
 
-                                <div class="col-md-4">
+                                {{-- <div class="col-md-4">
                                     <label class="col-form-label" for="plumber_license_no">Plumber License Number / प्लंबर परवाना क्रमांक<span class="text-danger">*</span></label>
                                     <input class="form-control" id="plumber_license_no" name="plumber_license_no" type="text" placeholder="Enter Plumber License Number">
                                     <span class="text-danger is-invalid plumber_license_no_err"></span>
-                                </div>
+                                </div> --}}
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="applicant_name">Applicant's Full Name / अर्जदाराचे संपूर्ण नाव  <span class="text-danger">*</span></label>
@@ -33,9 +33,9 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="aadhar_no">Aadhar Number / आधार नं <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="aadhar_no" name="aadhar_no" type="number" placeholder="Enter Aadhar Number">
-                                    <span class="text-danger is-invalid aadhar_no_err"></span>
+                                    <label class="col-form-label" for="office_address">Applicant's Office Address / अर्जदाराच्या कार्यालयाचा पत्ता  <span class="text-danger">*</span></label>
+                                    <textarea class="form-control" name="office_address" id="office_address" cols="30" rows="2"  placeholder="Enter Office  Address"></textarea>
+                                    <span class="text-danger is-invalid office_address_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
@@ -49,6 +49,55 @@
                                     <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email">
                                     <span class="text-danger is-invalid email_id_err"></span>
                                 </div>
+
+                                <div class="col-md-4">
+                                    <label class="col-form-label" for="aadhar_no">Aadhar Number / आधार नं <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="aadhar_no" name="aadhar_no" type="number" placeholder="Enter Aadhar Number">
+                                    <span class="text-danger is-invalid aadhar_no_err"></span>
+                                </div>
+
+
+                                
+
+                                <div class="col-md-4">
+                                    <label class="col-form-label" for="old_permission_no">Old Permission No / जुनी परवानगी क्र <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="old_permission_no" name="old_permission_no" type="text" placeholder="Enter Old Permission Number">
+                                    <span class="text-danger is-invalid old_permission_no_err"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="col-form-label" for="old_permission_date">Old Permission Date / जुनी परवानगी क्र <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="old_permission_date" name="old_permission_date" type="date" placeholder="Enter Old Permission Number">
+                                    <span class="text-danger is-invalid old_permission_date_err"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="col-form-label" for="business_start_date">Buisness Start Date / व्यवसाय सुरू होण्याची तारीख <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="business_start_date" name="business_start_date" type="date" placeholder="Enter Old Permission Number">
+                                    <span class="text-danger is-invalid business_start_date_err"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="col-form-label" for="business_or_trade_name">Buisness or Trade Name / व्यवसाय किंवा व्यापार नाव <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="business_or_trade_name" name="business_or_trade_name" type="text" placeholder="Enter Buisness or Trade Name">
+                                    <span class="text-danger is-invalid business_or_trade_name_err"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="col-form-label" for="area_size">Area/Size / क्षेत्र/आकार <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="area_size" name="area_size" type="text" placeholder="Enter >Area/Size">
+                                    <span class="text-danger is-invalid area_size_err"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="col-form-label" for="new_permission_details">New Permission Details / क्षेत्र/आकार <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="new_permission_details" name="new_permission_details" type="text" placeholder="Enter New Permission Details">
+                                    <span class="text-danger is-invalid new_permission_details_err"></span>
+                                </div>
+
+
+
+
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
@@ -71,6 +120,18 @@
                                     <span class="text-danger is-invalid ward_area_err"></span>
                                 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+                                
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="training_institute_name">Name of industrial training institute / औद्योगिक प्रशिक्षण संस्थेचे नाव<span class="text-danger">*</span></label>
                                     <input class="form-control" id="training_institute_name" name="training_institute_name" type="text" placeholder="Enter Name of industrial training institute">
@@ -174,6 +235,11 @@
             data: formdata,
             contentType: false,
             processData: false,
+            beforeSend: function()
+            {
+                $('#preloader').css('opacity', '0.5');
+                $('#preloader').css('visibility', 'visible');
+            },
             success: function(data)
             {
                 $("#addSubmit").prop('disabled', false);
@@ -195,7 +261,11 @@
                     $("#addSubmit").prop('disabled', false);
                     swal("Error occured!", "Something went wrong please try again", "error");
                 }
-            }
+            },
+            complete: function() {
+                $('#preloader').css('opacity', '0');
+                $('#preloader').css('visibility', 'hidden');
+            },
         });
 
     });

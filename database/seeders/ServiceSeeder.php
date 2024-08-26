@@ -26,17 +26,17 @@ class ServiceSeeder extends Seeder
                 "created_at" => "2024-06-10 10:51:08",
                 "updated_at" => "2024-06-10 10:51:08"
             ],
-            [
-                "id" => 2,
-                "service_id" => null,
-                "name" => "जन्म मृत्यु",
-                "image" => "service/7eVpBS7RVfTqlmbuNHw77MXqUn6wkrWH2wbzwYZP.png",
-                "is_parent" => 0,
-                "route_name" => null,
-                "background_color" => "#037ca2",
-                "created_at" => "2024-06-10 10:52:11",
-                "updated_at" => "2024-06-10 10:52:11"
-            ],
+            // [
+            //     "id" => 2,
+            //     "service_id" => null,
+            //     "name" => "जन्म मृत्यु",
+            //     "image" => "service/7eVpBS7RVfTqlmbuNHw77MXqUn6wkrWH2wbzwYZP.png",
+            //     "is_parent" => 0,
+            //     "route_name" => null,
+            //     "background_color" => "#037ca2",
+            //     "created_at" => "2024-06-10 10:52:11",
+            //     "updated_at" => "2024-06-10 10:52:11"
+            // ],
             [
                 "id" => 3,
                 "service_id" => null,
@@ -249,13 +249,13 @@ class ServiceSeeder extends Seeder
             [
                 "id" => 22,
                 "service_id" => 6,
-                "name" => "तात्पुरते किंवा कायमस्वरूपी नळजोडणी खंडीत करणे",
+                "name" => "नळजोडणी आकारामध्ये बदल करणे",
                 "image" => null,
                 "is_parent" => 1,
-                "route_name" => "water-disconnect-supply.create",
-                "background_color" => "#2a85c7",
-                "created_at" => "2024-06-10 11:35:12",
-                "updated_at" => "2024-06-10 11:35:12"
+                "route_name" => 'water-connection-size-change.create',
+                "background_color" => "#037ca2",
+                "created_at" => null,
+                "updated_at" => null
             ],
             [
                 "id" => 23,
@@ -271,13 +271,13 @@ class ServiceSeeder extends Seeder
             [
                 "id" => 24,
                 "service_id" => 6,
-                "name" => "नळजोडणी आकारामध्ये बदल करणे",
+                "name" => "तात्पुरते किंवा कायमस्वरूपी नळजोडणी खंडीत करणे",
                 "image" => null,
                 "is_parent" => 1,
-                "route_name" => 'water-connection-size-change.create',
-                "background_color" => "#037ca2",
-                "created_at" => null,
-                "updated_at" => null
+                "route_name" => "water-disconnect-supply.create",
+                "background_color" => "#2a85c7",
+                "created_at" => "2024-06-10 11:35:12",
+                "updated_at" => "2024-06-10 11:35:12"
             ],
             [
                 "id" => 25,
@@ -303,7 +303,7 @@ class ServiceSeeder extends Seeder
             ],
             [
                 "id" => 27,
-                "service_id" => 5,
+                "service_id" => 6,
                 "name" => "थकबाकी नसल्याचा दाखला ( पाणी पुरवठा )",
                 "image" => null,
                 "is_parent" => 1,
@@ -334,19 +334,19 @@ class ServiceSeeder extends Seeder
                 "created_at" => null,
                 "updated_at" => null
             ],
+            // [
+            //     "id" => 30,
+            //     "service_id" => 6,
+            //     "name" => "अनधिकृत नळ जोडणी तक्रार",
+            //     "image" => null,
+            //     "is_parent" => 1,
+            //     "route_name" => null,
+            //     "background_color" => "#2a85c7",
+            //     "created_at" => null,
+            //     "updated_at" => null
+            // ],
             [
                 "id" => 30,
-                "service_id" => 6,
-                "name" => "अनधिकृत नळ जोडणी तक्रार",
-                "image" => null,
-                "is_parent" => 1,
-                "route_name" => null,
-                "background_color" => "#2a85c7",
-                "created_at" => null,
-                "updated_at" => null
-            ],
-            [
-                "id" => 31,
                 "service_id" => 6,
                 "name" => "पाण्याची दबाव क्षमता तक्रार",
                 "image" => null,
@@ -357,7 +357,7 @@ class ServiceSeeder extends Seeder
                 "updated_at" => null
             ],
             [
-                "id" => 32,
+                "id" => 31,
                 "service_id" => 6,
                 "name" => "पाण्याची गुणवत्ता तक्रार",
                 "image" => null,
@@ -379,7 +379,7 @@ class ServiceSeeder extends Seeder
             //     "updated_at" => null
             // ],
             [
-                "id" => 34,
+                "id" => 32,
                 "service_id" => 7,
                 "name" => "प्लंबर परवाना",
                 "image" => null,
@@ -390,7 +390,7 @@ class ServiceSeeder extends Seeder
                 "updated_at" => "2024-06-10 11:46:42"
             ],
             [
-                "id" => 35,
+                "id" => 33,
                 "service_id" => 7,
                 "name" => "प्लंबर परवाना नुतनीकरण करणे",
                 "image" => null,
@@ -401,7 +401,7 @@ class ServiceSeeder extends Seeder
                 "updated_at" => null
             ],
             [
-                "id" => 36,
+                "id" => 34,
                 "service_id" => 7,
                 "name" => "नवीन व्यवसाय परवाना मिळणे",
                 "image" => null,
@@ -412,7 +412,7 @@ class ServiceSeeder extends Seeder
                 "updated_at" => null
             ],
             [
-                "id" => 37,
+                "id" => 35,
                 "service_id" => 7,
                 "name" => "व्यवसाय परवाना नुतनीकरण",
                 "image" => null,
@@ -423,7 +423,7 @@ class ServiceSeeder extends Seeder
                 "updated_at" => null
             ],
             [
-                "id" => 38,
+                "id" => 36,
                 "service_id" => 7,
                 "name" => "व्यवसाय परवाना स्वयंनुतनीकरण",
                 "image" => null,
@@ -434,7 +434,7 @@ class ServiceSeeder extends Seeder
                 "updated_at" => null
             ],
             [
-                "id" => 39,
+                "id" => 37,
                 "service_id" => 7,
                 "name" => "व्यवसाय परवाना हस्तांतरण करणे",
                 "image" => null,
@@ -445,7 +445,7 @@ class ServiceSeeder extends Seeder
                 "updated_at" => null
             ],
             [
-                "id" => 40,
+                "id" => 38,
                 "service_id" => 7,
                 "name" => "व्यवसाय परवाना दुय्यम प्रत मिळणे",
                 "image" => null,
@@ -456,7 +456,7 @@ class ServiceSeeder extends Seeder
                 "updated_at" => null
             ],
             [
-                "id" => 41,
+                "id" => 39,
                 "service_id" => 7,
                 "name" => "मंडपासाठी ना हरकत प्रमाणपत्र",
                 "image" => null,
@@ -467,7 +467,7 @@ class ServiceSeeder extends Seeder
                 "updated_at" => null
             ],
             [
-                "id" => 42,
+                "id" => 40,
                 "service_id" => 7,
                 "name" => "व्यवसायाचे नाव बदलणे",
                 "image" => null,
@@ -478,7 +478,7 @@ class ServiceSeeder extends Seeder
                 "updated_at" => null
             ],
             [
-                "id" => 43,
+                "id" => 41,
                 "service_id" => 7,
                 "name" => "व्यवसाय (प्रकार) बदलणे",
                 "image" => null,
@@ -489,7 +489,7 @@ class ServiceSeeder extends Seeder
                 "updated_at" => null
             ],
             [
-                "id" => 44,
+                "id" => 42,
                 "service_id" => 7,
                 "name" => "भागीदाराच्या संख्येत बदल (वाढ/ कमी)",
                 "image" => null,
@@ -499,30 +499,30 @@ class ServiceSeeder extends Seeder
                 "created_at" => null,
                 "updated_at" => null
             ],
+            // [
+            //     "id" => 45,
+            //     "service_id" => 7,
+            //     "name" => "परवाना धारक अथवा भागीदाराचे नाव बदलणे",
+            //     "image" => null,
+            //     "is_parent" => 1,
+            //     "route_name" => "trade-change-owner-name.create",
+            //     "background_color" => "#00aea4",
+            //     "created_at" => null,
+            //     "updated_at" => null
+            // ],
+            // [
+            //     "id" => 46,
+            //     "service_id" => 7,
+            //     "name" => "भागीदाराच्या संख्येत बदल (वाढ/ कमी)",
+            //     "image" => null,
+            //     "is_parent" => 1,
+            //     "route_name" => null,
+            //     "background_color" => "#2a85c7",
+            //     "created_at" => null,
+            //     "updated_at" => null
+            // ],
             [
-                "id" => 45,
-                "service_id" => 7,
-                "name" => "परवाना धारक अथवा भागीदाराचे नाव बदलणे",
-                "image" => null,
-                "is_parent" => 1,
-                "route_name" => "trade-change-owner-name.create",
-                "background_color" => "#00aea4",
-                "created_at" => null,
-                "updated_at" => null
-            ],
-            [
-                "id" => 46,
-                "service_id" => 7,
-                "name" => "भागीदाराच्या संख्येत बदल (वाढ/ कमी)",
-                "image" => null,
-                "is_parent" => 1,
-                "route_name" => null,
-                "background_color" => "#2a85c7",
-                "created_at" => null,
-                "updated_at" => null
-            ],
-            [
-                "id" => 47,
+                "id" => 43,
                 "service_id" => 7,
                 "name" => "व्यवसाय परवाना रद्द करणे",
                 "image" => null,
@@ -533,7 +533,7 @@ class ServiceSeeder extends Seeder
                 "updated_at" => null
             ],
             [
-                "id" => 48,
+                "id" => 44,
                 "service_id" => 7,
                 "name" => "व्यवसाय परवाना नुतनीकरण",
                 "image" => null,
@@ -544,7 +544,7 @@ class ServiceSeeder extends Seeder
                 "updated_at" => null
             ],
             [
-                "id" => 49,
+                "id" => 45,
                 "service_id" => 7,
                 "name" => "नवीन व्यवसाय परवाना मिळणे",
                 "image" => null,
@@ -555,7 +555,7 @@ class ServiceSeeder extends Seeder
                 "updated_at" => null
             ],
             [
-                "id" => 50,
+                "id" => 46,
                 "service_id" => 8,
                 "name" => "अग्निशमन ना-हरकत दाखला देणे",
                 "image" => null,
@@ -566,7 +566,7 @@ class ServiceSeeder extends Seeder
                 "updated_at" => "2024-06-10 12:00:09"
             ],
             [
-                "id" => 51,
+                "id" => 47,
                 "service_id" => 8,
                 "name" => "अग्निशमन अंतिम ना हरकत दाखला",
                 "image" => null,
@@ -577,7 +577,7 @@ class ServiceSeeder extends Seeder
                 "updated_at" => "2024-06-10 12:00:33"
             ],
             [
-                "id" => 52,
+                "id" => 48,
                 "service_id" => 3,
                 "name" => "झोन दाखला देणे",
                 "image" => null,
@@ -588,7 +588,7 @@ class ServiceSeeder extends Seeder
                 "updated_at" => "2024-06-10 12:01:16"
             ],
             [
-                "id" => 53,
+                "id" => 49,
                 "service_id" => 3,
                 "name" => "भाग नकाशा देणे",
                 "image" => null,
@@ -599,7 +599,7 @@ class ServiceSeeder extends Seeder
                 "updated_at" => "2024-06-10 12:01:41"
             ],
             [
-                "id" => 54,
+                "id" => 50,
                 "service_id" => 1,
                 "name" => "रस्ते खोदणे परवानगी",
                 "image" => null,
@@ -610,7 +610,7 @@ class ServiceSeeder extends Seeder
                 "updated_at" => "2024-06-10 12:02:30"
             ],
             [
-                "id" => 55,
+                "id" => 51,
                 "service_id" => 1,
                 "name" => "जल मल निःसारण जोडणी देणे",
                 "image" => null,

@@ -17,14 +17,17 @@ class TradeChangeOwnerCount extends Model
         'status',
         'current_permission_no',
         'applicant_full_name',
-        'old_partner_count',
-        'new_partner_count',
+        'old_owner_name',
+        'new_owner_name',
+        'old_partner_name',
+        'new_partner_name',
         'address',
         'mobile_no',
         'email_id',
         'zone',
         'ward_area',
         'remark',
-        'application_document'
+        'application_document',
+        'no_dues_document'
     ];
 }

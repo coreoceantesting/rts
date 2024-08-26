@@ -28,16 +28,29 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="old_partner_count">Trade License old partners count / परवाना धारक जुन्या भागीदारांची संख्या<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="old_partner_count" name="old_partner_count" type="text" placeholder="Enter Trade License old partners count">
-                                    <span class="text-danger is-invalid old_partner_count_err"></span>
+                                    <label class="col-form-label" for="old_owner_name">Trade License old owner name / व्यापार परवाना जुन्या मालकाचे नाव<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="old_owner_name" name="old_owner_name" type="text" placeholder="Enter Trade License old owner name">
+                                    <span class="text-danger is-invalid old_owner_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="new_partner_count">Trade License New Pertners Count / परवानाकरिता नवीन भागीदारांची संख्या<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="new_partner_count" name="new_partner_count" type="text" placeholder="Enter Trade License New Pertners Count">
-                                    <span class="text-danger is-invalid new_partner_count_err"></span>
+                                    <label class="col-form-label" for="new_owner_name">Trade License new owner name / व्यापार परवाना नवीन मालकाचे नाव<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="new_owner_name" name="new_owner_name" type="text" placeholder="Enter Trade License old owner name">
+                                    <span class="text-danger is-invalid new_owner_name_err"></span>
                                 </div>
+
+                                <div class="col-md-4">
+                                    <label class="col-form-label" for="old_partner_name">Trade License old partner name / व्यापार परवाना जुने भागीदार नाव<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="old_partner_name" name="old_partner_name" type="text" placeholder="Enter Trade License old owner name">
+                                    <span class="text-danger is-invalid old_partner_name_err"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="col-form-label" for="new_partner_name">Trade License new partner name / व्यापार परवाना नवीन भागीदार नाव<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="new_partner_name" name="new_partner_name" type="text" placeholder="Enter Trade License old owner name">
+                                    <span class="text-danger is-invalid new_partner_name_err"></span>
+                                </div>
+
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="address">Applicant Full Address / अर्जदाराचा संपूर्ण पत्ता <span class="text-danger">*</span></label>
@@ -82,6 +95,12 @@
                                     <label class="col-form-label" for="remark">Remark / शेरा</label>
                                     <input class="form-control" id="remark" name="remark" type="text" placeholder="Enter Remark ">
                                     <span class="text-danger is-invalid remark_err"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="col-form-label" for="no_dues_document">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="no_dues_document" name="no_dues_documents" type="file" required>
+                                    <span class="text-danger is-invalid no_dues_document_err"></span>
                                 </div>
 
                                 <div class="col-md-4">

@@ -133,13 +133,13 @@ class ChangeLicenseNameService
             }
             $request['application_no'] = $tradeChangeLicenseName->application_no;
             $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
-            $newData = $request->except(['_token', 'id', 'application_documents', 'no_dues_documents']);
+            $newData = $request->except(['_token', '_method', 'id', 'application_documents', 'no_dues_documents']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/UpdateLicenseNameChangeFORPMC', '');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
-            if ($data['Status'] == "200") {
+            if ($data['status'] == "200") {
                 // Access the application_no
                 DB::commit();
                 return true;

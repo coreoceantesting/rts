@@ -24,8 +24,10 @@ class CreateRequest extends FormRequest
         return [
             'current_permission_no' => 'required',
             'applicant_full_name' => 'required',
-            'old_partner_count' => 'required',
-            'new_partner_count' => 'required',
+            'old_owner_name' => 'required',
+            'new_owner_name' => 'required',
+            'old_partner_name' => 'required',
+            'new_partner_name' => 'required',
             'address' => 'required',
             'mobile_no' => 'required|min:10|max:10',
             'email_id' => 'required',
@@ -33,6 +35,7 @@ class CreateRequest extends FormRequest
             'ward_area' => 'required',
             'remark' => 'required',
             'application_documents' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'no_dues_documents' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'is_correct_info' => 'required'
         ];
     }

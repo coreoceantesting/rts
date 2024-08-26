@@ -190,9 +190,9 @@ class NocForMandapService
                 $request['no_objection_document'] = "";
             }
             if ($request->hasFile('location_map_documents')) {
-                $request['location_map_documents'] = $this->curlAPiService->convertFileInBase64($request->file('location_map_documents'));
+                $request['location_map_document'] = $this->curlAPiService->convertFileInBase64($request->file('location_map_documents'));
             } else {
-                $request['location_map_documents'] = "";
+                $request['location_map_document'] = "";
             }
             if ($request->hasFile('fire_last_year_noObjection_documents')) {
                 $request['fire_last_year_noObjection_document'] = $this->curlAPiService->convertFileInBase64($request->file('fire_last_year_noObjection_documents'));
@@ -212,11 +212,11 @@ class NocForMandapService
             $request['application_no'] = $tradeNocForMandap->application_no;
             $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
             $newData = $request->except(['_token', 'id', 'board_registration_documents', 'no_objection_documents', 'location_map_documents', 'fire_last_year_noObjection_documents', 'traffic_last_year_noObjection_documents', 'annexures']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/UpdateTempTentAllowFORPMC ', '');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/UpdateTempTentAllowFORPMC', '');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
-
+            Log::info($newData);
             if ($data['status'] == "200") {
                 // Access the application_no
                 DB::commit();

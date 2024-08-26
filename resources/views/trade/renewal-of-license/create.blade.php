@@ -163,24 +163,12 @@
                                         <option value="42">असोसिएट्स</option>
                                         <option value="6">आईस्क्रिम पार्लर </option>
                                         <option value="53">इंजिनियरींग वर्क्स</option>
-                                        <option value="48">
-                                        इंटिरियल
-                                        </option>
-                                        <option value="65">
-                                        इतर
-                                        </option>
-                                        <option value="12">
-                                        इलेक्ट्रिकल
-                                        </option>
-                                        <option value="49">
-                                        इलेक्ट्रीक अँड हार्डवेअर
-                                        </option>
-                                        <option value="61">
-                                        इंशुरन्स
-                                        </option>
-                                        <option value="1">
-                                        उपहारगृह
-                                        </option>
+                                        <option value="48">इंटिरियल</option>
+                                        <option value="65">इतर</option>
+                                        <option value="12">इलेक्ट्रिकल</option>
+                                        <option value="49">इलेक्ट्रीक अँड हार्डवेअर</option>
+                                        <option value="61">इंशुरन्स</option>
+                                        <option value="1">उपहारगृह</option>
                                         <option value="34">
                                         ऑप्टीकल
                                         </option>

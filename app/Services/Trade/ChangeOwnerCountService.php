@@ -35,6 +35,10 @@ class ChangeOwnerCountService
             if ($request->hasFile('application_documents')) {
                 $request['application_document'] = $request->application_documents->store('trade/change-owner-count');
             }
+
+            if ($request->hasFile('no_dues_documents')) {
+                $request['no_dues_document'] = $request->no_dues_documents->store('trade/change-owner-count');
+            }
             $tradeChangeOwnerCount = TradeChangeOwnerCount::create($request->all());
 
             // code to send data to department
@@ -43,15 +47,21 @@ class ChangeOwnerCountService
             } else {
                 $request['application_document'] = "";
             }
-            $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
-            $newData = $request->except(['_token', 'application_documents']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/AddPartCountChangeFORPMC ', '');
 
+            if ($request->hasFile('no_dues_documents')) {
+                $request['no_dues_document'] = $this->curlAPiService->convertFileInBase64($request->file('no_dues_documents'));
+            } else {
+                $request['no_dues_document'] = "";
+            }
+            $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
+            $newData = $request->except(['_token', 'application_documents', 'no_dues_documents']);
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/AddPartCountChangeFORPMC', '');
             // Decode JSON string to PHP array
+
             $data = json_decode($data, true);
             if ($data['status'] == "200") {
                 // Access the application_no
-                $applicationId = $data['application_no'];
+                $applicationId = $data['applicationId'];
                 TradeChangeOwnerCount::where('id', $tradeChangeOwnerCount->id)->update([
                     'application_no' => $applicationId
                 ]);
@@ -104,6 +114,13 @@ class ChangeOwnerCountService
                 }
                 $request['application_document'] = $request->application_documents->store('trade/change-owner-count');
             }
+
+            if ($request->hasFile('no_dues_documents')) {
+                if ($tradeChangeOwnerCount && Storage::exists($tradeChangeOwnerCount->no_dues_document)) {
+                    Storage::delete($tradeChangeOwnerCount->no_dues_document);
+                }
+                $request['no_dues_document'] = $request->no_dues_documents->store('trade/change-owner-count');
+            }
             $tradeChangeOwnerCount->update($request->all());
 
 
@@ -113,9 +130,15 @@ class ChangeOwnerCountService
             } else {
                 $request['application_document'] = "";
             }
+
+            if ($request->hasFile('no_dues_documents')) {
+                $request['no_dues_document'] = $this->curlAPiService->convertFileInBase64($request->file('no_dues_documents'));
+            } else {
+                $request['no_dues_document'] = "";
+            }
             $request['application_no'] = $tradeChangeOwnerCount->application_no;
             $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
-            $newData = $request->except(['_token', 'id', 'application_documents']);
+            $newData = $request->except(['_token', 'id', 'application_documents', 'no_dues_documents']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/UpdatePartCountChangeFORPMC', '');
 
             // Decode JSON string to PHP array

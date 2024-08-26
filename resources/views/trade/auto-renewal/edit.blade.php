@@ -126,8 +126,8 @@
                                     <label class="col-form-label" for="is_preveious_permission_declined_by_council">is previouly permission declined by council ? / यापूर्वी अर्जात नमूद जागेला व्यवसाय परवाना नाकारला आहे का ? <span class="text-danger">*</span></label>
                                     <select class="form-select" name="is_preveious_permission_declined_by_council" id="is_preveious_permission_declined_by_council">
                                         <option value="">Select Option</option>
-                                        <option value="1" {{ $data->is_preveious_permission_declined_by_council == 1 ? 'selected' : '' }}>Yes</option>
-                                        <option value="2" {{ $data->is_preveious_permission_declined_by_council == 2 ? 'selected' : '' }}>No</option>
+                                        <option value="Yes" {{ $data->is_preveious_permission_declined_by_council == "Yes" ? 'selected' : '' }}>Yes</option>
+                                        <option value="No" {{ $data->is_preveious_permission_declined_by_council == "No" ? 'selected' : '' }}>No</option>
                                     </select>
                                     <span class="text-danger is-invalid is_preveious_permission_declined_by_council_err"></span>
                                 </div>
@@ -142,8 +142,8 @@
                                     <label class="col-form-label" for="is_place_owned_by_council">Is place owned by council ? / जागा पालिकेच्या मालकीची आहे का ? <span class="text-danger">*</span></label>
                                     <select class="form-select" name="is_place_owned_by_council" id="is_place_owned_by_council">
                                         <option value="">Select Option</option>
-                                        <option value="1" {{ $data->is_place_owned_by_council == 1 ? 'selected' : '' }}>Yes</option>
-                                        <option value="2" {{ $data->is_place_owned_by_council == 2 ? 'selected' : '' }}>No</option>
+                                        <option value="Yes" {{ $data->is_place_owned_by_council == "Yes" ? 'selected' : '' }}>Yes</option>
+                                        <option value="No" {{ $data->is_place_owned_by_council == "No" ? 'selected' : '' }}>No</option>
                                     </select>
                                     <span class="text-danger is-invalid is_place_owned_by_council_err"></span>
                                 </div>
@@ -152,8 +152,8 @@
                                     <label class="col-form-label" for="is_any_dues_pending_of_council">Is any dues pending of council ? / आपल्याकडे पालिकेची थकबाकी आहे का ? <span class="text-danger">*</span></label>
                                     <select class="form-select" name="is_any_dues_pending_of_council" id="is_any_dues_pending_of_council">
                                         <option value="">Select Option</option>
-                                        <option value="1" {{ $data->is_any_dues_pending_of_council == 1 ? 'selected' : '' }}>Yes</option>
-                                        <option value="2" {{ $data->is_any_dues_pending_of_council == 2 ? 'selected' : '' }}>No</option>
+                                        <option value="Yes" {{ $data->is_any_dues_pending_of_council == "Yes" ? 'selected' : '' }}>Yes</option>
+                                        <option value="No" {{ $data->is_any_dues_pending_of_council == "No" ? 'selected' : '' }}>No</option>
                                     </select>
                                     <span class="text-danger is-invalid is_any_dues_pending_of_council_err"></span>
                                 </div>
@@ -187,22 +187,22 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="application_document">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा<span class="text-danger">*</span></label>
+                                    <div><a href="{{ asset('storage/' . $data->application_document) }}" target="_blank">View Document</a></div>
                                     <input class="form-control" id="application_document" name="application_documents" type="file">
-                                    <small><a href="{{ asset('storage/' . $data->application_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid application_documents_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="no_dues_document">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
+                                    <div><a href="{{ asset('storage/' . $data->no_dues_document) }}" target="_blank">View Document</a></div>
                                     <input class="form-control" id="no_dues_document" name="no_dues_documents" type="file">
-                                    <small><a href="{{ asset('storage/' . $data->no_dues_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid no_dues_documents_err"></span>
                                 </div>
 
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
                                 <div class="col-md-12">
                                     <div class="form-check d-flex align-items-start">
-                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" value="yes">
+                                        <input type="checkbox" required checked class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" value="yes">
                                         <label class="form-check-label ms-2" for="is_correct_info">
                                             "All information provided above is correct and I shall be fully responsible for any discrepancy. / वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार असेन."
                                         </label>

@@ -40,10 +40,10 @@ class DefaultLoginUserSeeder extends Seeder
         $adminRole->syncPermissions($permissions);
 
         $user = User::updateOrCreate([
-            'email' => 'admin@gmail.com'
+            'email' => 'pmc@gmail.com'
         ], [
-            'name' => 'Admin',
-            'email' => 'admin@gmail.com',
+            'name' => 'PMC',
+            'email' => 'pmc@gmail.com',
             'mobile' => '9999999992',
             'password' => Hash::make('12345678')
         ]);

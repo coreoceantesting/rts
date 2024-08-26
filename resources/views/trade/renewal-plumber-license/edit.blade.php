@@ -124,22 +124,22 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="nodues_document">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
+                                    <div><a href="{{ asset('storage/' . $data->nodues_document) }}" target="_blank">View Document</a></div>
                                     <input class="form-control" id="nodues_document" name="nodues_documents" type="file">
-                                    <small><a href="{{ asset('storage/' . $data->nodues_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid nodues_document_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="educational_certificate_document">Upload Certificate Of Educational Qualification / शैक्षणिक पात्रतेचे प्रमाणपत्र अपलोड करा *<span class="text-danger">*</span></label>
+                                    <div><a href="{{ asset('storage/' . $data->educational_certificate_document) }}" target="_blank">View Document</a></div>
                                     <input class="form-control" id="educational_certificate_document" name="educational_certificate_documents" type="file">
-                                    <small><a href="{{ asset('storage/' . $data->educational_certificate_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid educational_certificate_document_err"></span>
                                 </div>
 
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
                                 <div class="col-md-12">
                                     <div class="form-check d-flex align-items-start">
-                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" value="yes">
+                                        <input type="checkbox" checked class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" value="yes">
                                         <label class="form-check-label ms-2" for="is_correct_info">
                                             "All information provided above is correct and I shall be fully responsible for any discrepancy. / वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार असेन."
                                         </label>
@@ -179,6 +179,11 @@
             data: formdata,
             contentType: false,
             processData: false,
+            beforeSend: function()
+            {
+                $('#preloader').css('opacity', '0.5');
+                $('#preloader').css('visibility', 'visible');
+            },
             success: function(data)
             {
                 $("#addSubmit").prop('disabled', false);
@@ -200,7 +205,11 @@
                     $("#addSubmit").prop('disabled', false);
                     swal("Error occured!", "Something went wrong please try again", "error");
                 }
-            }
+            },
+            complete: function() {
+                $('#preloader').css('opacity', '0');
+                $('#preloader').css('visibility', 'hidden');
+            },
         });
 
     });

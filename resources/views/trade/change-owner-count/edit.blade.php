@@ -28,15 +28,27 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="old_partner_count">Trade License old partners count / परवाना धारक जुन्या भागीदारांची संख्या<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="old_partner_count" name="old_partner_count" type="text" placeholder="Enter Trade License old partners count" value="{{ $data->old_partner_count }}">
-                                    <span class="text-danger is-invalid old_partner_count_err"></span>
+                                    <label class="col-form-label" for="old_owner_name">Trade License old owner name / व्यापार परवाना जुन्या मालकाचे नाव<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="old_owner_name" name="old_owner_name" value="{{ $data->old_owner_name }}" type="text" placeholder="Enter Trade License old owner name">
+                                    <span class="text-danger is-invalid old_owner_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="new_partner_count">Trade License New Pertners Count / परवानाकरिता नवीन भागीदारांची संख्या<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="new_partner_count" name="new_partner_count" type="text" placeholder="Enter Trade License New Pertners Count" value="{{ $data->new_partner_count }}">
-                                    <span class="text-danger is-invalid new_partner_count_err"></span>
+                                    <label class="col-form-label" for="new_owner_name">Trade License new owner name / व्यापार परवाना नवीन मालकाचे नाव<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="new_owner_name" name="new_owner_name" value="{{ $data->new_owner_name }}" type="text" placeholder="Enter Trade License old owner name">
+                                    <span class="text-danger is-invalid new_owner_name_err"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="col-form-label" for="old_partner_name">Trade License old partner name / व्यापार परवाना जुने भागीदार नाव<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="old_partner_name" name="old_partner_name" value="{{ $data->old_partner_name }}" type="text" placeholder="Enter Trade License old owner name">
+                                    <span class="text-danger is-invalid old_partner_name_err"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="col-form-label" for="new_partner_name">Trade License new partner name / व्यापार परवाना नवीन भागीदार नाव<span class="text-danger">*</span></label>
+                                    <input class="form-control" value="{{ $data->new_partner_name }}" id="new_partner_name" name="new_partner_name" type="text" placeholder="Enter Trade License old owner name">
+                                    <span class="text-danger is-invalid new_partner_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
@@ -85,9 +97,16 @@
                                 </div>
 
                                 <div class="col-md-4">
+                                    <label class="col-form-label" for="no_dues_document">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
+                                    <div><a href="{{ asset('storage/' . $data->no_dues_document) }}" target="_blank">View Document</a></div>
+                                    <input class="form-control" id="no_dues_document" name="no_dues_documents" type="file">
+                                    <span class="text-danger is-invalid no_dues_document_err"></span>
+                                </div>
+
+                                <div class="col-md-4">
                                     <label class="col-form-label" for="application_document">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा<span class="text-danger">*</span></label>
+                                    <div><a href="{{ asset('storage/' . $data->application_document) }}" target="_blank">View Document</a></div>
                                     <input class="form-control" id="application_document" name="application_documents" type="file">
-                                    <small><a href="{{ asset('storage/' . $data->application_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid application_document_err"></span>
                                 </div>
 

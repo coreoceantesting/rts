@@ -63,7 +63,7 @@ class RenewalPlumberService
             $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
             $newData = $request->except(['_token', 'application_documents', 'nodues_documents', 'educational_certificate_documents']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/AddForRenewTradeLicensePermission', '');
-
+            Log::info($newData);
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
             if ($data['status'] == "200") {

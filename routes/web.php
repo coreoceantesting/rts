@@ -140,7 +140,7 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('tax-exemption-non-resident', TaxExemptionNonResidentController::class);
     Route::resource('self-assessment', SelfAssessmentController::class);
     Route::resource('registration-of-objection', RegistrationOfObjectionController::class);
-    Route::resource('transfer-registration-certificate', TransferRegistrationCertificateController::class);
+    // Route::resource('transfer-registration-certificate', TransferRegistrationCertificateController::class);
 
     // Fire Department Routes
     Route::resource('fire-no-objection', FireNoObjectionController::class);
