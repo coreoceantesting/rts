@@ -46,20 +46,41 @@ class CurlAPiService
 
     public function sendPostRequestInObject($data, $url, $object)
     {
-        // Initialize post fields
-        $postFields = $object && $object != "" ? [$object => $data] : $data;
+        $ch = curl_init($url);
 
-        // Send the POST request using Guzzle
-        $response = Http::post($url, $postFields);
+        // Initialize post fields
+        if ($object && $object != "") {
+            $postFields[$object] = $data;
+        } else {
+            $postFields = $data;
+        }
+        // Configure cURL options
+        $payload = json_encode($postFields);
+        // Log::info($payload);
+        // Log::info($payload);
+
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+            'Content-Length: ' . strlen($payload)
+        ]);
+
+        // Execute cURL request
+        $response = curl_exec($ch);
 
         // Check for errors
-        if ($response->failed()) {
-            Log::error($response->body());
-            return null; // Or handle the error as needed
+        if ($response === false) {
+            $error = curl_error($ch);
+            Log::error($error);
         }
-
-        // Return the response
-        return $response->body();
+        // Close cURL session
+        curl_close($ch);
+        // Log::error($response);
+        return $response;
     }
 
     public function convertFileInBase64($file)
