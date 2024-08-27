@@ -17,37 +17,37 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="applicant_full_name">Applicant Full Name / अर्जदाराचे संपूर्ण नाव<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="applicant_full_name" name="applicant_full_name" type="text" placeholder="Enter Applicant Full Name">
+                                    <input class="form-control" id="applicant_full_name" name="applicant_full_name" type="text" placeholder="Enter Applicant Full Name" required>
                                     <span class="text-danger is-invalid applicant_full_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="address">Applicant Full Address / अर्जदाराचा संपूर्ण पत्ता <span class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="address" id="address" cols="30" rows="2"  placeholder="Enter  Address"></textarea>
+                                    <textarea class="form-control" name="address" id="address" cols="30" rows="2"  placeholder="Enter  Address" required></textarea>
                                     <span class="text-danger is-invalid address_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="mobile_no">Mobile Number / मोबाईल नंबर<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="mobile_no" name="mobile_no" type="number" placeholder="Enter Mobile Number">
+                                    <input class="form-control" id="mobile_no" name="mobile_no" type="number" placeholder="Enter Mobile Number" required>
                                     <span class="text-danger is-invalid mobile_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="aadhar_no">Aadhar No / आधार क्र.<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="aadhar_no" name="aadhar_no" type="number" placeholder="Enter Aadhar No">
+                                    <input class="form-control" id="aadhar_no" name="aadhar_no" type="number" placeholder="Enter Aadhar No" required>
                                     <span class="text-danger is-invalid aadhar_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="email_id">Email ID / ई-मेल आयडी<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email">
+                                    <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email" required>
                                     <span class="text-danger is-invalid email_id_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="zone" id="zone">
+                                    <select class="form-select" name="zone" id="zone" required>
                                         <option value="">Select Zone</option>
                                         @foreach($zones as $zone)
                                         <option value="{{ $zone->name }}">{{ $zone->name }}</option>
@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="ward_area" id="ward_area">
+                                    <select class="form-select" name="ward_area" id="ward_area" required>
                                         <option value="">Select Ward Area</option>
                                         @foreach($wards as $ward)
                                         <option value="{{ $ward->name }}">{{ $ward->name }}</option>
@@ -68,396 +68,32 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="current_permission_no">Current Permission No / चालू परवाना क्र <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="current_permission_no" name="current_permission_no" type="text" placeholder="Enter Current Permission No">
+                                    <input class="form-control" id="current_permission_no" name="current_permission_no" type="text" placeholder="Enter Current Permission No" required>
                                     <span class="text-danger is-invalid current_permission_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="old_treade_license_name">Old trade license name / जुन्या व्यवसाय परवान्याचे नाव <span class="text-danger">*</span></label>
-                                    <select class="form-select" name="old_treade_license_name" id="old_treade_license_name">
+                                    <select class="form-select" name="old_treade_license_name" id="old_treade_license_name" required>
                                         <option value="">Select a value ...</option>
-                                        <option value="42">असोसिएट्स</option>
-                                        <option value="6">आईस्क्रिम पार्लर </option>
-                                        <option value="53">इंजिनियरींग वर्क्स</option>
-                                        <option value="48">इंटिरियल</option>
-                                        <option value="65">इतर</option>
-                                        <option value="12">
-                                        इलेक्ट्रिकल
-                                        </option>
-                                        <option value="49">
-                                        इलेक्ट्रीक अँड हार्डवेअर
-                                        </option>
-                                        <option value="61">
-                                        इंशुरन्स
-                                        </option>
-                                        <option value="1">
-                                        उपहारगृह
-                                        </option>
-                                        <option value="34">
-                                        ऑप्टीकल
-                                        </option>
-                                        <option value="27">
-                                        ओल्ड् पेपर मार्ट
-                                        </option>
-                                        <option value="59">
-                                        कंट्रक्शन
-                                        </option>
-                                        <option value="29">
-                                        कपडा विक्री
-                                        </option>
-                                        <option value="60">
-                                        कपड्याचे दुकान
-                                        </option>
-                                        <option value="26">
-                                        कांदा-बटाटा दुकान
-                                        </option>
-                                        <option value="21">
-                                        कारखाना
-                                        </option>
-                                        <option value="15">
-                                        किराणा दुकान
-                                        </option>
-                                        <option value="58">
-                                        कुरीअर सर्विस
-                                        </option>
-                                        <option value="45">
-                                        कॅटरींग सर्विसेस
-                                        </option>
-                                        <option value="5">
-                                        केक शॉप
-                                        </option>
-                                        <option value="10">
-                                        केशकर्तनालय / सलुन
-                                        </option>
-                                        <option value="64">
-                                        कोल्ड्रींग अँड आईस्क्रीम
-                                        </option>
-                                        <option value="33">
-                                        क्लासेस
-                                        </option>
-                                        <option value="43">
-                                        क्लीनर
-                                        </option>
-                                        <option value="30">
-                                        खादयपदार्थ विक्री
-                                        </option>
-                                        <option value="3">
-                                        खानावळ
-                                        </option>
-                                        <option value="13">
-                                        गॅरेज
-                                        </option>
-                                        <option value="47">
-                                        चक्की
-                                        </option>
-                                        <option value="55">
-                                        चाइनीज पॉईंट
-                                        </option>
-                                        <option value="63">
-                                        चाय पॉईंट
-                                        </option>
-                                        <option value="24">
-                                        चिकन शॉप
-                                        </option>
-                                        <option value="14">
-                                        जनरल स्टोर
-                                        </option>
-                                        <option value="38">
-                                        जिम फिटनेस
-                                        </option>
-                                        <option value="32">
-                                        टेलर
-                                        </option>
-                                        <option value="17">
-                                        नर्सरी
-                                        </option>
-                                        <option value="18">
-                                        पान बिडी शॉप
-                                        </option>
-                                        <option value="40">
-                                        पुस्तक विक्री
-                                        </option>
-                                        <option value="16">
-                                        फर्निचर दुकान
-                                        </option>
-                                        <option value="62">
-                                        फर्निचर वर्क
-                                        </option>
-                                        <option value="46">
-                                        फाटो शॉप
-                                        </option>
-                                        <option value="20">
-                                        बांगडी बनविणे
-                                        </option>
-                                        <option value="52">
-                                        बेकरी
-                                        </option>
-                                        <option value="7">
-                                        बेकरी शॉप / बेकरी प्रोडक्टस
-                                        </option>
-                                        <option value="11">
-                                        ब्युटी पार्लर
-                                        </option>
-                                        <option value="23">
-                                        मटण शॉप
-                                        </option>
-                                        <option value="22">
-                                        मटण-चिकन शॉप
-                                        </option>
-                                        <option value="39">
-                                        मसाला विक्री
-                                        </option>
-                                        <option value="36">
-                                        मॅन्युफॅक्चरींग
-                                        </option>
-                                        <option value="56">
-                                        मेटल पार्ट वर्क
-                                        </option>
-                                        <option value="31">
-                                        मेडिकल
-                                        </option>
-                                        <option value="51">
-                                        रबर प्रोडक्ट
-                                        </option>
-                                        <option value="35">
-                                        रेडीमेंड गारमेंट
-                                        </option>
-                                        <option value="2">
-                                        रेस्टॉरंट
-                                        </option>
-                                        <option value="44">
-                                        लाँड्री
-                                        </option>
-                                        <option value="9">
-                                        लॉजिंग / बोर्डींग
-                                        </option>
-                                        <option value="54">
-                                        वेल्डींग
-                                        </option>
-                                        <option value="41">
-                                        सायकल रिपेरींग
-                                        </option>
-                                        <option value="57">
-                                        सिट कवर असेसरीज
-                                        </option>
-                                        <option value="37">
-                                        सेल्स सर्विस
-                                        </option>
-                                        <option value="19">
-                                        स्टील फर्निचर
-                                        </option>
-                                        <option value="50">
-                                        स्टेनलेस स्टील
-                                        </option>
-                                        <option value="28">
-                                        स्टेशनरी
-                                        </option>
-                                        <option value="4">
-                                        स्नॅक्स सेंटर
-                                        </option>
-                                        <option value="8">
-                                        स्विट मार्ट / मिठाईचे दुकान
-                                        </option>
-                                        <option value="25">
-                                        हार्डवेअर
-                                        </option>
+                                        @php $options = ["आईस्क्रिम पार्लर", "इंजिनियरींग वर्क्स", "इंटिरियल", "इतर", "इलेक्ट्रिकल", "इलेक्ट्रीक अँड हार्डवेअर", "इंशुरन्स", "उपहारगृह", "ऑप्टीकल", "ओल्ड् पेपर मार्ट", "कंट्रक्शन", "कपडा विक्री", "कपड्याचे दुकान", "कांदा-बटाटा दुकान", "कारखाना", "किराणा दुकान", "कुरीअर सर्विस", "कॅटरींग सर्विसेस", "केक शॉप", "केशकर्तनालय / सलुन", "कोल्ड्रींग अँड आईस्क्रीम", "क्लासेस", "क्लीनर", "खादयपदार्थ विक्री", "खानावळ", "गॅरेज", "चक्की", "चाइनीज पॉईंट", "चाय पॉईंट", "चिकन शॉप", "जनरल स्टोर", "जिम फिटनेस", "टेलर", "नर्सरी", "पान बिडी शॉप", "पुस्तक विक्री", "फर्निचर दुकान", "फर्निचर वर्क", "फाटो शॉप", "बांगडी बनविणे", "बेकरी", "बेकरी शॉप / बेकरी प्रोडक्टस", "ब्युटी पार्लर", "मटण शॉप", "मटण-चिकन शॉप", "मसाला विक्री", "मॅन्युफॅक्चरींग", "मेटल पार्ट वर्क", "मेडिकल", "रबर प्रोडक्ट", "रेडीमेंड गारमेंट", "रेस्टॉरंट", "लाँड्री", "लॉजिंग / बोर्डींग", "वेल्डींग", "सायकल रिपेरींग", "सिट कवर असेसरीज", "सेल्स सर्विस", "स्टील फर्निचर", "स्टेनलेस स्टील", "स्टेशनरी", "स्नॅक्स सेंटर", "स्विट मार्ट / मिठाईचे दुकान", "हार्डवेअर"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid old_treade_license_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="new_treade_license_name">New name for trade license / नवीन व्यवसाय परवान्याचे नाव<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="new_treade_license_name" id="new_treade_license_name">
+                                    <select class="form-select" name="new_treade_license_name" id="new_treade_license_name" required>
                                         <option value="">Select a value ...</option>
-                                        <option value="42">असोसिएट्स</option>
-                                        <option value="6">आईस्क्रिम पार्लर </option>
-                                        <option value="53">इंजिनियरींग वर्क्स</option>
-                                        <option value="48">
-                                        इंटिरियल
-                                        </option>
-                                        <option value="65">
-                                        इतर
-                                        </option>
-                                        <option value="12">
-                                        इलेक्ट्रिकल
-                                        </option>
-                                        <option value="49">
-                                        इलेक्ट्रीक अँड हार्डवेअर
-                                        </option>
-                                        <option value="61">
-                                        इंशुरन्स
-                                        </option>
-                                        <option value="1">
-                                        उपहारगृह
-                                        </option>
-                                        <option value="34">
-                                        ऑप्टीकल
-                                        </option>
-                                        <option value="27">
-                                        ओल्ड् पेपर मार्ट
-                                        </option>
-                                        <option value="59">
-                                        कंट्रक्शन
-                                        </option>
-                                        <option value="29">
-                                        कपडा विक्री
-                                        </option>
-                                        <option value="60">
-                                        कपड्याचे दुकान
-                                        </option>
-                                        <option value="26">
-                                        कांदा-बटाटा दुकान
-                                        </option>
-                                        <option value="21">
-                                        कारखाना
-                                        </option>
-                                        <option value="15">
-                                        किराणा दुकान
-                                        </option>
-                                        <option value="58">
-                                        कुरीअर सर्विस
-                                        </option>
-                                        <option value="45">
-                                        कॅटरींग सर्विसेस
-                                        </option>
-                                        <option value="5">
-                                        केक शॉप
-                                        </option>
-                                        <option value="10">
-                                        केशकर्तनालय / सलुन
-                                        </option>
-                                        <option value="64">
-                                        कोल्ड्रींग अँड आईस्क्रीम
-                                        </option>
-                                        <option value="33">
-                                        क्लासेस
-                                        </option>
-                                        <option value="43">
-                                        क्लीनर
-                                        </option>
-                                        <option value="30">
-                                        खादयपदार्थ विक्री
-                                        </option>
-                                        <option value="3">
-                                        खानावळ
-                                        </option>
-                                        <option value="13">
-                                        गॅरेज
-                                        </option>
-                                        <option value="47">
-                                        चक्की
-                                        </option>
-                                        <option value="55">
-                                        चाइनीज पॉईंट
-                                        </option>
-                                        <option value="63">
-                                        चाय पॉईंट
-                                        </option>
-                                        <option value="24">
-                                        चिकन शॉप
-                                        </option>
-                                        <option value="14">
-                                        जनरल स्टोर
-                                        </option>
-                                        <option value="38">
-                                        जिम फिटनेस
-                                        </option>
-                                        <option value="32">
-                                        टेलर
-                                        </option>
-                                        <option value="17">
-                                        नर्सरी
-                                        </option>
-                                        <option value="18">
-                                        पान बिडी शॉप
-                                        </option>
-                                        <option value="40">
-                                        पुस्तक विक्री
-                                        </option>
-                                        <option value="16">
-                                        फर्निचर दुकान
-                                        </option>
-                                        <option value="62">
-                                        फर्निचर वर्क
-                                        </option>
-                                        <option value="46">
-                                        फाटो शॉप
-                                        </option>
-                                        <option value="20">
-                                        बांगडी बनविणे
-                                        </option>
-                                        <option value="52">
-                                        बेकरी
-                                        </option>
-                                        <option value="7">
-                                        बेकरी शॉप / बेकरी प्रोडक्टस
-                                        </option>
-                                        <option value="11">
-                                        ब्युटी पार्लर
-                                        </option>
-                                        <option value="23">
-                                        मटण शॉप
-                                        </option>
-                                        <option value="22">
-                                        मटण-चिकन शॉप
-                                        </option>
-                                        <option value="39">
-                                        मसाला विक्री
-                                        </option>
-                                        <option value="36">
-                                        मॅन्युफॅक्चरींग
-                                        </option>
-                                        <option value="56">
-                                        मेटल पार्ट वर्क
-                                        </option>
-                                        <option value="31">
-                                        मेडिकल
-                                        </option>
-                                        <option value="51">
-                                        रबर प्रोडक्ट
-                                        </option>
-                                        <option value="35">
-                                        रेडीमेंड गारमेंट
-                                        </option>
-                                        <option value="2">
-                                        रेस्टॉरंट
-                                        </option>
-                                        <option value="44">
-                                        लाँड्री
-                                        </option>
-                                        <option value="9">
-                                        लॉजिंग / बोर्डींग
-                                        </option>
-                                        <option value="54">
-                                        वेल्डींग
-                                        </option>
-                                        <option value="41">
-                                        सायकल रिपेरींग
-                                        </option>
-                                        <option value="57">
-                                        सिट कवर असेसरीज
-                                        </option>
-                                        <option value="37">
-                                        सेल्स सर्विस
-                                        </option>
-                                        <option value="19">
-                                        स्टील फर्निचर
-                                        </option>
-                                        <option value="50">
-                                        स्टेनलेस स्टील
-                                        </option>
-                                        <option value="28">
-                                        स्टेशनरी
-                                        </option>
-                                        <option value="4">
-                                        स्नॅक्स सेंटर
-                                        </option>
-                                        <option value="8">
-                                        स्विट मार्ट / मिठाईचे दुकान
-                                        </option>
-                                        <option value="25">
-                                        हार्डवेअर
-                                        </option>
+                                        @php $options = ["आईस्क्रिम पार्लर", "इंजिनियरींग वर्क्स", "इंटिरियल", "इतर", "इलेक्ट्रिकल", "इलेक्ट्रीक अँड हार्डवेअर", "इंशुरन्स", "उपहारगृह", "ऑप्टीकल", "ओल्ड् पेपर मार्ट", "कंट्रक्शन", "कपडा विक्री", "कपड्याचे दुकान", "कांदा-बटाटा दुकान", "कारखाना", "किराणा दुकान", "कुरीअर सर्विस", "कॅटरींग सर्विसेस", "केक शॉप", "केशकर्तनालय / सलुन", "कोल्ड्रींग अँड आईस्क्रीम", "क्लासेस", "क्लीनर", "खादयपदार्थ विक्री", "खानावळ", "गॅरेज", "चक्की", "चाइनीज पॉईंट", "चाय पॉईंट", "चिकन शॉप", "जनरल स्टोर", "जिम फिटनेस", "टेलर", "नर्सरी", "पान बिडी शॉप", "पुस्तक विक्री", "फर्निचर दुकान", "फर्निचर वर्क", "फाटो शॉप", "बांगडी बनविणे", "बेकरी", "बेकरी शॉप / बेकरी प्रोडक्टस", "ब्युटी पार्लर", "मटण शॉप", "मटण-चिकन शॉप", "मसाला विक्री", "मॅन्युफॅक्चरींग", "मेटल पार्ट वर्क", "मेडिकल", "रबर प्रोडक्ट", "रेडीमेंड गारमेंट", "रेस्टॉरंट", "लाँड्री", "लॉजिंग / बोर्डींग", "वेल्डींग", "सायकल रिपेरींग", "सिट कवर असेसरीज", "सेल्स सर्विस", "स्टील फर्निचर", "स्टेनलेस स्टील", "स्टेशनरी", "स्नॅक्स सेंटर", "स्विट मार्ट / मिठाईचे दुकान", "हार्डवेअर"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid new_treade_license_name_err"></span>
                                 </div>

@@ -72,9 +72,7 @@ Route::get('/', function () {
 })->name('/');
 
 
-Route::get('php-info', function () {
-    echo phpinfo();
-});
+
 
 // Guest Users
 Route::middleware(['guest', 'PreventBackHistory', 'firewall.all'])->group(function () {

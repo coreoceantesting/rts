@@ -17,62 +17,62 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="current_permission_no">Current Permission No / चालू परवाना क्र<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="current_permission_no" name="current_permission_no" type="text" placeholder="Enter Current Permission No">
+                                    <input class="form-control" id="current_permission_no" name="current_permission_no" type="text" placeholder="Enter Current Permission No" required>
                                     <span class="text-danger is-invalid current_permission_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="applicant_full_name">Applicant Full Name / अर्जदाराचे संपूर्ण नाव<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="applicant_full_name" name="applicant_full_name" type="text" placeholder="Enter Applicant Full Name">
+                                    <input class="form-control" id="applicant_full_name" name="applicant_full_name" type="text" placeholder="Enter Applicant Full Name" required>
                                     <span class="text-danger is-invalid applicant_full_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="old_owner_name">Trade License old owner name / व्यापार परवाना जुन्या मालकाचे नाव<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="old_owner_name" name="old_owner_name" type="text" placeholder="Enter Trade License old owner name">
+                                    <input class="form-control" id="old_owner_name" name="old_owner_name" type="text" placeholder="Enter Trade License old owner name" required>
                                     <span class="text-danger is-invalid old_owner_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="new_owner_name">Trade License new owner name / व्यापार परवाना नवीन मालकाचे नाव<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="new_owner_name" name="new_owner_name" type="text" placeholder="Enter Trade License old owner name">
+                                    <input class="form-control" id="new_owner_name" name="new_owner_name" type="text" placeholder="Enter Trade License old owner name" required>
                                     <span class="text-danger is-invalid new_owner_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="old_partner_name">Trade License old partner name / व्यापार परवाना जुने भागीदार नाव<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="old_partner_name" name="old_partner_name" type="text" placeholder="Enter Trade License old owner name">
+                                    <input class="form-control" id="old_partner_name" name="old_partner_name" type="text" placeholder="Enter Trade License old owner name" required>
                                     <span class="text-danger is-invalid old_partner_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="new_partner_name">Trade License new partner name / व्यापार परवाना नवीन भागीदार नाव<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="new_partner_name" name="new_partner_name" type="text" placeholder="Enter Trade License old owner name">
+                                    <input class="form-control" id="new_partner_name" name="new_partner_name" type="text" placeholder="Enter Trade License old owner name" required>
                                     <span class="text-danger is-invalid new_partner_name_err"></span>
                                 </div>
 
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="address">Applicant Full Address / अर्जदाराचा संपूर्ण पत्ता <span class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="address" id="address" cols="30" rows="2"  placeholder="Enter  Address"></textarea>
+                                    <textarea class="form-control" name="address" id="address" cols="30" rows="2" placeholder="Enter  Address" required></textarea>
                                     <span class="text-danger is-invalid address_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="mobile_no">Mobile Number / मोबाईल नंबर<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="mobile_no" name="mobile_no" type="number" placeholder="Enter Mobile Number">
+                                    <input class="form-control" id="mobile_no" name="mobile_no" type="number" placeholder="Enter Mobile Number" required>
                                     <span class="text-danger is-invalid mobile_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="email_id">Email ID / ई-मेल आयडी<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email">
+                                    <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email" required>
                                     <span class="text-danger is-invalid email_id_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="zone" id="zone">
+                                    <select class="form-select" name="zone" id="zone" required>
                                         <option value="">Select Zone</option>
                                         @foreach($zones as $zone)
                                         <option value="{{ $zone->name }}">{{ $zone->name }}</option>

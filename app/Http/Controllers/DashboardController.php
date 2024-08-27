@@ -12,7 +12,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // return Auth::user()->roles[0]->name;
         if (Auth::user()->hasRole('Super Admin')) {
             return view('home.dashboard');
         } else {

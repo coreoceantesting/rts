@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Http;
 
 class CurlAPiService
 {
@@ -39,47 +40,26 @@ class CurlAPiService
         }
         // Close cURL session
         curl_close($ch);
-        Log::error($response);
+        // Log::error($response);
         return $response;
     }
 
     public function sendPostRequestInObject($data, $url, $object)
     {
-        $ch = curl_init($url);
-
         // Initialize post fields
-        if ($object && $object != "") {
-            $postFields[$object] = $data;
-        } else {
-            $postFields = $data;
-        }
-        // Configure cURL options
-        $payload = json_encode($postFields);
-        // Log::info($payload);
-        // Log::info($payload);
+        $postFields = $object && $object != "" ? [$object => $data] : $data;
 
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'Content-Type: application/json',
-            'Content-Length: ' . strlen($payload)
-        ]);
-
-        // Execute cURL request
-        $response = curl_exec($ch);
+        // Send the POST request using Guzzle
+        $response = Http::post($url, $postFields);
 
         // Check for errors
-        if ($response === false) {
-            $error = curl_error($ch);
-            Log::error($error);
+        if ($response->failed()) {
+            Log::error($response->body());
+            return null; // Or handle the error as needed
         }
-        // Close cURL session
-        curl_close($ch);
-        // Log::error($response);
-        return $response;
+
+        // Return the response
+        return $response->body();
     }
 
     public function convertFileInBase64($file)

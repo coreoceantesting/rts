@@ -17,31 +17,31 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="applicant_full_name">Applicant Full Name / अर्जदाराचे संपूर्ण नाव<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="applicant_full_name" name="applicant_full_name" type="text" placeholder="Enter Applicant Full Name">
+                                    <input class="form-control" id="applicant_full_name" name="applicant_full_name" type="text" placeholder="Enter Applicant Full Name" required>
                                     <span class="text-danger is-invalid applicant_full_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="address">Applicant Full Address / अर्जदाराचा संपूर्ण पत्ता <span class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="address" id="address" cols="30" rows="2"  placeholder="Enter  Address"></textarea>
+                                    <textarea class="form-control" name="address" id="address" cols="30" rows="2"  placeholder="Enter  Address" required></textarea>
                                     <span class="text-danger is-invalid address_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="mobile_no">Mobile Number / मोबाईल नंबर<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="mobile_no" name="mobile_no" type="number" placeholder="Enter Mobile Number">
+                                    <input class="form-control" id="mobile_no" name="mobile_no" type="number" placeholder="Enter Mobile Number" required>
                                     <span class="text-danger is-invalid mobile_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="email_id">Email ID / ई-मेल आयडी<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email">
+                                    <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email" required>
                                     <span class="text-danger is-invalid email_id_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="zone" id="zone">
+                                    <select class="form-select" name="zone" id="zone" required>
                                         <option value="">Select Zone</option>
                                         @foreach($zones as $zone)
                                         <option value="{{ $zone->name }}">{{ $zone->name }}</option>
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="ward_area" id="ward_area">
+                                    <select class="form-select" name="ward_area" id="ward_area" required>
                                         <option value="">Select Ward Area</option>
                                         @foreach($wards as $ward)
                                         <option value="{{ $ward->name }}">{{ $ward->name }}</option>
@@ -62,25 +62,25 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="current_permission_no">Current Permission No / चालू परवाना क्र <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="current_permission_no" name="current_permission_no" type="text" placeholder="Enter Current Permission No">
+                                    <input class="form-control" id="current_permission_no" name="current_permission_no" type="text" placeholder="Enter Current Permission No" required>
                                     <span class="text-danger is-invalid current_permission_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="old_treade_license_name">Old trade license name / जुन्या व्यवसाय परवान्याचे नाव <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="old_treade_license_name" name="old_treade_license_name" type="text" placeholder="Enter Old trade license name">
+                                    <input class="form-control" id="old_treade_license_name" name="old_treade_license_name" type="text" placeholder="Enter Old trade license name" required>
                                     <span class="text-danger is-invalid old_treade_license_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="new_treade_license_name">New name for trade license / नवीन व्यवसाय परवान्याचे नाव<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="new_treade_license_name" name="new_treade_license_name" type="text" placeholder="Enter New name for trade license">
+                                    <input class="form-control" id="new_treade_license_name" name="new_treade_license_name" type="text" placeholder="Enter New name for trade license" required>
                                     <span class="text-danger is-invalid new_treade_license_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="remark">Remark / शेरा</label>
-                                    <input class="form-control" id="remark" name="remark" type="text" placeholder="Enter Remark ">
+                                    <input class="form-control" id="remark" name="remark" type="text" placeholder="Enter Remark">
                                     <span class="text-danger is-invalid remark_err"></span>
                                 </div>
 
@@ -99,7 +99,7 @@
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
                                 <div class="col-md-12">
                                     <div class="form-check d-flex align-items-start">
-                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" value="yes" required>
+                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" required name="is_correct_info" value="yes" required>
                                         <label class="form-check-label ms-2" for="is_correct_info">
                                             "All information provided above is correct and I shall be fully responsible for any discrepancy. / वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार असेन."
                                         </label>

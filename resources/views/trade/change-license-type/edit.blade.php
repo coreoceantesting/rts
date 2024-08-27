@@ -17,37 +17,37 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="applicant_full_name">Applicant Full Name / अर्जदाराचे संपूर्ण नाव<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="applicant_full_name" name="applicant_full_name" type="text" placeholder="Enter Applicant Full Name" value="{{ $data->applicant_full_name }}">
+                                    <input class="form-control" id="applicant_full_name" name="applicant_full_name" type="text" placeholder="Enter Applicant Full Name" value="{{ $data->applicant_full_name }}" required>
                                     <span class="text-danger is-invalid applicant_full_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="address">Applicant Full Address / अर्जदाराचा संपूर्ण पत्ता <span class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="address" id="address" cols="30" rows="2"  placeholder="Enter  Address">{{ $data->address }}</textarea>
+                                    <textarea class="form-control" name="address" id="address" cols="30" rows="2" placeholder="Enter  Address" required>{{ $data->address }}</textarea>
                                     <span class="text-danger is-invalid address_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="mobile_no">Mobile Number / मोबाईल नंबर<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="mobile_no" name="mobile_no" type="number" placeholder="Enter Mobile Number" value="{{ $data->mobile_no }}">
+                                    <input class="form-control" id="mobile_no" name="mobile_no" type="number" placeholder="Enter Mobile Number" value="{{ $data->mobile_no }}" required>
                                     <span class="text-danger is-invalid mobile_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="aadhar_no">Aadhar No / आधार क्र.<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="aadhar_no" name="aadhar_no" type="number" placeholder="Enter Aadhar No" value="{{ $data->aadhar_no }}">
+                                    <input class="form-control" id="aadhar_no" name="aadhar_no" type="number" placeholder="Enter Aadhar No" value="{{ $data->aadhar_no }}" required>
                                     <span class="text-danger is-invalid aadhar_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="email_id">Email ID / ई-मेल आयडी<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email" value="{{ $data->email_id }}">
+                                    <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email" value="{{ $data->email_id }}" required>
                                     <span class="text-danger is-invalid email_id_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="zone" id="zone">
+                                    <select class="form-select" name="zone" id="zone" required>
                                         <option value="">Select Zone</option>
                                         @foreach($zones as $zone)
                                         <option value="{{ $zone->name }}" {{ $data->zone == $zone->name ? 'selected' : '' }}>{{ $zone->name }}</option>
@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="ward_area" id="ward_area">
+                                    <select class="form-select" name="ward_area" id="ward_area" required>
                                         <option value="">Select Ward Area</option>
                                         @foreach($wards as $ward)
                                         <option value="{{ $ward->name }}" {{ $data->ward_area == $ward->name ? 'selected' : '' }}>{{ $ward->name }}</option>
@@ -68,152 +68,33 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="current_permission_no">Current Permission No / चालू परवाना क्र <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="current_permission_no" name="current_permission_no" type="text" placeholder="Enter Current Permission No" value="{{ $data->current_permission_no }}">
+                                    <input class="form-control" id="current_permission_no" name="current_permission_no" type="text" placeholder="Enter Current Permission No" value="{{ $data->current_permission_no }}" required>
                                     <span class="text-danger is-invalid current_permission_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="old_treade_license_name">Old trade license name / जुन्या व्यवसाय परवान्याचे नाव <span class="text-danger">*</span></label>
-                                    <select class="form-select" name="old_treade_license_name" id="old_treade_license_name">
+                                    <select class="form-select" name="old_treade_license_name" id="old_treade_license_name" required>
                                         <option value="">Select a value ...</option>
-                                        <option value="42" {{ $data->old_treade_license_name == 42 ? 'selected' : '' }}>असोसिएट्स</option>
-                                        <option value="6" {{ $data->old_treade_license_name == 6 ? 'selected' : '' }}>आईस्क्रिम पार्लर </option>
-                                        <option value="53" {{ $data->old_treade_license_name == 53 ? 'selected' : '' }}>इंजिनियरींग वर्क्स</option>
-                                        <option value="48" {{ $data->old_treade_license_name == 48 ? 'selected' : '' }}>इंटिरियल</option>
-                                        <option value="65" {{ $data->old_treade_license_name == 65 ? 'selected' : '' }}>इतर</option>
-                                        <option value="12" {{ $data->old_treade_license_name == 12 ? 'selected' : '' }}>इलेक्ट्रिकल</option>
-                                        <option value="49" {{ $data->old_treade_license_name == 49 ? 'selected' : '' }}>इलेक्ट्रीक अँड हार्डवेअर </option>
-                                        <option value="61" {{ $data->old_treade_license_name == 61 ? 'selected' : '' }}>इंशुरन्स</option>
-                                        <option value="1" {{ $data->old_treade_license_name == 1 ? 'selected' : '' }}>उपहारगृह</option>
-                                        <option value="34" {{ $data->old_treade_license_name == 34 ? 'selected' : '' }}>ऑप्टीकल</option>
-                                        <option value="27" {{ $data->old_treade_license_name == 27 ? 'selected' : '' }}>ओल्ड् पेपर मार्ट</option>
-                                        <option value="59" {{ $data->old_treade_license_name == 59 ? 'selected' : '' }}>कंट्रक्शन</option>
-                                        <option value="29" {{ $data->old_treade_license_name == 29 ? 'selected' : '' }}>कपडा विक्री</option>
-                                        <option value="60" {{ $data->old_treade_license_name == 60 ? 'selected' : '' }}>कपड्याचे दुकान</option>
-                                        <option value="26" {{ $data->old_treade_license_name == 26 ? 'selected' : '' }}>कांदा-बटाटा दुकान</option>
-                                        <option value="21" {{ $data->old_treade_license_name == 21 ? 'selected' : '' }}>कारखाना</option>
-                                        <option value="15" {{ $data->old_treade_license_name == 15 ? 'selected' : '' }}>किराणा दुकान</option>
-                                        <option value="58" {{ $data->old_treade_license_name == 58 ? 'selected' : '' }}>कुरीअर सर्विस</option>
-                                        <option value="45" {{ $data->old_treade_license_name == 45 ? 'selected' : '' }}>कॅटरींग सर्विसेस</option>
-                                        <option value="5" {{ $data->old_treade_license_name == 5 ? 'selected' : '' }}>केक शॉप</option>
-                                        <option value="10" {{ $data->old_treade_license_name == 10 ? 'selected' : '' }}>केशकर्तनालय / सलुन</option>
-                                        <option value="64" {{ $data->old_treade_license_name == 64 ? 'selected' : '' }}>कोल्ड्रींग अँड आईस्क्रीम</option>
-                                        <option value="33" {{ $data->old_treade_license_name == 33 ? 'selected' : '' }}>क्लासेस</option>
-                                        <option value="43" {{ $data->old_treade_license_name == 43 ? 'selected' : '' }}>क्लीनर</option>
-                                        <option value="30" {{ $data->old_treade_license_name == 30 ? 'selected' : '' }}>खादयपदार्थ विक्री</option>
-                                        <option value="3" {{ $data->old_treade_license_name == 3 ? 'selected' : '' }}>खानावळ</option>
-                                        <option value="13" {{ $data->old_treade_license_name == 13 ? 'selected' : '' }}>गॅरेज</option>
-                                        <option value="47" {{ $data->old_treade_license_name == 47 ? 'selected' : '' }}>चक्की</option>
-                                        <option value="55" {{ $data->old_treade_license_name == 55 ? 'selected' : '' }}>चाइनीज पॉईंट</option>
-                                        <option value="63" {{ $data->old_treade_license_name == 63 ? 'selected' : '' }}>चाय पॉईंट</option>
-                                        <option value="24" {{ $data->old_treade_license_name == 24 ? 'selected' : '' }}>चिकन शॉप</option>
-                                        <option value="14" {{ $data->old_treade_license_name == 14 ? 'selected' : '' }}>जनरल स्टोर</option>
-                                        <option value="38" {{ $data->old_treade_license_name == 38 ? 'selected' : '' }}>जिम फिटनेस</option>
-                                        <option value="32" {{ $data->old_treade_license_name == 32 ? 'selected' : '' }}>टेलर</option>
-                                        <option value="17" {{ $data->old_treade_license_name == 17 ? 'selected' : '' }}>नर्सरी</option>
-                                        <option value="18" {{ $data->old_treade_license_name == 18 ? 'selected' : '' }}>पान बिडी शॉप</option>
-                                        <option value="40" {{ $data->old_treade_license_name == 40 ? 'selected' : '' }}>पुस्तक विक्री</option>
-                                        <option value="16" {{ $data->old_treade_license_name == 16 ? 'selected' : '' }}>फर्निचर दुकान</option>
-                                        <option value="62" {{ $data->old_treade_license_name == 62 ? 'selected' : '' }}>फर्निचर वर्क</option>
-                                        <option value="46" {{ $data->old_treade_license_name == 46 ? 'selected' : '' }}>फाटो शॉप</option>
-                                        <option value="20" {{ $data->old_treade_license_name == 20 ? 'selected' : '' }}>बांगडी बनविणे</option>
-                                        <option value="52" {{ $data->old_treade_license_name == 52 ? 'selected' : '' }}>बेकरी</option>
-                                        <option value="7" {{ $data->old_treade_license_name == 7 ? 'selected' : '' }}>बेकरी शॉप / बेकरी प्रोडक्टस</option>
-                                        <option value="11" {{ $data->old_treade_license_name == 11 ? 'selected' : '' }}>ब्युटी पार्लर</option>
-                                        <option value="23" {{ $data->old_treade_license_name == 23 ? 'selected' : '' }}>मटण शॉप</option>
-                                        <option value="22" {{ $data->old_treade_license_name == 22 ? 'selected' : '' }}>मटण-चिकन शॉप</option>
-                                        <option value="39" {{ $data->old_treade_license_name == 39 ? 'selected' : '' }}>मसाला विक्री</option>
-                                        <option value="36" {{ $data->old_treade_license_name == 36 ? 'selected' : '' }}>मॅन्युफॅक्चरींग</option>
-                                        <option value="56" {{ $data->old_treade_license_name == 56 ? 'selected' : '' }}>मेटल पार्ट वर्क</option>
-                                        <option value="31" {{ $data->old_treade_license_name == 31 ? 'selected' : '' }}>मेडिकल</option>
-                                        <option value="51" {{ $data->old_treade_license_name == 51 ? 'selected' : '' }}>रबर प्रोडक्ट</option>
-                                        <option value="35" {{ $data->old_treade_license_name == 35 ? 'selected' : '' }}>रेडीमेंड गारमेंट</option>
-                                        <option value="2" {{ $data->old_treade_license_name == 2 ? 'selected' : '' }}>रेस्टॉरंट</option>
-                                        <option value="44" {{ $data->old_treade_license_name == 44 ? 'selected' : '' }}>लाँड्री</option>
-                                        <option value="9" {{ $data->old_treade_license_name == 9 ? 'selected' : '' }}>लॉजिंग / बोर्डींग</option>
-                                        <option value="54" {{ $data->old_treade_license_name == 54 ? 'selected' : '' }}>वेल्डींग</option>
-                                        <option value="41" {{ $data->old_treade_license_name == 41 ? 'selected' : '' }}>सायकल रिपेरींग</option>
-                                        <option value="57" {{ $data->old_treade_license_name == 57 ? 'selected' : '' }}>सिट कवर असेसरीज</option>
-                                        <option value="37" {{ $data->old_treade_license_name == 37 ? 'selected' : '' }}>सेल्स सर्विस </option>
-                                        <option value="19" {{ $data->old_treade_license_name == 19 ? 'selected' : '' }}>स्टील फर्निचर</option>
-                                        <option value="50" {{ $data->old_treade_license_name == 50 ? 'selected' : '' }}>स्टेनलेस स्टील </option>
-                                        <option value="28" {{ $data->old_treade_license_name == 28 ? 'selected' : '' }}>स्टेशनरी </option>
-                                        <option value="4" {{ $data->old_treade_license_name == 4 ? 'selected' : '' }}>स्नॅक्स सेंटर</option>
-                                        <option value="8" {{ $data->old_treade_license_name == 8 ? 'selected' : '' }}>स्विट मार्ट / मिठाईचे दुकान</option>
-                                        <option value="25" {{ $data->old_treade_license_name == 25 ? 'selected' : '' }}>हार्डवेअर</option>
+                                        
+                                        @php $options = ["आईस्क्रिम पार्लर", "इंजिनियरींग वर्क्स", "इंटिरियल", "इतर", "इलेक्ट्रिकल", "इलेक्ट्रीक अँड हार्डवेअर", "इंशुरन्स", "उपहारगृह", "ऑप्टीकल", "ओल्ड् पेपर मार्ट", "कंट्रक्शन", "कपडा विक्री", "कपड्याचे दुकान", "कांदा-बटाटा दुकान", "कारखाना", "किराणा दुकान", "कुरीअर सर्विस", "कॅटरींग सर्विसेस", "केक शॉप", "केशकर्तनालय / सलुन", "कोल्ड्रींग अँड आईस्क्रीम", "क्लासेस", "क्लीनर", "खादयपदार्थ विक्री", "खानावळ", "गॅरेज", "चक्की", "चाइनीज पॉईंट", "चाय पॉईंट", "चिकन शॉप", "जनरल स्टोर", "जिम फिटनेस", "टेलर", "नर्सरी", "पान बिडी शॉप", "पुस्तक विक्री", "फर्निचर दुकान", "फर्निचर वर्क", "फाटो शॉप", "बांगडी बनविणे", "बेकरी", "बेकरी शॉप / बेकरी प्रोडक्टस", "ब्युटी पार्लर", "मटण शॉप", "मटण-चिकन शॉप", "मसाला विक्री", "मॅन्युफॅक्चरींग", "मेटल पार्ट वर्क", "मेडिकल", "रबर प्रोडक्ट", "रेडीमेंड गारमेंट", "रेस्टॉरंट", "लाँड्री", "लॉजिंग / बोर्डींग", "वेल्डींग", "सायकल रिपेरींग", "सिट कवर असेसरीज", "सेल्स सर्विस", "स्टील फर्निचर", "स्टेनलेस स्टील", "स्टेशनरी", "स्नॅक्स सेंटर", "स्विट मार्ट / मिठाईचे दुकान", "हार्डवेअर"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option {{ $data->old_treade_license_name == $option ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid old_treade_license_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="new_treade_license_name">New name for trade license / नवीन व्यवसाय परवान्याचे नाव<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="new_treade_license_name" id="new_treade_license_name">
+                                    <select class="form-select" name="new_treade_license_name" id="new_treade_license_name" required>
                                         <option value="">Select a value ...</option>
-                                        <option value="42" {{ $data->new_treade_license_name == 42 ? 'selected' : '' }}>असोसिएट्स</option>
-                                        <option value="6" {{ $data->new_treade_license_name == 6 ? 'selected' : '' }}>आईस्क्रिम पार्लर </option>
-                                        <option value="53" {{ $data->new_treade_license_name == 53 ? 'selected' : '' }}>इंजिनियरींग वर्क्स</option>
-                                        <option value="48" {{ $data->new_treade_license_name == 48 ? 'selected' : '' }}>इंटिरियल</option>
-                                        <option value="65" {{ $data->new_treade_license_name == 65 ? 'selected' : '' }}>इतर</option>
-                                        <option value="12" {{ $data->new_treade_license_name == 12 ? 'selected' : '' }}>इलेक्ट्रिकल</option>
-                                        <option value="49" {{ $data->new_treade_license_name == 49 ? 'selected' : '' }}>इलेक्ट्रीक अँड हार्डवेअर </option>
-                                        <option value="61" {{ $data->new_treade_license_name == 61 ? 'selected' : '' }}>इंशुरन्स</option>
-                                        <option value="1" {{ $data->new_treade_license_name == 1 ? 'selected' : '' }}>उपहारगृह</option>
-                                        <option value="34" {{ $data->new_treade_license_name == 34 ? 'selected' : '' }}>ऑप्टीकल</option>
-                                        <option value="27" {{ $data->new_treade_license_name == 27 ? 'selected' : '' }}>ओल्ड् पेपर मार्ट</option>
-                                        <option value="59" {{ $data->new_treade_license_name == 59 ? 'selected' : '' }}>कंट्रक्शन</option>
-                                        <option value="29" {{ $data->new_treade_license_name == 29 ? 'selected' : '' }}>कपडा विक्री</option>
-                                        <option value="60" {{ $data->new_treade_license_name == 60 ? 'selected' : '' }}>कपड्याचे दुकान</option>
-                                        <option value="26" {{ $data->new_treade_license_name == 26 ? 'selected' : '' }}>कांदा-बटाटा दुकान</option>
-                                        <option value="21" {{ $data->new_treade_license_name == 21 ? 'selected' : '' }}>कारखाना</option>
-                                        <option value="15" {{ $data->new_treade_license_name == 15 ? 'selected' : '' }}>किराणा दुकान</option>
-                                        <option value="58" {{ $data->new_treade_license_name == 58 ? 'selected' : '' }}>कुरीअर सर्विस</option>
-                                        <option value="45" {{ $data->new_treade_license_name == 45 ? 'selected' : '' }}>कॅटरींग सर्विसेस</option>
-                                        <option value="5" {{ $data->new_treade_license_name == 5 ? 'selected' : '' }}>केक शॉप</option>
-                                        <option value="10" {{ $data->new_treade_license_name == 10 ? 'selected' : '' }}>केशकर्तनालय / सलुन</option>
-                                        <option value="64" {{ $data->new_treade_license_name == 64 ? 'selected' : '' }}>कोल्ड्रींग अँड आईस्क्रीम</option>
-                                        <option value="33" {{ $data->new_treade_license_name == 33 ? 'selected' : '' }}>क्लासेस</option>
-                                        <option value="43" {{ $data->new_treade_license_name == 43 ? 'selected' : '' }}>क्लीनर</option>
-                                        <option value="30" {{ $data->new_treade_license_name == 30 ? 'selected' : '' }}>खादयपदार्थ विक्री</option>
-                                        <option value="3" {{ $data->new_treade_license_name == 3 ? 'selected' : '' }}>खानावळ</option>
-                                        <option value="13" {{ $data->new_treade_license_name == 13 ? 'selected' : '' }}>गॅरेज</option>
-                                        <option value="47" {{ $data->new_treade_license_name == 47 ? 'selected' : '' }}>चक्की</option>
-                                        <option value="55" {{ $data->new_treade_license_name == 55 ? 'selected' : '' }}>चाइनीज पॉईंट</option>
-                                        <option value="63" {{ $data->new_treade_license_name == 63 ? 'selected' : '' }}>चाय पॉईंट</option>
-                                        <option value="24" {{ $data->new_treade_license_name == 24 ? 'selected' : '' }}>चिकन शॉप</option>
-                                        <option value="14" {{ $data->new_treade_license_name == 14 ? 'selected' : '' }}>जनरल स्टोर</option>
-                                        <option value="38" {{ $data->new_treade_license_name == 38 ? 'selected' : '' }}>जिम फिटनेस</option>
-                                        <option value="32" {{ $data->new_treade_license_name == 32 ? 'selected' : '' }}>टेलर</option>
-                                        <option value="17" {{ $data->new_treade_license_name == 17 ? 'selected' : '' }}>नर्सरी</option>
-                                        <option value="18" {{ $data->new_treade_license_name == 18 ? 'selected' : '' }}>पान बिडी शॉप</option>
-                                        <option value="40" {{ $data->new_treade_license_name == 40 ? 'selected' : '' }}>पुस्तक विक्री</option>
-                                        <option value="16" {{ $data->new_treade_license_name == 16 ? 'selected' : '' }}>फर्निचर दुकान</option>
-                                        <option value="62" {{ $data->new_treade_license_name == 62 ? 'selected' : '' }}>फर्निचर वर्क</option>
-                                        <option value="46" {{ $data->new_treade_license_name == 46 ? 'selected' : '' }}>फाटो शॉप</option>
-                                        <option value="20" {{ $data->new_treade_license_name == 20 ? 'selected' : '' }}>बांगडी बनविणे</option>
-                                        <option value="52" {{ $data->new_treade_license_name == 52 ? 'selected' : '' }}>बेकरी</option>
-                                        <option value="7" {{ $data->new_treade_license_name == 7 ? 'selected' : '' }}>बेकरी शॉप / बेकरी प्रोडक्टस</option>
-                                        <option value="11" {{ $data->new_treade_license_name == 11 ? 'selected' : '' }}>ब्युटी पार्लर</option>
-                                        <option value="23" {{ $data->new_treade_license_name == 23 ? 'selected' : '' }}>मटण शॉप</option>
-                                        <option value="22" {{ $data->new_treade_license_name == 22 ? 'selected' : '' }}>मटण-चिकन शॉप</option>
-                                        <option value="39" {{ $data->new_treade_license_name == 39 ? 'selected' : '' }}>मसाला विक्री</option>
-                                        <option value="36" {{ $data->new_treade_license_name == 36 ? 'selected' : '' }}>मॅन्युफॅक्चरींग</option>
-                                        <option value="56" {{ $data->new_treade_license_name == 56 ? 'selected' : '' }}>मेटल पार्ट वर्क</option>
-                                        <option value="31" {{ $data->new_treade_license_name == 31 ? 'selected' : '' }}>मेडिकल</option>
-                                        <option value="51" {{ $data->new_treade_license_name == 51 ? 'selected' : '' }}>रबर प्रोडक्ट</option>
-                                        <option value="35" {{ $data->new_treade_license_name == 35 ? 'selected' : '' }}>रेडीमेंड गारमेंट</option>
-                                        <option value="2" {{ $data->new_treade_license_name == 2 ? 'selected' : '' }}>रेस्टॉरंट</option>
-                                        <option value="44" {{ $data->new_treade_license_name == 44 ? 'selected' : '' }}>लाँड्री</option>
-                                        <option value="9" {{ $data->new_treade_license_name == 9 ? 'selected' : '' }}>लॉजिंग / बोर्डींग</option>
-                                        <option value="54" {{ $data->new_treade_license_name == 54 ? 'selected' : '' }}>वेल्डींग</option>
-                                        <option value="41" {{ $data->new_treade_license_name == 41 ? 'selected' : '' }}>सायकल रिपेरींग</option>
-                                        <option value="57" {{ $data->new_treade_license_name == 57 ? 'selected' : '' }}>सिट कवर असेसरीज</option>
-                                        <option value="37" {{ $data->new_treade_license_name == 37 ? 'selected' : '' }}>सेल्स सर्विस </option>
-                                        <option value="19" {{ $data->new_treade_license_name == 19 ? 'selected' : '' }}>स्टील फर्निचर</option>
-                                        <option value="50" {{ $data->new_treade_license_name == 50 ? 'selected' : '' }}>स्टेनलेस स्टील </option>
-                                        <option value="28" {{ $data->new_treade_license_name == 28 ? 'selected' : '' }}>स्टेशनरी </option>
-                                        <option value="4" {{ $data->new_treade_license_name == 4 ? 'selected' : '' }}>स्नॅक्स सेंटर</option>
-                                        <option value="8" {{ $data->new_treade_license_name == 8 ? 'selected' : '' }}>स्विट मार्ट / मिठाईचे दुकान</option>
-                                        <option value="25" {{ $data->new_treade_license_name == 25 ? 'selected' : '' }}>हार्डवेअर</option>
+                                        @php $options = ["आईस्क्रिम पार्लर", "इंजिनियरींग वर्क्स", "इंटिरियल", "इतर", "इलेक्ट्रिकल", "इलेक्ट्रीक अँड हार्डवेअर", "इंशुरन्स", "उपहारगृह", "ऑप्टीकल", "ओल्ड् पेपर मार्ट", "कंट्रक्शन", "कपडा विक्री", "कपड्याचे दुकान", "कांदा-बटाटा दुकान", "कारखाना", "किराणा दुकान", "कुरीअर सर्विस", "कॅटरींग सर्विसेस", "केक शॉप", "केशकर्तनालय / सलुन", "कोल्ड्रींग अँड आईस्क्रीम", "क्लासेस", "क्लीनर", "खादयपदार्थ विक्री", "खानावळ", "गॅरेज", "चक्की", "चाइनीज पॉईंट", "चाय पॉईंट", "चिकन शॉप", "जनरल स्टोर", "जिम फिटनेस", "टेलर", "नर्सरी", "पान बिडी शॉप", "पुस्तक विक्री", "फर्निचर दुकान", "फर्निचर वर्क", "फाटो शॉप", "बांगडी बनविणे", "बेकरी", "बेकरी शॉप / बेकरी प्रोडक्टस", "ब्युटी पार्लर", "मटण शॉप", "मटण-चिकन शॉप", "मसाला विक्री", "मॅन्युफॅक्चरींग", "मेटल पार्ट वर्क", "मेडिकल", "रबर प्रोडक्ट", "रेडीमेंड गारमेंट", "रेस्टॉरंट", "लाँड्री", "लॉजिंग / बोर्डींग", "वेल्डींग", "सायकल रिपेरींग", "सिट कवर असेसरीज", "सेल्स सर्विस", "स्टील फर्निचर", "स्टेनलेस स्टील", "स्टेशनरी", "स्नॅक्स सेंटर", "स्विट मार्ट / मिठाईचे दुकान", "हार्डवेअर"];
+                                        @endphp
+                                        @foreach($options as $option)
+                                        <option {{ $data->new_treade_license_name == $option ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid new_treade_license_name_err"></span>
                                 </div>
