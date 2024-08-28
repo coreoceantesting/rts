@@ -22,7 +22,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="aadhar_no">Aadhar Number / आधार क्रमांक  <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="aadhar_no" name="aadhar_no" type="number" placeholder="Enter Aadhar Card No" value="{{ $data->aadhar_no }}">
+                                    <input class="form-control" id="aadhar_no" name="aadhar_no"  oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" type="text" placeholder="Enter Aadhar Card No" value="{{ $data->aadhar_no }}">
                                     <span class="text-danger is-invalid aadhar_no_err"></span>
                                 </div>
 

@@ -53,7 +53,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="president_mobile_no">Contact No. of President or Secretary / अध्यक्ष किंवा सचिव यांचा संपर्क क्रमांक <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="president_mobile_no" name="president_mobile_no" type="number" placeholder="Enter Contact No. of President or Secretary" value="{{ $data->president_mobile_no }}">
+                                    <input class="form-control" id="president_mobile_no" name="president_mobile_no" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" placeholder="Enter Contact No. of President or Secretary" value="{{ $data->president_mobile_no }}">
                                     <span class="text-danger is-invalid president_mobile_no_err"></span>
                                 </div>
 

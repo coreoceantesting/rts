@@ -29,13 +29,13 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="aadhar_no">Complainant's Aadhar Number / तक्रारदाराचा आधार क्रमांक  <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="aadhar_no" name="aadhar_no" type="number" value="{{ $data->aadhar_no }}">
+                                    <input class="form-control" id="aadhar_no" name="aadhar_no"  oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" type="text" value="{{ $data->aadhar_no }}">
                                     <span class="text-danger is-invalid aadhar_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="mobile_no">Complainant's Mobile Number / तक्रारदाराचा मोबाईल नंबर<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="mobile_no" name="mobile_no" type="number" value="{{ $data->mobile_no }}">
+                                    <input class="form-control" id="mobile_no" name="mobile_no"  oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" value="{{ $data->mobile_no }}">
                                     <span class="text-danger is-invalid mobile_no_err"></span>
                                 </div>
 
