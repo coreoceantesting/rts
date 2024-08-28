@@ -79,7 +79,7 @@ class CurlAPiService
         }
         // Close cURL session
         curl_close($ch);
-        // Log::error($response);
+        Log::error($response);
         return $response;
     }
 

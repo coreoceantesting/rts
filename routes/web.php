@@ -162,8 +162,8 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('water-quality-complaint', WaterQualityComplaintController::class);
 
     // Trade Routes
-    Route::resource('renewal-plumber-license', RenewalPlumberLicenseController::class);
     Route::resource('trade-plumber-license', PlumberLicenseController::class);
+    Route::resource('renewal-plumber-license', RenewalPlumberLicenseController::class);
     Route::resource('trade-new-license', NewTradeLicensePermissionController::class);
     Route::resource('trade-renewal-license', RenewalOfLicenseController::class);
     Route::resource('trade-autorenewal-license', AutoRenewalController::class);
