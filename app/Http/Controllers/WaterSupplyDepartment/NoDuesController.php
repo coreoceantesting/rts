@@ -37,13 +37,13 @@ class NoDuesController extends Controller
     {
         $noDuesService = $this->noDuesService->store($request);
 
-        if ($noDuesService) {
+        if ($noDuesService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $noDuesService[1]
             ]);
         }
     }

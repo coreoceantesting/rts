@@ -155,10 +155,10 @@ class RenewalPlumberService
             $request['application_no'] = $waterRenewalOfPlumber->application_no;
             $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
             $newData = $request->except(['_token', 'id', 'application_documents', 'nodues_documents', 'educational_certificate_documents']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/UpdateForRenewTradeLicensePermission', '');
-
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/UpdateForRenewPlumberLicenseFORPMC', '');
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
+            Log::info($data);
 
             if ($data['status'] == "200") {
                 // Access the application_no
