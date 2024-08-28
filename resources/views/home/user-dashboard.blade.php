@@ -2,13 +2,21 @@
     <x-slot name="title">Dashboard</x-slot>
     <x-slot name="heading">Dashboard</x-slot>
     {{-- <x-slot name="subheading">Test</x-slot> --}}
-
+    <style>
+        .hovereffect:hover{
+            transform: scale(1.1);
+            transition: .9s;
+        }
+        .hovereffect{
+            transition: .9s;
+        }
+    </style>
     <div class="row">
         <div class="col-12">
             <div class="d-flex flex-column h-100">
                 <div class="row">
                     @foreach($services as $service)
-                    <div class="col-md-3 col-lg-3 col-6">
+                    <div class="col-md-3 col-lg-3 col-6 hovereffect">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between" style="background:{{ $service->background_color }}">
                                 <img src="{{ asset('storage/'.$service->image) }}" width="25px" alt="{{ $service->name }}">

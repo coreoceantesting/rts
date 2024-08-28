@@ -44,7 +44,7 @@ class ServiceSeeder extends Seeder
                 "image" => "service/AfnTCgdUcscvA2QB4RTi6akZo18UpZKWf0GPJIkn.png",
                 "is_parent" => 0,
                 "route_name" => null,
-                "background_color" => "#00aea4",
+                "background_color" => "#037ca2",
                 "created_at" => "2024-06-10 10:53:10",
                 "updated_at" => "2024-06-10 10:53:10"
             ],
@@ -55,7 +55,7 @@ class ServiceSeeder extends Seeder
                 "image" => "service/8apAFL7HgTwAWfvScbYuChPeKS2vbgYTajhjh2tR.png",
                 "is_parent" => 0,
                 "route_name" => "marriage-registration.create",
-                "background_color" => "#2a85c7",
+                "background_color" => "#00aea4",
                 "created_at" => "2024-06-10 10:54:22",
                 "updated_at" => "2024-06-10 10:58:36"
             ],
@@ -66,7 +66,7 @@ class ServiceSeeder extends Seeder
                 "image" => "service/LZ1aYUYeixkG7JStMf51o1AZz3l4qTPGMZwJtsnG.png",
                 "is_parent" => 0,
                 "route_name" => null,
-                "background_color" => "#b73107",
+                "background_color" => "#2a85c7",
                 "created_at" => "2024-06-10 10:55:02",
                 "updated_at" => "2024-06-10 10:55:02"
             ],
@@ -77,7 +77,7 @@ class ServiceSeeder extends Seeder
                 "image" => "service/ATrZemjqMVDgfjWV7bsu7ZIUZRzG9hVSwp5N7Z5E.png",
                 "is_parent" => 0,
                 "route_name" => null,
-                "background_color" => "#037ca2",
+                "background_color" => "#b73107",
                 "created_at" => "2024-06-10 10:56:18",
                 "updated_at" => "2024-06-10 10:56:18"
             ],
@@ -88,7 +88,7 @@ class ServiceSeeder extends Seeder
                 "image" => "service/Mkkbnt9scijS9slt3nGARcS1nGAjaKS5vryKpixd.png",
                 "is_parent" => 0,
                 "route_name" => null,
-                "background_color" => "#00aea4",
+                "background_color" => "#037ca2",
                 "created_at" => "2024-06-10 10:57:07",
                 "updated_at" => "2024-06-10 10:57:07"
             ],
@@ -99,7 +99,7 @@ class ServiceSeeder extends Seeder
                 "image" => "service/lycB5h8Do9CEWyzmiDFrjhLhrBQO9LK28gXWe0Zv.png",
                 "is_parent" => 0,
                 "route_name" => null,
-                "background_color" => "#2a85c7",
+                "background_color" => "#00aea4",
                 "created_at" => "2024-06-10 10:57:51",
                 "updated_at" => "2024-06-10 10:57:51"
             ],
@@ -209,7 +209,7 @@ class ServiceSeeder extends Seeder
                 "image" => null,
                 "is_parent" => 1,
                 "route_name" => "registration-of-objection.create",
-                "background_color" => "#037ca2",
+                "background_color" => "#b73107",
                 "created_at" => "2024-06-10 11:22:43",
                 "updated_at" => "2024-06-10 11:22:43"
             ],
@@ -220,7 +220,7 @@ class ServiceSeeder extends Seeder
                 "image" => null,
                 "is_parent" => 1,
                 "route_name" => "water-new-connection.create",
-                "background_color" => "#037ca2",
+                "background_color" => "#b73107",
                 "created_at" => "2024-06-10 11:34:06",
                 "updated_at" => "2024-06-10 11:34:06"
             ],
@@ -231,7 +231,7 @@ class ServiceSeeder extends Seeder
                 "image" => null,
                 "is_parent" => 1,
                 "route_name" => "water-illegal-connection.create",
-                "background_color" => "#00aea4",
+                "background_color" => "#037ca2",
                 "created_at" => "2024-06-10 11:34:44",
                 "updated_at" => "2024-06-10 11:34:44"
             ],
@@ -242,7 +242,7 @@ class ServiceSeeder extends Seeder
                 "image" => null,
                 "is_parent" => 1,
                 "route_name" => "water-change-ownership.create",
-                "background_color" => "#2a85c7",
+                "background_color" => "#00aea4",
                 "created_at" => "2024-06-10 11:35:12",
                 "updated_at" => "2024-06-10 11:35:12"
             ],
@@ -253,7 +253,7 @@ class ServiceSeeder extends Seeder
                 "image" => null,
                 "is_parent" => 1,
                 "route_name" => 'water-connection-size-change.create',
-                "background_color" => "#037ca2",
+                "background_color" => "#2a85c7",
                 "created_at" => null,
                 "updated_at" => null
             ],
@@ -275,7 +275,7 @@ class ServiceSeeder extends Seeder
                 "image" => null,
                 "is_parent" => 1,
                 "route_name" => "water-disconnect-supply.create",
-                "background_color" => "#2a85c7",
+                "background_color" => "#037ca2",
                 "created_at" => "2024-06-10 11:35:12",
                 "updated_at" => "2024-06-10 11:35:12"
             ],
@@ -352,7 +352,7 @@ class ServiceSeeder extends Seeder
                 "image" => null,
                 "is_parent" => 1,
                 "route_name" => "water-pressure-complaint.create",
-                "background_color" => "#b73107",
+                "background_color" => "#2a85c7",
                 "created_at" => null,
                 "updated_at" => null
             ],
@@ -528,7 +528,7 @@ class ServiceSeeder extends Seeder
                 "image" => null,
                 "is_parent" => 1,
                 "route_name" => "trade-license-cancellation.create",
-                "background_color" => "#b73107",
+                "background_color" => "#2a85c7",
                 "created_at" => null,
                 "updated_at" => null
             ],
@@ -539,7 +539,7 @@ class ServiceSeeder extends Seeder
                 "image" => null,
                 "is_parent" => 1,
                 "route_name" => null,
-                "background_color" => "#037ca2",
+                "background_color" => "#b73107",
                 "created_at" => null,
                 "updated_at" => null
             ],
@@ -550,7 +550,7 @@ class ServiceSeeder extends Seeder
                 "image" => null,
                 "is_parent" => 1,
                 "route_name" => null,
-                "background_color" => "#00aea4",
+                "background_color" => "#037ca2",
                 "created_at" => null,
                 "updated_at" => null
             ],
