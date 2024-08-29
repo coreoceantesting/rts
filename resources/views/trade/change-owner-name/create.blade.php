@@ -159,7 +159,7 @@
                 if (!data.error)
                     swal("Successful!", data.success, "success")
                         .then((action) => {
-                            window.location.href = '{{ route("trade-change-owner-name.create") }}';
+                            window.location.href = '{{ route("my-application") }}';
                         });
                 else
                     swal("Error!", data.error, "error");

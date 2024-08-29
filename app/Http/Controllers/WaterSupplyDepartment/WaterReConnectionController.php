@@ -37,13 +37,13 @@ class WaterReConnectionController extends Controller
     {
         $reconnectionService = $this->reconnectionService->store($request);
 
-        if ($reconnectionService) {
+        if ($reconnectionService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $reconnectionService[1]
             ]);
         }
     }
@@ -67,13 +67,13 @@ class WaterReConnectionController extends Controller
     {
         $reconnectionService = $this->reconnectionService->update($request, $id);
 
-        if ($reconnectionService) {
+        if ($reconnectionService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $reconnectionService[1]
             ]);
         }
     }

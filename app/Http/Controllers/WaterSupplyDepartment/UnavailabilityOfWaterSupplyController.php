@@ -37,13 +37,13 @@ class UnavailabilityOfWaterSupplyController extends Controller
     {
         $unavailabilitySupplyService = $this->unavailabilitySupplyService->store($request);
 
-        if ($unavailabilitySupplyService) {
+        if ($unavailabilitySupplyService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $unavailabilitySupplyService[1]
             ]);
         }
     }
@@ -67,13 +67,13 @@ class UnavailabilityOfWaterSupplyController extends Controller
     {
         $unavailabilitySupplyService = $this->unavailabilitySupplyService->update($request, $id);
 
-        if ($unavailabilitySupplyService) {
+        if ($unavailabilitySupplyService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $unavailabilitySupplyService[1]
             ]);
         }
     }

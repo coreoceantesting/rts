@@ -37,13 +37,13 @@ class IllegalWaterConnectionController extends Controller
     {
         $illegalWaterConnectionService = $this->illegalWaterConnectionService->store($request);
 
-        if ($illegalWaterConnectionService) {
+        if ($illegalWaterConnectionService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $illegalWaterConnectionService[1]
             ]);
         }
     }
@@ -68,13 +68,13 @@ class IllegalWaterConnectionController extends Controller
     {
         $illegalWaterConnectionService = $this->illegalWaterConnectionService->update($request, $id);
 
-        if ($illegalWaterConnectionService) {
+        if ($illegalWaterConnectionService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $illegalWaterConnectionService[1]
             ]);
         }
     }

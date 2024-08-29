@@ -235,7 +235,7 @@
                 if (!data.error)
                     swal("Successful!", data.success, "success")
                         .then((action) => {
-                            window.location.href = '{{ route("water-quality-complaint.create") }}';
+                            window.location.href = '{{ route("my-application") }}';
                         });
                 else
                     swal("Error!", data.error, "error");

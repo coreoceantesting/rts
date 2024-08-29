@@ -51,7 +51,7 @@ class NoDuesService
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
-            Log::info($data);
+
             if (isset($data['status']) && $data['status'] == "200") {
                 // Access the application_no
                 $applicationId = $data['applicationId'];
@@ -128,10 +128,10 @@ class NoDuesService
             if (isset($data['status']) && $data['status'] == "200") {
                 // Access the application_no
                 DB::commit();
-                return true;
+                return [true];
             } else {
                 DB::rollback();
-                return false;
+                return [false, $data['error']];
             }
             // end of code to send data to department
         } catch (\Exception $e) {

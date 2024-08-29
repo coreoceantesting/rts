@@ -37,13 +37,13 @@ class DisconnectWaterSupplyController extends Controller
     {
         $disconnectSupplyService = $this->disconnectSupplyService->store($request);
 
-        if ($disconnectSupplyService) {
+        if ($disconnectSupplyService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $disconnectSupplyService[1]
             ]);
         }
     }
@@ -67,13 +67,13 @@ class DisconnectWaterSupplyController extends Controller
     {
         $disconnectSupplyService = $this->disconnectSupplyService->update($request, $id);
 
-        if ($disconnectSupplyService) {
+        if ($disconnectSupplyService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $disconnectSupplyService[1]
             ]);
         }
     }

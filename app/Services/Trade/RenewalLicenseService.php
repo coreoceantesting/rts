@@ -30,7 +30,7 @@ class RenewalLicenseService
 
         try {
             $request['user_id'] = Auth::user()->id;
-            $request['service_id'] = "27";
+            $request['service_id'] = "33";
             // Handle file uploads and store original file names
             if ($request->hasFile('application_documents')) {
                 $request['application_document'] = $request->application_documents->store('trade/renewal-license');
@@ -54,10 +54,11 @@ class RenewalLicenseService
             $request['applicant_name'] = $request->applicant_full_name;
             $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
             $newData = $request->except(['_token', 'application_documents', 'no_dues_documents']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/AddForRenewPlumberLicenseFORPMC', 'NewTaxation');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/AddForRenewTradeLicensePermission ', '');
             Log::info($newData);
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
+            Log::info($data);
             if ($data['status'] == "200") {
                 // Access the application_no
                 $applicationId = $data['applicationId'];
@@ -134,7 +135,7 @@ class RenewalLicenseService
             $request['application_no'] = $tradeRenewalLicensePermission->application_no;
             $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
             $newData = $request->except(['_token', 'id', 'application_documents', 'no_dues_documents']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/UpdateForRenewPlumberLicenseFORPMC', '');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/UpdateForRenewTradeLicensePermission', '');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);

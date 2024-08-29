@@ -30,7 +30,7 @@ class AutoRenewalService
 
         try {
             $request['user_id'] = Auth::user()->id;
-            $request['service_id'] = "30";
+            $request['service_id'] = "34";
             // Handle file uploads and store original file names
             if ($request->hasFile('application_documents')) {
                 $request['application_document'] = $request->application_documents->store('trade/auto-renewal');

@@ -37,13 +37,13 @@ class ChangeInOwnershipController extends Controller
     {
         $changeOwnershipService = $this->changeOwnershipService->store($request);
 
-        if ($changeOwnershipService) {
+        if ($changeOwnershipService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $changeOwnershipService[1]
             ]);
         }
     }
@@ -67,13 +67,13 @@ class ChangeInOwnershipController extends Controller
     {
         $changeOwnershipService = $this->changeOwnershipService->update($request, $id);
 
-        if ($changeOwnershipService) {
+        if ($changeOwnershipService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $changeOwnershipService[1]
             ]);
         }
     }

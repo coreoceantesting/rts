@@ -37,13 +37,13 @@ class WaterTaxController extends Controller
     {
         $taxBillService = $this->taxBillService->store($request);
 
-        if ($taxBillService) {
+        if ($taxBillService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $taxBillService[1]
             ]);
         }
     }
@@ -67,13 +67,13 @@ class WaterTaxController extends Controller
     {
         $taxBillService = $this->taxBillService->update($request, $id);
 
-        if ($taxBillService) {
+        if ($taxBillService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $taxBillService[1]
             ]);
         }
     }

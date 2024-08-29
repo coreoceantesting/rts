@@ -37,13 +37,13 @@ class WaterQualityComplaintController extends Controller
     {
         $waterQualityService = $this->waterQualityService->store($request);
 
-        if ($waterQualityService) {
+        if ($waterQualityService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $waterQualityService[1]
             ]);
         }
     }
@@ -67,13 +67,13 @@ class WaterQualityComplaintController extends Controller
     {
         $waterQualityService = $this->waterQualityService->update($request, $id);
 
-        if ($waterQualityService) {
+        if ($waterQualityService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $waterQualityService[1]
             ]);
         }
     }

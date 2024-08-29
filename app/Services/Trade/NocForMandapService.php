@@ -30,7 +30,7 @@ class NocForMandapService
 
         try {
             $request['user_id'] = Auth::user()->id;
-            $request['service_id'] = "33";
+            $request['service_id'] = "37";
             // Handle file uploads and store original file names
             if ($request->hasFile('board_registration_documents')) {
                 $request['board_registration_document'] = $request->board_registration_documents->store('trade/noc-for-mandap');

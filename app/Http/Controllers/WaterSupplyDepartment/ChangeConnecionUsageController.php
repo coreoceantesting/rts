@@ -36,13 +36,13 @@ class ChangeConnecionUsageController extends Controller
     {
         $changeInUseService = $this->changeInUseService->store($request);
 
-        if ($changeInUseService) {
+        if ($changeInUseService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $changeInUseService[1]
             ]);
         }
     }
@@ -66,13 +66,13 @@ class ChangeConnecionUsageController extends Controller
     {
         $changeInUseService = $this->changeInUseService->update($request, $id);
 
-        if ($changeInUseService) {
+        if ($changeInUseService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $changeInUseService[1]
             ]);
         }
     }

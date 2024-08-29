@@ -37,13 +37,13 @@ class WaterPressureController extends Controller
     {
         $waterPressureService = $this->waterPressureService->store($request);
 
-        if ($waterPressureService) {
+        if ($waterPressureService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $waterPressureService[1]
             ]);
         }
     }
@@ -67,13 +67,13 @@ class WaterPressureController extends Controller
     {
         $waterPressureService = $this->waterPressureService->update($request, $id);
 
-        if ($waterPressureService) {
+        if ($waterPressureService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $waterPressureService[1]
             ]);
         }
     }

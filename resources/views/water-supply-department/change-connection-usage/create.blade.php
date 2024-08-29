@@ -15,6 +15,12 @@
                             <div class="mb-3 row">
 
                                 <div class="col-md-4">
+                                    <label class="col-form-label" for="water_connection_no">Water Connection Number / पाणी कनेक्शन क्रमांक<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="water_connection_no" name="water_connection_no" type="text" placeholder="Enter Water Connection Number" required>
+                                    <span class="text-danger is-invalid water_connection_no_err"></span>
+                                </div>
+
+                                <div class="col-md-4">
                                     <label class="col-form-label" for="property_owner_name">Property Owner Name / मालमत्ता मालकाचे नाव  <span class="text-danger">*</span></label>
                                     <input class="form-control" id="property_owner_name" name="property_owner_name" type="text" placeholder="Enter Property Owner Name" required>
                                     <span class="text-danger is-invalid property_owner_name_err"></span>
@@ -98,12 +104,6 @@
                                         @endforeach
                                     </select>
                                     <span class="text-danger is-invalid property_type_err"></span>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label class="col-form-label" for="water_connection_no">Water Connection Number / पाणी कनेक्शन क्रमांक<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="water_connection_no" name="water_connection_no" type="text" placeholder="Enter Water Connection Number" required>
-                                    <span class="text-danger is-invalid water_connection_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
@@ -296,7 +296,7 @@
                 if (!data.error)
                     swal("Successful!", data.success, "success")
                         .then((action) => {
-                            window.location.href = '{{ route("water-change-connection-usage.create") }}';
+                            window.location.href = '{{ route("my-application") }}';
                         });
                 else
                     swal("Error!", data.error, "error");

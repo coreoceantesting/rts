@@ -30,7 +30,7 @@ class NewLicenseService
 
         try {
             $request['user_id'] = Auth::user()->id;
-            $request['service_id'] = "28";
+            $request['service_id'] = "32";
             // Handle file uploads and store original file names
             if ($request->hasFile('application_documents')) {
                 $request['application_document'] = $request->application_documents->store('trade/new-license');

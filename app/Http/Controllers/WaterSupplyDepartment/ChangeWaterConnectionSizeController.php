@@ -37,13 +37,13 @@ class ChangeWaterConnectionSizeController extends Controller
     {
         $changeConnectionSizeService = $this->changeConnectionSizeService->store($request);
 
-        if ($changeConnectionSizeService) {
+        if ($changeConnectionSizeService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $changeConnectionSizeService[1]
             ]);
         }
     }
@@ -67,13 +67,13 @@ class ChangeWaterConnectionSizeController extends Controller
     {
         $changeConnectionSizeService = $this->changeConnectionSizeService->update($request, $id);
 
-        if ($changeConnectionSizeService) {
+        if ($changeConnectionSizeService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $changeConnectionSizeService[1]
             ]);
         }
     }

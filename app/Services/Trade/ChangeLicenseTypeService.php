@@ -30,7 +30,7 @@ class ChangeLicenseTypeService
 
         try {
             $request['user_id'] = Auth::user()->id;
-            $request['service_id'] = "35";
+            $request['service_id'] = "39";
             // Handle file uploads and store original file names
             if ($request->hasFile('no_dues_documents')) {
                 $request['no_dues_document'] = $request->no_dues_documents->store('trade/change-license-type');
