@@ -10,7 +10,7 @@ use App\Services\Trade\ChangeOwnerCountService;
 use App\Models\Trade\TradeChangeOwnerCount;
 use App\Services\CommonService;
 
-class ChangeOwnerCountController extends Controller
+class ChangeOwnerPartnerCountController extends Controller
 {
     protected $changeOwnerCountService;
     protected $commonService;

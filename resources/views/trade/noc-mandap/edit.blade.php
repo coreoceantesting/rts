@@ -158,7 +158,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="contractor_contact_no">Pandol / Stage Contractor Contact / मंडप कंत्राटदार / मालकाचा संपर्क क्रमांक<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="contractor_contact_no" name="contractor_contact_no" type="number" placeholder="Enter Pandol / Stage Contractor Contact " value="{{ $data->contractor_contact_no }}">
+                                    <input class="form-control" id="contractor_contact_no" name="contractor_contact_no" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" placeholder="Enter Pandol / Stage Contractor Contact " value="{{ $data->contractor_contact_no }}">
                                     <span class="text-danger is-invalid contractor_contact_no_err"></span>
                                 </div>
 
@@ -176,7 +176,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="decorator_or_electrical_contractor_contact_no">Decorator or Electrical Contractor Contact / इलेक्ट्रिकल कंत्राटदार / डेकोरेटरचा मोबाईल नंबर<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="decorator_or_electrical_contractor_contact_no" name="decorator_or_electrical_contractor_contact_no" type="number" placeholder="Enter Decorator or Electrical Contractor Contact " value="{{ $data->decorator_or_electrical_contractor_contact_no }}">
+                                    <input class="form-control" id="decorator_or_electrical_contractor_contact_no" name="decorator_or_electrical_contractor_contact_no" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" placeholder="Enter Decorator or Electrical Contractor Contact " value="{{ $data->decorator_or_electrical_contractor_contact_no }}">
                                     <span class="text-danger is-invalid decorator_or_electrical_contractor_contact_no_err"></span>
                                 </div>
 
@@ -194,7 +194,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="sound_or_speaker_contractor_contact_no">Sound or Speaker Contractor Contact / लाऊड स्पीकर / ध्वनी प्रणाली कंत्राटदाराचा संपर्क क्रमांक<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="sound_or_speaker_contractor_contact_no" name="sound_or_speaker_contractor_contact_no" type="number" placeholder="Enter Sound or Speaker Contractor Contact" value="{{ $data->sound_or_speaker_contractor_contact_no }}">
+                                    <input class="form-control" id="sound_or_speaker_contractor_contact_no" name="sound_or_speaker_contractor_contact_no" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" placeholder="Enter Sound or Speaker Contractor Contact" value="{{ $data->sound_or_speaker_contractor_contact_no }}">
                                     <span class="text-danger is-invalid sound_or_speaker_contractor_contact_no_err"></span>
                                 </div>
 

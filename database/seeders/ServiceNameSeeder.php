@@ -205,59 +205,59 @@ class ServiceNameSeeder extends Seeder
             ],
             [
                 'service_id' => 34,
-                'service_name' => 'Auto Renewal of Trade License',
+                'service_name' => 'Auto Renewal of Trade License / व्यवसाय परवाना स्वयंनुतनीकरण',
                 'model' => '\App\Models\Trade\TradeAutoRenewalLicensePermission',
                 'add_route' => 'trade-autorenewal-license.create',
                 'edit_route' => 'trade-autorenewal-license.edit'
             ],
             [
                 'service_id' => 35,
-                'service_name' => 'Transfer Of Trade License Permission',
+                'service_name' => 'Transfer Of Trade License Permission / व्यवसाय परवाना हस्तांतरण करणे',
                 'model' => '\App\Models\Trade\TradeLicenseTransfer',
                 'add_route' => 'trade-license-transfer.create',
                 'edit_route' => 'trade-license-transfer.edit'
             ],
             [
                 'service_id' => 36,
-                'service_name' => 'Trade License Permission Secondry Copy',
+                'service_name' => 'Trade License Permission Secondry Copy / व्यवसाय परवाना दुय्यम प्रत मिळणे',
                 'model' => '\App\Models\Trade\TradePerLicense',
                 'add_route' => 'trade-per-license.create',
                 'edit_route' => 'trade-per-license.edit'
             ],
             [
                 'service_id' => 37,
-                'service_name' => 'NOC for Pandal/Mandap',
+                'service_name' => 'NOC for Pandal/Mandap / मंडपासाठी ना हरकत प्रमाणपत्र',
                 'model' => '\App\Models\Trade\TradeNocForMandap',
                 'add_route' => 'trade-noc-mandap.create',
                 'edit_route' => 'trade-noc-mandap.edit'
             ],
             [
                 'service_id' => 38,
-                'service_name' => 'Trade License Name Change Request',
+                'service_name' => 'Trade License Name Change Request / व्यवसायाचे नाव बदलणे',
                 'model' => '\App\Models\Trade\TradeChangeLicenseName',
                 'add_route' => 'trade-change-license-name.create',
                 'edit_route' => 'trade-change-license-name.edit'
             ],
             [
                 'service_id' => 39,
-                'service_name' => 'Trade License Type Change Request',
+                'service_name' => 'Trade License Type Change Request / व्यवसाय (प्रकार) बदलणे',
                 'model' => '\App\Models\Trade\TradeChangeLicenseType',
                 'add_route' => 'trade-change-license-type.create',
                 'edit_route' => 'trade-change-license-type.edit'
             ],
-            // [
-            //     'service_id' => 40,
-            //     'service_name' => 'License Partner Count Change',
-            //     'model' => '\App\Models\Trade\TradeChangeOwnerCount',
-            //     'add_route' => 'trade-change-owner-count.create',
-            //     'edit_route' => 'trade-change-owner-count.edit'
-            // ],
             [
                 'service_id' => 41,
-                'service_name' => 'Cancellation of Trade License',
+                'service_name' => 'Cancellation of Trade License / व्यवसाय परवाना रद्द करणे',
                 'model' => '\App\Models\Trade\TradeLicenseCancellation',
                 'add_route' => 'trade-license-cancellation.create',
                 'edit_route' => 'trade-license-cancellation.edit'
+            ],
+            [
+                'service_id' => 43,
+                'service_name' => 'License Partner Count Change / भागीदाराच्या संख्येत बदल (वाढ/ कमी)',
+                'model' => '\App\Models\Trade\TradeChangeOwnerCount',
+                'add_route' => 'trade-change-owner-count.create',
+                'edit_route' => 'trade-change-owner-count.edit'
             ],
             // [
             //     'service_id' => 36,

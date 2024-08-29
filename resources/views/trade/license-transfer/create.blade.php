@@ -379,13 +379,13 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="new_applicant_mobile_no">New Transferee Mobile No / परवाना हस्तांतरण होणाऱ्या नवीन अर्जदाराचा मोबाईल क्र<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="new_applicant_mobile_no" name="new_applicant_mobile_no" type="number" placeholder="Enter New Transferee Mobile No ">
+                                    <input class="form-control" id="new_applicant_mobile_no" name="new_applicant_mobile_no"  oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" placeholder="Enter New Transferee Mobile No ">
                                     <span class="text-danger is-invalid new_applicant_mobile_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="new_applicant_aadhar_no">New transferee aadhar no / परवाना हस्तांतरण होणाऱ्या नवीन अर्जदाराचा आधार क्र<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="new_applicant_aadhar_no" name="new_applicant_aadhar_no" type="number" placeholder="Enter New transferee aadhar no">
+                                    <input class="form-control" id="new_applicant_aadhar_no" name="new_applicant_aadhar_no" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="10" type="text" placeholder="Enter New transferee aadhar no">
                                     <span class="text-danger is-invalid new_applicant_aadhar_no_err"></span>
                                 </div>
 

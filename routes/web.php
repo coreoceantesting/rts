@@ -50,7 +50,7 @@ use App\Http\Controllers\Trade\PerLicenseController;
 use App\Http\Controllers\Trade\NOCForMandapController;
 use App\Http\Controllers\Trade\ChangeLicenseNameController;
 use App\Http\Controllers\Trade\ChangeLicenseTypeController;
-use App\Http\Controllers\Trade\ChangeOwnerCountController;
+use App\Http\Controllers\Trade\ChangeOwnerPartnerCountController;
 use App\Http\Controllers\Trade\ChangeOwnerNameController;
 use App\Http\Controllers\Trade\LicenseCancellationController;
 
@@ -172,7 +172,7 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('trade-noc-mandap', NOCForMandapController::class);
     Route::resource('trade-change-license-name', ChangeLicenseNameController::class);
     Route::resource('trade-change-license-type', ChangeLicenseTypeController::class);
-    Route::resource('trade-change-owner-count', ChangeOwnerCountController::class);
+    Route::resource('trade-change-owner-count', ChangeOwnerPartnerCountController::class);
     Route::resource('trade-change-owner-name', ChangeOwnerNameController::class);
     Route::resource('trade-license-cancellation', LicenseCancellationController::class);
 
