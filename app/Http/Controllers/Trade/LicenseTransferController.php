@@ -37,13 +37,13 @@ class LicenseTransferController extends Controller
     {
         $licenseTransferService = $this->licenseTransferService->store($request);
 
-        if ($licenseTransferService) {
+        if ($licenseTransferService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $licenseTransferService[1]
             ]);
         }
     }
@@ -67,13 +67,13 @@ class LicenseTransferController extends Controller
     {
         $licenseTransferService = $this->licenseTransferService->update($request, $id);
 
-        if ($licenseTransferService) {
+        if ($licenseTransferService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $licenseTransferService[1]
             ]);
         }
     }

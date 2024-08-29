@@ -37,13 +37,13 @@ class ChangeLicenseTypeController extends Controller
     {
         $changeLicenseTypeService = $this->changeLicenseTypeService->store($request);
 
-        if ($changeLicenseTypeService) {
+        if ($changeLicenseTypeService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $changeLicenseTypeService[1]
             ]);
         }
     }
@@ -67,13 +67,13 @@ class ChangeLicenseTypeController extends Controller
     {
         $changeLicenseTypeService = $this->changeLicenseTypeService->update($request, $id);
 
-        if ($changeLicenseTypeService) {
+        if ($changeLicenseTypeService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $changeLicenseTypeService[1]
             ]);
         }
     }

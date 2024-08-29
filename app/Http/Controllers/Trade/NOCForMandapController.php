@@ -37,13 +37,13 @@ class NOCForMandapController extends Controller
     {
         $nocForMandapService = $this->nocForMandapService->store($request);
 
-        if ($nocForMandapService) {
+        if ($nocForMandapService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $nocForMandapService[1]
             ]);
         }
     }
@@ -67,13 +67,13 @@ class NOCForMandapController extends Controller
     {
         $nocForMandapService = $this->nocForMandapService->update($request, $id);
 
-        if ($nocForMandapService) {
+        if ($nocForMandapService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $nocForMandapService[1]
             ]);
         }
     }

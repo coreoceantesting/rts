@@ -37,13 +37,13 @@ class AutoRenewalController extends Controller
     {
         $autoRenewalService = $this->autoRenewalService->store($request);
 
-        if ($autoRenewalService) {
+        if ($autoRenewalService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $autoRenewalService[1]
             ]);
         }
     }
@@ -67,13 +67,13 @@ class AutoRenewalController extends Controller
     {
         $autoRenewalService = $this->autoRenewalService->update($request, $id);
 
-        if ($autoRenewalService) {
+        if ($autoRenewalService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $autoRenewalService[1]
             ]);
         }
     }

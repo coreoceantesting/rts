@@ -37,13 +37,13 @@ class LicenseCancellationController extends Controller
     {
         $licenseCancellationService = $this->licenseCancellationService->store($request);
 
-        if ($licenseCancellationService) {
+        if ($licenseCancellationService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $licenseCancellationService[1]
             ]);
         }
     }
@@ -67,13 +67,13 @@ class LicenseCancellationController extends Controller
     {
         $licenseCancellationService = $this->licenseCancellationService->update($request, $id);
 
-        if ($licenseCancellationService) {
+        if ($licenseCancellationService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $licenseCancellationService[1]
             ]);
         }
     }

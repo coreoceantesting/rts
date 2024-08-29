@@ -37,13 +37,13 @@ class ChangeOwnerPartnerCountController extends Controller
     {
         $changeOwnerCountService = $this->changeOwnerCountService->store($request);
 
-        if ($changeOwnerCountService) {
+        if ($changeOwnerCountService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $changeOwnerCountService[1]
             ]);
         }
     }
@@ -67,13 +67,13 @@ class ChangeOwnerPartnerCountController extends Controller
     {
         $changeOwnerCountService = $this->changeOwnerCountService->update($request, $id);
 
-        if ($changeOwnerCountService) {
+        if ($changeOwnerCountService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $changeOwnerCountService[1]
             ]);
         }
     }

@@ -37,13 +37,13 @@ class NewTradeLicensePermissionController extends Controller
     {
         $newLicenseService = $this->newLicenseService->store($request);
 
-        if ($newLicenseService) {
+        if ($newLicenseService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $newLicenseService[1]
             ]);
         }
     }
@@ -67,13 +67,13 @@ class NewTradeLicensePermissionController extends Controller
     {
         $newLicenseService = $this->newLicenseService->update($request, $id);
 
-        if ($newLicenseService) {
+        if ($newLicenseService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $newLicenseService[1]
             ]);
         }
     }

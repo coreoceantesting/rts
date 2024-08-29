@@ -37,13 +37,13 @@ class RenewalOfLicenseController extends Controller
     {
         $renewalLicenseService = $this->renewalLicenseService->store($request);
 
-        if ($renewalLicenseService) {
+        if ($renewalLicenseService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $renewalLicenseService[1]
             ]);
         }
     }
@@ -67,13 +67,13 @@ class RenewalOfLicenseController extends Controller
     {
         $renewalLicenseService = $this->renewalLicenseService->update($request, $id);
 
-        if ($renewalLicenseService) {
+        if ($renewalLicenseService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $renewalLicenseService[1]
             ]);
         }
     }

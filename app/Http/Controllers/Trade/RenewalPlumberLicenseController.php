@@ -37,13 +37,13 @@ class RenewalPlumberLicenseController extends Controller
     {
         $renewalPlumberService = $this->renewalPlumberService->store($request);
 
-        if ($renewalPlumberService) {
+        if ($renewalPlumberService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $renewalPlumberService[1]
             ]);
         }
     }
@@ -67,13 +67,13 @@ class RenewalPlumberLicenseController extends Controller
     {
         $renewalPlumberService = $this->renewalPlumberService->update($request, $id);
 
-        if ($renewalPlumberService) {
+        if ($renewalPlumberService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $renewalPlumberService[1]
             ]);
         }
     }

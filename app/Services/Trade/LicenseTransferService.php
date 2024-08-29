@@ -58,7 +58,7 @@ class LicenseTransferService
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
-            if ($data['status'] == "200") {
+            if (isset($data['status']) && $data['status'] == "200") {
                 // Access the application_no
                 $applicationId = $data['applicationId'];
                 TradeLicenseTransfer::where('id', $tradeLicenseTransfer->id)->update([
@@ -72,7 +72,7 @@ class LicenseTransferService
                     $send = $this->aapaleSarkarLoginCheckService->encryptAndSendRequestToAapaleSarkar(Auth::user()->trackid, $aapaleSarkarCredential->client_code, Auth::user()->user_id, $aapaleSarkarCredential->service_id, $applicationId, 'N', 'NA', 'N', 'NA', $serviceDay, date('Y-m-d', strtotime("+$serviceDay days")), config('rtsapiurl.amount'), config('rtsapiurl.requestFlag'), config('rtsapiurl.applicationStatus'), config('rtsapiurl.applicationPendingStatusTxt'), $aapaleSarkarCredential->ulb_id, $aapaleSarkarCredential->ulb_district, 'NA', 'NA', 'NA', $aapaleSarkarCredential->check_sum_key, $aapaleSarkarCredential->str_key, $aapaleSarkarCredential->str_iv, $aapaleSarkarCredential->soap_end_point_url, $aapaleSarkarCredential->soap_action_app_status_url);
 
                     if (!$send) {
-                        return false;
+                        return [false, "Something is wrong from aapale sarkar please try after sometime"];
                     }
                 }
                 // $subject = "Testing Subject";
@@ -80,16 +80,16 @@ class LicenseTransferService
                 // Mail::to($request->email_id)->send(new SendMail($subject, $message));
             } else {
                 DB::rollback();
-                return false;
+                return [false, $data['error']];
             }
             // end of code to send data to department
 
             DB::commit();
-            return true;
+            return [true];
         } catch (\Exception $e) {
             DB::rollback();
             Log::error('Error in store method: ' . $e->getMessage());
-            return false;
+            return [false, $e->getMessage()];
         }
     }
 
@@ -142,20 +142,20 @@ class LicenseTransferService
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
-            if ($data['status'] == "200") {
+            if (isset($data['status']) && $data['status'] == "200") {
                 // Access the application_no
                 DB::commit();
-                return true;
+                return [true];
             } else {
                 DB::rollback();
-                return false;
+                return [false, $data['error']];
             }
             // end of code to send data to department
 
         } catch (\Exception $e) {
             DB::rollback();
             Log::info($e);
-            return false;
+            return [false, $e->getMessage()];
         }
     }
 }

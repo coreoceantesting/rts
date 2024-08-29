@@ -37,13 +37,13 @@ class PerLicenseController extends Controller
     {
         $perLicenseService = $this->perLicenseService->store($request);
 
-        if ($perLicenseService) {
+        if ($perLicenseService[0]) {
             return response()->json([
                 'success' => 'Detail Stored successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $perLicenseService[1]
             ]);
         }
     }
@@ -67,13 +67,13 @@ class PerLicenseController extends Controller
     {
         $perLicenseService = $this->perLicenseService->update($request, $id);
 
-        if ($perLicenseService) {
+        if ($perLicenseService[0]) {
             return response()->json([
                 'success' => 'Detail updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $perLicenseService[1]
             ]);
         }
     }
