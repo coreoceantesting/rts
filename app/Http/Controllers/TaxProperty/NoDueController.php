@@ -35,13 +35,13 @@ class NoDueController extends Controller
     {
         $noDue = $this->noDueCertificateService->store($request);
 
-        if ($noDue) {
+        if ($noDue[0]) {
             return response()->json([
                 'success' => 'No due certificate created successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $noDue[1]
             ]);
         }
     }
@@ -66,13 +66,13 @@ class NoDueController extends Controller
     {
         $noDue = $this->noDueCertificateService->update($request);
 
-        if ($noDue) {
+        if ($noDue[0]) {
             return response()->json([
                 'success' => 'No due certificate updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $noDue[1]
             ]);
         }
     }

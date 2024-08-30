@@ -252,10 +252,10 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="no_dues_document">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="no_dues_documents">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
                                     <div><a href="{{ asset('storage/' . $data->no_dues_document) }}" target="_blank">View Document</a></div>
-                                    <input class="form-control" id="no_dues_document" name="no_dues_documents" type="file">
-                                    <span class="text-danger is-invalid no_dues_document_err"></span>
+                                    <input class="form-control" id="no_dues_documents" name="no_dues_documents" type="file">
+                                    <span class="text-danger is-invalid no_dues_documents_err"></span>
                                 </div>
 
                                 <div class="col-md-4">

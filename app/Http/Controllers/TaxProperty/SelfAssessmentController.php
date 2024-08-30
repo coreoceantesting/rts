@@ -35,13 +35,13 @@ class SelfAssessmentController extends Controller
     {
         $selfAssessment = $this->selfAssessmentService->store($request);
 
-        if ($selfAssessment) {
+        if ($selfAssessment[0]) {
             return response()->json([
                 'success' => 'Self assessment created successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $selfAssessment[1]
             ]);
         }
     }
@@ -65,13 +65,13 @@ class SelfAssessmentController extends Controller
     {
         $selfAssessment = $this->selfAssessmentService->update($request);
 
-        if ($selfAssessment) {
+        if ($selfAssessment[0]) {
             return response()->json([
                 'success' => 'Self assessment updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $selfAssessment[1]
             ]);
         }
     }

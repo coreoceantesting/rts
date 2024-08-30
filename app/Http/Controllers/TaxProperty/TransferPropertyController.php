@@ -35,13 +35,13 @@ class TransferPropertyController extends Controller
     {
         $transferProperty = $this->transferPropertyCertificateService->store($request);
 
-        if ($transferProperty) {
+        if ($transferProperty[0]) {
             return response()->json([
                 'success' => 'Property transfer created successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $transferProperty[1]
             ]);
         }
     }
@@ -65,13 +65,13 @@ class TransferPropertyController extends Controller
     {
         $transferProperty = $this->transferPropertyCertificateService->update($request);
 
-        if ($transferProperty) {
+        if ($transferProperty[0]) {
             return response()->json([
                 'success' => 'Property transfer update successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $transferProperty[1]
             ]);
         }
     }

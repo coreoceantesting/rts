@@ -145,17 +145,17 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="written_application_document">Upload Written Application Of Applicant<span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="written_application_documents">Upload Written Application Of Applicant<span class="text-danger">*</span></label>
                                     <div><a href="{{ asset('storage/' . $data->written_application_document) }}" target="_blank">View Document</a></div>
-                                    <input class="form-control" id="written_application_document" name="written_application_documents" type="file">
-                                    <span class="text-danger is-invalid written_application_document_err"></span>
+                                    <input class="form-control" id="written_application_documents" name="written_application_documents" type="file">
+                                    <span class="text-danger is-invalid written_application_documents_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="ownership_document">Upload Ownership Documents / मालकी हक्काची कागदपत्रे अपलोड करा <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="ownership_documents">Upload Ownership Documents / मालकी हक्काची कागदपत्रे अपलोड करा <span class="text-danger">*</span></label>
                                     <div><a href="{{ asset('storage/' . $data->ownership_document) }}" target="_blank">View Document</a></div>
-                                    <input class="form-control" id="ownership_document" name="ownership_documents" type="file">
-                                    <span class="text-danger is-invalid ownership_document_err"></span>
+                                    <input class="form-control" id="ownership_documents" name="ownership_documents" type="file">
+                                    <span class="text-danger is-invalid ownership_documents_err"></span>
                                 </div>
 
                                 <div class="col-md-4">

@@ -35,13 +35,13 @@ class TransferRegistrationCertificateController extends Controller
     {
         $transferRegistrationCertificate = $this->transferRegistrationCertificateService->store($request);
 
-        if ($transferRegistrationCertificate) {
+        if ($transferRegistrationCertificate[0]) {
             return response()->json([
                 'success' => 'Property registration certificate created successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $transferRegistrationCertificate[1]
             ]);
         }
     }
@@ -65,13 +65,13 @@ class TransferRegistrationCertificateController extends Controller
     {
         $transferRegistrationCertificate = $this->transferRegistrationCertificateService->update($request);
 
-        if ($transferRegistrationCertificate) {
+        if ($transferRegistrationCertificate[0]) {
             return response()->json([
                 'success' => 'Property registration certificate updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $transferRegistrationCertificate[1]
             ]);
         }
     }

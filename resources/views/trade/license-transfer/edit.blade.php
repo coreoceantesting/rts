@@ -278,17 +278,17 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="no_dues_document">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="no_dues_documents">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
                                     <div><a href="{{ asset('storage/' . $data->no_dues_document) }}" target="_blank">View Document</a></div>
-                                    <input class="form-control" id="no_dues_document" name="no_dues_documents" type="file">
-                                    <span class="text-danger is-invalid no_dues_document_err"></span>
+                                    <input class="form-control" id="no_dues_documents" name="no_dues_documents" type="file">
+                                    <span class="text-danger is-invalid no_dues_documents_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="application_document">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा<span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="application_documents">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा<span class="text-danger">*</span></label>
                                     <div><a href="{{ asset('storage/' . $data->application_document) }}" target="_blank">View Document</a></div>
-                                    <input class="form-control" id="application_document" name="application_documents" type="file">
-                                    <span class="text-danger is-invalid application_document_err"></span>
+                                    <input class="form-control" id="application_documents" name="application_documents" type="file">
+                                    <span class="text-danger is-invalid application_documents_err"></span>
                                 </div>
 
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>

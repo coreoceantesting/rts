@@ -35,13 +35,13 @@ class TaxExemptionController extends Controller
     {
         $taxExemption = $this->taxExemptionService->store($request);
 
-        if ($taxExemption) {
+        if ($taxExemption[0]) {
             return response()->json([
                 'success' => 'Tax exemption created successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $taxExemption[1]
             ]);
         }
     }
@@ -65,13 +65,13 @@ class TaxExemptionController extends Controller
     {
         $taxExemption = $this->taxExemptionService->update($request);
 
-        if ($taxExemption) {
+        if ($taxExemption[0]) {
             return response()->json([
                 'success' => 'Tax exemption updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $taxExemption[1]
             ]);
         }
     }

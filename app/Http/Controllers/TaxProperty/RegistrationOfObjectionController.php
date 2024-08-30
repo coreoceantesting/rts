@@ -35,13 +35,13 @@ class RegistrationOfObjectionController extends Controller
     {
         $registrationofObjection = $this->registrationOfObjectionService->store($request);
 
-        if ($registrationofObjection) {
+        if ($registrationofObjection[0]) {
             return response()->json([
                 'success' => 'Registration of objection created successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $registrationofObjection[1]
             ]);
         }
     }
@@ -71,13 +71,13 @@ class RegistrationOfObjectionController extends Controller
     {
         $registrationofObjection = $this->registrationOfObjectionService->update($request);
 
-        if ($registrationofObjection) {
+        if ($registrationofObjection[0]) {
             return response()->json([
                 'success' => 'Registration of objection updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $registrationofObjection[1]
             ]);
         }
     }

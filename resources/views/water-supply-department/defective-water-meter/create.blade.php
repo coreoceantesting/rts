@@ -193,9 +193,9 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="application_document">Upload Application / अर्ज अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="application_document" name="application_documents" type="file" required>
-                                    <span class="text-danger is-invalid application_document_err"></span>
+                                    <label class="col-form-label" for="application_documents">Upload Application / अर्ज अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="application_documents" name="application_documents" type="file" required>
+                                    <span class="text-danger is-invalid application_documents_err"></span>
                                 </div>
 
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>

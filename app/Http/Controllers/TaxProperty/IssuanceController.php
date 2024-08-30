@@ -35,13 +35,13 @@ class IssuanceController extends Controller
     {
         $propertyTaxAssessment = $this->propertyTaxAssessmentService->store($request);
 
-        if ($propertyTaxAssessment) {
+        if ($propertyTaxAssessment[0]) {
             return response()->json([
                 'success' => 'Property tax assessment created successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $propertyTaxAssessment[1]
             ]);
         }
     }
@@ -66,13 +66,13 @@ class IssuanceController extends Controller
     {
         $propertyTaxAssessment = $this->propertyTaxAssessmentService->update($request);
 
-        if ($propertyTaxAssessment) {
+        if ($propertyTaxAssessment[0]) {
             return response()->json([
                 'success' => 'Property tax assessment updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $propertyTaxAssessment[1]
             ]);
         }
     }

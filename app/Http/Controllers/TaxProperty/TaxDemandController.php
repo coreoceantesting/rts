@@ -35,13 +35,13 @@ class TaxDemandController extends Controller
     {
         $taxDemand = $this->taxDemandService->store($request);
 
-        if ($taxDemand) {
+        if ($taxDemand[0]) {
             return response()->json([
                 'success' => 'Tax demand created successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $taxDemand[1]
             ]);
         }
     }
@@ -65,13 +65,13 @@ class TaxDemandController extends Controller
     {
         $taxDemand = $this->taxDemandService->update($request);
 
-        if ($taxDemand) {
+        if ($taxDemand[0]) {
             return response()->json([
                 'success' => 'Tax demand updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $taxDemand[1]
             ]);
         }
     }

@@ -35,13 +35,13 @@ class TaxExemptionNonResidentController extends Controller
     {
         $taxExemptionNonResidentialProp = $this->taxExemptionNonResidentPropertiesService->store($request);
 
-        if ($taxExemptionNonResidentialProp) {
+        if ($taxExemptionNonResidentialProp[0]) {
             return response()->json([
                 'success' => 'Tax exemption non residential property created successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $taxExemptionNonResidentialProp[1]
             ]);
         }
     }
@@ -65,13 +65,13 @@ class TaxExemptionNonResidentController extends Controller
     {
         $taxExemptionNonResidentialProp = $this->taxExemptionNonResidentPropertiesService->update($request);
 
-        if ($taxExemptionNonResidentialProp) {
+        if ($taxExemptionNonResidentialProp[0]) {
             return response()->json([
                 'success' => 'Tax exemption non residential property updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $taxExemptionNonResidentialProp[1]
             ]);
         }
     }

@@ -35,13 +35,13 @@ class RetaxationController extends Controller
     {
         $retax = $this->reTaxationService->store($request);
 
-        if ($retax) {
+        if ($retax[0]) {
             return response()->json([
                 'success' => 'Re taxation created successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $retax[1]
             ]);
         }
     }
@@ -65,13 +65,13 @@ class RetaxationController extends Controller
     {
         $retax = $this->reTaxationService->update($request);
 
-        if ($retax) {
+        if ($retax[0]) {
             return response()->json([
                 'success' => 'Re taxation updated successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $retax[1]
             ]);
         }
     }

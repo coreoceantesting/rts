@@ -36,13 +36,13 @@ class NewTaxationController extends Controller
     {
         $newTax = $this->newtaxationService->store($request);
 
-        if ($newTax) {
+        if ($newTax[0]) {
             return response()->json([
                 'success' => 'New tax created successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $newTax[1]
             ]);
         }
     }
@@ -67,13 +67,13 @@ class NewTaxationController extends Controller
     {
         $newTax = $this->newtaxationService->update($request);
 
-        if ($newTax) {
+        if ($newTax[0]) {
             return response()->json([
                 'success' => 'New tax update successfully'
             ]);
         } else {
             return response()->json([
-                'error' => 'Something went wrong, please try again'
+                'error' => $newTax[1]
             ]);
         }
     }
