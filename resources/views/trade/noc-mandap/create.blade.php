@@ -17,49 +17,49 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="applicant_name">Applicant Name / अर्जदाराचे नाव<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="applicant_name" name="applicant_name" type="text" placeholder="Enter Applicant Name">
+                                    <input class="form-control" id="applicant_name" name="applicant_name" type="text" placeholder="Enter Applicant Name" required>
                                     <span class="text-danger is-invalid applicant_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="event_name">Name of the festival or event / उत्सव किंवा कार्यक्रमाचे नाव<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="event_name" name="event_name" type="text" placeholder="Enter festival or event Name">
+                                    <input class="form-control" id="event_name" name="event_name" type="text" placeholder="Enter festival or event Name" required>
                                     <span class="text-danger is-invalid event_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="commissioner_name">Name registered with the Hon.Charity Commissioner / मंडळाचे मा. धर्मादाय आयुक्तांकडिल नोंदवलेले नाव <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="commissioner_name" name="commissioner_name" type="text" placeholder="Enter Name registered with the Hon.Charity Commissioner">
+                                    <input class="form-control" id="commissioner_name" name="commissioner_name" type="text" placeholder="Enter Name registered with the Hon.Charity Commissioner" required>
                                     <span class="text-danger is-invalid commissioner_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="registration_no">Registration Number from Hon.Charity Commissioner / मंडळाचा मा. धर्मादाय आयुक्तांकडिल नोंदणी क्रमांक <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="registration_no" name="registration_no" type="text" placeholder="Enter Registration Number from Hon.Charity Commissioner">
+                                    <input class="form-control" id="registration_no" name="registration_no" type="text" placeholder="Enter Registration Number from Hon.Charity Commissioner" required>
                                     <span class="text-danger is-invalid registration_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="registration_year">Registration Year / मंडळ नोंदणी केल्याचे तारीख व वर्ष <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="registration_year" name="registration_year" type="number" placeholder="Enter Registration Year">
+                                    <input class="form-control" id="registration_year" name="registration_year" type="number" placeholder="Enter Registration Year" required>
                                     <span class="text-danger is-invalid registration_year_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="name_of_chairman">Name of Chairman or Secretary / अध्यक्ष / सचिव यांचे नाव <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="name_of_chairman" name="name_of_chairman" type="text" placeholder="Enter Name of Chairman or Secretary">
+                                    <input class="form-control" id="name_of_chairman" name="name_of_chairman" type="text" placeholder="Enter Name of Chairman or Secretary" required>
                                     <span class="text-danger is-invalid name_of_chairman_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="president_mobile_no">Contact No. of President or Secretary / अध्यक्ष किंवा सचिव यांचा संपर्क क्रमांक <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="president_mobile_no" name="president_mobile_no" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" placeholder="Enter Contact No. of President or Secretary">
+                                    <input class="form-control" id="president_mobile_no" name="president_mobile_no" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" placeholder="Enter Contact No. of President or Secretary" required>
                                     <span class="text-danger is-invalid president_mobile_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ownership_of_place">Ownership of the tent Palce / ज्या जागेवर मंडप उभारावयाचा आहे त्या जागेची मालकी <span class="text-danger">*</span></label>
-                                    <select class="form-select" name="ownership_of_place" id="ownership_of_place">
+                                    <select class="form-select" name="ownership_of_place" id="ownership_of_place" required>
                                         <option value="">Select Option</option>
                                         <option value="खाजगी">खाजगी</option>
                                         <option value="निमशासकीय">निमशासकीय</option>
@@ -71,31 +71,31 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="stage_permission_date">Pandol / Stage Permission Date / ज्या कोणत्या तारखेस मंडप उभारावयाचा आहे ती तारीख  <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="stage_permission_date" name="stage_permission_date" type="date" placeholder="Enter Pandol / Stage Permission Date">
+                                    <input class="form-control" id="stage_permission_date" name="stage_permission_date" type="date" placeholder="Enter Pandol / Stage Permission Date" required>
                                     <span class="text-danger is-invalid stage_permission_date_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="stage_permission_end_date">Pandol / Stage Permission End Date / कोणत्या तारखेपर्यंत मंडप ठेवायचा आहे ती तारीख<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="stage_permission_end_date" name="stage_permission_end_date" type="date" placeholder="Pandol / Stage Permission End Date">
+                                    <input class="form-control" id="stage_permission_end_date" name="stage_permission_end_date" type="date" placeholder="Pandol / Stage Permission End Date" required>
                                     <span class="text-danger is-invalid stage_permission_end_date_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="no_of_days">Pandol / Stage Permission Duration (days) / मंडप किती दिवसांकरिता राहणार आहे<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="no_of_days" name="no_of_days" type="text" placeholder="Enter Pandol / Stage Permission Duration (days)">
+                                    <input class="form-control" id="no_of_days" name="no_of_days" type="text" placeholder="Enter Pandol / Stage Permission Duration (days)" required>
                                     <span class="text-danger is-invalid no_of_days_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="stage_address">Pandol / Stage Place Address / मंडपाचे / स्टेजचे ठिकाणाचा पत्ता<span class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="stage_address" id="stage_address" cols="30" rows="2"  placeholder="Enter Pandol / Stage Place Address "></textarea>
+                                    <textarea class="form-control" name="stage_address" id="stage_address" cols="30" rows="2" placeholder="Enter Pandol / Stage Place Address" required></textarea>
                                     <span class="text-danger is-invalid stage_address_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="zone" id="zone">
+                                    <select class="form-select" name="zone" id="zone" required>
                                         <option value="">Select Zone</option>
                                         @foreach($zones as $zone)
                                         <option value="{{ $zone->name }}">{{ $zone->name }}</option>
@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="ward_area" id="ward_area">
+                                    <select class="form-select" name="ward_area" id="ward_area" required>
                                         <option value="">Select Ward Area</option>
                                         @foreach($wards as $ward)
                                         <option value="{{ $ward->name }}">{{ $ward->name }}</option>
@@ -116,97 +116,97 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="plot_no">Plot No / प्लॉट क्रमांक<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="plot_no" name="plot_no" type="text" placeholder="Enter Plot or bhukhand no">
+                                    <input class="form-control" id="plot_no" name="plot_no" type="text" placeholder="Enter Plot or bhukhand no" required>
                                     <span class="text-danger is-invalid plot_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="stage_height">Pandol / Stage Height ( Feet) / मंडप / स्टेजची उंची ( फुटामध्ये )<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="stage_height" name="stage_height" type="text" placeholder="Enter Pandol / Stage Height ( Feet)">
+                                    <input class="form-control" id="stage_height" name="stage_height" type="text" placeholder="Enter Pandol / Stage Height ( Feet)" required>
                                     <span class="text-danger is-invalid stage_height_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="stage_length">Pandol / Stage Length ( Feet) / मंडप / स्टेजची लांबी ( फुटामध्ये ) <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="stage_length" name="stage_length" type="text" placeholder="Enter Pandol / Stage Length ( Feet)">
+                                    <input class="form-control" id="stage_length" name="stage_length" type="text" placeholder="Enter Pandol / Stage Length ( Feet)" required>
                                     <span class="text-danger is-invalid stage_length_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="stage_Width">Pandol / Stage Width ( Feet) / मंडप / स्टेजची रुंदी ( फुटामध्ये )<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="stage_Width" name="stage_Width" type="text" placeholder="Enter Pandol / Stage Width ( Feet)">
+                                    <input class="form-control" id="stage_Width" name="stage_Width" type="text" placeholder="Enter Pandol / Stage Width ( Feet)" required>
                                     <span class="text-danger is-invalid stage_Width_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="stage_area">Pandol / Stage Area (Sqr Feet) / मंडप / स्टेजचे क्षेत्रफळ ( चौरस फुटामध्ये ) <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="stage_area" name="stage_area" type="text" placeholder="Enter Pandol / Stage Area (Sqr Feet)">
+                                    <input class="form-control" id="stage_area" name="stage_area" type="text" placeholder="Enter Pandol / Stage Area (Sqr Feet)" required>
                                     <span class="text-danger is-invalid stage_area_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="no_of_volunteer_workers">Number of volunteer workers / स्वयंसेवक कार्यकर्त्यांची संख्या <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="no_of_volunteer_workers" name="no_of_volunteer_workers" type="text" placeholder="Enter Number of volunteer workers">
+                                    <input class="form-control" id="no_of_volunteer_workers" name="no_of_volunteer_workers" type="text" placeholder="Enter Number of volunteer workers" required>
                                     <span class="text-danger is-invalid no_of_volunteer_workers_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="stage_contractor_address">Pandol / Stage Contractor Address / मंडप कंत्राटदार / मालकाचा पत्ता<span class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="stage_contractor_address" id="stage_contractor_address" cols="30" rows="2"  placeholder="Enter Pandol / Stage Contractor Address  "></textarea>
+                                    <textarea class="form-control" name="stage_contractor_address" id="stage_contractor_address" cols="30" rows="2"  placeholder="Enter Pandol / Stage Contractor Address" required></textarea>
                                     <span class="text-danger is-invalid stage_contractor_address_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="contractor_contact_no">Pandol / Stage Contractor Contact / मंडप कंत्राटदार / मालकाचा संपर्क क्रमांक<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="contractor_contact_no" name="contractor_contact_no" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" placeholder="Enter Pandol / Stage Contractor Contact ">
+                                    <input class="form-control" id="contractor_contact_no" name="contractor_contact_no" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" placeholder="Enter Pandol / Stage Contractor Contact" required>
                                     <span class="text-danger is-invalid contractor_contact_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="decorator_or_electrical_contractor_name">Decorator or Electrical Contractor Name / मंडप डेकोरेटरचे /इलेक्ट्रिकल कंत्राटदाराचे नाव <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="decorator_or_electrical_contractor_name" name="decorator_or_electrical_contractor_name" type="text" placeholder="Enter Decorator or Electrical Contractor Name">
+                                    <input class="form-control" id="decorator_or_electrical_contractor_name" name="decorator_or_electrical_contractor_name" type="text" placeholder="Enter Decorator or Electrical Contractor Name" required>
                                     <span class="text-danger is-invalid decorator_or_electrical_contractor_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="decorator_or_contractor_address">Decorator or Electrical Contractor Address / इलेक्ट्रिकल कंत्राटदार / डेकोरेटरचा पत्ता<span class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="decorator_or_contractor_address" id="decorator_or_contractor_address" cols="30" rows="2"  placeholder="Enter Decorator or Electrical Contractor Address "></textarea>
+                                    <textarea class="form-control" name="decorator_or_contractor_address" id="decorator_or_contractor_address" cols="30" rows="2"  placeholder="Enter Decorator or Electrical Contractor Address" required></textarea>
                                     <span class="text-danger is-invalid decorator_or_contractor_address_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="decorator_or_electrical_contractor_contact_no">Decorator or Electrical Contractor Contact / इलेक्ट्रिकल कंत्राटदार / डेकोरेटरचा मोबाईल नंबर<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="decorator_or_electrical_contractor_contact_no" name="decorator_or_electrical_contractor_contact_no" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" placeholder="Enter Decorator or Electrical Contractor Contact ">
+                                    <input class="form-control" id="decorator_or_electrical_contractor_contact_no" name="decorator_or_electrical_contractor_contact_no" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" placeholder="Enter Decorator or Electrical Contractor Contact" required>
                                     <span class="text-danger is-invalid decorator_or_electrical_contractor_contact_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="sound_or_speaker_contractor_name">Sound or Speaker Contractor Name / लाऊड स्पीकर / ध्वनी प्रणाली कंत्राटदाराचे नाव<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="sound_or_speaker_contractor_name" name="sound_or_speaker_contractor_name" type="text" placeholder="Enter Sound or Speaker Contractor Name">
+                                    <input class="form-control" id="sound_or_speaker_contractor_name" name="sound_or_speaker_contractor_name" type="text" placeholder="Enter Sound or Speaker Contractor Name" required>
                                     <span class="text-danger is-invalid sound_or_speaker_contractor_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="sound_or_speaker_address">Sound or Speaker Contractor Address / लाऊड स्पीकर / ध्वनी प्रणाली कंत्राटदाराचा पत्ता<span class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="sound_or_speaker_address" id="sound_or_speaker_address" cols="30" rows="2"  placeholder="Enter Sound or Speaker Contractor Address "></textarea>
+                                    <textarea class="form-control" name="sound_or_speaker_address" id="sound_or_speaker_address" cols="30" rows="2"  placeholder="Enter Sound or Speaker Contractor Address" required></textarea>
                                     <span class="text-danger is-invalid sound_or_speaker_address_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="sound_or_speaker_contractor_contact_no">Sound or Speaker Contractor Contact / लाऊड स्पीकर / ध्वनी प्रणाली कंत्राटदाराचा संपर्क क्रमांक<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="sound_or_speaker_contractor_contact_no" name="sound_or_speaker_contractor_contact_no" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" type="number" placeholder="Enter Sound or Speaker Contractor Contact ">
+                                    <input class="form-control" id="sound_or_speaker_contractor_contact_no" name="sound_or_speaker_contractor_contact_no" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" type="number" placeholder="Enter Sound or Speaker Contractor Contact" required>
                                     <span class="text-danger is-invalid sound_or_speaker_contractor_contact_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="sound_or_speaker_type">Sound or Speaker Type / लाऊड स्पीकर / ध्वनी प्रणालीचा प्रकार <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="sound_or_speaker_type" name="sound_or_speaker_type" type="number" placeholder="Enter Sound or Speaker Type ">
+                                    <input class="form-control" id="sound_or_speaker_type" name="sound_or_speaker_type" type="number" placeholder="Enter Sound or Speaker Type" required>
                                     <span class="text-danger is-invalid sound_or_speaker_type_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="concerned_police_station">Concerned police station / संबंधित पोलीस स्टेशन<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="concerned_police_station" id="concerned_police_station">
+                                    <select class="form-select" name="concerned_police_station" id="concerned_police_station" required>
                                         <option value="">Select Option</option>
                                         <option value="पोलीस स्टेशन 1">पोलीस स्टेशन 1</option>
                                         <option value="पोलीस स्टेशन 2">पोलीस स्टेशन 2</option>
@@ -217,7 +217,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="concerned_traffic_police_station">Concerned traffic police station / संबंधित ट्रॅफिक पोलीस स्टेशन<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="concerned_traffic_police_station" id="concerned_traffic_police_station">
+                                    <select class="form-select" name="concerned_traffic_police_station" id="concerned_traffic_police_station" required>
                                         <option value="">Select Option</option>
                                         <option value="जिल्हा वाहतूक नियंत्रण शाखा भाईंदर">जिल्हा वाहतूक नियंत्रण शाखा भाईंदर</option>
                                     </select>
@@ -226,7 +226,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="nearest_fire_station">Nearest fire station / जवळचे अग्निशामक केंद्र <span class="text-danger">*</span></label>
-                                    <select class="form-select" name="nearest_fire_station" id="nearest_fire_station">
+                                    <select class="form-select" name="nearest_fire_station" id="nearest_fire_station" required>
                                         <option value="">Select Option</option>
                                         <option value="म.न.पा.अग्निशमन केंद्र">म.न.पा.अग्निशमन केंद्र</option>
                                     </select>
@@ -272,7 +272,7 @@
                                 <label class="col-form-label" for="is_correct_info">स्वीकरण:</label>
                                 <div class="col-md-12">
                                     <div class="form-check d-flex align-items-start">
-                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" value="yes">
+                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" required name="is_correct_info" value="yes">
                                         <label class="form-check-label ms-2" for="is_correct_info">
                                             "All information provided above is correct and I shall be fully responsible for any discrepancy. / वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार असेन."
                                         </label>

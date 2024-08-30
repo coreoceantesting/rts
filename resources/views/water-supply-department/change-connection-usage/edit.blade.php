@@ -16,31 +16,31 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="property_owner_name">Property Owner Name / मालमत्ता मालकाचे नाव  <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="property_owner_name" name="property_owner_name" type="text" placeholder="Enter Property Owner Name" value="{{ $data->property_owner_name }}">
+                                    <input class="form-control" id="property_owner_name" name="property_owner_name" type="text" placeholder="Enter Property Owner Name" required value="{{ $data->property_owner_name }}">
                                     <span class="text-danger is-invalid property_owner_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="aadhar_no">Property Owner Aadhar No / मालमत्ता मालकाचे आधार क्र <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="aadhar_no" name="aadhar_no"  oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" type="text" placeholder="Enter Aadhar Card No" value="{{ $data->aadhar_no }}">
+                                    <input class="form-control" id="aadhar_no" name="aadhar_no"  oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" type="text" placeholder="Enter Aadhar Card No" required value="{{ $data->aadhar_no }}">
                                     <span class="text-danger is-invalid aadhar_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="mobile_no">Mobile Number / मोबाईल नंबर<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="mobile_no" name="mobile_no"  oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" placeholder="Enter Mobile Number" value="{{ $data->mobile_no }}">
+                                    <input class="form-control" id="mobile_no" name="mobile_no"  oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" placeholder="Enter Mobile Number" required value="{{ $data->mobile_no }}">
                                     <span class="text-danger is-invalid mobile_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="email_id"> Email Id  / ईमेल आयडी<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email" value="{{ $data->email_id }}">
+                                    <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email" value="{{ $data->email_id }}" required>
                                     <span class="text-danger is-invalid email_id_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="zone" id="zone">
+                                    <select class="form-select" name="zone" id="zone" required>
                                         <option value="">Select Zone</option>
                                         
                                         @foreach($zones as $zone)
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="ward_area" id="ward_area">
+                                    <select class="form-select" name="ward_area" id="ward_area" required>
                                         <option value="">Select Ward Area</option>
                                         
                                         @foreach($wards as $ward)
@@ -63,31 +63,31 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="plot_no">Plot Number / प्लॅाट नं किंवा हिस्सा नं <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="plot_no" name="plot_no" type="text" placeholder="Enter Plot Number" value="{{ $data->plot_no }}">
+                                    <input class="form-control" id="plot_no" name="plot_no" type="text" placeholder="Enter Plot Number" value="{{ $data->plot_no }}" required>
                                     <span class="text-danger is-invalid plot_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="house_no">House Number / घर नं  <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="house_no" name="house_no" type="text" placeholder="Enter House Number" value="{{ $data->house_no }}">
+                                    <input class="form-control" id="house_no" name="house_no" type="text" placeholder="Enter House Number" value="{{ $data->house_no }}" required>
                                     <span class="text-danger is-invalid house_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="landmark">Landmark / जवळची खूण<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="landmark" name="landmark" type="text" placeholder="Enter Landmark" value="{{ $data->landmark }}">
+                                    <input class="form-control" id="landmark" name="landmark" type="text" placeholder="Enter Landmark" value="{{ $data->landmark }}" required>
                                     <span class="text-danger is-invalid landmark_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="address">Full Address Of The Property / मिळकतीचा संपुर्ण पत्ता  <span class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="address" id="address" cols="30" rows="2"  placeholder="Enter  Address">{{ $data->address }}</textarea>
+                                    <textarea class="form-control" name="address" id="address" cols="30" rows="2"  placeholder="Enter  Address" required>{{ $data->address }}</textarea>
                                     <span class="text-danger is-invalid address_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="property_type">Property Type / मालमत्तेचा प्रकार <span class="text-danger">*</span></label>
-                                    <select class="form-select" name="property_type" id="property_type">
+                                    <select class="form-select" name="property_type" id="property_type" required>
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["अनिवासी", "कार्यशाळा", "केंद्र सरकारी", "खुला भूखंड", "गोदाम", "दुकान", 'निवासी', 'राज्य सरकारी'];
@@ -102,13 +102,13 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="water_connection_no">Water Connection Number / पाणी कनेक्शन क्रमांक<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="water_connection_no" name="water_connection_no" type="text" placeholder="Enter Water Connection Number" value="{{ $data->water_connection_no }}">
+                                    <input class="form-control" id="water_connection_no" name="water_connection_no" type="text" placeholder="Enter Water Connection Number" value="{{ $data->water_connection_no }}" required>
                                     <span class="text-danger is-invalid water_connection_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="applicant_is_on_rent">Is Applicant On Rent / अर्जदार भाड्याने आहे का ?<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="applicant_is_on_rent" id="applicant_is_on_rent">
+                                    <select class="form-select" name="applicant_is_on_rent" id="applicant_is_on_rent" required>
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["Yes", "No"];
@@ -123,7 +123,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="water_connection_size">Water Connection Size / पाणी कनेक्शनचा आकार <span class="text-danger">*</span></label>
-                                    <select class="form-select" name="water_connection_size" id="water_connection_size">
+                                    <select class="form-select" name="water_connection_size" id="water_connection_size" required>
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["15mm", "20mm", "25mm", "40mm", "50mm", "80mm", "100mm", "150mm", "300mm"];
@@ -138,7 +138,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="water_usage">Existing Water Connection Usage / विद्यमान पाणी कनेक्शनचा वापर <span class="text-danger">*</span></label>
-                                    <select class="form-select" name="water_usage" id="water_usage">
+                                    <select class="form-select" name="water_usage" id="water_usage" required>
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["औध्योगिक व्यवसायासाठी", "घरघुती वापरा साठी", "बिगर घरघुती वापरासाठी", "वाणिज्य"];
@@ -153,7 +153,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="new_water_con_usage">New Water Connection Usage / नवीन पाणी कनेक्शनचा वापर<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="new_water_con_usage" id="new_water_con_usage">
+                                    <select class="form-select" name="new_water_con_usage" id="new_water_con_usage" required>
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["औध्योगिक व्यवसायासाठी", "घरघुती वापरा साठी", "बिगर घरघुती वापरासाठी", "वाणिज्य"];
@@ -168,7 +168,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="usage_residence_type">Water Connection Usage Residence Type / पाणी कनेक्शनचा वापर निवास प्रकार <span class="text-danger">*</span></label>
-                                    <select class="form-select" name="usage_residence_type" id="usage_residence_type">
+                                    <select class="form-select" name="usage_residence_type" id="usage_residence_type" required>
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["अनिवासी व्यवसाय", "औद्योगीक", "निवासी", "विशेष प्रवर्ग (शैक्षणिक संस्था,शासकीय,निमशासकीय कार्यालय,पथसंस्था,इतर)", "व्यावसायिक अथवा वाणिज्य"];
@@ -183,7 +183,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="current_connection_is_illegal">Is Existing Water Connection Was Illegal / सध्याचे पाणी कनेक्शन बेकायदेशीर होते का ? <span class="text-danger">*</span></label>
-                                    <select class="form-select" name="current_connection_is_illegal" id="current_connection_is_illegal">
+                                    <select class="form-select" name="current_connection_is_illegal" id="current_connection_is_illegal" required>
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["Yes", "No"];
@@ -198,13 +198,13 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="no_of_user">Number Of Users For New Tap Connection /मागणी केलेल्या नवीन नळ कनेक्शनमधून पाणी पुरवठ्याचा वापर करणाऱ्या कुटुंबाची संख्या<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="no_of_user" name="no_of_user" type="text" placeholder="Enter Number Of Users For New Tap Connection" value="{{ $data->no_of_user }}">
+                                    <input class="form-control" id="no_of_user" name="no_of_user" type="text" placeholder="Enter Number Of Users For New Tap Connection" value="{{ $data->no_of_user }}" required>
                                     <span class="text-danger is-invalid no_of_user_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="place_belongs_to_municipal">Place Belongs To Municipal Council Limit / सदर जागा नगरपरिषदेच्या हद्दीत आहे का ? <span class="text-danger">*</span></label>
-                                    <select class="form-select" name="place_belongs_to_municipal" id="place_belongs_to_municipal">
+                                    <select class="form-select" name="place_belongs_to_municipal" id="place_belongs_to_municipal" required>
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["Yes", "No"];
@@ -220,7 +220,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="any_police_complaint">Is Any Police Or Court Complaint About Property Connection / मालमत्तेच्या कनेक्शनबद्दल कोणतीही पोलीस किंवा न्यायालयीन तक्रार आहे का ? * <span class="text-danger">*</span></label>
-                                    <select class="form-select" name="any_police_complaint" id="any_police_complaint">
+                                    <select class="form-select" name="any_police_complaint" id="any_police_complaint" required>
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["Yes", "No"];
@@ -250,7 +250,7 @@
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
                                 <div class="col-md-12">
                                     <div class="form-check d-flex align-items-start">
-                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" checked name="is_correct_info" value="yes">
+                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" checked required name="is_correct_info" value="yes">
                                         <label class="form-check-label ms-2" for="is_correct_info">
                                             "All information provided above is correct and I shall be fully responsible for any discrepancy. / वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार असेन."
                                         </label>
