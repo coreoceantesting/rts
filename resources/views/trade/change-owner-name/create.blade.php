@@ -92,7 +92,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="remark">Remark / शेरा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="remark" name="remark" type="text" placeholder="Enter Remark ">
+                                    <input class="form-control" id="remark" name="remark" type="text" placeholder="Enter Remark">
                                     <span class="text-danger is-invalid remark_err"></span>
                                 </div>
 

@@ -118,8 +118,8 @@
                                     <label class="col-form-label" for="is_preveious_permission_declined_by_council">is previouly permission declined by council ? / यापूर्वी अर्जात नमूद जागेला व्यवसाय परवाना नाकारला आहे का ? <span class="text-danger">*</span></label>
                                     <select class="form-select" name="is_preveious_permission_declined_by_council" id="is_preveious_permission_declined_by_council" required>
                                         <option value="">Select Option</option>
-                                        <option value="1">Yes</option>
-                                        <option value="2">No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
                                     </select>
                                     <span class="text-danger is-invalid is_preveious_permission_declined_by_council_err"></span>
                                 </div>
@@ -134,8 +134,8 @@
                                     <label class="col-form-label" for="is_place_owned_by_council">Is place owned by council ? / जागा पालिकेच्या मालकीची आहे का ? <span class="text-danger">*</span></label>
                                     <select class="form-select" name="is_place_owned_by_council" id="is_place_owned_by_council" required>
                                         <option value="">Select Option</option>
-                                        <option value="1">Yes</option>
-                                        <option value="2">No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
                                     </select>
                                     <span class="text-danger is-invalid is_place_owned_by_council_err"></span>
                                 </div>
@@ -144,8 +144,8 @@
                                     <label class="col-form-label" for="is_any_dues_pending_of_council">Is any dues pending of council ? / आपल्याकडे पालिकेची थकबाकी आहे का ? <span class="text-danger">*</span></label>
                                     <select class="form-select" name="is_any_dues_pending_of_council" id="is_any_dues_pending_of_council" required>
                                         <option value="">Select Option</option>
-                                        <option value="1">Yes</option>
-                                        <option value="2">No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
                                     </select>
                                     <span class="text-danger is-invalid is_any_dues_pending_of_council_err"></span>
                                 </div>
@@ -154,195 +154,13 @@
                                     <label class="col-form-label" for="trade_or_business_type">Trade or business type of new permission / व्यवसायाचा प्रकार <span class="text-danger">*</span></label>
                                     <select class="form-select" name="trade_or_business_type" id="trade_or_business_type" required>
                                         <option value="">Select a value ...</option>
-                                        <option value="42">असोसिएट्स</option>
-                                        <option value="6">आईस्क्रिम पार्लर </option>
-                                        <option value="53">इंजिनियरींग वर्क्स</option>
-                                        <option value="48">
-                                        इंटिरियल
-                                        </option>
-                                        <option value="65">
-                                        इतर
-                                        </option>
-                                        <option value="12">
-                                        इलेक्ट्रिकल
-                                        </option>
-                                        <option value="49">
-                                        इलेक्ट्रीक अँड हार्डवेअर
-                                        </option>
-                                        <option value="61">
-                                        इंशुरन्स
-                                        </option>
-                                        <option value="1">
-                                        उपहारगृह
-                                        </option>
-                                        <option value="34">
-                                        ऑप्टीकल
-                                        </option>
-                                        <option value="27">
-                                        ओल्ड् पेपर मार्ट
-                                        </option>
-                                        <option value="59">
-                                        कंट्रक्शन
-                                        </option>
-                                        <option value="29">
-                                        कपडा विक्री
-                                        </option>
-                                        <option value="60">
-                                        कपड्याचे दुकान
-                                        </option>
-                                        <option value="26">
-                                        कांदा-बटाटा दुकान
-                                        </option>
-                                        <option value="21">
-                                        कारखाना
-                                        </option>
-                                        <option value="15">
-                                        किराणा दुकान
-                                        </option>
-                                        <option value="58">
-                                        कुरीअर सर्विस
-                                        </option>
-                                        <option value="45">
-                                        कॅटरींग सर्विसेस
-                                        </option>
-                                        <option value="5">
-                                        केक शॉप
-                                        </option>
-                                        <option value="10">
-                                        केशकर्तनालय / सलुन
-                                        </option>
-                                        <option value="64">
-                                        कोल्ड्रींग अँड आईस्क्रीम
-                                        </option>
-                                        <option value="33">
-                                        क्लासेस
-                                        </option>
-                                        <option value="43">
-                                        क्लीनर
-                                        </option>
-                                        <option value="30">
-                                        खादयपदार्थ विक्री
-                                        </option>
-                                        <option value="3">
-                                        खानावळ
-                                        </option>
-                                        <option value="13">
-                                        गॅरेज
-                                        </option>
-                                        <option value="47">
-                                        चक्की
-                                        </option>
-                                        <option value="55">
-                                        चाइनीज पॉईंट
-                                        </option>
-                                        <option value="63">
-                                        चाय पॉईंट
-                                        </option>
-                                        <option value="24">
-                                        चिकन शॉप
-                                        </option>
-                                        <option value="14">
-                                        जनरल स्टोर
-                                        </option>
-                                        <option value="38">
-                                        जिम फिटनेस
-                                        </option>
-                                        <option value="32">
-                                        टेलर
-                                        </option>
-                                        <option value="17">
-                                        नर्सरी
-                                        </option>
-                                        <option value="18">
-                                        पान बिडी शॉप
-                                        </option>
-                                        <option value="40">
-                                        पुस्तक विक्री
-                                        </option>
-                                        <option value="16">
-                                        फर्निचर दुकान
-                                        </option>
-                                        <option value="62">
-                                        फर्निचर वर्क
-                                        </option>
-                                        <option value="46">
-                                        फाटो शॉप
-                                        </option>
-                                        <option value="20">
-                                        बांगडी बनविणे
-                                        </option>
-                                        <option value="52">
-                                        बेकरी
-                                        </option>
-                                        <option value="7">
-                                        बेकरी शॉप / बेकरी प्रोडक्टस
-                                        </option>
-                                        <option value="11">
-                                        ब्युटी पार्लर
-                                        </option>
-                                        <option value="23">
-                                        मटण शॉप
-                                        </option>
-                                        <option value="22">
-                                        मटण-चिकन शॉप
-                                        </option>
-                                        <option value="39">
-                                        मसाला विक्री
-                                        </option>
-                                        <option value="36">
-                                        मॅन्युफॅक्चरींग
-                                        </option>
-                                        <option value="56">
-                                        मेटल पार्ट वर्क
-                                        </option>
-                                        <option value="31">
-                                        मेडिकल
-                                        </option>
-                                        <option value="51">
-                                        रबर प्रोडक्ट
-                                        </option>
-                                        <option value="35">
-                                        रेडीमेंड गारमेंट
-                                        </option>
-                                        <option value="2">
-                                        रेस्टॉरंट
-                                        </option>
-                                        <option value="44">
-                                        लाँड्री
-                                        </option>
-                                        <option value="9">
-                                        लॉजिंग / बोर्डींग
-                                        </option>
-                                        <option value="54">
-                                        वेल्डींग
-                                        </option>
-                                        <option value="41">
-                                        सायकल रिपेरींग
-                                        </option>
-                                        <option value="57">
-                                        सिट कवर असेसरीज
-                                        </option>
-                                        <option value="37">
-                                        सेल्स सर्विस
-                                        </option>
-                                        <option value="19">
-                                        स्टील फर्निचर
-                                        </option>
-                                        <option value="50">
-                                        स्टेनलेस स्टील
-                                        </option>
-                                        <option value="28">
-                                        स्टेशनरी
-                                        </option>
-                                        <option value="4">
-                                        स्नॅक्स सेंटर
-                                        </option>
-                                        <option value="8">
-                                        स्विट मार्ट / मिठाईचे दुकान
-                                        </option>
-                                        <option value="25">
-                                        हार्डवेअर
-                                        </option>
+                                        @php
+                                            $options = ["असोसिएट्स", "आईस्क्रिम पार्लर", "इंजिनियरींग वर्क्स", "इंटिरियल", "इतर", "इलेक्ट्रिकल", "इलेक्ट्रीक अँड हार्डवेअर", "इंशुरन्स", "उपहारगृह", "ऑप्टीकल", "ओल्ड् पेपर मार्ट", "कंट्रक्शन", "कपडा विक्री", "कपड्याचे दुकान", "कांदा-बटाटा दुकान", "कारखाना", "किराणा दुकान", "कुरीअर सर्विस", "कॅटरींग सर्विसेस", "केक शॉप", "केशकर्तनालय / सलुन", "कोल्ड्रींग अँड आईस्क्रीम", "क्लासेस", "क्लीनर", "खादयपदार्थ विक्री", "खानावळ", "गॅरेज", "चक्की", "चाइनीज पॉईंट", "चाय पॉईंट", "चिकन शॉप", "जनरल स्टोर", "जिम फिटनेस", "टेलर", "नर्सरी", "पान बिडी शॉप", "पुस्तक विक्री", "फर्निचर दुकान", "फर्निचर वर्क", "फाटो शॉप", "बांगडी बनविणे", "बेकरी", "बेकरी शॉप / बेकरी प्रोडक्टस", "ब्युटी पार्लर", "मटण शॉप", "मटण-चिकन शॉप", "मसाला विक्री", "मॅन्युफॅक्चरींग", "मेटल पार्ट वर्क", "मेडिकल", "रबर प्रोडक्ट", "रेडीमेंड गारमेंट", "रेस्टॉरंट", "लाँड्री", "लॉजिंग / बोर्डींग", "वेल्डींग", "सायकल रिपेरींग", "सिट कवर असेसरीज", "सेल्स सर्विस", "स्टील फर्निचर", "स्टेनलेस स्टील", "स्टेशनरी", "स्नॅक्स सेंटर", "स्विट मार्ट / मिठाईचे दुकान", "हार्डवेअर"];
+                                        @endphp
+                                        
+                                        @foreach($options as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger is-invalid trade_or_business_type_err"></span>
                                 </div>

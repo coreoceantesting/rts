@@ -124,8 +124,8 @@
                                     <label class="col-form-label" for="is_preveious_permission_declined_by_council">is previouly permission declined by council ? / यापूर्वी अर्जात नमूद जागेला व्यवसाय परवाना नाकारला आहे का ? <span class="text-danger">*</span></label>
                                     <select class="form-select" name="is_preveious_permission_declined_by_council" id="is_preveious_permission_declined_by_council" required>
                                         <option value="">Select Option</option>
-                                        <option value="1" {{ $data->is_preveious_permission_declined_by_council == 1 ? 'selected' : '' }}>Yes</option>
-                                        <option value="2" {{ $data->is_preveious_permission_declined_by_council == 2 ? 'selected' : '' }}>No</option>
+                                        <option value="Yes" {{ $data->is_preveious_permission_declined_by_council == "Yes" ? 'selected' : '' }}>Yes</option>
+                                        <option value="No" {{ $data->is_preveious_permission_declined_by_council == "No" ? 'selected' : '' }}>No</option>
                                     </select>
                                     <span class="text-danger is-invalid is_preveious_permission_declined_by_council_err"></span>
                                 </div>
@@ -140,8 +140,8 @@
                                     <label class="col-form-label" for="is_place_owned_by_council">Is place owned by council ? / जागा पालिकेच्या मालकीची आहे का ? <span class="text-danger">*</span></label>
                                     <select class="form-select" name="is_place_owned_by_council" id="is_place_owned_by_council" required>
                                         <option value="">Select Option</option>
-                                        <option value="1" {{ $data->is_place_owned_by_council == 1 ? 'selected' : '' }}>Yes</option>
-                                        <option value="2" {{ $data->is_place_owned_by_council == 2 ? 'selected' : '' }}>No</option>
+                                        <option value="Yes" {{ $data->is_place_owned_by_council == "Yes" ? 'selected' : '' }}>Yes</option>
+                                        <option value="No" {{ $data->is_place_owned_by_council == "No" ? 'selected' : '' }}>No</option>
                                     </select>
                                     <span class="text-danger is-invalid is_place_owned_by_council_err"></span>
                                 </div>
@@ -150,8 +150,8 @@
                                     <label class="col-form-label" for="is_any_dues_pending_of_council">Is any dues pending of council ? / आपल्याकडे पालिकेची थकबाकी आहे का ? <span class="text-danger">*</span></label>
                                     <select class="form-select" name="is_any_dues_pending_of_council" id="is_any_dues_pending_of_council" required>
                                         <option value="">Select Option</option>
-                                        <option value="1" {{ $data->is_any_dues_pending_of_council == 1 ? 'selected' : '' }}>Yes</option>
-                                        <option value="2" {{ $data->is_any_dues_pending_of_council == 2 ? 'selected' : '' }}>No</option>
+                                        <option value="Yes" {{ $data->is_any_dues_pending_of_council == "Yes" ? 'selected' : '' }}>Yes</option>
+                                        <option value="No" {{ $data->is_any_dues_pending_of_council == "No" ? 'selected' : '' }}>No</option>
                                     </select>
                                     <span class="text-danger is-invalid is_any_dues_pending_of_council_err"></span>
                                 </div>
@@ -160,71 +160,14 @@
                                     <label class="col-form-label" for="trade_or_business_type">Trade or business type of new permission / व्यवसायाचा प्रकार <span class="text-danger">*</span></label>
                                     <select class="form-select" name="trade_or_business_type" id="trade_or_business_type" required>
                                         <option value="">Select a value ...</option>
-                                        <option value="42" {{ $data->trade_or_business_type == 42 ? 'selected' : '' }}>असोसिएट्स</option>
-                                        <option value="6" {{ $data->trade_or_business_type == 6 ? 'selected' : '' }}>आईस्क्रिम पार्लर </option>
-                                        <option value="53" {{ $data->trade_or_business_type == 53 ? 'selected' : '' }}>इंजिनियरींग वर्क्स</option>
-                                        <option value="48" {{ $data->trade_or_business_type == 48 ? 'selected' : '' }}>इंटिरियल</option>
-                                        <option value="65" {{ $data->trade_or_business_type == 65 ? 'selected' : '' }}>इतर</option>
-                                        <option value="12" {{ $data->trade_or_business_type == 12 ? 'selected' : '' }}>इलेक्ट्रिकल</option>
-                                        <option value="49" {{ $data->trade_or_business_type == 49 ? 'selected' : '' }}>इलेक्ट्रीक अँड हार्डवेअर </option>
-                                        <option value="61" {{ $data->trade_or_business_type == 61 ? 'selected' : '' }}>इंशुरन्स</option>
-                                        <option value="1" {{ $data->trade_or_business_type == 1 ? 'selected' : '' }}>उपहारगृह</option>
-                                        <option value="34" {{ $data->trade_or_business_type == 34 ? 'selected' : '' }}>ऑप्टीकल</option>
-                                        <option value="27" {{ $data->trade_or_business_type == 27 ? 'selected' : '' }}>ओल्ड् पेपर मार्ट</option>
-                                        <option value="59" {{ $data->trade_or_business_type == 59 ? 'selected' : '' }}>कंट्रक्शन</option>
-                                        <option value="29" {{ $data->trade_or_business_type == 29 ? 'selected' : '' }}>कपडा विक्री</option>
-                                        <option value="60" {{ $data->trade_or_business_type == 60 ? 'selected' : '' }}>कपड्याचे दुकान</option>
-                                        <option value="26" {{ $data->trade_or_business_type == 26 ? 'selected' : '' }}>कांदा-बटाटा दुकान</option>
-                                        <option value="21" {{ $data->trade_or_business_type == 21 ? 'selected' : '' }}>कारखाना</option>
-                                        <option value="15" {{ $data->trade_or_business_type == 15 ? 'selected' : '' }}>किराणा दुकान</option>
-                                        <option value="58" {{ $data->trade_or_business_type == 58 ? 'selected' : '' }}>कुरीअर सर्विस</option>
-                                        <option value="45" {{ $data->trade_or_business_type == 45 ? 'selected' : '' }}>कॅटरींग सर्विसेस</option>
-                                        <option value="5" {{ $data->trade_or_business_type == 5 ? 'selected' : '' }}>केक शॉप</option>
-                                        <option value="10" {{ $data->trade_or_business_type == 10 ? 'selected' : '' }}>केशकर्तनालय / सलुन</option>
-                                        <option value="64" {{ $data->trade_or_business_type == 64 ? 'selected' : '' }}>कोल्ड्रींग अँड आईस्क्रीम</option>
-                                        <option value="33" {{ $data->trade_or_business_type == 33 ? 'selected' : '' }}>क्लासेस</option>
-                                        <option value="43" {{ $data->trade_or_business_type == 43 ? 'selected' : '' }}>क्लीनर</option>
-                                        <option value="30" {{ $data->trade_or_business_type == 30 ? 'selected' : '' }}>खादयपदार्थ विक्री</option>
-                                        <option value="3" {{ $data->trade_or_business_type == 3 ? 'selected' : '' }}>खानावळ</option>
-                                        <option value="13" {{ $data->trade_or_business_type == 13 ? 'selected' : '' }}>गॅरेज</option>
-                                        <option value="47" {{ $data->trade_or_business_type == 47 ? 'selected' : '' }}>चक्की</option>
-                                        <option value="55" {{ $data->trade_or_business_type == 55 ? 'selected' : '' }}>चाइनीज पॉईंट</option>
-                                        <option value="63" {{ $data->trade_or_business_type == 63 ? 'selected' : '' }}>चाय पॉईंट</option>
-                                        <option value="24" {{ $data->trade_or_business_type == 24 ? 'selected' : '' }}>चिकन शॉप</option>
-                                        <option value="14" {{ $data->trade_or_business_type == 14 ? 'selected' : '' }}>जनरल स्टोर</option>
-                                        <option value="38" {{ $data->trade_or_business_type == 38 ? 'selected' : '' }}>जिम फिटनेस</option>
-                                        <option value="32" {{ $data->trade_or_business_type == 32 ? 'selected' : '' }}>टेलर</option>
-                                        <option value="17" {{ $data->trade_or_business_type == 17 ? 'selected' : '' }}>नर्सरी</option>
-                                        <option value="18" {{ $data->trade_or_business_type == 18 ? 'selected' : '' }}>पान बिडी शॉप</option>
-                                        <option value="40" {{ $data->trade_or_business_type == 40 ? 'selected' : '' }}>पुस्तक विक्री</option>
-                                        <option value="16" {{ $data->trade_or_business_type == 16 ? 'selected' : '' }}>फर्निचर दुकान</option>
-                                        <option value="62" {{ $data->trade_or_business_type == 62 ? 'selected' : '' }}>फर्निचर वर्क</option>
-                                        <option value="46" {{ $data->trade_or_business_type == 46 ? 'selected' : '' }}>फाटो शॉप</option>
-                                        <option value="20" {{ $data->trade_or_business_type == 20 ? 'selected' : '' }}>बांगडी बनविणे</option>
-                                        <option value="52" {{ $data->trade_or_business_type == 52 ? 'selected' : '' }}>बेकरी</option>
-                                        <option value="7" {{ $data->trade_or_business_type == 7 ? 'selected' : '' }}>बेकरी शॉप / बेकरी प्रोडक्टस</option>
-                                        <option value="11" {{ $data->trade_or_business_type == 11 ? 'selected' : '' }}>ब्युटी पार्लर</option>
-                                        <option value="23" {{ $data->trade_or_business_type == 23 ? 'selected' : '' }}>मटण शॉप</option>
-                                        <option value="22" {{ $data->trade_or_business_type == 22 ? 'selected' : '' }}>मटण-चिकन शॉप</option>
-                                        <option value="39" {{ $data->trade_or_business_type == 39 ? 'selected' : '' }}>मसाला विक्री</option>
-                                        <option value="36" {{ $data->trade_or_business_type == 36 ? 'selected' : '' }}>मॅन्युफॅक्चरींग</option>
-                                        <option value="56" {{ $data->trade_or_business_type == 56 ? 'selected' : '' }}>मेटल पार्ट वर्क</option>
-                                        <option value="31" {{ $data->trade_or_business_type == 31 ? 'selected' : '' }}>मेडिकल</option>
-                                        <option value="51" {{ $data->trade_or_business_type == 51 ? 'selected' : '' }}>रबर प्रोडक्ट</option>
-                                        <option value="35" {{ $data->trade_or_business_type == 35 ? 'selected' : '' }}>रेडीमेंड गारमेंट</option>
-                                        <option value="2" {{ $data->trade_or_business_type == 2 ? 'selected' : '' }}>रेस्टॉरंट</option>
-                                        <option value="44" {{ $data->trade_or_business_type == 44 ? 'selected' : '' }}>लाँड्री</option>
-                                        <option value="9" {{ $data->trade_or_business_type == 9 ? 'selected' : '' }}>लॉजिंग / बोर्डींग</option>
-                                        <option value="54" {{ $data->trade_or_business_type == 54 ? 'selected' : '' }}>वेल्डींग</option>
-                                        <option value="41" {{ $data->trade_or_business_type == 41 ? 'selected' : '' }}>सायकल रिपेरींग</option>
-                                        <option value="57" {{ $data->trade_or_business_type == 57 ? 'selected' : '' }}>सिट कवर असेसरीज</option>
-                                        <option value="37" {{ $data->trade_or_business_type == 37 ? 'selected' : '' }}>सेल्स सर्विस </option>
-                                        <option value="19" {{ $data->trade_or_business_type == 19 ? 'selected' : '' }}>स्टील फर्निचर</option>
-                                        <option value="50" {{ $data->trade_or_business_type == 50 ? 'selected' : '' }}>स्टेनलेस स्टील </option>
-                                        <option value="28" {{ $data->trade_or_business_type == 28 ? 'selected' : '' }}>स्टेशनरी </option>
-                                        <option value="4" {{ $data->trade_or_business_type == 4 ? 'selected' : '' }}>स्नॅक्स सेंटर</option>
-                                        <option value="8" {{ $data->trade_or_business_type == 8 ? 'selected' : '' }}>स्विट मार्ट / मिठाईचे दुकान</option>
-                                        <option value="25" {{ $data->trade_or_business_type == 25 ? 'selected' : '' }}>हार्डवेअर</option>
+                                        @php 
+                                        $options = ['असोसिएट्स', 'आईस्क्रिम पार्लर', 'इंजिनियरींग वर्क्स', 'इंटिरियल', 'इतर', 'इलेक्ट्रिकल', 'इलेक्ट्रीक अँड हार्डवेअर', 'इंशुरन्स', 'उपहारगृह', 'ऑप्टीकल', 'ओल्ड् पेपर मार्ट', 'कंट्रक्शन', 'कपडा विक्री', 'कपड्याचे दुकान', 'कांदा-बटाटा दुकान', 'कारखाना', 'किराणा दुकान', 'कुरीअर सर्विस', 'कॅटरींग सर्विसेस', 'केक शॉप', 'केशकर्तनालय / सलुन', 'कोल्ड्रींग अँड आईस्क्रीम', 'क्लासेस', 'क्लीनर', 'खादयपदार्थ विक्री', 'खानावळ', 'गॅरेज', 'चक्की', 'चाइनीज पॉईंट', 'चाय पॉईंट', 'चिकन शॉप', 'जनरल स्टोर', 'जिम फिटनेस', 'टेलर', 'नर्सरी', 'पान बिडी शॉप', 'पुस्तक विक्री', 'फर्निचर दुकान', 'फर्निचर वर्क', 'फाटो शॉप', 'बांगडी बनविणे', 'बेकरी', 'बेकरी शॉप / बेकरी प्रोडक्टस', 'ब्युटी पार्लर', 'मटण शॉप', 'मटण-चिकन शॉप', 'मसाला विक्री', 'मॅन्युफॅक्चरींग', 'मेटल पार्ट वर्क', 'मेडिकल', 'रबर प्रोडक्ट', 'रेडीमेंड गारमेंट', 'रेस्टॉरंट', 'लाँड्री', 'लॉजिंग / बोर्डींग', 'वेल्डींग', 'सायकल रिपेरींग', 'सिट कवर असेसरीज', 'सेल्स सर्विस', 'स्टील फर्निचर', 'स्टेनलेस स्टील', 'स्टेशनरी', 'स्नॅक्स सेंटर', 'स्विट मार्ट / मिठाईचे दुकान', 'हार्डवेअर'];
+                                        @endphp
+                                        
+                                        @foreach($options as $option)
+                                        <option {{ $data->trade_or_business_type == $option ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        @endforeach
+
                                     </select>
                                     <span class="text-danger is-invalid trade_or_business_type_err"></span>
                                 </div>
@@ -233,8 +176,8 @@
                                     <label class="col-form-label" for="is_any_partnership_in_trade">Is any partnership in trade ? / भागीदारी आहे का?<span class="text-danger">*</span></label>
                                     <select class="form-select" name="is_any_partnership_in_trade" id="is_any_partnership_in_trade" value="{{ $data->is_any_partnership_in_trade }}" required>
                                         <option value="">Select Option</option>
-                                        <option value="1" {{ $data->is_any_partnership_in_trade == 1 ? 'selected' : '' }}>Yes</option>
-                                        <option value="2" {{ $data->is_any_partnership_in_trade == 2 ? 'selected' : '' }}>No</option>
+                                        <option value="Yes" {{ $data->is_any_partnership_in_trade == "Yes" ? 'selected' : '' }}>Yes</option>
+                                        <option value="No" {{ $data->is_any_partnership_in_trade == "No" ? 'selected' : '' }}>No</option>
                                     </select>
                                     <span class="text-danger is-invalid is_any_partnership_in_trade_err"></span>
                                 </div>
