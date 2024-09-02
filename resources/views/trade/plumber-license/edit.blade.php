@@ -16,37 +16,37 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="applicant_name">Applicant's Full Name / अर्जदाराचे संपूर्ण नाव  <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="applicant_name" name="applicant_name" type="text" placeholder="Enter Applicant's Full Name " value="{{ $data->applicant_name }}">
+                                    <input class="form-control" id="applicant_name" name="applicant_name" type="text" placeholder="Enter Applicant's Full Name " value="{{ $data->applicant_name }}" required>
                                     <span class="text-danger is-invalid applicant_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="address">Applicant's Full Address / अर्जदाराचा संपूर्ण पत्ता  <span class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="address" id="address" cols="30" rows="2"  placeholder="Enter  Address">{{ $data->address }}</textarea>
+                                    <textarea class="form-control" name="address" id="address" cols="30" rows="2"  placeholder="Enter  Address" required>{{ $data->address }}</textarea>
                                     <span class="text-danger is-invalid address_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="aadhar_no">Aadhar Number / आधार नं <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="aadhar_no" name="aadhar_no"  oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" type="text" placeholder="Enter Aadhar Number" value="{{ $data->aadhar_no }}">
+                                    <input class="form-control" id="aadhar_no" name="aadhar_no"  oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" type="text" placeholder="Enter Aadhar Number" required value="{{ $data->aadhar_no }}">
                                     <span class="text-danger is-invalid aadhar_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="mobile_no">Mobile Number / मोबाईल नंबर<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="mobile_no" name="mobile_no"  oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" placeholder="Enter Mobile Number" value="{{ $data->mobile_no }}">
+                                    <input class="form-control" id="mobile_no" name="mobile_no"  oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" placeholder="Enter Mobile Number" required value="{{ $data->mobile_no }}">
                                     <span class="text-danger is-invalid mobile_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="email_id"> Email Id  / ईमेल आयडी<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email" value="{{ $data->email_id }}">
+                                    <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email" required value="{{ $data->email_id }}">
                                     <span class="text-danger is-invalid email_id_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="zone" id="zone">
+                                    <select class="form-select" name="zone" id="zone" required>
                                         <option value="">Select Zone</option>
                                         @foreach($zones as $zone)
                                         <option value="{{ $zone->name }}" {{ $data->zone == $zone->name ? 'selected' : '' }}>{{ $zone->name }}</option>
@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="ward_area" id="ward_area">
+                                    <select class="form-select" name="ward_area" id="ward_area" required>
                                         <option value="">Select Ward Area</option>
                                         @foreach($wards as $ward)
                                         <option value="{{ $ward->name }}" {{ $data->ward_area == $ward->name ? 'selected' : '' }}>{{ $ward->name }}</option>
@@ -80,19 +80,19 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="training_institute_name">Name of industrial training institute / औद्योगिक प्रशिक्षण संस्थेचे नाव<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="training_institute_name" name="training_institute_name" type="text" placeholder="Enter Name of industrial training institute" value="{{ $data->training_institute_name }}">
+                                    <input class="form-control" id="training_institute_name" name="training_institute_name" type="text" placeholder="Enter Name of industrial training institute" required value="{{ $data->training_institute_name }}">
                                     <span class="text-danger is-invalid training_institute_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="year_of_passing">Year Of Passing / उत्तीर्ण झाल्याचे वर्ष<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="year_of_passing" name="year_of_passing" type="text" placeholder="Enter Year Of Passing" value="{{ $data->year_of_passing }}">
+                                    <input class="form-control" id="year_of_passing" name="year_of_passing" type="text" placeholder="Enter Year Of Passing" value="{{ $data->year_of_passing }}" required>
                                     <span class="text-danger is-invalid year_of_passing_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="have_experience">Have Experience / अनुभव आहे का ? <span class="text-danger">*</span></label>
-                                    <select class="form-select" name="have_experience" id="have_experience">
+                                    <select class="form-select" name="have_experience" id="have_experience" required>
                                         <option value="">Select option</option>
                                         @php
                                             $options = ["Yes", "No"];

@@ -32,6 +32,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6774,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 25
             ],
             [
                 "id" => 2,
@@ -50,6 +51,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6813,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 3
             ],
             [
                 "id" => 3,
@@ -68,6 +70,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6814,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 3
             ],
             [
                 "id" => 4,
@@ -86,6 +89,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6811,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 5,
@@ -101,9 +105,10 @@ class ServiceCredentialSeeder extends Seeder
                 'soap_action_app_status_url' => 'http://tempuri.org/SetAppStatus',
                 'validate_payment_url' => 'http://testcitizenservices.MahaITgov.in/en/OutPayment/ValidateRequest',
                 'out_payment_url' => 'http://testcitizenservices.MahaITgov.in/en/OutPayment/Pay',
-                'service_id' => 6774,
+                'service_id' => 6812,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 6,
@@ -122,6 +127,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7351,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 7,
@@ -140,6 +146,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7352,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 8,
@@ -158,6 +165,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7353,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 3
             ],
             [
                 "id" => 9,
@@ -176,6 +184,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7354,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 10,
@@ -194,6 +203,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7355,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 11,
@@ -212,6 +222,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7356,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 12,
@@ -230,6 +241,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6800,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 13,
@@ -248,6 +260,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6801,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 7
             ],
             [
                 "id" => 14,
@@ -266,6 +279,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6802,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 15,
@@ -284,6 +298,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6803,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 16,
@@ -302,6 +317,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6804,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 17,
@@ -320,6 +336,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6805,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 6805
             ],
             [
                 "id" => 18,
@@ -338,6 +355,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6806,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 19,
@@ -356,6 +374,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6807,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 365
             ],
             [
                 "id" => 20,
@@ -374,6 +393,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6808,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 3
             ],
             [
                 "id" => 21,
@@ -392,6 +412,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6809,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 3
             ],
             [
                 "id" => 22,
@@ -410,6 +431,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6810,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 23,
@@ -428,6 +450,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6811,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 24,
@@ -446,6 +469,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6812,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 3
             ],
             [
                 "id" => 25,
@@ -464,6 +488,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7357,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 26,
@@ -482,6 +507,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7358,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 27,
@@ -500,6 +526,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7359,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 28,
@@ -518,6 +545,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7291,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 29,
@@ -536,6 +564,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7292,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 30,
@@ -554,6 +583,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7293,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 31,
@@ -572,6 +602,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7294,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 3
             ],
             [
                 "id" => 32,
@@ -590,6 +621,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7295,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 3
             ],
             [
                 "id" => 33,
@@ -608,6 +640,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7296,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 7
             ],
             [
                 "id" => 34,
@@ -626,6 +659,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7297,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 7
             ],
             [
                 "id" => 35,
@@ -644,6 +678,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7298,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 7
             ],
             [
                 "id" => 36,
@@ -662,6 +697,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7299,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             // [
             //     "id" => 37,
@@ -716,6 +752,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7362,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 7
             ],
             [
                 "id" => 40,
@@ -734,6 +771,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7363,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 7
             ],
             [
                 "id" => 41,
@@ -752,6 +790,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7364,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 60
             ],
             [
                 "id" => 42,
@@ -770,6 +809,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7365,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 60
             ],
             [
                 "id" => 43,
@@ -788,6 +828,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7366,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             [
                 "id" => 44,
@@ -806,6 +847,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7367,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ]
         ];
 

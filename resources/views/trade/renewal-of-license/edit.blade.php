@@ -17,25 +17,25 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="applicant_full_name">Applicant Full Name / अर्जदाराचे संपूर्ण नाव<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="applicant_full_name" name="applicant_full_name" type="text" placeholder="Enter Applicant Full Name" value="{{ $data->applicant_full_name }}">
+                                    <input class="form-control" id="applicant_full_name" name="applicant_full_name" type="text" placeholder="Enter Applicant Full Name" value="{{ $data->applicant_full_name }}" required>
                                     <span class="text-danger is-invalid applicant_full_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="address">Applicant Full Address / अर्जदाराचा संपूर्ण पत्ता <span class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="address" id="address" cols="30" rows="2"  placeholder="Enter  Address">{{ $data->address }}</textarea>
+                                    <textarea class="form-control" name="address" id="address" cols="30" rows="2" required placeholder="Enter  Address">{{ $data->address }}</textarea>
                                     <span class="text-danger is-invalid address_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="office_address">Applicant's Full Office Address / अर्जदाराचा संपूर्ण कार्यालयीन पत्ता <span class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="office_address" id="office_address" cols="30" rows="2"  placeholder="Enter Office Address">{{ $data->office_address }}</textarea>
+                                    <textarea class="form-control" name="office_address" id="office_address" cols="30" rows="2"  placeholder="Enter Office Address" required>{{ $data->office_address }}</textarea>
                                     <span class="text-danger is-invalid office_address_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="mobile_no">Mobile Number / मोबाईल नंबर<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="mobile_no" name="mobile_no"  oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" placeholder="Enter Mobile Number" value="{{ $data->mobile_no }}">
+                                    <input class="form-control" id="mobile_no" name="mobile_no"  oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" type="text" placeholder="Enter Mobile Number" value="{{ $data->mobile_no }}" required>
                                     <span class="text-danger is-invalid mobile_no_err"></span>
                                 </div>
 
@@ -47,49 +47,49 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="aadhar_no">Aadhar No / आधार नंबर  <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="aadhar_no" name="aadhar_no"  oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" type="text" placeholder="Enter Aadhar Card No" value="{{ $data->aadhar_no }}">
+                                    <input class="form-control" id="aadhar_no" name="aadhar_no"  oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" type="text" placeholder="Enter Aadhar Card No" value="{{ $data->aadhar_no }}" required>
                                     <span class="text-danger is-invalid aadhar_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="old_permission_no">Old permission number / जुना परवाना क्र<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="old_permission_no" name="old_permission_no" type="text" placeholder="Enter Old permission number" value="{{ $data->old_permission_no }}">
+                                    <input class="form-control" id="old_permission_no" name="old_permission_no" type="text" placeholder="Enter Old permission number" value="{{ $data->old_permission_no }}" required>
                                     <span class="text-danger is-invalid old_permission_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="old_permission_date">Old permission Date / जुना परवाना दिनांक<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="old_permission_date" name="old_permission_date" type="date" placeholder="Enter Old permission Date" value="{{ $data->old_permission_date }}">
+                                    <input class="form-control" id="old_permission_date" name="old_permission_date" type="date" placeholder="Enter Old permission Date" value="{{ $data->old_permission_date }}" required>
                                     <span class="text-danger is-invalid old_permission_date_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="business_start_date">Date of business start / व्यवसाय सुरु केल्याची तारीख <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="business_start_date" name="business_start_date" type="date" placeholder="Enter Date of business start" value="{{ $data->business_start_date }}">
+                                    <input class="form-control" id="business_start_date" name="business_start_date" type="date" placeholder="Enter Date of business start" value="{{ $data->business_start_date }}" required>
                                     <span class="text-danger is-invalid business_start_date_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="business_or_trade_name">Business or trade_name / व्यवसायाचे किंवा व्यापाराचे नाव<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="business_or_trade_name" name="business_or_trade_name" type="text" placeholder="Enter Business or trade_name" value="{{ $data->business_or_trade_name }}">
+                                    <input class="form-control" id="business_or_trade_name" name="business_or_trade_name" type="text" placeholder="Enter Business or trade_name" value="{{ $data->business_or_trade_name }}" required>
                                     <span class="text-danger is-invalid business_or_trade_name_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="area_size">New permission place area size (sqr mtr) / परवान्यासाठी अर्ज केलेल्या जागेचे क्षेत्रफळ(चौ .मी .)  <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="area_size" name="area_size" type="number" placeholder="Enter New permission place area size (sqr mtr)" value="{{ $data->area_size }}">
+                                    <input class="form-control" id="area_size" name="area_size" type="number" placeholder="Enter New permission place area size (sqr mtr)" value="{{ $data->area_size }}" required>
                                     <span class="text-danger is-invalid area_size_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="new_permission_details">New permission details / नवीन परवान्याचा तपशील <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="new_permission_details" name="new_permission_details" type="text" placeholder="Enter New permission details" value="{{ $data->new_permission_details }}">
+                                    <input class="form-control" id="new_permission_details" name="new_permission_details" type="text" placeholder="Enter New permission details" value="{{ $data->new_permission_details }}" required>
                                     <span class="text-danger is-invalid new_permission_details_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="zone" id="zone">
+                                    <select class="form-select" name="zone" id="zone" required>
                                         <option value="">Select Zone</option>
                                         @foreach($zones as $zone)
                                         <option value="{{ $zone->name }}" {{ $data->zone == $zone->name ? 'selected' : '' }}>{{ $zone->name }}</option>
@@ -99,7 +99,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="ward_area" id="ward_area">
+                                    <select class="form-select" name="ward_area" id="ward_area" required>
                                         <option value="">Select Ward Area</option>
                                         @foreach($wards as $ward)
                                         <option value="{{ $ward->name }}" {{ $data->ward_area == $ward->name ? 'selected' : '' }}>{{ $ward->name }}</option>
@@ -110,19 +110,19 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="plot_no">Plot or bhukhand no / प्लॉट किंवा भूखंड क्र. <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="plot_no" name="plot_no" type="text" placeholder="Enter Plot or bhukhand no" value="{{ $data->plot_no }}">
+                                    <input class="form-control" id="plot_no" name="plot_no" type="text" placeholder="Enter Plot or bhukhand no" value="{{ $data->plot_no }}" required>
                                     <span class="text-danger is-invalid plot_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="description_of_new_trade_place">New trade place description / नवीन व्यवसाय जागेचे संपूर्ण वर्णन<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="description_of_new_trade_place" name="description_of_new_trade_place" type="text" placeholder="Enter New trade place description" value="{{ $data->description_of_new_trade_place }}">
+                                    <input class="form-control" id="description_of_new_trade_place" name="description_of_new_trade_place" type="text" placeholder="Enter New trade place description" value="{{ $data->description_of_new_trade_place }}" required>
                                     <span class="text-danger is-invalid description_of_new_trade_place_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="is_preveious_permission_declined_by_council">is previouly permission declined by council ? / यापूर्वी अर्जात नमूद जागेला व्यवसाय परवाना नाकारला आहे का ? <span class="text-danger">*</span></label>
-                                    <select class="form-select" name="is_preveious_permission_declined_by_council" id="is_preveious_permission_declined_by_council">
+                                    <select class="form-select" name="is_preveious_permission_declined_by_council" id="is_preveious_permission_declined_by_council" required>
                                         <option value="">Select Option</option>
                                         <option value="1" {{ $data->is_preveious_permission_declined_by_council == 1 ? 'selected' : '' }}>Yes</option>
                                         <option value="2" {{ $data->is_preveious_permission_declined_by_council == 2 ? 'selected' : '' }}>No</option>
@@ -132,13 +132,13 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="previous_permission_decline_reason">Previous permission decline reason / परवाना नाकारण्याचे कारण<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="previous_permission_decline_reason" name="previous_permission_decline_reason" type="text" placeholder="Enter Previous permission decline reason " value="{{ $data->previous_permission_decline_reason }}">
+                                    <input class="form-control" id="previous_permission_decline_reason" name="previous_permission_decline_reason" type="text" placeholder="Enter Previous permission decline reason" value="{{ $data->previous_permission_decline_reason }}" required>
                                     <span class="text-danger is-invalid previous_permission_decline_reason_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="is_place_owned_by_council">Is place owned by council ? / जागा पालिकेच्या मालकीची आहे का ? <span class="text-danger">*</span></label>
-                                    <select class="form-select" name="is_place_owned_by_council" id="is_place_owned_by_council">
+                                    <select class="form-select" name="is_place_owned_by_council" id="is_place_owned_by_council" required>
                                         <option value="">Select Option</option>
                                         <option value="1" {{ $data->is_place_owned_by_council == 1 ? 'selected' : '' }}>Yes</option>
                                         <option value="2" {{ $data->is_place_owned_by_council == 2 ? 'selected' : '' }}>No</option>
@@ -148,7 +148,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="is_any_dues_pending_of_council">Is any dues pending of council ? / आपल्याकडे पालिकेची थकबाकी आहे का ? <span class="text-danger">*</span></label>
-                                    <select class="form-select" name="is_any_dues_pending_of_council" id="is_any_dues_pending_of_council">
+                                    <select class="form-select" name="is_any_dues_pending_of_council" id="is_any_dues_pending_of_council" required>
                                         <option value="">Select Option</option>
                                         <option value="1" {{ $data->is_any_dues_pending_of_council == 1 ? 'selected' : '' }}>Yes</option>
                                         <option value="2" {{ $data->is_any_dues_pending_of_council == 2 ? 'selected' : '' }}>No</option>
@@ -158,7 +158,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="trade_or_business_type">Trade or business type of new permission / व्यवसायाचा प्रकार <span class="text-danger">*</span></label>
-                                    <select class="form-select" name="trade_or_business_type" id="trade_or_business_type">
+                                    <select class="form-select" name="trade_or_business_type" id="trade_or_business_type" required>
                                         <option value="">Select a value ...</option>
                                         <option value="42" {{ $data->trade_or_business_type == 42 ? 'selected' : '' }}>असोसिएट्स</option>
                                         <option value="6" {{ $data->trade_or_business_type == 6 ? 'selected' : '' }}>आईस्क्रिम पार्लर </option>
@@ -231,7 +231,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="is_any_partnership_in_trade">Is any partnership in trade ? / भागीदारी आहे का?<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="is_any_partnership_in_trade" id="is_any_partnership_in_trade" value="{{ $data->is_any_partnership_in_trade }}">
+                                    <select class="form-select" name="is_any_partnership_in_trade" id="is_any_partnership_in_trade" value="{{ $data->is_any_partnership_in_trade }}" required>
                                         <option value="">Select Option</option>
                                         <option value="1" {{ $data->is_any_partnership_in_trade == 1 ? 'selected' : '' }}>Yes</option>
                                         <option value="2" {{ $data->is_any_partnership_in_trade == 2 ? 'selected' : '' }}>No</option>
@@ -241,31 +241,31 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="partner_count">Partner count / भागीदारांची संख्या <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="partner_count" name="partner_count" type="number" placeholder="Enter Partner count" value="{{ $data->partner_count }}">
+                                    <input class="form-control" id="partner_count" name="partner_count" type="number" placeholder="Enter Partner count" value="{{ $data->partner_count }}" required>
                                     <span class="text-danger is-invalid partner_count_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="partner_names">Partner Names / भागीदारांची नावे<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="partner_names" name="partner_names" type="text" placeholder="Enter Partner Names" value="{{ $data->partner_names }}">
+                                    <input class="form-control" id="partner_names" name="partner_names" type="text" placeholder="Enter Partner Names" value="{{ $data->partner_names }}" required>
                                     <span class="text-danger is-invalid partner_names_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="property_no">Property Number / मालमत्ता क्र<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="property_no" name="property_no" type="number" placeholder="Enter Property Number" value="{{ $data->property_no }}">
+                                    <input class="form-control" id="property_no" name="property_no" type="number" placeholder="Enter Property Number" value="{{ $data->property_no }}" required>
                                     <span class="text-danger is-invalid property_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="no_dues_documents">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="no_dues_documents">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा</label>
                                     <input class="form-control" id="no_dues_documents" name="no_dues_documents" type="file">
                                     <small><a href="{{ asset('storage/' . $data->no_dues_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid no_dues_documents_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="application_documents">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा<span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="application_documents">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा</label>
                                     <input class="form-control" id="application_documents" name="application_documents" type="file">
                                     <small><a href="{{ asset('storage/' . $data->application_document) }}" target="_blank">View Document</a></small>
                                     <span class="text-danger is-invalid application_documents_err"></span>
@@ -275,7 +275,7 @@
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
                                 <div class="col-md-12">
                                     <div class="form-check d-flex align-items-start">
-                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" value="yes">
+                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" required name="is_correct_info" value="yes">
                                         <label class="form-check-label ms-2" for="is_correct_info">
                                             "All information provided above is correct and I shall be fully responsible for any discrepancy. / वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार असेन."
                                         </label>
