@@ -40,13 +40,13 @@
                                     <td>{{ (array_key_exists($data->service_id, $serviceName)) ? $serviceName[$data->service_id] : '' }}</td>
                                     <td>{{ date('d-m-Y h:i A', strtotime($data->created_at)) }}</td>
                                     <td>
-                                        @if(!$data->aapale_sarkar_payment_date)
+                                        @if(!$data->payment_date)
                                         <button class="btn btn-primary btn-sm">Make Payment</button>
                                         @else
                                         -
                                         @endif
                                     </td>
-                                    <td>{{ ($data->aapale_sarkar_payment_date) ? date('d-m-Y', strtotime($data->aapale_sarkar_payment_date)) : '-' }}</td>
+                                    <td>{{ ($data->payment_date) ? date('d-m-Y', strtotime($data->payment_date)) : '-' }}</td>
                                     <td>
                                         @if($data->status == "1")
                                         <span class="badge bg-warning">Pending</span>

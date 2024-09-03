@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\ServiceName;
+use App\Models\PendingAapaleSarkarData;
 
 class AapaleSarkarLoginCheckService
 {
@@ -241,12 +242,22 @@ class AapaleSarkarLoginCheckService
 
         if ($model) {
             $data = $model::query()
-                  ->where(['application_no' => $applicationNo, 'service_id' => $serviceName])
-                  ->first();
+                ->where(['application_no' => $applicationNo, 'service_id' => $serviceName])
+                ->first();
 
             return $data;
         }
 
         return false;
+    }
+
+    public function savePendingAapaleSarkarData($applicationId, $serviceId, $userId)
+    {
+        PendingAapaleSarkarData::create([
+            'application_no' => $applicationId,
+            'service_id' => $serviceId,
+            'user_id' => $userId
+        ]);
+        return true;
     }
 }

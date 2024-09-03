@@ -50,7 +50,7 @@ class DashboardController extends Controller
         $data = [];
 
         foreach ($tables as $table) {
-            $tableData = DB::table($table)->select('id', 'application_no', 'created_at', 'service_id', 'aapale_sarkar_payment_date', 'status')->where('user_id', Auth::user()->id)->get()->toArray();
+            $tableData = DB::table($table)->select('id', 'application_no', 'created_at', 'service_id', 'payment_date', 'status')->where('user_id', Auth::user()->id)->get()->toArray();
 
             $data = array_merge($data, $tableData);
         }

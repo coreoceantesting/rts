@@ -106,7 +106,7 @@ class AapaleSarkarLoginCheckController extends Controller
         $paymentDate = "NA";
         $digitalSignStatus = "N";
         $digitalSignDate = "NA";
-        $estimateServiceDays = $serviceCredential->service_day;
+        $estimateServiceDays = ($serviceCredential->service_day) ? $serviceCredential->service_day : 20;
         $estimateServiceDate = $service->aapale_sarkar_payment_date;
         $amount = "23.60";
         $requestFlag = "1";
