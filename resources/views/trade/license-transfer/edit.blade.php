@@ -118,8 +118,8 @@
                                     <label class="col-form-label" for="is_preveious_permission_declined_by_council">is previouly permission declined by council ? / यापूर्वी अर्जात नमूद जागेला व्यवसाय परवाना नाकारला आहे का ? <span class="text-danger">*</span></label>
                                     <select class="form-select" name="is_preveious_permission_declined_by_council" id="is_preveious_permission_declined_by_council" required>
                                         <option value="">Select Option</option>
-                                        <option value="1" {{ $data->is_preveious_permission_declined_by_council == 1 ? 'selected' : '' }}>Yes</option>
-                                        <option value="2" {{ $data->is_preveious_permission_declined_by_council == 2 ? 'selected' : '' }}>No</option>
+                                        <option value="Yes" {{ $data->is_preveious_permission_declined_by_council == "Yes" ? 'selected' : '' }}>Yes</option>
+                                        <option value="No" {{ $data->is_preveious_permission_declined_by_council == "No" ? 'selected' : '' }}>No</option>
                                     </select>
                                     <span class="text-danger is-invalid is_preveious_permission_declined_by_council_err"></span>
                                 </div>
@@ -134,8 +134,8 @@
                                     <label class="col-form-label" for="is_place_owned_by_council">Is place owned by council ? / जागा पालिकेच्या मालकीची आहे का ? <span class="text-danger">*</span></label>
                                     <select class="form-select" name="is_place_owned_by_council" id="is_place_owned_by_council" required>
                                         <option value="">Select Option</option>
-                                        <option value="1" {{ $data->is_place_owned_by_council == 1 ? 'selected' : '' }}>Yes</option>
-                                        <option value="2" {{ $data->is_place_owned_by_council == 2 ? 'selected' : '' }}>No</option>
+                                        <option value="Yes" {{ $data->is_place_owned_by_council == "Yes" ? 'selected' : '' }}>Yes</option>
+                                        <option value="No" {{ $data->is_place_owned_by_council == "No" ? 'selected' : '' }}>No</option>
                                     </select>
                                     <span class="text-danger is-invalid is_place_owned_by_council_err"></span>
                                 </div>
@@ -144,8 +144,8 @@
                                     <label class="col-form-label" for="is_any_dues_pending_of_council">Is any dues pending of council ? / आपल्याकडे पालिकेची थकबाकी आहे का ? <span class="text-danger">*</span></label>
                                     <select class="form-select" name="is_any_dues_pending_of_council" id="is_any_dues_pending_of_council" required>
                                         <option value="">Select Option</option>
-                                        <option value="1" {{ $data->is_any_dues_pending_of_council == 1 ? 'selected' : '' }}>Yes</option>
-                                        <option value="2" {{ $data->is_any_dues_pending_of_council == 2 ? 'selected' : '' }}>No</option>
+                                        <option value="Yes" {{ $data->is_any_dues_pending_of_council == "Yes" ? 'selected' : '' }}>Yes</option>
+                                        <option value="No" {{ $data->is_any_dues_pending_of_council == "No" ? 'selected' : '' }}>No</option>
                                     </select>
                                     <span class="text-danger is-invalid is_any_dues_pending_of_council_err"></span>
                                 </div>

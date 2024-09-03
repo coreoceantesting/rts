@@ -54,7 +54,7 @@ class RenewalLicenseService
             $request['applicant_name'] = $request->applicant_full_name;
             $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
             $newData = $request->except(['_token', 'application_documents', 'no_dues_documents']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/AddForRenewTradeLicensePermission ', '');
+            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/AddForRenewTradeLicensePermission', '');
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
@@ -134,14 +134,15 @@ class RenewalLicenseService
             } else {
                 $request['no_dues_document'] = "";
             }
+
             $request['application_no'] = $tradeRenewalLicensePermission->application_no;
             $request['user_id'] =  (Auth::user()->user_id && Auth::user()->user_id != "") ? "" . Auth::user()->user_id . "" : "" . Auth::user()->id . "";
             $newData = $request->except(['_token', 'id', 'application_documents', 'no_dues_documents']);
             $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.trade') . 'SHELMicroService/SHELApi/ApleSarkarService/UpdateForRenewTradeLicensePermission', '');
 
             // Decode JSON string to PHP array
+            Log::info($newData);
             $data = json_decode($data, true);
-
             if (isset($data['status']) && $data['status'] == "200") {
                 // Access the application_no
                 DB::commit();

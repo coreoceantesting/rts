@@ -169,8 +169,8 @@
                                     <label class="col-form-label" for="is_any_partnership_in_trade">Is any partnership in trade ? / भागीदारी आहे का?<span class="text-danger">*</span></label>
                                     <select class="form-select" name="is_any_partnership_in_trade" id="is_any_partnership_in_trade" required>
                                         <option value="">Select Option</option>
-                                        <option value="1">Yes</option>
-                                        <option value="2">No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
                                     </select>
                                     <span class="text-danger is-invalid is_any_partnership_in_trade_err"></span>
                                 </div>

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use App\Models\ServiceCredential;
 use App\Models\User;
+use App\Models\ServiceName;
 
 class AapaleSarkarLoginCheckController extends Controller
 {
@@ -93,50 +94,85 @@ class AapaleSarkarLoginCheckController extends Controller
             ]);
         }
 
-        $serviceCredential = ServiceCredential::query()->where('dept_service_id', $request->service_name)->first();
+        if ($user->is_aapale_sarkar_user) {
 
-        $service = $this->aapaleSarkarLoginCheckService->serviceDetails($request->service_name, $request->application_no);
+            $serviceCredential = ServiceCredential::query()->where('dept_service_id', $request->service_name)->first();
 
-        $trackId = $user->trackid;
-        $clientCode = $serviceCredential->client_code;
-        $userId = $request->user_id;
-        $serviceId = $serviceCredential->service_id;
-        $applicationId = $request->application_no;
-        $paymentStatus = "N";
-        $paymentDate = "NA";
-        $digitalSignStatus = "N";
-        $digitalSignDate = "NA";
-        $estimateServiceDays = ($serviceCredential->service_day) ? $serviceCredential->service_day : 20;
-        $estimateServiceDate = $service->aapale_sarkar_payment_date;
-        $amount = "23.60";
-        $requestFlag = "1";
-        $applicationStatus = $request->application_status;
-        $remark = $request->application_remark;
-        $ud1 = $serviceCredential->ulb_id;
-        $ud2 = $serviceCredential->ulb_district;
-        $ud3 = "NA";
-        $ud4 = "NA";
-        $ud5 = "NA";
-        $checkSumKey = $serviceCredential->check_sum_key;
+            $service = $this->aapaleSarkarLoginCheckService->serviceDetails($request->service_name, $request->application_no);
 
-        $request1 = sprintf("%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s", $trackId, $clientCode, $userId, $serviceId, $applicationId, $paymentStatus, $paymentDate, $digitalSignStatus, $digitalSignDate, $estimateServiceDays, $estimateServiceDate, $amount, $requestFlag, $applicationStatus, $remark, $ud1, $ud2, $ud3, $ud4, $ud5, $checkSumKey);
-        $checksumvalue = $this->aapaleSarkarLoginCheckService->generateCheckSumValue($request1);
+            $trackId = $user->trackid;
+            $clientCode = $serviceCredential->client_code;
+            $userId = $request->user_id;
+            $serviceId = $serviceCredential->service_id;
+            $applicationId = $request->application_no;
+            $paymentStatus = "N";
+            $paymentDate = "NA";
+            $digitalSignStatus = "N";
+            $digitalSignDate = "NA";
+            $estimateServiceDays = ($serviceCredential->service_day) ? $serviceCredential->service_day : 20;
+            $estimateServiceDate = $service->aapale_sarkar_payment_date;
+            $amount = "23.60";
+            $requestFlag = "1";
+            $applicationStatus = $request->application_status;
+            $remark = $request->application_remark;
+            $ud1 = $serviceCredential->ulb_id;
+            $ud2 = $serviceCredential->ulb_district;
+            $ud3 = "NA";
+            $ud4 = "NA";
+            $ud5 = "NA";
+            $checkSumKey = $serviceCredential->check_sum_key;
 
-        $request2 = sprintf("%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s", $trackId, $clientCode, $userId, $serviceId, $applicationId, $paymentStatus, $paymentDate, $digitalSignStatus, $digitalSignDate, $estimateServiceDays, $estimateServiceDate, $amount, $requestFlag, $applicationStatus, $remark, $ud1, $ud2, $ud3, $ud4, $ud5, $checksumvalue);
+            $request1 = sprintf("%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s", $trackId, $clientCode, $userId, $serviceId, $applicationId, $paymentStatus, $paymentDate, $digitalSignStatus, $digitalSignDate, $estimateServiceDays, $estimateServiceDate, $amount, $requestFlag, $applicationStatus, $remark, $ud1, $ud2, $ud3, $ud4, $ud5, $checkSumKey);
+            $checksumvalue = $this->aapaleSarkarLoginCheckService->generateCheckSumValue($request1);
 
-        $encryptedKey = $this->aapaleSarkarLoginCheckService->encryptTripleDES($request2, $serviceCredential->str_key, $serviceCredential->str_iv);
+            $request2 = sprintf("%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s", $trackId, $clientCode, $userId, $serviceId, $applicationId, $paymentStatus, $paymentDate, $digitalSignStatus, $digitalSignDate, $estimateServiceDays, $estimateServiceDate, $amount, $requestFlag, $applicationStatus, $remark, $ud1, $ud2, $ud3, $ud4, $ud5, $checksumvalue);
+
+            $encryptedKey = $this->aapaleSarkarLoginCheckService->encryptTripleDES($request2, $serviceCredential->str_key, $serviceCredential->str_iv);
 
 
-        $response = $this->aapaleSarkarLoginCheckService->sendRequestToAapaleSarkar($serviceCredential->soap_end_point_url, $serviceCredential->soap_action_app_status_url, $serviceCredential->str_key, $serviceCredential->str_iv, $encryptedKey, $clientCode);
+            $response = $this->aapaleSarkarLoginCheckService->sendRequestToAapaleSarkar($serviceCredential->soap_end_point_url, $serviceCredential->soap_action_app_status_url, $serviceCredential->str_key, $serviceCredential->str_iv, $encryptedKey, $clientCode);
 
-        if ($response[0]) {
-            if ($response[1]['status'] == "Success") {
-                return response()->json([
-                    'status' => 200,
-                    'message' => 'Status updated successfully'
-                ]);
+
+            if ($response[0]) {
+                if ($response[1]['status'] == "Success") {
+                    $model = ServiceName::where('service_id', $request->service_name)->value('model');
+
+                    $modelId = $model::where('application_no', $request->application_no)->value('id');
+
+                    $model::where('id', $modelId)->update([
+                        'status' => $request->application_status,
+                        'status_remark' => $request->application_remark
+                    ]);
+
+                    return response()->json([
+                        'status' => 200,
+                        'message' => 'Status updated successfully'
+                    ]);
+                } else {
+                    return response()->json([
+                        'status' => 503,
+                        'message' => 'Something is wrong please try again'
+                    ]);
+                }
             }
         }
+
+
+        $model = ServiceName::where('service_id', $request->service_name)->value('model');
+
+        $modelId = $model::where('application_no', $request->application_no)->value('id');
+
+        if ($modelId) {
+            $model::where('id', $modelId)->update([
+                'status' => $request->application_status,
+                'status_remark' => $request->application_remark
+            ]);
+            return response()->json([
+                'status' => 200,
+                'message' => 'Status updated successfully'
+            ]);
+        }
+
 
         return response()->json([
             'status' => 503,
