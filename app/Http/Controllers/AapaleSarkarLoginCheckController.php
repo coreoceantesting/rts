@@ -98,8 +98,7 @@ class AapaleSarkarLoginCheckController extends Controller
 
             $serviceCredential = ServiceCredential::query()->where('dept_service_id', $request->service_name)->first();
 
-            $service = $this->aapaleSarkarLoginCheckService->serviceDetails($request->service_name, $request->application_no);
-
+            $serviceDay = ($serviceCredential->service_day) ? $serviceCredential->service_day : 20;
             $trackId = $user->trackid;
             $clientCode = $serviceCredential->client_code;
             $userId = $request->user_id;
@@ -109,8 +108,8 @@ class AapaleSarkarLoginCheckController extends Controller
             $paymentDate = "NA";
             $digitalSignStatus = "N";
             $digitalSignDate = "NA";
-            $estimateServiceDays = ($serviceCredential->service_day) ? $serviceCredential->service_day : 20;
-            $estimateServiceDate = $service->aapale_sarkar_payment_date;
+            $estimateServiceDays = $serviceDay;
+            $estimateServiceDate = date('Y-m-d', strtotime("+$serviceDay days"));
             $amount = "23.60";
             $requestFlag = "1";
             $applicationStatus = $request->application_status;
@@ -154,6 +153,11 @@ class AapaleSarkarLoginCheckController extends Controller
                         'message' => 'Something is wrong please try again'
                     ]);
                 }
+            } else {
+                return response()->json([
+                    'status' => 503,
+                    'message' => 'Something is wrong please try again'
+                ]);
             }
         }
 
