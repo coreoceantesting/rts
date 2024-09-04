@@ -232,13 +232,13 @@
             success: function(data)
             {
                 $("#addSubmit").prop('disabled', false);
-                if (!data.error2)
+                if (!data.error)
                     swal("Successful!", data.success, "success")
                         .then((action) => {
                             window.location.href = '{{ route("my-application") }}';
                         });
                 else
-                    swal("Error!", data.error2, "error");
+                    swal("Error!", data.error, "error");
             },
             statusCode: {
                 422: function(responseObject, textStatus, jqXHR) {
