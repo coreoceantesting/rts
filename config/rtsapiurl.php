@@ -7,6 +7,6 @@ return [
     'water' => 'https://test.paywaterbill.org/',
     'amount' => 23.60,
     'requestFlag' => 1,
-    'applicationStatus' => 2,
-    'applicationPendingStatusTxt' => "Payment Pending"
+    'applicationStatus' => 3,
+    'applicationPendingStatusTxt' => "Under Scrutiny (In process)"
 ];
