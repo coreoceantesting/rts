@@ -54,6 +54,8 @@ class AapaleSarkarLoginCheckController extends Controller
 
                     if ($existingUser) {
                         Auth::login($existingUser);
+
+                        User::where('id', Auth::user()->id)->update(['trackid' => $data['TrackId']]);
                     } else {
                         $user = User::create([
                             'name' => ($data['FullName']) ? $data['FullName'] : '',
@@ -132,7 +134,7 @@ class AapaleSarkarLoginCheckController extends Controller
             $response = $this->aapaleSarkarLoginCheckService->sendRequestToAapaleSarkar($serviceCredential->soap_end_point_url, $serviceCredential->soap_action_app_status_url, $serviceCredential->str_key, $serviceCredential->str_iv, $encryptedKey, $clientCode);
 
 
-            if ($response[0]) {
+            if ($response) {
                 if ($response[1]['status'] == "Success") {
                     $model = ServiceName::where('service_id', $request->service_name)->value('model');
 
