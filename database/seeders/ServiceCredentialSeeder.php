@@ -870,7 +870,8 @@ class ServiceCredentialSeeder extends Seeder
                 'out_payment_url' => $service['out_payment_url'],
                 'service_id' => $service['service_id'],
                 'ulb_id' => $service['ulb_id'],
-                'ulb_district' => $service['ulb_district']
+                'ulb_district' => $service['ulb_district'],
+                'service_day' => $service['service_day']
             ]);
         }
     }
