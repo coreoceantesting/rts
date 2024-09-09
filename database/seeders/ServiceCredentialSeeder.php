@@ -716,6 +716,7 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7360,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
+                'service_day' => 15
             ],
             // [
             //     "id" => 38,
