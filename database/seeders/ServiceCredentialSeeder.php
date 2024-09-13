@@ -32,7 +32,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6774,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 25
+                'service_day' => 25,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 2,
@@ -51,7 +54,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6813,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 3
+                'service_day' => 3,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 3,
@@ -70,7 +76,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6814,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 3
+                'service_day' => 3,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 4,
@@ -89,7 +98,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6811,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 5,
@@ -108,7 +120,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6812,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 6,
@@ -127,7 +142,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7351,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 7,
@@ -146,7 +164,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7352,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 8,
@@ -165,7 +186,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7353,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 3
+                'service_day' => 3,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 9,
@@ -184,7 +208,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7354,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 10,
@@ -203,7 +230,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7355,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 11,
@@ -222,7 +252,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7356,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 12,
@@ -241,7 +274,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6800,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 13,
@@ -260,7 +296,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6801,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 7
+                'service_day' => 7,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 14,
@@ -279,7 +318,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6802,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 15,
@@ -298,7 +340,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6803,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 16,
@@ -317,7 +362,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6804,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 17,
@@ -336,7 +384,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6805,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 6805
+                'service_day' => 6805,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 18,
@@ -355,7 +406,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6806,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 19,
@@ -374,7 +428,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6807,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 365
+                'service_day' => 365,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 20,
@@ -393,7 +450,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6808,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 3
+                'service_day' => 3,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 21,
@@ -412,7 +472,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6809,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 3
+                'service_day' => 3,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 22,
@@ -431,7 +494,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6810,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 23,
@@ -450,7 +516,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6811,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 24,
@@ -469,7 +538,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 6812,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 3
+                'service_day' => 3,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 25,
@@ -488,13 +560,16 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7357,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 26,
                 'dept_service_id' => '31',
                 'service_name' => 'Renewal Of Plumber License',
-                'service_url' => 'trade-renewal-plumber-license/create',
+                'service_url' => 'renewal-plumber-license/create',
                 'client_code' => 'PNL224',
                 'check_sum_key' => 'PNMCNN2v247M',
                 'str_key' => '@pn@PNM@m@h@0nl!ne@23523',
@@ -507,7 +582,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7358,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 27,
@@ -526,7 +604,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7359,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 28,
@@ -545,7 +626,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7291,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 29,
@@ -564,7 +648,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7292,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 30,
@@ -583,7 +670,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7293,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 31,
@@ -602,7 +692,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7294,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 3
+                'service_day' => 3,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 32,
@@ -621,7 +714,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7295,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 3
+                'service_day' => 3,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 33,
@@ -640,7 +736,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7296,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 7
+                'service_day' => 7,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 34,
@@ -659,7 +758,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7297,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 7
+                'service_day' => 7,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 35,
@@ -678,7 +780,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7298,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 7
+                'service_day' => 7,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 36,
@@ -697,7 +802,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7299,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 37,
@@ -716,7 +824,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7360,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 38,
@@ -735,7 +846,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7361,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 39,
@@ -754,7 +868,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7362,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 7
+                'service_day' => 7,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 40,
@@ -773,7 +890,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7363,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 7
+                'service_day' => 7,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 41,
@@ -792,7 +912,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7364,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 60
+                'service_day' => 60,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 42,
@@ -811,7 +934,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7365,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 60
+                'service_day' => 60,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 43,
@@ -830,7 +956,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7366,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ],
             [
                 "id" => 44,
@@ -849,7 +978,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => 7367,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
-                'service_day' => 15
+                'service_day' => 15,
+                'is_paid_service' => 1,
+                'is_paid_service_by_aapale_sarkar' => 1,
+                'service_charge' => 100
             ]
         ];
 
@@ -873,7 +1005,10 @@ class ServiceCredentialSeeder extends Seeder
                 'service_id' => $service['service_id'],
                 'ulb_id' => $service['ulb_id'],
                 'ulb_district' => $service['ulb_district'],
-                'service_day' => $service['service_day']
+                'service_day' => $service['service_day'],
+                'is_paid_service' => $service['is_paid_service'],
+                'is_paid_service_by_aapale_sarkar' => $service['is_paid_service_by_aapale_sarkar'],
+                'service_charge' => $service['service_charge'],
             ]);
         }
     }

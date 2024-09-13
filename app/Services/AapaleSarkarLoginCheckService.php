@@ -4,6 +4,9 @@ namespace App\Services;
 
 use App\Models\ServiceName;
 use App\Models\PendingAapaleSarkarData;
+use App\Models\ServiceCredential;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class AapaleSarkarLoginCheckService
 {
@@ -213,21 +216,26 @@ class AapaleSarkarLoginCheckService
     // function to send request to aapale sarkar
     public function encryptAndSendRequestToAapaleSarkar($trackId, $clientCode, $userId, $serviceId, $applicationId, $paymentStatus, $paymentDate, $digitalSignStatus, $digitalSignDate, $estimateServiceDays, $estimateServiceDate, $amount, $requestFlag, $applicationStatus, $remark, $ud1, $ud2, $ud3, $ud4, $ud5, $checkSumKey, $strKey, $strIV, $soapEndPoint, $soapActionSetAppStatus)
     {
-        $request1 = sprintf("%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s", $trackId, $clientCode, $userId, $serviceId, $applicationId, $paymentStatus, $paymentDate, $digitalSignStatus, $digitalSignDate, $estimateServiceDays, $estimateServiceDate, $amount, $requestFlag, $applicationStatus, $remark, $ud1, $ud2, $ud3, $ud4, $ud5, $checkSumKey);
-        $checksumvalue = $this->GenerateCheckSumValue($request1);
+        try {
+            $request1 = sprintf("%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s", $trackId, $clientCode, $userId, $serviceId, $applicationId, $paymentStatus, $paymentDate, $digitalSignStatus, $digitalSignDate, $estimateServiceDays, $estimateServiceDate, $amount, $requestFlag, $applicationStatus, $remark, $ud1, $ud2, $ud3, $ud4, $ud5, $checkSumKey);
+            $checksumvalue = $this->generateCheckSumValue($request1);
 
-        $request2 = sprintf("%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s", $trackId, $clientCode, $userId, $serviceId, $applicationId, $paymentStatus, $paymentDate, $digitalSignStatus, $digitalSignDate, $estimateServiceDays, $estimateServiceDate, $amount, $requestFlag, $applicationStatus, $remark, $ud1, $ud2, $ud3, $ud4, $ud5, $checksumvalue);
+            $request2 = sprintf("%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s", $trackId, $clientCode, $userId, $serviceId, $applicationId, $paymentStatus, $paymentDate, $digitalSignStatus, $digitalSignDate, $estimateServiceDays, $estimateServiceDate, $amount, $requestFlag, $applicationStatus, $remark, $ud1, $ud2, $ud3, $ud4, $ud5, $checksumvalue);
 
-        $encryptedKey = $this->encryptTripleDES($request2, $strKey, $strIV);
+            $encryptedKey = $this->encryptTripleDES($request2, $strKey, $strIV);
 
 
-        $response = $this->sendRequestToAapaleSarkar($soapEndPoint, $soapActionSetAppStatus, $strKey, $strIV, $encryptedKey, $clientCode);
+            $response = $this->sendRequestToAapaleSarkar($soapEndPoint, $soapActionSetAppStatus, $strKey, $strIV, $encryptedKey, $clientCode);
 
-        if ($response[0]) {
-            if ($response[1]['status'] == "Success") {
-                return true;
+            if ($response[0]) {
+                if ($response[1]['status'] == "Success") {
+                    return true;
+                }
+            } else {
+                return false;
             }
-        } else {
+        } catch (\Exception $e) {
+            Log::info($e);
             return false;
         }
     }
@@ -259,5 +267,55 @@ class AapaleSarkarLoginCheckService
             'user_id' => $userId
         ]);
         return true;
+    }
+
+    public function makePaymentToAapaleSarkar($request)
+    {
+        $serviceCredential = ServiceCredential::where('dept_service_id', $request->service_id)->first();
+        // get credential from config file
+        // return $serviceCredential;
+        $trackId = Auth::user()->trackid;
+        $clientCode = $serviceCredential->client_code;
+        $userId = Auth::user()->user_id;
+        $serviceId = $serviceCredential->service_id;
+        $applicationId = $request->application_no;
+        $paymentStatus = "Y";
+        $paymentDate = date('Y-m-d');
+        $digitalSignStatus = "N";
+        $digitalSignDate = "NA";
+        $estimateServiceDays = $serviceCredential->service_day;
+        $estimateServiceDate = date('Y-m-d', strtotime("+$serviceCredential->service_day days"));
+        $amount = "23.60";
+        $requestFlag = "0";
+        $applicationStatus = "3";
+        $remark = "Payment Done to Aapale Sarkar";
+        $ud1 =  $serviceCredential->ulb_id;
+        $ud2 =  $serviceCredential->ulb_district;
+        $ud3 = "NA";
+        $ud4 = "NA";
+        $ud5 = "NA";
+        $checkSumKey = $serviceCredential->check_sum_key;
+        $returnPath = route('my-application');
+
+        $request1 = sprintf("%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s", $trackId, $clientCode, $userId, $serviceId, $applicationId, $paymentStatus, $paymentDate, $digitalSignStatus, $digitalSignDate, $estimateServiceDays, $estimateServiceDate, $amount, $requestFlag, $applicationStatus, $remark, $ud1, $ud2, $ud3, $ud4, $ud5, $checkSumKey);
+        $checksumvalue = $this->generateCheckSumValue($request1);
+
+        $request2 = sprintf("%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s", $clientCode, $checksumvalue, $serviceId, $applicationId, $ud2, date('Y-m-d'), $trackId, $userId, Auth::user()->mobile, Auth::user()->name, $returnPath, $ud1, $ud2, $ud3, $ud4, $ud5);
+        $webstr = $this->encryptTripleDES($request2, $serviceCredential->str_key, $serviceCredential->str_iv);
+        $url = $serviceCredential->validate_payment_url . "?webstr=" . $webstr . "&deptcode=" . $clientCode;
+        // return $webstr;
+
+        $response = $this->validateAapaleSarkarPayment($url);
+
+        $response = json_decode($response);
+        // echo $response->Key."<br>";
+        // print_r($response);exit;
+        if ($response->Key != "") {
+            $url = $serviceCredential->out_payment_url . "?webstr=" . $webstr . "&DeptCode=" . $clientCode . "&Authentication=" . $response->Key;
+            // echo $url;exit;
+            return redirect($url);
+        } else {
+            abort(500);
+        }
     }
 }

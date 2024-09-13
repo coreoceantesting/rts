@@ -98,24 +98,8 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('service/{id}', [DashboardController::class, 'subService'])->name('service.my-service');
     Route::get('my-application', [DashboardController::class, 'myApplication'])->name('my-application');
+    Route::get('generate-payment-url', [DashboardController::class, 'generatePaymentUrl'])->name('generate-payment-url');
 
-
-
-    // Users Roles n Permissions
-    // Route::resource('users', App\Http\Controllers\Admin\UserController::class);
-    // Route::get('users/{user}/toggle', [App\Http\Controllers\Admin\UserController::class, 'toggle'])->name('users.toggle');
-    // Route::get('users/{user}/retire', [App\Http\Controllers\Admin\UserController::class, 'retire'])->name('users.retire');
-    // Route::put('users/{user}/change-password', [App\Http\Controllers\Admin\UserController::class, 'changePassword'])->name('users.change-password');
-    // Route::get('users/{user}/get-role', [App\Http\Controllers\Admin\UserController::class, 'getRole'])->name('users.get-role');
-    // Route::put('users/{user}/assign-role', [App\Http\Controllers\Admin\UserController::class, 'assignRole'])->name('users.assign-role');
-    // Route::resource('roles', App\Http\Controllers\Admin\RoleController::class);
-
-
-    // Route::get('marriage-registration-certificate/list', [MarriageController::class, 'list'])->name('marriage.list');
-    // Route::get('marriage-registration-certificate/add', [MarriageController::class, 'add'])->name('marriage.add');
-    // Route::post('marriage-registration-certificate/store', [MarriageController::class, 'store'])->name('marriage.store');
-    // Route::get('marriage-registration-certificate/edit/{id}', [MarriageController::class, 'edit'])->name('marriage.edit');
-    // Route::put('marriage-registration-certificate/update', [MarriageController::class, 'update'])->name('marriage.update');
 
     // start of marriage registration form
     Route::post('marriage-registration/store-marriage-registration-form', [MarriageController::class, 'storeMarriageRegistrationForm'])->name('marriage-registration.store-marriage-registration-form');

@@ -48,6 +48,7 @@ class AapaleSarkarLoginCheckController extends Controller
             // condition for logic if we get success
             if ($check[0]) {
                 $data = $check[1];
+                // return $data;
                 if (isset($data['UserID']) && !empty($data['UserID'])) {
                     // Query the database to check if the user exists
                     $existingUser = User::where('user_id', $data['UserID'])->first();

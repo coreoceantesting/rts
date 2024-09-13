@@ -40,10 +40,12 @@
                                     <td>{{ (array_key_exists($data->service_id, $serviceName)) ? $serviceName[$data->service_id] : '' }}</td>
                                     <td>{{ date('d-m-Y h:i A', strtotime($data->created_at)) }}</td>
                                     <td>
-                                        @if(!$data->payment_date)
-                                        <button class="btn btn-primary btn-sm">Make Payment</button>
+                                        @if(!$data->is_payment_paid)
+                                        <a href="{{ route('generate-payment-url', ['service_id' => $data->service_id, 'application_no' => $data->application_no]) }}" class="btn btn-primary btn-sm">Make Payment To Aapale Sarkar</a>
+                                        {{-- @elseif(!$data->is_payment_paid_aapale_sarkar)
+                                        <a href="{{ route('generate-payment-url', ['service_id' => $data->service_id, 'application_no' => $data->application_no]) }}" class="btn btn-primary btn-sm">Make Payment To Aapale Sarkar</a> --}}
                                         @else
-                                        -
+                                        Payment Paid
                                         @endif
                                     </td>
                                     <td>{{ ($data->payment_date) ? date('d-m-Y', strtotime($data->payment_date)) : '-' }}</td>
@@ -62,7 +64,13 @@
                                         <span class="badge bg-warning">Pending</span>
                                         @endif
                                     </td>
-                                    <td><a href="{{ (array_key_exists($data->service_id, $editRoute) && $editRoute[$data->service_id] != "") ? route($editRoute[$data->service_id], encrypt($data->id)) : '#' }}" class="btn btn-primary btn-sm p-1">Edit</a></td>
+                                    <td>
+                                        @if($data->status <= 3)
+                                        <a href="{{ (array_key_exists($data->service_id, $editRoute) && $editRoute[$data->service_id] != "") ? route($editRoute[$data->service_id], encrypt($data->id)) : '#' }}" class="btn btn-primary btn-sm p-1">Edit</a>
+                                        @else
+                                        -
+                                        @endif
+                                    </td>
                                 </tr>
                                 @empty
                                 <tr align="center">
