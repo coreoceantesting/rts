@@ -33,8 +33,61 @@ class DashboardController extends Controller
         }
     }
 
-    public function myApplication()
+    public function myApplication(Request $request)
     {
+
+        if (Auth::user()->is_aapale_sarkar_user) {
+            $str = $request->str;
+
+            $strKeys = "@pn@PNM@m@h@0nl!ne@23523";
+            $strIVs = "PNM@05@3";
+
+            // decrypt data and get the reponse data from aapale sarkar
+            $check = $this->aapaleSarkarLoginCheckService->decryptTripleDES($str, $strKeys, $strIVs);
+
+            $rowData = explode('|', $check);
+
+            if (count($rowData) > 0) {
+                if (count($rowData) == 10) {
+                    if ($rowData[8] == "True") {
+                        AapaleSarkarPaymentDetails::create([
+                            'client_code' => $rowData[0],
+                            'service_id' => $rowData[1],
+                            'application_no' => $rowData[2],
+                            'payment_transaction_id' => $rowData[3],
+                            'bank_ref_id' => $rowData[4],
+                            'bank_ref_no' => $rowData[5],
+                            'bank_id' => $rowData[6],
+                            'payment_date' => $rowData[7],
+                            'payment_status' => $rowData[8],
+                            'total_amount' => $rowData[9],
+                        ]);
+
+                        $serviceDeptId = ServiceCredential::where('service_id', $rowData[1])->value('dept_service_id');
+                        $model = ServiceName::where('service_id', $serviceDeptId)->value('model');
+
+                        $model::where('application_no', $rowData[2])->update([
+                            'is_payment_paid_aapale_sarkar' => 1,
+                            'aapale_sarkar_payment_date' => date('Y-m-d')
+                        ]);
+
+
+                        $aapaleSarkarCredential = ServiceCredential::where('dept_service_id', $serviceDeptId)->first();
+                        $serviceDay = ($aapaleSarkarCredential->service_day) ? $aapaleSarkarCredential->service_day : 20;
+
+                        $send = $this->aapaleSarkarLoginCheckService->encryptAndSendRequestToAapaleSarkar(Auth::user()->trackid, $aapaleSarkarCredential->client_code, Auth::user()->user_id, $aapaleSarkarCredential->service_id, $rowData[2], 'N', 'NA', 'N', 'NA', $serviceDay, date('Y-m-d', strtotime("+$serviceDay days")), config('rtsapiurl.amount'), config('rtsapiurl.requestFlag'), 3, "Under Scrutiny", $aapaleSarkarCredential->ulb_id, $aapaleSarkarCredential->ulb_district, 'NA', 'NA', 'NA', $aapaleSarkarCredential->check_sum_key, $aapaleSarkarCredential->str_key, $aapaleSarkarCredential->str_iv, $aapaleSarkarCredential->soap_end_point_url, $aapaleSarkarCredential->soap_action_app_status_url);
+
+                        if ($send) {
+                            return redirect()->route('my-application');
+                        } else {
+                            \Log::error('Payment verification failed for Aapale Sarkar');
+                        }
+                    }
+                }
+            }
+        }
+
+
         $serviceName = ServiceName::pluck('service_name', 'service_id')->toArray();
 
         $editRoute = ServiceName::pluck('edit_route', 'service_id')->toArray();
@@ -65,7 +118,7 @@ class DashboardController extends Controller
     public function generatePaymentUrl(Request $request)
     {
         $paymentUrl = $this->aapaleSarkarLoginCheckService->makePaymentToAapaleSarkar($request);
-        return $paymentUrl;
+
         if ($paymentUrl) {
             return redirect($paymentUrl);
         } else {
@@ -77,11 +130,12 @@ class DashboardController extends Controller
     {
         $str = $request->str;
 
-        $strKey = "@pn@PNM@m@h@0nl!ne@23523";
-        $strIV = "PNM@05@3";
+        $strKeys = "@pn@PNM@m@h@0nl!ne@23523";
+        $strIVs = "PNM@05@3";
 
         // decrypt data and get the reponse data from aapale sarkar
-        $check = $this->aapaleSarkarLoginCheckService->decryptTripleDES($str, $strKey, $strIV);
+        $check = $this->aapaleSarkarLoginCheckService->decryptTripleDES($str, $strKeys, $strIVs);
+
         $rowData = explode('|', $check);
 
         if (count($rowData) > 0) {
@@ -99,15 +153,27 @@ class DashboardController extends Controller
                         'payment_status' => $rowData[8],
                         'total_amount' => $rowData[9],
                     ]);
-                    // $data = ['is_aapale_sarkar_payment_paid' => 1, 'aaple_sarkar_payment_date' => date('Y-m-d'), 'aaple_sarkar_service_day' => '20'];
-                    // $this->db->where('request_no', $rowData[2])->where('deleted_dt', null)->update('reg_marriage_permission', $data);
 
-                    return redirect()->route('my-application');
+                    $serviceDeptId = ServiceCredential::where('service_id', $rowData[1])->value('dept_service_id');
+                    $model = ServiceName::where('service_id', $serviceDeptId)->value('model');
+
+                    $model::where('application_no', $rowData[2])->update([
+                        'is_payment_paid_aapale_sarkar' => 1,
+                        'aapale_sarkar_payment_date' => date('Y-m-d')
+                    ]);
+
+                    $aapaleSarkarCredential = ServiceCredential::where('dept_service_id', $serviceDeptId)->first();
+                    $serviceDay = ($aapaleSarkarCredential->service_day) ? $aapaleSarkarCredential->service_day : 20;
+
+                    $send = $this->aapaleSarkarLoginCheckService->encryptAndSendRequestToAapaleSarkar(Auth::user()->trackid, $aapaleSarkarCredential->client_code, Auth::user()->user_id, $aapaleSarkarCredential->service_id, $rowData[2], 'N', 'NA', 'N', 'NA', $serviceDay, date('Y-m-d', strtotime("+$serviceDay days")), config('rtsapiurl.amount'), config('rtsapiurl.requestFlag'), 3, "Under Scrutiny", $aapaleSarkarCredential->ulb_id, $aapaleSarkarCredential->ulb_district, 'NA', 'NA', 'NA', $aapaleSarkarCredential->check_sum_key, $aapaleSarkarCredential->str_key, $aapaleSarkarCredential->str_iv, $aapaleSarkarCredential->soap_end_point_url, $aapaleSarkarCredential->soap_action_app_status_url);
+
+                    if ($send) {
+                        return redirect()->route('my-application');
+                    } else {
+                        \Log::error('Payment verification failed for Aapale Sarkar');
+                    }
                 }
             } elseif (count($rowData) == 4) {
-                // $data = ['is_aapale_sarkar_payment_paid' => 1, 'aaple_sarkar_payment_date' => date('Y-m-d'), 'aaple_sarkar_service_day' => '20'];
-                // $this->db->where('user_id', $rowData[0])->where('deleted_dt', null)->update('reg_marriage_permission', $data);
-
                 return redirect()->route('my-application');
             }
         } else {
@@ -116,6 +182,7 @@ class DashboardController extends Controller
 
         return redirect()->route('my-application');
     }
+
 
     public function subService(Request $request, $id)
     {

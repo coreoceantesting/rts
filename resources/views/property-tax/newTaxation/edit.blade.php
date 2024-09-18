@@ -70,8 +70,8 @@
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
                                     <select class="form-select" name="zone" id="zone">
                                         <option value="">Select Zone</option>
-                                        @foreach($wards as $ward)
-                                        <option {{ ($newTax->zone == $ward->name) ? 'selected' : '' }} value="{{ $ward->name }}">{{ $ward->name }}</option>
+                                        @foreach($zones as $zone)
+                                        <option {{ ($newTax->zone == $zone->name) ? 'selected' : '' }} value="{{ $zone->name }}">{{ $zone->name }}</option>
                                         @endforeach
                                     </select>
                                     <span class="text-danger is-invalid zone_err"></span>
@@ -81,7 +81,7 @@
                                     <select class="form-select" name="ward_area" id="ward_area">
                                         <option value="">Select Ward Area</option>
                                         @foreach($wards as $ward)
-                                        <option {{ ($newTax->ward_area == $ward->name) ? 'selected' : '' }} value="{{ $option }}">{{ $option }}</option>
+                                        <option {{ ($newTax->ward_area == $ward->name) ? 'selected' : '' }} value="{{ $ward->name }}">{{ $ward->name }}</option>
                                         @endforeach
                                     </select>
                                     <span class="text-danger is-invalid ward_area_err"></span>

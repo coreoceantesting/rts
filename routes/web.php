@@ -99,6 +99,7 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::get('service/{id}', [DashboardController::class, 'subService'])->name('service.my-service');
     Route::get('my-application', [DashboardController::class, 'myApplication'])->name('my-application');
     Route::get('generate-payment-url', [DashboardController::class, 'generatePaymentUrl'])->name('generate-payment-url');
+    Route::get('payment-return-url', [DashboardController::class, 'paymentReturnUrl'])->name('payment-return-url');
 
 
     // start of marriage registration form

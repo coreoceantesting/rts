@@ -19,7 +19,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="buttons-datatables" class="table table-bordered nowrap align-middle" style="width:100%">
+                        <table id="alternative-pagination" class="table table-bordered nowrap align-middle" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>Sr No</th>
@@ -40,7 +40,7 @@
                                     <td>{{ (array_key_exists($data->service_id, $serviceName)) ? $serviceName[$data->service_id] : '' }}</td>
                                     <td>{{ date('d-m-Y h:i A', strtotime($data->created_at)) }}</td>
                                     <td>
-                                        @if(!$data->is_payment_paid)
+                                        @if(!$data->is_payment_paid_aapale_sarkar)
                                         <a href="{{ route('generate-payment-url', ['service_id' => $data->service_id, 'application_no' => $data->application_no]) }}" class="btn btn-primary btn-sm">Make Payment To Aapale Sarkar</a>
                                         {{-- @elseif(!$data->is_payment_paid_aapale_sarkar)
                                         <a href="{{ route('generate-payment-url', ['service_id' => $data->service_id, 'application_no' => $data->application_no]) }}" class="btn btn-primary btn-sm">Make Payment To Aapale Sarkar</a> --}}

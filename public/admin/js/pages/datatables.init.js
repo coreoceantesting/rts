@@ -8,6 +8,7 @@ function initializeTables() {
         new DataTable("#scroll-horizontal", { scrollX: !0 }),
         new DataTable("#alternative-pagination", {
             pagingType: "full_numbers",
+            autoWidth: true,
         }),
         new DataTable("#fixed-header", { fixedHeader: !0 }),
         new DataTable("#model-datatables", {

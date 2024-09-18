@@ -295,7 +295,7 @@ class AapaleSarkarLoginCheckService
         $ud4 = "NA";
         $ud5 = "NA";
         $checkSumKey = $serviceCredential->check_sum_key;
-        $returnPath = route('my-application');
+        $returnPath = route('payment-return-url');
 
         $request1 = sprintf("%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s", $trackId, $clientCode, $userId, $serviceId, $applicationId, $paymentStatus, $paymentDate, $digitalSignStatus, $digitalSignDate, $estimateServiceDays, $estimateServiceDate, $amount, $requestFlag, $applicationStatus, $remark, $ud1, $ud2, $ud3, $ud4, $ud5, $checkSumKey);
         $checksumvalue = $this->generateCheckSumValue($request1);
@@ -313,7 +313,7 @@ class AapaleSarkarLoginCheckService
         if ($response->Key != "") {
             $url = $serviceCredential->out_payment_url . "?webstr=" . $webstr . "&DeptCode=" . $clientCode . "&Authentication=" . $response->Key;
             // echo $url;exit;
-            return redirect($url);
+            return $url;
         } else {
             abort(500);
         }
