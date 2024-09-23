@@ -88,6 +88,7 @@ Route::get('rts-service', [AapaleSarkarLoginCheckController::class, 'check'])->n
 
 
 // Authenticated users
+Route::get('my-application', [DashboardController::class, 'myApplication'])->name('my-application');
 Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(function () {
 
     // Auth Routes
@@ -97,7 +98,6 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::get('home', fn() => redirect()->route('dashboard'))->name('home');
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('service/{id}', [DashboardController::class, 'subService'])->name('service.my-service');
-    Route::get('my-application', [DashboardController::class, 'myApplication'])->name('my-application');
     Route::get('generate-payment-url', [DashboardController::class, 'generatePaymentUrl'])->name('generate-payment-url');
     Route::get('payment-return-url', [DashboardController::class, 'paymentReturnUrl'])->name('payment-return-url');
 
