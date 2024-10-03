@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class WaterChangeInUse extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'user_id',
         'service_id',

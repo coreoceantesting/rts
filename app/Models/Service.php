@@ -9,5 +9,5 @@ class Service extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['service_id', 'name', 'image', 'is_parent', 'route_name', 'background_color'];
+    protected $fillable = ['service_id', 'name', 'image', 'is_parent', 'route_name', 'table_name', 'background_color'];
 }
