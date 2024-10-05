@@ -25,7 +25,29 @@ class DashboardController extends Controller
     public function index()
     {
         if (Auth::user()->hasRole('Super Admin')) {
-            return view('home.dashboard');
+            $services = Service::with(['services'])->where('is_parent', 0)->get();
+            // return $services;
+            $data = [];
+            foreach ($services as $service) {
+                foreach ($service->services as $ser) {
+                    $name = $ser->name;
+                    $mainServiceId = $service->id;
+                    $serviceId = $ser->id;
+                    $tableData = ($ser->table_name) ? DB::table($ser->table_name)->select('user_id', 'status', DB::raw('DATE(created_at) as created_at'), DB::raw('DATE_FORMAT(created_at, "%Y-%m") as yearmonth'), DB::raw('? as main_service_id'), DB::raw('? as service_id'), DB::raw('? as name'))->setBindings([$mainServiceId, $serviceId, $name])->get() : null;
+
+                    if ($tableData && count($tableData) > 0) {
+                        foreach ($tableData as $serviceData) {
+                            // $data[] = [$serviceData, 'user_id' => DB::table('users')->where('id', $serviceData->user_id)->value('is_aapale_sarkar_user')];
+                            $data[] = array_merge((array)$serviceData, ['user_id' => DB::table('users')->where('id', $serviceData->user_id)->value('is_aapale_sarkar_user')]);
+                        }
+                    }
+                }
+            }
+            // return $data;
+            return view('home.dashboard')->with([
+                'services' => $services,
+                'data' => collect($data)
+            ]);
         } else {
             $services = Service::where('is_parent', 0)->get();
 

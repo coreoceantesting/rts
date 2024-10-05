@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('services', function (Blueprint $table) {
-            $table->boolean('table_name')->nullable()->after('route_name');
+            $table->string('table_name')->nullable()->after('route_name');
         });
     }
 

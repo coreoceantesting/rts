@@ -10,4 +10,9 @@ class Service extends Model
     use HasFactory;
 
     protected $fillable = ['service_id', 'name', 'image', 'is_parent', 'route_name', 'table_name', 'background_color'];
+
+    public function services()
+    {
+        return $this->hasMany(Service::class, 'service_id', 'id');
+    }
 }

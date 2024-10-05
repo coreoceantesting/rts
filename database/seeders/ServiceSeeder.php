@@ -681,6 +681,7 @@ class ServiceSeeder extends Seeder
                 'name' => $service['name'],
                 'image' => $service['image'],
                 'is_parent' => $service['is_parent'],
+                'table_name' => $service['table_name'],
                 'route_name' => $service['route_name'],
                 'background_color' => $service['background_color'],
                 'created_at' => $service['created_at'],
