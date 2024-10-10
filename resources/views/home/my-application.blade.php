@@ -40,7 +40,7 @@
                                     <td>{{ (array_key_exists($data->service_id, $serviceName)) ? $serviceName[$data->service_id] : '' }}</td>
                                     <td>{{ date('d-m-Y h:i A', strtotime($data->created_at)) }}</td>
                                     <td>
-                                        @if(!$data->is_payment_paid_aapale_sarkar)
+                                        @if(!$data->is_payment_paid_aapale_sarkar && $data->is_aapale_sarkar_user)
                                         <a href="{{ route('generate-payment-url', ['service_id' => $data->service_id, 'application_no' => $data->application_no]) }}" class="btn btn-primary btn-sm">Make Payment To Aapale Sarkar</a>
                                         {{-- @elseif(!$data->is_payment_paid_aapale_sarkar)
                                         <a href="{{ route('generate-payment-url', ['service_id' => $data->service_id, 'application_no' => $data->application_no]) }}" class="btn btn-primary btn-sm">Make Payment To Aapale Sarkar</a> --}}
