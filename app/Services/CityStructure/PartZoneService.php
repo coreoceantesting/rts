@@ -27,7 +27,9 @@ class PartZoneService
         DB::beginTransaction();
 
         try {
-            $user_id = Auth::user()->id;
+            $request['user_id'] = Auth::user()->id;
+
+            $request['service_id'] = "186";
             // Handle file uploads and store original file names
             if ($request->hasFile('prescribed_formats')) {
                 $request['prescribed_format'] = $request->prescribed_formats->store('city-structure/part-map');
@@ -42,48 +44,49 @@ class PartZoneService
 
 
             // code to send data to department
-            if ($request->hasFile('prescribed_formats')) {
-                $request['prescribed_format'] = $this->curlAPiService->convertFileInBase64($request->file('prescribed_formats'));
-            } else {
-                $request['prescribed_format'] = "";
-            }
-            if ($request->hasFile('upload_city_survey_certificates')) {
-                $request['upload_city_survey_certificate'] = $this->curlAPiService->convertFileInBase64($request->file('upload_city_survey_certificates'));
-            } else {
-                $request['upload_city_survey_certificate'] = "";
-            }
-            if ($request->hasFile('upload_city_servey_maps')) {
-                $request['upload_city_servey_map'] = $this->curlAPiService->convertFileInBase64($request->file('upload_city_servey_maps'));
-            } else {
-                $request['upload_city_servey_map'] = "";
-            }
-            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
-            $newData = $request->except(['_token', 'prescribed_formats', 'upload_city_survey_certificates', 'upload_city_servey_maps']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForNewTaxation', 'NewTaxation');
+            // if ($request->hasFile('prescribed_formats')) {
+            //     $request['prescribed_format'] = $this->curlAPiService->convertFileInBase64($request->file('prescribed_formats'));
+            // } else {
+            //     $request['prescribed_format'] = "";
+            // }
+            // if ($request->hasFile('upload_city_survey_certificates')) {
+            //     $request['upload_city_survey_certificate'] = $this->curlAPiService->convertFileInBase64($request->file('upload_city_survey_certificates'));
+            // } else {
+            //     $request['upload_city_survey_certificate'] = "";
+            // }
+            // if ($request->hasFile('upload_city_servey_maps')) {
+            //     $request['upload_city_servey_map'] = $this->curlAPiService->convertFileInBase64($request->file('upload_city_servey_maps'));
+            // } else {
+            //     $request['upload_city_servey_map'] = "";
+            // }
+            // $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            // $newData = $request->except(['_token', 'prescribed_formats', 'upload_city_survey_certificates', 'upload_city_servey_maps']);
+            // $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForNewTaxation', 'NewTaxation');
 
-            // Decode JSON string to PHP array
-            $data = json_decode($data, true);
-            if ($data['d']['Status'] == "200") {
-                // Access the application_no
-                $applicationId = $data['d']['application_no'];
-                CityStructurePartMap::where('id', $cityStructurePartMap->id)->update([
-                    'application_no' => $applicationId
-                ]);
+            // // Decode JSON string to PHP array
+            // $data = json_decode($data, true);
+            // if ($data['d']['Status'] == "200") {
+            // Access the application_no
+            // $applicationId = $data['d']['application_no'];
+            $applicationId = "PMCPZ-" . time();
+            CityStructurePartMap::where('id', $cityStructurePartMap->id)->update([
+                'application_no' => $applicationId
+            ]);
 
-                if (Auth::user()->is_aapale_sarkar_user) {
-                    $aapaleSarkarCredential = ServiceCredential::where('dept_service_id', $request->service_id)->first();
-                    $serviceDay = ($aapaleSarkarCredential->service_day) ? $aapaleSarkarCredential->service_day : 20;
+            if (Auth::user()->is_aapale_sarkar_user) {
+                $aapaleSarkarCredential = ServiceCredential::where('dept_service_id', $request->service_id)->first();
+                $serviceDay = ($aapaleSarkarCredential->service_day) ? $aapaleSarkarCredential->service_day : 20;
 
-                    $send = $this->aapaleSarkarLoginCheckService->encryptAndSendRequestToAapaleSarkar(Auth::user()->trackid, $aapaleSarkarCredential->client_code, Auth::user()->user_id, $aapaleSarkarCredential->service_id, $applicationId, 'N', 'NA', 'N', 'NA', $serviceDay, date('Y-m-d', strtotime("+$serviceDay days")), config('rtsapiurl.amount'), config('rtsapiurl.requestFlag'), config('rtsapiurl.applicationStatus'), config('rtsapiurl.applicationPendingStatusTxt'), $aapaleSarkarCredential->ulb_id, $aapaleSarkarCredential->ulb_district, 'NA', 'NA', 'NA', $aapaleSarkarCredential->check_sum_key, $aapaleSarkarCredential->str_key, $aapaleSarkarCredential->str_iv, $aapaleSarkarCredential->soap_end_point_url, $aapaleSarkarCredential->soap_action_app_status_url);
+                $send = $this->aapaleSarkarLoginCheckService->encryptAndSendRequestToAapaleSarkar(Auth::user()->trackid, $aapaleSarkarCredential->client_code, Auth::user()->user_id, $aapaleSarkarCredential->service_id, $applicationId, 'N', 'NA', 'N', 'NA', $serviceDay, date('Y-m-d', strtotime("+$serviceDay days")), config('rtsapiurl.amount'), config('rtsapiurl.requestFlag'), config('rtsapiurl.applicationStatus'), config('rtsapiurl.applicationPendingStatusTxt'), $aapaleSarkarCredential->ulb_id, $aapaleSarkarCredential->ulb_district, 'NA', 'NA', 'NA', $aapaleSarkarCredential->check_sum_key, $aapaleSarkarCredential->str_key, $aapaleSarkarCredential->str_iv, $aapaleSarkarCredential->soap_end_point_url, $aapaleSarkarCredential->soap_action_app_status_url);
 
-                    if (!$send) {
-                        return false;
-                    }
+                if (!$send) {
+                    return false;
                 }
-            } else {
-                DB::rollback();
-                return false;
             }
+            // } else {
+            //     DB::rollback();
+            //     return false;
+            // }
             // end of code to send data to department
 
             DB::commit();
@@ -131,37 +134,37 @@ class PartZoneService
 
 
             // code to send data to department
-            if ($request->hasFile('prescribed_formats')) {
-                $request['prescribed_format'] = $this->curlAPiService->convertFileInBase64($request->file('prescribed_formats'));
-            } else {
-                $request['prescribed_format'] = "";
-            }
-            if ($request->hasFile('upload_city_survey_certificates')) {
-                $request['upload_city_survey_certificate'] = $this->curlAPiService->convertFileInBase64($request->file('upload_city_survey_certificates'));
-            } else {
-                $request['upload_city_survey_certificate'] = "";
-            }
-            if ($request->hasFile('upload_city_servey_maps')) {
-                $request['upload_city_servey_map'] = $this->curlAPiService->convertFileInBase64($request->file('upload_city_servey_maps'));
-            } else {
-                $request['upload_city_servey_map'] = "";
-            }
-            $request['application_no'] = $cityStructurePartMap->application_no;
-            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
-            $newData = $request->except(['_token', 'id', 'prescribed_formats', 'upload_city_survey_certificates', 'upload_city_servey_maps']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForUpdateNewTaxation', 'NewTaxation');
+            // if ($request->hasFile('prescribed_formats')) {
+            //     $request['prescribed_format'] = $this->curlAPiService->convertFileInBase64($request->file('prescribed_formats'));
+            // } else {
+            //     $request['prescribed_format'] = "";
+            // }
+            // if ($request->hasFile('upload_city_survey_certificates')) {
+            //     $request['upload_city_survey_certificate'] = $this->curlAPiService->convertFileInBase64($request->file('upload_city_survey_certificates'));
+            // } else {
+            //     $request['upload_city_survey_certificate'] = "";
+            // }
+            // if ($request->hasFile('upload_city_servey_maps')) {
+            //     $request['upload_city_servey_map'] = $this->curlAPiService->convertFileInBase64($request->file('upload_city_servey_maps'));
+            // } else {
+            //     $request['upload_city_servey_map'] = "";
+            // }
+            // $request['application_no'] = $cityStructurePartMap->application_no;
+            // $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            // $newData = $request->except(['_token', 'id', 'prescribed_formats', 'upload_city_survey_certificates', 'upload_city_servey_maps']);
+            // $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForUpdateNewTaxation', 'NewTaxation');
 
-            // Decode JSON string to PHP array
-            $data = json_decode($data, true);
+            // // Decode JSON string to PHP array
+            // $data = json_decode($data, true);
 
-            if ($data['d']['Status'] == "200") {
-                // Access the application_no
-                DB::commit();
-                return true;
-            } else {
-                DB::rollback();
-                return false;
-            }
+            // if ($data['d']['Status'] == "200") {
+            // Access the application_no
+            DB::commit();
+            return true;
+            // } else {
+            //     DB::rollback();
+            //     return false;
+            // }
             // end of code to send data to department
         } catch (\Exception $e) {
             DB::rollback();

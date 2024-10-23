@@ -61,24 +61,24 @@
                                 </div>
 
                                 <div class="col-md-4 mb-2">
-                                    <label class="col-form-label" for="prescribed_format">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="prescribed_format" name="prescribed_formats" type="file" >
+                                    <label class="col-form-label" for="prescribed_formats">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="prescribed_formats" name="prescribed_formats" type="file" >
                                     <small><a href="{{ asset('storage/' . $data->prescribed_format) }}" target="_blank">View Document</a></small>
-                                    <span class="text-danger is-invalid prescribed_format_err"></span>
+                                    <span class="text-danger is-invalid prescribed_formats_err"></span>
                                 </div>
 
                                 <div class="col-md-4 mb-2">
-                                    <label class="col-form-label" for="upload_city_survey_certificate">Upload 7/12 Utara or City Servey Utara / अपलोड ७/१२ उतारा किंवा सिटी सर्व्हे नकाशा उतारा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="upload_city_survey_certificate" name="upload_city_survey_certificates" type="file" >
+                                    <label class="col-form-label" for="upload_city_survey_certificates">Upload 7/12 Utara or City Servey Utara / अपलोड ७/१२ उतारा किंवा सिटी सर्व्हे नकाशा उतारा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="upload_city_survey_certificates" name="upload_city_survey_certificates" type="file" >
                                     <small><a href="{{ asset('storage/' . $data->upload_city_survey_certificate) }}" target="_blank">View Document</a></small>
-                                    <span class="text-danger is-invalid upload_city_survey_certificate_err"></span>
+                                    <span class="text-danger is-invalid upload_city_survey_certificates_err"></span>
                                 </div>
 
                                 <div class="col-md-4 mb-2">
-                                    <label class="col-form-label" for="upload_city_servey_map">Calculation map or City Servey Map / मोजणी नकाशा किंवा सिटी सर्व्हे नकाशा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="upload_city_servey_map" name="upload_city_servey_maps" type="file" >
+                                    <label class="col-form-label" for="upload_city_servey_maps">Calculation map or City Servey Map / मोजणी नकाशा किंवा सिटी सर्व्हे नकाशा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="upload_city_servey_maps" name="upload_city_servey_maps" type="file" >
                                     <small><a href="{{ asset('storage/' . $data->upload_city_servey_map) }}" target="_blank">View Document</a></small>
-                                    <span class="text-danger is-invalid upload_city_servey_map_err"></span>
+                                    <span class="text-danger is-invalid upload_city_servey_maps_err"></span>
                                 </div>
 
 

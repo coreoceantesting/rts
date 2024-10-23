@@ -28,6 +28,7 @@ class DrainageConnectionService
 
         try {
             $request['user_id'] = Auth::user()->id;
+            $request['service_id'] = "188";
             // Handle file uploads and store original file names
             if ($request->hasFile('upload_prescribed_formats')) {
                 $request['upload_prescribed_format'] = $request->upload_prescribed_formats->store('construction-department/drainage-connection');
@@ -42,48 +43,48 @@ class DrainageConnectionService
 
 
             // code to send data to department
-            if ($request->hasFile('upload_prescribed_formats')) {
-                $request['upload_prescribed_format'] = $this->curlAPiService->convertFileInBase64($request->file('upload_prescribed_formats'));
-            } else {
-                $request['upload_prescribed_format'] = "";
-            }
-            if ($request->hasFile('upload_no_dues_certificates')) {
-                $request['upload_no_dues_certificate'] = $this->curlAPiService->convertFileInBase64($request->file('upload_no_dues_certificates'));
-            } else {
-                $request['upload_no_dues_certificate'] = "";
-            }
-            if ($request->hasFile('upload_property_ownerships')) {
-                $request['upload_property_ownership'] = $this->curlAPiService->convertFileInBase64($request->file('upload_property_ownerships'));
-            } else {
-                $request['upload_property_ownership'] = "";
-            }
-            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
-            $newData = $request->except(['_token', 'upload_prescribed_formats', 'upload_no_dues_certificates', 'upload_property_ownerships']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForNewTaxation', 'NewTaxation');
+            // if ($request->hasFile('upload_prescribed_formats')) {
+            //     $request['upload_prescribed_format'] = $this->curlAPiService->convertFileInBase64($request->file('upload_prescribed_formats'));
+            // } else {
+            //     $request['upload_prescribed_format'] = "";
+            // }
+            // if ($request->hasFile('upload_no_dues_certificates')) {
+            //     $request['upload_no_dues_certificate'] = $this->curlAPiService->convertFileInBase64($request->file('upload_no_dues_certificates'));
+            // } else {
+            //     $request['upload_no_dues_certificate'] = "";
+            // }
+            // if ($request->hasFile('upload_property_ownerships')) {
+            //     $request['upload_property_ownership'] = $this->curlAPiService->convertFileInBase64($request->file('upload_property_ownerships'));
+            // } else {
+            //     $request['upload_property_ownership'] = "";
+            // }
+            // $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            // $newData = $request->except(['_token', 'upload_prescribed_formats', 'upload_no_dues_certificates', 'upload_property_ownerships']);
+            // $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForNewTaxation', 'NewTaxation');
 
-            // Decode JSON string to PHP array
-            $data = json_decode($data, true);
-            if ($data['d']['Status'] == "200") {
-                // Access the application_no
-                $applicationId = $data['d']['application_no'];
-                ConstructionDrainageConnection::where('id', $constructionDrainageConnection->id)->update([
-                    'application_no' => $applicationId
-                ]);
+            // // Decode JSON string to PHP array
+            // $data = json_decode($data, true);
+            // if ($data['d']['Status'] == "200") {
+            // Access the application_no
+            $applicationId = "PMCCD-" . time();
+            ConstructionDrainageConnection::where('id', $constructionDrainageConnection->id)->update([
+                'application_no' => $applicationId
+            ]);
 
-                if (Auth::user()->is_aapale_sarkar_user) {
-                    $aapaleSarkarCredential = ServiceCredential::where('dept_service_id', $request->service_id)->first();
-                    $serviceDay = ($aapaleSarkarCredential->service_day) ? $aapaleSarkarCredential->service_day : 20;
+            if (Auth::user()->is_aapale_sarkar_user) {
+                $aapaleSarkarCredential = ServiceCredential::where('dept_service_id', $request->service_id)->first();
+                $serviceDay = ($aapaleSarkarCredential->service_day) ? $aapaleSarkarCredential->service_day : 20;
 
-                    $send = $this->aapaleSarkarLoginCheckService->encryptAndSendRequestToAapaleSarkar(Auth::user()->trackid, $aapaleSarkarCredential->client_code, Auth::user()->user_id, $aapaleSarkarCredential->service_id, $applicationId, 'N', 'NA', 'N', 'NA', $serviceDay, date('Y-m-d', strtotime("+$serviceDay days")), config('rtsapiurl.amount'), config('rtsapiurl.requestFlag'), config('rtsapiurl.applicationStatus'), config('rtsapiurl.applicationPendingStatusTxt'), $aapaleSarkarCredential->ulb_id, $aapaleSarkarCredential->ulb_district, 'NA', 'NA', 'NA', $aapaleSarkarCredential->check_sum_key, $aapaleSarkarCredential->str_key, $aapaleSarkarCredential->str_iv, $aapaleSarkarCredential->soap_end_point_url, $aapaleSarkarCredential->soap_action_app_status_url);
+                $send = $this->aapaleSarkarLoginCheckService->encryptAndSendRequestToAapaleSarkar(Auth::user()->trackid, $aapaleSarkarCredential->client_code, Auth::user()->user_id, $aapaleSarkarCredential->service_id, $applicationId, 'N', 'NA', 'N', 'NA', $serviceDay, date('Y-m-d', strtotime("+$serviceDay days")), config('rtsapiurl.amount'), config('rtsapiurl.requestFlag'), config('rtsapiurl.applicationStatus'), config('rtsapiurl.applicationPendingStatusTxt'), $aapaleSarkarCredential->ulb_id, $aapaleSarkarCredential->ulb_district, 'NA', 'NA', 'NA', $aapaleSarkarCredential->check_sum_key, $aapaleSarkarCredential->str_key, $aapaleSarkarCredential->str_iv, $aapaleSarkarCredential->soap_end_point_url, $aapaleSarkarCredential->soap_action_app_status_url);
 
-                    if (!$send) {
-                        return false;
-                    }
+                if (!$send) {
+                    return false;
                 }
-            } else {
-                DB::rollback();
-                return false;
             }
+            // } else {
+            //     DB::rollback();
+            //     return false;
+            // }
             // end of code to send data to department
 
             DB::commit();
@@ -132,37 +133,37 @@ class DrainageConnectionService
 
 
             // code to send data to department
-            if ($request->hasFile('upload_prescribed_formats')) {
-                $request['upload_prescribed_format'] = $this->curlAPiService->convertFileInBase64($request->file('upload_prescribed_formats'));
-            } else {
-                $request['upload_prescribed_format'] = "";
-            }
-            if ($request->hasFile('upload_no_dues_certificates')) {
-                $request['upload_no_dues_certificate'] = $this->curlAPiService->convertFileInBase64($request->file('upload_no_dues_certificates'));
-            } else {
-                $request['upload_no_dues_certificate'] = "";
-            }
-            if ($request->hasFile('upload_property_ownerships')) {
-                $request['upload_property_ownership'] = $this->curlAPiService->convertFileInBase64($request->file('upload_property_ownerships'));
-            } else {
-                $request['upload_property_ownership'] = "";
-            }
-            $request['application_no'] = $constructionDrainageConnection->application_no;
-            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
-            $newData = $request->except(['_token', 'id', 'upload_prescribed_formats', 'upload_no_dues_certificates', 'upload_property_ownerships']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForUpdateNewTaxation', 'NewTaxation');
+            // if ($request->hasFile('upload_prescribed_formats')) {
+            //     $request['upload_prescribed_format'] = $this->curlAPiService->convertFileInBase64($request->file('upload_prescribed_formats'));
+            // } else {
+            //     $request['upload_prescribed_format'] = "";
+            // }
+            // if ($request->hasFile('upload_no_dues_certificates')) {
+            //     $request['upload_no_dues_certificate'] = $this->curlAPiService->convertFileInBase64($request->file('upload_no_dues_certificates'));
+            // } else {
+            //     $request['upload_no_dues_certificate'] = "";
+            // }
+            // if ($request->hasFile('upload_property_ownerships')) {
+            //     $request['upload_property_ownership'] = $this->curlAPiService->convertFileInBase64($request->file('upload_property_ownerships'));
+            // } else {
+            //     $request['upload_property_ownership'] = "";
+            // }
+            // $request['application_no'] = $constructionDrainageConnection->application_no;
+            // $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            // $newData = $request->except(['_token', 'id', 'upload_prescribed_formats', 'upload_no_dues_certificates', 'upload_property_ownerships']);
+            // $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForUpdateNewTaxation', 'NewTaxation');
 
-            // Decode JSON string to PHP array
-            $data = json_decode($data, true);
+            // // Decode JSON string to PHP array
+            // $data = json_decode($data, true);
 
-            if ($data['d']['Status'] == "200") {
-                // Access the application_no
-                DB::commit();
-                return true;
-            } else {
-                DB::rollback();
-                return false;
-            }
+            // if ($data['d']['Status'] == "200") {
+            // Access the application_no
+            DB::commit();
+            return true;
+            // } else {
+            //     DB::rollback();
+            //     return false;
+            // }
             // end of code to send data to department
         } catch (\Exception $e) {
             DB::rollback();

@@ -90,7 +90,6 @@ class TransferPropertyCertificateRequest extends FormRequest
             'aadhar_no.required' => 'Please enter aadhar no',
             'property_owner_name.required' => 'Please enter property owner name',
             'property_address.required' => 'Please enter property address',
-            'survey_number.required' => 'Please enter survey name',
             'zone.required' => 'Please select zone',
             'ward_area.required' => 'Please select ward',
             'property_no.required' => 'Please enter property no',

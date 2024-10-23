@@ -28,6 +28,7 @@ class NoObjectionService
 
         try {
             $request['user_id'] = Auth::user()->id;
+            $request['service_id'] = "183";
             // Handle file uploads and store original file names
             if ($request->hasFile('uploaded_applications')) {
                 $request['uploaded_application'] = $request->uploaded_applications->store('fire-department/no-objection');
@@ -49,58 +50,59 @@ class NoObjectionService
 
 
             // code to send data to department
-            if ($request->hasFile('uploaded_applications')) {
-                $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
-            } else {
-                $request['uploaded_application'] = "";
-            }
-            if ($request->hasFile('no_dues_documents')) {
-                $request['no_dues_document'] = $this->curlAPiService->convertFileInBase64($request->file('no_dues_documents'));
-            } else {
-                $request['no_dues_document'] = "";
-            }
-            if ($request->hasFile('architect_application_documents')) {
-                $request['architect_application_document'] = $this->curlAPiService->convertFileInBase64($request->file('architect_application_documents'));
-            } else {
-                $request['architect_application_document'] = "";
-            }
-            if ($request->hasFile('fire_prevention_documents')) {
-                $request['fire_prevention_document'] = $this->curlAPiService->convertFileInBase64($request->file('fire_prevention_documents'));
-            } else {
-                $request['fire_prevention_document'] = "";
-            }
-            if ($request->hasFile('capitation_fee_documents')) {
-                $request['capitation_fee_document'] = $this->curlAPiService->convertFileInBase64($request->file('capitation_fee_documents'));
-            } else {
-                $request['capitation_fee_document'] = "";
-            }
-            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
-            $newData = $request->except(['_token', 'uploaded_applications', 'no_dues_documents', 'architect_application_documents', 'fire_prevention_documents', 'capitation_fee_documents']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForNewTaxation', 'NewTaxation');
+            // if ($request->hasFile('uploaded_applications')) {
+            //     $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+            // } else {
+            //     $request['uploaded_application'] = "";
+            // }
+            // if ($request->hasFile('no_dues_documents')) {
+            //     $request['no_dues_document'] = $this->curlAPiService->convertFileInBase64($request->file('no_dues_documents'));
+            // } else {
+            //     $request['no_dues_document'] = "";
+            // }
+            // if ($request->hasFile('architect_application_documents')) {
+            //     $request['architect_application_document'] = $this->curlAPiService->convertFileInBase64($request->file('architect_application_documents'));
+            // } else {
+            //     $request['architect_application_document'] = "";
+            // }
+            // if ($request->hasFile('fire_prevention_documents')) {
+            //     $request['fire_prevention_document'] = $this->curlAPiService->convertFileInBase64($request->file('fire_prevention_documents'));
+            // } else {
+            //     $request['fire_prevention_document'] = "";
+            // }
+            // if ($request->hasFile('capitation_fee_documents')) {
+            //     $request['capitation_fee_document'] = $this->curlAPiService->convertFileInBase64($request->file('capitation_fee_documents'));
+            // } else {
+            //     $request['capitation_fee_document'] = "";
+            // }
+            // $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            // $newData = $request->except(['_token', 'uploaded_applications', 'no_dues_documents', 'architect_application_documents', 'fire_prevention_documents', 'capitation_fee_documents']);
+            // $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForNewTaxation', 'NewTaxation');
 
-            // Decode JSON string to PHP array
-            $data = json_decode($data, true);
-            if ($data['d']['Status'] == "200") {
-                // Access the application_no
-                $applicationId = $data['d']['application_no'];
-                FireNoObjection::where('id', $fireNoObjection->id)->update([
-                    'application_no' => $applicationId
-                ]);
+            // // Decode JSON string to PHP array
+            // $data = json_decode($data, true);
+            // if ($data['d']['Status'] == "200") {
+            // Access the application_no
+            // $applicationId = $data['d']['application_no'];
+            $applicationId = "PMCFR-" . time();
+            FireNoObjection::where('id', $fireNoObjection->id)->update([
+                'application_no' => $applicationId
+            ]);
 
-                if (Auth::user()->is_aapale_sarkar_user) {
-                    $aapaleSarkarCredential = ServiceCredential::where('dept_service_id', $request->service_id)->first();
-                    $serviceDay = ($aapaleSarkarCredential->service_day) ? $aapaleSarkarCredential->service_day : 20;
+            if (Auth::user()->is_aapale_sarkar_user) {
+                $aapaleSarkarCredential = ServiceCredential::where('dept_service_id', $request->service_id)->first();
+                $serviceDay = ($aapaleSarkarCredential->service_day) ? $aapaleSarkarCredential->service_day : 20;
 
-                    $send = $this->aapaleSarkarLoginCheckService->encryptAndSendRequestToAapaleSarkar(Auth::user()->trackid, $aapaleSarkarCredential->client_code, Auth::user()->user_id, $aapaleSarkarCredential->service_id, $applicationId, 'N', 'NA', 'N', 'NA', $serviceDay, date('Y-m-d', strtotime("+$serviceDay days")), config('rtsapiurl.amount'), config('rtsapiurl.requestFlag'), config('rtsapiurl.applicationStatus'), config('rtsapiurl.applicationPendingStatusTxt'), $aapaleSarkarCredential->ulb_id, $aapaleSarkarCredential->ulb_district, 'NA', 'NA', 'NA', $aapaleSarkarCredential->check_sum_key, $aapaleSarkarCredential->str_key, $aapaleSarkarCredential->str_iv, $aapaleSarkarCredential->soap_end_point_url, $aapaleSarkarCredential->soap_action_app_status_url);
+                $send = $this->aapaleSarkarLoginCheckService->encryptAndSendRequestToAapaleSarkar(Auth::user()->trackid, $aapaleSarkarCredential->client_code, Auth::user()->user_id, $aapaleSarkarCredential->service_id, $applicationId, 'N', 'NA', 'N', 'NA', $serviceDay, date('Y-m-d', strtotime("+$serviceDay days")), config('rtsapiurl.amount'), config('rtsapiurl.requestFlag'), config('rtsapiurl.applicationStatus'), config('rtsapiurl.applicationPendingStatusTxt'), $aapaleSarkarCredential->ulb_id, $aapaleSarkarCredential->ulb_district, 'NA', 'NA', 'NA', $aapaleSarkarCredential->check_sum_key, $aapaleSarkarCredential->str_key, $aapaleSarkarCredential->str_iv, $aapaleSarkarCredential->soap_end_point_url, $aapaleSarkarCredential->soap_action_app_status_url);
 
-                    if (!$send) {
-                        return false;
-                    }
+                if (!$send) {
+                    return false;
                 }
-            } else {
-                DB::rollback();
-                return false;
             }
+            // } else {
+            // DB::rollback();
+            // return false;
+            // }
             // end of code to send data to department
 
             DB::commit();
@@ -161,47 +163,47 @@ class NoObjectionService
 
 
             // code to send data to department
-            if ($request->hasFile('uploaded_applications')) {
-                $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
-            } else {
-                $request['uploaded_application'] = "";
-            }
-            if ($request->hasFile('no_dues_documents')) {
-                $request['no_dues_document'] = $this->curlAPiService->convertFileInBase64($request->file('no_dues_documents'));
-            } else {
-                $request['no_dues_document'] = "";
-            }
-            if ($request->hasFile('architect_application_documents')) {
-                $request['architect_application_document'] = $this->curlAPiService->convertFileInBase64($request->file('architect_application_documents'));
-            } else {
-                $request['architect_application_document'] = "";
-            }
-            if ($request->hasFile('fire_prevention_documents')) {
-                $request['fire_prevention_document'] = $this->curlAPiService->convertFileInBase64($request->file('fire_prevention_documents'));
-            } else {
-                $request['fire_prevention_document'] = "";
-            }
-            if ($request->hasFile('capitation_fee_documents')) {
-                $request['capitation_fee_document'] = $this->curlAPiService->convertFileInBase64($request->file('capitation_fee_documents'));
-            } else {
-                $request['capitation_fee_document'] = "";
-            }
-            $request['application_no'] = $fireNoObjection->application_no;
-            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
-            $newData = $request->except(['_token', 'id', 'application_documents', 'nodues_documents']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForUpdateNewTaxation', 'NewTaxation');
+            // if ($request->hasFile('uploaded_applications')) {
+            //     $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
+            // } else {
+            //     $request['uploaded_application'] = "";
+            // }
+            // if ($request->hasFile('no_dues_documents')) {
+            //     $request['no_dues_document'] = $this->curlAPiService->convertFileInBase64($request->file('no_dues_documents'));
+            // } else {
+            //     $request['no_dues_document'] = "";
+            // }
+            // if ($request->hasFile('architect_application_documents')) {
+            //     $request['architect_application_document'] = $this->curlAPiService->convertFileInBase64($request->file('architect_application_documents'));
+            // } else {
+            //     $request['architect_application_document'] = "";
+            // }
+            // if ($request->hasFile('fire_prevention_documents')) {
+            //     $request['fire_prevention_document'] = $this->curlAPiService->convertFileInBase64($request->file('fire_prevention_documents'));
+            // } else {
+            //     $request['fire_prevention_document'] = "";
+            // }
+            // if ($request->hasFile('capitation_fee_documents')) {
+            //     $request['capitation_fee_document'] = $this->curlAPiService->convertFileInBase64($request->file('capitation_fee_documents'));
+            // } else {
+            //     $request['capitation_fee_document'] = "";
+            // }
+            // $request['application_no'] = $fireNoObjection->application_no;
+            // $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
+            // $newData = $request->except(['_token', 'id', 'application_documents', 'nodues_documents']);
+            // $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForUpdateNewTaxation', 'NewTaxation');
 
             // Decode JSON string to PHP array
-            $data = json_decode($data, true);
+            // $data = json_decode($data, true);
 
-            if ($data['d']['Status'] == "200") {
-                // Access the application_no
-                DB::commit();
-                return true;
-            } else {
-                DB::rollback();
-                return false;
-            }
+            // if ($data['d']['Status'] == "200") {
+            // Access the application_no
+            DB::commit();
+            return true;
+            // } else {
+            //     DB::rollback();
+            //     return false;
+            // }
             // end of code to send data to department
         } catch (\Exception $e) {
             DB::rollback();

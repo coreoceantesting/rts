@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="building_type">Building Type / इमारतीचा प्रकार<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="building_type" id="building_type">
+                                    <select class="form-select" name="building_type" id="building_type">
                                         <option value="">Select Type</option>
                                         @php
                                             $options = ["इमारत", "थिएटर", "दवाखाना", "दुकान", "बंगला", "मॉल"];
@@ -47,7 +47,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="mobile_no">Mobile Number / मोबाईल नंबर<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="mobile_no" name="mobile_no" type="number" placeholder="Enter Mobile Number">
+                                    <input class="form-control" id="mobile_no" name="mobile_no" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number">
                                     <span class="text-danger is-invalid mobile_no_err"></span>
                                 </div>
                                 <div class="col-md-4">
@@ -57,13 +57,13 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="aadhar_no">Aadhar No / आधार नंबर  <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="aadhar_no" name="aadhar_no" type="number" placeholder="Enter Aadhar Card No">
+                                    <input class="form-control" id="aadhar_no" name="aadhar_no" type="text"  oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar Card No">
                                     <span class="text-danger is-invalid aadhar_no_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="zone" id="zone">
+                                    <select class="form-select" name="zone" id="zone">
                                         @php
                                             $options = ["Prabhag1", "Prabhag2", "Prabhag3", "Prabhag4", "Prabhag5", "Prabhag6"];
                                         @endphp
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-control" name="ward_area" id="ward_area">
+                                    <select class="form-select" name="ward_area" id="ward_area">
                                         <option value="">Select Ward Area</option>
                                         @php
                                             $options = ["firstward"];
@@ -106,21 +106,21 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="architect_application_document">Upload Architect Application / वास्तुविशारद अर्ज अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="architect_application_document" name="architect_application_document" type="file">
-                                    <span class="text-danger is-invalid architect_application_document_err"></span>
+                                    <label class="col-form-label" for="architect_application_documents">Upload Architect Application / वास्तुविशारद अर्ज अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="architect_application_documents" name="architect_application_documents" type="file">
+                                    <span class="text-danger is-invalid architect_application_documents_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="fire_prevention_document">Upload Outline Of Fire Prevention Measures / आग प्रतिबंधक उपायांची रूपरेषा अपलोड करा  <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="fire_prevention_document" name="fire_prevention_document" type="file">
-                                    <span class="text-danger is-invalid fire_prevention_document_err"></span>
+                                    <label class="col-form-label" for="fire_prevention_documents">Upload Outline Of Fire Prevention Measures / आग प्रतिबंधक उपायांची रूपरेषा अपलोड करा  <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="fire_prevention_documents" name="fire_prevention_documents" type="file">
+                                    <span class="text-danger is-invalid fire_prevention_documents_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="capitation_fee_document">Upload Capitation Fee / कॅपिटेशन फी अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="capitation_fee_document" name="capitation_fee_document" type="file">
-                                    <span class="text-danger is-invalid capitation_fee_document_err"></span>
+                                    <label class="col-form-label" for="capitation_fee_documents">Upload Capitation Fee / कॅपिटेशन फी अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="capitation_fee_documents" name="capitation_fee_documents" type="file">
+                                    <span class="text-danger is-invalid capitation_fee_documents_err"></span>
                                 </div>
 
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>

@@ -122,24 +122,24 @@
                                 </div>
 
                                 <div class="col-md-4 mb-2">
-                                    <label class="col-form-label" for="upload_prescribed_format">Upload Application in Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="upload_prescribed_format" name="upload_prescribed_formats" type="file">
+                                    <label class="col-form-label" for="upload_prescribed_formats">Upload Application in Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="upload_prescribed_formats" name="upload_prescribed_formats" type="file">
                                     <small><a href="{{ asset('storage/' . $data->upload_prescribed_format) }}" target="_blank">View Document</a></small>
-                                    <span class="text-danger is-invalid upload_prescribed_format_err"></span>
+                                    <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
                                 </div>
 
                                 <div class="col-md-4 mb-2">
-                                    <label class="col-form-label" for="upload_no_dues_certificate">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="upload_no_dues_certificate" name="upload_no_dues_certificates" type="file">
+                                    <label class="col-form-label" for="upload_no_dues_certificates">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="upload_no_dues_certificates" name="upload_no_dues_certificates" type="file">
                                     <small><a href="{{ asset('storage/' . $data->upload_no_dues_certificate) }}" target="_blank">View Document</a></small>
-                                    <span class="text-danger is-invalid upload_no_dues_certificate_err"></span>
+                                    <span class="text-danger is-invalid upload_no_dues_certificates_err"></span>
                                 </div>
 
                                 <div class="col-md-4 mb-2">
-                                    <label class="col-form-label" for="upload_gov_instructed_doc">Upload Govt . Instructed Documents / शासनाद्वारे विहित केलीली कागदपत्रे <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="upload_gov_instructed_doc" name="upload_gov_instructed_docs" type="file">
+                                    <label class="col-form-label" for="upload_gov_instructed_docs">Upload Govt . Instructed Documents / शासनाद्वारे विहित केलीली कागदपत्रे <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="upload_gov_instructed_docs" name="upload_gov_instructed_docs" type="file">
                                     <small><a href="{{ asset('storage/' . $data->upload_gov_instructed_doc) }}" target="_blank">View Document</a></small>
-                                    <span class="text-danger is-invalid upload_gov_instructed_doc_err"></span>
+                                    <span class="text-danger is-invalid upload_gov_instructed_docs_err"></span>
                                 </div>
 
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र  <span class="text-danger">*</span></label>

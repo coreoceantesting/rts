@@ -273,6 +273,52 @@ class ServiceNameSeeder extends Seeder
                 'add_route' => 'marriage-registration.create',
                 'edit_route' => 'marriage-registration.edit'
             ],
+
+
+
+
+            [
+                'service_id' => 183,
+                'service_name' => 'Issuance Of Fire No Objection Certificate(Fire)',
+                'model' => '\App\Models\FireDepartment\FireNoObjection',
+                'add_route' => 'fire-no-objection.create',
+                'edit_route' => 'fire-no-objection.edit'
+            ],
+            [
+                'service_id' => 184,
+                'service_name' => 'Issuance Of Final Fire No Objection Certificate (Fire)',
+                'model' => '\App\Models\FireDepartment\FireFinalNoObjection',
+                'add_route' => 'fire-final-no-objection.create',
+                'edit_route' => 'fire-final-no-objection.edit'
+            ],
+            [
+                'service_id' => 185,
+                'service_name' => 'Issuance of zone certificate',
+                'model' => '\App\Models\CityStructure\CityStructureZoneCertificate',
+                'add_route' => 'town-planing-zone-certificate.create',
+                'edit_route' => 'town-planing-zone-certificate.edit'
+            ],
+            [
+                'service_id' => 186,
+                'service_name' => 'Giving Part Map',
+                'model' => '\App\Models\CityStructure\CityStructurePartMap',
+                'add_route' => 'town-planing-bhag-nakasha.create',
+                'edit_route' => 'town-planing-bhag-nakasha.edit'
+            ],
+            [
+                'service_id' => 187,
+                'service_name' => 'Road Cutting Permission',
+                'model' => '\App\Models\ConstructionDepartment\ConstructionRoadCutting',
+                'add_route' => 'construction-road-cutting.create',
+                'edit_route' => 'construction-road-cutting.edit'
+            ],
+            [
+                'service_id' => 188,
+                'service_name' => 'Jal Mal Nissaran Connection',
+                'model' => '\App\Models\ConstructionDepartment\ConstructionDrainageConnection',
+                'add_route' => 'construction-drainage-connection.create',
+                'edit_route' => 'construction-drainage-connection.edit'
+            ]
         ];
 
         foreach ($services as $service) {
