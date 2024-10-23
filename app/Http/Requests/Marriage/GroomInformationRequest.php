@@ -43,8 +43,8 @@ class GroomInformationRequest extends FormRequest
             'groom_info_religion_by_adoption' => 'required',
             'groom_info_id_proof' => 'required',
             'groom_info_residential_proof' => 'required',
-            'groom_info_age_proof' => 'required',
-            'groom_info_previous_status' => 'required'
+            'groom_info_age_proof' => 'nullable',
+            'groom_info_previous_status' => 'nullable'
         ];
         if (!$this->editForm) {
             $data1 = array_merge($data, [
@@ -52,9 +52,9 @@ class GroomInformationRequest extends FormRequest
                 'groom_info_id_proof_files' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
                 'groom_info_residential_proof_files' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
                 'groom_info_age_proof_files' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
-                'groom_info_upload_signatures' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
-                'groom_info_previous_status_proof' => 'required_if:groom_info_previous_status,1|required_if:groom_info_previous_status,2',
-                'groom_info_upload_previous_status_proofs' => 'required_if:groom_info_previous_status,1|required_if:groom_info_previous_status,2|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
+                'groom_info_upload_signatures' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG,pdf,PDF|max:400',
+                'groom_info_previous_status_proof' => 'nullable',
+                'groom_info_upload_previous_status_proofs' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
             ]);
             return $data1;
         }

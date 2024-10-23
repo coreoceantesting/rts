@@ -47,7 +47,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Applicant Mobile Number (अर्जदाराचा मोबाईल क्रमांक) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" oninput="this.value = this.value.replace(/\D/g, '')" name="registration_from_applicant_mobile_no" placeholder="Enter applicant mobile number" required />
+                                                    <input type="text" class="form-control" oninput="this.value=this.value.replace(/\D/g, '')" maxlength="10" minlength="10" name="registration_from_applicant_mobile_no" placeholder="Enter applicant mobile number" required />
                                                     <span class="text-danger is-invalid registration_from_applicant_mobile_no_err"></span>
                                                 </div>
                                             </div>
@@ -71,7 +71,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Pincode (पिनकोड) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="registration_from_pincode" placeholder="Enter pincode" required />
+                                                    <input type="text" oninput="this.value=this.value.replace(/\D/g, '')" maxlength="6" minlength="6" class="form-control" name="registration_from_pincode" placeholder="Enter pincode" required />
                                                     <span class="text-danger is-invalid registration_from_pincode_err"></span>
                                                 </div>
                                             </div>
@@ -87,7 +87,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Aadhar Card No. (आधार कार्ड क्र) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="registration_from_aadhar_card_no" placeholder="Enter aadhar card no." required />
+                                                    <input type="text" oninput="this.value=this.value.replace(/\D/g, '')" maxlength="12" minlength="12"  class="form-control" name="registration_from_aadhar_card_no" placeholder="Enter aadhar card no." required />
                                                     <span class="text-danger is-invalid registration_from_aadhar_card_no_err"></span>
                                                 </div>
                                             </div>
@@ -95,7 +95,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Applicant alternate Mobile Number (अर्जदाराचा पर्यायी मोबाईल क्रमांक)</label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="registration_from_alternate_mobile_number" placeholder="Enter applicant alternate mobile number" />
+                                                    <input type="text" oninput="this.value=this.value.replace(/\D/g, '')" maxlength="10" minlength="10"  class="form-control" name="registration_from_alternate_mobile_number" placeholder="Enter applicant alternate mobile number" />
                                                     <span class="text-danger is-invalid registration_from_alternate_mobile_number_err"></span>
                                                 </div>
                                             </div>
@@ -317,21 +317,21 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Pincode (पिनकोड) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="groom_info_pincode" placeholder="Enter pincode" />
+                                                    <input type="text" oninput="this.value=this.value.replace(/\D/g, '')" maxlength="6" minlength="6" class="form-control" name="groom_info_pincode" placeholder="Enter pincode" />
                                                     <span class="text-danger is-invalid groom_info_pincode_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Pincode in Marathi (पिनकोड मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="groom_info_pincode_in_marathi" placeholder="Enter pincode in marathi" />
+                                                    <input type="text" class="form-control" name="groom_info_pincode_in_marathi" placeholder="Enter pincode in marathi" maxlength="6" minlength="6" />
                                                     <span class="text-danger is-invalid groom_info_pincode_in_marathi_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Mobile No (मोबाईल क्र) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="groom_info_mobile_no" placeholder="Enter mobile no." />
+                                                    <input type="text" oninput="this.value=this.value.replace(/\D/g, '')" maxlength="10" minlength="10"  class="form-control" name="groom_info_mobile_no" placeholder="Enter mobile no." />
                                                     <span class="text-danger is-invalid groom_info_mobile_no_err"></span>
                                                 </div>
                                             </div>
@@ -345,7 +345,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Aadhar Card No. <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="groom_info_aadhar_card_no" placeholder="Enter aadhar card no." />
+                                                    <input type="text" oninput="this.value=this.value.replace(/\D/g, '')" maxlength="12" minlength="12" class="form-control" name="groom_info_aadhar_card_no" placeholder="Enter aadhar card no." />
                                                     <span class="text-danger is-invalid groom_info_aadhar_card_no_err"></span>
                                                 </div>
                                             </div>
@@ -585,21 +585,21 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Pincode (पिनकोड) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="bride_info_pincode" placeholder="Enter pincode" required />
+                                                    <input type="text" oninput="this.value=this.value.replace(/\D/g, '')" maxlength="6" minlength="6" class="form-control" name="bride_info_pincode" placeholder="Enter pincode" required />
                                                     <span class="text-danger is-invalid bride_info_pincode_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Pincode in Marathi (पिनकोड मराठीमध्ये) <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="bride_info_pincode_in_marathi" placeholder="Enter pincode in marathi" required />
+                                                    <input type="text" class="form-control" name="bride_info_pincode_in_marathi" maxlength="6" minlength="6" placeholder="Enter pincode in marathi" required />
                                                     <span class="text-danger is-invalid bride_info_pincode_in_marathi_err"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Mobile No (मोबाईल क्र) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="bride_info_mobile_no" placeholder="Enter mobile no" required />
+                                                    <input type="text" oninput="this.value=this.value.replace(/\D/g, '')" maxlength="10" minlength="10"  class="form-control" name="bride_info_mobile_no" placeholder="Enter mobile no" required />
                                                     <span class="text-danger is-invalid bride_info_mobile_no_err"></span>
                                                 </div>
                                             </div>
@@ -613,7 +613,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Aadhar Card No. <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="bride_info_aadhar_card_no" placeholder="Enter name" required />
+                                                    <input type="text" oninput="this.value=this.value.replace(/\D/g, '')" maxlength="12" minlength="12" class="form-control" name="bride_info_aadhar_card_no" placeholder="Enter name" required />
                                                     <span class="text-danger is-invalid bride_info_aadhar_card_no_err"></span>
                                                 </div>
                                             </div>
@@ -768,7 +768,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12 d-none" id="brideInfoPreviousStatusProof">
                                                 <div class="mb-3">
                                                     <label class="form-label">Previous Status Proof (मागील स्थितीचा पुरावा) <span class="text-danger">*</span></label>
-                                                    <select name="bride_info_previous_status_proof" class="form-select" required>
+                                                    <select name="bride_info_previous_status_proof" class="form-select">
                                                         <option value="">Choose one</option>
                                                     </select>
                                                     <span class="text-danger is-invalid bride_info_previous_status_proof_err"></span>
@@ -777,7 +777,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12 d-none" id="brideInfoUploadPreviousStatusProofs">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Previous Status Proof (मागील स्थितीचा पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb) *</span></label>
-                                                    <input type="file" class="form-control" name="bride_info_upload_previous_status_proofs" required />
+                                                    <input type="file" class="form-control" name="bride_info_upload_previous_status_proofs" />
                                                     <span class="text-danger is-invalid bride_info_upload_previous_status_proofs_err"></span>
                                                 </div>
                                             </div>
@@ -862,7 +862,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Mobile No (मोबाईल क्र) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="priest_info_mobile_no" placeholder="Enter mobile no" required />
+                                                    <input type="text" oninput="this.value=this.value.replace(/\D/g, '')" maxlength="10" minlength="10"  class="form-control" name="priest_info_mobile_no" placeholder="Enter mobile no" required />
                                                     <span class="text-danger is-invalid priest_info_mobile_no_err"></span>
                                                 </div>
                                             </div>
@@ -933,7 +933,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Mobile No (मोबाईल क्र) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="first_witness_info_mobile_no" placeholder="Enter mobile no" required />
+                                                    <input type="text" oninput="this.value=this.value.replace(/\D/g, '')" maxlength="10" minlength="10"  class="form-control" name="first_witness_info_mobile_no" placeholder="Enter mobile no" required />
                                                     <span class="text-danger is-invalid first_witness_info_mobile_no_err"></span>
                                                 </div>
                                             </div>
@@ -1052,7 +1052,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Mobile No (मोबाईल क्र) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="second_witness_info_mobile_no" placeholder="Enter mobile no" required />
+                                                    <input type="text" oninput="this.value=this.value.replace(/\D/g, '')" maxlength="10" minlength="10"  class="form-control" name="second_witness_info_mobile_no" placeholder="Enter mobile no" required />
                                                     <span class="text-danger is-invalid second_witness_info_mobile_no_err"></span>
                                                 </div>
                                             </div>
@@ -1170,7 +1170,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Mobile No (मोबाईल क्र) <span class="text-danger">*</span></label>
-                                                    <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control" name="third_witness_info_mobile_no" placeholder="Enter mobile no" required />
+                                                    <input type="text" oninput="this.value=this.value.replace(/\D/g, '')" maxlength="10" minlength="10"  class="form-control" name="third_witness_info_mobile_no" placeholder="Enter mobile no" required />
                                                     <span class="text-danger is-invalid third_witness_info_mobile_no_err"></span>
                                                 </div>
                                             </div>
@@ -1557,7 +1557,7 @@
                 if (!data.error)
                     swal("Successful!", data.success, "success")
                     .then((action) => {
-                        window.location.href = "{{ route('marriage-registration.index') }}"
+                        window.location.href = "'{{ route("my-application") }}'"
                     });
                 else
                     swal("Error!", data.error, "error");
@@ -1619,11 +1619,11 @@
             
             if (age >= 21) {
                 $("#gage").val(age);
-                $("#groomInformationBtn").show();
+                $("#groomInformationBtn").removeClass('d-none');
             } else {
                 $("#gage").val("");
                 alert("Your Age is less than 21 you are not eligible");
-                $("#groomInformationBtn").hide();
+                $("#groomInformationBtn").addClass('d-none');
             }
         });
 

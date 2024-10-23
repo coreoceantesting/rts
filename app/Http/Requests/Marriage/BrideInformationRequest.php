@@ -45,7 +45,7 @@ class BrideInformationRequest extends FormRequest
             'bride_info_residential_proof' => 'required',
             'bride_info_age_proof' => 'required',
             'bride_info_previous_status' => 'required',
-            'bride_info_previous_status_proof' => 'required_if:bride_info_previous_status,1|required_if:bride_info_previous_status,2'
+            'bride_info_previous_status_proof' => 'nullable'
         ];
         if (!$this->editForm) {
             $data1 = array_merge($data, [
@@ -54,7 +54,7 @@ class BrideInformationRequest extends FormRequest
                 'bride_info_residential_proof_files' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
                 'bride_info_age_proof_files' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
                 'bride_info_upload_signatures' => 'nullable|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
-                'bride_info_upload_previous_status_proofs' => 'nullable_if:bride_info_previous_status,1|required_if:bride_info_previous_status,2|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048'
+                'bride_info_upload_previous_status_proofs' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048'
             ]);
             return $data1;
         } else {
@@ -64,7 +64,7 @@ class BrideInformationRequest extends FormRequest
                 'bride_info_residential_proof_files' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
                 'bride_info_age_proof_files' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
                 'bride_info_upload_signatures' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
-                'bride_info_upload_previous_status_proofs' => 'required_if:bride_info_previous_status,1|required_if:bride_info_previous_status,2|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048'
+                'bride_info_upload_previous_status_proofs' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048'
             ]);
             return $data1;
         }
