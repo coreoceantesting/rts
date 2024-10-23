@@ -228,6 +228,11 @@
             data: formdata,
             contentType: false,
             processData: false,
+            beforeSend: function()
+            {
+                $('#preloader').css('opacity', '0.5');
+                $('#preloader').css('visibility', 'visible');
+            },
             success: function(data)
             {
                 $("#addSubmit").prop('disabled', false);
@@ -249,7 +254,11 @@
                     $("#addSubmit").prop('disabled', false);
                     swal("Error occured!", "Something went wrong please try again", "error");
                 }
-            }
+            },
+            complete: function() {
+                $('#preloader').css('opacity', '0');
+                $('#preloader').css('visibility', 'hidden');
+            },
         });
 
     });

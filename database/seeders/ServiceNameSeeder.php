@@ -273,10 +273,6 @@ class ServiceNameSeeder extends Seeder
                 'add_route' => 'marriage-registration.create',
                 'edit_route' => 'marriage-registration.edit'
             ],
-
-
-
-
             [
                 'service_id' => 183,
                 'service_name' => 'Issuance Of Fire No Objection Certificate(Fire)',

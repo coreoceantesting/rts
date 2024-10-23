@@ -10,7 +10,15 @@ class FireNoObjection extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
+        'service_id',
+        'status',
+        'status_remark',
+        'payment_date',
+        'is_payment_paid',
+        'upic_id',
+        'application_no',
         'is_aapale_sarkar_payment_paid',
+        'aapale_sarkar_payment_date',
         'applicant_full_name',
         'building_type',
         'building_name',

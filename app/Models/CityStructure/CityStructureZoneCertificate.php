@@ -10,7 +10,15 @@ class CityStructureZoneCertificate extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
-        'is_aapale_sarkar_payment_paid',
+        'service_id',
+        'status',
+        'status_remark',
+        'payment_date',
+        'is_payment_paid',
+        'upic_id',
+        'application_no',
+        'is_payment_paid_aapale_sarkar',
+        'aapale_sarkar_payment_date',
         'applicant_name',
         'applicant_full_address',
         'mobile_no',
