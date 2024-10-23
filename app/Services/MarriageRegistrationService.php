@@ -65,10 +65,10 @@ class MarriageRegistrationService
             // $arr = json_decode($data);
 
             // if ($arr->success) {
-            //     MarriageRegistrationForm::where('id', $marriageRegistrationForm->id)->update([
-            //         'mp_id' => $arr->result->mp_id,
-            //         'application_no' => $arr->result->application_id
-            //     ]);
+            MarriageRegistrationForm::where('id', $marriageRegistrationForm->id)->update([
+                'mp_id' => '1',
+                'application_no' => "MRF" . time()
+            ]);
             // } else {
             //     DB::rollback();
             //     return false;
