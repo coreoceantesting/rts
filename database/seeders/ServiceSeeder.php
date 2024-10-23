@@ -56,7 +56,7 @@ class ServiceSeeder extends Seeder
                 "name" => "विवाह नोंदणी",
                 "image" => "service/8apAFL7HgTwAWfvScbYuChPeKS2vbgYTajhjh2tR.png",
                 "is_parent" => 0,
-                "route_name" => "marriage-registration.create",
+                "route_name" => null,
                 'table_name' => null,
                 "background_color" => "#00aea4",
                 "created_at" => "2024-06-10 10:54:22",
@@ -669,6 +669,18 @@ class ServiceSeeder extends Seeder
                 "background_color" => "#2a85c7",
                 "created_at" => "2024-06-10 12:02:48",
                 "updated_at" => "2024-06-10 12:02:48"
+            ],
+            [
+                "id" => 52,
+                "service_id" => 4,
+                "name" => "विवाह नोंदणी",
+                "image" => null,
+                "is_parent" => 1,
+                "route_name" => "marriage-registration.create",
+                'table_name' => "marriage_reg_forms",
+                "background_color" => "#00aea4",
+                "created_at" => "2024-06-10 10:54:22",
+                "updated_at" => "2024-06-10 10:58:36"
             ]
         ];
 
