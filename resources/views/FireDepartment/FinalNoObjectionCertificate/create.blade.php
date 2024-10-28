@@ -102,39 +102,39 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="uploaded_application">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="uploaded_application" name="uploaded_applications" type="file">
-                                    <span class="text-danger is-invalid uploaded_application_err"></span>
+                                    <label class="col-form-label" for="uploaded_applications">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="uploaded_applications" name="uploaded_applications" type="file">
+                                    <span class="text-danger is-invalid uploaded_applications_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="no_dues_document">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="no_dues_document" name="no_dues_documents" type="file">
-                                    <span class="text-danger is-invalid no_dues_document_err"></span>
+                                    <label class="col-form-label" for="no_dues_documents">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="no_dues_documents" name="no_dues_documents" type="file">
+                                    <span class="text-danger is-invalid no_dues_documents_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="architect_application_document">Upload Architect Application / वास्तुविशारद अर्ज अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="architect_application_document" name="architect_application_documents" type="file">
-                                    <span class="text-danger is-invalid architect_application_document_err"></span>
+                                    <label class="col-form-label" for="architect_application_documents">Upload Architect Application / वास्तुविशारद अर्ज अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="architect_application_documents" name="architect_application_documents" type="file">
+                                    <span class="text-danger is-invalid architect_application_documents_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="erection_of_fire_document">Upload Certificate Of Erection Of Fire Fighting System / अग्निशमन यंत्रणेच्या उभारणीचे प्रमाणपत्र अपलोड करा<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="erection_of_fire_document" name="erection_of_fire_documents" type="file">
-                                    <span class="text-danger is-invalid erection_of_fire_document_err"></span>
+                                    <label class="col-form-label" for="erection_of_fire_documents">Upload Certificate Of Erection Of Fire Fighting System / अग्निशमन यंत्रणेच्या उभारणीचे प्रमाणपत्र अपलोड करा<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="erection_of_fire_documents" name="erection_of_fire_documents" type="file">
+                                    <span class="text-danger is-invalid erection_of_fire_documents_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="licensing_agency_document">Upload Sample A Certificate From Licensing Agency / परवाना देणार्‍या एजन्सीकडून प्रमाणपत्राचा नमुना अपलोड करा<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="licensing_agency_document" name="licensing_agency_documents" type="file">
-                                    <span class="text-danger is-invalid licensing_agency_document_err"></span>
+                                    <label class="col-form-label" for="licensing_agency_documents">Upload Sample A Certificate From Licensing Agency / परवाना देणार्‍या एजन्सीकडून प्रमाणपत्राचा नमुना अपलोड करा<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="licensing_agency_documents" name="licensing_agency_documents" type="file">
+                                    <span class="text-danger is-invalid licensing_agency_documents_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="guarantee_of_developer_document">Upload Guarantee Of The Developer Society To Keep The Fire Figh / आग विझवण्यासाठी विकासक सोसायटीची हमी अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="guarantee_of_developer_document" name="guarantee_of_developer_documents" type="file">
-                                    <span class="text-danger is-invalid guarantee_of_developer_document_err"></span>
+                                    <label class="col-form-label" for="guarantee_of_developer_documents">Upload Guarantee Of The Developer Society To Keep The Fire Figh / आग विझवण्यासाठी विकासक सोसायटीची हमी अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="guarantee_of_developer_documents" name="guarantee_of_developer_documents" type="file">
+                                    <span class="text-danger is-invalid guarantee_of_developer_documents_err"></span>
                                 </div>
 
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>

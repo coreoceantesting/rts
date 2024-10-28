@@ -95,38 +95,38 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="uploaded_application">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="uploaded_application" name="uploaded_application" type="file">
+                                    <label class="col-form-label" for="uploaded_applications">Upload Application In Prescribed Format / विहित नमुन्यातील अर्ज अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="uploaded_applications" name="uploaded_applications" type="file">
                                     <small><a href="{{ asset('storage/' . $data->uploaded_application) }}" target="_blank">View Document</a></small>
-                                    <span class="text-danger is-invalid uploaded_application_err"></span>
+                                    <span class="text-danger is-invalid uploaded_applications_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="no_dues_document">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="no_dues_document" name="no_dues_document" type="file">
+                                    <label class="col-form-label" for="no_dues_documents">Upload Certificate Of No Dues / थकबाकी नसल्याचा दाखला अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="no_dues_documents" name="no_dues_documents" type="file">
                                     <small><a href="{{ asset('storage/' . $data->no_dues_document) }}" target="_blank">View Document</a></small>
-                                    <span class="text-danger is-invalid no_dues_document_err"></span>
+                                    <span class="text-danger is-invalid no_dues_documents_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="architect_application_document">Upload Architect Application / वास्तुविशारद अर्ज अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="architect_application_document" name="architect_application_document" type="file">
+                                    <label class="col-form-label" for="architect_application_documents">Upload Architect Application / वास्तुविशारद अर्ज अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="architect_application_documents" name="architect_application_documents" type="file">
                                     <small><a href="{{ asset('storage/' . $data->architect_application_document) }}" target="_blank">View Document</a></small>
-                                    <span class="text-danger is-invalid architect_application_document_err"></span>
+                                    <span class="text-danger is-invalid architect_application_documents_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="fire_prevention_document">Upload Outline Of Fire Prevention Measures / आग प्रतिबंधक उपायांची रूपरेषा अपलोड करा  <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="fire_prevention_document" name="fire_prevention_document" type="file">
+                                    <label class="col-form-label" for="fire_prevention_documents">Upload Outline Of Fire Prevention Measures / आग प्रतिबंधक उपायांची रूपरेषा अपलोड करा  <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="fire_prevention_documents" name="fire_prevention_documents" type="file">
                                     <small><a href="{{ asset('storage/' . $data->fire_prevention_document) }}" target="_blank">View Document</a></small>
-                                    <span class="text-danger is-invalid fire_prevention_document_err"></span>
+                                    <span class="text-danger is-invalid fire_prevention_documents_err"></span>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="capitation_fee_document">Upload Capitation Fee / कॅपिटेशन फी अपलोड करा <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="capitation_fee_document" name="capitation_fee_document" type="file">
+                                    <label class="col-form-label" for="capitation_fee_documents">Upload Capitation Fee / कॅपिटेशन फी अपलोड करा <span class="text-danger">*</span></label>
+                                    <input class="form-control" id="capitation_fee_documents" name="capitation_fee_documents" type="file">
                                     <small><a href="{{ asset('storage/' . $data->capitation_fee_document) }}" target="_blank">View Document</a></small>
-                                    <span class="text-danger is-invalid capitation_fee_document_err"></span>
+                                    <span class="text-danger is-invalid capitation_fee_documents_err"></span>
                                 </div>
 
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>

@@ -61,7 +61,8 @@ class NewtaxationService
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
-
+            Log::info('New Taxation Success Or Failer');
+            Log::info($data);
             if (isset($data['d']['Status']) && $data['d']['Status'] == "200") {
                 // Access the application_no
                 $applicationId = $data['d']['application_no'];
