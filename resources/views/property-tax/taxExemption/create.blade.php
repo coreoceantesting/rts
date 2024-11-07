@@ -138,7 +138,7 @@
                                     <span class="text-danger is-invalid construction_type_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="is_construction_authorized">Is Construction Authorized ? / बांधकाम अधिकृत आहे का ?</label>
+                                    <label class="col-form-label" for="is_construction_authorized">Is Construction Authorized ? / बांधकाम अधिकृत आहे का ?<span class="text-danger">*</span></label>
                                     <select class="form-select" name="is_construction_authorized" id="is_construction_authorized" required>
                                         <option value="">Select Option</option>
                                         @php

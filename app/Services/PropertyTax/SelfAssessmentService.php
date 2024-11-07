@@ -77,7 +77,11 @@ class SelfAssessmentService
                 // Mail::to($request->email_id)->send(new SendMail($subject, $message));
             } else {
                 DB::rollback();
-                return [false, $data['error']];
+                if (isset($data['error']) || isset($data['d'])) {
+                    return [false, $data['error'] ?? $data['d']];
+                } else {
+                    return [false, "Something went wrong, please try again"];
+                }
             }
             // end of code to send data to department
 
@@ -130,7 +134,11 @@ class SelfAssessmentService
                 return [true];
             } else {
                 DB::rollback();
-                return [false, $data['error']];
+                if (isset($data['error']) || isset($data['d'])) {
+                    return [false, $data['error'] ?? $data['d']];
+                } else {
+                    return [false, "Something went wrong, please try again"];
+                }
             }
             // end of code to send data to department
         } catch (\Exception $e) {
