@@ -117,7 +117,7 @@ class ServiceCredentialSeeder extends Seeder
                 'soap_action_app_status_url' => 'http://tempuri.org/SetAppStatus',
                 'validate_payment_url' => 'http://testcitizenservices.MahaITgov.in/en/OutPayment/ValidateRequest',
                 'out_payment_url' => 'http://testcitizenservices.MahaITgov.in/en/OutPayment/Pay',
-                'service_id' => 6812,
+                'service_id' => 8265,
                 'ulb_id' => 18,
                 'ulb_district' => 520,
                 'service_day' => 15,
