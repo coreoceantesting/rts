@@ -54,6 +54,9 @@ use App\Http\Controllers\Trade\ChangeOwnerPartnerCountController;
 use App\Http\Controllers\Trade\ChangeOwnerNameController;
 use App\Http\Controllers\Trade\LicenseCancellationController;
 
+use App\Http\Controllers\PlinthCertificateController;
+use App\Http\Controllers\OccupancyCertificateController;
+
 
 
 /*
@@ -174,6 +177,9 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
 
     Route::resource('ward', \App\Http\Controllers\Master\WardController::class);
     Route::resource('zone', \App\Http\Controllers\Master\ZoneController::class);
+
+    Route::resource('plinth-certificate', PlinthCertificateController::class);
+    Route::resource('occupancy-certificate', OccupancyCertificateController::class);
 });
 Route::post('rts-service-status', [AapaleSarkarLoginCheckController::class, 'updateStatus'])->name('rts.status');
 

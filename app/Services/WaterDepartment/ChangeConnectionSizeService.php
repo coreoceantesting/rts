@@ -57,6 +57,7 @@ class ChangeConnectionSizeService
 
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
+
             if (isset($data['status']) && $data['status'] == "200") {
                 // Access the application_no
                 $applicationId = $data['applicationId'];
