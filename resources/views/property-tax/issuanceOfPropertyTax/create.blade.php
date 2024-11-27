@@ -216,13 +216,15 @@
             success: function(data)
             {
                 $("#addSubmit").prop('disabled', false);
-                if (!data.error)
+                if (!data.error){
                     swal("Successful!", data.success, "success")
                         .then((action) => {
                             window.location.href = '{{ route("my-application") }}';
                         });
-                else
+                    } 
+                else {
                     swal("Error!", data.error, "error");
+                }
             },
             statusCode: {
                 422: function(responseObject, textStatus, jqXHR) {
@@ -234,6 +236,10 @@
                     $("#addSubmit").prop('disabled', false);
                     swal("Error occured!", "Something went wrong please try again", "error");
                 }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                $('#preloader').css('opacity', '0');
+                $('#preloader').css('visibility', 'hidden');
             },
             complete: function() {
                 $('#preloader').css('opacity', '0');

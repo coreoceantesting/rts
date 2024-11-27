@@ -26,14 +26,14 @@
                                     <span class="text-danger is-invalid zone_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="ward_area" id="ward_area" required>
+                                    <label class="col-form-label" for="ward">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
+                                    <select class="form-select" name="ward" id="ward" required>
                                         <option value="">Select Ward Area</option>
                                         @foreach($wards as $ward)
                                         <option value="{{ $ward->name }}">{{ $ward->name }}</option>
                                         @endforeach
                                     </select>
-                                    <span class="text-danger is-invalid ward_area_err"></span>
+                                    <span class="text-danger is-invalid ward_err"></span>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="survey_no">Survey No/ सर्व्हे क्र<span class="text-danger">*</span></label>

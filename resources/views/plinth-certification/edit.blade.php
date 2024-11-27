@@ -73,7 +73,7 @@
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="documents">Document<span class="text-danger">*</span></label>
                                     @if($plinthCertificate->document)
-                                    <a href="{{ asset('storage/'.$plinthCertificate->document) }}" class="btn btn-primary btn-sm">View File</a>
+                                    <a href="{{ asset('storage/'.$plinthCertificate->document) }}" class="btn btn-primary btn-sm" target="_blank">View File</a>
                                     @endif
                                     <input class="form-control" id="documents" name="documents" type="file" placeholder="Enter Document" required>
                                     <span class="text-danger is-invalid documents_err"></span>

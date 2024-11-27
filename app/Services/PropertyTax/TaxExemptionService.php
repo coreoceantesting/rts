@@ -83,8 +83,8 @@ class TaxExemptionService
                 // Mail::to($request->email_id)->send(new SendMail($subject, $message));
             } else {
                 DB::rollback();
-                if (isset($data['error']) || isset($data['d'])) {
-                    return [false, $data['error'] ?? $data['d']];
+                if (isset($data['d']['Error']) || isset($data['d'])) {
+                    return [false, $data['d']['Error'] ?? $data['d']];
                 } else {
                     return [false, "Something went wrong, please try again"];
                 }
@@ -152,8 +152,8 @@ class TaxExemptionService
                 return [true];
             } else {
                 DB::rollback();
-                if (isset($data['error']) || isset($data['d'])) {
-                    return [false, $data['error'] ?? $data['d']];
+                if (isset($data['d']['Error']) || isset($data['d'])) {
+                    return [false, $data['d']['Error'] ?? $data['d']];
                 } else {
                     return [false, "Something went wrong, please try again"];
                 }

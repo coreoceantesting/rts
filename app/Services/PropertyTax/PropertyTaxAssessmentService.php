@@ -62,7 +62,6 @@ class PropertyTaxAssessmentService
             // Decode JSON string to PHP array
             $data = json_decode($data, true);
 
-            Log::info($data);
             if (isset($data['d']['Status']) && $data['d']['Status'] == "200") {
                 // Access the application_no
                 $applicationId = $data['d']['application_no'];
@@ -87,8 +86,8 @@ class PropertyTaxAssessmentService
                 // Mail::to($request->email_id)->send(new SendMail($subject, $message));
             } else {
                 DB::rollback();
-                if (isset($data['error']) || isset($data['d'])) {
-                    return [false, $data['error'] ?? $data['d']];
+                if (isset($data['d']['Error']) || isset($data['d'])) {
+                    return [false, $data['d']['Error'] ?? $data['d']];
                 } else {
                     return [false, "Something went wrong, please try again"];
                 }
@@ -158,8 +157,8 @@ class PropertyTaxAssessmentService
                 return [true];
             } else {
                 DB::rollback();
-                if (isset($data['error']) || isset($data['d'])) {
-                    return [false, $data['error'] ?? $data['d']];
+                if (isset($data['d']['Error']) || isset($data['d'])) {
+                    return [false, $data['d']['Error'] ?? $data['d']];
                 } else {
                     return [false, "Something went wrong, please try again"];
                 }

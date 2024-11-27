@@ -47,6 +47,7 @@ class PlinthCertificateController extends Controller
 
     public function edit($id)
     {
+        // return encrypt($id);
         $plinthCertificate = $this->plinthCertificateService->edit(decrypt($id));
 
         $wards = $this->commonService->getActiveWard();
