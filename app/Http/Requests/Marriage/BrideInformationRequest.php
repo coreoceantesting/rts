@@ -53,7 +53,7 @@ class BrideInformationRequest extends FormRequest
                 'bride_info_id_proof_files' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
                 'bride_info_residential_proof_files' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
                 'bride_info_age_proof_files' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
-                'bride_info_upload_signatures' => 'nullable|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
+                'bride_info_upload_signatures' => 'nullable|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG,pdf|max:400',
                 'bride_info_upload_previous_status_proofs' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048'
             ]);
             return $data1;

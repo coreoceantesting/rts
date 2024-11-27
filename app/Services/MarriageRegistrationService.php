@@ -92,6 +92,7 @@ class MarriageRegistrationService
 
         try {
             $data = $request->all();
+            $data['registration_details_form_filled_date'] = date('Y-m-d', strtotime($data['registration_details_form_filled_date']));
             $data['registration_details_marriage_date_in_english'] = date('Y-m-d', strtotime($data['registration_details_marriage_date_in_english']));
             // Check if we are updating an existing record
             $marriageRegFormId = $data['marriage_reg_form_id'] ?? null;

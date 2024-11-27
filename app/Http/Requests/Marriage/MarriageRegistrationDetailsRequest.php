@@ -28,7 +28,6 @@ class MarriageRegistrationDetailsRequest extends FormRequest
             'registration_details_marriage_date_in_marathi' => 'required',
             'registration_details_marriage_place_in_english' => 'required',
             'registration_details_marriage_place_in_marathi' => 'required',
-            'registration_details_couple_photos' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'registration_details_is_widow' => 'required',
             'registration_details_is_previously_divorced' => 'required',
             'registration_details_is_marriage_intercaste' => 'required',
@@ -36,10 +35,16 @@ class MarriageRegistrationDetailsRequest extends FormRequest
         if (!$this->editForm) {
             $data1 = array_merge($data, [
                 'registration_details_wedding_card_images' => 'required|file|mimes:pdf,PDF|max:2048',
+                'registration_details_couple_photos' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            ]);
+            return $data1;
+        } else {
+            $data1 = array_merge($data, [
+                'registration_details_wedding_card_images' => 'nullable|file|mimes:pdf,PDF|max:2048',
+                'registration_details_couple_photos' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             ]);
             return $data1;
         }
-        return $data;
     }
 
     public function messages()

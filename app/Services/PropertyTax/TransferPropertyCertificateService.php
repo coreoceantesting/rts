@@ -40,6 +40,7 @@ class TransferPropertyCertificateService
             if ($request->hasFile('copy_of_documents')) {
                 $request['copy_of_document'] = $request->copy_of_documents->store('property-tax/transfer-property');
             }
+            $request['date_of_registration_document'] = date('Y-m-d', strtotime($request->date_of_registration_document));
             $transferPropertyCertificate = TransferPropertyCertificate::create($request->all());
 
 

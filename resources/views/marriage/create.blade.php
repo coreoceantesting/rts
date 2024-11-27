@@ -1618,10 +1618,9 @@
             }
             
             if (age >= 21) {
-                $("#gage").val(age);
                 $("#groomInformationBtn").removeClass('d-none');
             } else {
-                $("#gage").val("");
+                $("#gdate_of_birth").val("");
                 alert("Your Age is less than 21 you are not eligible");
                 $("#groomInformationBtn").addClass('d-none');
             }
@@ -1658,10 +1657,9 @@
             }
             
             if (age >= 18) {
-                $("#bage").val(age);
                 $("#brideInformationBtn").removeClass('d-none');
             } else {
-                $("#bage").val("");
+                $("#bdate_of_birth").val("");
                 alert("Your Age is less than 18 you are not eligible");
                 $("#brideInformationBtn").addClass('d-none');
             }

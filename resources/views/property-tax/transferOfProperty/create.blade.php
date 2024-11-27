@@ -130,7 +130,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="date_of_registration_document">Date of Registration if any Document has been Registered / कोणताही लेख नोंदण्यात आला असेल तर नोंदणीची तारीख<span class="text-danger">*</span></label>
-                                    <input class="form-control datepicker" id="date_of_registration_document" name="date_of_registration_document" placeholder="Select date of registration" type="text" required>
+                                    <input class="form-control datepicker" id="date_of_registration_document" name="date_of_registration_document" placeholder="Select date of registration" type="text" autocomplete="off" required>
                                     <span class="text-danger is-invalid date_of_registration_document_err"></span>
                                 </div>
 

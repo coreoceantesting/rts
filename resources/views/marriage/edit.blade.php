@@ -43,7 +43,7 @@
                                     <form name="marriageRegistrationForm" id="marriageRegistrationForm" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" name="editForm" value="edit">
-                                        <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId">
+                                        <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId" value="{{ $marriageRegistration->id }}">
                                         <input type="hidden" name="mp_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration->mp_id) ? $marriageRegistration->mp_id : '' }}">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
@@ -156,7 +156,7 @@
                                     <form name="marriageRegistrationDetails" id="marriageRegistrationDetails" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" name="editForm" value="edit">
-                                        <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId">
+                                        <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration?->marriageRegistrationDetail?->marriage_reg_form_id) ? $marriageRegistration?->marriageRegistrationDetail?->marriage_reg_form_id : '' }}">
                                         <input type="hidden" name="mp_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration->mp_id) ? $marriageRegistration->mp_id : '' }}">
                                         <div class="row mt-3">
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
@@ -186,7 +186,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Marriage Place, Full Address in English (इंग्रजीमध्ये लग्नाच्या ठिकाणाचा पत्ता) <span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" name="registration_details_marriage_place_in_english" placeholder="Enter marriage place, full address in english" value="{{ ($marriageRegistration?->marriageRegistrationDetail?->registration_details_marriage_place_in_english) ? $marriageRegistration?->marriageRegistrationDetail?->registration_details_marriage_place_in_english : '' }}" required></textarea>
+                                                    <textarea class="form-control" name="registration_details_marriage_place_in_english" placeholder="Enter marriage place, full address in english" required>{{ ($marriageRegistration?->marriageRegistrationDetail?->registration_details_marriage_place_in_english) ? $marriageRegistration?->marriageRegistrationDetail?->registration_details_marriage_place_in_english : '' }}</textarea>
                                                     <span class="text-danger is-invalid registration_details_marriage_place_in_english_err"></span>
                                                 </div>
                                             </div>
@@ -1646,8 +1646,15 @@
 
 
         $("#gdate_of_birth").change(function() {
+            gdateOfBirth(gdateOfBirth);
+        });
+        let groomInformationDateValue = $("#gdate_of_birth").val();
+       
+        gdateOfBirth(groomInformationDateValue);
+
+        function gdateOfBirth(dateValue){
             var today = new Date();
-            dateString = $(this).val();
+            var dateString = dateValue;
             var birthDate = new Date(dateString);
             var age = today.getFullYear() - birthDate.getFullYear();
             var m = today.getMonth() - birthDate.getMonth();
@@ -1656,14 +1663,13 @@
             }
 
             if (age >= 21) {
-                $("#gage").val(age);
                 $("#groomInformationBtn").removeClass('d-none');
             } else {
-                $("#gage").val("");
+                $("#gdate_of_birth").val("");
                 alert("Your Age is less than 21 you are not eligible");
                 $("#groomInformationBtn").addClass('d-none');
             }
-        });
+        }
 
 
         $('#groomInfoPreviousStatus').change(function(){
@@ -1685,8 +1691,19 @@
         });
         
         $("#bdate_of_birth").change(function() {
-            var today = new Date();
             var dateString = $(this).val();
+            bdateOfBirth(dateString);
+        });
+
+
+        let brideInformationDateValue = $("#bdate_of_birth").val();
+       
+        bdateOfBirth(brideInformationDateValue);
+
+        function bdateOfBirth(dateValue){
+            var today = new Date();
+            var dateString = dateValue;
+            alert(dateString)
             var birthDate = new Date(dateString);
             var age = today.getFullYear() - birthDate.getFullYear();
             var m = today.getMonth() - birthDate.getMonth();
@@ -1695,14 +1712,13 @@
             }
             
             if (age >= 18) {
-                $("#bage").val(age);
                 $("#brideInformationBtn").removeClass('d-none');
             } else {
-                $("#bage").val("");
+                $("#bdate_of_birth").val("");
                 alert("Your Age is less than 18 you are not eligible");
                 $("#brideInformationBtn").addClass('d-none');
             }
-        });
+        }
 
         $('#brideInfoPreviousStatus').change(function(){
             let checkValue = $(this).val();
