@@ -1703,7 +1703,6 @@
         function bdateOfBirth(dateValue){
             var today = new Date();
             var dateString = dateValue;
-            alert(dateString)
             var birthDate = new Date(dateString);
             var age = today.getFullYear() - birthDate.getFullYear();
             var m = today.getMonth() - birthDate.getMonth();
