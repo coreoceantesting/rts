@@ -47,7 +47,7 @@ class BrideInformationRequest extends FormRequest
             'bride_info_previous_status' => 'required',
             'bride_info_previous_status_proof' => 'nullable'
         ];
-        if (!$this->editForm) {
+        if ($this->editForm) {
             $data1 = array_merge($data, [
                 'bride_info_photos' => 'nullable|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
                 'bride_info_id_proof_files' => 'nullable|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',

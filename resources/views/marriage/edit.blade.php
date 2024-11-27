@@ -21,19 +21,19 @@
                                         <button class="nav-link active" id="marriage-registration-form-tab" data-bs-toggle="pill" data-bs-target="#marriage-registration-form" type="button" role="tab" aria-controls="marriage-registration-form" aria-selected="true">Marriage Registration Form (विवाह नोंदणी फॉर्म)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="marriage-registration-details-tab" data-bs-toggle="pill" {{ (is_null($marriageRegistration->marriageRegistrationDetail)) ? 'disabled' : '' }} data-bs-target="#marriage-registration-details" type="button" role="tab" aria-controls="marriage-registration-details-form" aria-selected="false">Marriage Registration Details (विवाह नोंदणी माहिती)</button>
+                                        <button class="nav-link" id="marriage-registration-details-tab" data-bs-toggle="pill" data-bs-target="#marriage-registration-details" type="button" role="tab" aria-controls="marriage-registration-details-form" aria-selected="false">Marriage Registration Details (विवाह नोंदणी माहिती)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="groom-information-tab" data-bs-toggle="pill" {{ (is_null($marriageRegistration->marriageRegistrationGroomDetail)) ? 'disabled' : '' }} data-bs-target="#groom-information" type="button" role="tab" aria-controls="groom-information" aria-selected="false">Groom Information (वराची माहिती)</button>
+                                        <button class="nav-link" id="groom-information-tab" data-bs-toggle="pill" @if(!$marriageRegistration->marriageRegistrationDetail)disabled @endif data-bs-target="#groom-information" type="button" role="tab" aria-controls="groom-information" aria-selected="false">Groom Information (वराची माहिती)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="bride-information-tab" data-bs-toggle="pill" {{ (is_null($marriageRegistration->marriageRegistrationBrideInformation)) ? 'disabled' : '' }} data-bs-target="#bride-information" type="button" role="tab" aria-controls="bride-information" aria-selected="false">Bride Information (वधूची माहिती)</button>
+                                        <button class="nav-link" id="bride-information-tab" data-bs-toggle="pill" @if(!$marriageRegistration->marriageRegistrationGroomDetail)disabled @endif data-bs-target="#bride-information" type="button" role="tab" aria-controls="bride-information" aria-selected="false">Bride Information (वधूची माहिती)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="priest-information-tab" data-bs-toggle="pill" data-bs-target="#priest-information" type="button" role="tab" {{ (is_null($marriageRegistration->marriageRegistrationPriestInformation)) ? 'disabled' : '' }} aria-controls="priest-information" aria-selected="false">Priest Information (पुरोहिताची माहिती)</button>
+                                        <button class="nav-link" id="priest-information-tab" data-bs-toggle="pill" data-bs-target="#priest-information" type="button" role="tab" @if(!$marriageRegistration->marriageRegistrationBrideInformation)disabled @endif aria-controls="priest-information" aria-selected="false">Priest Information (पुरोहिताची माहिती)</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="witness-information-tab" data-bs-toggle="pill" data-bs-target="#witness-information" type="button" role="tab" {{ (is_null($marriageRegistration->marriageRegistrationWitnessInformation)) ? 'disabled' : '' }} aria-controls="witness-information" aria-selected="false">Witness Information (साक्षीदाराची माहिती)</button>
+                                        <button class="nav-link" id="witness-information-tab" data-bs-toggle="pill" data-bs-target="#witness-information" type="button" role="tab" @if(!$marriageRegistration->marriageRegistrationPriestInformation)disabled @endif aria-controls="witness-information" aria-selected="false">Witness Information (साक्षीदाराची माहिती)</button>
                                     </li>
                                 </ul>
                             </div>
@@ -530,7 +530,7 @@
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end">
-                                            <button class="btn btn-primary d-none" id="groomInformationBtn">Submit</button>
+                                            <button class="btn btn-primary" id="groomInformationBtn">Submit</button>
                                         </div>
                                     </form>
                                 </div>
@@ -540,7 +540,7 @@
                                     <form name="brideInformation" id="brideInformation" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" name="editForm" value="edit">
-                                        <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId">
+                                        <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration?->marriageRegistrationBrideInformation?->marriage_reg_form_id) ? $marriageRegistration?->marriageRegistrationBrideInformation?->marriage_reg_form_id : '' }}">
                                         <input type="hidden" name="mp_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration->mp_id) ? $marriageRegistration->mp_id : '' }}">
                                         <div class="row mt-3">
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
@@ -778,25 +778,25 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Previous Status (मागील स्थिती) <span class="text-danger">*</span></label>
-                                                    <select name="bride_info_previous_status" class="form-select" required>
+                                                    <select name="bride_info_previous_status" class="form-select" id="brideInfoPreviousStatus" required>
                                                         <option value="">Choose one</option>
-                                                        <option {{ ($marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_previous_status_err == "1") ? 'selected': '' }} value="1">Unmarried</option>
-                                                        <option {{ ($marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_previous_status_err == "2") ? 'selected': '' }} value="2">Widow/Widower</option>
-                                                        <option {{ ($marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_previous_status_err == "3") ? 'selected': '' }} value="3">Divorce</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_previous_status == "1") ? 'selected': '' }} value="1">Unmarried</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_previous_status == "2") ? 'selected': '' }} value="2">Widow/Widower</option>
+                                                        <option {{ ($marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_previous_status == "3") ? 'selected': '' }} value="3">Divorce</option>
                                                     </select>
                                                     <span class="text-danger is-invalid bride_info_previous_status_err"></span>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <div class="col-lg-4 col-md-4 col-sm-6 col-12 d-none" id="brideInfoPreviousStatusProof">
                                                 <div class="mb-3">
                                                     <label class="form-label">Previous Status Proof (मागील स्थितीचा पुरावा) <span class="text-danger">*</span></label>
-                                                    <select name="bride_info_previous_status_proof" class="form-select" required>
+                                                    <select name="bride_info_previous_status_proof" class="form-select">
                                                         <option value="">Choose one</option>
                                                     </select>
                                                     <span class="text-danger is-invalid bride_info_previous_status_proof_err"></span>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <div class="col-lg-4 col-md-4 col-sm-6 col-12 d-none" id="brideInfoUploadPreviousStatusProofs">
                                                 <div class="mb-3">
                                                     <label class="form-label">Upload Previous Status Proof (मागील स्थितीचा पुरावा) <br><span class="text-danger">Upload Image / Pdf Format Only (Max size 2mb)</span></label>
                                                     <a href=" {{ ($marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_upload_previous_status_proof) ? asset('storage/'.$marriageRegistration?->marriageRegistrationBrideInformation?->bride_info_upload_previous_status_proof) : 'javascript:void(0)' }}" target="_blank">View File</a>
@@ -805,7 +805,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="d-flex justify-content-end d-none">
+                                        <div class="d-flex justify-content-end">
                                             <button class="btn btn-primary" id="brideInformationBtn">Submit</button>
                                         </div>
                                     </form>
@@ -937,7 +937,7 @@
                                     <form name="witnessInformation" id="witnessInformation" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" name="editForm" value="edit">
-                                        <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId">
+                                        <input type="hidden" name="marriage_reg_form_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration?->marriageRegistrationWitnessInformation?->marriage_reg_form_id) ? $marriageRegistration?->marriageRegistrationWitnessInformation?->marriage_reg_form_id : '' }}">
                                         <input type="hidden" name="mp_id" class="marriageRegistrationInsertedId" value="{{ ($marriageRegistration->mp_id) ? $marriageRegistration->mp_id : '' }}">
                                         <h5 style="font-weight: 800;" class="text-dark">First Witness Information (प्रथम साक्षीदाराची माहिती)</h5>
                                         <hr>
@@ -1645,36 +1645,42 @@
         });
 
 
-        $("#gdate_of_birth").change(function() {
-            gdateOfBirth(gdateOfBirth);
-        });
-        let groomInformationDateValue = $("#gdate_of_birth").val();
+        // $("#gdate_of_birth").change(function() {
+        //     gdateOfBirth(gdateOfBirth);
+        // });
+        // let groomInformationDateValue = $("#gdate_of_birth").val();
        
-        gdateOfBirth(groomInformationDateValue);
+        // gdateOfBirth(groomInformationDateValue);
 
-        function gdateOfBirth(dateValue){
-            var today = new Date();
-            var dateString = dateValue;
-            var birthDate = new Date(dateString);
-            var age = today.getFullYear() - birthDate.getFullYear();
-            var m = today.getMonth() - birthDate.getMonth();
-            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-                age--;
-            }
+        // function gdateOfBirth(dateValue){
+        //     var today = new Date();
+        //     var dateString = dateValue;
+        //     var birthDate = new Date(dateString);
+        //     var age = today.getFullYear() - birthDate.getFullYear();
+        //     var m = today.getMonth() - birthDate.getMonth();
+        //     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        //         age--;
+        //     }
 
-            if (age >= 21) {
-                $("#groomInformationBtn").removeClass('d-none');
-            } else {
-                $("#gdate_of_birth").val("");
-                alert("Your Age is less than 21 you are not eligible");
-                $("#groomInformationBtn").addClass('d-none');
-            }
-        }
+        //     if (age >= 21) {
+        //         $("#groomInformationBtn").removeClass('d-none');
+        //     } else {
+        //         $("#gdate_of_birth").val("");
+        //         alert("Your Age is less than 21 you are not eligible");
+        //         $("#groomInformationBtn").addClass('d-none');
+        //     }
+        // }
 
 
         $('#groomInfoPreviousStatus').change(function(){
             let checkValue = $(this).val();
+            displaygroomInformationPreviousStatus(checkValue);            
+        });
 
+        let checkVal = $('#groomInfoPreviousStatus').val();
+        displaygroomInformationPreviousStatus(checkVal);
+
+        function displaygroomInformationPreviousStatus(checkValue){
             if(checkValue == "2"){
                 $('#groomInfoPreviousStatusProof').removeClass('d-none');
                 $('#groomInfoPreviousStatusProof').find('select').html(`<option value="1"> Death Certificate </option>`);
@@ -1688,40 +1694,46 @@
                 $('#groomInfoPreviousStatusProof').find('select').html(`<option value=""></option>`);
                 $('#groomInfoUploadPreviousStatusProofs').addClass('d-none');
             }
-        });
-        
-        $("#bdate_of_birth").change(function() {
-            var dateString = $(this).val();
-            bdateOfBirth(dateString);
-        });
-
-
-        let brideInformationDateValue = $("#bdate_of_birth").val();
-       
-        bdateOfBirth(brideInformationDateValue);
-
-        function bdateOfBirth(dateValue){
-            var today = new Date();
-            var dateString = dateValue;
-            var birthDate = new Date(dateString);
-            var age = today.getFullYear() - birthDate.getFullYear();
-            var m = today.getMonth() - birthDate.getMonth();
-            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-                age--;
-            }
-            
-            if (age >= 18) {
-                $("#brideInformationBtn").removeClass('d-none');
-            } else {
-                $("#bdate_of_birth").val("");
-                alert("Your Age is less than 18 you are not eligible");
-                $("#brideInformationBtn").addClass('d-none');
-            }
         }
+        
+        // $("#bdate_of_birth").change(function() {
+        //     var dateString = $(this).val();
+        //     bdateOfBirth(dateString);
+        // });
+
+
+        // let brideInformationDateValue = $("#bdate_of_birth").val();
+       
+        // bdateOfBirth(brideInformationDateValue);
+
+        // function bdateOfBirth(dateValue){
+        //     var today = new Date();
+        //     var dateString = dateValue;
+        //     var birthDate = new Date(dateString);
+        //     var age = today.getFullYear() - birthDate.getFullYear();
+        //     var m = today.getMonth() - birthDate.getMonth();
+        //     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        //         age--;
+        //     }
+            
+        //     if (age >= 18) {
+        //         $("#brideInformationBtn").removeClass('d-none');
+        //     } else {
+        //         $("#bdate_of_birth").val("");
+        //         alert("Your Age is less than 18 you are not eligible");
+        //         $("#brideInformationBtn").addClass('d-none');
+        //     }
+        // }
 
         $('#brideInfoPreviousStatus').change(function(){
-            let checkValue = $(this).val();
+            let checkValue1 = $(this).val();
+            displaybrideInformationPreviousStatus(checkValue1);
+        });
 
+        let checkVal1 = $('#brideInfoPreviousStatus').val();
+        displaybrideInformationPreviousStatus(checkVal1);
+
+        function displaybrideInformationPreviousStatus(checkValue){
             if(checkValue == "2"){
                 $('#brideInfoPreviousStatusProof').removeClass('d-none');
                 $('#brideInfoPreviousStatusProof').find('select').html(`<option value="1"> Death Certificate </option>`);
@@ -1735,6 +1747,6 @@
                 $('#brideInfoPreviousStatusProof').find('select').html(`<option value=""></option>`);
                 $('#brideInfoUploadPreviousStatusProofs').addClass('d-none');
             }
-        });
+        }
     })
 </script>

@@ -46,7 +46,7 @@ class GroomInformationRequest extends FormRequest
             'groom_info_age_proof' => 'nullable',
             'groom_info_previous_status' => 'nullable'
         ];
-        if (!$this->editForm) {
+        if ($this->editForm) {
             $data1 = array_merge($data, [
                 'groom_info_photos' => 'required|file|mimes:png,PNG,jpg,JPEG,jpeg,JPG|max:400',
                 'groom_info_id_proof_files' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPEG,jpeg,JPG|max:2048',
