@@ -16,7 +16,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="property_owner_name">Property Owner Name / मालमत्ता मालकाचे नाव  <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="property_owner_name" name="property_owner_name" type="text" placeholder="Enter Property Owner Name" required value="{{ $data->property_owner_name }}">
+                                    <input class="form-control" id="property_owner_name" name="property_owner_name" type="text" placeholder="CNNP01B0000001" required value="{{ $data->property_owner_name }}">
                                     <span class="text-danger is-invalid property_owner_name_err"></span>
                                 </div>
 

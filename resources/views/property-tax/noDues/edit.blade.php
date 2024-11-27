@@ -18,7 +18,7 @@
                                 <input type="hidden" name="id" id="editId" value="{{ $noDue->id }}">
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="upic_id">UPIC No<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="upic_id" name="upic_id" type="text" placeholder="Enter UPIC No" value="{{ $noDue->upic_id }}" required>
+                                    <input class="form-control" id="upic_id" name="upic_id" type="text" placeholder="PNVL000045" value="{{ $noDue->upic_id }}" required>
                                     <span class="text-danger is-invalid upic_id_err"></span>
                                 </div>
                                 <div class="col-md-4">

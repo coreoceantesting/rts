@@ -16,7 +16,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="water_connection_no">Water connection no  <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="water_connection_no" name="water_connection_no" type="text" placeholder="Enter water connection no" value="{{ $data->water_connection_no }}" required>
+                                    <input class="form-control" id="water_connection_no" name="water_connection_no" type="text" placeholder="CNNP01B0000001" value="{{ $data->water_connection_no }}" required>
                                     <span class="text-danger is-invalid water_connection_no_err"></span>
                                 </div>
 
