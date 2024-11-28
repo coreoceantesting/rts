@@ -208,7 +208,9 @@
                 dateFormat: 'dd-mm-yy',
                 changeMonth: true,
                 changeYear: true,
-                maxDate:0
+                maxDate:0,
+                yearRange: "-100Y:-0Y" 
+                
             });
         } );
     </script>
