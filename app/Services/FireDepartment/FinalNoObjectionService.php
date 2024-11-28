@@ -173,56 +173,10 @@ class FinalNoObjectionService
             }
             $fireFinalNoObjection->update($request->all());
 
+            // Access the application_no
+            DB::commit();
+            return true;
 
-
-
-            // code to send data to department
-            if ($request->hasFile('uploaded_applications')) {
-                $request['uploaded_application'] = $this->curlAPiService->convertFileInBase64($request->file('uploaded_applications'));
-            } else {
-                $request['uploaded_application'] = "";
-            }
-            if ($request->hasFile('nodues_documents')) {
-                $request['nodues_document'] = $this->curlAPiService->convertFileInBase64($request->file('nodues_documents'));
-            } else {
-                $request['nodues_document'] = "";
-            }
-            if ($request->hasFile('architect_application_documents')) {
-                $request['architect_application_document'] = $this->curlAPiService->convertFileInBase64($request->file('architect_application_documents'));
-            } else {
-                $request['architect_application_document'] = "";
-            }
-            if ($request->hasFile('erection_of_fire_documents')) {
-                $request['erection_of_fire_document'] = $this->curlAPiService->convertFileInBase64($request->file('erection_of_fire_documents'));
-            } else {
-                $request['erection_of_fire_document'] = "";
-            }
-            if ($request->hasFile('licensing_agency_documents')) {
-                $request['licensing_agency_document'] = $this->curlAPiService->convertFileInBase64($request->file('licensing_agency_documents'));
-            } else {
-                $request['licensing_agency_document'] = "";
-            }
-            if ($request->hasFile('guarantee_of_developer_documents')) {
-                $request['guarantee_of_developer_document'] = $this->curlAPiService->convertFileInBase64($request->file('guarantee_of_developer_documents'));
-            } else {
-                $request['guarantee_of_developer_document'] = "";
-            }
-            $request['application_no'] = $fireFinalNoObjection->application_no;
-            $request['user_id'] = (Auth::user()->user_id && Auth::user()->user_id != "") ? Auth::user()->user_id : Auth::user()->id;
-            $newData = $request->except(['_token', 'id', 'uploaded_applications', 'nodues_documents', 'architect_application_documents', 'erection_of_fire_documents', 'licensing_agency_documents', 'guarantee_of_developer_documents']);
-            $data = $this->curlAPiService->sendPostRequestInObject($newData, config('rtsapiurl.water') . 'AapaleSarkarAPI/NewTaxation.asmx/RequestForUpdateNewTaxation', 'NewTaxation');
-
-            // Decode JSON string to PHP array
-            $data = json_decode($data, true);
-
-            if ($data['d']['Status'] == "200") {
-                // Access the application_no
-                DB::commit();
-                return true;
-            } else {
-                DB::rollback();
-                return false;
-            }
             // end of code to send data to department
         } catch (\Exception $e) {
             DB::rollback();

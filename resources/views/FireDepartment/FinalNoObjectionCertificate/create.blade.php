@@ -29,7 +29,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="mobile_no">Mobile Number / मोबाईल नंबर<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="mobile_no" name="mobile_no" type="number" placeholder="Enter Mobile Number">
+                                    <input class="form-control" id="mobile_no" name="mobile_no" type="text" placeholder="Enter Mobile Number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10">
                                     <span class="text-danger is-invalid mobile_no_err"></span>
                                 </div>
                                 <div class="col-md-4">
@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="aadhar_no">Aadhar No / आधार नंबर  <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="aadhar_no" name="aadhar_no" type="number" placeholder="Enter Aadhar Card No">
+                                    <input class="form-control" id="aadhar_no" name="aadhar_no" type="text" placeholder="Enter Aadhar Card No" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12">
                                     <span class="text-danger is-invalid aadhar_no_err"></span>
                                 </div>
 

@@ -29,7 +29,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="mobile_no">Mobile Number / मोबाईल नंबर<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="mobile_no" name="mobile_no" type="number" placeholder="Enter Mobile Number" value="{{ $data->mobile_no }}">
+                                    <input class="form-control" id="mobile_no" name="mobile_no" type="text" placeholder="Enter Mobile Number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" value="{{ $data->mobile_no }}">
                                     <span class="text-danger is-invalid mobile_no_err"></span>
                                 </div>
                                 <div class="col-md-4">
@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="aadhar_no">Aadhar No / आधार नंबर  <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="aadhar_no" name="aadhar_no" type="number" placeholder="Enter Aadhar Card No" value="{{ $data->aadhar_no }}">
+                                    <input class="form-control" id="aadhar_no" name="aadhar_no" type="text" placeholder="Enter Aadhar Card No" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" value="{{ $data->aadhar_no }}">
                                     <span class="text-danger is-invalid aadhar_no_err"></span>
                                 </div>
 
@@ -146,7 +146,7 @@
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
                                 <div class="col-md-12">
                                     <div class="form-check d-flex align-items-start">
-                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" value="yes">
+                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" checked value="yes">
                                         <label class="form-check-label ms-2" for="is_correct_info">
                                             "All information provided above is correct and I shall be fully responsible for any discrepancy. / वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार असेन."
                                         </label>
