@@ -17,7 +17,7 @@
 
                                 <div class="col-md-4 mb-2">
                                     <label class="col-form-label" for="applicant_type">Applicant Type ( Indivisual/Company) / अर्ज प्रकार (वैयक्तिक / कंपनी) <span class="text-danger">*</span></label>
-                                    <input class="form-control" id="applicant_type" name="applicant_type" type="text" placeholder="Enter Applicant Area">
+                                    <input class="form-control" id="applicant_type" name="applicant_type" type="text" placeholder="Enter Applicant Type">
                                     <span class="text-danger is-invalid applicant_type_err"></span>
                                 </div>
 

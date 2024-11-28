@@ -86,7 +86,7 @@
 
                                 <div class="col-md-4">
                                     <label class="col-form-label" for="year_of_passing">Year Of Passing / उत्तीर्ण झाल्याचे वर्ष<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="year_of_passing" name="year_of_passing" type="text" placeholder="Enter Year Of Passing" value="{{ $data->year_of_passing }}" required>
+                                    <input class="form-control" id="year_of_passing" name="year_of_passing" type="text" placeholder="Enter Year Of Passing" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="4" minlength="4" value="{{ $data->year_of_passing }}" required>
                                     <span class="text-danger is-invalid year_of_passing_err"></span>
                                 </div>
 
