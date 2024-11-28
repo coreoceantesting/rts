@@ -36,6 +36,7 @@ class TaxExemptionService
             if ($request->hasFile('uploaded_applications')) {
                 $request['uploaded_application'] = $request->uploaded_applications->store('property-tax/tax-exemption');
             }
+            $request['date_of_commencement'] = date('Y-m-d', strtotime($request->date_of_commencement));
             $taxExemption = TaxExemption::create($request->all());
 
 
