@@ -4,6 +4,7 @@ namespace App\Models\Trade;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 
 class TradeLicenseCancellation extends Model
 {
@@ -37,6 +38,16 @@ class TradeLicenseCancellation extends Model
         'trade_or_business_type',
         'property_no',
         'remark',
-        'application_document'
+        'application_document',
+        'ip'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->ip = Request::ip();
+        });
+    }
 }

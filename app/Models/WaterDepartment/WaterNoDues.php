@@ -4,6 +4,7 @@ namespace App\Models\WaterDepartment;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 
 class WaterNoDues extends Model
 {
@@ -35,5 +36,15 @@ class WaterNoDues extends Model
         'place_belongs_to_municipal',
         'current_connection_is_illegal',
         'application_document',
+        'ip'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->ip = Request::ip();
+        });
+    }
 }

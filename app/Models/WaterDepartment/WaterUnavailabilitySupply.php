@@ -4,6 +4,7 @@ namespace App\Models\WaterDepartment;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 
 class WaterUnavailabilitySupply extends Model
 {
@@ -27,5 +28,15 @@ class WaterUnavailabilitySupply extends Model
         'no_of_working_person',
         'per_day_water_demand',
         'other_info',
+        'ip'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->ip = Request::ip();
+        });
+    }
 }

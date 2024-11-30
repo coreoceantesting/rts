@@ -4,6 +4,7 @@ namespace App\Models\Trade;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 
 class TradeNocForMandap extends Model
 {
@@ -53,5 +54,15 @@ class TradeNocForMandap extends Model
         'fire_last_year_noObjection_document',
         'traffic_last_year_noObjection_document',
         'annexure',
+        'ip'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->ip = Request::ip();
+        });
+    }
 }

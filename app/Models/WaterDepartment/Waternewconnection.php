@@ -4,6 +4,7 @@ namespace App\Models\WaterDepartment;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 
 class Waternewconnection extends Model
 {
@@ -34,6 +35,16 @@ class Waternewconnection extends Model
         'total_tenants',
         'written_application_document',
         'ownership_document',
-        'no_dues_document'
+        'no_dues_document',
+        'ip'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->ip = Request::ip();
+        });
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Models\Trade;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 
 class TradeChangeOwnerCount extends Model
 {
@@ -28,6 +29,16 @@ class TradeChangeOwnerCount extends Model
         'ward_area',
         'remark',
         'application_document',
-        'no_dues_document'
+        'no_dues_document',
+        'ip'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->ip = Request::ip();
+        });
+    }
 }

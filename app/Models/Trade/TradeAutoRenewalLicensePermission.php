@@ -4,6 +4,7 @@ namespace App\Models\Trade;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 
 class TradeAutoRenewalLicensePermission extends Model
 {
@@ -39,6 +40,16 @@ class TradeAutoRenewalLicensePermission extends Model
         'property_no',
         'remark',
         'no_dues_document',
-        'application_document'
+        'application_document',
+        'ip'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->ip = Request::ip();
+        });
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Models\WaterDepartment;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 
 class WaterPlumberLicense extends Model
 {
@@ -29,5 +30,15 @@ class WaterPlumberLicense extends Model
         'have_experience',
         'application_document',
         'nodues_document',
+        'ip'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->ip = Request::ip();
+        });
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Models\Trade;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 
 class TradeNewLicensePermission extends Model
 {
@@ -40,6 +41,16 @@ class TradeNewLicensePermission extends Model
         'partner_names',
         'property_tax_no',
         'no_dues_document',
-        'application_document'
+        'application_document',
+        'ip'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->ip = Request::ip();
+        });
+    }
 }

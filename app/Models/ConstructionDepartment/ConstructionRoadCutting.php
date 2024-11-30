@@ -4,6 +4,7 @@ namespace App\Models\ConstructionDepartment;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 
 class ConstructionRoadCutting extends Model
 {
@@ -36,6 +37,16 @@ class ConstructionRoadCutting extends Model
         'location_size',
         'upload_prescribed_format',
         'upload_no_dues_certificate',
-        'upload_gov_instructed_doc'
+        'upload_gov_instructed_doc',
+        'ip'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->ip = Request::ip();
+        });
+    }
 }

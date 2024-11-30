@@ -4,6 +4,7 @@ namespace App\Models\CityStructure;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 
 class CityStructureZoneCertificate extends Model
 {
@@ -29,5 +30,15 @@ class CityStructureZoneCertificate extends Model
         'prescribed_format',
         'upload_city_survey_certificate',
         'upload_city_servey_map',
+        'ip'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->ip = Request::ip();
+        });
+    }
 }

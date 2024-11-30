@@ -4,6 +4,7 @@ namespace App\Models\WaterDepartment;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 
 class WaterChangeConnectionSize extends Model
 {
@@ -36,6 +37,16 @@ class WaterChangeConnectionSize extends Model
         'place_belongs_to_municipal',
         'comment',
         'application_document',
-        'nodues_document'
+        'nodues_document',
+        'ip'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->ip = Request::ip();
+        });
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Models\Trade;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 
 class TradeChangeLicenseName extends Model
 {
@@ -26,6 +27,16 @@ class TradeChangeLicenseName extends Model
         'new_treade_license_name',
         'remark',
         'no_dues_document',
-        'application_document'
+        'application_document',
+        'ip'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->ip = Request::ip();
+        });
+    }
 }

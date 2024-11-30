@@ -4,6 +4,7 @@ namespace App\Models\WaterDepartment;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 
 class WaterRenewalOfPlumber extends Model
 {
@@ -31,6 +32,16 @@ class WaterRenewalOfPlumber extends Model
         'nodues_document',
         'educational_certificate_document',
         'application_document',
-        'remark'
+        'remark',
+        'ip'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->ip = Request::ip();
+        });
+    }
 }

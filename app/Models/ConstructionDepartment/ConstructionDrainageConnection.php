@@ -4,6 +4,7 @@ namespace App\Models\ConstructionDepartment;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 
 class ConstructionDrainageConnection extends Model
 {
@@ -43,5 +44,15 @@ class ConstructionDrainageConnection extends Model
         'upload_prescribed_format',
         'upload_no_dues_certificate',
         'upload_property_ownership',
+        'ip'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->ip = Request::ip();
+        });
+    }
 }

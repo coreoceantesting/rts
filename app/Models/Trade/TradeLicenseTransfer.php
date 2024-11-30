@@ -4,6 +4,7 @@ namespace App\Models\Trade;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 
 class TradeLicenseTransfer extends Model
 {
@@ -46,6 +47,16 @@ class TradeLicenseTransfer extends Model
         'address_of_new_applicant',
         'remark',
         'no_dues_document',
-        'application_document'
+        'application_document',
+        'ip'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->ip = Request::ip();
+        });
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Models\FireDepartment;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 
 class FireFinalNoObjection extends Model
 {
@@ -36,5 +37,15 @@ class FireFinalNoObjection extends Model
         'erection_of_fire_document',
         'licensing_agency_document',
         'guarantee_of_developer_document',
+        'ip'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->ip = Request::ip();
+        });
+    }
 }

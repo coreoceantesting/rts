@@ -4,6 +4,7 @@ namespace App\Models\WaterDepartment;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 
 class WaterChangeInUse extends Model
 {
@@ -38,6 +39,16 @@ class WaterChangeInUse extends Model
         'place_belongs_to_municipal',
         'any_police_complaint',
         'application_document',
-        'nodues_document'
+        'nodues_document',
+        'ip'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->ip = Request::ip();
+        });
+    }
 }

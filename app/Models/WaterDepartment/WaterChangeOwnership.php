@@ -4,6 +4,7 @@ namespace App\Models\WaterDepartment;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 
 class WaterChangeOwnership extends Model
 {
@@ -37,6 +38,16 @@ class WaterChangeOwnership extends Model
         'comment',
         'application_document',
         'ownership_document',
-        'nodues_document'
+        'nodues_document',
+        'ip'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->ip = Request::ip();
+        });
+    }
 }
