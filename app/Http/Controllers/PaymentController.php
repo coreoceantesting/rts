@@ -10,4 +10,9 @@ class PaymentController extends Controller
     {
         return view('payment.payment');
     }
+    public function showPaymentPage()
+    {
+        $title = "Payment Page";  // Define the title variable
+        return view('payment', compact('title'));  // Pass the title to the view
+    }
 }
