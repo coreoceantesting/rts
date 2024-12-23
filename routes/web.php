@@ -56,6 +56,31 @@ use App\Http\Controllers\Trade\LicenseCancellationController;
 
 use App\Http\Controllers\PlinthCertificateController;
 use App\Http\Controllers\OccupancyCertificateController;
+use App\Http\Controllers\AdvertisementPermissionController;
+use App\Http\Controllers\PermissionShootingController;
+use App\Http\Controllers\HoardingPermissionController;
+use App\Http\Controllers\HealthLicenseController;
+
+use App\Http\Controllers\StallBoardLicenseController;
+
+use App\Http\Controllers\AbattoirLicenseController;
+use App\Http\Controllers\GardensFilmingController;
+use App\Http\Controllers\ParkCulturePermissionController;
+use App\Http\Controllers\PermissionForPmcOwnController;
+use App\Http\Controllers\TentsPermissionController;
+use App\Http\Controllers\ClassroomsForRentController;
+
+use App\Http\Controllers\ProcessionAndParadeController;
+use App\Http\Controllers\RecordObjectionsController;
+use App\Http\Controllers\MobileTowerController;
+
+use App\Http\Controllers\StateLicenseController;
+use App\Http\Controllers\HealthNocMunciController;
+use App\Http\Controllers\MovableAdvertisementPermissionController;
+
+use App\Http\Controllers\CfcController;
+
+
 
 
 
@@ -76,7 +101,7 @@ Route::get('/', function () {
 
 
 
-
+Route::get('make-payment', [App\Http\Controllers\PaymentController::class, 'index']);
 // Guest Users
 Route::middleware(['guest', 'PreventBackHistory', 'firewall.all'])->group(function () {
     Route::get('login', [App\Http\Controllers\Registeration\AuthController::class, 'showLogin'])->name('login');
@@ -180,6 +205,36 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
 
     Route::resource('plinth-certificate', PlinthCertificateController::class);
     Route::resource('occupancy-certificate', OccupancyCertificateController::class);
+
+    Route::resource('permission-shooting', PermissionShootingController::class);
+
+
+    Route::resource('hoarding-permission', HoardingPermissionController::class);
+
+    Route::resource('health-license', HealthLicenseController::class);
+
+
+    Route::resource('stallboard-license', StallBoardLicenseController::class);
+
+    Route::resource('abattoir-license', AbattoirLicenseController::class);
+
+
+    Route::resource('gardens-filming', GardensFilmingController::class);
+
+    Route::resource('park-culture', ParkCulturePermissionController::class);
+
+    Route::resource('pmc-owned', PermissionForPmcOwnController::class);
+
+    Route::resource('tents-permission', TentsPermissionController::class);
+    Route::resource('classroom-rent', ClassroomsForRentController::class);
+    Route::resource('procession-parade', ProcessionAndParadeController::class);
+    Route::resource('record-objections', RecordObjectionsController::class);
+    Route::resource('mobile-tower', MobileTowerController::class);
+    Route::resource('state-license', StateLicenseController::class);
+    Route::resource('healthnoc-munici', HealthNocMunciController::class);
+    Route::resource('movable-advertisement', MovableAdvertisementPermissionController::class);
+    Route::resource('cfc', CfcController::class);
+    Route::resource('advertisement-permission', AdvertisementPermissionController::class);
 });
 Route::post('rts-service-status', [AapaleSarkarLoginCheckController::class, 'updateStatus'])->name('rts.status');
 

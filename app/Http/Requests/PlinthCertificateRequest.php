@@ -22,7 +22,18 @@ class PlinthCertificateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+        'zone' => 'required',
+         'ward' => 'required',
+            'survey_no' => 'required',
+            'applicant_name'=>'required',
+            'applicant_mobile_no' => 'required|min:10|max:10',
+            'applicant_full_address'=>'required',
+            'plot_no'=>'required',
+            'road'=>'required',
+            'building_no'=>'required',
+            'documents'=>'required',
+            'email_id' => 'required',
+            'building_permission_no'=>'required',
         ];
     }
 }

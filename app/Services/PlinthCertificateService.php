@@ -76,5 +76,32 @@ class PlinthCertificateService
         return PlinthCertificate::find($id);
     }
 
-    public function update($request, $id) {}
+    public function update($request, $id)
+    {
+        DB::beginTransaction();
+        try {
+            // Find the existing record
+            $PlinthCertificate = PlinthCertificate::find($id);
+
+            // Handle file uploads and update original file names
+            if ($request->hasFile('documents')) {
+                if ($PlinthCertificate && Storage::exists($PlinthCertificate->document)) {
+                    Storage::delete($PlinthCertificate->document);  // Deleting old document
+                }
+                $request['document'] = $request->documents->store('occupancy-certificate');
+            }
+
+            // Update the rest of the fields
+            $PlinthCertificate->update($request->all());
+
+            DB::commit();
+            return [true];
+
+        } catch (\Exception $e) {
+            DB::rollback();
+            Log::info($e);
+
+            return [false, $e->getMessage()];
+        }
+    }
 }

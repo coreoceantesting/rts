@@ -22,7 +22,16 @@ class OccupancyCertificateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'applicant_full_address'=>'required',
+            'applicant_mobile_no' => 'required|min:10|max:10',
+            'applicant_name'=>'required',
+            'zone' => 'required',
+            'ward' => 'required',
+            'survey_no' => 'required',
+            'email_id' => 'required',
+            'documents'=>'required',
+            'commencement_certificate_no'=>'required',
+            'plinth_number'=>'required',
         ];
     }
 }
