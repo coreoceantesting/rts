@@ -183,6 +183,10 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
 });
 Route::post('rts-service-status', [AapaleSarkarLoginCheckController::class, 'updateStatus'])->name('rts.status');
 
+
+Route::post('check-app-user', [App\Http\Controllers\AppLoginController::class, 'checkAppUser']);
+Route::get('app-login', [App\Http\Controllers\AppLoginController::class, 'appLogin'])->name('app-login');
+
 // Route::get('check-aapalesarkar-user', [AapaleSarkarLoginCheckController::class, 'check']);
 
 
