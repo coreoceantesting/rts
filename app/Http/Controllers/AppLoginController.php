@@ -50,6 +50,24 @@ class AppLoginController extends Controller
 
     public function appLogin(Request $request)
     {
+        $arr = $this->chekData($request);
+
+        if (is_array($arr) && count($arr) > 0) {
+            $user = User::find($arr[0]);
+            if ($user) {
+                Auth::login($user);
+
+                return redirect()->to($arr[1]);
+            } else {
+                abort(404);
+            }
+        } else {
+            $this->appLogin($request);
+        }
+    }
+
+    function chekData($request)
+    {
         $encrypted = base64_decode($request->str);
         $iv = substr($encrypted, 0, openssl_cipher_iv_length('aes-256-cbc'));
         $cipherText = substr($encrypted, openssl_cipher_iv_length('aes-256-cbc'));
@@ -59,13 +77,7 @@ class AppLoginController extends Controller
         $decrypted = openssl_decrypt($cipherText, 'aes-256-cbc', $key, 0, $iv);
 
         $arr = explode("|", $decrypted);
-        $user = User::find($arr[0]);
-        if ($user) {
-            Auth::login($user);
 
-            return redirect()->to($arr[1]);
-        } else {
-            abort(404);
-        }
+        return $arr;
     }
 }
