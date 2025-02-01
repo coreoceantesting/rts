@@ -59,7 +59,7 @@ class AppLoginController extends Controller
 
                 return redirect()->to($arr[1]);
             } else {
-                abort(404);
+                $this->appLogin($request);
             }
         } else {
             $this->appLogin($request);
