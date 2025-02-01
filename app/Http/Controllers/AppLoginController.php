@@ -50,6 +50,7 @@ class AppLoginController extends Controller
 
     public function appLogin(Request $request)
     {
+        set_time_limit(0);
         $arr = $this->chekData($request);
 
         if (is_array($arr) && count($arr) > 0) {
