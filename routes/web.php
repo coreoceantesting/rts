@@ -79,7 +79,9 @@ use App\Http\Controllers\HealthNocMunciController;
 use App\Http\Controllers\MovableAdvertisementPermissionController;
 
 use App\Http\Controllers\CfcController;
-
+use App\Http\Controllers\NewTaxAssessmentController;
+use App\Http\Controllers\DivSubDivisionController;
+use App\Http\Controllers\DemolishingPropertyController;
 
 
 
@@ -235,6 +237,9 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('movable-advertisement', MovableAdvertisementPermissionController::class);
     Route::resource('cfc', CfcController::class);
     Route::resource('advertisement-permission', AdvertisementPermissionController::class);
+    Route::resource('newtax-assessment', NewTaxAssessmentController::class);
+    Route::resource('divsub-division', DivSubDivisionController::class);
+    Route::resource('demolishingproperty', DemolishingPropertyController::class);
 });
 Route::post('rts-service-status', [AapaleSarkarLoginCheckController::class, 'updateStatus'])->name('rts.status');
 

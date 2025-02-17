@@ -467,6 +467,20 @@ class ServiceNameSeeder extends Seeder
                 'add_route' => 'cfc.create',
                 'edit_route' => 'cfc.edit'
             ],
+            [
+                'service_id' => 2020,
+                'service_name' => 'NewTaxAssessment',
+                'model' => '\App\Models\NewTaxAssessment',
+                'add_route' => 'newtax-assessment.create',
+                'edit_route' => 'newtax-assessment.edit'
+            ],
+            [
+                'service_id' => 2021,
+                'service_name' => 'DivSubDivision',
+                'model' => '\App\Models\DivSubDivision',
+                'add_route' => 'divsub-division.create',
+                'edit_route' => 'divsub-division.edit'
+            ],
 
         ];
 
