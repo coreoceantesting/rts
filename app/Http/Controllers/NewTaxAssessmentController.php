@@ -57,7 +57,7 @@ class NewTaxAssessmentController extends Controller
 
     public function edit($id)
     {
-    //    return encrypt($id);
+    // return encrypt($id);
         $assesment = $this->newtaxassessment->edit(decrypt($id));
 
         // $advertisementPermission = AdvertisementPermission::find($id);

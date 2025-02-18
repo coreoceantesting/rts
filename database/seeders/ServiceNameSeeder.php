@@ -469,17 +469,31 @@ class ServiceNameSeeder extends Seeder
             ],
             [
                 'service_id' => 2020,
-                'service_name' => 'NewTaxAssessment',
+                'service_name' => 'New Tax Assessment',
                 'model' => '\App\Models\NewTaxAssessment',
                 'add_route' => 'newtax-assessment.create',
                 'edit_route' => 'newtax-assessment.edit'
             ],
             [
                 'service_id' => 2021,
-                'service_name' => 'DivSubDivision',
+                'service_name' => 'Division Of Property In Sub Division',
                 'model' => '\App\Models\DivSubDivision',
                 'add_route' => 'divsub-division.create',
                 'edit_route' => 'divsub-division.edit'
+            ],
+            [
+                'service_id' => 2022,
+                'service_name' => 'Tax Assessment On Demolishing And Reconstruction Of The Property',
+                'model' => '\App\Models\DemolishingProperty',
+                'add_route' => 'demolishingproperty.create',
+                'edit_route' => 'demolishingproperty.edit'
+            ],
+            [
+                'service_id' => 2023,
+                'service_name' => 'Trade NOC',
+                'model' => '\App\Models\Trade\TradeNoc',
+                'add_route' => 'tradenoc.create',
+                'edit_route' => 'tradenoc.edit'
             ],
 
         ];

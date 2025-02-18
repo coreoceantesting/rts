@@ -25,7 +25,7 @@ class DemolishingPropertyService
     {
 
         $request['user_id'] = Auth::user()->id;
-        $request['service_id'] = "2020";
+        $request['service_id'] = "2022";
         $request['application_no'] = "PMC-" . time();
 
 

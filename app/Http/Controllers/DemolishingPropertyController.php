@@ -28,7 +28,7 @@ class DemolishingPropertyController extends Controller
         $zones = $this->commonService->getActiveZone();
 
         // Return the create view with wards and zones data
-        return view('newtax_assessment.create')->with([
+        return view('demolishing-property.create')->with([
             'wards' => $wards,
             'zones' => $zones,
         ]);
@@ -45,7 +45,7 @@ class DemolishingPropertyController extends Controller
         // Check if the license was successfully saved
         if ($demolishingprop[0]) {
             return response()->json([
-                'success' => 'New Tax Assesment saved successfully'
+                'success' => 'Demolishing & Reconstrction saved successfully'
             ]);
         } else {
             return response()->json([
@@ -58,7 +58,7 @@ class DemolishingPropertyController extends Controller
 
     public function edit($id)
     {
-    //    return encrypt($id);
+//    return encrypt($id);
         $demolishingprop = $this->demolishingproperty->edit(decrypt($id));
 
         // $advertisementPermission = AdvertisementPermission::find($id);
@@ -71,7 +71,7 @@ class DemolishingPropertyController extends Controller
 
         // $data = AdvertisementPermission::findOrFail($id);
 
-        return view('newtax_assessment.update')->with([
+        return view('demolishing-property.update')->with([
             'demolishingprop'=>  $demolishingprop,
             'wards' => $wards,
             'zones' => $zones,
@@ -85,6 +85,6 @@ class DemolishingPropertyController extends Controller
         // dd($request->all());
         $demolishingprop = $this->demolishingproperty->update($request, $id);
 
-        return response()->json(['success' => 'New Tax Assesment update successfully!']);
+        return response()->json(['success' => 'Demolishing and Reconstrction update successfully!']);
     }
 }

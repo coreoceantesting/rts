@@ -15,26 +15,27 @@
                     <div class="card-body">
 
 
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                <select class="form-select" name="zone" id="zone" required>
-                                    <option value="">Select Zone</option>
-                                    @foreach ($zones as $zone)
-                                        <option @if ($assesment->zone == $zone->name) selected @endif value="{{ $zone->name }}">{{ $zone->name }}</option>
-                                    @endforeach
-                                </select>
-                                <span class="text-danger is-invalid zone_err"></span>
-                            </div>
-                            <div class="mb-3 row">
+                        <div class="col-md-4">
+                            <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
+                            <select class="form-select" name="zone" id="zone" required>
+                                <option value="">Select Zone</option>
+                                @foreach ($zones as $zone)
+                                {{-- @dd($assesment); --}}
+                                    <option @if ($assesment->zone == $zone->name) selected @endif value="{{ $zone->name }}">{{ $zone->name }}</option>
+                                @endforeach
+                            </select>
+                            <span class="text-danger is-invalid zone_err"></span>
+                        </div>
+                        <div class="mb-3 row">
                             <div class="col-md-4">
                                 <label class="col-form-label" for="f_name">First Name <span class="text-danger">*</span></label>
-                                <input class="form-control" id="f_name" name="f_name" type="text" placeholder="Enter First Name"  value="{{ $assesment->f_name }}" required>
+                                <input class="form-control" id="f_name" name="f_name" type="text" placeholder="Enter First Name" value="{{ $assesment->f_name }}" required>
                                 <span class="text-danger is-invalid applicant_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="m_name">Middle Name <span class="text-danger">*</span></label>
-                                <input class="form-control" id="m_name" name="m_name" type="text" placeholder="Enter Middle Name"   value="{{ $assesment->m_name }}" required>
+                                <input class="form-control" id="m_name" name="m_name" type="text" placeholder="Enter Middle Name" value="{{ $assesment->m_name }}" required>
                                 <span class="text-danger is-invalid applicant_name_err"></span>
                             </div>
 
@@ -58,35 +59,35 @@
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="marathi_l_name">आडनाव (मराठी) <span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_l_name" name="marathi_l_name" type="text" placeholder="आडनाव प्रविष्ट करा"  value="{{ $assesment->marathi_l_name }}" required>
+                                <input class="form-control" id="marathi_l_name" name="marathi_l_name" type="text" placeholder="आडनाव प्रविष्ट करा" value="{{ $assesment->marathi_l_name }}" required>
                                 <span class="text-danger is-invalid applicant_name_err"></span>
                             </div>
 
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="mobile_num">Mobile Number</label>
-                                <input class="form-control" id="mobile_num" name="mobile_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number"  value="{{ $assesment->mobile_num }}">
+                                <input class="form-control" id="mobile_num" name="mobile_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" value="{{ $assesment->mobile_num }}">
                                 <span class="text-danger is-invalid applicant_mobile_no_err"></span>
                             </div>
                             <div class="col-md-4">
                                 <label class="col-form-label" for="aadhar_num">Aadhar Card No</label>
-                                <input class="form-control" id="aadhar_num" name="aadhar_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number"  value="{{ $assesment->aadhar_num }}">
+                                <input class="form-control" id="aadhar_num" name="aadhar_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number" value="{{ $assesment->aadhar_num }}">
                                 <span class="text-danger is-invalid applicant_mobile_no_err"></span>
                             </div>
                             <div class="col-md-4">
                                 <label class="col-form-label" for="email">Email<span class="text-danger">*</span></label>
-                                <input class="form-control" id="email" name="email" type="email" placeholder="Enter Email"   value="{{ $assesment->email }}" required>
+                                <input class="form-control" id="email" name="email" type="email" placeholder="Enter Email" value="{{ $assesment->email }}" required>
                                 <span class="text-danger is-invalid email_err"></span>
                             </div>
                             <div class="col-md-5">
                                 <label class="col-form-label" for="address"> Address <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="address" id="address" cols="30" rows="2" placeholder="Enter Address"  required>{{ $assesment->address }}</textarea>
+                                <textarea class="form-control" name="address" id="address" cols="30" rows="2" placeholder="Enter Address" required>{{ $assesment->address }}</textarea>
                                 <span class="text-danger is-invalid address_err"></span>
                             </div>
 
                             <div class="col-md-5">
                                 <label class="col-form-label" for="marathi_address"> पत्ता (मराठी) <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="marathi_address" id="marathi_address" cols="30" rows="2" placeholder="पत्ता"  value="" required>{{ $assesment->marathi_address }}</textarea>
+                                <textarea class="form-control" name="marathi_address" id="marathi_address" cols="30" rows="2" placeholder="पत्ता" value="" required>{{ $assesment->marathi_address }}</textarea>
                                 <span class="text-danger is-invalid applicant_full_address_err"></span>
                             </div>
 
