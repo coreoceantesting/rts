@@ -53,6 +53,12 @@
                             <li class="nav-item">
                                 <a href="{{ route('zone.index') }}" class="nav-link {{ request()->routeIs('zone.*') ? 'active' : '' }}" data-key="t-horizontal">Zone</a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('ward.index') }}" class="nav-link {{ request()->routeIs('ward.*') ? 'active' : '' }}" data-key="t-horizontal">Fees</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('ward.index') }}" class="nav-link {{ request()->routeIs('ward.*') ? 'active' : '' }}" data-key="t-horizontal">Signature</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
