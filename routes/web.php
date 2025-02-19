@@ -199,20 +199,24 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('trade-change-owner-count', ChangeOwnerPartnerCountController::class);
     Route::resource('trade-change-owner-name', ChangeOwnerNameController::class);
     Route::resource('trade-license-cancellation', LicenseCancellationController::class);
+    Route::resource('tradenoc', TradeNocController::class);
     Route::resource('trade-license-loading', LicenseLoadgingHouseController::class);
     Route::resource('trade-renew-license-loading', RenewLicenseLoadgingController::class);
     Route::resource('trade-issuance-license-marriage', IssuanceLicenseMarriageController::class);
     Route::resource('trade-renew-license-marriage', RenewalLicenseMarriageController::class);
 
     // NULM
+    Route::resource('hawker-register', HawkerRegisterController::class);
+
+    //PWD
     Route::resource('grant-telecome', GrantingTelecomController::class);
 
     //Tree Auth
     Route::resource('tree-protection', TreeProtectionController::class);
 
 
-    //PWD
-    Route::resource('hawker-register', HawkerRegisterController::class);
+
+
     // profile route
     Route::get('/profile', [MyProfileController::class, 'profile'])->name('user.profile');
 
@@ -262,7 +266,7 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('newtax-assessment', NewTaxAssessmentController::class);
     Route::resource('divsub-division', DivSubDivisionController::class);
     Route::resource('demolishingproperty', DemolishingPropertyController::class);
-    Route::resource('tradenoc', TradeNocController::class);
+
 
 
     //Department Of Medical Health

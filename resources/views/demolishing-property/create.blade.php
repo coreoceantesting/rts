@@ -66,12 +66,12 @@
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="mobile_num">Mobile Number</label>
-                                <input class="form-control" id="mobile_num" name="mobile_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" required>
+                                <input class="form-control" id="mobile_num" name="mobile_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" >
                                 <span class="text-danger is-invalid applicant_mobile_no_err"></span>
                             </div>
                             <div class="col-md-4">
                                 <label class="col-form-label" for="aadhar_num">Aadhar Card No</label>
-                                <input class="form-control" id="aadhar_num" name="aadhar_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number" required>
+                                <input class="form-control" id="aadhar_num" name="aadhar_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number" >
                                 <span class="text-danger is-invalid applicant_mobile_no_err"></span>
                             </div>
                             <div class="col-md-4">

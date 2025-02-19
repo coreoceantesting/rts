@@ -45,7 +45,7 @@ class DemolishingPropertyController extends Controller
         // Check if the license was successfully saved
         if ($demolishingprop[0]) {
             return response()->json([
-                'success' => 'Demolishing & Reconstrction saved successfully'
+                'success' => 'Demolishing and Reconstrction saved successfully'
             ]);
         } else {
             return response()->json([
@@ -58,7 +58,7 @@ class DemolishingPropertyController extends Controller
 
     public function edit($id)
     {
-//    return encrypt($id);
+    // return encrypt($id);
         $demolishingprop = $this->demolishingproperty->edit(decrypt($id));
 
         // $advertisementPermission = AdvertisementPermission::find($id);

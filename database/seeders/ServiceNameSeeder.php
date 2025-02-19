@@ -496,6 +496,79 @@ class ServiceNameSeeder extends Seeder
                 'edit_route' => 'tradenoc.edit'
             ],
 
+            [
+                'service_id' => 2024,
+                'service_name' => 'Issuance of Nursing Home License',
+                'model' => '\App\Models\MedicalHealth\GrantNursingLicense',
+                'add_route' => 'grantnursing-license.create',
+                'edit_route' => 'grantnursing-license.edit'
+            ],
+
+            [
+                'service_id' => 2025,
+                'service_name' => 'Renewal of Nursing Home License',
+                'model' => '\App\Models\MedicalHealth\RenewalNursingLicense',
+                'add_route' => 'renewnursing-license.create',
+                'edit_route' => 'renewnursing-license.edit'
+            ],
+
+            [
+                'service_id' => 2026,
+                'service_name' => 'Change of name of license',
+                'model' => '\App\Models\MedicalHealth\changenursing-license',
+                'add_route' => 'changenursing-license.create',
+                'edit_route' => 'changenursing-license.edit'
+            ],
+            [
+                'service_id' => 2027,
+                'service_name' => 'Licensing Of Lodging Houses',
+                'model' => '\App\Models\Trade\LicenseLoadgingHouse',
+                'add_route' => 'trade-license-loading.create',
+                'edit_route' => 'trade-license-loading.edit'
+            ],
+            [
+                'service_id' => 2028,
+                'service_name' => 'Renewal of Lodging House License',
+                'model' => '\App\Models\Trade\RenewLicenseLoadging',
+                'add_route' => 'trade-renew-license-loading.create',
+                'edit_route' => 'trade-renew-license-loading.edit'
+            ],
+            [
+                'service_id' => 2029,
+                'service_name' => 'Issuance of license for marriage hall',
+                'model' => '\App\Models\Trade\IssuanceLicenseMarriage',
+                'add_route' => 'trade-issuance-license-marriage.create',
+                'edit_route' => 'trade-issuance-license-marriage.edit'
+            ],
+            [
+                'service_id' => 2030,
+                'service_name' => 'Renewal of marriage hall',
+                'model' => '\App\Models\Trade\RenewMarriageLicense',
+                'add_route' => 'trade-renew-license-marriage.create',
+                'edit_route' => 'trade-renew-license-marriage.edit'
+            ],
+            [
+                'service_id' => 2031,
+                'service_name' => 'Issuance of hawker registration certificate',
+                'model' => '\App\Models\Nulm\HawkerRegister',
+                'add_route' => 'hawker-register.create',
+                'edit_route' => 'hawker-register.edit'
+            ],
+            [
+                'service_id' => 2032,
+                'service_name' => 'Granting permission for laying underground telecommunication ducts',
+                'model' => '\App\Models\Pwd\GrantingTelecom',
+                'add_route' => 'grant-telecome.create',
+                'edit_route' => 'grant-telecome.edit'
+            ],
+            [
+                'service_id' => 2033,
+                'service_name' => 'Urban Areas Tree Protection',
+                'model' => '\App\Models\TreeAuth\TreeProtection',
+                'add_route' => 'tree-protection.create',
+                'edit_route' => 'tree-protection.edit'
+            ],
+
         ];
 
 

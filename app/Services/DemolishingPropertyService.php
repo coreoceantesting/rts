@@ -89,7 +89,7 @@ class DemolishingPropertyService
 
     public function edit($id)
     {
-        return NewTaxAssessment::find($id);
+        return DemolishingProperty::find($id);
     }
 
     public function update($request, $id)

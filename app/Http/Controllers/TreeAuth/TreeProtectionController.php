@@ -4,7 +4,7 @@ namespace App\Http\Controllers\TreeAuth;
 
 use App\Http\Controllers\Controller;
 use App\Services\CommonService;
-use App\Services\Trade\TreeProtectionService;
+use App\Services\TreeAuth\TreeProtectionService;
 use Illuminate\Http\Request;
 
 class TreeProtectionController extends Controller
@@ -28,7 +28,7 @@ class TreeProtectionController extends Controller
         $zones = $this->commonService->getActiveZone();
 
         // Return the create view with wards and zones data
-        return view('trade.issuance-marriage.create')->with([
+        return view('tree-auth.tree-protection.create')->with([
             'wards' => $wards,
             'zones' => $zones,
         ]);
@@ -45,7 +45,7 @@ class TreeProtectionController extends Controller
         // Check if the license was successfully saved
         if ($treeProtection[0]) {
             return response()->json([
-                'success' => 'Issuance  Marriage License saved successfully'
+                'success' => 'Tree Protection saved successfully'
             ]);
         } else {
             return response()->json([
@@ -58,7 +58,7 @@ class TreeProtectionController extends Controller
 
     public function edit($id)
     {
-            //    return encrypt($id);
+                // return encrypt($id);
         $treeProtection = $this->treeProtection->edit(decrypt($id));
 
         // $advertisementPermission = AdvertisementPermission::find($id);
@@ -71,7 +71,7 @@ class TreeProtectionController extends Controller
 
         // $data = AdvertisementPermission::findOrFail($id);
 
-        return view('trade.issuance-marriage.update')->with([
+        return view('tree-auth.tree-protection.update')->with([
             'treeProtection'=>  $treeProtection,
             'wards' => $wards,
             'zones' => $zones,
@@ -85,6 +85,6 @@ class TreeProtectionController extends Controller
         // dd($request->all());
         $trade = $this->treeProtection->update($request, $id);
 
-        return response()->json(['success' => 'Issuance  Marriage License update successfully!']);
+        return response()->json(['success' => 'Tree Protection update successfully!']);
     }
 }

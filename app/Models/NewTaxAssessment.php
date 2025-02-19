@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Request;
 class NewTaxAssessment extends Model
 {
     use HasFactory;
-     protected $fillable = [
+    protected $fillable = [
         'user_id',
         'ip',
         'zone',
@@ -25,7 +25,15 @@ class NewTaxAssessment extends Model
         'address',
         'marathi_address',
         'purpose',
-        'marathi_purpose'
+        'marathi_purpose',
+        'application_no',
+        'service_id',
+        'payment_date',
+        'is_payment_paid',
+        'is_payment_paid_aapale_sarkar',
+        'aapale_sarkar_payment_date',
+        'status'
+
     ];
 
     protected static function boot()
