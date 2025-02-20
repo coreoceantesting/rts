@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('fees_masters', function (Blueprint $table) {
             $table->id();
-            $table->string('service_name')->nullable();
-            $table->bigInteger('fees')->nullable();
-            $table->integer('dep_service_id')->nullable();
+            $table->foreignid('service_name_id')->constrained()->onDelete('cascade');
+            // $table->String('dep_service_id')->nullable();
+            $table->Integer('fees')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

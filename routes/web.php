@@ -82,6 +82,8 @@ use App\Http\Controllers\CfcController;
 use App\Http\Controllers\NewTaxAssessmentController;
 use App\Http\Controllers\DivSubDivisionController;
 use App\Http\Controllers\DemolishingPropertyController;
+use App\Http\Controllers\Master\FeesController;
+use App\Http\Controllers\Master\SignatureController;
 use App\Http\Controllers\MedicalHealth\ChangeNursingLicenseController;
 use App\Http\Controllers\MedicalHealth\DepMedicalHealthController;
 use App\Http\Controllers\MedicalHealth\GrantNursingLicenseController;
@@ -273,6 +275,10 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('grantnursing-license', GrantNursingLicenseController::class);
     Route::resource('renewnursing-license', RenewalNursingLicenseController::class);
     Route::resource('changenursing-license', ChangeNursingLicenseController::class);
+
+    Route::resource('fees', FeesController::class);
+    Route::resource('signature', SignatureController::class);
+
 });
 Route::post('rts-service-status', [AapaleSarkarLoginCheckController::class, 'updateStatus'])->name('rts.status');
 
