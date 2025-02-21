@@ -17,13 +17,14 @@ class FeesController extends Controller
 {
     public function index()
     {
+
         $services = ServiceName::select('service_id', 'service_name', 'id')->get();
-        //  $servicesss=ServiceCredential::select('service_id')->get();
-        //  dd($services);
-        $fees = Fees::latest()->get();
-// dd($fees);
+
+        $fees = Fees::with('service')->latest()->get();
+
+        // dd($fees);
+
         return view('master.fees', compact('services'))->with(['fees' => $fees]);
-        // return($fees);
     }
     public function create()
     {
@@ -45,14 +46,15 @@ class FeesController extends Controller
 
 
             $input = $request->validated();
-            $fees = Fees::create(Arr::only($input, ['service_name_id','dep_service_id','fees']));
-            // dd($fees);
+            // dd($input);
+            $fees = Fees::create(Arr::only($input, ['service_name_id', 'fees']));
+            //  dd($fees);
 
             DB::commit();
 
             return response()->json([
                 'success' => 'Fees Added successfully!',
-                'data'=>$fees,
+                'data' => $fees,
 
             ]);
         } catch (\Exception $e) {
@@ -63,6 +65,7 @@ class FeesController extends Controller
     }
     public function edit(Fees $fee)
     {
+        // dd($fee);
         if ($fee) {
             $response = [
                 'result' => 1,
@@ -84,12 +87,12 @@ class FeesController extends Controller
         try {
             DB::beginTransaction();
             $input = $request->validated();
-            $fee->update(Arr::only($input, ['service_name','dep_service_id', 'fees']));
+            $fee->update(Arr::only($input, ['service_name', 'fees']));
             DB::commit();
 
             return response()->json(['success' => 'Fees updated successfully!']);
         } catch (\Exception $e) {
-            return $this->respondWithAjax($e, 'updating', 'Service');
+            return $this->respondWithAjax($e, 'updating', 'Fees');
         }
     }
 

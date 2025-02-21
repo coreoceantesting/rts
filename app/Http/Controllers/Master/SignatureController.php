@@ -3,24 +3,32 @@
 namespace App\Http\Controllers\Master;
 
 use App\Http\Controllers\Controller;
-use App\Models\Fees;
-use App\Http\Requests\Admin\Masters\StoreFeesRequest;
-use App\Http\Requests\Admin\Masters\UpdateFeesRequest;
-use Illuminate\Http\Request;
+use App\Http\Requests\Admin\Masters\StoreSignatureRequest;
+use App\Http\Requests\Admin\Masters\UpdateSignatureRequest;
+use App\Models\Signature;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use App\Models\ServiceName;
 
 class SignatureController extends Controller
 {
     public function index()
     {
-        $fees = Fees::latest()->get();
-
-        return view('master.signature')->with(['fees' => $fees]);
+        $services = ServiceName::select('service_id', 'service_name', 'id')->get();
+        // dd($services);
+        $signature = Signature::with('service')->latest()->get();
+        // dd($signature);
+        return view('master.signature', compact('services'))->with(['signature' => $signature]);
     }
-    public function create() {}
+    public function create()
+    {
+        $services = ServiceName::select('service_id', 'service_name')->get();
+        return view('master.create_signature')->with([
+            'services' => $services // Pass districts to the create view
+        ]);
+    }
 
-    public function store(StoreFeesRequest $request)
+    public function store(StoreSignatureRequest $request)
     {
 
         //  dd($request->all());
@@ -29,34 +37,36 @@ class SignatureController extends Controller
 
 
             $input = $request->validated();
+            //  dd($input);
+            if ($request->hasFile('image')) {
+                $imagePath = $request->file('image')->store('signatures', 'public');
+                $input['image'] = $imagePath; // Save the file path in the database
+            }
 
-            Fees::create(Arr::only($input,['service_name','fees','dep_service_id']));
-            // dd($input);
-
+          $signature=  Signature::create(Arr::only($input, ['service_name_id', 'image']));
             DB::commit();
 
             return response()->json([
-                'success' => 'Fees Added successfully!',
-
+                'success' => 'Signature Added successfully!',
+                'data' => $signature,
             ]);
         } catch (\Exception $e) {
             DB::rollBack();
 
-            return $this->respondWithAjax($e, 'creating', 'Fees');
+            return response()->json([
+                'error' => 'Error creating Signature: ' . $e->getMessage(),
+            ], 500);
         }
     }
-    public function edit(Fees $fee)
+    public function edit(Signature $signature)
     {
-        if ($fee)
-        {
+        if ($signature) {
             $response = [
                 'result' => 1,
-                'fee' => $fee,
+                'signature' => $signature,
             ];
             // return view('admin.masters.districts', compact('district'));
-        }
-        else
-        {
+        } else {
             $response = ['result' => 0];
         }
         return $response;
@@ -65,37 +75,35 @@ class SignatureController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateFeesRequest $request, Fees $fee)
+    public function update(UpdateSignatureRequest $request, Signature $signature)
     {
         // dd($request);
-        try
-        {
+        try {
             DB::beginTransaction();
             $input = $request->validated();
-            $fee->update( Arr::only( $input, ['service_name','fees','dep_service_id']) );
+            if ($request->hasFile('image')) {
+                $imagePath = $request->file('image')->store('signatures', 'public');
+                $input['image'] = $imagePath; // Save the file path in the database
+            }
+            $signature->update(Arr::only($input, ['service_name_id', 'image']));
             DB::commit();
 
-            return response()->json(['success'=> 'Fees updated successfully!']);
-        }
-        catch(\Exception $e)
-        {
-            return $this->respondWithAjax($e, 'updating', 'Ward');
+            return response()->json(['success' => 'Signature updated successfully!']);
+        } catch (\Exception $e) {
+            return $this->respondWithAjax($e, 'updating', 'Signature');
         }
     }
 
-    public function destroy(Fees $fee)
+    public function destroy(Signature $signature)
     {
-        try
-        {
+        try {
             DB::beginTransaction();
-            $fee->delete();
+            $signature->delete();
             DB::commit();
 
-            return response()->json(['success'=> 'Fees deleted successfully!']);
-        }
-        catch(\Exception $e)
-        {
-            return $this->respondWithAjax($e, 'deleting', 'Fees');
+            return response()->json(['success' => 'Signature deleted successfully!']);
+        } catch (\Exception $e) {
+            return $this->respondWithAjax($e, 'deleting', 'Signature');
         }
     }
 }

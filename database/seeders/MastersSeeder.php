@@ -19,13 +19,11 @@ class MastersSeeder extends Seeder
                 'id' => 49,
                 'service_name' => 'Road Cutting Permission',
                 'fees' => 100,
-                'dep_service_id' => 187,
             ],
             [
                 'id' => 48,
                 'service_name' => 'Giving Part Map',
                 'fees' => 100,
-                'dep_service_id' => 186,
             ],
         ];
 

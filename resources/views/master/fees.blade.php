@@ -18,11 +18,11 @@
                         <div class="mb-3 row">
                             <div class="col-md-4">
                                 <label class="col-form-label" for=" ">Service Name<span class="text-danger">*</span></label>
-                              {{-- @dd($services) --}}
+                                {{-- @dd($services) --}}
                                 <select class="form-select" id="add_service_name" name="service_name_id" required>
                                     <option value="" selected disabled>Select Service Name</option>
                                     @foreach ($services as $service)
-                                        <option value="{{ $service->id }}" >{{$service->service_id}} - {{ $service->service_name }}</option>
+                                        <option value="{{ $service->id }}">{{ $service->service_id }} - {{ $service->service_name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -134,11 +134,12 @@
 
                             </thead>
                             <tbody>
+                                {{-- @dd($fees) --}}
                                 @foreach ($fees as $fee)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $fee->service_name_id }} - {{ $service->service_name }}</td>
-                                        {{-- <td>{{ $fee->dep_service_id }}</td> --}}
+
+                                        <td>{{$fee->service?->service_id }} - {{ $fee->service?->service_name }}</td>
 
                                         <td>{{ $fee->fees }}</td>
 

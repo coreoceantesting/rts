@@ -17,17 +17,35 @@
                     <div class="card-body">
                         <div class="mb-3 row">
                             <div class="col-md-4">
-                                <label class="col-form-label" for="name">Service Name<span class="text-danger">*</span></label>
-                                <input class="form-control" id="name" name="name" type="text" placeholder="Enter Service Name">
-                                <span class="text-danger is-invalid name_err"></span>
+                                <label class="col-form-label" for=" ">Service Name<span class="text-danger">*</span></label>
+                                <select class="form-select" id="add_service_name" name="service_name_id" required>
+                                    <option value="" selected disabled>Select Service Name</option>
+                                    @foreach ($services as $service)
+                                        <option value="{{ $service->id }}">{{ $service->service_id }} - {{ $service->service_name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="dep_service_id"> Department Service Id<span class="text-danger">*</span></label>
-                                <input class="form-control" id="dep_service_id" name="dep_service_id" type="text" placeholder="Enter Service Id">
-                                <span class="text-danger is-invalid initial_err"></span>
-                            </div>
-                            <div class="col-md-4">
 
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="image">Image <span class="text-danger">*</span></label>
+                                <input type="file" class="form-control" id="service_image" name="image" accept="image/*" required onchange="previewImage(event)">
+                            </div>
+                            <div class="col-md-4 d-flex align-items-end">
+                                <button type="button" class="btn btn-primary" id="viewImageButton" style="display: none;" onclick="openImageModal()">View Image</button>
+                            </div>
+
+                            <div class="modal fade" id="imagePreviewModal" tabindex="-1" aria-labelledby="imagePreviewLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Uploaded Image Preview</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body text-center">
+                                            <img id="image_preview" src="" alt="Preview Image" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -47,31 +65,29 @@
     {{-- Edit Form --}}
     <div class="row" id="editContainer" style="display:none;">
         <div class="col">
-            <form class="form-horizontal form-bordered" method="post" id="editForm">
+            <form class="form-horizontal form-bordered" method="post" id="editForm" enctype="multipart/form-data">
                 @csrf
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Edit Signature</h4>
                     </div>
                     <div class="card-body py-2">
-                        <input type="hidden" id="edit_model_id" name="edit_model_id" value="">
+                        <input type="hidden" id="edit_model_id" name="edit_model_id">
                         <div class="mb-3 row">
                             <div class="col-md-4">
-                                <label class="col-form-label" for="service_name">Service Name <span class="text-danger">*</span></label>
-                                <input class="form-control" id="service_name" name="service_name" type="text" placeholder="Service Name" disabled selected>
-                                <span class="text-danger is-invalid name_err"></span>
+                                <label class="col-form-label" for="service_name_id">Service Name<span class="text-danger">*</span></label>
+                                <input class="form-control" id="edit_service_name" name="service_name_id" type="text" placeholder="Enter Service Id" readonly disabled>
                             </div>
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="dep_service_id"> Department Service Id<span class="text-danger">*</span></label>
-                                <input class="form-control" id="dep_service_id" name="dep_service_id" type="number" placeholder="Enter Service Id" disabled selected>
-                                <span class="text-danger is-invalid initial_err"></span>
-                            </div>
-                            <div class="col-md-4">
 
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="image">Image <span class="text-danger">*</span></label>
+                                <input type="file" class="form-control" id="service_image" name="image" accept="image/*" required onchange="previewImage(event)">
+                            </div>
+                            <div class="col-md-4 d-flex align-items-end">
+                                <button type="button" class="btn btn-primary" id="viewImageButton" style="display: none;" onclick="openImageModal()">View Image</button>
                             </div>
 
                         </div>
-
                     </div>
                     <div class="card-footer">
                         <button class="btn btn-primary" id="editSubmit">Submit</button>
@@ -81,7 +97,6 @@
             </form>
         </div>
     </div>
-
 
     <div class="row">
         <div class="col-lg-12">
@@ -103,38 +118,37 @@
                                 <tr>
                                     <th>Sr.No</th>
                                     <th>Service Name</th>
-                                    <th>Department Service Id</th>
                                     <th>Images</th>
-
-
-
                                     <th>Action</th>
-
                                 </tr>
-
-                            </thead>
-                            <tbody>
-                                @foreach ($fees as $fee)
+                                @foreach ($signature as $signatur)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $fee->service_name }}</td>
-                                        <td>{{ $fee->dep_service_id }}</td>
 
-                                        <td>{{ $fee->fees }}</td>
+                                        <td>{{ $signatur->service?->service_id }} - {{ $signatur->service?->service_name }}</td>
+                                        <td>
+                                            @if ($signatur->image)
+                                                <a href="{{ asset('storage/' . $signatur->image) }}" target="_blank" class="btn btn-primary btn-sm">View Image</a>
+                                            @else
+                                                <span class="text-muted">No Image</span>
+                                            @endif
+                                        </td>
+                                        {{-- <td>{{ $signatur->image }}</td> --}}
 
 
                                         <td>
 
-                                            <button class="edit-element btn text-secondary px-2 py-1" title="Edit district" data-id="{{ $fee->id }}"><i data-feather="edit"></i></button>
+                                            <button class="edit-element btn text-secondary px-2 py-1" title="Edit district" data-id="{{ $signatur->id }}"><i data-feather="edit"></i></button>
 
-                                            <button class="btn text-danger rem-element px-2 py-1" title="Delete district" data-id="{{ $fee->id }}"><i data-feather="trash-2"></i> </button>
+                                            <button class="btn text-danger rem-element px-2 py-1" title="Delete district" data-id="{{ $signatur->id }}"><i data-feather="trash-2"></i> </button>
 
                                         </td>
 
                                     </tr>
                                 @endforeach
-                            </tbody>
-                            </table>
+                            </thead>
+
+                        </table>
                     </div>
                 </div>
             </div>
@@ -155,7 +169,7 @@
 
         var formdata = new FormData(this);
         $.ajax({
-            url: '{{ route('fees.store') }}',
+            url: '{{ route('signature.store') }}',
             type: 'POST',
             data: formdata,
             contentType: false,
@@ -165,7 +179,7 @@
                 if (!data.error2)
                     swal("Successful!", data.success, "success")
                     .then((action) => {
-                        window.location.href = '{{ route('fees.index') }}';
+                        window.location.href = '{{ route('signature.index') }}';
                     });
                 else
                     swal("Error!", data.error2, "error");
@@ -184,6 +198,33 @@
         });
 
     });
+
+    function previewImage(event) {
+        const file = event.target.files[0];
+        const imagePreview = document.getElementById("image_preview");
+        const viewButton = document.getElementById("viewImageButton");
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                imagePreview.src = reader.result;
+                viewButton.style.display = "inline-block"; // Show the "View Image" button
+            };
+            reader.readAsDataURL(file);
+        } else {
+            viewButton.style.display = "none"; // Hide the button if no file is selected
+        }
+    }
+
+    // Open modal when clicking "View Image" button
+    function openImageModal() {
+        const imagePreview = document.getElementById("image_preview").src;
+        if (!imagePreview) {
+            alert("Please upload an image first!");
+            return;
+        }
+        new bootstrap.Modal(document.getElementById("imagePreviewModal")).show();
+    }
 </script>
 
 
@@ -192,7 +233,7 @@
     $("#buttons-datatables").on("click", ".edit-element", function(e) {
         e.preventDefault();
         var model_id = $(this).attr("data-id");
-        var url = "{{ route('fees.edit', ':model_id') }}";
+        var url = "{{ route('signature.edit', ':model_id') }}";
 
         $.ajax({
             url: url.replace(':model_id', model_id),
@@ -203,10 +244,10 @@
             success: function(data, textStatus, jqXHR) {
                 editFormBehaviour();
                 if (!data.error) {
-                    $("#editForm input[name='edit_model_id']").val(data.fee.id);
-                    $("#editForm input[name='service_name']").val(data.fee.service_name);
-                    $("#editForm input[name='fees']").val(data.fee.fees);
-                    $("#editForm input[name='dep_service_id']").val(data.fee.dep_service_id);
+                    $("#editForm input[name='edit_model_id']").val(data.signatur.id);
+                    $("#editForm input[name='service_name']").val(data.signatur.service_name);
+                    $("#editForm input[name='signature']").val(data.signatur.signature);
+                    $("#editForm input[name='dep_service_id']").val(data.signatur.dep_service_id);
                 } else {
                     alert(data.error);
                 }
@@ -216,6 +257,7 @@
             },
         });
     });
+
 </script>
 
 
@@ -228,7 +270,7 @@
             var formdata = new FormData(this);
             formdata.append('_method', 'PUT');
             var model_id = $('#edit_model_id').val();
-            var url = "{{ route('fees.update', ':model_id') }}";
+            var url = "{{ route('signature.update', ':model_id') }}";
             //
             $.ajax({
                 url: url.replace(':model_id', model_id),
@@ -241,7 +283,7 @@
                     if (!data.error2)
                         swal("Successful!", data.success, "success")
                         .then((action) => {
-                            window.location.href = '{{ route('fees.index') }}';
+                            window.location.href = '{{ route('signature.index') }}';
                         });
                     else
                         swal("Error!", data.error2, "error");
@@ -261,6 +303,33 @@
 
         });
     });
+
+    function previewImage(event) {
+        const file = event.target.files[0];
+        const imagePreview = document.getElementById("image_preview");
+        const viewButton = document.getElementById("viewImageButton");
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                imagePreview.src = reader.result;
+                viewButton.style.display = "inline-block"; // Show the "View Image" button
+            };
+            reader.readAsDataURL(file);
+        } else {
+            viewButton.style.display = "none"; // Hide the button if no file is selected
+        }
+    }
+
+    // Open modal when clicking "View Image" button
+    function openImageModal() {
+        const imagePreview = document.getElementById("image_preview").src;
+        if (!imagePreview) {
+            alert("Please upload an image first!");
+            return;
+        }
+        new bootstrap.Modal(document.getElementById("imagePreviewModal")).show();
+    }
 </script>
 
 
@@ -269,7 +338,7 @@
     $("#buttons-datatables").on("click", ".rem-element", function(e) {
         e.preventDefault();
         swal({
-                title: "Are you sure to delete this Fees?",
+                title: "Are you sure to delete this signature?",
                 // text: "Make sure if you have filled Vendor details before proceeding further",
                 icon: "info",
                 buttons: ["Cancel", "Confirm"]
@@ -277,7 +346,7 @@
             .then((justTransfer) => {
                 if (justTransfer) {
                     var model_id = $(this).attr("data-id");
-                    var url = "{{ route('fees.destroy', ':model_id') }}";
+                    var url = "{{ route('signature.destroy', ':model_id') }}";
 
                     $.ajax({
                         url: url.replace(':model_id', model_id),
@@ -307,4 +376,32 @@
                 }
             });
     });
+
+
+    function previewImage(event) {
+        const file = event.target.files[0];
+        const imagePreview = document.getElementById("image_preview");
+        const viewButton = document.getElementById("viewImageButton");
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                imagePreview.src = reader.result;
+                viewButton.style.display = "inline-block"; // Show the "View Image" button
+            };
+            reader.readAsDataURL(file);
+        } else {
+            viewButton.style.display = "none"; // Hide the button if no file is selected
+        }
+    }
+
+    // Open modal when clicking "View Image" button
+    function openImageModal() {
+        const imagePreview = document.getElementById("image_preview").src;
+        if (!imagePreview) {
+            alert("Please upload an image first!");
+            return;
+        }
+        new bootstrap.Modal(document.getElementById("imagePreviewModal")).show();
+    }
 </script>

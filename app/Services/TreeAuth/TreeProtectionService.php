@@ -23,11 +23,30 @@ class TreeProtectionService
 
     public function store($request)
     {
-
         $request['user_id'] = Auth::user()->id;
         $request['service_id'] = "2033";
         $request['application_no'] = "PMC-" . time();
 
+
+        if ($request->hasFile('paid_receipt')) {
+            $request['paid_receipt'] = $request->paid_receipt->store('tree-protection');
+        }
+
+        if ($request->hasFile('photo_tree')) {
+            $request['photo_trees'] = $request->paid_receipt->store('tree-protection');
+        }
+        if ($request->hasFile('aadhar')) {
+            $request['aadhars'] = $request->paid_receipt->store('tree-protection');
+        }
+        if ($request->hasFile('building_permission')) {
+            $request['building_permissions'] = $request->paid_receipt->store('tree-protection');
+        }
+        if ($request->hasFile('plan_construction')) {
+            $request['plan_constructions'] = $request->paid_receipt->store('tree-protection');
+        }
+        if ($request->hasFile('noc_letter')) {
+            $request['noc_letters'] = $request->paid_receipt->store('tree-protection');
+        }
 
         $treeProtection=TreeProtection::create($request->all());
 
