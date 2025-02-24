@@ -13,29 +13,29 @@ class MastersSeeder extends Seeder
      */
     public function run(): void
     {
-        $fees = [
+        // $fees = [
 
-            [
-                'id' => 49,
-                'service_name' => 'Road Cutting Permission',
-                'fees' => 100,
-            ],
-            [
-                'id' => 48,
-                'service_name' => 'Giving Part Map',
-                'fees' => 100,
-            ],
-        ];
+        //     [
+        //         'id' => 49,
+        //         'service_name' => 'Road Cutting Permission',
+        //         'fees' => 100,
+        //     ],
+        //     [
+        //         'id' => 48,
+        //         'service_name' => 'Giving Part Map',
+        //         'fees' => 100,
+        //     ],
+        // ];
 
-        foreach ($fees as $fee) {
-            Fees::updateOrCreate([
-                'id' => $fee['id']
-            ], [
-                'id' => $fee['id'],
-                'service_name' => $fee['service_name'],
-                'fees' => $fee['fees'],
-                'dep_service_id' => $fee['dep_service_id']
-            ]);
-        }
+        // foreach ($fees as $fee) {
+        //     Fees::updateOrCreate([
+        //         'id' => $fee['id']
+        //     ], [
+        //         'id' => $fee['id'],
+        //         'service_name' => $fee['service_name'],
+        //         'fees' => $fee['fees'],
+        //         'dep_service_id' => $fee['dep_service_id']
+        //     ]);
+        // }
     }
 }

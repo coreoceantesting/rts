@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Services\TreeAuth;
+namespace App\Services\TownPlanning;
 
 use App\Services\AapaleSarkarLoginCheckService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
+use App\Models\Trade\LicenseLoadgingHouse;
 use App\Models\ServiceCredential;
-use App\Models\TreeAuth\TreeProtection;
+use App\Models\TownPlanning\BuildingPermission;
 
-class TreeProtectionService
+class BuildingPermissionService
 {
     protected $aapaleSarkarLoginCheckService;
 
@@ -22,36 +23,15 @@ class TreeProtectionService
 
     public function store($request)
     {
+
         $request['user_id'] = Auth::user()->id;
-        $request['service_id'] = "2033";
+        $request['service_id'] = "2035";
         $request['application_no'] = "PMC-" . time();
 
 
-        if ($request->hasFile('paid_receipts')) {
-            $request['paid_receipt'] = $request->paid_receipts->store('tree-protection');
-// dd($request['paid_receipts']);
-        }
+        $buildingpermission=BuildingPermission::create($request->all());
 
-        if ($request->hasFile('photo_trees')) {
-            $request['photo_tree'] = $request->photo_trees->store('tree-protection');
-            //   dd($request['photo_trees']);
-        }
-        if ($request->hasFile('aadhars')) {
-            $request['aadhar'] = $request->aadhars->store('tree-protection');
-        }
-        if ($request->hasFile('building_permissions')) {
-            $request['building_permission'] = $request->building_permissions->store('tree-protection');
-        }
-        if ($request->hasFile('plan_constructions')) {
-            $request['plan_construction'] = $request->plan_constructions->store('tree-protection');
-        }
-        if ($request->hasFile('noc_letters')) {
-            $request['noc_letter'] = $request->noc_letters->store('tree-protection');
-        }
-
-        $treeProtection=TreeProtection::create($request->all());
-
-        if ($treeProtection) {
+        if ($buildingpermission) {
             $applicationId = $request->application_no;
 
             if (Auth::user()->is_aapale_sarkar_user) {
@@ -109,7 +89,7 @@ class TreeProtectionService
 
     public function edit($id)
     {
-        return TreeProtection::find($id);
+        return BuildingPermission::find($id);
     }
 
     public function update($request, $id)
@@ -118,11 +98,11 @@ class TreeProtectionService
         DB::beginTransaction();
         try {
             // Find the existing record
-            $treeProtection = TreeProtection::find($id);
+            $buildingpermission = BuildingPermission::find($id);
 
             // Handle file uploads and update original file names
 
-            $treeProtection->update($request->all());
+            $buildingpermission->update($request->all());
 
             DB::commit();
             return [true];

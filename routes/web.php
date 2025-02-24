@@ -90,8 +90,10 @@ use App\Http\Controllers\MedicalHealth\GrantNursingLicenseController;
 use App\Http\Controllers\MedicalHealth\RenewalNursingLicenseController;
 use App\Http\Controllers\Nulm\HawkerRegisterController;
 use App\Http\Controllers\Pwd\GrantingTelecomController;
+use App\Http\Controllers\TownPlaning\BuildingPermissionController;
 use App\Http\Controllers\Trade\IssuanceLicenseMarriageController;
 use App\Http\Controllers\Trade\LicenseLoadgingHouseController;
+use App\Http\Controllers\Trade\MovieShootingController;
 use App\Http\Controllers\Trade\RenewalLicenseMarriageController;
 use App\Http\Controllers\Trade\RenewLicenseLoadgingController;
 use App\Http\Controllers\Trade\TradeNocController;
@@ -206,6 +208,8 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('trade-renew-license-loading', RenewLicenseLoadgingController::class);
     Route::resource('trade-issuance-license-marriage', IssuanceLicenseMarriageController::class);
     Route::resource('trade-renew-license-marriage', RenewalLicenseMarriageController::class);
+    Route::resource('movie-shooting', MovieShootingController::class);
+
 
     // NULM
     Route::resource('hawker-register', HawkerRegisterController::class);
@@ -225,6 +229,7 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     // route for town planing
     Route::resource('town-planing-zone-certificate', ZoneCertificateController::class);
     Route::resource('town-planing-bhag-nakasha', BhagNakashaController::class);
+    Route::resource('town-building-permission', BuildingPermissionController::class);
 
     // route for construction department
     Route::resource('construction-drainage-connection', DrainageConnectionController::class);

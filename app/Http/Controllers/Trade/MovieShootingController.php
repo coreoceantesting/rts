@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\TreeAuth;
+namespace App\Http\Controllers\Trade;
 
 use App\Http\Controllers\Controller;
 use App\Services\CommonService;
-use App\Services\TreeAuth\TreeProtectionService;
+use App\Services\Trade\MovieShootingService;
 use Illuminate\Http\Request;
 
-class TreeProtectionController extends Controller
+class MovieShootingController extends Controller
 {
     protected $commonService;
-    protected $treeProtection;
+    protected $movieshooting;
 
 
     // Constructor for dependency injection
-    public function __construct(TreeProtectionService $treeProtection, CommonService $commonService)
+    public function __construct(MovieShootingService $movieshooting, CommonService $commonService)
     {
-        $this->treeProtection = $treeProtection;
+        $this->movieshooting = $movieshooting;
         $this->commonService = $commonService;
     }
 
@@ -28,7 +28,7 @@ class TreeProtectionController extends Controller
         $zones = $this->commonService->getActiveZone();
 
         // Return the create view with wards and zones data
-        return view('tree-auth.tree-protection.create')->with([
+        return view('trade.movie-shooting.create')->with([
             'wards' => $wards,
             'zones' => $zones,
         ]);
@@ -37,17 +37,20 @@ class TreeProtectionController extends Controller
     // Store the newly created abattoir license
     public function store(Request $request)
     {
+
         // Call the store method in the service and get the response
-        // dd($request->all());
-        $treeProtection = $this->treeProtection->store($request);
+        $movieshooting = $this->movieshooting->store($request);
+        //  dd($request);
+
+        // dd($request);
         // Check if the license was successfully saved
-        if ($treeProtection[0]) {
+        if ($movieshooting[0]) {
             return response()->json([
-                'success' => 'Tree Protection saved successfully'
+                'success' => 'Movie Shooting saved successfully'
             ]);
         } else {
             return response()->json([
-                'error' => $treeProtection[1]
+                'error' => $movieshooting[1]
             ]);
         }
     }
@@ -56,8 +59,12 @@ class TreeProtectionController extends Controller
 
     public function edit($id)
     {
-        //   return encrypt($id);
-        $treeProtection = $this->treeProtection->edit(decrypt($id));
+    //  return encrypt($id);
+        $movieshooting = $this->movieshooting->edit(decrypt($id));
+
+        // $advertisementPermission = AdvertisementPermission::find($id);
+
+        //  //return $advertisementPermission;
 
         $wards = $this->commonService->getActiveWard();
 
@@ -65,20 +72,20 @@ class TreeProtectionController extends Controller
 
         // $data = AdvertisementPermission::findOrFail($id);
 
-        return view('tree-auth.tree-protection.update')->with([
-            'treeProtection' =>  $treeProtection,
+        return view('trade.movie-shooting.update')->with([
+            'movieshooting'=>  $movieshooting,
             'wards' => $wards,
             'zones' => $zones,
             // 'data' => '$data',
 
-            'advertisemenent' => $treeProtection
+            'movieshooting' => $movieshooting
         ]);
     }
     public function update(Request $request, $id)
     {
         // dd($request->all());
-        $trade = $this->treeProtection->update($request, $id);
+        $movieshooting = $this->movieshooting->update($request, $id);
 
-        return response()->json(['success' => 'Tree Protection update successfully!']);
+        return response()->json(['success' => 'Movie Shooting update successfully!']);
     }
 }

@@ -568,6 +568,20 @@ class ServiceNameSeeder extends Seeder
                 'add_route' => 'tree-protection.create',
                 'edit_route' => 'tree-protection.edit'
             ],
+            [
+                'service_id' => 2034,
+                'service_name' => 'Movie Shooting License (Movie Shooting License) New License and Renewaln',
+                'model' => '\App\Models\Trade\MovieShooting',
+                'add_route' => 'movie-shooting.create',
+                'edit_route' => 'movie-shooting.edit'
+            ],
+            [
+                'service_id' => 2035,
+                'service_name' => 'To issue building permission',
+                'model' => '\App\Models\TownPlanning\BuildingPermission',
+                'add_route' => 'town-building-permission.create',
+                'edit_route' => 'town-building-permission.edit'
+            ],
 
         ];
 

@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Models\MedicalHealth;
+namespace App\Models\TownPlanning;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Request;
 
-class GrantNursingLicense extends Model
+class BuildingPermission extends Model
 {
     use HasFactory;
+    protected $table = 'building_permissions';
     protected $fillable = [
         'user_id',
         'ip',
@@ -32,29 +32,6 @@ class GrantNursingLicense extends Model
         'is_payment_paid',
         'is_payment_paid_aapale_sarkar',
         'aapale_sarkar_payment_date',
-        'status',
-        'noc_type',
-        'property_number',
-        'residential_number',
-        'name_institute',
-        'institute_address',
-        'hospital_name',
-        'alternet_mobile',
-        'alternet_email',
-        'property_tax',
-        'water_connection',
-        'fire_noc',
-        'noc_number',
-        'hospital_address'
-
+        'status'
     ];
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($model) {
-            $model->ip = Request::ip();
-        });
-    }
 }

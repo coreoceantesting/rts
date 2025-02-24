@@ -54,24 +54,6 @@
                                 <span class="text-danger is-invalid applicant_name_err"></span>
                             </div>
 
-                            {{-- <div class="col-md-4">
-                                <label class="col-form-label" for="marathi_f_name">प्रथम नाव (मराठी) <span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_f_name" name="marathi_f_name" type="text" placeholder="नाव प्रविष्ट करा प्रथम" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
-                            </div>
-
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="marathi_m_name">मधले नाव (मराठी)<span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_m_name" name="marathi_m_name" type="text" placeholder="प्रविष्ट करा मधले नाव" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
-                            </div>
-
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="marathi_l_name">आडनाव (मराठी) <span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_l_name" name="marathi_l_name" type="text" placeholder="आडनाव प्रविष्ट करा" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
-                            </div> --}}
-
                             <div class="col-md-3">
                                 <label class="col-form-label" for="flat_no">Plot/Flat No <span class="text-danger">*</span></label>
                                 <input class="form-control" id="flat_no" name="flat_no" type="text" placeholder="Enter Last Name" required>
@@ -151,25 +133,25 @@
                                 <label class="col-form-label">Reason For Trimming <span class="text-danger">*</span></label>
                                 <div class="border rounded p-2">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="reason_trim" id="reason_trim" value="Citizen" required>
+                                        <input class="form-check-input" type="radio" name="reason_trim" id="reason_trim" value="Trimming Down Dangerous Branches" required>
                                         <label class="form-check-label" for="citizen">Trimming Down Dangerous Branches</label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="reason_trim" id="reason_trim" value="Builder">
+                                        <input class="form-check-input" type="radio" name="reason_trim" id="reason_trim" value=">Obstruction To Electrical Wires">
                                         <label class="form-check-label" for="builder">Obstruction To Electrical Wires</label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="reason_trim" id="reason_trim" value="Advertising Media">
+                                        <input class="form-check-input" type="radio" name="reason_trim" id="reason_trim" value="Obstruction To Construction">
                                         <label class="form-check-label" for="advertising">Obstruction To Construction</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="reason_trim" id="reason_trim" value="Advertising Media">
+                                        <input class="form-check-input" type="radio" name="reason_trim" id="reason_trim" value="Obstruction To Hoardings">
                                         <label class="form-check-label" for="advertising">Obstruction To Hoardings</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="applicant_type" id="other" value="Other">
+                                        <input class="form-check-input" type="radio" name="reason_trim" id="other" value="Other">
                                         <label class="form-check-label" for="other">Other</label>
                                     </div>
                                 </div>
@@ -205,28 +187,34 @@
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <label class="col-form-label" for="paid_receipt">Current Year Property Tax Paid Receipt <span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" id="paid_receipt" name="paid_receipt" accept="image/*" required onchange="previewImage(event)">
+                                <label class="col-form-label" for="paid_receipts">Current Year Property Tax Paid Receipt <span class="text-danger">*</span></label>
+                                <input type="file" class="form-control" id="paid_receipts" name="paid_receipts" accept="image/*" required onchange="previewImage(event)">
+                                <span class="text-danger is-invalid paid_receipts_err"></span>
                             </div>
                             <div class="col-md-3">
-                                <label class="col-form-label" for="photo_tree">Photograph of Tree <span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" id="photo_tree" name="photo_tree" accept="image/*" required onchange="previewImage(event)">
+                                <label class="col-form-label" for="photo_trees">Photograph of Tree <span class="text-danger">*</span></label>
+                                <input type="file" class="form-control" id="photo_trees" name="photo_trees" accept="image/*" required onchange="previewImage(event)">
+                                <span class="text-danger is-invalid photo_trees_err"></span>
                             </div>
                             <div class="col-md-3">
-                                <label class="col-form-label" for="aadhar">Aadhaar Card <span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" id="aadhar" name="aadhar" accept="image/*" required onchange="previewImage(event)">
+                                <label class="col-form-label" for="aadhars">Aadhaar Card <span class="text-danger">*</span></label>
+                                <input type="file" class="form-control" id="aadhars" name="aadhars" accept="image/*" required onchange="previewImage(event)">
+                                <span class="text-danger is-invalid aadhars_err"></span>
                             </div>
                             <div class="col-md-3">
-                                <label class="col-form-label" for="building_permission">Building Permission</label>
-                                <input type="file" class="form-control" id="building_permission" name="building_permission" accept="image/*" required onchange="previewImage(event)">
+                                <label class="col-form-label" for="building_permissions">Building Permission</label>
+                                <input type="file" class="form-control" id="building_permissions" name="building_permissions" accept="image/*" onchange="previewImage(event)">
+                                <span class="text-danger is-invalid building_permissions_err"></span>
                             </div>
                             <div class="col-md-3">
-                                <label class="col-form-label" for="plan_construction">Sanctioned Plan of Construction <span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" id="plan_construction" name="plan_construction" accept="image/*" required onchange="previewImage(event)">
+                                <label class="col-form-label" for="plan_constructions">Sanctioned Plan of Construction <span class="text-danger">*</span></label>
+                                <input type="file" class="form-control" id="plan_constructions" name="plan_constructions" accept="image/*" required onchange="previewImage(event)">
+                                <span class="text-danger is-invalid plan_constructions_err"></span>
                             </div>
                             <div class="col-md-3">
-                                <label class="col-form-label" for="noc_letter">NOC Letter <span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" id="noc_letter" name="noc_letter" accept="image/*" required onchange="previewImage(event)">
+                                <label class="col-form-label" for="noc_letters">NOC Letter <span class="text-danger">*</span></label>
+                                <input type="file" class="form-control" id="noc_letters" name="noc_letters" accept="image/*" required onchange="previewImage(event)">
+                                <span class="text-danger is-invalid noc_letters_err"></span>
                             </div>
 
 
