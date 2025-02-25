@@ -14,7 +14,7 @@
                     </div>
                     <div class="card-body">
 
-
+                        <div class="mb-4 row">
                             <div class="col-md-4">
                                 <label class="col-form-label" for="zone">Zone Id / झोन<span class="text-danger">*</span></label>
                                 <select class="form-select" name="zone" id="zone" required>
@@ -25,7 +25,27 @@
                                 </select>
                                 <span class="text-danger is-invalid zone_err"></span>
                             </div>
-                            <div class="mb-3 row">
+                            <div class="col-md-3">
+                                <label class="col-form-label" for="service_type">Service Id<span class="text-danger">*</span></label>
+                                <select name="service_type" id="service_type" class="form-select" required>
+                                    <option value="" disabled selected> -- Select -- </option>
+                                    <option value="Service 1">Service 1</option>
+                                    <option value="Service 2">Service 2</option>
+                                    <option value="Service 3">Service 3 </option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="col-form-label" for="licenses_no">License No<span class="text-danger">*</span></label>
+                                <input class="form-control" id="licenses_no" name="licenses_no" type="text" placeholder="Enter License No" required>
+                                <span class="text-danger is-invalid applicant_name_err"></span>
+                            </div>
+                            <div class="col-md-2 d-flex align-items-end">
+                                <button class="btn btn-primary w-100">Search</button>
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3 row">
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="f_name">First Name <span class="text-danger">*</span></label>
@@ -45,7 +65,7 @@
                                 <span class="text-danger is-invalid applicant_name_err"></span>
                             </div>
 
-                            <div class="col-md-4">
+                            {{-- <div class="col-md-4">
                                 <label class="col-form-label" for="marathi_f_name">प्रथम नाव (मराठी) <span class="text-danger">*</span></label>
                                 <input class="form-control" id="marathi_f_name" name="marathi_f_name" type="text" placeholder="नाव प्रविष्ट करा प्रथम" required>
                                 <span class="text-danger is-invalid applicant_name_err"></span>
@@ -61,17 +81,12 @@
                                 <label class="col-form-label" for="marathi_l_name">आडनाव (मराठी) <span class="text-danger">*</span></label>
                                 <input class="form-control" id="marathi_l_name" name="marathi_l_name" type="text" placeholder="आडनाव प्रविष्ट करा" required>
                                 <span class="text-danger is-invalid applicant_name_err"></span>
-                            </div>
+                            </div> --}}
 
 
                             <div class="col-md-4">
-                                <label class="col-form-label" for="mobile_num">Mobile Number</label>
+                                <label class="col-form-label" for="mobile_num">Mobile Number<span class="text-danger">*</span></label>
                                 <input class="form-control" id="mobile_num" name="mobile_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number">
-                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="aadhar_num">Aadhar Card No</label>
-                                <input class="form-control" id="aadhar_num" name="aadhar_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number">
                                 <span class="text-danger is-invalid applicant_mobile_no_err"></span>
                             </div>
                             <div class="col-md-4">
@@ -79,29 +94,52 @@
                                 <input class="form-control" id="email" name="email" type="email" placeholder="Enter Email" required>
                                 <span class="text-danger is-invalid email_err"></span>
                             </div>
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="aadhar_num">Aadhar Number<span class="text-danger">*</span></label>
+                                <input class="form-control" id="aadhar_num" name="aadhar_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number">
+                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="property_num">Property Number<span class="text-danger">*</span></label>
+                                <input class="form-control" id="property_num" name="property_num" type="number" placeholder="Enter Property Number">
+                                <span class="text-danger is-invalid applicant_property_num_err"></span>
+                            </div>
                             <div class="col-md-5">
-                                <label class="col-form-label" for="address"> Address  <span class="text-danger">*</span></label>
+                                <label class="col-form-label" for="address">Residential Address <span class="text-danger">*</span></label>
                                 <textarea class="form-control" name="address" id="address" cols="30" rows="2" placeholder="Enter Address" required></textarea>
                                 <span class="text-danger is-invalid address_err"></span>
                             </div>
-
-                            <div class="col-md-5">
-                                <label class="col-form-label" for="marathi_address"> पत्ता (मराठी) <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="marathi_address" id="marathi_address" cols="30" rows="2" placeholder="पत्ता" required></textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="bussiness_type">Bussiness Type<span class="text-danger">*</span></label>
+                                <input class="form-control" id="bussiness_type" name="bussiness_type" type="text" placeholder="Enter Bussiness Type">
+                                <span class="text-danger is-invalid applicant_bussiness_type_err"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="bussiness_name">Bussiness Name<span class="text-danger">*</span></label>
+                                <input class="form-control" id="bussiness_name" name="bussiness_name" type="text" placeholder="Enter Bussiness Name">
+                                <span class="text-danger is-invalid applicant_bussiness_name_err"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="from_date">From Date<span class="text-danger">*</span></label>
+                                <input class="form-control" id="from_date" name="from_date" type="date" placeholder="select Date">
+                                <span class="text-danger is-invalid applicant_from_date_err"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="to_date">To Date<span class="text-danger">*</span></label>
+                                <input class="form-control" id="to_date" name="to_date" type="date" placeholder="select Date">
+                                <span class="text-danger is-invalid applicant_to_date_err"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="reason">Reason<span class="text-danger">*</span></label>
+                                <input class="form-control" id="reason" name="reason" type="text" placeholder="Enter Reason">
+                                <span class="text-danger is-invalid applicant_reason_err"></span>
                             </div>
 
-
-                            <div class="col-md-5">
-                                <label class="col-form-label" for="purpose">Purpose <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="purpose" id="purpose" cols="30" rows="2" placeholder="Enter purpose" required></textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
-                            </div>
-
-                            <div class="col-md-5">
-                                <label class="col-form-label" for="marathi_purpose">उद्देश (मराठी) <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="marathi_purpose" id="marathi_purpose" cols="30" rows="2" placeholder="उद्देश" required></textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
+                            <div class="col-md-4 mb-2">
+                                <label class="col-form-label" for="images">Document<span class="text-danger">*</span></label>
+                                <input class="form-control" id="images" name="images" type="file" required>
+                                <span class="text-danger is-invalid images_err"></span>
                             </div>
 
                             <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>

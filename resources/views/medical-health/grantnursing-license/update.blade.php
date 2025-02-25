@@ -13,18 +13,27 @@
                         <h4 class="card-title">Edit Details</h4>
                     </div>
                     <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="zone">Zone Id / झोन<span class="text-danger">*</span></label>
+                                <select class="form-select" name="zone" id="zone" required>
+                                    <option value="">Select Zone</option>
+                                    @foreach ($zones as $zone)
+                                        <option @if ($grantNursingLicense->zone == $zone->name) selected @endif value="{{ $zone->name }}">{{ $zone->name }}</option>
+                                    @endforeach
+                                </select>
+                                <span class="text-danger is-invalid zone_err"></span>
+                            </div>
 
-
-                        <div class="col-md-4">
-                            <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                            <select class="form-select" name="zone" id="zone" required>
-                                <option value="">Select Zone</option>
-                                @foreach ($zones as $zone)
-                                {{-- @dd($grantNursingLicense); --}}
-                                    <option @if ($grantNursingLicense->zone == $zone->name) selected @endif value="{{ $zone->name }}">{{ $zone->name }}</option>
-                                @endforeach
-                            </select>
-                            <span class="text-danger is-invalid zone_err"></span>
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="noc_type">NOC Type<span class="text-danger">*</span></label>
+                                <select name="noc_type" id="noc_type" class="form-select" required>
+                                    <option value="" disabled selected> -- Select -- </option>
+                                    <option value="Noc 1"{{ $grantNursingLicense->noc_type == 'Noc 1' ? 'selected' : '' }}>Noc 1</option>
+                                    <option value="Noc 2"{{ $grantNursingLicense->noc_type == 'Noc 2' ? 'selected' : '' }}>Noc 2</option>
+                                    <option value="Noc 3"{{ $grantNursingLicense->noc_type == 'Noc 3' ? 'selected' : '' }}>Noc 3 </option>
+                                </select>
+                            </div>
                         </div>
                         <div class="mb-3 row">
                             <div class="col-md-4">
@@ -45,63 +54,128 @@
                                 <span class="text-danger is-invalid applicant_name_err"></span>
                             </div>
 
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="marathi_f_name">प्रथम नाव (मराठी) <span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_f_name" name="marathi_f_name" type="text" placeholder="नाव प्रविष्ट करा प्रथम" value="{{ $grantNursingLicense->marathi_f_name }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
-                            </div>
 
                             <div class="col-md-4">
-                                <label class="col-form-label" for="marathi_m_name">मधले नाव (मराठी)<span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_m_name" name="marathi_m_name" type="text" placeholder="प्रविष्ट करा मधले नाव" value="{{ $grantNursingLicense->marathi_m_name }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
-                            </div>
-
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="marathi_l_name">आडनाव (मराठी) <span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_l_name" name="marathi_l_name" type="text" placeholder="आडनाव प्रविष्ट करा" value="{{ $grantNursingLicense->marathi_l_name }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
-                            </div>
-
-
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="mobile_num">Mobile Number</label>
+                                <label class="col-form-label" for="mobile_num">Mobile Number<span class="text-danger">*</span></label>
                                 <input class="form-control" id="mobile_num" name="mobile_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" value="{{ $grantNursingLicense->mobile_num }}">
                                 <span class="text-danger is-invalid applicant_mobile_no_err"></span>
                             </div>
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="aadhar_num">Aadhar Card No</label>
-                                <input class="form-control" id="aadhar_num" name="aadhar_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number" value="{{ $grantNursingLicense->aadhar_num }}">
-                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
-                            </div>
+
                             <div class="col-md-4">
                                 <label class="col-form-label" for="email">Email<span class="text-danger">*</span></label>
                                 <input class="form-control" id="email" name="email" type="email" placeholder="Enter Email" value="{{ $grantNursingLicense->email }}" required>
                                 <span class="text-danger is-invalid email_err"></span>
                             </div>
-                            <div class="col-md-5">
-                                <label class="col-form-label" for="address"> Address <span class="text-danger">*</span></label>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="aadhar_num">Aadhar Number<span class="text-danger">*</span></label>
+                                <input class="form-control" id="aadhar_num" name="aadhar_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number" value="{{ $grantNursingLicense->aadhar_num }}">
+                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="property_number">Property Number</label>
+                                <input class="form-control" id="property_number" name="property_number" type="number" placeholder="Enter Property Number" value="{{ $grantNursingLicense->property_number ?? '' }}">
+                                <span class="text-danger is-invalid property_number_err"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="address"> Residential Address <span class="text-danger">*</span></label>
                                 <textarea class="form-control" name="address" id="address" cols="30" rows="2" placeholder="Enter Address" required>{{ $grantNursingLicense->address }}</textarea>
                                 <span class="text-danger is-invalid address_err"></span>
                             </div>
 
-                            <div class="col-md-5">
-                                <label class="col-form-label" for="marathi_address"> पत्ता (मराठी) <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="marathi_address" id="marathi_address" cols="30" rows="2" placeholder="पत्ता" value="" required>{{ $grantNursingLicense->marathi_address }}</textarea>
+
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="name_institute">Name of Institution (If Applicable)<span class="text-danger">*</span></label>
+                                <textarea class="form-control" name="name_institute" id="name_institute" cols="30" rows="2" placeholder="Enter Name of Institution" required>{{ $grantNursingLicense->name_institute }}</textarea>
                                 <span class="text-danger is-invalid applicant_full_address_err"></span>
                             </div>
 
-
-                            <div class="col-md-5">
-                                <label class="col-form-label" for="purpose">Purpose <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="purpose" id="purpose" cols="30" rows="2" placeholder="Enter purpose" value="" required>{{ $grantNursingLicense->purpose }}</textarea>
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="institute_address">Institution Address (If Applicable)<span class="text-danger">*</span></label>
+                                <textarea class="form-control" name="institute_address" id="institute_address" cols="30" rows="2" placeholder="Enter Institution Address" required>{{ $grantNursingLicense->institute_address }}</textarea>
                                 <span class="text-danger is-invalid applicant_full_address_err"></span>
                             </div>
 
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="hospital_name">Hospital Name <span class="text-danger">*</span></label>
+                                <input class="form-control" id="hospital_name" name="hospital_name" type="text" placeholder="Enter Hospital Name" value="{{ $grantNursingLicense->hospital_name ?? '' }}" required>
+                                <span class="text-danger is-invalid applicant_hospital_name_err"></span>
+                            </div>
+
+
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="alternet_mobile">Mobile Number<span class="text-danger">*</span></label>
+                                <input class="form-control" id="alternet_mobile" name="alternet_mobile" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" value="{{ $grantNursingLicense->alternet_mobile ?? '' }}">
+                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="alternet_email">Email</label>
+                                <input class="form-control" id="alternet_email" name="alternet_email" type="email" placeholder="Enter Email" value="{{ $grantNursingLicense->alternet_email ?? '' }}" required>
+                                <span class="text-danger is-invalid email_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label">Property Tax Number<span class="text-danger">*</span></label>
+                                <div class="border rounded p-2">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="property_tax" id="property_tax" value="Yes" {{ isset($grantNursingLicense) && $grantNursingLicense->property_tax == 'Yes' ? 'checked' : '' }} required>
+                                        <label class="form-check-label" for="Yes">Yes</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="property_tax" id="property_tax" value="No"  {{ isset($grantNursingLicense) && $grantNursingLicense->property_tax == 'No' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="No">No</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label">Water Connection Number</label>
+                                <div class="border rounded p-2">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="water_connection" id="water_connection" value="Yes"  {{ isset($grantNursingLicense) && $grantNursingLicense->water_connection == 'Yes' ? 'checked' : '' }} required>
+                                        <label class="form-check-label" for="Yes">Yes</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="water_connection" id="water_connection" value="No"  {{ isset($grantNursingLicense) && $grantNursingLicense->water_connection == 'No' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="No">No</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label">Fire NOC<span class="text-danger">*</span></label>
+                                <div class="border rounded p-2">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="fire_noc" id="fire_noc" value="Provisional"  {{ isset($grantNursingLicense) && $grantNursingLicense->fire_noc == 'Provisional' ? 'checked' : '' }} required>
+                                        <label class="form-check-label" for="Provisional">Provisional</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="fire_noc" id="fire_noc" value="Final"  {{ isset($grantNursingLicense) && $grantNursingLicense->fire_noc == 'Final' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="Final">Final</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="noc_number">NOC Document Number</label>
+                                <input class="form-control" id="noc_number" name="noc_number" type="number" placeholder="Enter NOC Document Number" value="{{ $grantNursingLicense->noc_number ?? '' }}">
+                                <span class="text-danger is-invalid applicant_noc_number_err"></span>
+                            </div>
+
                             <div class="col-md-5">
-                                <label class="col-form-label" for="marathi_purpose">उद्देश (मराठी) <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="marathi_purpose" id="marathi_purpose" cols="30" rows="2" placeholder="उद्देश" value="" required>{{ $grantNursingLicense->marathi_purpose }}</textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
+                                <label class="col-form-label" for="hospital_address">Hospital Address<span class="text-danger">*</span></label>
+                                <textarea class="form-control" name="hospital_address" id="hospital_address" cols="30" rows="2" placeholder="Enter Hospital Address " required>{{ $grantNursingLicense->hospital_address }}</textarea>
+                                <span class="text-danger is-invalid applicant_hospital_address_err"></span>
                             </div>
 
                             <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>

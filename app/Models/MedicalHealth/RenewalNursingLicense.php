@@ -32,7 +32,20 @@ class RenewalNursingLicense extends Model
         'is_payment_paid',
         'is_payment_paid_aapale_sarkar',
         'aapale_sarkar_payment_date',
-        'status'
+        'status',
+        'noc_type',
+        'property_number',
+        'residential_number',
+        'name_institute',
+        'institute_address',
+        'hospital_name',
+        'alternet_mobile',
+        'alternet_email',
+        'property_tax',
+        'water_connection',
+        'fire_noc',
+        'noc_number',
+        'hospital_address'
     ];
 
     protected static function boot()

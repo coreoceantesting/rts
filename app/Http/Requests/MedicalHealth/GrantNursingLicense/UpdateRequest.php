@@ -25,15 +25,26 @@ class UpdateRequest extends FormRequest
             'f_name' => 'required',
             'm_name' => 'required',
             'l_name' => 'required|min:10|max:10',
-            'zone' => 'required',
-            'marathi_f_name' => 'required',
-            'marathi_m_name' => 'required|min:10|max:10',
-            'marathi_l_name' => 'required|min:12|max:12',
+            // 'zone' => 'required',
+            // 'marathi_f_name' => 'required',
+            // 'marathi_m_name' => 'required|min:10|max:10',
+            // 'marathi_l_name' => 'required|min:12|max:12',
             'email' => 'required',
             'address' => 'required',
-            'marathi_address' => 'required',
+            // 'marathi_address' => 'required',
             'purpose' => 'required',
-            'marathi_purpose' => 'required'
+            // 'marathi_purpose' => 'required',
+            'noc_type' => 'required',
+            'residential_number' => 'required',
+            'name_institute' => 'required',
+            'institute_address' => 'required',
+            'hospital_name' => 'required',
+            'alternet_mobile' => 'required',
+            'property_tax' => 'required',
+            'water_connection' => 'required',
+            'fire_noc' => 'required',
+            'hospital_address' => 'required'
+
         ];
     }
 }

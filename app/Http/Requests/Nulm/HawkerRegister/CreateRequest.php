@@ -33,7 +33,15 @@ class CreateRequest extends FormRequest
             'address' => 'required',
             'marathi_address' => 'required',
             'purpose' => 'required',
-            'marathi_purpose' => 'required'
+            'marathi_purpose' => 'required',
+            'service_type'=> 'required',
+            'property_num'=> 'required',
+            'bussiness_type'=> 'required',
+            'bussiness_name'=> 'required',
+            'from_date'=> 'required|date',
+            'to_date'=> 'required|date',
+            'reason'=> 'required',
+            'image'=> 'required'
 
         ];
     }

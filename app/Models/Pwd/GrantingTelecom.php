@@ -32,7 +32,17 @@ class GrantingTelecom extends Model
         'is_payment_paid',
         'is_payment_paid_aapale_sarkar',
         'aapale_sarkar_payment_date',
-        'status'
+        'status',
+        'property_num',
+        'road_type',
+        'length_road',
+        'width_road',
+        'length_width',
+        'digging_size',
+        'start_point',
+        'end_point',
+        'latitude',
+        'longitude'
     ];
 
     protected static function boot()
@@ -42,5 +52,5 @@ class GrantingTelecom extends Model
         static::creating(function ($model) {
             $model->ip = Request::ip();
         });
-}
+    }
 }

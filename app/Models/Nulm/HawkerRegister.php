@@ -32,7 +32,16 @@ class HawkerRegister extends Model
         'is_payment_paid',
         'is_payment_paid_aapale_sarkar',
         'aapale_sarkar_payment_date',
-        'status'
+        'status',
+        'service_type',
+        'licenses_no',
+        'property_num',
+        'bussiness_type',
+        'bussiness_name',
+        'from_date',
+        'to_date',
+        'reason',
+        'image'
     ];
 
     protected static function boot()

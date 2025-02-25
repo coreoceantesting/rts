@@ -14,17 +14,35 @@
                     </div>
                     <div class="card-body">
 
+                        <div class="mb-4 row">
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="zone">Zone Id / झोन<span class="text-danger">*</span></label>
+                                <select class="form-select" name="zone" id="zone" required>
+                                    <option value="">Select Zone</option>
+                                    @foreach ($zones as $zone)
+                                        <option @if ($hawkerRegister->zone == $zone->name) selected @endif value="{{ $zone->name }}">{{ $zone->name }}</option>
+                                    @endforeach
+                                </select>
+                                <span class="text-danger is-invalid zone_err"></span>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="col-form-label" for="service_type">Service Id<span class="text-danger">*</span></label>
+                                <select name="service_type" id="service_type" class="form-select" required>
+                                    <option value="" disabled selected> -- Select -- </option>
+                                    <option value="Service 1"{{ $hawkerRegister->service_type == 'Service 1' ? 'selected' : '' }}>Service 1</option>
+                                    <option value="Service 2"{{ $hawkerRegister->service_type == 'Service 2' ? 'selected' : '' }}>Service 2</option>
+                                    <option value="Service 3"{{ $hawkerRegister->service_type == 'Service 3' ? 'selected' : '' }}>Service 3 </option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="col-form-label" for="licenses_no">License No<span class="text-danger">*</span></label>
+                                <input class="form-control" id="licenses_no" name="licenses_no" type="text" placeholder="Enter License No" value="{{ $hawkerRegister->licenses_no }}" required>
+                                <span class="text-danger is-invalid applicant_name_err"></span>
+                            </div>
+                            <div class="col-md-2 d-flex align-items-end">
+                                <button class="btn btn-primary w-100">Search</button>
+                            </div>
 
-                        <div class="col-md-4">
-                            <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                            <select class="form-select" name="zone" id="zone" required>
-                                <option value="">Select Zone</option>
-                                @foreach ($zones as $zone)
-                                {{-- @dd($hawkerRegister); --}}
-                                    <option @if ($hawkerRegister->zone == $zone->name) selected @endif value="{{ $zone->name }}">{{ $zone->name }}</option>
-                                @endforeach
-                            </select>
-                            <span class="text-danger is-invalid zone_err"></span>
                         </div>
                         <div class="mb-3 row">
                             <div class="col-md-4">
@@ -46,63 +64,77 @@
                             </div>
 
                             <div class="col-md-4">
-                                <label class="col-form-label" for="marathi_f_name">प्रथम नाव (मराठी) <span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_f_name" name="marathi_f_name" type="text" placeholder="नाव प्रविष्ट करा प्रथम" value="{{ $hawkerRegister->marathi_f_name }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
-                            </div>
-
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="marathi_m_name">मधले नाव (मराठी)<span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_m_name" name="marathi_m_name" type="text" placeholder="प्रविष्ट करा मधले नाव" value="{{ $hawkerRegister->marathi_m_name }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
-                            </div>
-
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="marathi_l_name">आडनाव (मराठी) <span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_l_name" name="marathi_l_name" type="text" placeholder="आडनाव प्रविष्ट करा" value="{{ $hawkerRegister->marathi_l_name }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
-                            </div>
-
-
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="mobile_num">Mobile Number</label>
+                                <label class="col-form-label" for="mobile_num">Mobile Number<span class="text-danger">*</span></label>
                                 <input class="form-control" id="mobile_num" name="mobile_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" value="{{ $hawkerRegister->mobile_num }}">
                                 <span class="text-danger is-invalid applicant_mobile_no_err"></span>
                             </div>
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="aadhar_num">Aadhar Card No</label>
-                                <input class="form-control" id="aadhar_num" name="aadhar_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number" value="{{ $hawkerRegister->aadhar_num }}">
-                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
-                            </div>
+
                             <div class="col-md-4">
                                 <label class="col-form-label" for="email">Email<span class="text-danger">*</span></label>
                                 <input class="form-control" id="email" name="email" type="email" placeholder="Enter Email" value="{{ $hawkerRegister->email }}" required>
                                 <span class="text-danger is-invalid email_err"></span>
                             </div>
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="aadhar_num">Aadhar Number<span class="text-danger">*</span></label>
+                                <input class="form-control" id="aadhar_num" name="aadhar_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number" value="{{ $hawkerRegister->aadhar_num }}">
+                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="property_num">Property Number<span class="text-danger">*</span></label>
+                                <input class="form-control" id="property_num" name="property_num" type="number" placeholder="Enter Property Number" value="{{ $hawkerRegister->property_num }}">
+                                <span class="text-danger is-invalid applicant_property_num_err"></span>
+                            </div>
+
                             <div class="col-md-5">
-                                <label class="col-form-label" for="address"> Address <span class="text-danger">*</span></label>
+                                <label class="col-form-label" for="address">Residential Address <span class="text-danger">*</span></label>
                                 <textarea class="form-control" name="address" id="address" cols="30" rows="2" placeholder="Enter Address" required>{{ $hawkerRegister->address }}</textarea>
                                 <span class="text-danger is-invalid address_err"></span>
                             </div>
-
-                            <div class="col-md-5">
-                                <label class="col-form-label" for="marathi_address"> पत्ता (मराठी) <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="marathi_address" id="marathi_address" cols="30" rows="2" placeholder="पत्ता" value="" required>{{ $hawkerRegister->marathi_address }}</textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="bussiness_type">Bussiness Type<span class="text-danger">*</span></label>
+                                <input class="form-control" id="bussiness_type" name="bussiness_type" type="text" placeholder="Enter Bussiness Type" value="{{ $hawkerRegister->bussiness_type }}">
+                                <span class="text-danger is-invalid applicant_bussiness_type_err"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="bussiness_name">Bussiness Name<span class="text-danger">*</span></label>
+                                <input class="form-control" id="bussiness_name" name="bussiness_name" type="text" placeholder="Enter Bussiness Name" value="{{ $hawkerRegister->bussiness_name }}">
+                                <span class="text-danger is-invalid applicant_bussiness_name_err"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="from_date">From Date<span class="text-danger">*</span></label>
+                                <input class="form-control" id="from_date" name="from_date" type="date" placeholder="select Date"    value="{{ old('from_date', isset($hawkerRegister) ? \Carbon\Carbon::parse($hawkerRegister->from_date)->format('Y-m-d') : '') }}">
+                                <span class="text-danger is-invalid applicant_from_date_err"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="to_date">To Date<span class="text-danger">*</span></label>
+                                <input class="form-control" id="to_date" name="to_date" type="date" placeholder="select Date" value="{{ old('to_date', isset($hawkerRegister) ? \Carbon\Carbon::parse($hawkerRegister->to_date)->format('Y-m-d') : '') }}">
+                                <span class="text-danger is-invalid applicant_to_date_err"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="reason">Reason<span class="text-danger">*</span></label>
+                                <input class="form-control" id="reason" name="reason" type="text" placeholder="Enter Reason" value="{{ $hawkerRegister->reason }}" required>
+                                <span class="text-danger is-invalid applicant_reason_err"></span>
                             </div>
 
+                            <div class="col-md-4 mb-2">
+                                <label class="col-form-label" for="images">Document<span class="text-danger">*</span></label>
 
-                            <div class="col-md-5">
-                                <label class="col-form-label" for="purpose">Purpose <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="purpose" id="purpose" cols="30" rows="2" placeholder="Enter purpose" value="" required>{{ $hawkerRegister->purpose }}</textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
+                                <!-- File Input -->
+                                <input class="form-control" id="images" name="images" type="file">
+
+                                <!-- Show Existing File -->
+                                @if(isset($hawkerRegister) && $hawkerRegister->image)
+                                    <p class="mt-2">
+                                        <a href="{{ asset('storage/' . $hawkerRegister->image) }}" target="_blank">
+                                            View Current Document
+                                        </a>
+                                    </p>
+                                @endif
+
+                                <span class="text-danger is-invalid images_err"></span>
                             </div>
 
-                            <div class="col-md-5">
-                                <label class="col-form-label" for="marathi_purpose">उद्देश (मराठी) <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="marathi_purpose" id="marathi_purpose" cols="30" rows="2" placeholder="उद्देश" value="" required>{{ $hawkerRegister->marathi_purpose }}</textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
-                            </div>
 
                             <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
                             <div class="col-md-12">

@@ -10,7 +10,7 @@
                     @csrf
 
                     <div class="card-header">
-                        <h4 class="card-title">Add Details</h4>
+                        <h4 class="card-title">Edit Details</h4>
                     </div>
                     <div class="card-body">
 
@@ -125,7 +125,7 @@
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="type_application" id="other" value="Other" {{ isset($treeProtection) && $treeProtection->type_application == 'Other' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="other">Other</label>
-                                    </div> 
+                                    </div>
                                 </div>
                             </div>
 

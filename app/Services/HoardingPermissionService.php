@@ -25,18 +25,18 @@ class HoardingPermissionService
         $request['service_id'] = "2005";
         $request['application_no'] = "PMC-" . time();
         if ($request->hasFile('upload_prescribed_formats')) {
-            $request['gumasta_certificate'] = $request->upload_prescribed_formats->store('hoarding-permission');
+            $request['building_permission'] = $request->upload_prescribed_formats->store('hoarding-permission');
         }
 
         if ($request->hasFile('aadhar_pans')) {
-            $request['aadhar_pan'] = $request->aadhar_pans->store('hoarding-permission');
+            $request['paid_receipt'] = $request->aadhar_pans->store('hoarding-permission');
         }
         if ($request->hasFile('ownership')) {
-            $request['land_ownership'] = $request->ownership->store('hoarding-permission');
+            $request['structural_engineer'] = $request->ownership->store('hoarding-permission');
         }
 
         if ($request->hasFile('water_bills')) {
-            $request['water_bill'] = $request->water_bills->store('hoarding-permission');
+            $request['certificate_of_structural'] = $request->water_bills->store('hoarding-permission');
         }
 
         if ($request->hasFile('society')) {
@@ -44,15 +44,15 @@ class HoardingPermissionService
         }
 
         if ($request->hasFile('place')) {
-            $request['photo_of_place'] = $request->place->store('hoarding-permission');
+            $request['sightseeing'] = $request->place->store('hoarding-permission');
         }
 
         if ($request->hasFile('property')) {
-            $request['property_tax'] = $request->property->store('hoarding-permission');
+            $request['drawing_provided'] = $request->property->store('hoarding-permission');
         }
 
         if ($request->hasFile('tenancy')) {
-            $request['tenancy_agreement'] = $request->tenancy->store('hoarding-permission');
+            $request['pr_card'] = $request->tenancy->store('hoarding-permission');
         }
 
         if ($request->hasFile('occupancy')) {

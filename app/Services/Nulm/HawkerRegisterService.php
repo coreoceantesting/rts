@@ -28,6 +28,9 @@ class HawkerRegisterService
         $request['service_id'] = "2031";
         $request['application_no'] = "PMC-" . time();
 
+        if ($request->hasFile('images')) {
+            $request['image'] = $request->images->store('hawker');
+        }
 
         $hawkerRegister=HawkerRegister::create($request->all());
 

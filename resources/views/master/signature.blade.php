@@ -76,13 +76,20 @@
                         <div class="mb-3 row">
                             <div class="col-md-4">
                                 <label class="col-form-label" for="service_name_id">Service Name<span class="text-danger">*</span></label>
-                                <input class="form-control" id="edit_service_name" name="service_name_id" type="text" placeholder="Enter Service Id" readonly disabled>
+                                <input class="form-control" id="add_service_name" name="service_name_id" type="text" placeholder="Enter Service Id" readonly disabled>
+                                <span class="text-danger is-invalid initial_err"></span>
                             </div>
-
                             <div class="col-md-4">
                                 <label class="col-form-label" for="image">Image <span class="text-danger">*</span></label>
                                 <input type="file" class="form-control" id="service_image" name="image" accept="image/*" required onchange="previewImage(event)">
                             </div>
+                            @if(isset($signatur) && $signatur->image)
+                            <p class="mt-2">
+                                <a href="{{ asset('storage/' . $signatur->image) }}" target="_blank">
+                                    View Current Document
+                                </a>
+                            </p>
+                        @endif
                             <div class="col-md-4 d-flex align-items-end">
                                 <button type="button" class="btn btn-primary" id="viewImageButton" style="display: none;" onclick="openImageModal()">View Image</button>
                             </div>
@@ -245,9 +252,8 @@
                 editFormBehaviour();
                 if (!data.error) {
                     $("#editForm input[name='edit_model_id']").val(data.signatur.id);
-                    $("#editForm input[name='service_name']").val(data.signatur.service_name);
-                    $("#editForm input[name='signature']").val(data.signatur.signature);
-                    $("#editForm input[name='dep_service_id']").val(data.signatur.dep_service_id);
+                    $("#editForm input[name='service_name_id']").val(data.signatur.service_name_id);
+                    $("#editForm input[name='image']").val(data.signatur.image);
                 } else {
                     alert(data.error);
                 }

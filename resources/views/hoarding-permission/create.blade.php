@@ -12,26 +12,94 @@
                     <div class="card-header">
                         <h4 class="card-title">Add Details</h4>
                     </div>
+
                     <div class="card-body">
-                        <div class="mb-3 row">
 
-
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="applicant_name">Applicant Name / अर्जदाराचे नाव<span class="text-danger">*</span></label>
-                                <input class="form-control" id="applicant_name" name="applicant_name" type="text" placeholder="Enter Applicant Name" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                        <div class="mb-4 row">
+                            <div class="alert alert-warning fw-bold" role="alert">
+                                Applicant Details
+                            </div>
+                            <div class="col-md-3">
+                                <label class="col-form-label" for="title">Title (शीर्षक)<span class="text-danger">*</span></label>
+                                <select name="title" id="title" class="form-select" required>
+                                    <option value="" disabled selected> -- Select -- </option>
+                                    <option value="Mr (श्री)">Mr (श्री)</option>
+                                    <option value="Mrs (सौ)">Mrs (सौ)</option>
+                                    <option value="Ms (कु)">Ms (कु) </option>
+                                </select>
                             </div>
 
+                            <div class="col-md-3">
+                                <label class="col-form-label" for="f_name">First Name(पहिले नाव)<span class="text-danger">*</span></label>
+                                <input class="form-control" id="f_name" name="f_name" type="text" placeholder="Enter First Name" required>
+                                <span class="text-danger is-invalid f_name_err"></span>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="col-form-label" for="m_name">Middle Name (मधले नाव)</label>
+                                <input class="form-control" id="m_name" name="m_name" type="text" placeholder="Enter Middle Name" required>
+                                <span class="text-danger is-invalid m_name_err"></span>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="col-form-label" for="l_name">Last Name (आडनाव ) <span class="text-danger">*</span></label>
+                                <input class="form-control" id="l_name" name="l_name" type="text" placeholder="Enter Last Name" required>
+                                <span class="text-danger is-invalid l_name_err"></span>
+                            </div>
+
+
                             <div class="col-md-4">
-                                <label class="col-form-label" for="email_id">Email ID / ई-मेल आयडी</label>
+                                <label class="col-form-label" for="full_address">Address of Applicant(अर्जदाराचा पत्ता)<span class="text-danger">*</span></label>
+                                <textarea class="form-control" name="full_address" id="full_address" cols="30" rows="2" placeholder="Enter Applicant Address" required></textarea>
+                                <span class="text-danger is-invalid applicant_full_address_err"></span>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="col-form-label" for="mobile_no">Mobile Number (मोबाईल नंबर)<span class="text-danger">*</span></label>
+                                <input class="form-control" id="mobile_no" name="mobile_no" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" required>
+                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="col-form-label" for="email_id">Email Id (ई - मेल आयडी)</label>
                                 <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email" required>
                                 <span class="text-danger is-invalid email_id_err"></span>
                             </div>
 
+                        </div>
+
+
+                        <div class="mb-4 row">
+                            <div class="alert alert-warning fw-bold" role="alert">
+                                Site Details of Hoardings
+                            </div>
+
+
+
                             <div class="col-md-4">
-                                <label class="col-form-label" for="mobile_no">Mobile Number / मोबाईल नंबर<span class="text-danger">*</span></label>
-                                <input class="form-control" id="mobile_no" name="mobile_no" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" required>
-                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                                <label class="col-form-label" for="type_hoarding">Type of Hoarding (आकाशचिन्हाचा प्रकार)<span class="text-danger">*</span> </label>
+                                <select class="form-select" name="type_hoarding" id="type_hoarding">
+                                    <option value="">--Select--</option>
+                                    <option value="Permenant">Permanent / कायमस्वरूपी</option>
+                                    <option value="Temporary"> Temporary / तात्पुरते </option>
+                                </select>
+                                <span class="text-danger is-invalid zone_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="advertisement_place">Place of advertisement (जाहिरातीचे ठिकाण)<span class="text-danger">*</span> </label>
+                                <select class="form-select" name="advertisement_place" id="advertisement_place">
+                                    <option value="">--Select--</option>
+                                    <option value="1">Bhavsingpura Ramabai Chowk </option>
+                                    <option value="2"> Bhavsingpura Amen Chowk  </option>
+                                    <option value="3">Bhavsingpura Ambedkar Chowk </option>
+                                    <option value="4"> Opposite Bhavsingpura Municipal School  </option>
+                                    <option value="5">Behind the Bhavsingpura Sanchi Arch </option>
+                                    <option value="6"> Chinar Garden Chowk  </option>
+                                    <option value="7">Dirt road in front of Vani Complex </option>
+                                    <option value="8"> Dirt road in front of Punjabi Bhavan  </option>
+                                </select>
+                                <span class="text-danger is-invalid zone_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -44,17 +112,19 @@
                                 </select>
                                 <span class="text-danger is-invalid zone_err"></span>
                             </div>
+
+
                             <div class="col-md-4">
-                                <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                <select class="form-select" name="ward_area" id="ward_area" required>
-                                    <option value="">Select Ward Area</option>
-                                    @foreach ($wards as $ward)
-                                        <option value="{{ $ward->name }}">{{ $ward->name }}</option>
-                                    @endforeach
-                                </select>
-                                <span class="text-danger is-invalid ward_area_err"></span>
+                                <label class="col-form-label" for="chowk">Chowk (चौक)<span class="text-danger">*</span></label>
+                                <input class="form-control" id="chowk" name="chowk" type="text" placeholder="Enter Chowk Name" required>
+                                <span class="text-danger is-invalid chowk_err"></span>
                             </div>
 
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="plot_no">Plot No. (प्लॉट क्र.)<span class="text-danger">*</span></label>
+                                <input class="form-control" id="plot_no" name="plot_no" type="text" placeholder="Enter plot no Name" required>
+                                <span class="text-danger is-invalid plot_no_err"></span>
+                            </div>
 
                             <div class="col-md-4 mb-2">
                                 <label class="col-form-label" for="aadhar_number">Aadhar Number / आधार क्रमांक </label>
@@ -72,19 +142,6 @@
                             </div>
 
 
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="full_address">Applicant's Full Address / अर्जदाराचा पूर्ण पत्ता <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="full_address" id="full_address" cols="30" rows="2" placeholder="Enter Applicant Address" required></textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
-                            </div>
-
-
-
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="business_name">Business Name / व्यवसायाचे नाव<span class="text-danger">*</span></label>
-                                <input class="form-control" id="business_name" name="business_name" type="text" placeholder="Enter Applicant Name" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
-                            </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="business_type">Business Type /व्यवसायाचा प्रकार
@@ -114,11 +171,7 @@
                                 <input class="form-control" id="gst" name="gst" type="text" placeholder="Enter GST Number">
                                 <span class="text-danger is-invalid pancard_no_err"></span>
                             </div>
-                            {{-- <div class="col-md-4">
-                                <label class="col-form-label" for="email_id">Email ID / ई-मेल आयडी</label>
-                                <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email" required>
-                                <span class="text-danger is-invalid email_id_err"></span>
-                            </div> --}}
+
 
 
                             <div class="col-md-4 mb-2">
@@ -248,8 +301,7 @@
                             </div>
 
                             <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="medical">Upload Medical certificate obtained from government hospital of employees / नोकरवगाचे शासकीय रुग्णालयातून घेतलेले वैद्यकीय प्रमाणपत्र <span
-                                        class="text-danger">*</span></label></label>
+                                <label class="col-form-label" for="medical">Upload Medical certificate obtained from government hospital of employees / नोकरवगाचे शासकीय रुग्णालयातून घेतलेले वैद्यकीय प्रमाणपत्र <span class="text-danger">*</span></label></label>
                                 <input class="form-control" id="medical" name="medical" type="file" required>
                                 <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
                             </div>
@@ -267,8 +319,7 @@
                             </div>
 
                             <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="food">Upload Certificate from Food and Drug Administration (if applicable) / अन्न आणि औषध प्रशासनाकडून प्रमाणपत्र (लागू असल्यास)<span
-                                        class="text-danger">*</span></label></label>
+                                <label class="col-form-label" for="food">Upload Certificate from Food and Drug Administration (if applicable) / अन्न आणि औषध प्रशासनाकडून प्रमाणपत्र (लागू असल्यास)<span class="text-danger">*</span></label></label>
                                 <input class="form-control" id="food" name="food" type="file" required>
                                 <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
                             </div>
@@ -315,11 +366,11 @@
                             </div>
 
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary" id="addSubmit">Submit</button>
-                        <button type="reset" class="btn btn-warning">Reset</button>
-                    </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary" id="addSubmit">Submit</button>
+                            <button type="reset" class="btn btn-warning">Reset</button>
+                        </div>
                 </form>
             </div>
         </div>

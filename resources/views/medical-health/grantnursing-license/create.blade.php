@@ -28,8 +28,8 @@
                             </div>
 
                             <div class="col-md-6">
-                                <label class="col-form-label" for="title_of_application">NOC Type<span class="text-danger">*</span></label>
-                                <select name="title_of_application" id="title_of_application" class="form-select" required>
+                                <label class="col-form-label" for="noc_type">NOC Type<span class="text-danger">*</span></label>
+                                <select name="noc_type" id="noc_type" class="form-select" required>
                                     <option value="" disabled selected> -- Select -- </option>
                                     <option value="Noc 1">Noc 1</option>
                                     <option value="Noc 2">Noc 2</option>
@@ -126,12 +126,12 @@
                                 <label class="col-form-label">Property Tax Number<span class="text-danger">*</span></label>
                                 <div class="border rounded p-2">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="property_tax" id="property_tax" value="Citizen" required>
+                                        <input class="form-check-input" type="radio" name="property_tax" id="property_tax" value="Yes" required>
                                         <label class="form-check-label" for="Yes">Yes</label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="property_tax" id="property_tax" value="Builder">
+                                        <input class="form-check-input" type="radio" name="property_tax" id="property_tax" value="No">
                                         <label class="form-check-label" for="No">No</label>
                                     </div>
 
@@ -142,12 +142,12 @@
                                 <label class="col-form-label">Water Connection Number</label>
                                 <div class="border rounded p-2">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="water_connection" id="water_connection" value="Citizen" required>
+                                        <input class="form-check-input" type="radio" name="water_connection" id="water_connection" value="Yes" required>
                                         <label class="form-check-label" for="Yes">Yes</label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="water_connection" id="water_connection" value="Builder">
+                                        <input class="form-check-input" type="radio" name="water_connection" id="water_connection" value="No">
                                         <label class="form-check-label" for="No">No</label>
                                     </div>
 
@@ -158,12 +158,12 @@
                                 <label class="col-form-label">Fire NOC<span class="text-danger">*</span></label>
                                 <div class="border rounded p-2">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="fire_noc" id="fire_noc" value="Citizen" required>
+                                        <input class="form-check-input" type="radio" name="fire_noc" id="fire_noc" value="Provisional" required>
                                         <label class="form-check-label" for="Provisional">Provisional</label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="fire_noc" id="fire_noc" value="Builder">
+                                        <input class="form-check-input" type="radio" name="fire_noc" id="fire_noc" value="Final">
                                         <label class="form-check-label" for="Final">Final</label>
                                     </div>
 
@@ -173,7 +173,7 @@
                             <div class="col-md-4">
                                 <label class="col-form-label" for="noc_number">NOC Document Number</label>
                                 <input class="form-control" id="noc_number" name="noc_number" type="number" placeholder="Enter NOC Document Number" >
-                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                                <span class="text-danger is-invalid applicant_noc_number_err"></span>
                             </div>
 
                             <div class="col-md-5">

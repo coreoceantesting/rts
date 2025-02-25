@@ -15,7 +15,8 @@
                     <div class="card-body">
 
 
-                            <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-6">
                                 <label class="col-form-label" for="zone">Zone Id / झोन<span class="text-danger">*</span></label>
                                 <select class="form-select" name="zone" id="zone" required>
                                     <option value="">Select Zone</option>
@@ -25,7 +26,20 @@
                                 </select>
                                 <span class="text-danger is-invalid zone_err"></span>
                             </div>
-                            <div class="mb-3 row">
+
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="noc_type">NOC Type<span class="text-danger">*</span></label>
+                                <select name="noc_type" id="noc_type" class="form-select" required>
+                                    <option value="" disabled selected> -- Select -- </option>
+                                    <option value="Noc 1">Noc 1</option>
+                                    <option value="Noc 2">Noc 2</option>
+                                    <option value="Noc 3">Noc 3 </option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3 row">
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="f_name">First Name <span class="text-danger">*</span></label>
@@ -46,61 +60,125 @@
                             </div>
 
                             <div class="col-md-4">
-                                <label class="col-form-label" for="marathi_f_name">प्रथम नाव (मराठी) <span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_f_name" name="marathi_f_name" type="text" placeholder="नाव प्रविष्ट करा प्रथम" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
-                            </div>
-
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="marathi_m_name">मधले नाव (मराठी)<span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_m_name" name="marathi_m_name" type="text" placeholder="प्रविष्ट करा मधले नाव" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
-                            </div>
-
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="marathi_l_name">आडनाव (मराठी) <span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_l_name" name="marathi_l_name" type="text" placeholder="आडनाव प्रविष्ट करा" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
-                            </div>
-
-
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="mobile_num">Mobile Number</label>
+                                <label class="col-form-label" for="mobile_num">Mobile Number<span class="text-danger">*</span></label>
                                 <input class="form-control" id="mobile_num" name="mobile_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number">
                                 <span class="text-danger is-invalid applicant_mobile_no_err"></span>
                             </div>
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="aadhar_num">Aadhar Card No</label>
-                                <input class="form-control" id="aadhar_num" name="aadhar_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number">
-                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
-                            </div>
+
                             <div class="col-md-4">
                                 <label class="col-form-label" for="email">Email<span class="text-danger">*</span></label>
                                 <input class="form-control" id="email" name="email" type="email" placeholder="Enter Email" required>
                                 <span class="text-danger is-invalid email_err"></span>
                             </div>
-                            <div class="col-md-5">
-                                <label class="col-form-label" for="address"> Address  <span class="text-danger">*</span></label>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="aadhar_num">Aadhar Number<span class="text-danger">*</span></label>
+                                <input class="form-control" id="aadhar_num" name="aadhar_num" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number">
+                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="property_number">Property Number</label>
+                                <input class="form-control" id="property_number" name="property_number" type="number" placeholder="Enter Property Number">
+                                <span class="text-danger is-invalid property_number_err"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="address"> Residential Address <span class="text-danger">*</span></label>
                                 <textarea class="form-control" name="address" id="address" cols="30" rows="2" placeholder="Enter Address" required></textarea>
                                 <span class="text-danger is-invalid address_err"></span>
                             </div>
 
-                            <div class="col-md-5">
-                                <label class="col-form-label" for="marathi_address"> पत्ता (मराठी) <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="marathi_address" id="marathi_address" cols="30" rows="2" placeholder="पत्ता" required></textarea>
+
+
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="name_institute">Name of Institution (If Applicable)<span class="text-danger">*</span></label>
+                                <textarea class="form-control" name="name_institute" id="name_institute" cols="30" rows="2" placeholder="Enter Name of Institution" required></textarea>
                                 <span class="text-danger is-invalid applicant_full_address_err"></span>
                             </div>
 
-
-                            <div class="col-md-5">
-                                <label class="col-form-label" for="purpose">Purpose <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="purpose" id="purpose" cols="30" rows="2" placeholder="Enter purpose" required></textarea>
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="institute_address">Institution Address (If Applicable)<span class="text-danger">*</span></label>
+                                <textarea class="form-control" name="institute_address" id="institute_address" cols="30" rows="2" placeholder="Enter Institution Address" required></textarea>
                                 <span class="text-danger is-invalid applicant_full_address_err"></span>
                             </div>
 
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="hospital_name">Hospital Name <span class="text-danger">*</span></label>
+                                <input class="form-control" id="hospital_name" name="hospital_name" type="text" placeholder="Enter Hospital Name" required>
+                                <span class="text-danger is-invalid applicant_hospital_name_err"></span>
+                            </div>
+
+
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="alternet_mobile">Mobile Number<span class="text-danger">*</span></label>
+                                <input class="form-control" id="alternet_mobile" name="alternet_mobile" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number">
+                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="alternet_email">Email</label>
+                                <input class="form-control" id="alternet_email" name="alternet_email" type="email" placeholder="Enter Email" required>
+                                <span class="text-danger is-invalid email_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label">Property Tax Number<span class="text-danger">*</span></label>
+                                <div class="border rounded p-2">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="property_tax" id="property_tax" value="Yes" required>
+                                        <label class="form-check-label" for="Yes">Yes</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="property_tax" id="property_tax" value="No">
+                                        <label class="form-check-label" for="No">No</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label">Water Connection Number</label>
+                                <div class="border rounded p-2">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="water_connection" id="water_connection" value="Yes" required>
+                                        <label class="form-check-label" for="Yes">Yes</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="water_connection" id="water_connection" value="No">
+                                        <label class="form-check-label" for="No">No</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label">Fire NOC<span class="text-danger">*</span></label>
+                                <div class="border rounded p-2">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="fire_noc" id="fire_noc" value="Provisional" required>
+                                        <label class="form-check-label" for="Provisional">Provisional</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="fire_noc" id="fire_noc" value="Final">
+                                        <label class="form-check-label" for="Final">Final</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="noc_number">NOC Document Number</label>
+                                <input class="form-control" id="noc_number" name="noc_number" type="number" placeholder="Enter NOC Document Number">
+                                <span class="text-danger is-invalid applicant_noc_number_err"></span>
+                            </div>
+
                             <div class="col-md-5">
-                                <label class="col-form-label" for="marathi_purpose">उद्देश (मराठी) <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="marathi_purpose" id="marathi_purpose" cols="30" rows="2" placeholder="उद्देश" required></textarea>
+                                <label class="col-form-label" for="hospital_address">Hospital Address<span class="text-danger">*</span></label>
+                                <textarea class="form-control" name="hospital_address" id="hospital_address" cols="30" rows="2" placeholder="Enter Hospital Address " required></textarea>
                                 <span class="text-danger is-invalid applicant_full_address_err"></span>
                             </div>
 
@@ -126,6 +204,7 @@
             </div>
         </div>
     </div>
+
 
 </x-admin.layout>
 

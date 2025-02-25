@@ -59,7 +59,7 @@ class GrantNursingLicenseController extends Controller
 
     public function edit($id)
     {
-        //   return encrypt($id);
+        //    return encrypt($id);
         $grantNursingLicense = $this->grantNursingLicense->edit(decrypt($id));
 
         // $advertisementPermission = AdvertisementPermission::find($id);
