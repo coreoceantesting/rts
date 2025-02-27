@@ -224,7 +224,7 @@
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="consent_letters">Land owner consent to erect advertisement or how? If so please attach the original consent letter (जमीन मालकाचे संमतीपत्र)<span class="text-danger">*</span></label>
-                                <input class="form-control" id="consent_letters" name="consent_letters" type="file"  accept="image/*"required style="margin-top: 20px">
+                                <input class="form-control" id="consent_letters" name="consent_letters" type="file" accept="image/*"required style="margin-top: 20px">
                                 <span class="text-danger is-invalid upload_detail_property_image_err"></span>
                             </div>
 
@@ -241,15 +241,15 @@
                             </div>
 
                         </div>
+                        <div class="mb-4 row">
                             <div class="mb-4 row">
-                                <div class="mb-4 row">
-                                    <div class="alert alert-warning fw-bold" role="alert">
-                                        Documents Attachment List
-                                    </div>
+                                <div class="alert alert-warning fw-bold" role="alert">
+                                    Documents Attachment List
+                                </div>
 
-                                    <div class="alert alert-info fw-bold" role="alert">
-                                        Note:(टीप) Upload Below Files only pdf, .jpg, .jpeg, .bmp Max upto 5MB. ( खाली फक्त pdf, .jpg, .jpeg, .bmp इत्यादी फाइल अपलोड करा. कमाल 5MB पर्यंत.)
-                                    </div>
+                                <div class="alert alert-info fw-bold" role="alert">
+                                    Note:(टीप) Upload Below Files only pdf, .jpg, .jpeg, .bmp Max upto 5MB. ( खाली फक्त pdf, .jpg, .jpeg, .bmp इत्यादी फाइल अपलोड करा. कमाल 5MB पर्यंत.)
+                                </div>
 
                                 <div class="col-md-6 mb-2">
                                     <label class="col-form-label" for="upload_prescribed_formats">No Objection from Home/Building/Place owner ( Bond Paper of Rs. 500/-) (घर / इमारत / जागा मालकाचे रु.500/- च्या मुद्रांक शुल्क वर नाहरकत)<span class="text-danger">*</span></label>
@@ -270,7 +270,7 @@
                                 </div>
 
                                 <div class="col-md-4 mb-2">
-                                    <label class="col-form-label" for="water_bills">Certificate from Structural Engineer (संरचना अभियंता चे प्रमाणपत्र)  </label>
+                                    <label class="col-form-label" for="water_bills">Certificate from Structural Engineer (संरचना अभियंता चे प्रमाणपत्र) </label>
                                     <input class="form-control" id="water_bills" name="water_bills" type="file">
                                     <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
                                 </div>
@@ -304,13 +304,12 @@
 
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
                                 <div class="col-md-12">
-                                    <div class="d-flex align-items-center">
-                                        <input type="checkbox" class="me-2">
-                                        <span class="me-2">I</span>
-                                        <input type="text" class="form-control w-25  border-bottom flex-grow-1 me-2" style="border:none">
-                                        <span class="ms-2">Address</span>
-                                        <input type="text" class="form-control w-25  border-bottom flex-grow-1 me-2" style="border:none">
-                                        <span class="ms-2">solemnly declares that the above information is true and correct</span>
+                                    <div class="form-check d-flex align-items-start">
+                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" value="yes" required>
+                                        <label class="form-check-label ms-2" for="is_correct_info">
+                                            "All information provided above is correct and I shall be fully responsible for any discrepancy. <br> वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार
+                                            असेन."
+                                        </label>
                                     </div>
                                     <span class="text-danger is-invalid is_correct_info_err"></span>
                                 </div>

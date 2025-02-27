@@ -57,7 +57,10 @@
                                 <a href="{{ route('fees.index') }}" class="nav-link {{ request()->routeIs('fees.*') ? 'active' : '' }}" data-key="t-horizontal">Fees</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('signature.index') }}" class="nav-link {{ request()->routeIs('ward.*') ? 'active' : '' }}" data-key="t-horizontal">Signature</a>
+                                <a href="{{ route('signature.index') }}" class="nav-link {{ request()->routeIs('signature.*') ? 'active' : '' }}" data-key="t-horizontal">Signature</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('nature-business.index') }}" class="nav-link {{ request()->routeIs('nature-business.*') ? 'active' : '' }}" data-key="t-horizontal">Nature of Business</a>
                             </li>
                         </ul>
                     </div>

@@ -1,6 +1,6 @@
 <x-admin.layout>
-    <x-slot name="title">Fees </x-slot>
-    <x-slot name="heading">Fees</x-slot>
+    <x-slot name="title">Nature Of BUsiness </x-slot>
+    <x-slot name="heading">Nature Of BUsiness</x-slot>
     {{-- <x-slot name="subheading">Test</x-slot> --}}
 
 
@@ -12,27 +12,19 @@
                     @csrf
 
                     <div class="card-header">
-                        <h4 class="card-title">Add Fees</h4>
+                        <h4 class="card-title">Add Nature Of Business</h4>
                     </div>
                     <div class="card-body">
                         <div class="mb-3 row">
+
                             <div class="col-md-4">
-                                <label class="col-form-label" for=" ">Service Name<span class="text-danger">*</span></label>
-                                {{-- @dd($services) --}}
-                                <select class="form-select" id="add_service_name" name="service_name_id" required>
-                                    <option value="" selected disabled>Select Service Name</option>
-                                    @foreach ($services as $service)
-                                        <option value="{{ $service->id }}">{{ $service->service_id }} - {{ $service->service_name }}</option>
-                                    @endforeach
-                                </select>
+                                <label class="col-form-label" for="trade_type">Trade Type<span class="text-danger">*</span></label>
+                                <input class="form-control" id="trade_type" name="trade_type" type="text" placeholder="Enter Trade Typess">
+                                <span class="text-danger is-invalid initial_err"></span>
                             </div>
-                            {{-- <div class="col-md-4">
-                                <label class="col-form-label" for="dep_service_id"> Service Name<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="dep_service_id" id="deptServiceId" readonly>
-                            </div> --}}
                             <div class="col-md-4">
-                                <label class="col-form-label" for="fees">Fees<span class="text-danger">*</span></label>
-                                <input class="form-control" id="fees" name="fees" type="text" placeholder="Enter amount">
+                                <label class="col-form-label" for="rate">Rate<span class="text-danger">*</span></label>
+                                <input class="form-control" id="rate" name="rate" type="text" placeholder="Enter amount">
                                 <span class="text-danger is-invalid initial_err"></span>
                             </div>
 
@@ -65,15 +57,15 @@
 
 
                             <div class="col-md-4">
-                                <label class="col-form-label" for="service_name_id">Service Name<span class="text-danger">*</span></label>
-                                <input class="form-control" id="add_service_name" name="service_name_id" type="text" placeholder="Enter Service Id" readonly disabled>
+                                <label class="col-form-label" for="trade_type">Trade Type<span class="text-danger">*</span></label>
+                                <input class="form-control" id="trade_type" name="trade_type" type="text" placeholder="Enter Trade Type">
                                 <span class="text-danger is-invalid initial_err"></span>
                             </div>
 
 
                             <div class="col-md-4">
-                                <label class="col-form-label" for="fees">Fees<span class="text-danger">*</span></label>
-                                <input class="form-control" id="fees" name="fees" type="number" placeholder="Enter amount">
+                                <label class="col-form-label" for="rate">Rate<span class="text-danger">*</span></label>
+                                <input class="form-control" id="rate" name="rate" type="number" placeholder="Enter amount">
                                 <span class="text-danger is-invalid initial_err"></span>
                             </div>
 
@@ -110,19 +102,9 @@
                                 <tr>
                                     <th>Sr.No</th>
 
-                                    <th>Service Name</th>
+                                    <th>Trade Type</th>
                                     {{-- <th>Service Name</th> --}}
-                                    <th>Fees</th>
-
-
-
-                                    {{--    <th>Office</th>
-
-                                        <th>Age</th>
-
-                                        <th>Start date</th>
-
-                                        <th>Salary</th> --}}
+                                    <th>Rate</th>
 
                                     <th>Action</th>
 
@@ -131,20 +113,18 @@
                             </thead>
                             <tbody>
                                 {{-- @dd($fees) --}}
-                                @foreach ($fees as $fee)
+                                @foreach ($nature_busis as $nature_busi)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
 
-                                        <td>{{ $fee->service?->service_id }} - {{ $fee->service?->service_name }}</td>
+                                        <td>{{ $nature_busi->trade_type }}</td>
 
-                                        <td>{{ $fee->fees }}</td>
-
-
+                                        <td>{{ $nature_busi->rate }}</td>
                                         <td>
 
-                                            <button class="edit-element btn text-secondary px-2 py-1" title="Edit district" data-id="{{ $fee->id }}"><i data-feather="edit"></i></button>
+                                            <button class="edit-element btn text-secondary px-2 py-1" title="Edit district" data-id="{{ $nature_busi->id }}"><i data-feather="edit"></i></button>
 
-                                            <button class="btn text-danger rem-element px-2 py-1" title="Delete district" data-id="{{ $fee->id }}"><i data-feather="trash-2"></i> </button>
+                                            <button class="btn text-danger rem-element px-2 py-1" title="Delete district" data-id="{{ $nature_busi->id }}"><i data-feather="trash-2"></i> </button>
 
                                         </td>
 
@@ -171,7 +151,7 @@
 
         var formdata = new FormData(this);
         $.ajax({
-            url: '{{ route('fees.store') }}',
+            url: '{{ route('nature-business.store') }}',
             type: 'POST',
             data: formdata,
             contentType: false,
@@ -181,7 +161,7 @@
                 if (!data.error2)
                     swal("Successful!", data.success, "success")
                     .then((action) => {
-                        window.location.href = '{{ route('fees.index') }}';
+                        window.location.href = '{{ route('nature-business.index') }}';
                     });
                 else
                     swal("Error!", data.error2, "error");
@@ -206,9 +186,10 @@
 <!-- Edit -->
 <script>
     $("#buttons-datatables").on("click", ".edit-element", function(e) {
+
         e.preventDefault();
         var model_id = $(this).attr("data-id");
-        var url = "{{ route('fees.edit', ':model_id') }}";
+        var url = "{{ route('nature-business.edit', ':model_id') }}";
 
         $.ajax({
             url: url.replace(':model_id', model_id),
@@ -217,11 +198,13 @@
                 '_token': "{{ csrf_token() }}"
             },
             success: function(data, textStatus, jqXHR) {
+
                 editFormBehaviour();
+
                 if (!data.error) {
-                    $("#editForm input[name='edit_model_id']").val(data.fee.id);
-                    $("#editForm input[name='service_name_id']").val(data.fee.service_name_id ? data.fee.service.service_name : 'N/A');
-                    $("#editForm input[name='fees']").val(data.fee.fees);
+                    $("#editForm input[name='edit_model_id']").val(data.nature_business.id);
+                    $("#editForm input[name='trade_type']").val(data.nature_business.trade_type);
+                    $("#editForm input[name='rate']").val(data.nature_business.rate);
                 } else {
                     alert(data.error);
                 }
@@ -243,7 +226,7 @@
             var formdata = new FormData(this);
             formdata.append('_method', 'PUT');
             var model_id = $('#edit_model_id').val();
-            var url = "{{ route('fees.update', ':model_id') }}";
+            var url = "{{ route('nature-business.update', ':model_id') }}";
             //
             $.ajax({
                 url: url.replace(':model_id', model_id),
@@ -256,7 +239,7 @@
                     if (!data.error2)
                         swal("Successful!", data.success, "success")
                         .then((action) => {
-                            window.location.href = '{{ route('fees.index') }}';
+                            window.location.href = '{{ route('nature-business.index') }}';
                         });
                     else
                         swal("Error!", data.error2, "error");
@@ -284,7 +267,7 @@
     $("#buttons-datatables").on("click", ".rem-element", function(e) {
         e.preventDefault();
         swal({
-                title: "Are you sure to delete this Fees?",
+                title: "Are you sure to delete this nature-business?",
                 // text: "Make sure if you have filled Vendor details before proceeding further",
                 icon: "info",
                 buttons: ["Cancel", "Confirm"]
@@ -292,7 +275,7 @@
             .then((justTransfer) => {
                 if (justTransfer) {
                     var model_id = $(this).attr("data-id");
-                    var url = "{{ route('fees.destroy', ':model_id') }}";
+                    var url = "{{ route('nature-business.destroy', ':model_id') }}";
 
                     $.ajax({
                         url: url.replace(':model_id', model_id),
@@ -323,8 +306,8 @@
             });
     });
 
-    $('#add_service_name').change(function() {
-        let serviceName = $('#add_service_name option:selected').text();
-        $('#deptServiceId').val(serviceName)
-    })
+    // $('#add_service_name').change(function() {
+    //     let serviceName = $('#add_service_name option:selected').text();
+    //     $('#deptServiceId').val(serviceName)
+    // })
 </script>

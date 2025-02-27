@@ -71,6 +71,7 @@ class FeesController extends Controller
                 'result' => 1,
                 'fee' => $fee->load('service'),
             ];
+            // dd($fee);
             // return view('admin.masters.districts', compact('district'));
         } else {
             $response = ['result' => 0];

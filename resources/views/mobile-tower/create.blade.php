@@ -17,9 +17,27 @@
 
 
                             <div class="col-md-4">
-                                <label class="col-form-label" for="applicant_name">Applicant Name / अर्जदाराचे नाव<span class="text-danger">*</span></label>
-                                <input class="form-control" id="applicant_name" name="applicant_name" type="text" placeholder="Enter Applicant Name" required>
+                                <label class="col-form-label" for="name">दुकानाचे नाव इंग्रजी<span class="text-danger">*</span></label>
+                                <input class="form-control" id="name" name="name" type="text" placeholder="Enter Shop name  in English" required>
                                 <span class="text-danger is-invalid applicant_name_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="m_name"> दुकानाचे नाव मराठी<span class="text-danger">*</span></label>
+                                <input class="form-control" id="m_name" name="m_name" type="text" placeholder="Enter Shop name Marathi" required>
+                                <span class="text-danger is-invalid applicant_name_err"></span>
+                            </div>
+
+                            <div class="col-md-4 mb-2">
+                                <label class="col-form-label" for="pancard_number">Pancard Number / पैन कार्ड क्रमांक </label>
+                                <input class="form-control" id="pancard_number" name="pancard_number" type="number" placeholder="Enter Pancard Number">
+                                <span class="text-danger is-invalid pancard_number_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="mobile_no">Mobile Number / मोबाईल नंबर<span class="text-danger">*</span></label>
+                                <input class="form-control" id="mobile_no" name="mobile_no" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" required>
+                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -27,10 +45,11 @@
                                 <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email">
                                 <span class="text-danger is-invalid email_id_err"></span>
                             </div>
+
                             <div class="col-md-4">
-                                <label class="col-form-label" for="mobile_no">Mobile Number / मोबाईल नंबर<span class="text-danger">*</span></label>
-                                <input class="form-control" id="mobile_no" name="mobile_no" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" required>
-                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                                <label class="col-form-label" for="full_address">Applicant's Full Address / अर्जदाराचा पूर्ण पत्ता <span class="text-danger">*</span></label>
+                                <textarea class="form-control" name="full_address" id="full_address" cols="30" rows="2" placeholder="Enter Applicant Address" required></textarea>
+                                <span class="text-danger is-invalid applicant_full_address_err"></span>
                             </div>
 
 
@@ -57,50 +76,191 @@
 
 
 
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="aadhar_number">Aadhar Number / आधार क्रमांक </label>
-                                <input class="form-control" id="aadhar_number" name="aadhar_number" type="number" placeholder="Enter Aadhar Card No">
-                                <span class="text-danger is-invalid aadhar_no_err"></span>
-                            </div>
-
-
-
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="pancard_number">Pancard Number / पैन कार्ड क्रमांक </label>
-                                <input class="form-control" id="pancard_number" name="pancard_number" type="number" placeholder="Enter Pancard Number">
-                                <span class="text-danger is-invalid pancard_number_err"></span>
-                            </div>
-
-
                             <div class="col-md-4">
-                                <label class="col-form-label" for="full_address">Applicant's Full Address / अर्जदाराचा पूर्ण पत्ता <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="full_address" id="full_address" cols="30" rows="2" placeholder="Enter Applicant Address" required></textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
-                            </div>
-
-
-
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="business_name">Business Name / व्यवसायाचे नाव<span class="text-danger">*</span></label>
-                                <input class="form-control" id="business_name" name="business_name" type="text" placeholder="Enter Applicant Name" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
-                            </div>
-
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="business_type">Business Type /व्यवसायाचा प्रकार<span class="text-danger">*</span></label>
-                                <input class="form-control" id="business_type" name="business_type" type="text" placeholder="Enter Applicant Name" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
-                            </div>
-
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="business">Business / व्यवसायाचा</label>
+                                <label class="col-form-label" for="business">License Financial From Year</label>
                                 <select class="form-select" name="business" id="business">
                                     <option value="">Select Business</option>
                                     <option value="owner">Owner/मालक</option>
                                     <option value="partner">Partner/भागीदार</option>
                                     <option value="renter">Renter/भाडेकरी</option>
                                     <option value="rent">Rent/भाडे</option>
+                                </select>
+                                <span class="text-danger is-invalid zone_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="business"> To Year</label>
+                                <select class="form-select" name="business" id="business">
+                                    <option value="">Select Business</option>
+                                    <option value="owner">Owner/मालक</option>
+                                    <option value="partner">Partner/भागीदार</option>
+                                    <option value="renter">Renter/भाडेकरी</option>
+                                    <option value="rent">Rent/भाडे</option>
+                                </select>
+                                <span class="text-danger is-invalid zone_err"></span>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="amount">रक्कम<span class="text-danger">*</span></label>
+                                <input class="form-control" id="amount" name="amount" type="text" placeholder="Enter Applicant Name" required>
+                                <span class="text-danger is-invalid applicant_name_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label">वस्तू निर्मित आहे का<span class="text-danger">*</span></label>
+                                <div class="border rounded p-2">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="manufactured" id="manufactured" value="होय" required>
+                                        <label class="form-check-label" for="होय">होय</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="manufactured" id="manufactured" value="नाही">
+                                        <label class="form-check-label" for="नाही">नाही</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label">स्वते चे: मालकीचे जागेत व्यवसाय करीत आहे का<span class="text-danger">*</span></label>
+                                <div class="border rounded p-2">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="business_premises" id="business_premises" value="होय" required>
+                                        <label class="form-check-label" for="होय">होय</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="business_premises" id="business_premises" value="नाही">
+                                        <label class="form-check-label" for="नाही">नाही</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="owner_place">जागा मालकीचे नाव<span class="text-danger">*</span></label>
+                                <input class="form-control" id="owner_place" name="owner_place" type="text" placeholder="Enter Name of the owner of the place" required>
+                                <span class="text-danger is-invalid applicant_name_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="landlord_address">जागा मालकाचा पत्ता<span class="text-danger">*</span></label>
+                                <input class="form-control" id="landlord_address" name="landlord_address" type="text" placeholder="Enter Name of the owner of the place" required>
+                                <span class="text-danger is-invalid applicant_name_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="rental_agreement">भाडे करार कोणासोबत केलेले आहे<span class="text-danger">*</span></label>
+                                <input class="form-control" id="rental_agreement" name="rental_agreement" type="text" placeholder="Enter rental agreement" required>
+                                <span class="text-danger is-invalid applicant_name_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="area">व्यवसायासाठी म. न. पा. चे नाहरकत प्रमाणपत्र घेतले आहे का<span class="text-danger">*</span></label>
+                                <input class="form-control" id="area" name="area" type="number" placeholder="Enter" required>
+                                <span class="text-danger is-invalid applicant_name_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label">स्वते चे: मालकीचे जागेत व्यवसाय करीत आहे का<span class="text-danger">*</span></label>
+                                <div class="border rounded p-2">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="noc_certificate" id="noc_certificate" value="होय" required>
+                                        <label class="form-check-label" for="होय">होय</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="noc_certificate" id="noc_certificate" value="नाही">
+                                        <label class="form-check-label" for="नाही">नाही</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="business_start">व्यवसाय सुरु केल्याचे वर्ष<span class="text-danger">*</span></label>
+                                <input class="form-control" id="business_start" name="business_start" type="number" placeholder="Year of business start" required>
+                                <span class="text-danger is-invalid applicant_name_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="registration_no">शॉप ऍक्ट नोंदणी क्र.<span class="text-danger">*</span></label>
+                                <input class="form-control" id="registration_no" name="registration_no" type="text" placeholder="" required>
+                                <span class="text-danger is-invalid applicant_name_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="food_drug">अन्न व ओषध प्रशासन कायद्यान्वये नोंदणी क्र.<span class="text-danger">*</span></label>
+                                <input class="form-control" id="food_drug" name="food_drug" type="text" placeholder="" required>
+                                <span class="text-danger is-invalid applicant_name_err"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+
+
+                            <div class="col-md-4 mb-2">
+                                <label class="col-form-label" for="aadhar_number">संचालकांचा आधार क्रमांक </label>
+                                <input class="form-control" id="aadhar_number" name="aadhar_number" type="number" placeholder="Enter Aadhar Card No">
+                                <span class="text-danger is-invalid aadhar_no_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="director_name">संचालकांचा नाव<span class="text-danger">*</span></label>
+                                <input class="form-control" id="director_name" name="director_name" type="text" placeholder="Enter Director Name" required>
+                                <span class="text-danger is-invalid applicant_name_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="contact_no">संपर्क क्र.<span class="text-danger">*</span></label>
+                                <input class="form-control" id="contact_no" name="contact_no" type="number" placeholder="Enter  Number" required>
+                                <span class="text-danger is-invalid applicant_name_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="alternet_email">ई-मेल.<span class="text-danger">*</span></label>
+                                <input class="form-control" id="alternet_email" name="alternet_email" type="email" placeholder="Enter  Number" required>
+                                <span class="text-danger is-invalid applicant_name_err"></span>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="alternet_address">पत्ता <span class="text-danger">*</span></label>
+                                <textarea class="form-control" name="alternet_address" id="alternet_address" cols="30" rows="2" placeholder="Enter Address" required></textarea>
+                                <span class="text-danger is-invalid applicant_full_address_err"></span>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <label class="col-form-label">लिंग<span class="text-danger">*</span></label>
+                                <div class="border rounded p-2">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="gender" value="स्त्री" required>
+                                        <label class="form-check-label" for="स्त्री">स्त्री</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="gender" value="पुरुष">
+                                        <label class="form-check-label" for="पुरुष">पुरुष</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="gender" value="ईतर">
+                                        <label class="form-check-label" for="ईतर">ईतर</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="application_type">अर्जदार प्रकार</label>
+                                <select class="form-select" name="application_type" id="application_type">
+                                    <option value="">Select Option</option>
+                                    <option value="1">परितक्ता</option>
+                                    <option value="2">प्रकल्पग्रस्त</option>
+                                    <option value="3">पूरग्रस्त</option>
+                                    <option value="4">अपंग</option>
+                                    <option value="5">विधवा </option>
+                                    <option value="6">सामान्य </option>
                                 </select>
                                 <span class="text-danger is-invalid zone_err"></span>
                             </div>
@@ -241,8 +401,7 @@
                             </div>
 
                             <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="medical">Upload Medical certificate obtained from government hospital of employees / नोकरवगाचे शासकीय रुग्णालयातून घेतलेले वैद्यकीय प्रमाणपत्र <span
-                                        class="text-danger">*</span></label></label>
+                                <label class="col-form-label" for="medical">Upload Medical certificate obtained from government hospital of employees / नोकरवगाचे शासकीय रुग्णालयातून घेतलेले वैद्यकीय प्रमाणपत्र <span class="text-danger">*</span></label></label>
                                 <input class="form-control" id="medical" name="medical" type="file" required>
                                 <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
                             </div>
@@ -260,8 +419,7 @@
                             </div>
 
                             <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="food">Upload Certificate from Food and Drug Administration (if applicable) / अन्न आणि औषध प्रशासनाकडून प्रमाणपत्र (लागू असल्यास)<span
-                                        class="text-danger">*</span></label></label>
+                                <label class="col-form-label" for="food">Upload Certificate from Food and Drug Administration (if applicable) / अन्न आणि औषध प्रशासनाकडून प्रमाणपत्र (लागू असल्यास)<span class="text-danger">*</span></label></label>
                                 <input class="form-control" id="food" name="food" type="file" required>
                                 <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
                             </div>
