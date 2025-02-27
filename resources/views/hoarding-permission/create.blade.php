@@ -91,13 +91,13 @@
                                 <select class="form-select" name="advertisement_place" id="advertisement_place">
                                     <option value="">--Select--</option>
                                     <option value="1">Bhavsingpura Ramabai Chowk </option>
-                                    <option value="2"> Bhavsingpura Amen Chowk  </option>
+                                    <option value="2"> Bhavsingpura Amen Chowk </option>
                                     <option value="3">Bhavsingpura Ambedkar Chowk </option>
-                                    <option value="4"> Opposite Bhavsingpura Municipal School  </option>
+                                    <option value="4"> Opposite Bhavsingpura Municipal School </option>
                                     <option value="5">Behind the Bhavsingpura Sanchi Arch </option>
-                                    <option value="6"> Chinar Garden Chowk  </option>
+                                    <option value="6"> Chinar Garden Chowk </option>
                                     <option value="7">Dirt road in front of Vani Complex </option>
-                                    <option value="8"> Dirt road in front of Punjabi Bhavan  </option>
+                                    <option value="8"> Dirt road in front of Punjabi Bhavan </option>
                                 </select>
                                 <span class="text-danger is-invalid zone_err"></span>
                             </div>
@@ -126,246 +126,196 @@
                                 <span class="text-danger is-invalid plot_no_err"></span>
                             </div>
 
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="aadhar_number">Aadhar Number / आधार क्रमांक </label>
-                                <input class="form-control" id="aadhar_number" name="aadhar_number" type="number" placeholder="Enter Aadhar Card No">
-                                <span class="text-danger is-invalid aadhar_no_err"></span>
-                            </div>
-
-
-
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="pancard_number">Pancard Number / पैन कार्ड क्रमांक </label>
-                                <input class="form-control" id="pancard_number" name="pancard_number" type="number" placeholder="Enter Pancard Number">
-                                <span class="text-danger is-invalid pancard_no_err"></span>
-                            </div>
-
-
-
                             <div class="col-md-4">
-                                <label class="col-form-label" for="business_type">Business Type /व्यवसायाचा प्रकार
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <input class="form-control" id="business_type" name="business_type" type="text" placeholder="Enter Applicant Name" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <label class="col-form-label" for="size_hoarding">Size of Hoarding (होर्डिंगचा आकार)<span class="text-danger">*</span> </label>
+                                <select class="form-select" name="size_hoarding" id="size_hoarding">
+                                    <option value="">--Select--</option>
+                                    <option value="Class A-10x12 Sq.ft.-500 / वर्ग A-10x12 Sq.ft.-500">Class A-10x12 Sq.ft.-500 / वर्ग A-10x12 Sq.ft.-500</option>
+                                    <option value="Class B-8x10 Sq.ft.-300   /  वर्ग B-8x10 Sq.ft.-300"> Class B-8x10 Sq.ft.-300 / वर्ग B-8x10 Sq.ft.-300 </option>
+                                    <option value="Class C-8x5 Sq.ft.-200   /  वर्ग C-8x5 Sq.ft.-200"> Class C-8x5 Sq.ft.-200 / वर्ग C-8x5 Sq.ft.-200 </option>
+                                </select>
+                                <span class="text-danger is-invalid zone_err"></span>
                             </div>
 
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="business">Business / व्यवसायाचा</label>
-                                <select class="form-select" name="business" id="business">
-                                    <option value="">Select Business</option>
-                                    <option value="owner">Owner/मालक</option>
-                                    <option value="partner">Partner/भागीदार</option>
-                                    <option value="renter">Renter/भाडेकरी</option>
-                                    <option value="rent">Rent/भाडे</option>
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="bussiness_hoarding">Business type for which Advertise Hoarding Booked (व्यवसाय प्रकार ज्यासाठी जाहिरात होर्डिंग बुक केले आहे)<span class="text-danger">*</span></label>
+                                <input class="form-control" id="bussiness_hoarding" name="bussiness_hoarding" type="text" placeholder="Enter plot no Name" required>
+                                <span class="text-danger is-invalid plot_no_err"></span>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="format_advertisement">Format of advertisement( Instructions should be given regarding published and unpublished) जाहिरातीचे स्वरूप (प्रकाशित व अप्रकाशित यासंबंधी निर्देश करावा)<span class="text-danger">*</span> </label>
+                                <select class="form-select" name="format_advertisement" id="format_advertisement">
+                                    <option value="">--Select--</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No"> No</option>
+
                                 </select>
                                 <span class="text-danger is-invalid zone_err"></span>
                             </div>
 
 
-
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="gst">GST Number / जीएसटी क्रमांक </label>
-                                <input class="form-control" id="gst" name="gst" type="text" placeholder="Enter GST Number">
-                                <span class="text-danger is-invalid pancard_no_err"></span>
-                            </div>
-
-
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="area">Total Area / एकूण क्षेत्रफळ <span class="text-danger">*</span> </label>
-                                <input class="form-control" id="area" name="area" type="number" placeholder="Enter Area By Meter" required>
-                                <span class="text-danger is-invalid aadhar_no_err"></span>
-                            </div>
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="date_commencement"> Date of COmmencement of Business / व्यवसाय सुरू केळ्याचा
-                                    दिनांक </label>
-                                <input class="form-control" id="date_commencement" name="date_commencement" type="date" placeholder="Select Flat Assesment Date">
-                                <span class="text-danger is-invalid flat_assesment_date_err"></span>
-                            </div>
-
-
                             <div class="col-md-4">
-                                <label class="col-form-label" for="address_est">Address of establishment / आस्थापनेचा पत्ता<span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="address_est" id="address_est" cols="30" rows="2" placeholder="Enter Applicant Address" required></textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
+                                <label class="col-form-label" for="height">Height of the advertisement’s bottom edge from street level (In Feet)(रस्त्याच्या पातळीपासून जाहिरातीच्या तळाची उंची ( फूट मध्ये))<span class="text-danger">*</span></label>
+                                <input class="form-control" id="height" name="height" type="text" placeholder="Enter Height" required>
+                                <span class="text-danger is-invalid plot_no_err"></span>
                             </div>
 
 
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="advance_device">Advance Devices / अग्निशामक उपकरणे</label>
-                                <select class="form-select" name="advance_device" id="advance_device">
-                                    <option value="">Select Devices</option>
-                                    <option value="yes">YES</option>
-                                    <option value="no">NO</option>
+                            <div class="col-md-4" style="margin-top: 20px">
+                                <label class="col-form-label" for="structure">Details of structure (संरचनेचा तपशील)<span class="text-danger">*</span> </label>
+                                <select class="form-select" name="structure" id="structure" style="margin-top: 20px">
+                                    <option value="">--Select--</option>
+                                    <option value="Timber/लाकूड">Timber/लाकूड</option>
+                                    <option value="Steel/पोलाद"> Steel/पोलाद</option>
+                                    <option value="Other/इतर"> Other/इतर</option>
+
                                 </select>
-                                <span class="text-danger is-invalid advance_device_err"></span>
+                                <span class="text-danger is-invalid zone_err"></span>
                             </div>
 
                             <div class="col-md-4">
-                                <label class="col-form-label" for="first_aid">First Aid Box / प्रथमोपचार पेटी</label>
-                                <select class="form-select" name="first_aid" id="first_aid">
-                                    <option value="">Select </option>
-                                    <option value="yes">YES</option>
-                                    <option value="no">NO</option>
+                                <label class="col-form-label" for="open_populated">The location of the sky sign is an open space or a populated area(मालमत्तेचे स्थान)<span class="text-danger">*</span> </label>
+                                <select class="form-select" name="open_populated" id="open_populated" style="margin-top: 20px">
+                                    <option value="">--Select--</option>
+                                    <option value="Open Space/मोकळी जागा">Open Space/मोकळी जागा</option>
+                                    <option value="Populated Area/लोकवस्तीचे क्षेत्र">Populated Area/लोकवस्तीचे क्षेत्र</option>
                                 </select>
-                                <span class="text-danger is-invalid first_aid_err"></span>
+                                <span class="text-danger is-invalid zone_err"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="behalf">Is the application made individually or on behalf of the company or how? If so / details of the company / individual with full address (पूर्ण पत्त्या सहित कंपनीचा/ व्यक्तीचा तपशील)<span class="text-danger">*</span> </label>
+                                <select class="form-select" name="behalf" id="behalf">
+                                    <option value="">--Select--</option>
+                                    <option value="Individual/वैयक्तिक">Individual/वैयक्तिक</option>
+                                    <option value="Through Company/कंपनीच्या माध्यमातून">Through Company/कंपनीच्या माध्यमातून</option>
+                                    <option value="Through Agency/एजन्सी द्वारे ">Through Agency/एजन्सी द्वारे </option>
+                                    <option value="Other/इतर">Other/इतर</option>
+                                </select>
+                                <span class="text-danger is-invalid zone_err"></span>
                             </div>
 
 
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="numb_of_worker">Number of Workers / कामगारांची संख्या </label>
-                                <input class="form-control" id="numb_of_worker" name="numb_of_worker" type="number" placeholder="Enter Area By Meter">
-                                <span class="text-danger is-invalid aadhar_no_err"></span>
+                            <div class="col-md-5">
+                                <label class="col-form-label" for="detail_property">Detailed Address of Individual/Company/Agency (व्यक्ती/कंपनी/एजन्सी यांचा तपशीलवार पत्ता)<span class="text-danger">*</span></label>
+                                <input class="form-control" id="detail_property" name="detail_property" type="text" placeholder="Enter" required>
+                                <span class="text-danger is-invalid plot_no_err"></span>
                             </div>
 
-
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="number_of_women">Number of Women Class / महिला वर्ग संख्या </label>
-                                <input class="form-control" id="number_of_women" name="number_of_women" type="number" placeholder="Enter Area By Meter">
-                                <span class="text-danger is-invalid aadhar_no_err"></span>
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="detail_property">land on which the structure is to be erected owned by applicant ? Details of property should be provided along with proof(ज्या जमिनीवर संरचना उभारावयाची आहे ती अर्जदाराच्या मालकीची आहे?पुराव्यासहित मालमत्तेचा तपशील द्याव) <span class="text-danger">*</span></label>
+                                <input class="form-control" id="detail_property" name="detail_property" type="text" placeholder="Enter" required>
+                                <span class="text-danger is-invalid plot_no_err"></span>
                             </div>
 
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="number_of_men">Number of Men Class / पुरुष वर्ग संख्या </label>
-                                <input class="form-control" id="number_of_men" name="number_of_men" type="number" placeholder="Enter Area By Meter">
-                                <span class="text-danger is-invalid aadhar_no_err"></span>
-                            </div>
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="other">other / इतर </label>
-                                <input class="form-control" id="other" name="other" type="number" placeholder="Enter Area By Meter">
-                                <span class="text-danger is-invalid aadhar_no_err"></span>
-                            </div>
-
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="upload_prescribed_formats">Upload Gumasta Certificate / गुमास्ता प्रमाणपत्र <span class="text-danger">*</span></label>
-                                <input class="form-control" id="upload_prescribed_formats" name="upload_prescribed_formats" type="file" required>
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
-                            </div>
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="aadhar_pans">Upload Aadhar card or PAN card/ आधार कार्ड व पॅन कार्ड माणूस <span class="text-danger">*</span></label>
-                                <input class="form-control" id="aadhar_pans" name="aadhar_pans" type="file" required>
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
-                            </div>
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="ownership">Upload Land ownership document / जागा मालकी कागदपत्र <span class="text-danger">*</span></label>
-                                <input class="form-control" id="ownership" name="ownership" type="file" required>
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
-                            </div>
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="water_bills">Upload Water bill payment receipt / पाणी देयक भरणा पावती </label>
-                                <input class="form-control" id="water_bills" name="water_bills" type="file">
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
-                            </div>
-
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="society">Upload Society's No Objection Certificate / सोसायटीचे ना हरकत दाखला </label>
-                                <input class="form-control" id="society" name="society" type="file">
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
-                            </div>
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="place">Upload Photo of place of business / व्यवसायाच्या ठिकाणाचा फोटो <span class="text-danger">*</span></label></label>
-                                <input class="form-control" id="place" name="place" type="file" required>
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
-                            </div>
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="property">Upload Property tax payment receipt / मालमत्ता कर भरणा पावती <span class="text-danger">*</span></label></label>
-                                <input class="form-control" id="property" name="property" type="file" required>
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
-                            </div>
-
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="tenancy">Upload If the place is on lease Tenancy Agreement Document / जागा भाडेतत्त्वावरील असल्यास भाडेकरार कागदपत्र <span class="text-danger">*</span></label></label>
-                                <input class="form-control" id="tenancy" name="tenancy" type="file" required>
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
-                            </div>
-
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="occupancy">Upload Site Occupancy Certificate / Construction Permission MapVOC / जागेचे भोगवटा प्रमाणपत्र / बांधकाम परवानगी नकाशा <span class="text-danger">*</span></label></label>
-                                <input class="form-control" id="occupancy" name="occupancy" type="file" required>
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
-                            </div>
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="medical">Upload Medical certificate obtained from government hospital of employees / नोकरवगाचे शासकीय रुग्णालयातून घेतलेले वैद्यकीय प्रमाणपत्र <span class="text-danger">*</span></label></label>
-                                <input class="form-control" id="medical" name="medical" type="file" required>
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
-                            </div>
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="control">Upload Pest Control Certificate (if applicable) / नोकीटक नियंत्रण प्रमाणपत्र (लागू असल्यास) <span class="text-danger">*</span></label></label>
-                                <input class="form-control" id="control" name="control" type="file" required>
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
-                            </div>
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="registration">Upload GST Registration Certificate (Applicable) / GST नोंदणी प्रमाणपत्र (लागू) <span class="text-danger">*</span></label></label>
-                                <input class="form-control" id="registration" name="registration" type="file" required>
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
-                            </div>
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="food">Upload Certificate from Food and Drug Administration (if applicable) / अन्न आणि औषध प्रशासनाकडून प्रमाणपत्र (लागू असल्यास)<span class="text-danger">*</span></label></label>
-                                <input class="form-control" id="food" name="food" type="file" required>
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
-                            </div>
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="fire">Upload Fire Brigade No Objection Certificate (if applicable) / अअग्निशमन दलाचे ना हरकत प्रमाणपत्र (लागू असल्यास)<span class="text-danger">*</span></label></label>
-                                <input class="form-control" id="fire" name="fire" type="file" required>
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
-                            </div>
-
-                            <div class="col-md-4 mb-2">
-                                <label class="col-form-label" for="liquor">Upload Copy of Liquor License from State Excise (if applicable) /
-                                    राज्य उत्पादन शुल्कच्या मद्य परवान्याची प्रत (लागू असल्यास)<span class="text-danger">*</span></label></label>
-                                <input class="form-control" id="liquor" name="liquor" type="file" required>
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
-                            </div>
-
-                            {{-- <div class="col-md-4">
-                                <label class="col-form-label" for="documents">Document<span class="text-danger">*</span></label>
-                                <input class="form-control" id="documents" name="documents" type="file" placeholder="Enter Document" required>
-                                <span class="text-danger is-invalid documents_err"></span>
-                            </div>
                             <div class="col-md-4">
-                                <label class="col-form-label" for="commencement_certificate_no">Commencement Certificate Number<span class="text-danger">*</span></label>
-                                <input class="form-control" id="commencement_certificate_no" name="commencement_certificate_no" type="text" placeholder="Enter Building No" required>
-                                <span class="text-danger is-invalid commencement_certificate_no_err"></span>
+                                <label class="col-form-label" for="detail_property_images"></label>
+                                <input class="form-control" id="detail_property_images" name="detail_property_images" type="file" accept="image/*" required style="margin-top:60px">
+                                <span class="text-danger is-invalid upload_detail_property_image_err"></span>
                             </div>
-                            <div class="col-md-4">
-                                <label class="col-form-label" for="plinth_number">Jote/Plinth Number<span class="text-danger">*</span></label>
-                                <input class="form-control" id="plinth_number" name="plinth_number" type="text" placeholder="Enter Building No" required>
-                                <span class="text-danger is-invalid plinth_number_err"></span>
-                            </div> --}}
 
-                            <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
-                            <div class="col-md-12">
-                                <div class="form-check d-flex align-items-start">
-                                    <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" value="yes" required>
-                                    <label class="form-check-label ms-2" for="is_correct_info">
-                                        "All information provided above is correct and I shall be fully responsible for any discrepancy. <br> वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार
-                                        असेन."
-                                    </label>
-                                </div>
-                                <span class="text-danger is-invalid is_correct_info_err"></span>
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="postal_address">If the land is owned by a person other than the applicant, the name and postal address of the land owner (जमीन अर्जदाराव्यतिरिक्त अन्य व्यक्तीच्या मालकीची असल्यास, जमीन मालकाचे नाव आणि पोस्टल पत्ता) <span class="text-danger">*</span></label>
+                                <input class="form-control" id="postal_address" name="postal_address" type="text" placeholder="Enter" required>
+                                <span class="text-danger is-invalid plot_no_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="consent_letters">Land owner consent to erect advertisement or how? If so please attach the original consent letter (जमीन मालकाचे संमतीपत्र)<span class="text-danger">*</span></label>
+                                <input class="form-control" id="consent_letters" name="consent_letters" type="file"  accept="image/*"required style="margin-top: 20px">
+                                <span class="text-danger is-invalid upload_detail_property_image_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="start_date">Advertisement Start Date (जाहिरात सुरू होण्याची तारीख)</label>
+                                <input class="form-control" id="start_date" name="start_date" type="date" required style="margin-top: 60px">
+                                <span class="text-danger is-invalid upload_detail_property_image_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="start_date">Advertisement End Date (जाहिरात समाप्ती तारीख)</label>
+                                <input class="form-control" id="start_date" name="start_date" type="date" required>
+                                <span class="text-danger is-invalid upload_detail_property_image_err"></span>
                             </div>
 
                         </div>
+                            <div class="mb-4 row">
+                                <div class="mb-4 row">
+                                    <div class="alert alert-warning fw-bold" role="alert">
+                                        Documents Attachment List
+                                    </div>
+
+                                    <div class="alert alert-info fw-bold" role="alert">
+                                        Note:(टीप) Upload Below Files only pdf, .jpg, .jpeg, .bmp Max upto 5MB. ( खाली फक्त pdf, .jpg, .jpeg, .bmp इत्यादी फाइल अपलोड करा. कमाल 5MB पर्यंत.)
+                                    </div>
+
+                                <div class="col-md-6 mb-2">
+                                    <label class="col-form-label" for="upload_prescribed_formats">No Objection from Home/Building/Place owner ( Bond Paper of Rs. 500/-) (घर / इमारत / जागा मालकाचे रु.500/- च्या मुद्रांक शुल्क वर नाहरकत)<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="upload_prescribed_formats" name="upload_prescribed_formats" type="file" required style="margin-top:20px">
+                                    <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                </div>
+
+                                <div class="col-md-6 mb-2">
+                                    <label class="col-form-label" for="aadhar_pans">Building Permission/Completion Certificate/Standing Commitee (As per Subject no 107) Affadavit for relaxation (बांधकाम परवाना प्रमाणपत्र किंवा मा. स्थायी समिती क्र. 107 नुसार शिथीलताचे शपथपत्र)<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="aadhar_pans" name="aadhar_pans" type="file" required>
+                                    <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                </div>
+
+                                <div class="col-md-4 mb-2">
+                                    <label class="col-form-label" for="ownership">Existing Property Tax Paid Receipt (कर भरणा पावती)<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="ownership" name="ownership" type="file" required style="margin-top: 20px">
+                                    <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                </div>
+
+                                <div class="col-md-4 mb-2">
+                                    <label class="col-form-label" for="water_bills">Certificate from Structural Engineer (संरचना अभियंता चे प्रमाणपत्र)  </label>
+                                    <input class="form-control" id="water_bills" name="water_bills" type="file">
+                                    <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                </div>
+
+
+                                <div class="col-md-4 mb-2">
+                                    <label class="col-form-label" for="society">Certificate of Structural Engineer(संरचना अभियंताचे संकल्प चित्र)</label>
+                                    <input class="form-control" id="society" name="society" type="file">
+                                    <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                </div>
+
+                                <div class="col-md-4 mb-2">
+                                    <label class="col-form-label" for="place">Sightseeing Map (पाहणी स्थळ नकाशा ) <span class="text-danger">*</span></label></label>
+                                    <input class="form-control" id="place" name="place" type="file" required style="margin-top: 20px">
+                                    <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                </div>
+
+                                <div class="col-md-4 mb-2">
+                                    <label class="col-form-label" for="property">Drawing Provided by Structural Engineer (संरचना अभियंता द्वारे प्रदान केलेले रेखाचित्र)<span class="text-danger">*</span></label></label>
+                                    <input class="form-control" id="property" name="property" type="file" required>
+                                    <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                </div>
+
+
+                                <div class="col-md-4 mb-2">
+                                    <label class="col-form-label" for="tenancy">7/12 Or PR Card (7/12 किंवा पी.आर.कार्ड)*<span class="text-danger">*</span></label></label>
+                                    <input class="form-control" id="tenancy" name="tenancy" type="file" required style="margin-top: 20px">
+                                    <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                </div>
+
+
+                                <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
+                                <div class="col-md-12">
+                                    <div class="d-flex align-items-center">
+                                        <input type="checkbox" class="me-2">
+                                        <span class="me-2">I</span>
+                                        <input type="text" class="form-control w-25  border-bottom flex-grow-1 me-2" style="border:none">
+                                        <span class="ms-2">Address</span>
+                                        <input type="text" class="form-control w-25  border-bottom flex-grow-1 me-2" style="border:none">
+                                        <span class="ms-2">solemnly declares that the above information is true and correct</span>
+                                    </div>
+                                    <span class="text-danger is-invalid is_correct_info_err"></span>
+                                </div>
+
+                            </div>
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary" id="addSubmit">Submit</button>

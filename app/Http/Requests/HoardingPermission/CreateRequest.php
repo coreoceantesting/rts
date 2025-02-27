@@ -22,7 +22,6 @@ class CreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-
             'f_name' => 'required',
             'title' => 'required',
             'm_name' => 'required',
@@ -73,6 +72,7 @@ class CreateRequest extends FormRequest
             'structure' => 'required',
             'open_populated' => 'required',
             'behalf' => 'required',
+            'detail_address'=>'required',
             'detail_property' => 'required',
             'detail_property_image' => 'required',
             'postal_address' => 'required',

@@ -16,26 +16,22 @@ class MastersSeeder extends Seeder
         // $fees = [
 
         //     [
-        //         'id' => 49,
-        //         'service_name' => 'Road Cutting Permission',
+
+        //         'service_name_id' => '8898',
         //         'fees' => 100,
         //     ],
         //     [
-        //         'id' => 48,
-        //         'service_name' => 'Giving Part Map',
+
+        //         'service_name_id' => '6748',
         //         'fees' => 100,
         //     ],
         // ];
 
         // foreach ($fees as $fee) {
-        //     Fees::updateOrCreate([
-        //         'id' => $fee['id']
-        //     ], [
-        //         'id' => $fee['id'],
-        //         'service_name' => $fee['service_name'],
-        //         'fees' => $fee['fees'],
-        //         'dep_service_id' => $fee['dep_service_id']
-        //     ]);
+        //     Fees::updateOrCreate(
+        //         ['service_name_id' => $fee['service_name_id']], // Unique constraint (change if needed)
+        //         ['fees' => $fee['fees']]
+        //     );
         // }
     }
 }

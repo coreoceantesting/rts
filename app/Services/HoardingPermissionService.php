@@ -24,6 +24,15 @@ class HoardingPermissionService
         $request['user_id'] = Auth::user()->id;
         $request['service_id'] = "2005";
         $request['application_no'] = "PMC-" . time();
+
+        if ($request->hasFile('detail_property_images')) {
+            $request['detail_property_image'] = $request->detail_property_images->store('hoarding-permission');
+        }
+
+        if ($request->hasFile('consent_letters')) {
+            $request['consent_letter'] = $request->consent_letters->store('hoarding-permission');
+        }
+
         if ($request->hasFile('upload_prescribed_formats')) {
             $request['building_permission'] = $request->upload_prescribed_formats->store('hoarding-permission');
         }

@@ -69,7 +69,7 @@ class FeesController extends Controller
         if ($fee) {
             $response = [
                 'result' => 1,
-                'fee' => $fee,
+                'fee' => $fee->load('service'),
             ];
             // return view('admin.masters.districts', compact('district'));
         } else {

@@ -17,6 +17,7 @@ class Fees extends Model
         return $this->belongsTo(ServiceName::class, 'service_name_id', 'id');
     }
 
+    
     protected $table = 'fees_masters';
 
     protected $fillable = ['service_name_id','fees'];

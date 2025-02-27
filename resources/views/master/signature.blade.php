@@ -72,7 +72,7 @@
                         <h4 class="card-title">Edit Signature</h4>
                     </div>
                     <div class="card-body py-2">
-                        <input type="hidden" id="edit_model_id" name="edit_model_id">
+                        <input type="hidden" id="edit_model_id" name="edit_model_id" value="">
                         <div class="mb-3 row">
                             <div class="col-md-4">
                                 <label class="col-form-label" for="service_name_id">Service Name<span class="text-danger">*</span></label>
@@ -81,7 +81,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="col-form-label" for="image">Image <span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" id="service_image" name="image" accept="image/*" required onchange="previewImage(event)">
+                                <input type="file" class="form-control" id="image" name="image" accept="image/*" required onchange="previewImage(event)">
                             </div>
                             @if(isset($signatur) && $signatur->image)
                             <p class="mt-2">
@@ -252,7 +252,7 @@
                 editFormBehaviour();
                 if (!data.error) {
                     $("#editForm input[name='edit_model_id']").val(data.signatur.id);
-                    $("#editForm input[name='service_name_id']").val(data.signatur.service_name_id);
+                    $("#editForm input[name='service_name_id']").val(data.signatur.service_name_id ? data.signatur.service.service_name : 'N/A');
                     $("#editForm input[name='image']").val(data.signatur.image);
                 } else {
                     alert(data.error);
@@ -263,7 +263,7 @@
             },
         });
     });
-
+    // console.log($("#edit_model_id").val());
 </script>
 
 

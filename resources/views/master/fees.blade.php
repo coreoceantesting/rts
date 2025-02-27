@@ -224,7 +224,7 @@
                 editFormBehaviour();
                 if (!data.error) {
                     $("#editForm input[name='edit_model_id']").val(data.fee.id);
-                    $("#editForm input[name='service_name_id']").val(data.fee.service_name_id);
+                    $("#editForm input[name='service_name_id']").val(data.fee.service_name_id ? data.fee.service.service_name : 'N/A');
                     $("#editForm input[name='fees']").val(data.fee.fees);
                 } else {
                     alert(data.error);

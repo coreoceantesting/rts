@@ -73,6 +73,7 @@ class HoardingPermission extends Model
         'structure',
         'open_populated',
         'behalf',
+        'detail_address',
         'detail_property',
         'detail_property_image',
         'postal_address',

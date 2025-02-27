@@ -23,7 +23,7 @@ class UpdateSignatureRequest extends FormRequest
     {
         return [
             // 'service_name' => 'required',
-            'image' => 'required',
+            'image' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             // 'dep_service_id' => 'required',
         ];
     }

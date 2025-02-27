@@ -60,10 +60,11 @@ class SignatureController extends Controller
     }
     public function edit(Signature $signature)
     {
+        //  dd($signature);
         if ($signature) {
             $response = [
                 'result' => 1,
-                'signature' => $signature,
+                'signatur' => $signature->load('service'),
             ];
             // return view('admin.masters.districts', compact('district'));
         } else {
@@ -77,15 +78,16 @@ class SignatureController extends Controller
      */
     public function update(UpdateSignatureRequest $request, Signature $signature)
     {
-        // dd($request);
+    //   dd($request);
         try {
             DB::beginTransaction();
             $input = $request->validated();
+            // dd($input);
             if ($request->hasFile('image')) {
                 $imagePath = $request->file('image')->store('signatures', 'public');
                 $input['image'] = $imagePath; // Save the file path in the database
             }
-            $signature->update(Arr::only($input, ['service_name_id', 'image']));
+            $signature->update(Arr::only($input, ['service_name', 'image']));
             DB::commit();
 
             return response()->json(['success' => 'Signature updated successfully!']);
