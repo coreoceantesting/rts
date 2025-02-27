@@ -10,12 +10,13 @@ use Carbon\Carbon;
 
 class AppLoginController extends Controller
 {
-    public function checkAppUser(Request $request)
+   public function checkAppUser(Request $request)
     {
         $email = $request['userdata']['email'] ?? null;
+        $phone = $request['userdata']['phone'] ?? null;
 
-        if ($email) {
-            $user = User::where('email', $email)->first();
+        if ($email || $phone) {
+            $user = User::where('email', $email)->orWhere('mobile', $phone)->first();
 
             if (!$user) {
                 $parsedDate = Carbon::createFromFormat('Y-m-d', $request['userdata']['date_of_birth']);
@@ -25,6 +26,7 @@ class AppLoginController extends Controller
                     'email' => $request['userdata']['email'],
                     'password' => bcrypt($request['userdata']['email']),
                     'age' => $age,
+                    'mobile' => $request['userdata']['phone'],
                     'gender' => $request['userdata']['gender'],
                     'is_aapale_sarkar_user' => 0,
                 ]);
