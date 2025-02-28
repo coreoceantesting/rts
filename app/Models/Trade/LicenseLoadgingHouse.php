@@ -32,7 +32,46 @@ class LicenseLoadgingHouse extends Model
         'is_payment_paid',
         'is_payment_paid_aapale_sarkar',
         'aapale_sarkar_payment_date',
-        'status'
+        'status',
+        'ward_area',
+        'shop_name',
+        'marathi_shop_name',
+        'pencard_num',
+        'e_mail',
+        'financial_year',
+        'to_year',
+        'amount',
+        'trade_type',
+        'rate',
+        'trade',
+        'manufactured',
+        'business_premises',
+        'owner_place',
+        'address_owner_premises',
+        'rental_agreement',
+        'area_used',
+        'noc_certificate',
+        'business_start',
+        'registration_no',
+        'food_drug',
+        'aadharcard_number',
+        'director_name',
+        'contact_no',
+        'alternet_email',
+        'gender',
+        'alternet_address',
+        'application_type',
+        'director_image',
+        'other_documents',
+        'fire_certificate',
+        'market_license',
+        'food_drug_img',
+        'shop_act',
+        'pancard_image',
+        'aadharcard_image',
+        'tax_receipt_img',
+        'interior_photo',
+        'exterior_photo'
     ];
 
     protected static function boot()
@@ -43,6 +82,4 @@ class LicenseLoadgingHouse extends Model
             $model->ip = Request::ip();
         });
     }
-
 }
-

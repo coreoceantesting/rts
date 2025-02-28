@@ -33,7 +33,7 @@ class RenewMarriageLicense extends Model
         'is_payment_paid',
         'is_payment_paid_aapale_sarkar',
         'aapale_sarkar_payment_date',
-        'status'
+        'status',
     ];
 
     protected static function boot()

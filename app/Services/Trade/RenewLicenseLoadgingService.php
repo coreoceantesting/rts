@@ -27,6 +27,48 @@ class RenewLicenseLoadgingService
         $request['service_id'] = "2028";
         $request['application_no'] = "PMC-" . time();
 
+        if ($request->hasFile('director_photos')) {
+            $request['director_image'] = $request->director_photos->store('mobile-tower');
+        }
+
+        if ($request->hasFile('upload_prescribed_formats')) {
+            $request['other_documents'] = $request->upload_prescribed_formats->store('mobile-tower');
+        }
+
+        if ($request->hasFile('ownership')) {
+            $request['market_license'] = $request->ownership->store('mobile-tower');
+        }
+
+        if ($request->hasFile('water_bills')) {
+            $request['food_drug_img'] = $request->water_bills->store('mobile-tower');
+        }
+
+        if ($request->hasFile('society')) {
+            $request['shop_act'] = $request->society->store('mobile-tower');
+        }
+
+        if ($request->hasFile('place')) {
+            $request['fire_certificate'] = $request->place->store('mobile-tower');
+        }
+
+        if ($request->hasFile('aadhar_pans')) {
+            $request['pancard_image'] = $request->aadhar_pans->store('mobile-tower');
+        }
+        if ($request->hasFile('property')) {
+            $request['aadharcard_image'] = $request->property->store('mobile-tower');
+        }
+
+        if ($request->hasFile('tenancy')) {
+            $request['tax_receipt_img'] = $request->tenancy->store('mobile-tower');
+        }
+
+        if ($request->hasFile('occupancy')) {
+            $request['interior_photo'] = $request->occupancy->store('mobile-tower');
+        }
+
+        if ($request->hasFile('medical')) {
+            $request['exterior_photo'] = $request->medical->store('mobile-tower');
+        }
 
         $renewLicenseLoadging=RenewLicenseLoadging::create($request->all());
 
@@ -100,6 +142,90 @@ class RenewLicenseLoadgingService
             $renewLicenseLoadging = RenewLicenseLoadging::find($id);
 
             // Handle file uploads and update original file names
+
+            if ($request->hasFile('director_photos')) {
+                if ($renewLicenseLoadging &&  $renewLicenseLoadging->director_image &&  $renewLicenseLoadging->director_image && Storage::exists($renewLicenseLoadging->director_image)) {
+                    Storage::delete($renewLicenseLoadging->director_image);
+                }
+                $request['director_image'] = $request->director_photos->store('mobile-tower');
+            }
+
+
+            if ($request->hasFile('upload_prescribed_formats')) {
+                if ($renewLicenseLoadging &&  $renewLicenseLoadging->other_documents &&  $renewLicenseLoadging->other_documents && Storage::exists($renewLicenseLoadging->other_documents)) {
+                    Storage::delete($renewLicenseLoadging->other_documents);
+                }
+                $request['other_documents'] = $request->upload_prescribed_formats->store('mobile-tower');
+            }
+
+            if ($request->hasFile('aadhar_pans')) {
+                if ($renewLicenseLoadging &&  $renewLicenseLoadging->pancard_image && Storage::exists($renewLicenseLoadging->pancard_image)) {
+                    Storage::delete($renewLicenseLoadging->pancard_image);
+                }
+                $request['pancard_image'] = $request->aadhar_pans->store('mobile-tower');
+            }
+
+            if ($request->hasFile('ownership')) {
+                if ($renewLicenseLoadging &&  $renewLicenseLoadging->market_license && Storage::exists($renewLicenseLoadging->market_license)) {
+                    Storage::delete($renewLicenseLoadging->market_license);
+                }
+                $request['market_license'] = $request->ownership->store('mobile-tower');
+            }
+
+
+            if ($request->hasFile('water_bills')) {
+                if ($renewLicenseLoadging &&  $renewLicenseLoadging->food_drug_img && Storage::exists($renewLicenseLoadging->food_drug_img)) {
+                    Storage::delete($renewLicenseLoadging->food_drug_img);
+                }
+                $request['food_drug_img'] = $request->water_bills->store('mobile-tower');
+            }
+
+
+            if ($request->hasFile('society')) {
+                if ($renewLicenseLoadging &&  $renewLicenseLoadging->shop_act && Storage::exists($renewLicenseLoadging->shop_act)) {
+                    Storage::delete($renewLicenseLoadging->shop_act);
+                }
+                $request['shop_act'] = $request->society->store('mobile-tower');
+            }
+
+
+            if ($request->hasFile('place')) {
+                if ($renewLicenseLoadging &&  $renewLicenseLoadging->fire_certificate && Storage::exists($renewLicenseLoadging->fire_certificate)) {
+                    Storage::delete($renewLicenseLoadging->fire_certificate);
+                }
+                $request['fire_certificate'] = $request->place->store('mobile-tower');
+            }
+
+            if ($request->hasFile('property')) {
+                if ($renewLicenseLoadging &&  $renewLicenseLoadging->aadharcard_image && Storage::exists($renewLicenseLoadging->aadharcard_image)) {
+                    Storage::delete($renewLicenseLoadging->aadharcard_image);
+                }
+                $request['aadharcard_image'] = $request->property->store('mobile-tower');
+            }
+
+            if ($request->hasFile('tenancy')) {
+                if ($renewLicenseLoadging &&  $renewLicenseLoadging->tax_receipt_img && Storage::exists($renewLicenseLoadging->tax_receipt_img)) {
+                    Storage::delete($renewLicenseLoadging->tax_receipt_img);
+                }
+                $request['tax_receipt_img'] = $request->tenancy->store('mobile-tower');
+            }
+
+
+
+
+            if ($request->hasFile('occupancy')) {
+                if ($renewLicenseLoadging &&  $renewLicenseLoadging->interior_photo && Storage::exists($renewLicenseLoadging->interior_photo)) {
+                    Storage::delete($renewLicenseLoadging->interior_photo);
+                }
+                $request['interior_photo'] = $request->occupancy->store('mobile-tower');
+            }
+
+            if ($request->hasFile('medical')) {
+                if ($renewLicenseLoadging &&  $renewLicenseLoadging->exterior_photo && Storage::exists($renewLicenseLoadging->exterior_photo)) {
+                    Storage::delete($renewLicenseLoadging->exterior_photo);
+                }
+                $request['exterior_photo'] = $request->medical->store('mobile-tower');
+            }
 
             $renewLicenseLoadging->update($request->all());
 

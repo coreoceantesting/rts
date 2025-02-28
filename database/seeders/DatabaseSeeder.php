@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             ServiceCredentialSeeder::class,
             ServiceNameSeeder::class,
             ServiceSeeder::class,
-            MastersSeeder::class
+            MastersSeeder::class,
+            FinancialYearSeeder::class
         ]);
     }
 }

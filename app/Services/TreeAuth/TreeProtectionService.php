@@ -29,7 +29,7 @@ class TreeProtectionService
 
         if ($request->hasFile('paid_receipts')) {
             $request['paid_receipt'] = $request->paid_receipts->store('tree-protection');
-// dd($request['paid_receipts']);
+
         }
 
         if ($request->hasFile('photo_trees')) {

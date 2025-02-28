@@ -49,7 +49,7 @@ class MobileTowerController extends Controller
         //dd($request->all());
         if ($mobileTowerService[0]) {
             return response()->json([
-                'success' => 'permissions Shooting save successfully'
+                'success' => 'Mobile Tower Permission save successfully'
             ]);
         } else {
             return response()->json([

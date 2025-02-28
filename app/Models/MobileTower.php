@@ -72,7 +72,12 @@ class MobileTower extends Model
         'alternet_email',
         'gender',
         'alternet_address',
-        'application_type'
+        'application_type',
+        'owner_place',
+        'rental_agreement',
+        'noc_certificate',
+        'director_photo',
+        'business_start'
     ];
     protected static function boot()
     {

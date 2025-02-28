@@ -34,65 +34,71 @@ class MobileTowerService
         $request['service_id'] = "2014";
         $request['application_no'] = "PMC-" . time();
 
+
+        if ($request->hasFile('director_photos')) {
+            $request['director_photo'] = $request->director_photos->store('mobile-tower');
+        }
+
         if ($request->hasFile('upload_prescribed_formats')) {
-            $request['gumasta_certificate'] = $request->upload_prescribed_formats->store('mobile-tower');
+            $request['other_documents'] = $request->upload_prescribed_formats->store('mobile-tower');
+        }
+
+
+        if ($request->hasFile('ownership')) {
+            $request['market_license'] = $request->ownership->store('mobile-tower');
+        }
+
+        if ($request->hasFile('water_bills')) {
+            $request['food_drug_img'] = $request->water_bills->store('mobile-tower');
+        }
+
+        if ($request->hasFile('society')) {
+            $request['shop_act'] = $request->society->store('mobile-tower');
+        }
+
+        if ($request->hasFile('place')) {
+            $request['fire_safety_certificate'] = $request->place->store('mobile-tower');
         }
 
         if ($request->hasFile('aadhar_pans')) {
             $request['aadhar_pan'] = $request->aadhar_pans->store('mobile-tower');
         }
-        if ($request->hasFile('ownership')) {
-            $request['land_ownership'] = $request->ownership->store('mobile-tower');
-        }
-
-        if ($request->hasFile('water_bills')) {
-            $request['water_bill'] = $request->water_bills->store('mobile-tower');
-        }
-
-        if ($request->hasFile('society')) {
-            $request['no_objection_certificate'] = $request->society->store('mobile-tower');
-        }
-
-        if ($request->hasFile('place')) {
-            $request['photo_of_place'] = $request->place->store('mobile-tower');
-        }
-
         if ($request->hasFile('property')) {
-            $request['property_tax'] = $request->property->store('mobile-tower');
+            $request['aadharcard_image'] = $request->property->store('mobile-tower');
         }
 
         if ($request->hasFile('tenancy')) {
-            $request['tenancy_agreement'] = $request->tenancy->store('mobile-tower');
+            $request['tax_receipt_img'] = $request->tenancy->store('mobile-tower');
         }
 
         if ($request->hasFile('occupancy')) {
-            $request['site_occupancy'] = $request->occupancy->store('mobile-tower');
+            $request['interior_photo'] = $request->occupancy->store('mobile-tower');
         }
 
         if ($request->hasFile('medical')) {
-            $request['medical_certificate'] = $request->medical->store('mobile-tower');
+            $request['exterior_photo'] = $request->medical->store('mobile-tower');
         }
 
-        if ($request->hasFile('control')) {
-            $request['pest_control'] = $request->control->store('mobile-tower');
-        }
+        // if ($request->hasFile('control')) {
+        //     $request['pest_control'] = $request->control->store('mobile-tower');
+        // }
 
-        if ($request->hasFile('registration')) {
-            $request['gst_registration'] = $request->registration->store('mobile-tower');
-        }
+        // if ($request->hasFile('registration')) {
+        //     $request['gst_registration'] = $request->registration->store('mobile-tower');
+        // }
 
-        if ($request->hasFile('food')) {
-            $request['drug_administration'] = $request->food->store('mobile-tower');
-        }
+        // if ($request->hasFile('food')) {
+        //     $request['drug_administration'] = $request->food->store('mobile-tower');
+        // }
 
-        if ($request->hasFile('fire')) {
-            $request['fire_rigade'] = $request->fire->store('mobile-tower');
-        }
+        // if ($request->hasFile('fire')) {
+        //     $request['fire_rigade'] = $request->fire->store('mobile-tower');
+        // }
 
-        if ($request->hasFile('liquor')) {
-            $request['liquor_license'] = $request->liquor->store('mobile-tower');
-        }
-        // dd($request->all());
+        // if ($request->hasFile('liquor')) {
+        //     $request['liquor_license'] = $request->liquor->store('mobile-tower');
+        // }
+        // // dd($request->all());
         $mobiletowerservice = mobileTower::create($request->all());
 
         if ($mobiletowerservice) {
@@ -163,13 +169,21 @@ class MobileTowerService
             // Find the existing record
             $mobiletowerservice = mobileTower::findOrFail($id);
 
+
             // Handle file uploads and update original file names
+            if ($request->hasFile('director_photos')) {
+                if ($mobiletowerservice &&  $mobiletowerservice->director_photo &&  $mobiletowerservice->director_photo && Storage::exists($mobiletowerservice->director_photo)) {
+                    Storage::delete($mobiletowerservice->director_photo);
+                }
+                $request['director_photo'] = $request->director_photos->store('mobile-tower');
+            }
+
 
             if ($request->hasFile('upload_prescribed_formats')) {
-                if ($mobiletowerservice &&  $mobiletowerservice->gumasta_certificate &&  $mobiletowerservice->gumasta_certificate && Storage::exists($mobiletowerservice->gumasta_certificate)) {
-                    Storage::delete($mobiletowerservice->gumasta_certificate);
+                if ($mobiletowerservice &&  $mobiletowerservice->other_documents &&  $mobiletowerservice->other_documents && Storage::exists($mobiletowerservice->other_documents)) {
+                    Storage::delete($mobiletowerservice->other_documents);
                 }
-                $request['gumasta_certificate'] = $request->upload_prescribed_formats->store('mobile-tower');
+                $request['other_documents'] = $request->upload_prescribed_formats->store('mobile-tower');
             }
 
             if ($request->hasFile('aadhar_pans')) {
@@ -180,104 +194,67 @@ class MobileTowerService
             }
 
             if ($request->hasFile('ownership')) {
-                if ($mobiletowerservice &&  $mobiletowerservice->land_ownership && Storage::exists($mobiletowerservice->land_ownership)) {
-                    Storage::delete($mobiletowerservice->land_ownership);
+                if ($mobiletowerservice &&  $mobiletowerservice->market_license && Storage::exists($mobiletowerservice->market_license)) {
+                    Storage::delete($mobiletowerservice->market_license);
                 }
-                $request['land_ownership'] = $request->ownership->store('mobile-tower');
+                $request['market_license'] = $request->ownership->store('mobile-tower');
             }
 
 
             if ($request->hasFile('water_bills')) {
-                if ($mobiletowerservice &&  $mobiletowerservice->water_bill && Storage::exists($mobiletowerservice->water_bill)) {
-                    Storage::delete($mobiletowerservice->water_bill);
+                if ($mobiletowerservice &&  $mobiletowerservice->food_drug_img && Storage::exists($mobiletowerservice->food_drug_img)) {
+                    Storage::delete($mobiletowerservice->food_drug_img);
                 }
-                $request['water_bill'] = $request->water_bills->store('mobile-tower');
+                $request['food_drug_img'] = $request->water_bills->store('mobile-tower');
             }
 
 
             if ($request->hasFile('society')) {
-                if ($mobiletowerservice &&  $mobiletowerservice->no_objection_certificate && Storage::exists($mobiletowerservice->no_objection_certificate)) {
-                    Storage::delete($mobiletowerservice->no_objection_certificate);
+                if ($mobiletowerservice &&  $mobiletowerservice->shop_act && Storage::exists($mobiletowerservice->shop_act)) {
+                    Storage::delete($mobiletowerservice->shop_act);
                 }
-                $request['no_objection_certificate'] = $request->society->store('mobile-tower');
+                $request['shop_act'] = $request->society->store('mobile-tower');
             }
 
 
             if ($request->hasFile('place')) {
-                if ($mobiletowerservice &&  $mobiletowerservice->photo_of_place && Storage::exists($mobiletowerservice->photo_of_place)) {
-                    Storage::delete($mobiletowerservice->photo_of_place);
+                if ($mobiletowerservice &&  $mobiletowerservice->fire_safety_certificate && Storage::exists($mobiletowerservice->fire_safety_certificate)) {
+                    Storage::delete($mobiletowerservice->fire_safety_certificate);
                 }
-                $request['photo_of_place'] = $request->place->store('mobile-tower');
+                $request['fire_safety_certificate'] = $request->place->store('mobile-tower');
             }
 
             if ($request->hasFile('property')) {
-                if ($mobiletowerservice &&  $mobiletowerservice->property_tax && Storage::exists($mobiletowerservice->property_tax)) {
-                    Storage::delete($mobiletowerservice->property_tax);
+                if ($mobiletowerservice &&  $mobiletowerservice->aadharcard_image && Storage::exists($mobiletowerservice->aadharcard_image)) {
+                    Storage::delete($mobiletowerservice->aadharcard_image);
                 }
-                $request['property_tax'] = $request->property->store('mobile-tower');
+                $request['aadharcard_image'] = $request->property->store('mobile-tower');
             }
 
             if ($request->hasFile('tenancy')) {
-                if ($mobiletowerservice &&  $mobiletowerservice->tenancy_agreement && Storage::exists($mobiletowerservice->tenancy_agreement)) {
-                    Storage::delete($mobiletowerservice->tenancy_agreement);
+                if ($mobiletowerservice &&  $mobiletowerservice->tax_receipt_img && Storage::exists($mobiletowerservice->tax_receipt_img)) {
+                    Storage::delete($mobiletowerservice->tax_receipt_img);
                 }
-                $request['tenancy_agreement'] = $request->tenancy->store('mobile-tower');
+                $request['tax_receipt_img'] = $request->tenancy->store('mobile-tower');
             }
 
 
 
 
             if ($request->hasFile('occupancy')) {
-                if ($mobiletowerservice &&  $mobiletowerservice->site_occupancy && Storage::exists($mobiletowerservice->site_occupancy)) {
-                    Storage::delete($mobiletowerservice->site_occupancy);
+                if ($mobiletowerservice &&  $mobiletowerservice->interior_photo && Storage::exists($mobiletowerservice->interior_photo)) {
+                    Storage::delete($mobiletowerservice->interior_photo);
                 }
-                $request['site_occupancy'] = $request->occupancy->store('mobile-tower');
+                $request['interior_photo'] = $request->occupancy->store('mobile-tower');
             }
 
             if ($request->hasFile('medical')) {
-                if ($mobiletowerservice &&  $mobiletowerservice->medical_certificate && Storage::exists($mobiletowerservice->medical_certificate)) {
-                    Storage::delete($mobiletowerservice->medical_certificate);
+                if ($mobiletowerservice &&  $mobiletowerservice->exterior_photo && Storage::exists($mobiletowerservice->exterior_photo)) {
+                    Storage::delete($mobiletowerservice->exterior_photo);
                 }
-                $request['medical_certificate'] = $request->medical->store('mobile-tower');
+                $request['exterior_photo'] = $request->medical->store('mobile-tower');
             }
 
-            if ($request->hasFile('control')) {
-                if ($mobiletowerservice &&  $mobiletowerservice->pest_control && Storage::exists($mobiletowerservice->pest_control)) {
-                    Storage::delete($mobiletowerservice->pest_control);
-                }
-                $request['pest_control'] = $request->control->store('mobile-tower');
-            }
-
-
-            if ($request->hasFile('registration')) {
-                if ($mobiletowerservice &&  $mobiletowerservice->gst_registration && Storage::exists($mobiletowerservice->gst_registration)) {
-                    Storage::delete($mobiletowerservice->gst_registration);
-                }
-                $request['gst_registration'] = $request->registration->store('mobile-tower');
-            }
-
-            if ($request->hasFile('food')) {
-                if ($mobiletowerservice &&  $mobiletowerservice->drug_administration && Storage::exists($mobiletowerservice->drug_administration)) {
-                    Storage::delete($mobiletowerservice->drug_administration);
-                }
-                $request['drug_administration'] = $request->food->store('mobile-tower');
-            }
-
-
-            if ($request->hasFile('fire')) {
-                if ($mobiletowerservice &&  $mobiletowerservice->fire_rigade && Storage::exists($mobiletowerservice->fire_rigade)) {
-                    Storage::delete($mobiletowerservice->fire_rigade);
-                }
-                $request['fire_rigade'] = $request->fire->store('mobile-tower');
-            }
-
-
-            if ($request->hasFile('liquor')) {
-                if ($mobiletowerservice &&  $mobiletowerservice->liquor_license && Storage::exists($mobiletowerservice->liquor_license)) {
-                    Storage::delete($mobiletowerservice->liquor_license);
-                }
-                $request['liquor_license'] = $request->liquor->store('mobile-tower');
-            }
 
 
             // Update the rest of the fields

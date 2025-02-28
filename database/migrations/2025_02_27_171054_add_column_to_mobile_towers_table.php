@@ -24,8 +24,9 @@ return new class extends Migration
             $table->renameColumn('tenancy_agreement', 'tax_receipt_img');
             $table->renameColumn('site_occupancy', 'interior_photo');
             $table->renameColumn('medical_certificate', 'exterior_photo');
-            $table->date('financial_year')->nullable()->after('full_address');
-            $table->date('to_year')->nullable()->after('financial_year');
+             $table->renameColumn('pest_control', 'director_photo');
+            $table->integer('financial_year')->nullable()->after('full_address');
+            $table->integer('to_year')->nullable()->after('financial_year');
             $table->integer('amount')->nullable()->after('to_year');
             $table->string('trade_type')->nullable()->after('amount');
             $table->integer('rate')->nullable()->after('trade_type');
@@ -54,7 +55,7 @@ return new class extends Migration
     {
         Schema::table('mobile_towers', function (Blueprint $table) {
             $table->dropColumn('m_name')->nullable()->after('applicant_name');
-            $table->renameColumn('applicant_name', 'name');
+            $table->renameColumn('name','applicant_name');
             $table->renameColumn('landlord_address','address_est');
             $table->renameColumn( 'other_documents','gumasta_certificate');
             $table->renameColumn( 'market_license', 'land_ownership');
@@ -65,6 +66,7 @@ return new class extends Migration
             $table->renameColumn( 'tax_receipt_img' , 'tenancy_agreement');
             $table->renameColumn( 'interior_photo' , 'site_occupancy');
             $table->renameColumn( 'exterior_photo' , 'medical_certificate');
+            $table->renameColumn('director_photo', 'pest_control');
             $table->dropColumn('financial_year')->nullable()->after('full_address');
             $table->dropColumn('to_year')->nullable()->after('financial_year');
             $table->dropColumn('amount')->nullable()->after('to_year');

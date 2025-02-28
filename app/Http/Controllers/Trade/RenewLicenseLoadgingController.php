@@ -37,7 +37,7 @@ class RenewLicenseLoadgingController extends Controller
     // Store the newly created abattoir license
     public function store(Request $request)
     {
-
+        // dd($request);
         // Call the store method in the service and get the response
         $renewLicenseLoadging = $this->renewLicenseLoadging->store($request);
 
