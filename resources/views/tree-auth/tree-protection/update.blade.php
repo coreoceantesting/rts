@@ -96,7 +96,7 @@
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="mobile_num">Mobile No</label><span class="text-danger">*</span>
-                                <input class="form-control" id="mobile_num" name="mobile_num" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" value="{{ $treeProtection->mobile_num ?? '' }}">
+                                <input class="form-control" id="mobile_num" name="mobile_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" value="{{ $treeProtection->mobile_num ?? '' }}">
                                 <span class="text-danger is-invalid mobile_numo_err"></span>
                             </div>
 
@@ -155,7 +155,7 @@
                                         <label class="form-check-label" for="hoardings">Obstruction To Hoardings</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="reason_trim" id="other" value="Other" {{ isset($treeProtection) && $treeProtection->applicant_type == 'Other' ? 'checked' : '' }}>
+                                        <input class="form-check-input" type="radio" name="reason_trim" id="other" value="Other" {{ isset($treeProtection) && $treeProtection->reason_trim  == 'Other' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="other">Other</label>
                                     </div>
                                     <span class="text-danger is-invalid reason_trim_err"></span>

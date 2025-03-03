@@ -96,7 +96,7 @@
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="mobile_num">Mobile No</label><span class="text-danger">*</span>
-                                <input class="form-control" id="mobile_num" name="mobile_num" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number">
+                                <input class="form-control" id="mobile_num" name="mobile_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number">
                                 <span class="text-danger is-invalid mobile_num_err"></span>
                             </div>
 

@@ -26,7 +26,7 @@ class ChangeNursingLicenseService
 
         $request['user_id'] = Auth::user()->id;
         $request['service_id'] = "2026";
-        $request['application_no'] = "PMC-" . time();
+        $request['application_no'] = "CNL-" . time();
 
 
         $changeNursingLicense=ChangeNursingLicense::create($request->all());

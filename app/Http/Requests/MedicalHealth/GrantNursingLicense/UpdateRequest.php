@@ -22,7 +22,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'f_name' => 'required',
+          'f_name' => 'required',
             'm_name' => 'required',
             'l_name' => 'required',
             'zone' => 'required',
@@ -32,7 +32,7 @@ class UpdateRequest extends FormRequest
             'name_institute' => 'required',
             'institute_address' => 'required',
             'hospital_name' => 'required',
-            'alternet_mobile' => 'required',
+            'alternet_mobile' => 'required|max:10|min:10',
             'property_tax' => 'required',
             'water_connection' => 'required',
             'fire_noc' => 'required',

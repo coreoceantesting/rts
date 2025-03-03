@@ -74,7 +74,7 @@
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="aadhar_num">Aadhar Number<span class="text-danger">*</span></label>
-                                <input class="form-control" id="aadhar_num" name="aadhar_num" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number" >
+                                <input class="form-control" id="aadhar_num" name="aadhar_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number" >
                                 <span class="text-danger is-invalid aadhar_num_err"></span>
                             </div>
 
@@ -113,7 +113,7 @@
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="alternet_mobile">Mobile Number<span class="text-danger">*</span></label>
-                                <input class="form-control" id="alternet_mobile" name="alternet_mobile" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" >
+                                <input class="form-control" id="alternet_mobile" name="alternet_mobile" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" >
                                 <span class="text-danger is-invalid alternet_mobile_err"></span>
                             </div>
 

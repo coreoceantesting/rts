@@ -25,7 +25,7 @@ class RenewalNursingLicenseService
 
         $request['user_id'] = Auth::user()->id;
         $request['service_id'] = "2025";
-        $request['application_no'] = "PMC-" . time();
+        $request['application_no'] = "RNL-" . time();
 
 
         $renewNursingLicense=RenewalNursingLicense::create($request->all());

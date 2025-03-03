@@ -23,7 +23,7 @@ class HoardingPermissionService
     {
         $request['user_id'] = Auth::user()->id;
         $request['service_id'] = "2005";
-        $request['application_no'] = "PMC-" . time();
+        $request['application_no'] = "HPS-" . time();
 
         if ($request->hasFile('detail_property_images')) {
             $request['detail_property_image'] = $request->detail_property_images->store('hoarding-permission');

@@ -25,7 +25,7 @@ class OccupancyCertificateService
         try {
             $request['user_id'] = Auth::user()->id;
             $request['service_id'] = '241';
-            $request['application_no'] = "PMC-" . time();
+            $request['application_no'] = "OCC-" . time();
 
             // Handle file uploads and store original file names
             if ($request->hasFile('documents')) {

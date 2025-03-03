@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\TownPlanning\OccupancyCertificate;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class OccupancyCertificateRequest extends FormRequest
+class CreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -34,9 +34,14 @@ class OccupancyCertificateRequest extends FormRequest
             'marathi_address' => 'required',
             'purpose' => 'required',
             'marathi_purpose' => 'required',
-            'mobile_num' => 'required|min:10|max:10',
-            'aadhar_num' => 'required|min:12|max:12',
             'is_correct_info' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'is_correct_info.required' => 'Please Accept Declaration'
         ];
     }
 }

@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Services\Pwd;
+namespace App\Services\TownPlanning;
 
-use App\Models\Pwd\GrantingTelecom;
 use App\Services\AapaleSarkarLoginCheckService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
+use App\Models\Trade\LicenseLoadgingHouse;
 use App\Models\ServiceCredential;
+use App\Models\TownPlanning\BuildingPermission;
 
-
-class GrantingTelecomService
+class OccupancyCertificateService
 {
     protected $aapaleSarkarLoginCheckService;
 
@@ -25,13 +25,13 @@ class GrantingTelecomService
     {
 
         $request['user_id'] = Auth::user()->id;
-        $request['service_id'] = "2032";
-        $request['application_no'] = "GPLUTD-" . time();
+        $request['service_id'] = "20";
+        $request['application_no'] = "PMC-" . time();
 
 
-        $grantingTelecom=GrantingTelecom::create($request->all());
+        $buildingpermission=BuildingPermission::create($request->all());
 
-        if ($grantingTelecom) {
+        if ($buildingpermission) {
             $applicationId = $request->application_no;
 
             if (Auth::user()->is_aapale_sarkar_user) {
@@ -89,7 +89,7 @@ class GrantingTelecomService
 
     public function edit($id)
     {
-        return GrantingTelecom::find($id);
+        return BuildingPermission::find($id);
     }
 
     public function update($request, $id)
@@ -98,11 +98,11 @@ class GrantingTelecomService
         DB::beginTransaction();
         try {
             // Find the existing record
-            $grantingTelecom = GrantingTelecom::find($id);
+            $buildingpermission = BuildingPermission::find($id);
 
             // Handle file uploads and update original file names
 
-            $grantingTelecom->update($request->all());
+            $buildingpermission->update($request->all());
 
             DB::commit();
             return [true];

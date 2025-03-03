@@ -582,7 +582,13 @@ class ServiceNameSeeder extends Seeder
                 'add_route' => 'town-building-permission.create',
                 'edit_route' => 'town-building-permission.edit'
             ],
-
+            [
+                'service_id' => 2036,
+                'service_name' => 'To issue Occupancy Certificate',
+                'model' => '\App\Models\TownPlanning\OccupancyCertificate',
+                'add_route' => 'town-building-permission.create',
+                'edit_route' => 'town-building-permission.edit'
+            ],
         ];
 
 

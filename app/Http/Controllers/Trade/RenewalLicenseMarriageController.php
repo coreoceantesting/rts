@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Trade;
 
 use App\Http\Controllers\Controller;
 use App\Services\CommonService;
+use App\Http\Requests\Trade\RenewMarriageLicense\CreateRequest;
+use App\Http\Requests\Trade\RenewMarriageLicense\UpdateRequest;
 use App\Services\Trade\RenewLicenseMarriageService;
 use Illuminate\Http\Request;
 
@@ -26,7 +28,6 @@ class RenewalLicenseMarriageController extends Controller
         // Get active wards and zones from CommonService
         $wards = $this->commonService->getActiveWard();
         $zones = $this->commonService->getActiveZone();
-
         // Return the create view with wards and zones data
         return view('trade.renew-license-marriage.create')->with([
             'wards' => $wards,
@@ -35,7 +36,7 @@ class RenewalLicenseMarriageController extends Controller
     }
 
     // Store the newly created abattoir license
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
 
         // Call the store method in the service and get the response
@@ -80,11 +81,20 @@ class RenewalLicenseMarriageController extends Controller
             'advertisemenent' => $renewLicenseMarriage
         ]);
     }
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
         // dd($request->all());
         $renewLicenseMarriage = $this->renewLicenseMarriage->update($request, $id);
 
-        return response()->json(['success' => 'Renewal License Marriage update successfully!']);
-    }
+        if ($renewLicenseMarriage) {
+            return response()->json([
+                'success' => 'Renewal License Marriage updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
+}
+
 }

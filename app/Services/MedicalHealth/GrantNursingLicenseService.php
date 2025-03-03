@@ -25,7 +25,7 @@ class GrantNursingLicenseService
 
         $request['user_id'] = Auth::user()->id;
         $request['service_id'] = "2024";
-        $request['application_no'] = "PMC-" . time();
+        $request['application_no'] = "GNL-" . time();
 
 
         $grantNursingLicense=GrantNursingLicense::create($request->all());

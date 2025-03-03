@@ -47,13 +47,13 @@
 
                             <div class="col-md-4 mb-2">
                                 <label class="col-form-label" for="pencard_num"> पैन कार्ड क्रमांक </label>
-                                <input class="form-control" id="pencard_num" name="pencard_num" type="text" placeholder="Enter Pancard Number">
+                                <input class="form-control" id="pencard_num" name="pencard_num" type="text" maxlength="10" minlength="10"  placeholder="Enter Pancard Number">
                                 <span class="text-danger is-invalid pencard_num_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="mobile_num">संपर्क क्र.<span class="text-danger">*</span></label>
-                                <input class="form-control" id="mobile_num" name="mobile_num" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" >
+                                <input class="form-control" id="mobile_num" name="mobile_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" >
                                 <span class="text-danger is-invalid mobile_num_err"></span>
                             </div>
 
@@ -223,7 +223,7 @@
                             </div>
                             <div class="col-md-4 mb-2">
                                 <label class="col-form-label" for="aadhar_num">संचालकांचा आधार क्रमांक </label>
-                                <input class="form-control" id="aadhar_num" name="aadhar_num" type="number" placeholder="Enter Aadhar Card No">
+                                <input class="form-control" id="aadhar_num" name="aadhar_num"type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar Card No">
                                 <span class="text-danger is-invalid aadhar_num_err"></span>
                             </div>
 
@@ -235,7 +235,7 @@
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="contact_no">संपर्क क्र.<span class="text-danger">*</span></label>
-                                <input class="form-control" id="contact_no" name="contact_no" type="number" placeholder="Enter  Number" >
+                                <input class="form-control" id="contact_no" name="contact_no" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter  Number" >
                                 <span class="text-danger is-invalid contact_no_err"></span>
                             </div>
 

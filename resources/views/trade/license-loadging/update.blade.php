@@ -33,7 +33,7 @@
 
                             <div class="col-md-4 mb-2">
                                 <label class="col-form-label" for="pencard_num">पैन कार्ड क्रमांक<span class="text-danger">*</span> </label>
-                                <input class="form-control" id="pencard_num" name="pencard_num" type="text" placeholder="Enter Pancard Number" value="{{ old('pencard_num', $licenseLoadgingHouse->pencard_num) }}" >
+                                <input class="form-control" id="pencard_num" name="pencard_num" type="text"  type="text"  maxlength="10" minlength="10" placeholder="Enter Pancard Number" value="{{ old('pencard_num', $licenseLoadgingHouse->pencard_num) }}" >
                                 <span class="text-danger is-invalid pencard_num_err"></span>
                             </div>
 
@@ -215,7 +215,7 @@
                             </div>
                             <div class="col-md-4 mb-2">
                                 <label class="col-form-label" for="aadhar_num">संचालकांचा आधार क्रमांक </label>
-                                <input class="form-control" id="aadhar_num" name="aadhar_num" type="number" placeholder="Enter Aadhar Card No" value="{{ old('aadhar_num', $licenseLoadgingHouse->aadhar_num) }}">
+                                <input class="form-control" id="aadhar_num" name="aadhar_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar Card No" value="{{ old('aadhar_num', $licenseLoadgingHouse->aadhar_num) }}">
                                 <span class="text-danger is-invalid aadhar_num_err"></span>
                             </div>
 
@@ -227,7 +227,7 @@
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="contact_no">संपर्क क्र.<span class="text-danger">*</span></label>
-                                <input class="form-control" id="contact_no" name="contact_no" type="number" placeholder="Enter  Number"  value="{{ old('contact_no', $licenseLoadgingHouse->contact_no) }}">
+                                <input class="form-control" id="contact_no" name="contact_no" type="number"type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter  Number"  value="{{ old('contact_no', $licenseLoadgingHouse->contact_no) }}">
                                 <span class="text-danger is-invalid contact_no_err"></span>
                             </div>
 

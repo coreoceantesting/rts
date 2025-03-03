@@ -39,7 +39,7 @@ class NewTaxAssessmentController extends Controller
     // Store the newly created abattoir license
     public function store(CreateRequest $request)
     {
-        dd($request);
+        // dd($request);
         // Call the store method in the service and get the response
         $assesment = $this->newtaxassessment->store($request);
 

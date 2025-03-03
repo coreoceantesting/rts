@@ -24,7 +24,7 @@ class TreeProtectionService
     {
         $request['user_id'] = Auth::user()->id;
         $request['service_id'] = "2033";
-        $request['application_no'] = "PMC-" . time();
+        $request['application_no'] = "UATP-" . time();
 
 
         if ($request->hasFile('paid_receipts')) {

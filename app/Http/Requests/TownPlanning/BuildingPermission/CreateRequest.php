@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Trade\TownPlanning;
+namespace App\Http\Requests\TownPlanning;
 
 use Illuminate\Foundation\Http\FormRequest;
 

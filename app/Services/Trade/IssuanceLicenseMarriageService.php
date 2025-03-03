@@ -25,8 +25,51 @@ class IssuanceLicenseMarriageService
 
         $request['user_id'] = Auth::user()->id;
         $request['service_id'] = "2029";
-        $request['application_no'] = "PMC-" . time();
+        $request['application_no'] = "MHL-" . time();
 
+
+        if ($request->hasFile('director_photos')) {
+            $request['director_image'] = $request->director_photos->store('mobile-tower');
+        }
+
+        if ($request->hasFile('upload_prescribed_formats')) {
+            $request['other_documents'] = $request->upload_prescribed_formats->store('mobile-tower');
+        }
+
+        if ($request->hasFile('ownership')) {
+            $request['market_license'] = $request->ownership->store('mobile-tower');
+        }
+
+        if ($request->hasFile('water_bills')) {
+            $request['food_drug_img'] = $request->water_bills->store('mobile-tower');
+        }
+
+        if ($request->hasFile('society')) {
+            $request['shop_act'] = $request->society->store('mobile-tower');
+        }
+
+        if ($request->hasFile('place')) {
+            $request['fire_certificate'] = $request->place->store('mobile-tower');
+        }
+
+        if ($request->hasFile('aadhar_pans')) {
+            $request['pancard_image'] = $request->aadhar_pans->store('mobile-tower');
+        }
+        if ($request->hasFile('property')) {
+            $request['aadharcard_image'] = $request->property->store('mobile-tower');
+        }
+
+        if ($request->hasFile('tenancy')) {
+            $request['tax_receipt_img'] = $request->tenancy->store('mobile-tower');
+        }
+
+        if ($request->hasFile('occupancy')) {
+            $request['interior_photo'] = $request->occupancy->store('mobile-tower');
+        }
+
+        if ($request->hasFile('medical')) {
+            $request['exterior_photo'] = $request->medical->store('mobile-tower');
+        }
 
         $issueLicenseMarriage=IssuanceLicenseMarriage::create($request->all());
 
@@ -96,10 +139,94 @@ class IssuanceLicenseMarriageService
         // dd($request->all());
         DB::beginTransaction();
         try {
+
             // Find the existing record
             $issueLicenseMarriage = IssuanceLicenseMarriage::find($id);
 
             // Handle file uploads and update original file names
+            if ($request->hasFile('director_photos')) {
+                if ($issueLicenseMarriage &&  $issueLicenseMarriage->director_image &&  $issueLicenseMarriage->director_image && Storage::exists($issueLicenseMarriage->director_image)) {
+                    Storage::delete($issueLicenseMarriage->director_image);
+                }
+                $request['director_image'] = $request->director_photos->store('mobile-tower');
+            }
+
+
+            if ($request->hasFile('upload_prescribed_formats')) {
+                if ($issueLicenseMarriage &&  $issueLicenseMarriage->other_documents &&  $issueLicenseMarriage->other_documents && Storage::exists($issueLicenseMarriage->other_documents)) {
+                    Storage::delete($issueLicenseMarriage->other_documents);
+                }
+                $request['other_documents'] = $request->upload_prescribed_formats->store('mobile-tower');
+            }
+
+            if ($request->hasFile('aadhar_pans')) {
+                if ($issueLicenseMarriage &&  $issueLicenseMarriage->pancard_image && Storage::exists($issueLicenseMarriage->pancard_image)) {
+                    Storage::delete($issueLicenseMarriage->pancard_image);
+                }
+                $request['pancard_image'] = $request->aadhar_pans->store('mobile-tower');
+            }
+
+            if ($request->hasFile('ownership')) {
+                if ($issueLicenseMarriage &&  $issueLicenseMarriage->market_license && Storage::exists($issueLicenseMarriage->market_license)) {
+                    Storage::delete($issueLicenseMarriage->market_license);
+                }
+                $request['market_license'] = $request->ownership->store('mobile-tower');
+            }
+
+
+            if ($request->hasFile('water_bills')) {
+                if ($issueLicenseMarriage &&  $issueLicenseMarriage->food_drug_img && Storage::exists($issueLicenseMarriage->food_drug_img)) {
+                    Storage::delete($issueLicenseMarriage->food_drug_img);
+                }
+                $request['food_drug_img'] = $request->water_bills->store('mobile-tower');
+            }
+
+
+            if ($request->hasFile('society')) {
+                if ($issueLicenseMarriage &&  $issueLicenseMarriage->shop_act && Storage::exists($issueLicenseMarriage->shop_act)) {
+                    Storage::delete($issueLicenseMarriage->shop_act);
+                }
+                $request['shop_act'] = $request->society->store('mobile-tower');
+            }
+
+
+            if ($request->hasFile('place')) {
+                if ($issueLicenseMarriage &&  $issueLicenseMarriage->fire_certificate && Storage::exists($issueLicenseMarriage->fire_certificate)) {
+                    Storage::delete($issueLicenseMarriage->fire_certificate);
+                }
+                $request['fire_certificate'] = $request->place->store('mobile-tower');
+            }
+
+            if ($request->hasFile('property')) {
+                if ($issueLicenseMarriage &&  $issueLicenseMarriage->aadharcard_image && Storage::exists($issueLicenseMarriage->aadharcard_image)) {
+                    Storage::delete($issueLicenseMarriage->aadharcard_image);
+                }
+                $request['aadharcard_image'] = $request->property->store('mobile-tower');
+            }
+
+            if ($request->hasFile('tenancy')) {
+                if ($issueLicenseMarriage &&  $issueLicenseMarriage->tax_receipt_img && Storage::exists($issueLicenseMarriage->tax_receipt_img)) {
+                    Storage::delete($issueLicenseMarriage->tax_receipt_img);
+                }
+                $request['tax_receipt_img'] = $request->tenancy->store('mobile-tower');
+            }
+
+
+
+
+            if ($request->hasFile('occupancy')) {
+                if ($issueLicenseMarriage &&  $issueLicenseMarriage->interior_photo && Storage::exists($issueLicenseMarriage->interior_photo)) {
+                    Storage::delete($issueLicenseMarriage->interior_photo);
+                }
+                $request['interior_photo'] = $request->occupancy->store('mobile-tower');
+            }
+
+            if ($request->hasFile('medical')) {
+                if ($issueLicenseMarriage &&  $issueLicenseMarriage->exterior_photo && Storage::exists($issueLicenseMarriage->exterior_photo)) {
+                    Storage::delete($issueLicenseMarriage->exterior_photo);
+                }
+                $request['exterior_photo'] = $request->medical->store('mobile-tower');
+            }
 
             $issueLicenseMarriage->update($request->all());
 

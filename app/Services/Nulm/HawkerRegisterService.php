@@ -26,7 +26,7 @@ class HawkerRegisterService
 
         $request['user_id'] = Auth::user()->id;
         $request['service_id'] = "2031";
-        $request['application_no'] = "PMC-" . time();
+        $request['application_no'] = "HRC-" . time();
 
         if ($request->hasFile('images')) {
             $request['image'] = $request->images->store('hawker');

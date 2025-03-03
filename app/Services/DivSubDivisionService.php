@@ -25,7 +25,7 @@ class DivSubDivisionService
 
         $request['user_id'] = Auth::user()->id;
         $request['service_id'] = "2021";
-        $request['application_no'] = "PMC-" . time();
+        $request['application_no'] = "DPSD-" . time();
 
 
         $divsubdivision=DivSubDivision::create($request->all());

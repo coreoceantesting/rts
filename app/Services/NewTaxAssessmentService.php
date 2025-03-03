@@ -25,7 +25,7 @@ class NewTaxAssessmentService
 
         $request['user_id'] = Auth::user()->id;
         $request['service_id'] = "2020";
-        $request['application_no'] = "PMC-" . time();
+        $request['application_no'] = "NTA-" . time();
 
 
         $newtaxassessment = NewTaxAssessment::create($request->all());

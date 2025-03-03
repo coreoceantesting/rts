@@ -25,7 +25,7 @@ class RenewLicenseLoadgingService
 
         $request['user_id'] = Auth::user()->id;
         $request['service_id'] = "2028";
-        $request['application_no'] = "PMC-" . time();
+        $request['application_no'] = "RLLH-" . time();
 
         if ($request->hasFile('director_photos')) {
             $request['director_image'] = $request->director_photos->store('mobile-tower');

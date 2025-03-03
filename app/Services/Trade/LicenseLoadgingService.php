@@ -25,7 +25,7 @@ class LicenseLoadgingService
 
         $request['user_id'] = Auth::user()->id;
         $request['service_id'] = "2027";
-        $request['application_no'] = "PMC-" . time();
+        $request['application_no'] = "LLH-" . time();
 
 
         if ($request->hasFile('director_photos')) {
@@ -70,7 +70,7 @@ class LicenseLoadgingService
         if ($request->hasFile('medical')) {
             $request['exterior_photo'] = $request->medical->store('mobile-tower');
         }
-        $tradenoc=LicenseLoadgingHouse::create($request->all());
+        $tradenoc = LicenseLoadgingHouse::create($request->all());
 
         if ($tradenoc) {
             $applicationId = $request->application_no;
@@ -227,7 +227,7 @@ class LicenseLoadgingService
                 }
                 $request['exterior_photo'] = $request->medical->store('mobile-tower');
             }
-            
+
             $licenseLoadgingHouse->update($request->all());
 
             DB::commit();

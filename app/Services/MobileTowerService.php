@@ -32,7 +32,7 @@ class MobileTowerService
         // Handle file uploads and store original file names
         $request['user_id'] = Auth::user()->id;
         $request['service_id'] = "2014";
-        $request['application_no'] = "PMC-" . time();
+        $request['application_no'] = "MTP-" . time();
 
 
         if ($request->hasFile('director_photos')) {

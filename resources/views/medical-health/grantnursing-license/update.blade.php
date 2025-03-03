@@ -110,7 +110,7 @@
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="alternet_mobile">Mobile Number<span class="text-danger">*</span></label>
-                                <input class="form-control" id="alternet_mobile" name="alternet_mobile" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" value="{{ $grantNursingLicense->alternet_mobile ?? '' }}">
+                                <input class="form-control" id="alternet_mobile" name="alternet_mobile" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" value="{{ $grantNursingLicense->alternet_mobile ?? '' }}">
                                 <span class="text-danger is-invalid alternet_mobile_err"></span>
                             </div>
 

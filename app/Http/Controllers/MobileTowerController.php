@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AbattoirLicense\CreateRequest;
+use App\Http\Requests\MobileTower\UpdateRequest;
+use App\Http\Requests\MobileTower\CreateRequest;
 use Illuminate\Http\Request;
 use App\Services\CommonService;
 use App\Services\MobileTowerService;
+use GuzzleHttp\Promise\Create;
 
 class MobileTowerController extends Controller
 {
@@ -43,11 +45,11 @@ class MobileTowerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
         //    dd($request);
         $mobileTowerService = $this->mobiletower->store($request);
-         dd($mobileTowerService);
+        //  dd($mobileTowerService);
         if ($mobileTowerService[0]) {
             return response()->json([
                 'success' => 'Mobile Tower Permission save successfully',
@@ -83,7 +85,7 @@ class MobileTowerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
         // dd($request->all());
         $mobileTowerService = $this->mobiletower->update($request, $id);
