@@ -21,44 +21,44 @@
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="shop_name">दुकानाचे नाव इंग्रजी<span class="text-danger">*</span></label>
-                                <input class="form-control" id="shop_name" name="shop_name" type="text" placeholder="Enter Shop name  in English" required value="{{ old('shop_name', $renewLicenseLoadging->shop_name) }}">
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="shop_name" name="shop_name" type="text" placeholder="Enter Shop name  in English"  value="{{ old('shop_name', $renewLicenseLoadging->shop_name) }}">
+                                <span class="text-danger is-invalid shop_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="marathi_shop_name"> दुकानाचे नाव मराठी<span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_shop_name" name="marathi_shop_name" type="text" placeholder="Enter Shop name Marathi" required value="{{ old('marathi_shop_name', $renewLicenseLoadging->marathi_shop_name) }}">
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="marathi_shop_name" name="marathi_shop_name" type="text" placeholder="Enter Shop name Marathi"  value="{{ old('marathi_shop_name', $renewLicenseLoadging->marathi_shop_name) }}">
+                                <span class="text-danger is-invalid marathi_shop_name_err"></span>
                             </div>
 
                             <div class="col-md-4 mb-2">
                                 <label class="col-form-label" for="pencard_num">पैन कार्ड क्रमांक<span class="text-danger">*</span> </label>
-                                <input class="form-control" id="pencard_num" name="pencard_num" type="text" placeholder="Enter Pancard Number" value="{{ old('pencard_num', $renewLicenseLoadging->pencard_num) }}" required>
-                                <span class="text-danger is-invalid pancard_number_err"></span>
+                                <input class="form-control" id="pencard_num" name="pencard_num" type="text" placeholder="Enter Pancard Number" value="{{ old('pencard_num', $renewLicenseLoadging->pencard_num) }}" >
+                                <span class="text-danger is-invalid pencard_num_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="mobile_num">	संपर्क क्र.<span class="text-danger">*</span></label>
-                                <input class="form-control" id="mobile_num" name="mobile_num" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" required value="{{ old('mobile_num', $renewLicenseLoadging->mobile_num) }}">
-                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                                <input class="form-control" id="mobile_num" name="mobile_num" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number"  value="{{ old('mobile_num', $renewLicenseLoadging->mobile_num) }}">
+                                <span class="text-danger is-invalid mobile_num_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="e_mail"> ई-मेल<span class="text-danger">*</span></label>
                                 <input class="form-control" id="e_mail" name="e_mail" type="email" placeholder="Enter Email" value="{{ old('e_mail', $renewLicenseLoadging->e_mail) }}">
-                                <span class="text-danger is-invalid email_id_err"></span>
+                                <span class="text-danger is-invalid e_mail_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="address">दुकानाचा पत्ता<span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="address" id="address" cols="30" rows="2" placeholder="Enter Applicant Address" required type="text">{{ old('address', $renewLicenseLoadging->address) }}</textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
+                                <textarea class="form-control" name="address" id="address" cols="30" rows="2" placeholder="Enter Applicant Address"  type="text">{{ old('address', $renewLicenseLoadging->address) }}</textarea>
+                                <span class="text-danger is-invalid address_err"></span>
                             </div>
 
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                <select class="form-select" name="zone" id="zone" required>
+                                <select class="form-select" name="zone" id="zone" >
                                     <option value="">Select Zone</option>
                                     @foreach ($zones as $zone)
                                         <option value="{{ $zone->name }}" @if ($zone->name == $renewLicenseLoadging->zone) selected @endif>{{ $zone->name }}</option>
@@ -69,7 +69,7 @@
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="ward_area">Ward Area / प्रभाग क्षेत्र<span class="text-danger">*</span></label>
-                                <select class="form-select" name="ward_area" id="ward_area" required>
+                                <select class="form-select" name="ward_area" id="ward_area" >
                                     <option value="">Select Ward Area</option>
                                     @foreach ($wards as $ward)
                                         <option @if ($renewLicenseLoadging->ward_area == $ward->name) selected @endif value="{{ $ward->name }}">{{ $ward->name }}</option>
@@ -82,7 +82,7 @@
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="financial_year">License Financial From Year</label>
-                                <select class="form-select" id="financial_year" name="financial_year" required>
+                                <select class="form-select" id="financial_year" name="financial_year" >
                                     <option value="">-- Select year --</option>
                                     @foreach (range(1980, 2060) as $year)
                                         <option value="{{ $year }}" {{ $renewLicenseLoadging->financial_year == $year ? 'selected' : '' }}>
@@ -90,13 +90,13 @@
                                         </option>
                                     @endforeach
                                 </select>
-                                <span class="text-danger is-invalid zone_err"></span>
+                                <span class="text-danger is-invalid financial_year_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="to_year">To Year</label>
                                 <label class="col-form-label" for="to_year">License Financial From Year</label>
-                                <select class="form-select" id="to_year" name="to_year" required>
+                                <select class="form-select" id="to_year" name="to_year" >
                                     <option value="">-- Select year --</option>
                                     @foreach (range(1980, 2060) as $year)
                                         <option value="{{ $year }}" {{ $renewLicenseLoadging->to_year == $year ? 'selected' : '' }}>
@@ -104,21 +104,21 @@
                                         </option>
                                     @endforeach
                                 </select>
-                                <span class="text-danger is-invalid zone_err"></span>
+                                <span class="text-danger is-invalid to_year_err"></span>
                             </div>
 
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="amount">रक्कम<span class="text-danger">*</span></label>
-                                <input class="form-control" id="amount" name="amount" type="number" placeholder="Enter Applicant Name" required value="{{ old('amount', $renewLicenseLoadging->amount) }}">
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="amount" name="amount" type="number" placeholder="Enter Applicant Name"  value="{{ old('amount', $renewLicenseLoadging->amount) }}">
+                                <span class="text-danger is-invalid amount_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label">वस्तू निर्मित आहे का<span class="text-danger">*</span></label>
                                 <div class="border rounded p-2">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="manufactured" id="manufactured" value="होय" {{ isset($renewLicenseLoadging) && $renewLicenseLoadging->manufactured == 'होय' ? 'checked' : '' }} required>
+                                        <input class="form-check-input" type="radio" name="manufactured" id="manufactured" value="होय" {{ isset($renewLicenseLoadging) && $renewLicenseLoadging->manufactured == 'होय' ? 'checked' : '' }} >
                                         <label class="form-check-label" for="होय">होय</label>
                                     </div>
 
@@ -126,6 +126,7 @@
                                         <input class="form-check-input" type="radio" name="manufactured" id="manufactured" value="नाही" {{ isset($renewLicenseLoadging) && $renewLicenseLoadging->manufactured == 'नाही' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="नाही">नाही</label>
                                     </div>
+                                    <span class="text-danger is-invalid manufactured_err"></span>
                                 </div>
                             </div>
 
@@ -133,7 +134,7 @@
                                 <label class="col-form-label">स्वते चे: मालकीचे जागेत व्यवसाय करीत आहे का<span class="text-danger">*</span></label>
                                 <div class="border rounded p-2">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="business_premises" id="business_premises" value="होय" {{ isset($renewLicenseLoadging) && $renewLicenseLoadging->business_premises == 'होय' ? 'checked' : '' }} required>
+                                        <input class="form-check-input" type="radio" name="business_premises" id="business_premises" value="होय" {{ isset($renewLicenseLoadging) && $renewLicenseLoadging->business_premises == 'होय' ? 'checked' : '' }} >
                                         <label class="form-check-label" for="होय">होय</label>
                                     </div>
 
@@ -141,38 +142,40 @@
                                         <input class="form-check-input" type="radio" name="business_premises" id="business_premises" value="नाही" {{ isset($renewLicenseLoadging) && $renewLicenseLoadging->business_premises == 'नाही' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="नाही">नाही</label>
                                     </div>
+                                    <span class="text-danger is-invalid business_premises_err"></span>
+
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="owner_place">जागा मालकीचे नाव<span class="text-danger">*</span></label>
-                                <input class="form-control" id="owner_place" name="owner_place" type="text" placeholder="Enter Name of the owner of the place" required value="{{ old('owner_place', $renewLicenseLoadging->owner_place) }}">
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="owner_place" name="owner_place" type="text" placeholder="Enter Name of the owner of the place"  value="{{ old('owner_place', $renewLicenseLoadging->owner_place) }}">
+                                <span class="text-danger is-invalid owner_place_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="address_owner_premises">जागा मालकाचा पत्ता<span class="text-danger">*</span></label>
-                                <input class="form-control" id="address_owner_premises" name="address_owner_premises" type="text" placeholder="Enter Name of the owner of the place" required value="{{ old('address_owner_premises', $renewLicenseLoadging->address_owner_premises) }}">
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="address_owner_premises" name="address_owner_premises" type="text" placeholder="Enter Name of the owner of the place"  value="{{ old('address_owner_premises', $renewLicenseLoadging->address_owner_premises) }}">
+                                <span class="text-danger is-invalid address_owner_premisese_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="rental_agreement">भाडे करार कोणासोबत केलेले आहे<span class="text-danger">*</span></label>
-                                <input class="form-control" id="rental_agreement" name="rental_agreement" type="text" placeholder="Enter rental agreement" required value="{{ old('rental_agreement', $renewLicenseLoadging->rental_agreement) }}">
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="rental_agreement" name="rental_agreement" type="text" placeholder="Enter rental agreement"  value="{{ old('rental_agreement', $renewLicenseLoadging->rental_agreement) }}">
+                                <span class="text-danger is-invalid rental_agreement_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="area_used">वापरात आलेले जागेचे क्षेत्र चौ. फु. मध्ये<span class="text-danger">*</span></label>
-                                <input class="form-control" id="area_used" name="area_used" type="number" placeholder="Enter" required value="{{ old('area_used', $renewLicenseLoadging->area_used) }}">
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="area_used" name="area_used" type="number" placeholder="Enter"  value="{{ old('area_used', $renewLicenseLoadging->area_used) }}">
+                                <span class="text-danger is-invalid area_used_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label">व्यवसायासाठी म. न. पा. चे नाहरकत प्रमाणपत्र घेतले आहे का<span class="text-danger">*</span></label>
                                 <div class="border rounded p-2">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="noc_certificate" id="noc_certificate" value="होय"  {{ isset($renewLicenseLoadging) && $renewLicenseLoadging->noc_certificate == 'होय' ? 'checked' : '' }} required>
+                                        <input class="form-check-input" type="radio" name="noc_certificate" id="noc_certificate" value="होय"  {{ isset($renewLicenseLoadging) && $renewLicenseLoadging->noc_certificate == 'होय' ? 'checked' : '' }} >
                                         <label class="form-check-label" for="होय">होय</label>
                                     </div>
 
@@ -180,25 +183,26 @@
                                         <input class="form-check-input" type="radio" name="noc_certificate" id="noc_certificate" value="नाही" {{ isset($renewLicenseLoadging) && $renewLicenseLoadging->noc_certificate == 'नाही' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="नाही">नाही</label>
                                     </div>
+                                    <span class="text-danger is-invalid noc_certificate_err"></span>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="business_start">व्यवसाय सुरु केल्याचे वर्ष<span class="text-danger">*</span></label>
-                                <input class="form-control" id="business_start" name="business_start" type="number" placeholder="Year of business start" required value="{{ old('business_start', $renewLicenseLoadging->business_start) }}">
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="business_start" name="business_start" type="number" placeholder="Year of business start"  value="{{ old('business_start', $renewLicenseLoadging->business_start) }}">
+                                <span class="text-danger is-invalid business_start_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="registration_no">शॉप ऍक्ट नोंदणी क्र.<span class="text-danger">*</span></label>
-                                <input class="form-control" id="registration_no" name="registration_no" type="number" placeholder="" required value="{{ old('registration_no', $renewLicenseLoadging->registration_no) }}">
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="registration_no" name="registration_no" type="number" placeholder=""  value="{{ old('registration_no', $renewLicenseLoadging->registration_no) }}">
+                                <span class="text-danger is-invalid registration_no_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="food_drug">अन्न व ओषध प्रशासन कायद्यान्वये नोंदणी क्र.<span class="text-danger">*</span></label>
-                                <input class="form-control" id="food_drug" name="food_drug" type="text" placeholder="" required value="{{ old('food_drug', $renewLicenseLoadging->food_drug) }}">
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="food_drug" name="food_drug" type="text" placeholder=""  value="{{ old('food_drug', $renewLicenseLoadging->food_drug) }}">
+                                <span class="text-danger is-invalid food_drug_err"></span>
                             </div>
                         </div>
 
@@ -210,32 +214,32 @@
                             <div class="col-md-4 mb-2">
                                 <label class="col-form-label" for="aadhar_num">संचालकांचा आधार क्रमांक </label>
                                 <input class="form-control" id="aadhar_num" name="aadhar_num" type="number" placeholder="Enter Aadhar Card No" value="{{ old('aadhar_num', $renewLicenseLoadging->aadhar_num) }}">
-                                <span class="text-danger is-invalid aadhar_no_err"></span>
+                                <span class="text-danger is-invalid aadhar_num_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="director_name">संचालकांचा नाव<span class="text-danger">*</span></label>
-                                <input class="form-control" id="director_name" name="director_name" type="text" placeholder="Enter Director Name" required value="{{ old('director_name', $renewLicenseLoadging->director_name) }}">
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="director_name" name="director_name" type="text" placeholder="Enter Director Name"  value="{{ old('director_name', $renewLicenseLoadging->director_name) }}">
+                                <span class="text-danger is-invalid director_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="contact_no">संपर्क क्र.<span class="text-danger">*</span></label>
-                                <input class="form-control" id="contact_no" name="contact_no" type="number" placeholder="Enter  Number" required value="{{ old('contact_no', $renewLicenseLoadging->contact_no) }}">
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="contact_no" name="contact_no" type="number" placeholder="Enter  Number"  value="{{ old('contact_no', $renewLicenseLoadging->contact_no) }}">
+                                <span class="text-danger is-invalid contact_no_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="alternet_email">ई-मेल.<span class="text-danger">*</span></label>
-                                <input class="form-control" id="alternet_email" name="alternet_email" type="email" placeholder="Enter  Number" required value="{{ old('alternet_email', $renewLicenseLoadging->alternet_email) }}">
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="alternet_email" name="alternet_email" type="email" placeholder="Enter  Number"  value="{{ old('alternet_email', $renewLicenseLoadging->alternet_email) }}">
+                                <span class="text-danger is-invalid alternet_email_err"></span>
                             </div>
 
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="alternet_address">पत्ता <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="alternet_address" id="alternet_address" cols="30" rows="2" placeholder="Enter Address" required>{{ old('alternet_address', $renewLicenseLoadging->alternet_address) }}</textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
+                                <textarea class="form-control" name="alternet_address" id="alternet_address" cols="30" rows="2" placeholder="Enter Address" >{{ old('alternet_address', $renewLicenseLoadging->alternet_address) }}</textarea>
+                                <span class="text-danger is-invalid alternet_address_err"></span>
                             </div>
 
 
@@ -243,7 +247,7 @@
                                 <label class="col-form-label">लिंग<span class="text-danger">*</span></label>
                                 <div class="border rounded p-2">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="gender" value="स्त्री"  {{ isset($renewLicenseLoadging) && $renewLicenseLoadging->gender == 'स्त्री' ? 'checked' : '' }} required>
+                                        <input class="form-check-input" type="radio" name="gender" id="gender" value="स्त्री"  {{ isset($renewLicenseLoadging) && $renewLicenseLoadging->gender == 'स्त्री' ? 'checked' : '' }} >
                                         <label class="form-check-label" for="स्त्री">स्त्री</label>
                                     </div>
 
@@ -255,6 +259,7 @@
                                         <input class="form-check-input" type="radio" name="gender" id="gender" value="ईतर" {{ isset($renewLicenseLoadging) && $renewLicenseLoadging->gender == 'ईतर' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="ईतर">ईतर</label>
                                     </div>
+                                    <span class="text-danger is-invalid gender_err"></span>
 
                                 </div>
                             </div>
@@ -271,7 +276,7 @@
                                     <option value="5" {{ $renewLicenseLoadging->application_type == '5' ? 'selected' : '' }}>विधवा </option>
                                     <option value="6" {{ $renewLicenseLoadging->application_type == '6' ? 'selected' : '' }}>सामान्य </option>
                                 </select>
-                                <span class="text-danger is-invalid zone_err"></span>
+                                <span class="text-danger is-invalid application_type_err"></span>
                             </div>
 
 
@@ -281,7 +286,7 @@
                                 @if ($renewLicenseLoadging->director_image)
                                 <small><a href="{{ asset('storage/' . $renewLicenseLoadging->director_image) }}" target="_blank">View Document</a></small>
                             @endif
-                                <span class="text-danger is-invalid upload_prescribed_formats_err" required></span>
+                                <span class="text-danger is-invalid director_photos_err" ></span>
                             </div>
 
                         </div>
@@ -296,7 +301,7 @@
                                 @if ($renewLicenseLoadging->other_documents)
                                 <small><a href="{{ asset('storage/' . $renewLicenseLoadging->other_documents) }}" target="_blank">View Document</a></small>
                             @endif
-                                <span class="text-danger is-invalid upload_prescribed_formats_err" required></span>
+                                <span class="text-danger is-invalid upload_prescribed_formats_err" ></span>
                             </div>
 
                             <div class="col-md-4 mb-2">
@@ -315,7 +320,7 @@
                                 @if ($renewLicenseLoadging->market_license)
                                 <small><a href="{{ asset('storage/' . $renewLicenseLoadging->market_license) }}" target="_blank">View Document</a></small>
                             @endif
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                <span class="text-danger is-invalid ownership_err"></span>
                             </div>
 
                             <div class="col-md-4 mb-2">
@@ -334,7 +339,7 @@
                                 @if ($renewLicenseLoadging->shop_act)
                                 <small><a href="{{ asset('storage/' . $renewLicenseLoadging->shop_act) }}" target="_blank">View Document</a></small>
                             @endif
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                <span class="text-danger is-invalid society_err"></span>
                             </div>
 
 
@@ -345,7 +350,7 @@
                                 @if ($renewLicenseLoadging->pancard_image)
                                 <small><a href="{{ asset('storage/' . $renewLicenseLoadging->pancard_image) }}" target="_blank">View Document</a></small>
                             @endif
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                <span class="text-danger is-invalid aadhar_pans_err"></span>
                             </div>
 
                             <div class="col-md-4 mb-2">
@@ -354,7 +359,7 @@
                                 @if ($renewLicenseLoadging->aadharcard_image)
                                 <small><a href="{{ asset('storage/' . $renewLicenseLoadging->aadharcard_image) }}" target="_blank">View Document</a></small>
                             @endif
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                <span class="text-danger is-invalid property_err"></span>
                             </div>
 
 
@@ -364,7 +369,7 @@
                                 @if ($renewLicenseLoadging->tax_receipt_img)
                                 <small><a href="{{ asset('storage/' . $renewLicenseLoadging->tax_receipt_img) }}" target="_blank">View Document</a></small>
                             @endif
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                <span class="text-danger is-invalid tenancy_err"></span>
                             </div>
 
 
@@ -374,7 +379,7 @@
                                 @if ($renewLicenseLoadging->interior_photo)
                                 <small><a href="{{ asset('storage/' . $renewLicenseLoadging->interior_photo) }}" target="_blank">View Document</a></small>
                             @endif
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                <span class="text-danger is-invalid occupancy_err"></span>
                             </div>
 
                             <div class="col-md-4 mb-2">
@@ -383,14 +388,14 @@
                                 @if ($renewLicenseLoadging->exterior_photo)
                                 <small><a href="{{ asset('storage/' . $renewLicenseLoadging->exterior_photo) }}" target="_blank">View Document</a></small>
                             @endif
-                                <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                <span class="text-danger is-invalid medical_err"></span>
                             </div>
 
 
                             <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
                             <div class="col-md-12">
                                 <div class="form-check d-flex align-items-start">
-                                    <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" value="yes" required>
+                                    <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" value="yes" >
                                     <label class="form-check-label ms-2" for="is_correct_info">
                                         "All information provided above is correct and I shall be fully responsible for any discrepancy. <br> वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार
                                         असेन."

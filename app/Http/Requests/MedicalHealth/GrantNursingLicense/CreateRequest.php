@@ -24,18 +24,11 @@ class CreateRequest extends FormRequest
         return [
             'f_name' => 'required',
             'm_name' => 'required',
-            'l_name' => 'required|min:10|max:10',
-            // 'zone' => 'required',
-            // 'marathi_f_name' => 'required',
-            // 'marathi_m_name' => 'required|min:10|max:10',
-            // 'marathi_l_name' => 'required|min:12|max:12',
+            'l_name' => 'required',
+            'zone' => 'required',
             'email' => 'required',
             'address' => 'required',
-            // 'marathi_address' => 'required',
-            'purpose' => 'required',
-            // 'marathi_purpose' => 'required',
             'noc_type' => 'required',
-            'residential_number' => 'required',
             'name_institute' => 'required',
             'institute_address' => 'required',
             'hospital_name' => 'required',
@@ -43,7 +36,13 @@ class CreateRequest extends FormRequest
             'property_tax' => 'required',
             'water_connection' => 'required',
             'fire_noc' => 'required',
-            'hospital_address' => 'required'
+            'hospital_address' => 'required',
+            'mobile_num' => 'required|max:10|min:10',
+            'aadhar_num' => 'required|max:12|min:12',
+            'property_number' => 'required',
+            'alternet_email' => 'required',
+            'noc_number' => 'required',
+            'is_correct_info' => 'required'
 
         ];
     }

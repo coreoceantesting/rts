@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\MedicalHealth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MedicalHealth\RenewalNursingLicense\CreateRequest;
+use App\Http\Requests\MedicalHealth\RenewalNursingLicense\UpdateRequest;
 use App\Services\CommonService;
 use App\Services\MedicalHealth\RenewalNursingLicenseService;
 use Illuminate\Http\Request;
@@ -35,7 +37,7 @@ class RenewalNursingLicenseController extends Controller
     }
 
     // Store the newly created abattoir license
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
 
         // Call the store method in the service and get the response
@@ -80,11 +82,19 @@ class RenewalNursingLicenseController extends Controller
             'advertisemenent' => $renewNursingLicense
         ]);
     }
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
         // dd($request->all());
         $renewNursingLicense = $this->renewNursingLicense->update($request, $id);
 
-        return response()->json(['success' => 'Renewal Nursing License update successfully!']);
+        if ($renewNursingLicense) {
+            return response()->json([
+                'success' => 'Renewal Nursing License updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 }

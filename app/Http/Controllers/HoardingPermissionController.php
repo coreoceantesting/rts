@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\HoardingPermission\CreateRequest;
+use App\Http\Requests\HoardingPermission\UpdateRequest;
 use Illuminate\Http\Request;
 use App\Services\CommonService;
 use App\Services\HoardingPermissionService;
@@ -45,7 +47,7 @@ class HoardingPermissionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
         //dd($request->all());
         $hoardingPermission = $this->HoardingPermissionService->store($request);
@@ -89,10 +91,19 @@ class HoardingPermissionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
         $hoardingPermission = $this->HoardingPermissionService->update($request, $id);
 
-        return response()->json(['success' => ' Hoarding permission  update successfully!']);
+      if ($hoardingPermission) {
+        return response()->json([
+            'success' => 'Hoarding Permission updated successfully'
+        ]);
+    } else {
+        return response()->json([
+            'error' => 'Something went wrong, please try again'
+        ]);
     }
+}
+
 }

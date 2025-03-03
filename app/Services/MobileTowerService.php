@@ -23,7 +23,7 @@ class MobileTowerService
 
     public function store($request)
     {
-        // DB::beginTransaction();
+        DB::beginTransaction();
         // try {
         //     $request['user_id'] = Auth::user()->id;
         //     $request['service_id'] = '241';
@@ -98,50 +98,51 @@ class MobileTowerService
         // if ($request->hasFile('liquor')) {
         //     $request['liquor_license'] = $request->liquor->store('mobile-tower');
         // }
-        // // dd($request->all());
-        $mobiletowerservice = mobileTower::create($request->all());
+        // \Log::info($request->all());
+        // dd($request->all());
+        $mobiletowerservice = MobileTower::create($request->all());
 
         if ($mobiletowerservice) {
-            $applicationId = $request->application_no;
+            // $applicationId = $request->application_no;
 
-            if (Auth::user()->is_aapale_sarkar_user) {
-                $aapaleSarkarCredential = ServiceCredential::where('dept_service_id', $request->service_id)->first();
-                $serviceDay = ($aapaleSarkarCredential->service_day) ? $aapaleSarkarCredential->service_day : 20;
+            // if (Auth::user()->is_aapale_sarkar_user) {
+            //     $aapaleSarkarCredential = ServiceCredential::where('dept_service_id', $request->service_id)->first();
+            //     $serviceDay = ($aapaleSarkarCredential->service_day) ? $aapaleSarkarCredential->service_day : 20;
 
-                $send = $this->aapaleSarkarLoginCheckService->encryptAndSendRequestToAapaleSarkar(
-                    Auth::user()->trackid,
-                    $aapaleSarkarCredential->client_code,
-                    Auth::user()->user_id,
-                    $aapaleSarkarCredential->service_id,
-                    $applicationId,
-                    'N',
-                    'NA',
-                    'N',
-                    'NA',
-                    $serviceDay,
-                    date('Y-m-d', strtotime("+$serviceDay days")),
-                    config('rtsapiurl.amount'),
-                    config('rtsapiurl.requestFlag'),
-                    config('rtsapiurl.applicationStatus'),
-                    config('rtsapiurl.applicationPendingStatusTxt'),
-                    $aapaleSarkarCredential->ulb_id,
-                    $aapaleSarkarCredential->ulb_district,
-                    'NA',
-                    'NA',
-                    'NA',
-                    $aapaleSarkarCredential->check_sum_key,
-                    $aapaleSarkarCredential->str_key,
-                    $aapaleSarkarCredential->str_iv,
-                    $aapaleSarkarCredential->soap_end_point_url,
-                    $aapaleSarkarCredential->soap_action_app_status_url
-                );
+            //     $send = $this->aapaleSarkarLoginCheckService->encryptAndSendRequestToAapaleSarkar(
+            //         Auth::user()->trackid,
+            //         $aapaleSarkarCredential->client_code,
+            //         Auth::user()->user_id,
+            //         $aapaleSarkarCredential->service_id,
+            //         $applicationId,
+            //         'N',
+            //         'NA',
+            //         'N',
+            //         'NA',
+            //         $serviceDay,
+            //         date('Y-m-d', strtotime("+$serviceDay days")),
+            //         config('rtsapiurl.amount'),
+            //         config('rtsapiurl.requestFlag'),
+            //         config('rtsapiurl.applicationStatus'),
+            //         config('rtsapiurl.applicationPendingStatusTxt'),
+            //         $aapaleSarkarCredential->ulb_id,
+            //         $aapaleSarkarCredential->ulb_district,
+            //         'NA',
+            //         'NA',
+            //         'NA',
+            //         $aapaleSarkarCredential->check_sum_key,
+            //         $aapaleSarkarCredential->str_key,
+            //         $aapaleSarkarCredential->str_iv,
+            //         $aapaleSarkarCredential->soap_end_point_url,
+            //         $aapaleSarkarCredential->soap_action_app_status_url
+            //     );
 
-                if (!$send) {
-                    $this->aapaleSarkarLoginCheckService->savePendingAapaleSarkarData($applicationId, $request->service_id, Auth::user()->user_id);
-                    DB::commit();
-                    return [true];
-                }
-            }
+            //     if (!$send) {
+            //         $this->aapaleSarkarLoginCheckService->savePendingAapaleSarkarData($applicationId, $request->service_id, Auth::user()->user_id);
+            //         DB::commit();
+            //         return [true];
+            //     }
+            // }
         } else {
             DB::rollback();
             return [false, 'Something went wrong, please try again!'];

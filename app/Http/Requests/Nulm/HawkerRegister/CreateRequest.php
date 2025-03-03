@@ -22,26 +22,24 @@ class CreateRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'service_type' => 'required',
             'f_name' => 'required',
             'm_name' => 'required',
-            'l_name' => 'required|min:10|max:10',
+            'l_name' => 'required',
             'zone' => 'required',
-            'marathi_f_name' => 'required',
-            'marathi_m_name' => 'required|min:10|max:10',
-            'marathi_l_name' => 'required|min:12|max:12',
+            'mobile_num' => 'required|min:10|max:10',
             'email' => 'required',
+            'aadhar_num' => 'required|min:12|max:12',
             'address' => 'required',
-            'marathi_address' => 'required',
-            'purpose' => 'required',
-            'marathi_purpose' => 'required',
-            'service_type'=> 'required',
-            'property_num'=> 'required',
-            'bussiness_type'=> 'required',
-            'bussiness_name'=> 'required',
-            'from_date'=> 'required|date',
-            'to_date'=> 'required|date',
-            'reason'=> 'required',
-            'image'=> 'required'
+            'service_type' => 'required',
+            'property_num' => 'required',
+            'bussiness_type' => 'required',
+            'bussiness_name' => 'required',
+            'from_date' => 'required|date',
+            'to_date' => 'required|date',
+            'reason' => 'required',
+            'images' => 'required',
+            'is_correct_info' => 'required'
 
         ];
     }

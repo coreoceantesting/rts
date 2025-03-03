@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AbattoirLicense\CreateRequest;
 use Illuminate\Http\Request;
 use App\Services\CommonService;
 use App\Services\MobileTowerService;
@@ -44,17 +45,18 @@ class MobileTowerController extends Controller
      */
     public function store(Request $request)
     {
-
+        //    dd($request);
         $mobileTowerService = $this->mobiletower->store($request);
-        //dd($request->all());
+         dd($mobileTowerService);
         if ($mobileTowerService[0]) {
             return response()->json([
-                'success' => 'Mobile Tower Permission save successfully'
-            ]);
+                'success' => 'Mobile Tower Permission save successfully',
+                'redirect'=> back()
+            ],200);
         } else {
             return response()->json([
                 'error' => $mobileTowerService[1]
-            ]);
+            ], 500);
         }
     }
     public function edit($id)
@@ -85,9 +87,15 @@ class MobileTowerController extends Controller
     {
         // dd($request->all());
         $mobileTowerService = $this->mobiletower->update($request, $id);
+        if ($mobileTowerService) {
+            return response()->json([
+                'success' => 'Mobile Tower Permission updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
+}
 
-        // dd($request->all());
-        //  $permissionshooting = PermissionShooting::findOrFail->update($request, $id);
-        return response()->json(['success' => 'Mobile Tower Permission update successfully!']);
-    }
 }

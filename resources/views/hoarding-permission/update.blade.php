@@ -21,17 +21,19 @@
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="title">Title (शीर्षक)<span class="text-danger">*</span></label>
-                                <select name="title" id="title" class="form-select" required>
+                                <select name="title" id="title" class="form-select" >
                                     <option value="" disabled selected> -- Select -- </option>
                                     <option value="Mr (श्री)" {{ $hoardingPermission->title == 'Mr (श्री)' ? 'selected' : '' }}>Mr (श्री)</option>
                                     <option value="Mrs (सौ)"{{ $hoardingPermission->title == '"Mrs (सौ' ? 'selected' : '' }}>Mrs (सौ)</option>
                                     <option value="Ms (कु)"{{ $hoardingPermission->title == 'Ms (कु)' ? 'selected' : '' }}>Ms (कु) </option>
                                 </select>
+                                <span class="text-danger is-invalid title_err"></span>
+
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="f_name">First Name(पहिले नाव)<span class="text-danger">*</span></label>
-                                <input class="form-control" id="f_name" name="f_name" type="text" placeholder="Enter First Name" required value="{{ $hoardingPermission->f_name ?? '' }}">
+                                <input class="form-control" id="f_name" name="f_name" type="text" placeholder="Enter First Name"  value="{{ $hoardingPermission->f_name ?? '' }}">
                                 <span class="text-danger is-invalid f_name_err"></span>
                             </div>
 
@@ -43,26 +45,26 @@
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="l_name">Last Name (आडनाव ) <span class="text-danger">*</span></label>
-                                <input class="form-control" id="l_name" name="l_name" type="text" placeholder="Enter Last Name" required value="{{ $hoardingPermission->l_name ?? '' }}">
+                                <input class="form-control" id="l_name" name="l_name" type="text" placeholder="Enter Last Name"  value="{{ $hoardingPermission->l_name ?? '' }}">
                                 <span class="text-danger is-invalid l_name_err"></span>
                             </div>
 
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="full_address">Address of Applicant(अर्जदाराचा पत्ता)<span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="full_address" id="full_address" cols="30" rows="2" placeholder="Enter Applicant Address" required>{{ $hoardingPermission->full_address ?? '' }}</textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
+                                <textarea class="form-control" name="full_address" id="full_address" cols="30" rows="2" placeholder="Enter Applicant Address" >{{ $hoardingPermission->full_address ?? '' }}</textarea>
+                                <span class="text-danger is-invalid full_address_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="mobile_no">Mobile Number (मोबाईल नंबर)<span class="text-danger">*</span></label>
-                                <input class="form-control" id="mobile_no" name="mobile_no" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" required value="{{ $hoardingPermission->mobile_no ?? '' }}">
-                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                                <input class="form-control" id="mobile_no" name="mobile_no" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number"  value="{{ $hoardingPermission->mobile_no ?? '' }}">
+                                <span class="text-danger is-invalid mobile_no_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="email_id">Email Id (ई - मेल आयडी)</label>
-                                <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email" required value="{{ $hoardingPermission->email_id ?? '' }}">
+                                <input class="form-control" id="email_id" name="email_id" type="email" placeholder="Enter Email"  value="{{ $hoardingPermission->email_id ?? '' }}">
                                 <span class="text-danger is-invalid email_id_err"></span>
                             </div>
 
@@ -83,7 +85,7 @@
                                     <option value="Permenant" {{ $hoardingPermission->type_hoarding == 'Permenant' ? 'selected' : '' }}>Permanent / कायमस्वरूपी</option>
                                     <option value="Temporary"{{ $hoardingPermission->type_hoarding == 'Temporary' ? 'selected' : '' }}> Temporary / तात्पुरते </option>
                                 </select>
-                                <span class="text-danger is-invalid zone_err"></span>
+                                <span class="text-danger is-invalid type_hoarding_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -99,12 +101,12 @@
                                     <option value="7"{{ $hoardingPermission->advertisement_place == '7' ? 'selected' : '' }}>Dirt road in front of Vani Complex </option>
                                     <option value="8"{{ $hoardingPermission->advertisement_place == '8' ? 'selected' : '' }}> Dirt road in front of Punjabi Bhavan </option>
                                 </select>
-                                <span class="text-danger is-invalid zone_err"></span>
+                                <span class="text-danger is-invalid advertisement_place_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                                <select class="form-select" name="zone" id="zone" required>
+                                <select class="form-select" name="zone" id="zone" >
                                     <option value="">Select Zone</option>
                                     @foreach ($zones as $zone)
                                         <option @if ($hoardingPermission->zone == $zone->name) selected @endif value="{{ $zone->name }}">{{ $zone->name }}</option>
@@ -116,13 +118,13 @@
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="chowk">Chowk (चौक)<span class="text-danger">*</span></label>
-                                <input class="form-control" id="chowk" name="chowk" type="text" placeholder="Enter Chowk Name" required value="{{ $hoardingPermission->chowk ?? '' }}">
+                                <input class="form-control" id="chowk" name="chowk" type="text" placeholder="Enter Chowk Name"  value="{{ $hoardingPermission->chowk ?? '' }}">
                                 <span class="text-danger is-invalid chowk_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="plot_no">Plot No. (प्लॉट क्र.)<span class="text-danger">*</span></label>
-                                <input class="form-control" id="plot_no" name="plot_no" type="text" placeholder="Enter plot no Name" required value="{{ $hoardingPermission->plot_no ?? '' }}">
+                                <input class="form-control" id="plot_no" name="plot_no" type="text" placeholder="Enter plot no Name"  value="{{ $hoardingPermission->plot_no ?? '' }}">
                                 <span class="text-danger is-invalid plot_no_err"></span>
                             </div>
 
@@ -134,13 +136,13 @@
                                     <option value="Class B-8x10 Sq.ft.-300   /  वर्ग B-8x10 Sq.ft.-300" {{ $hoardingPermission->size_hoarding == 'Class B-8x10 Sq.ft.-300   /  वर्ग B-8x10 Sq.ft.-300' ? 'selected' : '' }}> Class B-8x10 Sq.ft.-300 / वर्ग B-8x10 Sq.ft.-300 </option>
                                     <option value="Class C-8x5 Sq.ft.-200   /  वर्ग C-8x5 Sq.ft.-200" {{ $hoardingPermission->size_hoarding == 'Class C-8x5 Sq.ft.-200   /  वर्ग C-8x5 Sq.ft.-200' ? 'selected' : '' }}> Class C-8x5 Sq.ft.-200 / वर्ग C-8x5 Sq.ft.-200 </option>
                                 </select>
-                                <span class="text-danger is-invalid zone_err"></span>
+                                <span class="text-danger is-invalid size_hoarding_err"></span>
                             </div>
 
                             <div class="col-md-6">
                                 <label class="col-form-label" for="bussiness_hoarding">Business type for which Advertise Hoarding Booked (व्यवसाय प्रकार ज्यासाठी जाहिरात होर्डिंग बुक केले आहे)<span class="text-danger">*</span></label>
-                                <input class="form-control" id="bussiness_hoarding" name="bussiness_hoarding" type="text" placeholder="Enter Business type" required value="{{ $hoardingPermission->bussiness_hoarding ?? '' }}">
-                                <span class="text-danger is-invalid plot_no_err"></span>
+                                <input class="form-control" id="bussiness_hoarding" name="bussiness_hoarding" type="text" placeholder="Enter Business type"  value="{{ $hoardingPermission->bussiness_hoarding ?? '' }}">
+                                <span class="text-danger is-invalid bussiness_hoarding_err"></span>
                             </div>
 
 
@@ -152,14 +154,14 @@
                                     <option value="No" {{ $hoardingPermission->format_advertisement == 'No' ? 'selected' : '' }}> No</option>
 
                                 </select>
-                                <span class="text-danger is-invalid zone_err"></span>
+                                <span class="text-danger is-invalid format_advertisement_err"></span>
                             </div>
 
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="height">Height of the advertisement’s bottom edge from street level (In Feet)(रस्त्याच्या पातळीपासून जाहिरातीच्या तळाची उंची ( फूट मध्ये))<span class="text-danger">*</span></label>
-                                <input class="form-control" id="height" name="height" type="text" placeholder="Enter Height" required value="{{ $hoardingPermission->height ?? '' }}">
-                                <span class="text-danger is-invalid plot_no_err"></span>
+                                <input class="form-control" id="height" name="height" type="text" placeholder="Enter Height"  value="{{ $hoardingPermission->height ?? '' }}">
+                                <span class="text-danger is-invalid height_err"></span>
                             </div>
 
 
@@ -172,7 +174,7 @@
                                     <option value="Other/इतर" {{ $hoardingPermission->structure == 'Other/इतर' ? 'selected' : '' }}> Other/इतर</option>
 
                                 </select>
-                                <span class="text-danger is-invalid zone_err"></span>
+                                <span class="text-danger is-invalid structure_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -182,7 +184,7 @@
                                     <option value="Open Space/मोकळी जागा" {{ $hoardingPermission->open_populated == 'Open Space/मोकळी जागा' ? 'selected' : '' }}>Open Space/मोकळी जागा</option>
                                     <option value="Populated Area/लोकवस्तीचे क्षेत्र" {{ $hoardingPermission->open_populated == 'Populated Area/लोकवस्तीचे क्षेत्र' ? 'selected' : '' }}>Populated Area/लोकवस्तीचे क्षेत्र</option>
                                 </select>
-                                <span class="text-danger is-invalid zone_err"></span>
+                                <span class="text-danger is-invalid open_populated_err"></span>
                             </div>
 
                             <div class="col-md-6">
@@ -194,20 +196,20 @@
                                     <option value="Through Agency/एजन्सी द्वारे" {{ $hoardingPermission->behalf == 'Through Agency/एजन्सी द्वारे' ? 'selected' : '' }}>Through Agency/एजन्सी द्वारे </option>
                                     <option value="Other/इतर" {{ $hoardingPermission->behalf == 'Other/इतर' ? 'selected' : '' }}>Other/इतर</option>
                                 </select>
-                                <span class="text-danger is-invalid zone_err"></span>
+                                <span class="text-danger is-invalid behalf_err"></span>
                             </div>
 
 
                             <div class="col-md-5">
                                 <label class="col-form-label" for="detail_address">Detailed Address of Individual/Company/Agency (व्यक्ती/कंपनी/एजन्सी यांचा तपशीलवार पत्ता)<span class="text-danger">*</span></label>
-                                <input class="form-control" id="detail_address" name="detail_address" type="text" placeholder="Enter" required value="{{ $hoardingPermission->detail_address ?? '' }}">
-                                <span class="text-danger is-invalid plot_no_err"></span>
+                                <input class="form-control" id="detail_address" name="detail_address" type="text" placeholder="Enter"  value="{{ $hoardingPermission->detail_address ?? '' }}">
+                                <span class="text-danger is-invalid detail_address_err"></span>
                             </div>
 
                             <div class="col-md-6">
                                 <label class="col-form-label" for="detail_property">land on which the structure is to be erected owned by applicant ? Details of property should be provided along with proof(ज्या जमिनीवर संरचना उभारावयाची आहे ती अर्जदाराच्या मालकीची आहे?पुराव्यासहित मालमत्तेचा तपशील द्याव) <span class="text-danger">*</span></label>
                                 <input class="form-control" id="detail_property" name="detail_property" type="text" placeholder="Enter"  value="{{ $hoardingPermission->detail_property ?? '' }}">
-                                <span class="text-danger is-invalid plot_no_err"></span>
+                                <span class="text-danger is-invalid detail_property_err"></span>
                             </div>
 
 
@@ -217,13 +219,13 @@
                                 @if ($hoardingPermission->detail_property_image)
                                     <small><a href="{{ asset('storage/' . $hoardingPermission->detail_property_image) }}" target="_blank">View Document</a></small>
                                 @endif
-                                <span class="text-danger is-invalid upload_detail_property_image_err"></span>
+                                <span class="text-danger is-invalid detail_property_images_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="postal_address">If the land is owned by a person other than the applicant, the name and postal address of the land owner (जमीन अर्जदाराव्यतिरिक्त अन्य व्यक्तीच्या मालकीची असल्यास, जमीन मालकाचे नाव आणि पोस्टल पत्ता) <span class="text-danger">*</span></label>
-                                <input class="form-control" id="postal_address" name="postal_address" type="text" placeholder="Enter" required value="{{ $hoardingPermission->postal_address ?? '' }}">
-                                <span class="text-danger is-invalid plot_no_err"></span>
+                                <input class="form-control" id="postal_address" name="postal_address" type="text" placeholder="Enter"  value="{{ $hoardingPermission->postal_address ?? '' }}">
+                                <span class="text-danger is-invalid postal_address_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -232,18 +234,18 @@
                                 @if ($hoardingPermission->consent_letter)
                                     <small><a href="{{ asset('storage/' . $hoardingPermission->consent_letter) }}" target="_blank">View Document</a></small>
                                 @endif
-                                <span class="text-danger is-invalid upload_detail_property_image_err"></span>
+                                <span class="text-danger is-invalid consent_letters_err"></span>
                             </div>
                             <div class="col-md-4">
                                 <label class="col-form-label" for="start_date"> Advertisement Start Date (जाहिरात सुरू होण्याची तारीख)</label>
-                                <input class="form-control" id="start_date" name="start_date" type="date" required value="{{ old('start_date', $hoardingPermission->start_date ?? '') }}" style="margin-top: 60px">
+                                <input class="form-control" id="start_date" name="start_date" type="date"  value="{{ old('start_date', $hoardingPermission->start_date ?? '') }}" style="margin-top: 60px">
                                 <span class="text-danger is-invalid start_date_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="end_date">Advertisement End Date (जाहिरात समाप्ती तारीख)</label>
-                                <input class="form-control" id="end_date" name="end_date" type="date" required value="{{ old('end_date', $hoardingPermission->end_date ?? '') }}">
-                                <span class="text-danger is-invalid upload_detail_property_image_err"></span>
+                                <input class="form-control" id="end_date" name="end_date" type="date"  value="{{ old('end_date', $hoardingPermission->end_date ?? '') }}">
+                                <span class="text-danger is-invalid end_date_err"></span>
                             </div>
 
                         </div>
@@ -272,7 +274,7 @@
                                     @if ($hoardingPermission->paid_receipt)
                                         <small><a href="{{ asset('storage/' . $hoardingPermission->paid_receipt) }}" target="_blank">View Document</a></small>
                                     @endif
-                                    <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                    <span class="text-danger is-invalid aadhar_pans_err"></span>
                                 </div>
 
                                 <div class="col-md-4 mb-2">
@@ -281,7 +283,7 @@
                                     @if ($hoardingPermission->structural_engineer)
                                     <small><a href="{{ asset('storage/' . $hoardingPermission->structural_engineer) }}" target="_blank">View Document</a></small>
                                 @endif
-                                    <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                    <span class="text-danger is-invalid ownership_err"></span>
                                 </div>
 
                                 <div class="col-md-4 mb-2">
@@ -290,7 +292,7 @@
                                     @if ($hoardingPermission->certificate_of_structural)
                                     <small><a href="{{ asset('storage/' . $hoardingPermission->certificate_of_structural) }}" target="_blank">View Document</a></small>
                                 @endif
-                                    <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                    <span class="text-danger is-invalid water_bills_err"></span>
                                 </div>
 
 
@@ -300,7 +302,7 @@
                                     @if ($hoardingPermission->no_objection_certificate)
                                     <small><a href="{{ asset('storage/' . $hoardingPermission->no_objection_certificate) }}" target="_blank">View Document</a></small>
                                 @endif
-                                    <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                    <span class="text-danger is-invalid society_err"></span>
                                 </div>
 
                                 <div class="col-md-4 mb-2">
@@ -309,7 +311,7 @@
                                     @if ($hoardingPermission->sightseeing)
                                     <small><a href="{{ asset('storage/' . $hoardingPermission->sightseeing) }}" target="_blank">View Document</a></small>
                                 @endif
-                                    <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                    <span class="text-danger is-invalid place_err"></span>
                                 </div>
 
                                 <div class="col-md-4 mb-2">
@@ -318,7 +320,7 @@
                                     @if ($hoardingPermission->drawing_provided)
                                     <small><a href="{{ asset('storage/' . $hoardingPermission->drawing_provided) }}" target="_blank">View Document</a></small>
                                 @endif
-                                    <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                    <span class="text-danger is-invalid property_err"></span>
                                 </div>
 
 
@@ -328,14 +330,14 @@
                                     @if ($hoardingPermission->pr_card)
                                     <small><a href="{{ asset('storage/' . $hoardingPermission->pr_card) }}" target="_blank">View Document</a></small>
                                 @endif
-                                    <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
+                                    <span class="text-danger is-invalid tenancy_err"></span>
                                 </div>
 
 
                                 <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
                                 <div class="col-md-12">
                                     <div class="form-check d-flex align-items-start">
-                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" value="yes" required>
+                                        <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" value="yes" >
                                         <label class="form-check-label ms-2" for="is_correct_info">
                                             "All information provided above is correct and I shall be fully responsible for any discrepancy. <br> वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार
                                             असेन."

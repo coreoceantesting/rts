@@ -17,53 +17,53 @@
                         <div class="mb-3 row">
                             <div class="col-md-4">
                                 <label class="col-form-label" for="f_name">First Name <span class="text-danger">*</span></label>
-                                <input class="form-control" id="f_name" name="f_name" type="text" placeholder="Enter First Name" value="{{ $grantingTelecom->f_name }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="f_name" name="f_name" type="text" placeholder="Enter First Name" value="{{ $grantingTelecom->f_name }}" >
+                                <span class="text-danger is-invalid f_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="m_name">Middle Name <span class="text-danger">*</span></label>
-                                <input class="form-control" id="m_name" name="m_name" type="text" placeholder="Enter Middle Name" value="{{ $grantingTelecom->m_name }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="m_name" name="m_name" type="text" placeholder="Enter Middle Name" value="{{ $grantingTelecom->m_name }}" >
+                                <span class="text-danger is-invalid m_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="l_name">Last Name <span class="text-danger">*</span></label>
-                                <input class="form-control" id="l_name" name="l_name" type="text" placeholder="Enter Last Name" value="{{ $grantingTelecom->l_name }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="l_name" name="l_name" type="text" placeholder="Enter Last Name" value="{{ $grantingTelecom->l_name }}" >
+                                <span class="text-danger is-invalid l_name_err"></span>
                             </div>
 
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="mobile_num">Mobile Number<span class="text-danger">*</span></label>
                                 <input class="form-control" id="mobile_num" name="mobile_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" value="{{ $grantingTelecom->mobile_num }}">
-                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                                <span class="text-danger is-invalid mobile_num_err"></span>
                             </div>
                             <div class="col-md-4">
                                 <label class="col-form-label" for="email">Email<span class="text-danger">*</span></label>
-                                <input class="form-control" id="email" name="email" type="email" placeholder="Enter Email" value="{{ $grantingTelecom->email }}" required>
+                                <input class="form-control" id="email" name="email" type="email" placeholder="Enter Email" value="{{ $grantingTelecom->email }}" >
                                 <span class="text-danger is-invalid email_err"></span>
                             </div>
                             <div class="col-md-4">
                                 <label class="col-form-label" for="aadhar_num">Aadhar Number<span class="text-danger">*</span></label>
                                 <input class="form-control" id="aadhar_num" name="aadhar_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number" value="{{ $grantingTelecom->aadhar_num }}">
-                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                                <span class="text-danger is-invalid aadhar_num_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="property_num">Property Number<span class="text-danger">*</span></label>
-                                <input class="form-control" id="property_num" name="property_num" type="number" placeholder="Enter Number" value="{{ $grantingTelecom->property_num }}" required>
+                                <input class="form-control" id="property_num" name="property_num" type="number" placeholder="Enter Number" value="{{ $grantingTelecom->property_num }}" >
                                 <span class="text-danger is-invalid property_num_err"></span>
                             </div>
                             <div class="col-md-6">
                                 <label class="col-form-label" for="address">Residential Address <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="address" id="address" cols="30" rows="2" placeholder="Enter Address" required>{{ $grantingTelecom->address }}</textarea>
+                                <textarea class="form-control" name="address" id="address" cols="30" rows="2" placeholder="Enter Address" >{{ $grantingTelecom->address }}</textarea>
                                 <span class="text-danger is-invalid address_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="road_type">रस्त्याचे प्रकार<span class="text-danger">*</span></label>
-                                <select class="form-select" name="road_type" id="road_type" required>
+                                <select class="form-select" name="road_type" id="road_type" >
                                     <option value="" disabled selected> -- Select -- </option>
                                     <option value="रस्त्याचे प्रकार १" {{ $grantingTelecom->road_type == 'रस्त्याचे प्रकार १' ? 'selected' : '' }}>रस्त्याचे प्रकार १</option>
                                     <option value="रस्त्याचे प्रकार २"{{ $grantingTelecom->road_type == 'रस्त्याचे प्रकार २' ? 'selected' : '' }}>रस्त्याचे प्रकार २</option>
@@ -74,7 +74,7 @@
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="zone">Zone Id / झोन<span class="text-danger">*</span></label>
-                                <select class="form-select" name="zone" id="zone" required>
+                                <select class="form-select" name="zone" id="zone" >
                                     <option value="">Select Zone</option>
                                     @foreach ($zones as $zone)
                                         <option @if ($grantingTelecom->zone == $zone->name) selected @endif value="{{ $zone->name }}">{{ $zone->name }}</option>
@@ -86,49 +86,49 @@
                             <div class="col-md-3">
                                 <label class="col-form-label" for="length_road">रस्त्याची लांबी (मीटर)<span class="text-danger">*</span></label>
                                 <input class="form-control" id="length_road" name="length_road" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Length" value="{{ $grantingTelecom->length_road }}">
-                                <span class="text-danger is-invalid applicant_length_road_err"></span>
+                                <span class="text-danger is-invalid length_road_err"></span>
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="width_road">रस्त्याची रुंदी (मीटर)<span class="text-danger">*</span></label>
                                 <input class="form-control" id="width_road" name="width_road" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Width" value="{{ $grantingTelecom->width_road }}">
-                                <span class="text-danger is-invalid applicant_width_road_err"></span>
+                                <span class="text-danger is-invalid width_road_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="length_width">रस्त्याची लांबीरुंदी (चो. मीटर)<span class="text-danger">*</span></label>
                                 <input class="form-control" id="length_width" name="length_width" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Length & Width" value="{{ $grantingTelecom->length_width }}">
-                                <span class="text-danger is-invalid applicant_length_width_err"></span>
+                                <span class="text-danger is-invalid length_width_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="digging_size">खोदण्याचे आकार (मीटर)<span class="text-danger">*</span></label>
                                 <input class="form-control" id="digging_size" name="digging_size" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Digging size" value="{{ $grantingTelecom->digging_size }}">
-                                <span class="text-danger is-invalid applicant_digging_size_err"></span>
+                                <span class="text-danger is-invalid digging_size_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="start_point">खोदाईचा प्रारंभिक बिंदु <span class="text-danger">*</span></label>
                                 <input class="form-control" id="start_point" name="start_point" type="text" placeholder="Enter Starting Point" value="{{ $grantingTelecom->start_point }}">
-                                <span class="text-danger is-invalid applicant_start_point_err"></span>
+                                <span class="text-danger is-invalid start_point_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="end_point">खोदाईचा अंतिम बिंदूः <span class="text-danger">*</span></label>
                                 <input class="form-control" id="end_point" name="end_point" type="text"  placeholder="Enter Ending Point" value="{{ $grantingTelecom->end_point }}">
-                                <span class="text-danger is-invalid applicant_end_point_err"></span>
+                                <span class="text-danger is-invalid end_point_err"></span>
                             </div>
 
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="latitude">अक्षांश<span class="text-danger">*</span></label>
                                 <input class="form-control" id="latitude" name="latitude" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter latitude" value="{{ $grantingTelecom->latitude }}">
-                                <span class="text-danger is-invalid applicant_latitude_err"></span>
+                                <span class="text-danger is-invalid latitude_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="longitude">रेखांश<span class="text-danger">*</span></label>
                                 <input class="form-control" id="longitude" name="longitude" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter longitude" value="{{ $grantingTelecom->longitude }}">
-                                <span class="text-danger is-invalid applicant_longitude_err"></span>
+                                <span class="text-danger is-invalid longitude_err"></span>
                             </div>
 
 
@@ -137,7 +137,7 @@
                             <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
                             <div class="col-md-12">
                                 <div class="form-check d-flex align-items-start">
-                                    <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" checked value="yes" required>
+                                    <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" checked value="yes" >
                                     <label class="form-check-label ms-2" for="is_correct_info">
                                         "All information provided above is correct and I shall be fully responsible for any discrepancy. <br> वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार
                                         असेन."

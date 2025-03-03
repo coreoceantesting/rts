@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\MedicalHealth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MedicalHealth\GrantNursingLicense\CreateRequest;
+use App\Http\Requests\MedicalHealth\GrantNursingLicense\UpdateRequest;
 use App\Services\CommonService;
 use App\Services\MedicalHealth\GrantNursingLicenseService;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 
 
@@ -36,7 +39,7 @@ class GrantNursingLicenseController extends Controller
     }
 
     // Store the newly created abattoir license
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
 
         // Call the store method in the service and get the response
@@ -81,11 +84,19 @@ class GrantNursingLicenseController extends Controller
             'advertisemenent' => $grantNursingLicense
         ]);
     }
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
         // dd($request->all());
         $grantNursingLicense = $this->grantNursingLicense->update($request, $id);
 
-        return response()->json(['success' => 'Grant Nursing License update successfully!']);
+        if ($grantNursingLicense) {
+            return response()->json([
+                'success' => 'Grant Nursing License updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 }

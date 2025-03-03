@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NewTaxAssessment\UpdateRequest;
+use App\Http\Requests\NewTaxAssessment\CreateRequest;
 use App\Services\CommonService;
 use App\Services\NewTaxAssessmentService;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 
 class NewTaxAssessmentController extends Controller
@@ -34,9 +37,9 @@ class NewTaxAssessmentController extends Controller
     }
 
     // Store the newly created abattoir license
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
-
+        dd($request);
         // Call the store method in the service and get the response
         $assesment = $this->newtaxassessment->store($request);
 
@@ -79,12 +82,20 @@ class NewTaxAssessmentController extends Controller
             'advertisemenent' => $assesment
         ]);
     }
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
         // dd($request->all());
         $assesment = $this->newtaxassessment->update($request, $id);
 
-        return response()->json(['success' => 'New Tax Assesment update successfully!']);
+        if ($assesment) {
+            return response()->json([
+                'success' => 'New Tax Assesment updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
-}
 
+}

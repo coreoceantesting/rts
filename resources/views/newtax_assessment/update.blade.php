@@ -17,7 +17,7 @@
 
                         <div class="col-md-4">
                             <label class="col-form-label" for="zone">Zone / झोन<span class="text-danger">*</span></label>
-                            <select class="form-select" name="zone" id="zone" required>
+                            <select class="form-select" name="zone" id="zone" >
                                 <option value="">Select Zone</option>
                                 @foreach ($zones as $zone)
                                 {{-- @dd($assesment); --}}
@@ -29,85 +29,85 @@
                         <div class="mb-3 row">
                             <div class="col-md-4">
                                 <label class="col-form-label" for="f_name">First Name <span class="text-danger">*</span></label>
-                                <input class="form-control" id="f_name" name="f_name" type="text" placeholder="Enter First Name" value="{{ $assesment->f_name }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="f_name" name="f_name" type="text" placeholder="Enter First Name" value="{{ $assesment->f_name }}" >
+                                <span class="text-danger is-invalid f_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="m_name">Middle Name <span class="text-danger">*</span></label>
-                                <input class="form-control" id="m_name" name="m_name" type="text" placeholder="Enter Middle Name" value="{{ $assesment->m_name }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="m_name" name="m_name" type="text" placeholder="Enter Middle Name" value="{{ $assesment->m_name }}" >
+                                <span class="text-danger is-invalid m_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="l_name">Last Name <span class="text-danger">*</span></label>
-                                <input class="form-control" id="l_name" name="l_name" type="text" placeholder="Enter Last Name" value="{{ $assesment->l_name }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="l_name" name="l_name" type="text" placeholder="Enter Last Name" value="{{ $assesment->l_name }}" >
+                                <span class="text-danger is-invalid l_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="marathi_f_name">प्रथम नाव (मराठी) <span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_f_name" name="marathi_f_name" type="text" placeholder="नाव प्रविष्ट करा प्रथम" value="{{ $assesment->marathi_f_name }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="marathi_f_name" name="marathi_f_name" type="text" placeholder="नाव प्रविष्ट करा प्रथम" value="{{ $assesment->marathi_f_name }}" >
+                                <span class="text-danger is-invalid marathi_f_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="marathi_m_name">मधले नाव (मराठी)<span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_m_name" name="marathi_m_name" type="text" placeholder="प्रविष्ट करा मधले नाव" value="{{ $assesment->marathi_m_name }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="marathi_m_name" name="marathi_m_name" type="text" placeholder="प्रविष्ट करा मधले नाव" value="{{ $assesment->marathi_m_name }}" >
+                                <span class="text-danger is-invalid marathi_m_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="marathi_l_name">आडनाव (मराठी) <span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_l_name" name="marathi_l_name" type="text" placeholder="आडनाव प्रविष्ट करा" value="{{ $assesment->marathi_l_name }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="marathi_l_name" name="marathi_l_name" type="text" placeholder="आडनाव प्रविष्ट करा" value="{{ $assesment->marathi_l_name }}" >
+                                <span class="text-danger is-invalid marathi_l_name_err"></span>
                             </div>
 
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="mobile_num">Mobile Number</label>
                                 <input class="form-control" id="mobile_num" name="mobile_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" value="{{ $assesment->mobile_num }}">
-                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                                <span class="text-danger is-invalid mobile_num_err"></span>
                             </div>
                             <div class="col-md-4">
                                 <label class="col-form-label" for="aadhar_num">Aadhar Card No</label>
                                 <input class="form-control" id="aadhar_num" name="aadhar_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number" value="{{ $assesment->aadhar_num }}">
-                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                                <span class="text-danger is-invalid aadhar_numo_err"></span>
                             </div>
                             <div class="col-md-4">
                                 <label class="col-form-label" for="email">Email<span class="text-danger">*</span></label>
-                                <input class="form-control" id="email" name="email" type="email" placeholder="Enter Email" value="{{ $assesment->email }}" required>
+                                <input class="form-control" id="email" name="email" type="email" placeholder="Enter Email" value="{{ $assesment->email }}" >
                                 <span class="text-danger is-invalid email_err"></span>
                             </div>
                             <div class="col-md-5">
                                 <label class="col-form-label" for="address"> Address <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="address" id="address" cols="30" rows="2" placeholder="Enter Address" required>{{ $assesment->address }}</textarea>
+                                <textarea class="form-control" name="address" id="address" cols="30" rows="2" placeholder="Enter Address" >{{ $assesment->address }}</textarea>
                                 <span class="text-danger is-invalid address_err"></span>
                             </div>
 
                             <div class="col-md-5">
                                 <label class="col-form-label" for="marathi_address"> पत्ता (मराठी) <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="marathi_address" id="marathi_address" cols="30" rows="2" placeholder="पत्ता" value="" required>{{ $assesment->marathi_address }}</textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
+                                <textarea class="form-control" name="marathi_address" id="marathi_address" cols="30" rows="2" placeholder="पत्ता" value="" >{{ $assesment->marathi_address }}</textarea>
+                                <span class="text-danger is-invalid marathi_addresss_err"></span>
                             </div>
 
 
                             <div class="col-md-5">
                                 <label class="col-form-label" for="purpose">Purpose <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="purpose" id="purpose" cols="30" rows="2" placeholder="Enter purpose" value="" required>{{ $assesment->purpose }}</textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
+                                <textarea class="form-control" name="purpose" id="purpose" cols="30" rows="2" placeholder="Enter purpose" value="" >{{ $assesment->purpose }}</textarea>
+                                <span class="text-danger is-invalid purpose_err"></span>
                             </div>
 
                             <div class="col-md-5">
                                 <label class="col-form-label" for="marathi_purpose">उद्देश (मराठी) <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="marathi_purpose" id="marathi_purpose" cols="30" rows="2" placeholder="उद्देश" value="" required>{{ $assesment->marathi_purpose }}</textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
+                                <textarea class="form-control" name="marathi_purpose" id="marathi_purpose" cols="30" rows="2" placeholder="उद्देश" value="" >{{ $assesment->marathi_purpose }}</textarea>
+                                <span class="text-danger is-invalid marathi_purpose_err"></span>
                             </div>
 
                             <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>
                             <div class="col-md-12">
                                 <div class="form-check d-flex align-items-start">
-                                    <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" checked value="yes" required>
+                                    <input type="checkbox" class="form-check-input mt-1" id="is_correct_info" name="is_correct_info" checked value="yes" >
                                     <label class="form-check-label ms-2" for="is_correct_info">
                                         "All information provided above is correct and I shall be fully responsible for any discrepancy. <br> वरील पुरविलेली सर्व माहिती ही अचूक असून, त्यात कुठल्याही प्रकारची तफावत आढळल्यास त्यास मी पूर्णतः जबाबदार
                                         असेन."

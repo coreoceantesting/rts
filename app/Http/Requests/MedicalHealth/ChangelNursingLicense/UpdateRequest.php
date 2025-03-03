@@ -24,16 +24,19 @@ class UpdateRequest extends FormRequest
         return [
             'f_name' => 'required',
             'm_name' => 'required',
-            'l_name' => 'required|min:10|max:10',
+            'l_name' => 'required',
             'zone' => 'required',
             'marathi_f_name' => 'required',
-            'marathi_m_name' => 'required|min:10|max:10',
-            'marathi_l_name' => 'required|min:12|max:12',
+            'marathi_m_name' => 'required',
+            'marathi_l_name' => 'required',
             'email' => 'required',
             'address' => 'required',
             'marathi_address' => 'required',
             'purpose' => 'required',
-            'marathi_purpose' => 'required'
+            'marathi_purpose' => 'required',
+            'mobile_num' => 'required|min:10|max:10',
+            'aadhar_num' => 'required|min:12|max:12',
+            'is_correct_info' => 'required'
         ];
     }
 }

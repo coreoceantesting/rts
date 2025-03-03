@@ -58,7 +58,9 @@ class UpdateRequest extends FormRequest
             'drug_administration' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'fire_rigade' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             'liquor_license' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
-            'is_correct_info' => 'required'
+            'is_correct_info' => 'required',
+             'trade_type' => 'required|array',
+            'trade_type.*' => 'string|max:255'
         ];
     }
     public function messages()

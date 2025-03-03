@@ -79,6 +79,8 @@ class MobileTower extends Model
         'director_photo',
         'business_start'
     ];
+
+
     protected static function boot()
     {
         parent::boot();

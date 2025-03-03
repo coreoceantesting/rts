@@ -24,7 +24,7 @@ class CreateRequest extends FormRequest
         return [
             'f_name' => 'required',
             'm_name' => 'required',
-            'l_name' => 'required|min:10|max:10',
+            'l_name' => 'required',
             'zone' => 'required',
             'mobile_num'=> 'required|min:10|max:10',
             'aadhar_num'=> 'required|min:12|max:12',
@@ -39,8 +39,8 @@ class CreateRequest extends FormRequest
             'start_point'=> 'required',
             'end_point'=> 'required',
             'latitude'=> 'required',
-            'longitude'=> 'required'
-
+            'longitude'=> 'required',
+            'is_correct_info'=>'required'
         ];
     }
 

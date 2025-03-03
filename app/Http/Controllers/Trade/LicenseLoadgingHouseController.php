@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Trade;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Trade\LicenseLoadging\CreateRequest;
+use App\Http\Requests\Trade\LicenseLoadging\UpdateRequest;
 use App\Services\CommonService;
 use App\Services\Trade\LicenseLoadgingService;
 use Illuminate\Http\Request;
@@ -35,7 +37,7 @@ class LicenseLoadgingHouseController extends Controller
     }
 
     // Store the newly created abattoir license
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
         // dd($request);
         // Call the store method in the service and get the response
@@ -80,11 +82,19 @@ class LicenseLoadgingHouseController extends Controller
             'advertisemenent' => $licenseLoadgingHouse
         ]);
     }
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
         // dd($request->all());
         $trade = $this->licenseLoadgingHouse->update($request, $id);
 
-        return response()->json(['success' => 'New License Loading House update successfully!']);
+        if ($trade) {
+            return response()->json([
+                'success' => 'New License Loading House updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 }

@@ -22,39 +22,39 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'f_name' => 'required',
-            // 'm_name' => 'required',
-            'l_name' => 'required|min:10|max:10',
+           'f_name' => 'required',
+            'l_name' => 'required',
             'zone' => 'required',
-            'title_of_application'=> 'required',
-            'flat_no'=> 'required',
-            'building_no'=> 'required',
-            'area'=> 'required',
-            'city'=> 'required',
-            'pincode'=> 'required',
-            'landmark'=> 'required',
-            'gut_number'=> 'required',
-            'type_application'=> 'required',
-            'reason_trim'=> 'required',
-            'owner'=> 'required',
-            'type_of_tree'=> 'required',
-            'paid_receipt'=> 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
-            'photo_tree'=> 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
-            'aadhar'=> 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
-            'plan_construction'=> 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
-            'noc_letter'=> 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048'
-
-
-            // 'marathi_f_name' => 'required',
-            // 'marathi_m_name' => 'required|min:10|max:10',
-            // 'marathi_l_name' => 'required|min:12|max:12',
-            // 'email' => 'required',
-
-            // 'address' => 'required',
-            // 'marathi_address' => 'required',
-            // 'purpose' => 'required',
-            // 'marathi_purpose' => 'required'
-
+            'title_of_application' => 'required',
+            'flat_no' => 'required',
+            'building_no' => 'required',
+            'area' => 'required',
+            'city' => 'required',
+            'pincode' => 'required',
+            'landmark' => 'required',
+            'gut_number' => 'required',
+            'type_application' => 'required',
+            'reason_trim' => 'required',
+            'owner' => 'required',
+            'type_of_tree' => 'required',
+            // 'paid_receipts' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            // 'photo_trees' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            // 'noc_letters' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            // 'mobile_num' => 'required|max:10|min:10',
+            // 'aadhars' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            // 'building_permissions' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            // 'plan_constructions' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
+            'email' => 'required',
+            'select_all'=>'required',
+            // 'item1'=>'required',
+            // 'item2'=>'required',
+            // 'item3'=>'required',
+            // 'item4'=>'required',
+            // 'item5'=>'required',
+            // 'item6'=>'required',
+            // 'item7'=>'required',
+            // 'item8'=>'required',
+            // 'item9'=>'required'
         ];
     }
 }

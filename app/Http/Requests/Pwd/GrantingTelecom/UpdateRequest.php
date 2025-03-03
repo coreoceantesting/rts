@@ -24,16 +24,23 @@ class UpdateRequest extends FormRequest
         return [
             'f_name' => 'required',
             'm_name' => 'required',
-            'l_name' => 'required|min:10|max:10',
+            'l_name' => 'required',
             'zone' => 'required',
-            'marathi_f_name' => 'required',
-            'marathi_m_name' => 'required|min:10|max:10',
-            'marathi_l_name' => 'required|min:12|max:12',
+            'mobile_num'=> 'required|min:10|max:10',
+            'aadhar_num'=> 'required|min:12|max:12',
             'email' => 'required',
             'address' => 'required',
-            'marathi_address' => 'required',
-            'purpose' => 'required',
-            'marathi_purpose' => 'required'
+            'property_num'=> 'required',
+            'road_type'=> 'required',
+            'length_road'=> 'required',
+            'width_road'=> 'required',
+            'length_width'=> 'required',
+            'digging_size'=> 'required',
+            'start_point'=> 'required',
+            'end_point'=> 'required',
+            'latitude'=> 'required',
+            'longitude'=> 'required',
+            'is_correct_info'=>'required'
         ];
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\TreeAuth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TreeAuth\TreeProtection\CreateRequest;
+use App\Http\Requests\TreeAuth\TreeProtection\UpdateRequest;
 use App\Services\CommonService;
 use App\Services\TreeAuth\TreeProtectionService;
 use Illuminate\Http\Request;
@@ -35,7 +37,7 @@ class TreeProtectionController extends Controller
     }
 
     // Store the newly created abattoir license
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
         // Call the store method in the service and get the response
         // dd($request->all());
@@ -74,11 +76,18 @@ class TreeProtectionController extends Controller
             'advertisemenent' => $treeProtection
         ]);
     }
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
         // dd($request->all());
-        $trade = $this->treeProtection->update($request, $id);
-
-        return response()->json(['success' => 'Tree Protection update successfully!']);
+        $treeProtection = $this->treeProtection->update($request, $id);
+        if ($treeProtection) {
+            return response()->json([
+                'success' => 'Tree Protection updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 }

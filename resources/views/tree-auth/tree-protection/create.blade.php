@@ -17,7 +17,7 @@
 
                         <div class="col-md-4">
                             <label class="col-form-label" for="zone">Zone Id / झोन<span class="text-danger">*</span></label>
-                            <select class="form-select" name="zone" id="zone" required>
+                            <select class="form-select" name="zone" id="zone">
                                 <option value="">Select Zone</option>
                                 @foreach ($zones as $zone)
                                     <option value="{{ $zone->name }}">{{ $zone->name }}</option>
@@ -29,78 +29,80 @@
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="title_of_application">Title of Applicant<span class="text-danger">*</span></label>
-                                <select name="title_of_application" id="title_of_application" class="form-select" required>
+                                <select name="title_of_application" id="title_of_application" class="form-select">
                                     <option value="" disabled selected> -- Select -- </option>
                                     <option value="mr">Mr</option>
                                     <option value="mrs">Mrs</option>
                                     <option value="ms">Ms</option>
                                 </select>
+                                <span class="text-danger is-invalid title_of_application_err"></span>
+
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="f_name">First Name <span class="text-danger">*</span></label>
-                                <input class="form-control" id="f_name" name="f_name" type="text" placeholder="Enter First Name" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="f_name" name="f_name" type="text" placeholder="Enter First Name">
+                                <span class="text-danger is-invalid f_name_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="m_name">Middle Name</label>
                                 <input class="form-control" id="m_name" name="m_name" type="text" placeholder="Enter Middle Name">
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid m_name_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="l_name">Last Name <span class="text-danger">*</span></label>
-                                <input class="form-control" id="l_name" name="l_name" type="text" placeholder="Enter Last Name" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="l_name" name="l_name" type="text" placeholder="Enter Last Name">
+                                <span class="text-danger is-invalid l_name_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="flat_no">Plot/Flat No <span class="text-danger">*</span></label>
-                                <input class="form-control" id="flat_no" name="flat_no" type="text" placeholder="Enter Last Name" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="flat_no" name="flat_no" type="text" placeholder="Enter Last Name">
+                                <span class="text-danger is-invalid flat_no_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="building_no">Name of the Building/Colony<span class="text-danger">*</span></label>
-                                <input class="form-control" id="building_no" name="building_no" type="text" placeholder="Enter Last Name" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="building_no" name="building_no" type="text" placeholder="Enter Last Name">
+                                <span class="text-danger is-invalid building_no_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="area">Name of the Area<span class="text-danger">*</span></label>
-                                <input class="form-control" id="area" name="area" type="text" placeholder="Enter Last Name" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="area" name="area" type="text" placeholder="Enter Last Name">
+                                <span class="text-danger is-invalid area_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="city">Name of City<span class="text-danger">*</span></label>
-                                <input class="form-control" id="city" name="city" type="text" placeholder="Enter Last Name" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="city" name="city" type="text" placeholder="Enter Last Name">
+                                <span class="text-danger is-invalid city_err"></span>
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="pincode">Pin Code<span class="text-danger">*</span></label>
-                                <input class="form-control" id="pincode" name="pincode" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Pincode" required>
-                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                                <input class="form-control" id="pincode" name="pincode" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Pincode">
+                                <span class="text-danger is-invalid pincode_err"></span>
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="landmark">Near By Landmark<span class="text-danger">*</span></label>
-                                <input class="form-control" id="landmark" name="landmark" type="text" placeholder="Enter Last Name" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="landmark" name="landmark" type="text" placeholder="Enter Last Name">
+                                <span class="text-danger is-invalid landmark_err"></span>
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="gut_number">City Survey/ Gut Number<span class="text-danger">*</span></label>
-                                <input class="form-control" id="gut_number" name="gut_number" type="text" placeholder="Enter Last Name" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="gut_number" name="gut_number" type="text" placeholder="Enter Last Name">
+                                <span class="text-danger is-invalid gut_number_err"></span>
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="mobile_num">Mobile No</label><span class="text-danger">*</span>
                                 <input class="form-control" id="mobile_num" name="mobile_num" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number">
-                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                                <span class="text-danger is-invalid mobile_num_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="email">Email<span class="text-danger">*</span></label>
-                                <input class="form-control" id="email" name="email" type="email" placeholder="Enter Email" required>
+                                <input class="form-control" id="email" name="email" type="email" placeholder="Enter Email">
                                 <span class="text-danger is-invalid email_err"></span>
                             </div>
 
@@ -108,7 +110,7 @@
                                 <label class="col-form-label">Type of Applicant <span class="text-danger">*</span></label>
                                 <div class="border rounded p-2">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="type_application" id="type_application" value="Citizen" required>
+                                        <input class="form-check-input" type="radio" name="type_application" id="type_application" value="Citizen">
                                         <label class="form-check-label" for="citizen">Citizen</label>
                                     </div>
 
@@ -126,6 +128,8 @@
                                         <input class="form-check-input" type="radio" name="type_application" id="other" value="Other">
                                         <label class="form-check-label" for="other">Other</label>
                                     </div>
+                                    <span class="text-danger is-invalid type_application_err"></span>
+
                                 </div>
                             </div>
 
@@ -133,7 +137,7 @@
                                 <label class="col-form-label">Reason For Trimming <span class="text-danger">*</span></label>
                                 <div class="border rounded p-2">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="reason_trim" id="reason_trim" value="Trimming Down Dangerous Branches" required>
+                                        <input class="form-check-input" type="radio" name="reason_trim" id="reason_trim" value="Trimming Down Dangerous Branches">
                                         <label class="form-check-label" for="citizen">Trimming Down Dangerous Branches</label>
                                     </div>
 
@@ -154,28 +158,34 @@
                                         <input class="form-check-input" type="radio" name="reason_trim" id="other" value="Other">
                                         <label class="form-check-label" for="other">Other</label>
                                     </div>
+                                    <span class="text-danger is-invalid reason_trim_err"></span>
+
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="owner">Type of Owner<span class="text-danger">*</span></label>
-                                <select name="owner" id="owner" class="form-select" required>
+                                <select name="owner" id="owner" class="form-select">
                                     <option value="" disabled selected> -- Select -- </option>
                                     <option value="private">Private</option>
                                     <option value="corporation">Corporation</option>
                                     <option value="government">Government</option>
                                     <option value="semi_govt">Semi Govt</option>
                                 </select>
+                                <span class="text-danger is-invalid owner_err"></span>
+
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="type_of_tree">Type of Tree<span class="text-danger">*</span></label>
-                                <select name="type_of_tree" id="type_of_tree" class="form-select" required>
+                                <select name="type_of_tree" id="type_of_tree" class="form-select">
                                     <option value="" disabled selected> -- Select -- </option>
                                     <option value="fruit">Fruit Tree</option>
                                     <option value="other">Other Tree</option>
 
                                 </select>
+                                <span class="text-danger is-invalid type_of_tree_err"></span>
+
                             </div>
 
                             <div class="col-mb-3">
@@ -188,17 +198,17 @@
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="paid_receipts">Current Year Property Tax Paid Receipt <span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" id="paid_receipts" name="paid_receipts" accept="image/*" required onchange="previewImage(event)">
+                                <input type="file" class="form-control" id="paid_receipts" name="paid_receipts" accept="image/*" onchange="previewImage(event)">
                                 <span class="text-danger is-invalid paid_receipts_err"></span>
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="photo_trees">Photograph of Tree <span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" id="photo_trees" name="photo_trees" accept="image/*" required onchange="previewImage(event)">
+                                <input type="file" class="form-control" id="photo_trees" name="photo_trees" accept="image/*" onchange="previewImage(event)">
                                 <span class="text-danger is-invalid photo_trees_err"></span>
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="aadhars">Aadhaar Card <span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" id="aadhars" name="aadhars" accept="image/*" required onchange="previewImage(event)">
+                                <input type="file" class="form-control" id="aadhars" name="aadhars" accept="image/*" onchange="previewImage(event)">
                                 <span class="text-danger is-invalid aadhars_err"></span>
                             </div>
                             <div class="col-md-3">
@@ -208,12 +218,12 @@
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="plan_constructions">Sanctioned Plan of Construction <span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" id="plan_constructions" name="plan_constructions" accept="image/*" required onchange="previewImage(event)">
+                                <input type="file" class="form-control" id="plan_constructions" name="plan_constructions" accept="image/*" onchange="previewImage(event)">
                                 <span class="text-danger is-invalid plan_constructions_err"></span>
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="noc_letters">NOC Letter <span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" id="noc_letters" name="noc_letters" accept="image/*" required onchange="previewImage(event)">
+                                <input type="file" class="form-control" id="noc_letters" name="noc_letters" accept="image/*" onchange="previewImage(event)">
                                 <span class="text-danger is-invalid noc_letters_err"></span>
                             </div>
 
@@ -227,51 +237,66 @@
                                     <label class="form-check-label ms-2" for="selectAll">
                                         Select All
                                     </label>
+                                    <span class="text-danger is-invalid select_all_err"></span>
                                 </div>
                                 <br>
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input checkItem" name="item1" value="1">
                                     <label class="form-check-label">In case of any kind of accident or loss of life or damage to government and private property and damage to electric wire, phone wire, cable etc. while cutting the said tree, it will be the responsibility of the applicant to compensate the same.</label>
+                                    <span class="text-danger is-invalid item1_err"></span>
                                 </div>
                                 <br>
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input checkItem" name="item2" value="2">
                                     <label class="form-check-label">In case of any kind of dispute regarding the ownership of the land or the trees or if any objection or objection is raised by the interested parties, the applicant will be responsible for the same.</label>
+                                    <span class="text-danger is-invalid item2_err"></span>
                                 </div>
                                 <br>
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input checkItem" name="item3" value="3">
                                     <label class="form-check-label">Under the provisions of section 8 sub-section 3 (c) of the Maharashtra Urban Area Tree Preservation Act, 1975, the act of felling a tree shall remain valid for one month from the date of the said permission.</label>
+                                    <span class="text-danger is-invalid item3_err"></span>
                                 </div>
                                 <br>
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input checkItem" name="item3" value="3">
+                                    <input type="checkbox" class="form-check-input checkItem" name="item4" value="3">
                                     <label class="form-check-label">After pruning the tree, the branches, leaves and wood chips of the tree should be picked up immediately.</label>
+                                    <span class="text-danger is-invalid item4_err"></span>
                                 </div>
                                 <br>
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input checkItem" name="item3" value="3">
+                                    <input type="checkbox" class="form-check-input checkItem" name="item5" value="3">
                                     <label class="form-check-label">In the presence of the garden assistant of the park department or the representative of the park department, the process of cutting the said tree should be done.</label>
+                                    <span class="text-danger is-invalid item5_err"></span>
+
                                 </div>
                                 <br>
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input checkItem" name="item3" value="3">
+                                    <input type="checkbox" class="form-check-input checkItem" name="item6" value="3">
                                     <label class="form-check-label">It should be noted that in case of pruning of tree branches in excess of the permit, legal action will be taken against you as per the rules for violation of Section 21 (1) of the Maharashtra (Urban Area) Protection and Preservation of Trees Act, 1975.</label>
+                                    <span class="text-danger is-invalid item6_err"></span>
+
                                 </div>
                                 <br>
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input checkItem" name="item3" value="3">
+                                    <input type="checkbox" class="form-check-input checkItem" name="item7" value="3">
                                     <label class="form-check-label">If there are birds, nests of birds on the trees, they should be shifted to a suitable place with the advice of wildlife experts. So that vigilance should be taken to ensure that there is no loss/damage to biodiversity at that place. It should also be noted that in case of any such damage/accident, the applicant will be fully responsible for it.</label>
+                                    <span class="text-danger is-invalid item7_err"></span>
+
                                 </div>
                                 <br>
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input checkItem" name="item3" value="3">
+                                    <input type="checkbox" class="form-check-input checkItem" name="item8" value="3">
                                     <label class="form-check-label">Tree trimming should not be done on Sundays and public holidays.</label>
+                                    <span class="text-danger is-invalid item8_err"></span>
+
                                 </div>
                                 <br>
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input checkItem" name="item3" value="3">
+                                    <input type="checkbox" class="form-check-input checkItem" name="item9" value="3">
                                     <label class="form-check-label">If the above conditions are acceptable, the tree should be felled.</label>
+                                    <span class="text-danger is-invalid item9_err"></span>
+
                                 </div>
 
 

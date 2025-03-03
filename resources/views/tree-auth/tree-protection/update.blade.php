@@ -17,7 +17,7 @@
 
                         <div class="col-md-4">
                             <label class="col-form-label" for="zone">Zone Id / झोन<span class="text-danger">*</span></label>
-                            <select class="form-select" name="zone" id="zone" required>
+                            <select class="form-select" name="zone" id="zone" >
                                 <option value="">Select Zone</option>
                                 @foreach ($zones as $zone)
                                     <option @if ($treeProtection->zone == $zone->name) selected @endif value="{{ $zone->name }}">{{ $zone->name }}</option>
@@ -29,78 +29,80 @@
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="title_of_application">Title of Applicant<span class="text-danger">*</span></label>
-                                <select name="title_of_application" id="title_of_application" class="form-select" required>
+                                <select name="title_of_application" id="title_of_application" class="form-select" >
                                     <option value="" disabled selected> -- Select -- </option>
                                     <option value="mr" {{ $treeProtection->title_of_application == 'mr' ? 'selected' : '' }}>Mr</option>
                                     <option value="mrs"{{ $treeProtection->title_of_application == 'mrs' ? 'selected' : '' }}>Mrs</option>
                                     <option value="ms"{{ $treeProtection->title_of_application == 'ms' ? 'selected' : '' }}>Ms</option>
                                 </select>
+                                <span class="text-danger is-invalid title_of_application_err"></span>
+
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="f_name">First Name <span class="text-danger">*</span></label>
-                                <input class="form-control" id="f_name" name="f_name" type="text" placeholder="Enter First Name" value="{{ $treeProtection->f_name ?? '' }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="f_name" name="f_name" type="text" placeholder="Enter First Name" value="{{ $treeProtection->f_name ?? '' }}" >
+                                <span class="text-danger is-invalid f_name_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="m_name">Middle Name</label>
                                 <input class="form-control" id="m_name" name="m_name" type="text" placeholder="Enter Middle Name" value="{{ $treeProtection->m_name ?? '' }}">
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid m_name_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="l_name">Last Name <span class="text-danger">*</span></label>
-                                <input class="form-control" id="l_name" name="l_name" type="text" placeholder="Enter Last Name" value="{{ $treeProtection->l_name ?? '' }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="l_name" name="l_name" type="text" placeholder="Enter Last Name" value="{{ $treeProtection->l_name ?? '' }}" >
+                                <span class="text-danger is-invalid l_name_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="flat_no">Plot/Flat No <span class="text-danger">*</span></label>
-                                <input class="form-control" id="flat_no" name="flat_no" type="text" placeholder="Enter Last Name" value="{{ $treeProtection->flat_no ?? '' }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="flat_no" name="flat_no" type="text" placeholder="Enter Last Name" value="{{ $treeProtection->flat_no ?? '' }}" >
+                                <span class="text-danger is-invalid flat_no_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="building_no">Name of the Building/Colony<span class="text-danger">*</span></label>
-                                <input class="form-control" id="building_no" name="building_no" type="text" placeholder="Enter Last Name" value="{{ $treeProtection->building_no ?? '' }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="building_no" name="building_no" type="text" placeholder="Enter Last Name" value="{{ $treeProtection->building_no ?? '' }}" >
+                                <span class="text-danger is-invalid building_no_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="area">Name of the Area<span class="text-danger">*</span></label>
-                                <input class="form-control" id="area" name="area" type="text" placeholder="Enter Last Name" value="{{ $treeProtection->area ?? '' }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="area" name="area" type="text" placeholder="Enter Last Name" value="{{ $treeProtection->area ?? '' }}" >
+                                <span class="text-danger is-invalid area_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="city">Name of City<span class="text-danger">*</span></label>
-                                <input class="form-control" id="city" name="city" type="text" placeholder="Enter Last Name" value="{{ $treeProtection->city ?? '' }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="city" name="city" type="text" placeholder="Enter Last Name" value="{{ $treeProtection->city ?? '' }}" >
+                                <span class="text-danger is-invalid citye_err"></span>
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="pincode">Pin Code<span class="text-danger">*</span></label>
-                                <input class="form-control" id="pincode" name="pincode" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Pincode" value="{{ $treeProtection->pincode ?? '' }}" required>
-                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                                <input class="form-control" id="pincode" name="pincode" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Pincode" value="{{ $treeProtection->pincode ?? '' }}" >
+                                <span class="text-danger is-invalid pincode_err"></span>
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="landmark">Near By Landmark<span class="text-danger">*</span></label>
-                                <input class="form-control" id="landmark" name="landmark" type="text" placeholder="Enter Lamd mark" value="{{ $treeProtection->landmark ?? '' }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="landmark" name="landmark" type="text" placeholder="Enter Lamd mark" value="{{ $treeProtection->landmark ?? '' }}" >
+                                <span class="text-danger is-invalid landmark_err"></span>
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="gut_number">City Survey/ Gut Number<span class="text-danger">*</span></label>
-                                <input class="form-control" id="gut_number" name="gut_number" type="text" placeholder="Enter City" value="{{ $treeProtection->gut_number ?? '' }}" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <input class="form-control" id="gut_number" name="gut_number" type="text" placeholder="Enter City" value="{{ $treeProtection->gut_number ?? '' }}" >
+                                <span class="text-danger is-invalid gut_number_err"></span>
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="mobile_num">Mobile No</label><span class="text-danger">*</span>
                                 <input class="form-control" id="mobile_num" name="mobile_num" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" value="{{ $treeProtection->mobile_num ?? '' }}">
-                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                                <span class="text-danger is-invalid mobile_numo_err"></span>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="email">Email<span class="text-danger">*</span></label>
-                                <input class="form-control" id="email" name="email" type="email" placeholder="Enter Email" value="{{ $treeProtection->email ?? '' }}"required>
+                                <input class="form-control" id="email" name="email" type="email" placeholder="Enter Email" value="{{ $treeProtection->email ?? '' }}">
                                 <span class="text-danger is-invalid email_err"></span>
                             </div>
 
@@ -108,7 +110,7 @@
                                 <label class="col-form-label">Type of Applicant <span class="text-danger">*</span></label>
                                 <div class="border rounded p-2">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="type_application" id="type_application" value="Citizen" {{ isset($treeProtection) && $treeProtection->type_application == 'Citizen' ? 'checked' : '' }} required>
+                                        <input class="form-check-input" type="radio" name="type_application" id="type_application" value="Citizen" {{ isset($treeProtection) && $treeProtection->type_application == 'Citizen' ? 'checked' : '' }} >
                                         <label class="form-check-label" for="citizen">Citizen</label>
                                     </div>
 
@@ -126,6 +128,8 @@
                                         <input class="form-check-input" type="radio" name="type_application" id="other" value="Other" {{ isset($treeProtection) && $treeProtection->type_application == 'Other' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="other">Other</label>
                                     </div>
+                                    <span class="text-danger is-invalid type_application_err"></span>
+
                                 </div>
                             </div>
 
@@ -133,7 +137,7 @@
                                 <label class="col-form-label">Reason For Trimming <span class="text-danger">*</span></label>
                                 <div class="border rounded p-2">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="reason_trim" id="reason_trim" value="Trimming Down Dangerous Branches" {{ isset($treeProtection) && $treeProtection->reason_trim == 'Trimming Down Dangerous Branches<' ? 'checked' : '' }} required>
+                                        <input class="form-check-input" type="radio" name="reason_trim" id="reason_trim" value="Trimming Down Dangerous Branches" {{ isset($treeProtection) && $treeProtection->reason_trim == 'Trimming Down Dangerous Branches' ? 'checked' : '' }} >
                                         <label class="form-check-label" for="trimming">Trimming Down Dangerous Branches</label>
                                     </div>
 
@@ -151,29 +155,34 @@
                                         <label class="form-check-label" for="hoardings">Obstruction To Hoardings</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="applicant_type" id="other" value="Other" {{ isset($treeProtection) && $treeProtection->applicant_type == 'Other' ? 'checked' : '' }}>
+                                        <input class="form-check-input" type="radio" name="reason_trim" id="other" value="Other" {{ isset($treeProtection) && $treeProtection->applicant_type == 'Other' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="other">Other</label>
                                     </div>
+                                    <span class="text-danger is-invalid reason_trim_err"></span>
+
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="owner">Type of Owner<span class="text-danger">*</span></label>
-                                <select name="owner" id="owner" class="form-select" required>
+                                <select name="owner" id="owner" class="form-select" >
                                     <option value="" disabled selected> -- Select -- </option>
                                     <option value="private" {{ $treeProtection->owner == 'private' ? 'selected' : '' }}>Private</option>
                                     <option value="corporation" {{ $treeProtection->owner == 'corporation' ? 'selected' : '' }}>Corporation</option>
                                     <option value="government" {{ $treeProtection->owner == 'government' ? 'selected' : '' }}>Government</option>
                                     <option value="semi_govt" {{ $treeProtection->owner == 'semi_govt' ? 'selected' : '' }}>Semi Govt</option>
                                 </select>
+                                <span class="text-danger is-invalid owner_err"></span>
+
                             </div>
 
                             <div class="col-md-3">
                                 <label class="col-form-label" for="type_of_tree">Type of Tree<span class="text-danger">*</span></label>
-                                <select name="type_of_tree" id="type_of_tree" class="form-select" required>
+                                <select name="type_of_tree" id="type_of_tree" class="form-select" >
                                     <option value="" disabled selected> -- Select -- </option>
                                     <option value="fruit" {{ $treeProtection->type_of_tree == 'fruit' ? 'selected' : '' }}>Fruit Tree</option>
                                     <option value="other" {{ $treeProtection->type_of_tree == 'other' ? 'selected' : '' }}>Other Tree</option>
+                                    <span class="text-danger is-invalid type_of_treel_err"></span>
 
                                 </select>
                             </div>
@@ -188,7 +197,7 @@
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="paid_receipt">Current Year Property Tax Paid Receipt <span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" id="paid_receipt" name="paid_receipt" accept="image/*" required onchange="previewImage(event)">
+                                <input type="file" class="form-control" id="paid_receipt" name="paid_receipt" accept="image/*"  onchange="previewImage(event)">
                                 @if ($treeProtection->paid_receipt)
                                     <small><a href="{{ asset('storage/' . $treeProtection->paid_receipt) }}" target="_blank">View Document</a></small>
                                 @endif
@@ -196,19 +205,19 @@
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="photo_tree">Photograph of Tree <span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" id="photo_tree" name="photo_tree" accept="image/*" required onchange="previewImage(event)">
+                                <input type="file" class="form-control" id="photo_tree" name="photo_tree" accept="image/*"  onchange="previewImage(event)">
                                 @if ($treeProtection->photo_tree)
                                     <small><a href="{{ asset('storage/' . $treeProtection->photo_tree) }}" target="_blank">View Document</a></small>
                                 @endif
-                                <span class="text-danger is-invalid paid_receipt_err"></span>
+                                <span class="text-danger is-invalid photo_tree_err"></span>
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="aadhar">Aadhaar Card <span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" id="aadhar" name="aadhar" accept="image/*" required onchange="previewImage(event)">
+                                <input type="file" class="form-control" id="aadhar" name="aadhar" accept="image/*"  onchange="previewImage(event)">
                                 @if ($treeProtection->aadhar)
                                     <small><a href="{{ asset('storage/' . $treeProtection->aadhar) }}" target="_blank">View Document</a></small>
                                 @endif
-                                <span class="text-danger is-invalid paid_receipt_err"></span>
+                                <span class="text-danger is-invalid aadhar_err"></span>
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="building_permission">Building Permission</label>
@@ -216,23 +225,23 @@
                                 @if ($treeProtection->building_permission)
                                     <small><a href="{{ asset('storage/' . $treeProtection->building_permission) }}" target="_blank">View Document</a></small>
                                 @endif
-                                <span class="text-danger is-invalid paid_receipt_err"></span>
+                                <span class="text-danger is-invalid building_permissiont_err"></span>
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="plan_construction">Sanctioned Plan of Construction <span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" id="plan_construction" name="plan_construction" accept="image/*" required onchange="previewImage(event)">
+                                <input type="file" class="form-control" id="plan_construction" name="plan_construction" accept="image/*"  onchange="previewImage(event)">
                                 @if ($treeProtection->plan_construction)
                                     <small><a href="{{ asset('storage/' . $treeProtection->plan_construction) }}" target="_blank">View Document</a></small>
                                 @endif
-                                <span class="text-danger is-invalid paid_receipt_err"></span>
+                                <span class="text-danger is-invalid plan_constructiont_err"></span>
                             </div>
                             <div class="col-md-3">
                                 <label class="col-form-label" for="noc_letter">NOC Letter <span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" id="noc_letter" name="noc_letter" accept="image/*" required onchange="previewImage(event)">
+                                <input type="file" class="form-control" id="noc_letter" name="noc_letter" accept="image/*"  onchange="previewImage(event)">
                                 @if ($treeProtection->noc_letter)
                                     <small><a href="{{ asset('storage/' . $treeProtection->noc_letter) }}" target="_blank">View Document</a></small>
                                 @endif
-                                <span class="text-danger is-invalid paid_receipt_err"></span>
+                                <span class="text-danger is-invalid noc_letter_err"></span>
                             </div>
 
 

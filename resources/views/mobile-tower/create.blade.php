@@ -21,13 +21,13 @@
                             <div class="col-md-4">
                                 <label class="col-form-label" for="name">दुकानाचे नाव इंग्रजी<span class="text-danger">*</span></label>
                                 <input class="form-control" id="name" name="name" type="text" placeholder="Enter Shop name  in English" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="m_name"> दुकानाचे नाव मराठी<span class="text-danger">*</span></label>
                                 <input class="form-control" id="m_name" name="m_name" type="text" placeholder="Enter Shop name Marathi" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid m_name_err"></span>
                             </div>
 
                             <div class="col-md-4 mb-2">
@@ -104,7 +104,18 @@
                             <div class="col-md-4">
                                 <label class="col-form-label" for="amount">रक्कम<span class="text-danger">*</span></label>
                                 <input class="form-control" id="amount" name="amount" type="number" placeholder="Enter Applicant Name" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid amount_err"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="amount">व्यवसायाचे स्वरूप<span class="text-danger">*</span></label>
+                                <select class="form-control select2-multiple" name="trade_type" multiple="multiple">
+                                    <option value="1">ठोक</option>
+                                    ...
+                                    <option value="2">सर्व प्रकारच्या धातुच्या औत कामाचा व्यवसाय</option>
+                                    ...
+                                    <option value="3">सुत कापड रंगविण्याचा व्य‍वसाय</option>
+                                </select>
                             </div>
 
                             <div class="col-md-4">
@@ -140,25 +151,25 @@
                             <div class="col-md-4">
                                 <label class="col-form-label" for="owner_place">जागा मालकीचे नाव<span class="text-danger">*</span></label>
                                 <input class="form-control" id="owner_place" name="owner_place" type="text" placeholder="Enter Name of the owner of the place" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid owner_place_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="landlord_address">जागा मालकाचा पत्ता<span class="text-danger">*</span></label>
                                 <input class="form-control" id="landlord_address" name="landlord_address" type="text" placeholder="Enter Name of the owner of the place" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid landlord_address_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="rental_agreement">भाडे करार कोणासोबत केलेले आहे<span class="text-danger">*</span></label>
                                 <input class="form-control" id="rental_agreement" name="rental_agreement" type="text" placeholder="Enter rental agreement" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid rental_agreement_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="area">वापरात आलेले जागेचे क्षेत्र चौ. फु. मध्ये<span class="text-danger">*</span></label>
                                 <input class="form-control" id="area" name="area" type="number" placeholder="Enter" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid area_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -179,19 +190,19 @@
                             <div class="col-md-4">
                                 <label class="col-form-label" for="business_start">व्यवसाय सुरु केल्याचे वर्ष<span class="text-danger">*</span></label>
                                 <input class="form-control" id="business_start" name="business_start" type="number" placeholder="Year of business start" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid business_start_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="registration_no">शॉप ऍक्ट नोंदणी क्र.<span class="text-danger">*</span></label>
                                 <input class="form-control" id="registration_no" name="registration_no" type="number" placeholder="" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid registration_no_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="food_drug">अन्न व ओषध प्रशासन कायद्यान्वये नोंदणी क्र.<span class="text-danger">*</span></label>
                                 <input class="form-control" id="food_drug" name="food_drug" type="text" placeholder="" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid food_drug_err"></span>
                             </div>
                         </div>
 
@@ -209,26 +220,26 @@
                             <div class="col-md-4">
                                 <label class="col-form-label" for="director_name">संचालकांचा नाव<span class="text-danger">*</span></label>
                                 <input class="form-control" id="director_name" name="director_name" type="text" placeholder="Enter Director Name" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid director_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="contact_no">संपर्क क्र.<span class="text-danger">*</span></label>
                                 <input class="form-control" id="contact_no" name="contact_no" type="number" placeholder="Enter  Number" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid contact_no_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="alternet_email">ई-मेल.<span class="text-danger">*</span></label>
                                 <input class="form-control" id="alternet_email" name="alternet_email" type="email" placeholder="Enter  Number" required>
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid alternet_email_err"></span>
                             </div>
 
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="alternet_address">पत्ता <span class="text-danger">*</span></label>
                                 <textarea class="form-control" name="alternet_address" id="alternet_address" cols="30" rows="2" placeholder="Enter Address" required></textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
+                                <span class="text-danger is-invalid alternet_address_err"></span>
                             </div>
 
 
@@ -264,14 +275,14 @@
                                     <option value="5">विधवा </option>
                                     <option value="6">सामान्य </option>
                                 </select>
-                                <span class="text-danger is-invalid zone_err"></span>
+                                <span class="text-danger is-invalid application_type_err"></span>
                             </div>
 
 
                             <div class="col-md-4 mb-2">
                                 <label class="col-form-label" for="director_photos">संचालकाचां फोटो<span class="text-danger">*</span></label>
                                 <input class="form-control" id="director_photos" name="director_photos" type="file" required>
-                                <span class="text-danger is-invalid upload_prescribed_formats_err" required></span>
+                                <span class="text-danger is-invalid director_photos_err" required></span>
                             </div>
 
                         </div>
@@ -295,13 +306,13 @@
 
                             <div class="col-md-4 mb-2">
                                 <label class="col-form-label" for="ownership">बाजार परवाना (नुतनिकरणावेळेस)</label>
-                                <input class="form-control" id="ownership" name="ownership" type="file" >
+                                <input class="form-control" id="ownership" name="ownership" type="file">
                                 <span class="text-danger is-invalid upload_prescribed_formats_err"></span>
                             </div>
 
                             <div class="col-md-4 mb-2">
                                 <label class="col-form-label" for="water_bills">अन्न व औषध प्रशासन कायद्यान्वये नोंदणी प्रत</label>
-                                <input class="form-control" id="water_bill" name="water_bills" type="file" >
+                                <input class="form-control" id="water_bill" name="water_bills" type="file">
                                 <span class="text-danger is-invalid water_bills_err"></span>
                             </div>
 
@@ -419,6 +430,15 @@
                 $('#preloader').css('opacity', '0');
                 $('#preloader').css('visibility', 'hidden');
             },
+        });
+
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('.select2-multiple').select2({
+            placeholder: "Select",
+            allowClear: true
         });
 
     });

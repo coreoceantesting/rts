@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DivSubDivision\CreateRequest;
+use App\Http\Requests\DivSubDivision\UpdateRequest;
 use App\Services\CommonService;
 use Illuminate\Http\Request;
 use App\Services\DivSubDivisionService;
@@ -34,7 +36,7 @@ class DivSubDivisionController extends Controller
     }
 
     // Store the newly created abattoir license
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
 
         // Call the store method in the service and get the response
@@ -79,11 +81,18 @@ class DivSubDivisionController extends Controller
             'advertisemenent' => $division
         ]);
     }
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
         // dd($request->all());
         $division = $this->divsubdivision->update($request, $id);
-
-        return response()->json(['success' => 'Division Of Property In Sub Division update successfully!']);
+        if ($division) {
+            return response()->json([
+                'success' => 'Division Of Property In Sub Division updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 }

@@ -285,7 +285,7 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('fees', FeesController::class);
     Route::resource('signature', SignatureController::class);
     Route::resource('nature-business', NatureOfBusinessController::class);
-    
+
 
 });
 Route::post('rts-service-status', [AapaleSarkarLoginCheckController::class, 'updateStatus'])->name('rts.status');

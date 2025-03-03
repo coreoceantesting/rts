@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Pwd;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Pwd\GrantingTelecom\CreateRequest;
+use App\Http\Requests\Pwd\GrantingTelecom\UpdateRequest;
 use App\Services\CommonService;
 use App\Services\Pwd\GrantingTelecomService;
 use Illuminate\Http\Request;
@@ -35,7 +37,7 @@ class GrantingTelecomController extends Controller
     }
 
     // Store the newly created abattoir license
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
 
         // Call the store method in the service and get the response
@@ -80,7 +82,7 @@ class GrantingTelecomController extends Controller
             'advertisemenent' => $grantingTelecom
         ]);
     }
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
         // dd($request->all());
         $grantingTelecom = $this->grantingTelecom->update($request, $id);

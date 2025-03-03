@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\MedicalHealth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MedicalHealth\ChangelNursingLicense\CreateRequest;
+use App\Http\Requests\MedicalHealth\ChangelNursingLicense\UpdateRequest;
 use App\Services\CommonService;
 use App\Services\MedicalHealth\ChangeNursingLicenseService;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 
 class ChangeNursingLicenseController extends Controller
@@ -35,7 +38,7 @@ class ChangeNursingLicenseController extends Controller
     }
 
     // Store the newly created abattoir license
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
 
         // Call the store method in the service and get the response
@@ -80,11 +83,19 @@ class ChangeNursingLicenseController extends Controller
             'advertisemenent' => $changeNursingLicense
         ]);
     }
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
         // dd($request->all());
         $changeNursingLicense = $this->changeNursingLicense->update($request, $id);
 
-        return response()->json(['success' => 'Change Nursing License update successfully!']);
+        if ($changeNursingLicense) {
+            return response()->json([
+                'success' => 'Change Nursing License updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 }
