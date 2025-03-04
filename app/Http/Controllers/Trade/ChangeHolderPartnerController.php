@@ -1,25 +1,25 @@
 <?php
 
-namespace App\Http\Controllers\TownPlaning;
+namespace App\Http\Controllers\Trade;
 
- use App\Http\Requests\TownPlanning\OccupancyCertificate\CreateRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\TownPlanning\OccupancyCertificate\UpdateRequest;
+use App\Http\Requests\Trade\ChangeHolderPartner\CreateRequest;
+use App\Http\Requests\Trade\ChangeHolderPartner\UpdateRequest;
+use App\Models\Trade\PartnerChange;
 use App\Services\CommonService;
-use App\Services\TownPlanning\OccupancyCertificateService;
-use GuzzleHttp\Promise\Create;
+use App\Services\Trade\ChangeHolderPartnerService;
 use Illuminate\Http\Request;
 
-class OccupancyCetificateController extends Controller
+class ChangeHolderPartnerController extends Controller
 {
     protected $commonService;
-    protected $occupancyCertificateService;
+    protected $changeHolderPartner;
 
 
     // Constructor for dependency injection
-    public function __construct(OccupancyCertificateService $occupancyCertificateService, CommonService $commonService)
+    public function __construct(ChangeHolderPartnerService $changeHolderPartner, CommonService $commonService)
     {
-        $this->occupancyCertificateService = $occupancyCertificateService;
+        $this->changeHolderPartner = $changeHolderPartner;
         $this->commonService = $commonService;
     }
 
@@ -31,7 +31,9 @@ class OccupancyCetificateController extends Controller
         $zones = $this->commonService->getActiveZone();
 
         // Return the create view with wards and zones data
-        return view('town-planing.occupancy-certificate.create')->with([
+
+        $partnerChanges = PartnerChange::all();
+        return view('trade.change-holder-partner.create', compact('partnerChanges'))->with([
             'wards' => $wards,
             'zones' => $zones,
         ]);
@@ -42,17 +44,17 @@ class OccupancyCetificateController extends Controller
     {
 
         // Call the store method in the service and get the response
-        $occupancyCertificateService = $this->occupancyCertificateService->store($request);
+        $changeHolderPartner = $this->changeHolderPartner->store($request);
 
         // dd($request);
         // Check if the license was successfully saved
-        if ($occupancyCertificateService[0]) {
+        if ($changeHolderPartner[0]) {
             return response()->json([
-                'success' => 'Occupancy Certificate saved successfully'
+                'success' => 'Trade Change Business Holder/Partner saved successfully'
             ]);
         } else {
             return response()->json([
-                'error' => $occupancyCertificateService[1]
+                'error' => $changeHolderPartner[1]
             ]);
         }
     }
@@ -61,8 +63,8 @@ class OccupancyCetificateController extends Controller
 
     public function edit($id)
     {
-    //  return encrypt($id);
-        $occupancyCertificateService = $this->occupancyCertificateService->edit(decrypt($id));
+            //    return encrypt($id);
+        $changeHolderPartner = $this->changeHolderPartner->edit(decrypt($id));
 
         // $advertisementPermission = AdvertisementPermission::find($id);
 
@@ -72,24 +74,28 @@ class OccupancyCetificateController extends Controller
 
         $zones = $this->commonService->getActiveZone();
 
+        $partnerchanges =PartnerChange::where('partner_change_id',decrypt($id))->get();
+        // dd($partnerchanges);
         // $data = AdvertisementPermission::findOrFail($id);
 
-        return view('town-planing.occupancy-certificate.update')->with([
-            'occupancyCertificateService'=>  $occupancyCertificateService,
+        return view('trade.change-holder-partner.update',compact('partnerchanges'))->with([
+            'changeHolderPartner'=>  $changeHolderPartner,
             'wards' => $wards,
             'zones' => $zones,
             // 'data' => '$data',
 
-            'occupancyCertificateService' => $occupancyCertificateService
+            'changeHolderPartner' => $changeHolderPartner
         ]);
     }
     public function update(UpdateRequest $request, $id)
     {
-        $occupancyCertificateService = $this->occupancyCertificateService->update($request, $id);
+        // dd($request);
+        $changeHolderPartner = $this->changeHolderPartner->update($request, $id);
 
-        if ($occupancyCertificateService) {
+
+        if ($changeHolderPartner) {
             return response()->json([
-                'success' => 'Occupancy Certificate updated successfully'
+                'success' => 'Trade Change Business Holder/Partner updated successfully'
             ]);
         } else {
             return response()->json([

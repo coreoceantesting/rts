@@ -354,8 +354,8 @@ class ServiceNameSeeder extends Seeder
                 'service_id' => 241,
                 'service_name' => 'Occupancy Completion Certificate  ',
                 'model' => '\App\Models\OccupancyCertificate',
-                'add_route' => 'occupancy-certification.create',
-                'edit_route' => 'occupancy-certification.edit'
+                'add_route' => 'town-occupancy-certificate.create',
+                'edit_route' => 'town-occupancy-certificate.edit'
             ],
             [
                 'service_id' => 2006,
@@ -583,11 +583,11 @@ class ServiceNameSeeder extends Seeder
                 'edit_route' => 'town-building-permission.edit'
             ],
             [
-                'service_id' => 2036,
-                'service_name' => 'To issue Occupancy Certificate',
-                'model' => '\App\Models\TownPlanning\OccupancyCertificate',
-                'add_route' => 'town-building-permission.create',
-                'edit_route' => 'town-building-permission.edit'
+                'service_id' => 2037,
+                'service_name' => 'Change The Business Holder/Partner',
+                'model' => '\App\Models\Trade\ChangeHolderPartner',
+                'add_route' => 'trade-change-holder-partner.create',
+                'edit_route' => 'trade-change-holder-partner.edit'
             ],
         ];
 

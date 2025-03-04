@@ -20,7 +20,7 @@
                             <select class="form-select" name="zone" id="zone" >
                                 <option value="">Select Zone</option>
                                 @foreach ($zones as $zone)
-                                    <option @if ($division->zone == $zone->name) selected @endif value="{{ $zone->name }}">{{ $zone->name }}</option>
+                                    <option @if ($occupancyCertificateService->zone == $zone->name) selected @endif value="{{ $zone->name }}">{{ $zone->name }}</option>
                                 @endforeach
                             </select>
                             <span class="text-danger is-invalid zone_err"></span>
@@ -28,78 +28,78 @@
                         <div class="mb-3 row">
                             <div class="col-md-4">
                                 <label class="col-form-label" for="f_name">First Name <span class="text-danger">*</span></label>
-                                <input class="form-control" id="f_name" name="f_name" type="text" placeholder="Enter First Name" value="{{ $division->f_name }}" >
+                                <input class="form-control" id="f_name" name="f_name" type="text" placeholder="Enter First Name" value="{{ $occupancyCertificateService->f_name }}" >
                                 <span class="text-danger is-invalid f_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="m_name">Middle Name <span class="text-danger">*</span></label>
-                                <input class="form-control" id="m_name" name="m_name" type="text" placeholder="Enter Middle Name" value="{{ $division->m_name }}" >
+                                <input class="form-control" id="m_name" name="m_name" type="text" placeholder="Enter Middle Name" value="{{ $occupancyCertificateService->m_name }}" >
                                 <span class="text-danger is-invalid m_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="l_name">Last Name <span class="text-danger">*</span></label>
-                                <input class="form-control" id="l_name" name="l_name" type="text" placeholder="Enter Last Name" value="{{ $division->l_name }}" >
+                                <input class="form-control" id="l_name" name="l_name" type="text" placeholder="Enter Last Name" value="{{ $occupancyCertificateService->l_name }}" >
                                 <span class="text-danger is-invalid l_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="marathi_f_name">प्रथम नाव (मराठी) <span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_f_name" name="marathi_f_name" type="text" placeholder="नाव प्रविष्ट करा प्रथम" value="{{ $division->marathi_f_name }}" >
+                                <input class="form-control" id="marathi_f_name" name="marathi_f_name" type="text" placeholder="नाव प्रविष्ट करा प्रथम" value="{{ $occupancyCertificateService->marathi_f_name }}" >
                                 <span class="text-danger is-invalid marathi_f_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="marathi_m_name">मधले नाव (मराठी)<span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_m_name" name="marathi_m_name" type="text" placeholder="प्रविष्ट करा मधले नाव" value="{{ $division->marathi_m_name }}" >
+                                <input class="form-control" id="marathi_m_name" name="marathi_m_name" type="text" placeholder="प्रविष्ट करा मधले नाव" value="{{ $occupancyCertificateService->marathi_m_name }}" >
                                 <span class="text-danger is-invalid marathi_m_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="marathi_l_name">आडनाव (मराठी) <span class="text-danger">*</span></label>
-                                <input class="form-control" id="marathi_l_name" name="marathi_l_name" type="text" placeholder="आडनाव प्रविष्ट करा" value="{{ $division->marathi_l_name }}" >
+                                <input class="form-control" id="marathi_l_name" name="marathi_l_name" type="text" placeholder="आडनाव प्रविष्ट करा" value="{{ $occupancyCertificateService->marathi_l_name }}" >
                                 <span class="text-danger is-invalid marathi_l_name_err"></span>
                             </div>
 
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="mobile_num">Mobile Number</label>
-                                <input class="form-control" id="mobile_num" name="mobile_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" value="{{ $division->mobile_num }}">
+                                <input class="form-control" id="mobile_num" name="mobile_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number" value="{{ $occupancyCertificateService->mobile_num }}">
                                 <span class="text-danger is-invalid mobile_num_err"></span>
                             </div>
                             <div class="col-md-4">
                                 <label class="col-form-label" for="aadhar_num">Aadhar Card No</label>
-                                <input class="form-control" id="aadhar_num" name="aadhar_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number" value="{{ $division->aadhar_num }}">
+                                <input class="form-control" id="aadhar_num" name="aadhar_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number" value="{{ $occupancyCertificateService->aadhar_num }}">
                                 <span class="text-danger is-invalid aadhar_num_err"></span>
                             </div>
                             <div class="col-md-4">
                                 <label class="col-form-label" for="email">Email<span class="text-danger">*</span></label>
-                                <input class="form-control" id="email" name="email" type="email" placeholder="Enter Email" value="{{ $division->email }}" >
+                                <input class="form-control" id="email" name="email" type="email" placeholder="Enter Email" value="{{ $occupancyCertificateService->email }}" >
                                 <span class="text-danger is-invalid email_err"></span>
                             </div>
                             <div class="col-md-5">
                                 <label class="col-form-label" for="address"> Address <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="address" id="address" cols="30" rows="2" placeholder="Enter Address" >{{ $division->address }}</textarea>
+                                <textarea class="form-control" name="address" id="address" cols="30" rows="2" placeholder="Enter Address" >{{ $occupancyCertificateService->address }}</textarea>
                                 <span class="text-danger is-invalid address_err"></span>
                             </div>
 
                             <div class="col-md-5">
                                 <label class="col-form-label" for="marathi_address"> पत्ता (मराठी) <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="marathi_address" id="marathi_address" cols="30" rows="2" placeholder="पत्ता" value="" >{{ $division->marathi_address }}</textarea>
+                                <textarea class="form-control" name="marathi_address" id="marathi_address" cols="30" rows="2" placeholder="पत्ता" value="" >{{ $occupancyCertificateService->marathi_address }}</textarea>
                                 <span class="text-danger is-invalid marathi_address_err"></span>
                             </div>
 
 
                             <div class="col-md-5">
                                 <label class="col-form-label" for="purpose">Purpose <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="purpose" id="purpose" cols="30" rows="2" placeholder="Enter purpose" value="" >{{ $division->purpose }}</textarea>
+                                <textarea class="form-control" name="purpose" id="purpose" cols="30" rows="2" placeholder="Enter purpose" value="" >{{ $occupancyCertificateService->purpose }}</textarea>
                                 <span class="text-danger is-invalid purpose_err"></span>
                             </div>
 
                             <div class="col-md-5">
                                 <label class="col-form-label" for="marathi_purpose">उद्देश (मराठी) <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="marathi_purpose" id="marathi_purpose" cols="30" rows="2" placeholder="उद्देश" value="" >{{ $division->marathi_purpose }}</textarea>
+                                <textarea class="form-control" name="marathi_purpose" id="marathi_purpose" cols="30" rows="2" placeholder="उद्देश" value="" >{{ $occupancyCertificateService->marathi_purpose }}</textarea>
                                 <span class="text-danger is-invalid marathi_purpose_err"></span>
                             </div>
 
@@ -139,7 +139,7 @@
 
 
         var formdata = new FormData(this);
-        var updateUrl = '{{ route('divsub-division.update', $division->id) }}';
+        var updateUrl = '{{ route('town-occupancy-certificate.update', $occupancyCertificateService->id) }}';
         formdata.append('_method', 'PUT');
         $.ajax({
             url: updateUrl,

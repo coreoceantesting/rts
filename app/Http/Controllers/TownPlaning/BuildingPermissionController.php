@@ -86,7 +86,15 @@ class BuildingPermissionController extends Controller
         // dd($request->all());
         $buildingpermission = $this->buildingpermission->update($request, $id);
 
-        return response()->json(['success' => 'Building Permission update successfully!']);
+        if ($buildingpermission) {
+            return response()->json([
+                'success' => 'Occupancy Certificate updated successfully'
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong, please try again'
+            ]);
+        }
     }
 }
 

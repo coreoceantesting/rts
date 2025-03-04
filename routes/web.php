@@ -93,6 +93,7 @@ use App\Http\Controllers\Nulm\HawkerRegisterController;
 use App\Http\Controllers\Pwd\GrantingTelecomController;
 use App\Http\Controllers\TownPlaning\BuildingPermissionController;
 use App\Http\Controllers\TownPlaning\OccupancyCetificateController;
+use App\Http\Controllers\Trade\ChangeHolderPartnerController;
 use App\Http\Controllers\Trade\IssuanceLicenseMarriageController;
 use App\Http\Controllers\Trade\LicenseLoadgingHouseController;
 use App\Http\Controllers\Trade\MovieShootingController;
@@ -211,6 +212,8 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('trade-issuance-license-marriage', IssuanceLicenseMarriageController::class);
     Route::resource('trade-renew-license-marriage', RenewalLicenseMarriageController::class);
     Route::resource('movie-shooting', MovieShootingController::class);
+    Route::resource('trade-change-holder-partner', ChangeHolderPartnerController::class);
+
 
 
     // NULM
@@ -243,7 +246,7 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('zone', \App\Http\Controllers\Master\ZoneController::class);
 
     Route::resource('plinth-certificate', PlinthCertificateController::class);
-    // Route::resource('occupancy-certificate', OccupancyCertificateController::class);
+    //  Route::resource('occupancy-certificate', OccupancyCertificateController::class);
 
     Route::resource('permission-shooting', PermissionShootingController::class);
 

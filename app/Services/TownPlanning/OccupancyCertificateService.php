@@ -5,11 +5,9 @@ namespace App\Services\TownPlanning;
 use App\Services\AapaleSarkarLoginCheckService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
-use App\Models\Trade\LicenseLoadgingHouse;
 use App\Models\ServiceCredential;
-use App\Models\TownPlanning\BuildingPermission;
+use App\Models\TownPlanning\OccupancyCertificate;
 
 class OccupancyCertificateService
 {
@@ -25,13 +23,13 @@ class OccupancyCertificateService
     {
 
         $request['user_id'] = Auth::user()->id;
-        $request['service_id'] = "20";
-        $request['application_no'] = "PMC-" . time();
+        $request['service_id'] = "241";
+        $request['application_no'] = "OC-" . time();
 
 
-        $buildingpermission=BuildingPermission::create($request->all());
+        $occupancyCertificateService=OccupancyCertificate::create($request->all());
 
-        if ($buildingpermission) {
+        if ($occupancyCertificateService) {
             $applicationId = $request->application_no;
 
             if (Auth::user()->is_aapale_sarkar_user) {
@@ -89,7 +87,7 @@ class OccupancyCertificateService
 
     public function edit($id)
     {
-        return BuildingPermission::find($id);
+        return OccupancyCertificate::find($id);
     }
 
     public function update($request, $id)
@@ -98,11 +96,11 @@ class OccupancyCertificateService
         DB::beginTransaction();
         try {
             // Find the existing record
-            $buildingpermission = BuildingPermission::find($id);
+            $occupancyCertificateService = OccupancyCertificate::find($id);
 
             // Handle file uploads and update original file names
 
-            $buildingpermission->update($request->all());
+            $occupancyCertificateService->update($request->all());
 
             DB::commit();
             return [true];

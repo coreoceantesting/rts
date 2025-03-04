@@ -34,9 +34,15 @@ class UpdateRequest extends FormRequest
             'marathi_address' => 'required',
             'purpose' => 'required',
             'marathi_purpose' => 'required',
-            'mobile_num' => 'required|min:10|max:10',
-            'aadhar_num' => 'required|min:12|max:12',
-            'is_correct_info' => 'required'
+            'is_correct_info' => 'required',
+            'mobile_num'=>'required|min:10|max:10',
+            'aadhar_num'=>'required|min:12|max:12'
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'is_correct_info.required' => 'Please Accept Declaration'
         ];
     }
 }
