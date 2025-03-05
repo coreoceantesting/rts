@@ -37,6 +37,8 @@ class UpdateRequest extends FormRequest
             'manufactured' => 'required',
             'business_premises' => 'required',
             'owner_place'=>'required',
+            // 'nature_business_id'=>'required',
+            // 'trade'=>'required',
             // 'address_owner_premises'=>'required',
             'rental_agreement'=>'required',
             'area'=>'required',

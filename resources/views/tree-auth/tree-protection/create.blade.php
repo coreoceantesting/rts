@@ -155,7 +155,7 @@
                                         <label class="form-check-label" for="advertising">Obstruction To Hoardings</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="reason_trim" id="other" value="Other">
+                                        <input class="form-check-input" type="radio" name="reason_trim" id="reason_trim" value="Other">
                                         <label class="form-check-label" for="other">Other</label>
                                     </div>
                                     <span class="text-danger is-invalid reason_trim_err"></span>
@@ -193,7 +193,7 @@
                                     List of Documents (Attachment) For Tree Branches Trimming <span class="text-danger">*</span>
                                 </label>
                                 <div class="alert alert-info p-2">
-                                    <strong>Note:</strong> Upload Below Files only <strong>pdf, jpg, jpeg</strong>, etc. Max up to <strong>5MB</strong>.
+                                    <strong>Note:</strong> Upload Below Files only <strong>pdf, jpg, jpeg</strong>, etc. Max up to <strong>2MB</strong>.
                                 </div>
                             </div>
                             <div class="col-md-3">

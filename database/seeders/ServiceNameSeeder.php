@@ -353,7 +353,7 @@ class ServiceNameSeeder extends Seeder
             [
                 'service_id' => 241,
                 'service_name' => 'Occupancy Completion Certificate  ',
-                'model' => '\App\Models\OccupancyCertificate',
+                'model' => '\App\Models\TownPlanning\OccupancyCertificate',
                 'add_route' => 'town-occupancy-certificate.create',
                 'edit_route' => 'town-occupancy-certificate.edit'
             ],
@@ -498,7 +498,7 @@ class ServiceNameSeeder extends Seeder
 
             [
                 'service_id' => 2024,
-                'service_name' => 'Issuance of Nursing Home License',
+                'service_name' => 'Licensing of nursing homes under the Maharashtra Nursing Homes Registration Act, 1949',
                 'model' => '\App\Models\MedicalHealth\GrantNursingLicense',
                 'add_route' => 'grantnursing-license.create',
                 'edit_route' => 'grantnursing-license.edit'
@@ -506,7 +506,7 @@ class ServiceNameSeeder extends Seeder
 
             [
                 'service_id' => 2025,
-                'service_name' => 'Renewal of Nursing Home License',
+                'service_name' => 'Renewal of nursing homes under the Maharashtra Nursing Homes Registration Act, 1949',
                 'model' => '\App\Models\MedicalHealth\RenewalNursingLicense',
                 'add_route' => 'renewnursing-license.create',
                 'edit_route' => 'renewnursing-license.edit'
@@ -514,35 +514,35 @@ class ServiceNameSeeder extends Seeder
 
             [
                 'service_id' => 2026,
-                'service_name' => 'Change of name of license',
+                'service_name' => 'Owners Name change/ Partner name  of nursing homes under the Maharashtra Nursing Homes Registration Act, 1949',
                 'model' => '\App\Models\MedicalHealth\changenursing-license',
                 'add_route' => 'changenursing-license.create',
                 'edit_route' => 'changenursing-license.edit'
             ],
             [
                 'service_id' => 2027,
-                'service_name' => 'Licensing Of Lodging Houses',
+                'service_name' => 'License for the Lodging House',
                 'model' => '\App\Models\Trade\LicenseLoadgingHouse',
                 'add_route' => 'trade-license-loading.create',
                 'edit_route' => 'trade-license-loading.edit'
             ],
             [
                 'service_id' => 2028,
-                'service_name' => 'Renewal of Lodging House License',
+                'service_name' => 'Renewal License for the Lodging House',
                 'model' => '\App\Models\Trade\RenewLicenseLoadging',
                 'add_route' => 'trade-renew-license-loading.create',
                 'edit_route' => 'trade-renew-license-loading.edit'
             ],
             [
                 'service_id' => 2029,
-                'service_name' => 'Issuance of license for marriage hall',
+                'service_name' => 'Issuance of license for Marriage Hall/Meeting Hall etc.',
                 'model' => '\App\Models\Trade\IssuanceLicenseMarriage',
                 'add_route' => 'trade-issuance-license-marriage.create',
                 'edit_route' => 'trade-issuance-license-marriage.edit'
             ],
             [
                 'service_id' => 2030,
-                'service_name' => 'Renewal of marriage hall',
+                'service_name' => 'Renewal of License for Marriage Hall/Meeting Hall etc.',
                 'model' => '\App\Models\Trade\RenewMarriageLicense',
                 'add_route' => 'trade-renew-license-marriage.create',
                 'edit_route' => 'trade-renew-license-marriage.edit'
@@ -563,7 +563,7 @@ class ServiceNameSeeder extends Seeder
             ],
             [
                 'service_id' => 2033,
-                'service_name' => 'Urban Areas Tree Protection',
+                'service_name' => 'Granting permission for felling of trees as per the provisions of Section 8 of the Maharashtra Urban Areas Tree Protection and Conservation Act, 1975',
                 'model' => '\App\Models\TreeAuth\TreeProtection',
                 'add_route' => 'tree-protection.create',
                 'edit_route' => 'tree-protection.edit'

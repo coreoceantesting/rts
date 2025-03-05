@@ -1,6 +1,8 @@
 <x-admin.layout>
-    <x-slot name="title">Change of name of licensee/shareholder of Nursing Home License under Maharashtra Nursing Home Registration Act 1949/महाराष्ट्र शुश्रूषा-गृह नोंदणी अधिनियम 1949 अंतर्गत शुश्रूषा-गृह परवानाचे परवानाधारक/भगिधारीचे नाव बदलणे</x-slot>
-    <x-slot name="heading">Change of name of licensee/shareholder of Nursing Home License under Maharashtra Nursing Home Registration Act 1949/महाराष्ट्र शुश्रूषा-गृह नोंदणी अधिनियम 1949 अंतर्गत शुश्रूषा-गृह परवानाचे परवानाधारक/भगिधारीचे नाव बदलणे</x-slot>
+    <x-slot name="title">Owners Name change/ Partner name  of nursing homes under the Maharashtra Nursing Homes Registration Act, 1949
+/महाराष्ट्र शुश्रूषा-गृह नोंदणी अधिनियम 1949 अंतर्गत शुश्रूषा-गृह परवानाचे परवानाधारक/भगिधारीचे नाव बदलणे</x-slot>
+    <x-slot name="heading">Owners Name change/ Partner name  of nursing homes under the Maharashtra Nursing Homes Registration Act, 1949
+/महाराष्ट्र शुश्रूषा-गृह नोंदणी अधिनियम 1949 अंतर्गत शुश्रूषा-गृह परवानाचे परवानाधारक/भगिधारीचे नाव बदलणे</x-slot>
 
     <!-- Add Form -->
     <div class="row" id="addContainer">

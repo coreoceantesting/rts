@@ -61,7 +61,7 @@ class MobileTower extends Model
         'to_year',
         'amount',
         'trade_type',
-        'rate',
+        'nature_business_id',
         'trade',
         'manufactured',
         'business_premises',
@@ -80,7 +80,9 @@ class MobileTower extends Model
         'business_start'
     ];
 
-
+    // protected $casts = [
+    //     'nature_business_id' => 'array'
+    // ];
     protected static function boot()
     {
         parent::boot();

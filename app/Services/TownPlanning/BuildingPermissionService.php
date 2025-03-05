@@ -26,7 +26,7 @@ class BuildingPermissionService
 
         $request['user_id'] = Auth::user()->id;
         $request['service_id'] = "2035";
-        $request['application_no'] = "PMC-" . time();
+        $request['application_no'] = "IBP-" . time();
 
 
         $buildingpermission=BuildingPermission::create($request->all());

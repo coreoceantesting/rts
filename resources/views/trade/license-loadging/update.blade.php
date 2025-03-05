@@ -227,7 +227,7 @@
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="contact_no">संपर्क क्र.<span class="text-danger">*</span></label>
-                                <input class="form-control" id="contact_no" name="contact_no" type="number"type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter  Number"  value="{{ old('contact_no', $licenseLoadgingHouse->contact_no) }}">
+                                <input class="form-control" id="contact_no" name="contact_no" type="text"type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter  Number"  value="{{ old('contact_no', $licenseLoadgingHouse->contact_no) }}">
                                 <span class="text-danger is-invalid contact_no_err"></span>
                             </div>
 

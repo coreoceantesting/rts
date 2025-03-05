@@ -1,6 +1,6 @@
 <x-admin.layout>
-    <x-slot name="title">Issuance of Nursing Home License under Maharashtra Nursing Home Registration Act 1949 /महाराष्ट्र शुश्रूषा-गृह नोंदणी अधिनियम 1949 अंतर्गत शुश्रूषा-गृह परवाना देणे</x-slot>
-    <x-slot name="heading">Issuance of Nursing Home License under Maharashtra Nursing Home Registration Act 1949 /महाराष्ट्र शुश्रूषा-गृह नोंदणी अधिनियम 1949 अंतर्गत शुश्रूषा-गृह परवाना देणे</x-slot>
+    <x-slot name="title">Licensing of nursing homes under the Maharashtra Nursing Homes Registration Act, 1949 /महाराष्ट्र शुश्रूषा-गृह नोंदणी अधिनियम 1949 अंतर्गत शुश्रूषा-गृह परवाना देणे</x-slot>
+    <x-slot name="heading">Licensing of nursing homes under the Maharashtra Nursing Homes Registration Act, 1949 /महाराष्ट्र शुश्रूषा-गृह नोंदणी अधिनियम 1949 अंतर्गत शुश्रूषा-गृह परवाना देणे</x-slot>
 
     <!-- Add Form -->
     <div class="row" id="addContainer">

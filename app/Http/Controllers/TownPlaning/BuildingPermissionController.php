@@ -5,6 +5,8 @@ namespace App\Http\Controllers\TownPlaning;
 use App\Http\Controllers\Controller;
 use App\Services\CommonService;
 use App\Services\TownPlanning\BuildingPermissionService;
+use App\Http\Requests\TownPlanning\BuildingPermission\CreateRequest;
+use App\Http\Requests\TownPlanning\BuildingPermission\UpdateRequest;
 use Illuminate\Http\Request;
 
 class BuildingPermissionController extends Controller
@@ -35,7 +37,7 @@ class BuildingPermissionController extends Controller
     }
 
     // Store the newly created abattoir license
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
 
         // Call the store method in the service and get the response
@@ -81,14 +83,14 @@ class BuildingPermissionController extends Controller
             'buildingpermission' => $buildingpermission
         ]);
     }
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
         // dd($request->all());
         $buildingpermission = $this->buildingpermission->update($request, $id);
 
         if ($buildingpermission) {
             return response()->json([
-                'success' => 'Occupancy Certificate updated successfully'
+                'success' => 'Building permission updated successfully'
             ]);
         } else {
             return response()->json([
