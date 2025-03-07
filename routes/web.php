@@ -82,6 +82,7 @@ use App\Http\Controllers\CfcController;
 use App\Http\Controllers\NewTaxAssessmentController;
 use App\Http\Controllers\DivSubDivisionController;
 use App\Http\Controllers\DemolishingPropertyController;
+use App\Http\Controllers\MallaNisaranDepartment\DrainageController;
 use App\Http\Controllers\Master\FeesController;
 use App\Http\Controllers\Master\NatureOfBusinessController;
 use App\Http\Controllers\Master\SignatureController;
@@ -292,7 +293,7 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('signature', SignatureController::class);
     Route::resource('nature-business', NatureOfBusinessController::class);
 
-
+    Route::resource('drainage', DrainageController::class);
 });
 Route::post('rts-service-status', [AapaleSarkarLoginCheckController::class, 'updateStatus'])->name('rts.status');
 

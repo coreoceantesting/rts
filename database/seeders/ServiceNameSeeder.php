@@ -589,6 +589,13 @@ class ServiceNameSeeder extends Seeder
                 'add_route' => 'trade-change-holder-partner.create',
                 'edit_route' => 'trade-change-holder-partner.edit'
             ],
+            [
+                'service_id' => 2038,
+                'service_name' => 'To issue drainage / sewer connection',
+                'model' => '\App\Models\MallaNisaranDepartment\Drainage',
+                'add_route' => 'drainage.create',
+                'edit_route' => 'drainage.edit'
+            ],
         ];
 
 
