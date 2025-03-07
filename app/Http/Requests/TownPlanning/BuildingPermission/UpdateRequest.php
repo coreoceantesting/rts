@@ -22,7 +22,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-          'f_name' => 'required',
+            'f_name' => 'required',
             'm_name' => 'required',
             'l_name' => 'required',
             'zone' => 'required',
@@ -37,6 +37,27 @@ class UpdateRequest extends FormRequest
             'mobile_num' => 'required|min:10|max:10',
             'aadhar_num' => 'required|min:12|max:12',
             'is_correct_info'=>'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'is_correct_info.required' => 'Please Accept Declaration',
+            'f_name' => 'Please Enter First Name',
+            'm_name' => 'Please Enter Middle Name',
+            'l_name' => 'Please Enter Last Name',
+            'zone' => 'Please Select Zone',
+            'marathi_f_name' => 'Please Enter Marathi First Name',
+            'marathi_m_name' => 'Please Enter Marathi Middle Name',
+            'marathi_l_name' => 'Please Enter Last First Name',
+            'email' => 'Please Enter Email Id',
+            'address' => 'Please Enter Address',
+            'marathi_address' => 'Please Enter  Marathi Address',
+            'purpose' => 'Please Enter Purpose',
+            'marathi_purpose' => 'Please Enter Marathi Purpose',
+            'mobile_num' => 'Please Enter Mobile Number',
+            'aadhar_num' => 'Please Enter Aadharcard Number',
         ];
     }
 }

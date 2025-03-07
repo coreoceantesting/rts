@@ -30,49 +30,49 @@
                             <div class="col-md-4">
                                 <label class="col-form-label" for="f_name">First Name <span class="text-danger">*</span></label>
                                 <input class="form-control" id="f_name" name="f_name" type="text" placeholder="Enter First Name" >
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid f_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="m_name">Middle Name <span class="text-danger">*</span></label>
                                 <input class="form-control" id="m_name" name="m_name" type="text" placeholder="Enter Middle Name" >
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid m_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="l_name">Last Name <span class="text-danger">*</span></label>
                                 <input class="form-control" id="l_name" name="l_name" type="text" placeholder="Enter Last Name" >
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid l_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="marathi_f_name">प्रथम नाव (मराठी) <span class="text-danger">*</span></label>
                                 <input class="form-control" id="marathi_f_name" name="marathi_f_name" type="text" placeholder="नाव प्रविष्ट करा प्रथम" >
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid marathi_f_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="marathi_m_name">मधले नाव (मराठी)<span class="text-danger">*</span></label>
                                 <input class="form-control" id="marathi_m_name" name="marathi_m_name" type="text" placeholder="प्रविष्ट करा मधले नाव" >
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid marathi_m_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="marathi_l_name">आडनाव (मराठी) <span class="text-danger">*</span></label>
                                 <input class="form-control" id="marathi_l_name" name="marathi_l_name" type="text" placeholder="आडनाव प्रविष्ट करा" >
-                                <span class="text-danger is-invalid applicant_name_err"></span>
+                                <span class="text-danger is-invalid marathi_l_name_err"></span>
                             </div>
 
 
                             <div class="col-md-4">
                                 <label class="col-form-label" for="mobile_num">Mobile Number</label>
                                 <input class="form-control" id="mobile_num" name="mobile_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Mobile Number">
-                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                                <span class="text-danger is-invalid mobile_num_err"></span>
                             </div>
                             <div class="col-md-4">
                                 <label class="col-form-label" for="aadhar_num">Aadhar Card No</label>
                                 <input class="form-control" id="aadhar_num" name="aadhar_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number">
-                                <span class="text-danger is-invalid applicant_mobile_no_err"></span>
+                                <span class="text-danger is-invalid aadhar_num_err"></span>
                             </div>
                             <div class="col-md-4">
                                 <label class="col-form-label" for="email">Email<span class="text-danger">*</span></label>
@@ -88,20 +88,20 @@
                             <div class="col-md-5">
                                 <label class="col-form-label" for="marathi_address"> पत्ता (मराठी) <span class="text-danger">*</span></label>
                                 <textarea class="form-control" name="marathi_address" id="marathi_address" cols="30" rows="2" placeholder="पत्ता" ></textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
+                                <span class="text-danger is-invalid marathi_address_err"></span>
                             </div>
 
 
                             <div class="col-md-5">
                                 <label class="col-form-label" for="purpose">Purpose <span class="text-danger">*</span></label>
                                 <textarea class="form-control" name="purpose" id="purpose" cols="30" rows="2" placeholder="Enter purpose" ></textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
+                                <span class="text-danger is-invalid purpose_err"></span>
                             </div>
 
                             <div class="col-md-5">
                                 <label class="col-form-label" for="marathi_purpose">उद्देश (मराठी) <span class="text-danger">*</span></label>
                                 <textarea class="form-control" name="marathi_purpose" id="marathi_purpose" cols="30" rows="2" placeholder="उद्देश" ></textarea>
-                                <span class="text-danger is-invalid applicant_full_address_err"></span>
+                                <span class="text-danger is-invalid marathi_purpose_err"></span>
                             </div>
 
                             <label class="col-form-label" for="is_correct_info">Declaration / घोषणापत्र:</label>

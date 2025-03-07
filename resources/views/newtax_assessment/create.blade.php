@@ -60,7 +60,7 @@
                             <div class="col-md-4">
                                 <label class="col-form-label" for="marathi_l_name">आडनाव (मराठी) <span class="text-danger">*</span></label>
                                 <input class="form-control" id="marathi_l_name" name="marathi_l_name" type="text" placeholder="आडनाव प्रविष्ट करा" >
-                                <span class="text-danger is-invalid marathi_ l_name_err"></span>
+                                <span class="text-danger is-invalid marathi_l_name_err"></span>
                             </div>
 
 

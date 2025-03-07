@@ -27,7 +27,7 @@
                             <div class="col-md-4">
                                 <label class="col-form-label" for="m_name"> दुकानाचे नाव मराठी<span class="text-danger">*</span></label>
                                 <input class="form-control" id="m_name" name="m_name" type="text" placeholder="Enter Shop name Marathi">
-                                <span class="text-danger is-invalid marathi_name_err"></span>
+                                <span class="text-danger is-invalid m_name_err"></span>
                             </div>
 
                             <div class="col-md-4 mb-2">
@@ -150,8 +150,8 @@
                                         <input class="form-check-input" type="radio" name="manufactured" id="manufactured" value="नाही">
                                         <label class="form-check-label" for="नाही">नाही</label>
                                     </div>
-                                    <span class="text-danger is-invalid manufactured_err"></span>
                                 </div>
+                                <span class="text-danger is-invalid manufactured_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -166,8 +166,9 @@
                                         <input class="form-check-input" type="radio" name="business_premises" id="business_premises" value="नाही">
                                         <label class="form-check-label" for="नाही">नाही</label>
                                     </div>
-                                    <span class="text-danger is-invalid business_premisesd_err"></span>
+
                                 </div>
+                                <span class="text-danger is-invalid business_premises_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -185,7 +186,7 @@
                             <div class="col-md-4">
                                 <label class="col-form-label" for="rental_agreement">भाडे करार कोणासोबत केलेले आहे<span class="text-danger">*</span></label>
                                 <input class="form-control" id="rental_agreement" name="rental_agreement" type="text" placeholder="Enter rental agreement">
-                                <span class="text-danger is-invalid rental_agreemente_err"></span>
+                                <span class="text-danger is-invalid rental_agreement_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -206,8 +207,8 @@
                                         <input class="form-check-input" type="radio" name="noc_certificate" id="noc_certificate" value="नाही">
                                         <label class="form-check-label" for="नाही">नाही</label>
                                     </div>
-                                    <span class="text-danger is-invalid anoc_certificate_err"></span>
                                 </div>
+                                <span class="text-danger is-invalid noc_certificate_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -282,8 +283,9 @@
                                         <input class="form-check-input" type="radio" name="gender" id="gender" value="ईतर">
                                         <label class="form-check-label" for="ईतर">ईतर</label>
                                     </div>
-                                    <span class="text-danger is-invalid gender_err"></span>
+
                                 </div>
+                                <span class="text-danger is-invalid gender_err"></span>
                             </div>
 
 

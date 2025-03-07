@@ -61,7 +61,39 @@ class CreateRequest extends FormRequest
     public function messages()
     {
         return [
-            'is_correct_info.required' => 'Please Accept Declaration'
+            'f_name' => 'Please Enter First Name',
+            'l_name' => 'Please Enter Last Name',
+            'zone' => 'Please Select Zone',
+            'title_of_application' => 'Please Select Title',
+            'flat_no' => 'Please Enter Flat No',
+            'building_no' => 'Please Enter Building No',
+            'area' => 'Please Enter Area',
+            'city' => 'Please Enter City',
+            'pincode' => 'Please Enter Pincode',
+            'landmark' => 'Please Enter landmark',
+            'gut_number' => 'Please Enter Gut number',
+            'type_application' => 'Please Select type pplication',
+            'reason_trim' => 'Please Select reason trim',
+            'owner' => 'Please Select Owner type',
+            'type_of_tree' => 'Please Select type of tree',
+            'paid_receipts' => 'Please Attach Paid receipt',
+            'photo_trees' => 'Please Attach photo of tree',
+            'noc_letters' => 'Please Attach Noc Letter',
+            'mobile_num' => 'required|max:10|min:10',
+            'aadhars' => 'Please Attach Aadharcard',
+            // 'building_permissions' => 'Please Attach Paid receipt',
+            'plan_constructions' => 'Please Attach Sanctioned Plan of Construction',
+            'email' => 'Please Enter Email Id',
+            'select_all'=>'required',
+            'item1'=>'required',
+            'item2'=>'required',
+            'item3'=>'required',
+            'item4'=>'required',
+            'item5'=>'required',
+            'item6'=>'required',
+            'item7'=>'required',
+            'item8'=>'required',
+            'item9'=>'required'
         ];
     }
 }

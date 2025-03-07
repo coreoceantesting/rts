@@ -126,8 +126,8 @@
                                         <input class="form-check-input" type="radio" name="manufactured" id="manufactured" value="नाही" {{ isset($renewLicenseLoadging) && $renewLicenseLoadging->manufactured == 'नाही' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="नाही">नाही</label>
                                     </div>
-                                    <span class="text-danger is-invalid manufactured_err"></span>
                                 </div>
+                                <span class="text-danger is-invalid manufactured_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -142,9 +142,8 @@
                                         <input class="form-check-input" type="radio" name="business_premises" id="business_premises" value="नाही" {{ isset($renewLicenseLoadging) && $renewLicenseLoadging->business_premises == 'नाही' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="नाही">नाही</label>
                                     </div>
-                                    <span class="text-danger is-invalid business_premises_err"></span>
-
                                 </div>
+                                <span class="text-danger is-invalid business_premises_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -183,8 +182,8 @@
                                         <input class="form-check-input" type="radio" name="noc_certificate" id="noc_certificate" value="नाही" {{ isset($renewLicenseLoadging) && $renewLicenseLoadging->noc_certificate == 'नाही' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="नाही">नाही</label>
                                     </div>
-                                    <span class="text-danger is-invalid noc_certificate_err"></span>
                                 </div>
+                                <span class="text-danger is-invalid noc_certificate_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -259,9 +258,10 @@
                                         <input class="form-check-input" type="radio" name="gender" id="gender" value="ईतर" {{ isset($renewLicenseLoadging) && $renewLicenseLoadging->gender == 'ईतर' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="ईतर">ईतर</label>
                                     </div>
-                                    <span class="text-danger is-invalid gender_err"></span>
+
 
                                 </div>
+                                <span class="text-danger is-invalid gender_err"></span>
                             </div>
 
 

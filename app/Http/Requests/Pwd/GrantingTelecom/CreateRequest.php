@@ -47,7 +47,25 @@ class CreateRequest extends FormRequest
     public function messages()
     {
         return [
-            'is_correct_info.required' => 'Please Accept Declaration'
+            'is_correct_info.required' => 'Please Accept Declaration',
+            'f_name' => 'Please Enter First Name',
+            'm_name' => 'Please Enter Middle Name',
+            'l_name' => 'Please Enter Last Name',
+            'zone' => 'Please Select Zone',
+            'mobile_num'=> 'Please Enter Mobile Number',
+            'aadhar_num'=> 'Please Enter AadharCard Number',
+            'email' => 'Please Enter Email',
+            'address' => 'Please Enter Address',
+            'property_num'=> 'Please Enter Propert Number',
+            'road_type'=> 'Please Enter Road Type',
+            'length_road'=> 'Please Enter Road length',
+            'width_road'=> 'Please Enter Road Width',
+            'length_width'=> 'Please Enter Road  length & Width',
+            'digging_size'=> 'Please Enter Road Digging Size',
+            'start_point'=> 'Please Enter Road Starting Point',
+            'end_point'=> 'Please Enter Road Ending Point',
+            'latitude'=> 'Please Enter Road Latitude',
+            'longitude'=> 'Please Enter Road Longitude'
         ];
     }
 }

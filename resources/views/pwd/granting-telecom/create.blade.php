@@ -25,7 +25,7 @@
                             <div class="col-md-4">
                                 <label class="col-form-label" for="m_name">Middle Name <span class="text-danger">*</span></label>
                                 <input class="form-control" id="m_name" name="m_name" type="text" placeholder="Enter Middle Name" >
-                                <span class="text-danger is-invalid m_namee_err"></span>
+                                <span class="text-danger is-invalid m_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -48,7 +48,7 @@
                             <div class="col-md-4">
                                 <label class="col-form-label" for="aadhar_num">Aadhar Number<span class="text-danger">*</span></label>
                                 <input class="form-control" id="aadhar_num" name="aadhar_num" type="text" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="12" minlength="12" placeholder="Enter Aadhar  Card Number">
-                                <span class="text-danger is-invalid aadhar_numo_err"></span>
+                                <span class="text-danger is-invalid aadhar_num_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -92,7 +92,7 @@
                             <div class="col-md-3">
                                 <label class="col-form-label" for="width_road">रस्त्याची रुंदी (मीटर)<span class="text-danger">*</span></label>
                                 <input class="form-control" id="width_road" name="width_road" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Width">
-                                <span class="text-danger is-invalid width_roadd_err"></span>
+                                <span class="text-danger is-invalid width_road_err"></span>
                             </div>
 
                             <div class="col-md-3">
@@ -104,7 +104,7 @@
                             <div class="col-md-3">
                                 <label class="col-form-label" for="digging_size">खोदण्याचे आकार (मीटर)<span class="text-danger">*</span></label>
                                 <input class="form-control" id="digging_size" name="digging_size" type="number" oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10" minlength="10" placeholder="Enter Digging size">
-                                <span class="text-danger is-invalid digging_sizee_err"></span>
+                                <span class="text-danger is-invalid digging_size_err"></span>
                             </div>
 
                             <div class="col-md-3">

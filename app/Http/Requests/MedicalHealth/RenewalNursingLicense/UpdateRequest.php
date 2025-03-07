@@ -46,4 +46,30 @@ class UpdateRequest extends FormRequest
 
         ];
     }
+    public function messages()
+    {
+        return [
+            'is_correct_info.required' => 'Please Accept Declaration',
+            'f_name' => 'Please Enter First Name ',
+            'm_name' => 'Please Enter Middle Name',
+            'l_name' => 'Please Enter Last Name',
+            'zone' => 'Please Select Zone',
+            'email' => 'Please Enter Email Id',
+            'address' => 'Please Enter Address',
+            'noc_type' => 'Please Select Noc',
+            'name_institute' => 'Please Enter Institute Name',
+            'institute_address' => 'Please Enter Institute Address',
+            'hospital_name' => 'Please Enter Hospital Name',
+            'alternet_mobile' => 'Please Enter Mobile Number an min 10 digit or max 10 digit',
+            'property_tax' => 'Please Select Property',
+            'water_connection' => 'Please Select Water Connection',
+            'fire_noc' => 'Please Select Fire Noc',
+            'hospital_address' => 'Please Enter Hospital Address',
+            'mobile_num' => 'Please Enter Mobile Number  an min 10 digit or max 10 digit',
+            'aadhar_num' => 'Please Enter Aadhar Number an min 12 digit or max 12 digit',
+            'property_number' => 'Please Enter Property Number',
+            'alternet_email' => 'Please Enter Email Id',
+            'noc_number' => 'Please Enter Noc Number',
+        ];
+    }
 }

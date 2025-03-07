@@ -135,8 +135,9 @@
                                         <input class="form-check-input" type="radio" name="property_tax" id="property_tax" value="No">
                                         <label class="form-check-label" for="No">No</label>
                                     </div>
-                                    <span class="text-danger is-invalid property_tax_err"></span>
+
                                 </div>
+                                <span class="text-danger is-invalid property_tax_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -151,8 +152,9 @@
                                         <input class="form-check-input" type="radio" name="water_connection" id="water_connection" value="No">
                                         <label class="form-check-label" for="No">No</label>
                                     </div>
-                                    <span class="text-danger is-invalid water_connection_err"></span>
                                 </div>
+                                <span class="text-danger is-invalid water_connection_err"></span>
+
                             </div>
 
                             <div class="col-md-4">
@@ -167,8 +169,9 @@
                                         <input class="form-check-input" type="radio" name="fire_noc" id="fire_noc" value="Final">
                                         <label class="form-check-label" for="Final">Final</label>
                                     </div>
-                                    <span class="text-danger is-invalid fire_noc_err"></span>
                                 </div>
+                                <span class="text-danger is-invalid fire_noc_err"></span>
+
                             </div>
 
                             <div class="col-md-4">

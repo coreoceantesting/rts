@@ -35,7 +35,7 @@ class CreateRequest extends FormRequest
             'purpose' => 'required',
             'marathi_purpose' => 'required',
             'mobile_num' => 'required|min:10|max:10',
-            'aadhar_num' => 'required|min:12|max:12',
+            // 'aadhar_num' => 'required|min:12|max:12',
             'is_correct_info' => 'required'
         ];
     }
@@ -43,7 +43,21 @@ class CreateRequest extends FormRequest
     public function messages()
     {
         return [
-            'is_correct_info.required' => 'Please Accept Declaration'
+            'is_correct_info.required' => 'Please Accept Declaration',
+            'f_name'=> 'First Name is required',
+            'm_name' => 'Middle Name is required',
+            'l_name' => 'Last Name is required',
+            'zone' => 'Please Select Zone',
+            'marathi_f_name' => 'प्रथम नाव आवश्यक',
+            'marathi_m_name' => 'मधले नाव आवश्यक',
+            'marathi_l_name' => 'आडनाव नाव आवश्यक',
+            'email' => 'Email is required',
+            'address' => 'Addrress is required',
+            'marathi_address' => 'पत्ता आवश्यक',
+            'purpose' => 'purpose is required',
+            'marathi_purpose' => 'उद्देश आवश्यक',
+            'mobile_num' => 'mobile number is required an must be 10 digit',
+            // 'aadhar_num' => 'aadharcard number is required an must be 12 digit',
         ];
     }
 }

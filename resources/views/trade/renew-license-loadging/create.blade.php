@@ -22,7 +22,7 @@
                                     <label class="col-form-label" for="shop_name">
                                         Old License No<span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <input class="form-control" id="shop_name" name="shop_name" type="text" placeholder="search">
+                                        <input class="form-control" id="license_no" name="license_no" type="text" placeholder="search">
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-secondary" type="button" id="searchShop">
                                                 <i class="fas fa-search"></i> Search
@@ -134,9 +134,8 @@
                                         <input class="form-check-input" type="radio" name="manufactured" id="manufactured" value="नाही">
                                         <label class="form-check-label" for="नाही">नाही</label>
                                     </div>
-                                    <span class="text-danger is-invalid manufactured_err"></span>
-
                                 </div>
+                                <span class="text-danger is-invalid manufactured_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -151,9 +150,8 @@
                                         <input class="form-check-input" type="radio" name="business_premises" id="business_premises" value="नाही">
                                         <label class="form-check-label" for="नाही">नाही</label>
                                     </div>
-                                    <span class="text-danger is-invalid business_premises_err"></span>
-
                                 </div>
+                                <span class="text-danger is-invalid business_premises_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -192,9 +190,9 @@
                                         <input class="form-check-input" type="radio" name="noc_certificate" id="noc_certificate" value="नाही">
                                         <label class="form-check-label" for="नाही">नाही</label>
                                     </div>
-                                    <span class="text-danger is-invalid noc_certificate_err"></span>
 
                                 </div>
+                                <span class="text-danger is-invalid noc_certificate_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -269,9 +267,8 @@
                                         <input class="form-check-input" type="radio" name="gender" id="gender" value="ईतर">
                                         <label class="form-check-label" for="ईतर">ईतर</label>
                                     </div>
-                                    <span class="text-danger is-invalid gender_err"></span>
-
                                 </div>
+                                <span class="text-danger is-invalid gender_err"></span>
                             </div>
 
 

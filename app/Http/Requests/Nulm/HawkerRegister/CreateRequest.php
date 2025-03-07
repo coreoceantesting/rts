@@ -47,7 +47,24 @@ class CreateRequest extends FormRequest
     public function messages()
     {
         return [
-            'is_correct_info.required' => 'Please Accept Declaration'
+            'is_correct_info.required' => 'Please Accept Declaration',
+            'service_type' => 'Please Select Service Id',
+            'f_name' => 'Please Enter First Name',
+            'm_name' => 'Please Enter Middle Name',
+            'l_name' => 'Please Enter Last Name',
+            'zone' => 'Please Select Zone',
+            'mobile_num' => 'Please Enter Mobile Number an Number should be 10',
+            'email' => 'Please Enter Email Id',
+            'aadhar_num' => 'Please Enter Aadharcard Number an number should be 12 ',
+            'address' => 'Please Enter Adress',
+            // 'service_type' => 'Please Enter ',
+            'property_num' => 'Please Enter Property Number',
+            'bussiness_type' => 'Please Enter Business Type',
+            'bussiness_name' => 'Please Enter Business Name',
+            'from_date' => 'Please Enter Start Date',
+            'to_date' => 'Please Enter End Date',
+            'reason' => 'Please Enter reason',
+            'images' => 'Please Attach Document ',
         ];
     }
 }

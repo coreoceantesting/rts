@@ -9,16 +9,6 @@ class UpdateRequest extends FormRequest
     /**
      * Determine if the user is authorized to make this request.
      */
-    public function authorize(): bool
-    {
-        return true;
-    }
-
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [
@@ -40,6 +30,31 @@ class UpdateRequest extends FormRequest
             'reason' => 'required',
             // 'images' => 'required',
             'is_correct_info' => 'required'
+
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'is_correct_info.required' => 'Please Accept Declaration',
+            'service_type' => 'Please Select Service Id',
+            'f_name' => 'Please Enter First Name',
+            'm_name' => 'Please Enter Middle Name',
+            'l_name' => 'Please Enter Last Name',
+            'zone' => 'Please Select Zone',
+            'mobile_num' => 'Please Enter Mobile Number an Number should be 10',
+            'email' => 'Please Enter Email Id',
+            'aadhar_num' => 'Please Enter Aadharcard Number an number should be 12 ',
+            'address' => 'Please Enter Adress',
+            // 'service_type' => 'Please Enter ',
+            'property_num' => 'Please Enter Property Number',
+            'bussiness_type' => 'Please Enter Business Type',
+            'bussiness_name' => 'Please Enter Business Name',
+            'from_date' => 'Please Enter Start Date',
+            'to_date' => 'Please Enter End Date',
+            'reason' => 'Please Enter reason',
+            // 'images' => 'Please Attach Document ',
         ];
     }
 }

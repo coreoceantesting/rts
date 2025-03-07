@@ -127,9 +127,8 @@
                                         <input class="form-check-input" type="radio" name="manufactured" id="manufactured" value="नाही" {{ isset($licenseLoadgingHouse) && $licenseLoadgingHouse->manufactured == 'नाही' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="नाही">नाही</label>
                                     </div>
-                                    <span class="text-danger is-invalid manufactured_err"></span>
-
                                 </div>
+                                <span class="text-danger is-invalid manufactured_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -144,8 +143,8 @@
                                         <input class="form-check-input" type="radio" name="business_premises" id="business_premises" value="नाही" {{ isset($licenseLoadgingHouse) && $licenseLoadgingHouse->business_premises == 'नाही' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="नाही">नाही</label>
                                     </div>
-                                    <span class="text-danger is-invalid business_premises_err"></span>
                                 </div>
+                                <span class="text-danger is-invalid business_premises_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -184,9 +183,8 @@
                                         <input class="form-check-input" type="radio" name="noc_certificate" id="noc_certificate" value="नाही" {{ isset($licenseLoadgingHouse) && $licenseLoadgingHouse->noc_certificate == 'नाही' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="नाही">नाही</label>
                                     </div>
-                                    <span class="text-danger is-invalid noc_certificate_err"></span>
-
                                 </div>
+                                <span class="text-danger is-invalid noc_certificate_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -222,7 +220,7 @@
                             <div class="col-md-4">
                                 <label class="col-form-label" for="director_name">संचालकांचा नाव<span class="text-danger">*</span></label>
                                 <input class="form-control" id="director_name" name="director_name" type="text" placeholder="Enter Director Name"  value="{{ old('director_name', $licenseLoadgingHouse->director_name) }}">
-                                <span class="text-danger is-invalid director_namee_err"></span>
+                                <span class="text-danger is-invalid director_name_err"></span>
                             </div>
 
                             <div class="col-md-4">
@@ -261,8 +259,9 @@
                                         <input class="form-check-input" type="radio" name="gender" id="gender" value="ईतर" {{ isset($licenseLoadgingHouse) && $licenseLoadgingHouse->gender == 'ईतर' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="ईतर">ईतर</label>
                                     </div>
-                                    <span class="text-danger is-invalid gender_err"></span>
                                 </div>
+                                <span class="text-danger is-invalid gender_err"></span>
+
                             </div>
 
 

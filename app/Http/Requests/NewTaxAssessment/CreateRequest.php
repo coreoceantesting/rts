@@ -35,15 +35,10 @@ class CreateRequest extends FormRequest
             'purpose' => 'required',
             'marathi_purpose' => 'required',
             'mobile_num' => 'required|min:10|max:10',
-            'aadhar_num' => 'required|min:12|max:12',
+            // 'aadhar_num' => 'required|min:12|max:12',
             'is_correct_info' => 'required'
         ];
     }
 
-    public function messages()
-    {
-        return [
-            'is_correct_info.required' => 'Please Accept Declaration'
-        ];
-    }
+
 }

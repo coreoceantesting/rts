@@ -128,9 +128,8 @@
                                         <input class="form-check-input" type="radio" name="type_application" id="other" value="Other">
                                         <label class="form-check-label" for="other">Other</label>
                                     </div>
-                                    <span class="text-danger is-invalid type_application_err"></span>
-
                                 </div>
+                                <span class="text-danger is-invalid type_application_err"></span>
                             </div>
 
                             <div class="col-md-12">
@@ -158,9 +157,8 @@
                                         <input class="form-check-input" type="radio" name="reason_trim" id="reason_trim" value="Other">
                                         <label class="form-check-label" for="other">Other</label>
                                     </div>
-                                    <span class="text-danger is-invalid reason_trim_err"></span>
-
                                 </div>
+                                <span class="text-danger is-invalid reason_trim_err"></span>
                             </div>
 
                             <div class="col-md-3">

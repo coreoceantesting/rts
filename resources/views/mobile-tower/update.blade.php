@@ -142,7 +142,7 @@
                                     </select>
                                     <span class="text-danger is-invalid application_type_err"></span>
                                 </div> --}}
-                                
+
                                 <div class="col-md-4">
                                     <label class="col-form-label">वस्तू निर्मित आहे का<span class="text-danger">*</span></label>
                                     <div class="border rounded p-2">
@@ -379,7 +379,7 @@
                                     @if ($mobileTowerService->aadhar_pan)
                                         <small><a href="{{ asset('storage/' . $mobileTowerService->aadhar_pan) }}" target="_blank">View Document</a></small>
                                     @endif
-                                    <span class="text-danger is-invalid aadhar_panss_err"></span>
+                                    <span class="text-danger is-invalid aadhar_pans_err"></span>
                                 </div>
 
                                 <div class="col-md-4 mb-2">

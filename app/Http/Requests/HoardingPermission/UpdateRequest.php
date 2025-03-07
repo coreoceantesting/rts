@@ -38,7 +38,7 @@ class UpdateRequest extends FormRequest
             // 'place' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             // 'property' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
             // 'tenancy' => 'required|file|mimes:pdf,PDF,png,PNG,jpg,JPG,jpeg,JPEG|max:2048',
-             'type_hoarding' => 'required',
+            'type_hoarding' => 'required',
             'advertisement_place' => 'required',
             'chowk' => 'required',
             'plot_no' => 'required',
@@ -58,13 +58,46 @@ class UpdateRequest extends FormRequest
             'end_date' => 'required',
             'is_correct_info' => 'required'
         ];
-
     }
 
     public function messages()
     {
         return [
-            'is_correct_info.required' => 'Please Accept Declaration'
+            'is_correct_info.required' => 'Please Accept Declaration',
+            'f_name' => 'Please Enter First Name',
+            'title' => 'Please Enter Title',
+            'm_name' => 'Please Enter Middle Name',
+            'l_name' => 'Please Enter Last Name',
+            'email_id' => 'Please Enter Email Id',
+            'mobile_no' => 'Please Enter Mobile Number',
+            'zone' => 'Please Select Zone',
+            'full_address' => 'Please Select Full Address',
+            // 'upload_prescribed_formats'=> 'Please Attach No Objection from Home/Building/Place owner ',
+            // 'aadhar_pans' => 'Please Attach Building Permission/Completion Certificate/Standing Commitee',
+            // 'ownership' => 'Please Attach Existing Property Tax Paid Receipt',
+            // 'water_bills' => 'Please Attach Certificate from Structural Engineer',
+            // 'society' => 'Please Attach Certificate of Structural Engineer',
+            // 'place' => 'Please Attach Sightseeing Map',
+            // 'property' => 'Please Attach Drawing Provided by Structural Engineer',
+            // 'tenancy' => 'Please Attach 7/12 Or PR Card',
+            'type_hoarding' => 'Please Select Type Hoarding',
+            'advertisement_place' => 'Please Select Place of advertisement',
+            'chowk' => 'Please Enter Chowk',
+            'plot_no' => 'Please Enter Plot No',
+            'size_hoarding' => 'Please Enter Size Hoarding',
+            'bussiness_hoarding' => 'Please Enter Bussiness Hoarding',
+            'format_advertisement' => 'Please Select Yes/No',
+            'height' => 'Please Enter Height',
+            'structure' => 'Please Select Structure',
+            'open_populated' => 'Please Select Open Populated',
+            'behalf' => 'Please Select application made individually or on behalf of the company',
+            'detail_address'=>'Please Enter Address',
+            'detail_property' => 'Please Enter Detail Property',
+            // 'detail_property_images' => 'Please Attach Property Image',
+            'postal_address' => 'Please Enter Postal Address',
+            // 'consent_letters' => 'Please Attach Consent Letter',
+            'start_date' => 'Please Enter Start Date',
+            'end_date' => 'Please Enter End Date',
         ];
     }
 }
