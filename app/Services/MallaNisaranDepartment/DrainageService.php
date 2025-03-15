@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Log;
 use App\Models\MedicalHealth\RenewalNursingLicense;
 use App\Models\ServiceCredential;
 
-class ChangeNursingLicenseService
+class DrainageService
 {
     protected $aapaleSarkarLoginCheckService;
 
@@ -29,7 +29,22 @@ class ChangeNursingLicenseService
         $request['service_id'] = "2038";
         $request['application_no'] = "TIDRA-" . time();
 
+        if ($request->hasFile('property_taxs')) {
+            $request['property_tax'] = $request->property_taxs->store('drainage');
+        }
+        if ($request->hasFile('property_photos')) {
+            $request['property_photo'] = $request->property_photos->store('drainage');
+        }
 
+        if ($request->hasFile('water_taxs')) {
+            $request['water_tax'] = $request->water_taxs->store('drainage');
+        }
+        if ($request->hasFile('passport_size_photos')) {
+            $request['passport_size_photo'] = $request->passport_size_photos->store('drainage');
+        }
+        if ($request->hasFile('aadharcard_photos')) {
+            $request['aadharcard_photo'] = $request->aadharcard_photos->store('drainage');
+        }
         $drainageservice=Drainage::create($request->all());
 
         if ($drainageservice) {

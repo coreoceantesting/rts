@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\MallaNisaranDepartment;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MallaNisaranDepartment\CreateRequest;
+use App\Http\Requests\MallaNisaranDepartment\UpdateRequest;
 use App\Services\CommonService;
 use App\Services\MallaNisaranDepartment\DrainageService;
 
@@ -34,12 +36,12 @@ class DrainageController extends Controller
 
         $zones = $this->commonService->getActiveZone();
 
-        $nature_busis = NatureBusiness::all();
+        // $nature_busis = NatureBusiness::all();
 
-        return view('mobile-tower.create')->with([
+        return view('mallanisarandepartment.drainage.create')->with([
             'wards' => $wards,
             'zones' => $zones,
-            'nature_busis' => $nature_busis,
+            // 'nature_busis' => $nature_busis,
         ]);
     }
 
@@ -49,24 +51,24 @@ class DrainageController extends Controller
     public function store(CreateRequest $request)
     {
         // dd($request);
-        $mobileTowerService = $this->mobiletower->store($request);
+        $drainageService = $this->drainageService->store($request);
 
-        //  dd($mobileTowerService);
-        if ($mobileTowerService[0]) {
+        //  dd($drainageService);
+        if ($drainageService[0]) {
             return response()->json([
-                'success' => 'Mobile Tower Permission save successfully',
+                'success' => 'Drainage save successfully',
                 'redirect' => back()
             ], 200);
         } else {
             return response()->json([
-                'error' => $mobileTowerService[1]
+                'error' => $drainageService[1]
             ], 500);
         }
     }
     public function edit($id)
     {
         // return encrypt($id);
-        $mobileTowerService = $this->mobiletower->edit(decrypt($id));
+        $drainageService = $this->drainageService->edit(decrypt($id));
 
         //$permissionshooting = PermissionShooting::findOrFail->edit(decrypt($id));
 
@@ -74,14 +76,14 @@ class DrainageController extends Controller
         $wards = $this->commonService->getActiveWard();
 
         $zones = $this->commonService->getActiveZone();
-    $nature_busis = NatureBusiness::all();
+    // $nature_busis = NatureBusiness::all();
         //return $permissionshooting;
         // dd($permissionshooting);
-        return view('mobile-tower.update')->with([
+        return view('mallanisarandepartment.drainage.update')->with([
             'wards' => $wards,
             'zones' => $zones,
-            'mobileTowerService' => $mobileTowerService,
-            'nature_busis'=>$nature_busis,
+            'drainageService' => $drainageService,
+            // 'nature_busis'=>$nature_busis,
         ]);
     }
 
@@ -91,10 +93,10 @@ class DrainageController extends Controller
     public function update(UpdateRequest $request, $id)
     {
         // dd($request->all());
-        $mobileTowerService = $this->mobiletower->update($request, $id);
-        if ($mobileTowerService) {
+        $drainageService = $this->drainageService->update($request, $id);
+        if ($drainageService) {
             return response()->json([
-                'success' => 'Mobile Tower Permission updated successfully'
+                'success' => 'Drainage updated successfully'
             ]);
         } else {
             return response()->json([
