@@ -19,7 +19,9 @@
                     <div class="col-md-3 col-lg-3 col-6 hovereffect">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between" style="background:{{ $service->background_color }}">
-                                <img src="{{ asset('storage/'.$service->image) }}" width="25px" alt="{{ $service->name }}">
+                                <div class="d-flex">
+                                    <img src="{{ asset('storage/'.$service->image) }}" width="25px" alt="{{ $service->name }}"><span style="padding-left: 6px;color: #fff;font-size: 21px;">[{{ $service->services_count }}]</span>
+                                </div>
                                 <h5 class="card-title text-white">{{ $service->name }}</h5>
                             </div>
                             <div class="card-body">
@@ -28,14 +30,14 @@
                                         <a class="btn btn-primary" href="@if($service->route_name){{ route($service->route_name) }}@else {{ route('service.my-service', $service->id) }} @endif">Apply</a>
                                     </div>
                                     <div class="col-6 d-flex justify-content-end">
-                                        <a class="btn btn-warning text-white" href="javascript:void(0)">Search</a>
+                                        <a class="btn btn-warning text-white" href="{{ route('my-application') }}">Search</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     @endforeach
-                    
+
                 </div>
             </div>
         </div>

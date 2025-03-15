@@ -49,7 +49,7 @@ class DashboardController extends Controller
                 'data' => collect($data)
             ]);
         } else {
-            $services = Service::where('is_parent', 0)->get();
+            $services = Service::where('is_parent', 0)->withCount('services')->get();
 
             return view('home.user-dashboard')->with([
                 'services' => $services
