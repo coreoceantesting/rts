@@ -12,6 +12,7 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        'rts-service-status'
+        'rts-service-status',
+        'check-app-user'
     ];
 }
