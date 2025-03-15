@@ -13,6 +13,9 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'rts-service-status',
-        'check-app-user'
+        'check-app-user',
+        'payment/sbi/success',
+        'payment/sbi/failed',
+        'payment/sbi/verify',
     ];
 }

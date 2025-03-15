@@ -54,6 +54,7 @@ use App\Http\Controllers\Trade\ChangeOwnerPartnerCountController;
 use App\Http\Controllers\Trade\ChangeOwnerNameController;
 use App\Http\Controllers\Trade\LicenseCancellationController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\SbiPaymentController;
 use App\Http\Controllers\PlinthCertificateController;
 use App\Http\Controllers\OccupancyCertificateController;
 use App\Http\Controllers\AdvertisementPermissionController;
@@ -129,10 +130,16 @@ Route::middleware(['guest', 'PreventBackHistory', 'firewall.all'])->group(functi
     Route::post('register', [App\Http\Controllers\Registeration\AuthController::class, 'register'])->name('signup');
 });
 
-Route::get('rts-service', [AapaleSarkarLoginCheckController::class, 'check'])->name('rts.check');
-Route::get('create-payment', [App\Http\Controllers\PaymentController::class, 'initPaymentRequest'])->name('create-payment');
-Route::post('redirect-payment', [App\Http\Controllers\PaymentController::class, 'redirectPayment'])->name('redirect-payment');
-Route::get('double-verification', [App\Http\Controllers\PaymentController::class, 'doubleverificationReq'])->name('double-verification');
+Route::prefix('/payment')->group(function(){
+    
+    Route::get('/sbi/create', [App\Http\Controllers\SbiPaymentController::class, 'initPaymentRequest'])->name('create-payment');
+    Route::any('/sbi/success', [App\Http\Controllers\SbiPaymentController::class, 'successResponse'])->name('success-payment');
+    Route::any('/sbi/failed', [App\Http\Controllers\SbiPaymentController::class, 'failedResponse'])->name('failed-payment');
+    Route::any('redirect-payment', [App\Http\Controllers\SbiPaymentController::class, 'redirectPayment'])->name('redirect-payment');
+
+    
+    Route::get('double-verification', [App\Http\Controllers\PaymentController::class, 'doubleverificationReq'])->name('double-verification');
+});
 
 
 
