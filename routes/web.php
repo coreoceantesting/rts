@@ -53,7 +53,7 @@ use App\Http\Controllers\Trade\ChangeLicenseTypeController;
 use App\Http\Controllers\Trade\ChangeOwnerPartnerCountController;
 use App\Http\Controllers\Trade\ChangeOwnerNameController;
 use App\Http\Controllers\Trade\LicenseCancellationController;
-
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PlinthCertificateController;
 use App\Http\Controllers\OccupancyCertificateController;
 
@@ -86,7 +86,9 @@ Route::middleware(['guest', 'PreventBackHistory', 'firewall.all'])->group(functi
 });
 
 Route::get('rts-service', [AapaleSarkarLoginCheckController::class, 'check'])->name('rts.check');
-
+Route::get('create-payment', [App\Http\Controllers\PaymentController::class, 'initPaymentRequest'])->name('create-payment');
+Route::post('redirect-payment', [App\Http\Controllers\PaymentController::class, 'redirectPayment'])->name('redirect-payment');
+Route::get('double-verification', [App\Http\Controllers\PaymentController::class, 'doubleverificationReq'])->name('double-verification');
 
 
 
@@ -180,6 +182,8 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
 
     Route::resource('plinth-certificate', PlinthCertificateController::class);
     Route::resource('occupancy-certificate', OccupancyCertificateController::class);
+    
+ 
 });
 Route::post('rts-service-status', [AapaleSarkarLoginCheckController::class, 'updateStatus'])->name('rts.status');
 
