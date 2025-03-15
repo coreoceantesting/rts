@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Log;
 use App\Models\ServiceCredential;
 use App\Models\User;
 use App\Models\ServiceName;
+use App\Mail\SendApproveRejectMail;
+use Illuminate\Support\Facades\Mail;
 
 class AapaleSarkarLoginCheckController extends Controller
 {
@@ -146,6 +148,8 @@ class AapaleSarkarLoginCheckController extends Controller
                         'status' => $request->application_status,
                         'status_remark' => $request->application_remark
                     ]);
+
+                    // if($request->application_status == "")
 
                     return response()->json([
                         'status' => 200,

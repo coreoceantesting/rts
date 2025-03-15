@@ -251,8 +251,8 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('plinth-certificate', PlinthCertificateController::class);
 
     Route::resource('occupancy-certificate', OccupancyCertificateController::class);
-    
- 
+
+
     //  Route::resource('occupancy-certificate', OccupancyCertificateController::class);
 
     Route::resource('permission-shooting', PermissionShootingController::class);
@@ -300,7 +300,6 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('nature-business', NatureOfBusinessController::class);
 
     Route::resource('drainage', DrainageController::class);
-
 });
 Route::post('rts-service-status', [AapaleSarkarLoginCheckController::class, 'updateStatus'])->name('rts.status');
 
