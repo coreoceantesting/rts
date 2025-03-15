@@ -34,7 +34,7 @@ class SbiPaymentController extends Controller
         // }
      
         // $orderid = 'MRTS' . str_pad($newOrderIdNumber, 5, '0', STR_PAD_LEFT);
-        $orderid  = 'MRTS00975';
+        $orderid  = 'MRTS00974';
         $postingAmount = 1;
         $merchantCountry = 'IN';
         $merchantCurrency = 'INR';
