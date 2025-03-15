@@ -26,6 +26,7 @@ class ServiceController extends Controller
 
     public function store(ServiceRequest $request)
     {
+
         if ($request->ajax()) {
             $service = $this->service->store($request);
 

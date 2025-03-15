@@ -25,7 +25,9 @@ class FireNoObjectionController extends Controller
 
     public function store(CreateRequest $request)
     {
+        // dd($request->all());
         $noObjectionService = $this->noObjectionService->store($request);
+
 
         if ($noObjectionService) {
             return response()->json([

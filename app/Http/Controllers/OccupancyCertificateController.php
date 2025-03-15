@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\OccupancyCertificateService;
-use App\Http\Requests\PlinthCertificateRequest;
 use App\Services\CommonService;
+use App\Http\Requests\OccupancyCertificateRequest;
+use App\Http\Requests\OccupancyeditRequest;
 
 class OccupancyCertificateController extends Controller
 {
@@ -30,7 +31,8 @@ class OccupancyCertificateController extends Controller
         ]);
     }
 
-    public function store(PlinthCertificateRequest $request)
+
+    public function store(OccupancyCertificateRequest $request)
     {
         $occupancyCertificateService = $this->occupancyCertificateService->store($request);
 
@@ -47,6 +49,7 @@ class OccupancyCertificateController extends Controller
 
     public function edit($id)
     {
+        // return encrypt($id);
         $occupancyCertificate = $this->occupancyCertificateService->edit(decrypt($id));
 
         $wards = $this->commonService->getActiveWard();
@@ -60,17 +63,23 @@ class OccupancyCertificateController extends Controller
         ]);
     }
 
-    public function update(PlinthCertificateRequest $request, $id)
+    public function update(OccupancyCertificateRequest $request, $id)
     {
         $occupancyCertificateService = $this->occupancyCertificateService->update($request, $id);
 
-        if ($occupancyCertificateService[0]) {
-            return response()->json([
-                'success' => 'Occupancy certificate updated successfully'
-            ]);
+        if (is_array($occupancyCertificateService) && isset($occupancyCertificateService[0])) {
+            if ($occupancyCertificateService[0]) {
+                return response()->json([
+                    'success' => 'Occupancy certificate updated successfully',
+                ]);
+            } else {
+                return response()->json([
+                    'error' => $occupancyCertificateService[1] ?? 'An error occurred', // Handle missing index [1]
+                ]);
+            }
         } else {
             return response()->json([
-                'error' => $occupancyCertificateService[1]
+                'error' => 'Invalid response from Occupancy Certificate Service',
             ]);
         }
     }

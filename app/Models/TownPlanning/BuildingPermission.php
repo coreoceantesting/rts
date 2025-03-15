@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Models\TownPlanning;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class BuildingPermission extends Model
+{
+    use HasFactory;
+    protected $table = 'building_permissions';
+    protected $fillable = [
+        'user_id',
+        'ip',
+        'zone',
+        'f_name',
+        'm_name',
+        'l_name',
+        'marathi_f_name',
+        'marathi_m_name',
+        'marathi_l_name',
+        'mobile_num',
+        'aadhar_num',
+        'email',
+        'address',
+        'marathi_address',
+        'purpose',
+        'marathi_purpose',
+        'application_no',
+        'service_id',
+        'payment_date',
+        'is_payment_paid',
+        'is_payment_paid_aapale_sarkar',
+        'aapale_sarkar_payment_date',
+        'status'
+    ];
+}

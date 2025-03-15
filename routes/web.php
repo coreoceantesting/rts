@@ -56,8 +56,52 @@ use App\Http\Controllers\Trade\LicenseCancellationController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PlinthCertificateController;
 use App\Http\Controllers\OccupancyCertificateController;
+use App\Http\Controllers\AdvertisementPermissionController;
+use App\Http\Controllers\PermissionShootingController;
+use App\Http\Controllers\HoardingPermissionController;
+use App\Http\Controllers\HealthLicenseController;
 
+use App\Http\Controllers\StallBoardLicenseController;
 
+use App\Http\Controllers\AbattoirLicenseController;
+use App\Http\Controllers\GardensFilmingController;
+use App\Http\Controllers\ParkCulturePermissionController;
+use App\Http\Controllers\PermissionForPmcOwnController;
+use App\Http\Controllers\TentsPermissionController;
+use App\Http\Controllers\ClassroomsForRentController;
+
+use App\Http\Controllers\ProcessionAndParadeController;
+use App\Http\Controllers\RecordObjectionsController;
+use App\Http\Controllers\MobileTowerController;
+
+use App\Http\Controllers\StateLicenseController;
+use App\Http\Controllers\HealthNocMunciController;
+use App\Http\Controllers\MovableAdvertisementPermissionController;
+
+use App\Http\Controllers\CfcController;
+use App\Http\Controllers\NewTaxAssessmentController;
+use App\Http\Controllers\DivSubDivisionController;
+use App\Http\Controllers\DemolishingPropertyController;
+use App\Http\Controllers\MallaNisaranDepartment\DrainageController;
+use App\Http\Controllers\Master\FeesController;
+use App\Http\Controllers\Master\NatureOfBusinessController;
+use App\Http\Controllers\Master\SignatureController;
+use App\Http\Controllers\MedicalHealth\ChangeNursingLicenseController;
+use App\Http\Controllers\MedicalHealth\DepMedicalHealthController;
+use App\Http\Controllers\MedicalHealth\GrantNursingLicenseController;
+use App\Http\Controllers\MedicalHealth\RenewalNursingLicenseController;
+use App\Http\Controllers\Nulm\HawkerRegisterController;
+use App\Http\Controllers\Pwd\GrantingTelecomController;
+use App\Http\Controllers\TownPlaning\BuildingPermissionController;
+use App\Http\Controllers\TownPlaning\OccupancyCetificateController;
+use App\Http\Controllers\Trade\ChangeHolderPartnerController;
+use App\Http\Controllers\Trade\IssuanceLicenseMarriageController;
+use App\Http\Controllers\Trade\LicenseLoadgingHouseController;
+use App\Http\Controllers\Trade\MovieShootingController;
+use App\Http\Controllers\Trade\RenewalLicenseMarriageController;
+use App\Http\Controllers\Trade\RenewLicenseLoadgingController;
+use App\Http\Controllers\Trade\TradeNocController;
+use App\Http\Controllers\TreeAuth\TreeProtectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,7 +120,7 @@ Route::get('/', function () {
 
 
 
-
+Route::get('make-payment', [App\Http\Controllers\PaymentController::class, 'index']);
 // Guest Users
 Route::middleware(['guest', 'PreventBackHistory', 'firewall.all'])->group(function () {
     Route::get('login', [App\Http\Controllers\Registeration\AuthController::class, 'showLogin'])->name('login');
@@ -165,6 +209,27 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('trade-change-owner-count', ChangeOwnerPartnerCountController::class);
     Route::resource('trade-change-owner-name', ChangeOwnerNameController::class);
     Route::resource('trade-license-cancellation', LicenseCancellationController::class);
+    Route::resource('tradenoc', TradeNocController::class);
+    Route::resource('trade-license-loading', LicenseLoadgingHouseController::class);
+    Route::resource('trade-renew-license-loading', RenewLicenseLoadgingController::class);
+    Route::resource('trade-issuance-license-marriage', IssuanceLicenseMarriageController::class);
+    Route::resource('trade-renew-license-marriage', RenewalLicenseMarriageController::class);
+    Route::resource('movie-shooting', MovieShootingController::class);
+    Route::resource('trade-change-holder-partner', ChangeHolderPartnerController::class);
+
+
+
+    // NULM
+    Route::resource('hawker-register', HawkerRegisterController::class);
+
+    //PWD
+    Route::resource('grant-telecome', GrantingTelecomController::class);
+
+    //Tree Auth
+    Route::resource('tree-protection', TreeProtectionController::class);
+
+
+
 
     // profile route
     Route::get('/profile', [MyProfileController::class, 'profile'])->name('user.profile');
@@ -172,6 +237,9 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     // route for town planing
     Route::resource('town-planing-zone-certificate', ZoneCertificateController::class);
     Route::resource('town-planing-bhag-nakasha', BhagNakashaController::class);
+    Route::resource('town-building-permission', BuildingPermissionController::class);
+    Route::resource('town-occupancy-certificate', OccupancyCetificateController::class);
+
 
     // route for construction department
     Route::resource('construction-drainage-connection', DrainageConnectionController::class);
@@ -181,9 +249,58 @@ Route::middleware(['auth', 'PreventBackHistory', 'firewall.all'])->group(functio
     Route::resource('zone', \App\Http\Controllers\Master\ZoneController::class);
 
     Route::resource('plinth-certificate', PlinthCertificateController::class);
+
     Route::resource('occupancy-certificate', OccupancyCertificateController::class);
     
  
+    //  Route::resource('occupancy-certificate', OccupancyCertificateController::class);
+
+    Route::resource('permission-shooting', PermissionShootingController::class);
+
+
+    Route::resource('hoarding-permission', HoardingPermissionController::class);
+
+    Route::resource('health-license', HealthLicenseController::class);
+
+
+    Route::resource('stallboard-license', StallBoardLicenseController::class);
+
+    Route::resource('abattoir-license', AbattoirLicenseController::class);
+
+
+    Route::resource('gardens-filming', GardensFilmingController::class);
+
+    Route::resource('park-culture', ParkCulturePermissionController::class);
+
+    Route::resource('pmc-owned', PermissionForPmcOwnController::class);
+
+    Route::resource('tents-permission', TentsPermissionController::class);
+    Route::resource('classroom-rent', ClassroomsForRentController::class);
+    Route::resource('procession-parade', ProcessionAndParadeController::class);
+    Route::resource('record-objections', RecordObjectionsController::class);
+    Route::resource('mobile-tower', MobileTowerController::class);
+    Route::resource('state-license', StateLicenseController::class);
+    Route::resource('healthnoc-munici', HealthNocMunciController::class);
+    Route::resource('movable-advertisement', MovableAdvertisementPermissionController::class);
+    Route::resource('cfc', CfcController::class);
+    Route::resource('advertisement-permission', AdvertisementPermissionController::class);
+    Route::resource('newtax-assessment', NewTaxAssessmentController::class);
+    Route::resource('divsub-division', DivSubDivisionController::class);
+    Route::resource('demolishingproperty', DemolishingPropertyController::class);
+
+
+
+    //Department Of Medical Health
+    Route::resource('grantnursing-license', GrantNursingLicenseController::class);
+    Route::resource('renewnursing-license', RenewalNursingLicenseController::class);
+    Route::resource('changenursing-license', ChangeNursingLicenseController::class);
+
+    Route::resource('fees', FeesController::class);
+    Route::resource('signature', SignatureController::class);
+    Route::resource('nature-business', NatureOfBusinessController::class);
+
+    Route::resource('drainage', DrainageController::class);
+
 });
 Route::post('rts-service-status', [AapaleSarkarLoginCheckController::class, 'updateStatus'])->name('rts.status');
 

@@ -18,7 +18,9 @@ class DatabaseSeeder extends Seeder
             DefaultLoginUserSeeder::class,
             ServiceCredentialSeeder::class,
             ServiceNameSeeder::class,
-            ServiceSeeder::class
+            ServiceSeeder::class,
+            MastersSeeder::class,
+            FinancialYearSeeder::class
         ]);
     }
 }

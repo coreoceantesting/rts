@@ -22,7 +22,21 @@ class OccupancyCertificateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'f_name' => 'required',
+            'm_name' => 'required',
+            'l_name' => 'required',
+            'zone' => 'required',
+            'marathi_f_name' => 'required',
+            'marathi_m_name' => 'required',
+            'marathi_l_name' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            'marathi_address' => 'required',
+            'purpose' => 'required',
+            'marathi_purpose' => 'required',
+            'mobile_num' => 'required|min:10|max:10',
+            'aadhar_num' => 'required|min:12|max:12',
+            'is_correct_info' => 'required'
         ];
     }
 }

@@ -47,6 +47,7 @@ class FinalFireNoObjectionController extends Controller
 
     public function update(UpdateRequest $request, string $id)
     {
+        dd($request);
         $finalNoObjectionService = $this->finalNoObjectionService->update($request, $id);
 
         if ($finalNoObjectionService) {

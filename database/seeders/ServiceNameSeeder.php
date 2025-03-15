@@ -314,19 +314,304 @@ class ServiceNameSeeder extends Seeder
                 'model' => '\App\Models\ConstructionDepartment\ConstructionDrainageConnection',
                 'add_route' => 'construction-drainage-connection.create',
                 'edit_route' => 'construction-drainage-connection.edit'
-            ]
+            ],
+            [
+                'service_id' => 2001,
+                'service_name' => 'Abattoir License',
+                'model' => '\App\Models\AbattoirLicense',
+                'add_route' => 'abattoir-license.create',
+                'edit_route' => 'abattoir-license.edit'
+            ],
+            [
+                'service_id' => 2002,
+                'service_name' => 'Advertizement Permission',
+                'model' => '\App\Models\AdvertisementPermission',
+                'add_route' => 'advertisement-permission.create',
+                'edit_route' => 'advertisement-permission.edit'
+            ],
+            [
+                'service_id' => 2003,
+                'service_name' => 'Gardens Filming and Photography Permission',
+                'model' => '\App\Models\GardensFilming',
+                'add_route' => 'gardens-filming.create',
+                'edit_route' => 'gardens-filming.edit'
+            ],
+            [
+                'service_id' => 2004,
+                'service_name' => 'Health License',
+                'model' => '\App\Models\HealthLicense',
+                'add_route' => 'health-license.create',
+                'edit_route' => 'health-license.edit'
+            ],
+            [
+                'service_id' => 2005,
+                'service_name' => 'Hoarding Permission  ',
+                'model' => '\App\Models\HoardingPermission',
+                'add_route' => 'hoarding-permission.create',
+                'edit_route' => 'hoarding-permission.edit'
+            ],
+            [
+                'service_id' => 241,
+                'service_name' => 'Occupancy Completion Certificate  ',
+                'model' => '\App\Models\TownPlanning\OccupancyCertificate',
+                'add_route' => 'town-occupancy-certificate.create',
+                'edit_route' => 'town-occupancy-certificate.edit'
+            ],
+            [
+                'service_id' => 2006,
+                'service_name' => 'Park Culture Permission  ',
+                'model' => '\App\Models\ParkCulturePermission',
+                'add_route' => 'park-culture.create',
+                'edit_route' => 'park-culture.edit'
+            ],
+            [
+                'service_id' => 2008,
+                'service_name' => 'Permission for Shooting ',
+                'model' => '\App\Models\PermissionShooting',
+                'add_route' => 'permission-shooting.create',
+                'edit_route' => 'permission-shooting.edit'
+            ],
+
+            [
+                'service_id' => 240,
+                'service_name' => 'Issue Plinth Completion Certificate ',
+                'model' => '\App\Models\PlinthCertificate',
+                'add_route' => 'plinth-certification.create',
+                'edit_route' => 'plinth-certification.edit'
+            ],
+            [
+                'service_id' => 2007,
+                'service_name' => 'Permission For PMCs Owned ground for temporary rent ',
+                'model' => '\App\Models\permissionForPmcOwn',
+                'add_route' => 'pmc-owned.create',
+                'edit_route' => 'pmc-owned.edit'
+            ],
+            [
+                'service_id' => 2008,
+                'service_name' => 'Permission for Shooting ',
+                'model' => '\App\Models\PermissionShooting',
+                'add_route' => 'permission-shooting.create',
+                'edit_route' => 'permission-shooting.edit'
+            ],
+
+            [
+                'service_id' => 2009,
+                'service_name' => 'Projection And Stall Board License ',
+                'model' => '\App\Models\StallBoardLicense',
+                'add_route' => 'stallboard-license.create',
+                'edit_route' => 'stallboard-license.edit'
+            ],
+
+            [
+                'service_id' => 2010,
+                'service_name' => 'Tents Permission On Temporarily Basis',
+                'model' => '\App\Models\TentsPermission',
+                'add_route' => 'tents-permission.create',
+                'edit_route' => 'tents-permission.edit'
+            ],
+            [
+                'service_id' => 2011,
+                'service_name' => 'Permission for PMCs Owned School Classrooms & Classrooms For Rent',
+                'model' => '\App\Models\ClassroomsForRent',
+                'add_route' => 'classroom-rent.create',
+                'edit_route' => 'classroom-rent.edit'
+            ],
+            [
+                'service_id' => 2012,
+                'service_name' => 'permission for Procession and Parade',
+                'model' => '\App\Models\ProcessionAndParade',
+                'add_route' => 'procession-parade.create',
+                'edit_route' => 'procession-parade.edit'
+            ],
+            [
+                'service_id' => 2013,
+                'service_name' => 'To Record Objection',
+                'model' => '\App\Models\RecordObjections',
+                'add_route' => 'record-objections.create',
+                'edit_route' => 'record-objections.edit'
+            ],
+            [
+                'service_id' => 2014,
+                'service_name' => 'Mobile Tower Permission',
+                'model' => '\App\Models\MobileTower',
+                'add_route' => 'mobile-tower.create',
+                'edit_route' => 'mobile-tower.edit'
+            ],
+            [
+                'service_id' => 2015,
+                'service_name' => 'NOC of Municipality for State License Of Food Business',
+                'model' => '\App\Models\StateLicense',
+                'add_route' => 'state-license.create',
+                'edit_route' => 'state-license.edit'
+            ],
+
+            [
+                'service_id' => 2016,
+                'service_name' => 'Health NOC of municipality for state license of food business',
+                'model' => '\App\Models\HealthNocMunci',
+                'add_route' => 'healthnoc-munici.create',
+                'edit_route' => 'healthnoc-munici.edit'
+            ],
+            [
+                'service_id' => 2017,
+                'service_name' => 'Movable Advertisement Permission',
+                'model' => '\App\Models\MovableAdvertisementPermission',
+                'add_route' => 'movable-advertisement.create',
+                'edit_route' => 'movable-advertisement.edit'
+            ],
+
+            [
+                'service_id' => 2018,
+                'service_name' => 'CFC',
+                'model' => '\App\Models\Cfc',
+                'add_route' => 'cfc.create',
+                'edit_route' => 'cfc.edit'
+            ],
+            [
+                'service_id' => 2020,
+                'service_name' => 'New Tax Assessment',
+                'model' => '\App\Models\NewTaxAssessment',
+                'add_route' => 'newtax-assessment.create',
+                'edit_route' => 'newtax-assessment.edit'
+            ],
+            [
+                'service_id' => 2021,
+                'service_name' => 'Division Of Property In Sub Division',
+                'model' => '\App\Models\DivSubDivision',
+                'add_route' => 'divsub-division.create',
+                'edit_route' => 'divsub-division.edit'
+            ],
+            [
+                'service_id' => 2022,
+                'service_name' => 'Tax Assessment On Demolishing And Reconstruction Of The Property',
+                'model' => '\App\Models\DemolishingProperty',
+                'add_route' => 'demolishingproperty.create',
+                'edit_route' => 'demolishingproperty.edit'
+            ],
+            [
+                'service_id' => 2023,
+                'service_name' => 'Trade NOC',
+                'model' => '\App\Models\Trade\TradeNoc',
+                'add_route' => 'tradenoc.create',
+                'edit_route' => 'tradenoc.edit'
+            ],
+
+            [
+                'service_id' => 2024,
+                'service_name' => 'Licensing of nursing homes under the Maharashtra Nursing Homes Registration Act, 1949',
+                'model' => '\App\Models\MedicalHealth\GrantNursingLicense',
+                'add_route' => 'grantnursing-license.create',
+                'edit_route' => 'grantnursing-license.edit'
+            ],
+
+            [
+                'service_id' => 2025,
+                'service_name' => 'Renewal of nursing homes under the Maharashtra Nursing Homes Registration Act, 1949',
+                'model' => '\App\Models\MedicalHealth\RenewalNursingLicense',
+                'add_route' => 'renewnursing-license.create',
+                'edit_route' => 'renewnursing-license.edit'
+            ],
+
+            [
+                'service_id' => 2026,
+                'service_name' => 'Owners Name change/ Partner name  of nursing homes under the Maharashtra Nursing Homes Registration Act, 1949',
+                'model' => '\App\Models\MedicalHealth\changenursing-license',
+                'add_route' => 'changenursing-license.create',
+                'edit_route' => 'changenursing-license.edit'
+            ],
+            [
+                'service_id' => 2027,
+                'service_name' => 'License for the Lodging House',
+                'model' => '\App\Models\Trade\LicenseLoadgingHouse',
+                'add_route' => 'trade-license-loading.create',
+                'edit_route' => 'trade-license-loading.edit'
+            ],
+            [
+                'service_id' => 2028,
+                'service_name' => 'Renewal License for the Lodging House',
+                'model' => '\App\Models\Trade\RenewLicenseLoadging',
+                'add_route' => 'trade-renew-license-loading.create',
+                'edit_route' => 'trade-renew-license-loading.edit'
+            ],
+            [
+                'service_id' => 2029,
+                'service_name' => 'Issuance of license for Marriage Hall/Meeting Hall etc.',
+                'model' => '\App\Models\Trade\IssuanceLicenseMarriage',
+                'add_route' => 'trade-issuance-license-marriage.create',
+                'edit_route' => 'trade-issuance-license-marriage.edit'
+            ],
+            [
+                'service_id' => 2030,
+                'service_name' => 'Renewal of License for Marriage Hall/Meeting Hall etc.',
+                'model' => '\App\Models\Trade\RenewMarriageLicense',
+                'add_route' => 'trade-renew-license-marriage.create',
+                'edit_route' => 'trade-renew-license-marriage.edit'
+            ],
+            [
+                'service_id' => 2031,
+                'service_name' => 'Issuance of hawker registration certificate',
+                'model' => '\App\Models\Nulm\HawkerRegister',
+                'add_route' => 'hawker-register.create',
+                'edit_route' => 'hawker-register.edit'
+            ],
+            [
+                'service_id' => 2032,
+                'service_name' => 'Granting permission for laying underground telecommunication ducts',
+                'model' => '\App\Models\Pwd\GrantingTelecom',
+                'add_route' => 'grant-telecome.create',
+                'edit_route' => 'grant-telecome.edit'
+            ],
+            [
+                'service_id' => 2033,
+                'service_name' => 'Granting permission for felling of trees as per the provisions of Section 8 of the Maharashtra Urban Areas Tree Protection and Conservation Act, 1975',
+                'model' => '\App\Models\TreeAuth\TreeProtection',
+                'add_route' => 'tree-protection.create',
+                'edit_route' => 'tree-protection.edit'
+            ],
+            [
+                'service_id' => 2034,
+                'service_name' => 'Movie Shooting License (Movie Shooting License) New License and Renewaln',
+                'model' => '\App\Models\Trade\MovieShooting',
+                'add_route' => 'movie-shooting.create',
+                'edit_route' => 'movie-shooting.edit'
+            ],
+            [
+                'service_id' => 2035,
+                'service_name' => 'To issue building permission',
+                'model' => '\App\Models\TownPlanning\BuildingPermission',
+                'add_route' => 'town-building-permission.create',
+                'edit_route' => 'town-building-permission.edit'
+            ],
+            [
+                'service_id' => 2037,
+                'service_name' => 'Change The Business Holder/Partner',
+                'model' => '\App\Models\Trade\ChangeHolderPartner',
+                'add_route' => 'trade-change-holder-partner.create',
+                'edit_route' => 'trade-change-holder-partner.edit'
+            ],
+            [
+                'service_id' => 2038,
+                'service_name' => 'To issue drainage / sewer connection',
+                'model' => '\App\Models\MallaNisaranDepartment\Drainage',
+                'add_route' => 'drainage.create',
+                'edit_route' => 'drainage.edit'
+            ],
         ];
 
+
         foreach ($services as $service) {
-            ServiceName::updateOrCreate([
-                'service_id' => $service['service_id']
-            ], [
-                'service_id' => $service['service_id'],
-                'service_name' => $service['service_name'],
-                'model' => $service['model'],
-                'add_route' => $service['add_route'],
-                'edit_route' => $service['edit_route'],
-            ]);
+            ServiceName::updateOrCreate(
+                [
+                    'service_id' => $service['service_id']
+                ],
+                [
+                    'service_id' => $service['service_id'],
+                    'service_name' => $service['service_name'],
+                    'model' => $service['model'],
+                    'add_route' => $service['add_route'],
+                    'edit_route' => $service['edit_route'],
+                ]
+            );
         }
     }
 }

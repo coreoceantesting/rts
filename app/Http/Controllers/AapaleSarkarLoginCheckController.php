@@ -22,6 +22,7 @@ class AapaleSarkarLoginCheckController extends Controller
 
     public function check(Request $request)
     {
+        // echo phpinfo();exit;
         set_time_limit(0);
         if (isset($request->str)) {
             // get service credential from service credential details

@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('occupancy_certificates', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
+            $table->string('ip')->nullable();
             $table->integer('service_id')->nullable();
             $table->date('aapale_sarkar_payment_date')->nullable();
             $table->string('status')->nullable();
             $table->string('application_no')->nullable();
+            $table->boolean('is_payment_paid_aapale_sarkar')->default(0)->nullable();
             $table->text('status_remark')->nullable();
             $table->boolean('is_aapale_sarkar_payment_paid')->nullable();
             $table->date('payment_date')->nullable();

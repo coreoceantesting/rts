@@ -25,7 +25,7 @@ class PaymentController extends Controller
         // $decrypted = $this->decrypt("2dQhpsbA4s5TIjWONzrKWx/FJF+QH88bQtrUytYGyfAzAK6vY5q9BMw5VhGy0ga5+6K9A9buSeogt2px7m6G97VFYljgxPdsziGYlTp2H4D3nJu686BdlzOtzgW+yV/ytAZfRuN4pk8XLxnro6EJfj4igmr6J7k0TPGa+pNvW6kV7cMWw5l8wuGF7mWtWbqd", $this->key);
         // dd($decrypted);
         
-        $orderid  = 'MRTS00353';
+        $orderid  = 'MRTS00251';
         $merchantId = '1000605';
         // $merchantId = '1000112';
         $postingAmount = 1;
@@ -40,7 +40,7 @@ class PaymentController extends Controller
         
         // $requestParameter = "$merchantId|DOM|$merchantCountry|$merchantCurrency|$postingAmount|Other|$this->successCallbackUrl|$this->failedCallbackUrl|$aggregatorId|$orderId|$merchantCustomerId|$payMode|$accessMedium|$transactionSource";
         // $requestParameter = "1000605|DOM|IN|INR|1|Other|$this->successCallbackUrl|$this->failedCallbackUrl|SBIEPAY|$orderid|2|NB|ONLINE|ONLINE";
-        $requestParameter  = "1000605|DOM|IN|INR|1|Other|$this->successCallbackUrl|$this->failedCallbackUrl|SBIEPAY|MRTS00353|2|NB|ONLINE|ONLINE";
+        $requestParameter  = "1000605|DOM|IN|INR|1|Other|$this->successCallbackUrl|$this->failedCallbackUrl|SBIEPAY|MRTS00251|2|NB|ONLINE|ONLINE";
    
         $EncryptTrans = $this->encrypt($requestParameter, $this->key);
     
@@ -78,7 +78,7 @@ class PaymentController extends Controller
     public function doubleverificationReq(Request $request)
     {
         \Log::info($request);
-        $merchant_order_no = "MRTS00353"; 
+        $merchant_order_no = "MRTS00251"; 
         $merchantid = "1000605";  
         $amount = 2;
 
