@@ -921,6 +921,54 @@ class ServiceSeeder extends Seeder
                 "background_color" => "#00aea4",
                 "created_at" => "2024-06-10 10:54:22",
                 "updated_at" => "2024-06-10 10:58:36"
+            ],
+            [
+                "id" => 73,
+                "service_id" => null,
+                "name" => "वैद्यकीय आरोग्य विभाग",
+                "image" => "service/ZolWqfXTl0JjOWRUNdfaVuw1iF5Ktu1EghTWS4n0.png",
+                "is_parent" => 0,
+                "route_name" => null,
+                'table_name' => null,
+                "background_color" => "#b73107",
+                "created_at" => "2024-06-10 10:51:08",
+                "updated_at" => "2024-06-10 10:51:08"
+            ],
+            [
+                "id" => 74,
+                "service_id" => 73,
+                "name" => "महाराष्ट्र नर्सिंग होम नोंदणी कायदा, १९४९ अंतर्गत नर्सिंग होमचे परवाने देणे",
+                "image" => null,
+                "is_parent" => 1,
+                "route_name" => "grantnursing-license.create",
+                'table_name' => "grant_nursing_licenses",
+                "background_color" => "#00aea4",
+                "created_at" => "2024-06-10 10:54:22",
+                "updated_at" => "2024-06-10 10:58:36"
+            ],
+            [
+                "id" => 75,
+                "service_id" => 73,
+                "name" => "महाराष्ट्र नर्सिंग होम नोंदणी कायदा, १९४९ अंतर्गत नर्सिंग होमचे नूतनीकरण",
+                "image" => null,
+                "is_parent" => 1,
+                "route_name" => "renewnursing-license.create",
+                'table_name' => "renewal_nursing_licenses",
+                "background_color" => "#00aea4",
+                "created_at" => "2024-06-10 10:54:22",
+                "updated_at" => "2024-06-10 10:58:36"
+            ],
+            [
+                "id" => 76,
+                "service_id" => 73,
+                "name" => "महाराष्ट्र नर्सिंग होम नोंदणी कायदा, १९४९ अंतर्गत नर्सिंग होमच्या मालकांच्या नावात बदल/भागीदाराच्या नावात बदल",
+                "image" => null,
+                "is_parent" => 1,
+                "route_name" => "changenursing-license.create",
+                'table_name' => "change_nursing_licenses",
+                "background_color" => "#00aea4",
+                "created_at" => "2024-06-10 10:54:22",
+                "updated_at" => "2024-06-10 10:58:36"
             ]
         ];
 
