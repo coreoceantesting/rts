@@ -44,7 +44,7 @@ return new class extends Migration
             $table->string('state')->nullable();
             $table->string('csmc_prop_no')->nullable();
             $table->bigInteger('cts_no')->nullable();
-            $table->string('Zone')->nullable();
+            $table->string('zone')->nullable();
             $table->string('ward_no')->nullable();
             $table->string('detail_address')->nullable();
             $table->string('lacality')->nullable();

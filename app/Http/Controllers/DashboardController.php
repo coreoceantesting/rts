@@ -260,7 +260,8 @@ class DashboardController extends Controller
             'movie_shooting',
             'building_permissions',
             'issue_occupancy_certificates',
-            'business_partner_changes'
+            'business_partner_changes',
+            'drainages'
         ];
         $data = [];
 
