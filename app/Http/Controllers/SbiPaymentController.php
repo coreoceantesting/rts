@@ -6,6 +6,8 @@ use App\Models\Fees;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\SbiPayment;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class SbiPaymentController extends Controller
@@ -100,20 +102,44 @@ class SbiPaymentController extends Controller
         $decreptedData = $this->decrypt($request->encData, $this->key);
         $decreptedData = explode('|', $decreptedData);
         Log::error($decreptedData);
-        dd($decreptedData);
-        // if(!isset($decreptedData[0]))
-        //     return "No response received";
 
+        if(!isset($decreptedData[0]))
+            return "No response received";
 
-        // $doubleVerificationResponse = $this->doubleverificationReq($request->encData, $decreptedData[0]);
+        $paymentInfo = SbiPayment::where('orderno', $decreptedData[0])->first();
+        if(!$paymentInfo)
+            return "Something went wrong while validating payment details, contact support for further info.";
 
-        // return $doubleVerificationResponse;
+        try
+        {
+            DB::beginTransaction();
 
-        // if ($doubleVerificationResponse['status'] == 'success') {
-            return view('payment.success')->with('message', 'Payment and double verification successful!');
-        // } else {
-        //     return view('payment.success')->with('message', 'Payment successful, but double verification failed.');
-        // }
+            $paymentInfo->status = SbiPayment::PAYMENT_STATUS_SUCCESSFUL;
+            $paymentInfo->save();
+
+            $service = DB::table('service_names')->where('service_id', $paymentInfo->service_id)->first();
+            $targetTable = $service->model::find($paymentInfo->table_id);
+            $targetTable->is_payment_paid = 1;
+            $targetTable->payment_date = Carbon::now()->toDateString();
+            $targetTable->save();
+            DB::commit();
+
+            // $doubleVerificationResponse = $this->doubleverificationReq($request->encData, $decreptedData[0]);
+
+            // return $doubleVerificationResponse;
+
+            // if ($doubleVerificationResponse['status'] == 'success') {
+                return view('payment.success')->with('message', 'Payment and double verification successful!');
+            // } else {
+            //     return view('payment.success')->with('message', 'Payment successful, but double verification failed.');
+            // }
+        }
+        catch(\Exception $e)
+        {
+            Log::info("Payment update failure on success page");
+            Log::info($e);
+            return "Something went wrong while validating payment details, contact support for further info.";
+        }
     }
 
     public function failedResponse(Request $request)
@@ -124,8 +150,16 @@ class SbiPaymentController extends Controller
 
         $decreptedData = $this->decrypt($request->encData, $this->key);
         $decreptedData = explode('|', $decreptedData);
+        Log::error("Payment failed : ");
         Log::error($decreptedData);
 
+        $paymentInfo = SbiPayment::where('orderno', $decreptedData[0])->first();
+
+        if($paymentInfo)
+        {
+            $paymentInfo->status = SbiPayment::PAYMENT_STATUS_FAILED;
+            $paymentInfo->save();
+        }
 
         return view('payment.failed');
     }
