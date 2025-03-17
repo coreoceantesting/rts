@@ -4,8 +4,8 @@
     </IfModule>
 
     RewriteEngine On
-    RewriteCond %{HTTP_HOST} ^pmc.maharts.com$ [NC,OR]
-    RewriteCond %{HTTP_HOST} ^www.pmc.maharts.com$
+    RewriteCond %{HTTP_HOST} ^test.maharts.com$ [NC,OR]
+    RewriteCond %{HTTP_HOST} ^www.test.maharts.com$
     RewriteCond %{REQUEST_URI} !public/
     RewriteRule (.*) /public/$1 [L]
 
@@ -22,7 +22,7 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
-    
+
 </IfModule>
 
 # php -- BEGIN cPanel-generated handler, do not edit
