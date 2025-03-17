@@ -131,14 +131,14 @@ Route::middleware(['guest', 'PreventBackHistory', 'firewall.all'])->group(functi
 });
 
 Route::prefix('/payment')->group(function(){
-    
-    Route::get('/sbi/create', [App\Http\Controllers\SbiPaymentController::class, 'initPaymentRequest'])->name('create-payment');
+
+    Route::get('/sbi/create/{service_id}/{application_id}', [App\Http\Controllers\SbiPaymentController::class, 'initPaymentRequest'])->name('create-payment');
     Route::any('/sbi/success', [App\Http\Controllers\SbiPaymentController::class, 'successResponse'])->name('success-payment');
     Route::any('/sbi/failed', [App\Http\Controllers\SbiPaymentController::class, 'failedResponse'])->name('failed-payment');
     Route::any('redirect-payment', [App\Http\Controllers\SbiPaymentController::class, 'redirectPayment'])->name('redirect-payment');
 
-    
-    Route::get('double-verification', [App\Http\Controllers\PaymentController::class, 'doubleverificationReq'])->name('double-verification');
+
+    Route::get('double-verification', [App\Http\Controllers\SbiPaymentController::class, 'doubleverificationReq'])->name('double-verification');
 });
 
 

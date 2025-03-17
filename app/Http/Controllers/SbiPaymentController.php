@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fees;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\SbiPayment;
+use Illuminate\Support\Facades\Log;
 
 class SbiPaymentController extends Controller
 {
@@ -16,26 +18,35 @@ class SbiPaymentController extends Controller
 
     public function __construct()
     {
-        $this->algo = 'aes-128-cbc'; 
-        $this->merchantId = '1000605'; 
-        $this->key = "pWhMnIEMc4q6hKdi2Fx50Ii8CKAoSIqv9ScSpwuMHM4="; 
-        // $this->key = "A7C9F96EEE0602A61F184F4F1B92F0566B9E61D98059729EAD3229F882E81C3A"; 
-        $this->successCallbackUrl = env('APP_URL') . "payment/sbi/success";
-        $this->failedCallbackUrl = env('APP_URL') . "payment/sbi/failed";
+        $this->algo = 'aes-128-cbc';
+        $this->merchantId = '1000605';
+        $this->key = "pWhMnIEMc4q6hKdi2Fx50Ii8CKAoSIqv9ScSpwuMHM4=";
+        // $this->key = "A7C9F96EEE0602A61F184F4F1B92F0566B9E61D98059729EAD3229F882E81C3A";
+        $this->successCallbackUrl = env('APP_URL') . "/payment/sbi/success";
+        $this->failedCallbackUrl = env('APP_URL') . "/payment/sbi/failed";
     }
 
-    public function initPaymentRequest(Request $request)
+    public function initPaymentRequest(Request $request, $service_id, $application_id)
     {
-        // $lastPayment = SbiPayment::latest('id')->first();
-        
-        // $newOrderIdNumber = $lastPayment ? $lastPayment->id + 1 : 1; 
-        // if ($lastPayment === null) {
-        //     $newOrderIdNumber = 1; 
-        // }
-     
-        // $orderid = 'MRTS' . str_pad($newOrderIdNumber, 5, '0', STR_PAD_LEFT);
-        $orderid  = 'MRTS00974';
-        $postingAmount = 1;
+        $fees = Fees::where('service_name_id', $service_id)->first();
+
+        if(!$fees)
+            return "No fees data found";
+
+        $sbiPayment = SbiPayment::create([
+                            'orderno' => 1,
+                            'amount' => $fees->fees,
+                            'service_id' => $fees->service_name_id,
+                            'table_id' => $application_id,
+                            'fees_id' => $fees->id,
+                            'status' => SbiPayment::PAYMENT_STATUS_PENDING,
+                        ]);
+        $sbiPayment->orderno = $sbiPayment->generateOrderNo();
+        $sbiPayment->save();
+        $sbiPayment->refresh();
+
+        $orderid  = $sbiPayment->orderno;
+        $postingAmount = $sbiPayment->amount;
         $merchantCountry = 'IN';
         $merchantCurrency = 'INR';
         $aggregatorId = 'SBIEPAY';
@@ -43,41 +54,39 @@ class SbiPaymentController extends Controller
         $payMode = 'NB';
         $accessMedium = 'ONLINE';
         $transactionSource = 'ONLINE';
-    
-        
+
+
         $requestParameter  = "$this->merchantId|DOM|$merchantCountry|$merchantCurrency|1|Other|$this->successCallbackUrl|$this->failedCallbackUrl|$aggregatorId|$orderid|2|NB|$accessMedium|$transactionSource";
-   
+
         $EncryptTrans = $this->encrypt($requestParameter);
-    
-        return view('payment.create', compact('EncryptTrans'));
+
+        return view('payment.create')->with(['merchantId' => $this->merchantId, 'sbiPayment' => $sbiPayment, 'EncryptTrans' => $EncryptTrans]);
     }
 
     public function redirectPayment(Request $request)
     {
-    
+
         $data = [
             'EncryptTrans' => $request->input('EncryptTrans'),
             'merchIdVal' => $request->input('merchIdVal'),
         ];
-        
-       \Log::info('redirect ');
-     
+
         try {
-            $response = \Http::post('https://test.sbiepay.sbi/secure/AggregatorHostedListener', $data);
-    
+            $response = Http::post('https://test.sbiepay.sbi/secure/AggregatorHostedListener', $data);
+
             if ($response->successful()) {
-             
+
                 return response($response->body(), $response->status());
             } else {
-              
-                \Log::error('SBI ePay Response Error: ', ['response' => $response->body()]);
-    
+
+                Log::error('SBI ePay Response Error: ', ['response' => $response->body()]);
+
                 return response()->json(['error' => 'Request to external service failed', 'details' => $response->body()], 500);
             }
         } catch (\Exception $e) {
-        
-            \Log::error('SBI ePay Request Error: ', ['error' => $e->getMessage()]);
-    
+
+            Log::error('SBI ePay Request Error: ', ['error' => $e->getMessage()]);
+
             return response()->json(['error' => 'An unexpected error occurred'], 500);
         }
     }
@@ -86,29 +95,38 @@ class SbiPaymentController extends Controller
     {
         if (!$request->encData && $request->encData == "")
             return "Please try again...";
-        
-    
+
+
         $decreptedData = $this->decrypt($request->encData, $this->key);
         $decreptedData = explode('|', $decreptedData);
-        
-        if(!isset($decreptedData[0]))
-            return "No response received";
-        
+        Log::error($decreptedData);
+        dd($decreptedData);
+        // if(!isset($decreptedData[0]))
+        //     return "No response received";
 
-        $doubleVerificationResponse = $this->doubleverificationReq($request->encData, $decreptedData[0]);
-       
-        return $doubleVerificationResponse;
 
-        if ($doubleVerificationResponse['status'] == 'success') {
+        // $doubleVerificationResponse = $this->doubleverificationReq($request->encData, $decreptedData[0]);
+
+        // return $doubleVerificationResponse;
+
+        // if ($doubleVerificationResponse['status'] == 'success') {
             return view('payment.success')->with('message', 'Payment and double verification successful!');
-        } else {
-            return view('payment.success')->with('message', 'Payment successful, but double verification failed.');
-        }
+        // } else {
+        //     return view('payment.success')->with('message', 'Payment successful, but double verification failed.');
+        // }
     }
 
     public function failedResponse(Request $request)
     {
-       
+        if (!$request->encData && $request->encData == "")
+            return "Please try again...";
+
+
+        $decreptedData = $this->decrypt($request->encData, $this->key);
+        $decreptedData = explode('|', $decreptedData);
+        Log::error($decreptedData);
+
+
         return view('payment.failed');
     }
 
@@ -116,7 +134,7 @@ class SbiPaymentController extends Controller
     public function doubleverificationReq($encData, $merchantOrderNo)
     {
         $amount = 1;
-        
+
         $queryRequest = "$this->merchantId|$merchantOrderNo|$amount";
         $url = 'https://test.sbiepay.sbi/payagg/statusQuery/getStatusQuery';
         $data = [
@@ -124,40 +142,40 @@ class SbiPaymentController extends Controller
             'aggregatorId' => 'SBIEPAY',
             'merchantId' => $this->merchantId
         ];
-    
-        $response = Http::withOptions([ 'timeout' => 60, 'verify' => true ])->post($url, $data); 
-        
-        if ($response->successful()) 
+
+        $response = Http::withOptions([ 'timeout' => 60, 'verify' => true ])->post($url, $data);
+
+        if ($response->successful())
         {
             return ['status' => 'success', 'data' => $response->json()];
-        } 
-        else 
+        }
+        else
         {
-            \Log::error('SBI Double Verification Error:', ['data' => $response->json(), 'status' => $response->status() ]);
+            Log::error('SBI Double Verification Error:', ['data' => $response->json(), 'status' => $response->status() ]);
             return [ 'status' => $response->status(), 'message' => 'Request to external service failed', 'data' => $response->json() ];
         }
     }
 
-   
+
     public  function encrypt($data)
     {
         $iv=substr($this->key, 0, 16);
-           
+
         $cipherText = openssl_encrypt($data, $this->algo, $this->key, OPENSSL_RAW_DATA, $iv );
         $cipherText = base64_encode($cipherText);
-    
+
         return $cipherText;
     }
-        
+
     public function decrypt($cipherText)
     {
 	    $iv=substr($this->key, 0, 16);
-	    
+
     	$cipherText = base64_decode($cipherText);
-    					
+
 		$plaintext = openssl_decrypt($cipherText, $this->algo, $this->key, OPENSSL_RAW_DATA, $iv );
 
-        return $plaintext;   
+        return $plaintext;
     }
-    
+
 }

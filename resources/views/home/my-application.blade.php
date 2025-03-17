@@ -40,14 +40,10 @@
                                         <td>{{ array_key_exists($data->service_id, $serviceName) ? $serviceName[$data->service_id] : '' }}</td>
                                         <td>{{ date('d-m-Y h:i A', strtotime($data->created_at)) }}</td>
                                         <td>
-                                            @if (Auth::user()->is_aapale_sarkar_user)
-                                                @if (!$data->is_payment_paid_aapale_sarkar)
-                                                    <a href="{{ route('generate-payment-url', ['service_id' => $data->service_id, 'application_no' => $data->application_no]) }}" class="btn btn-primary btn-sm">Make Payment To Aapale Sarkar</a>
-                                                    {{-- @elseif(!$data->is_payment_paid_aapale_sarkar)
-                                        <a href="{{ route('generate-payment-url', ['service_id' => $data->service_id, 'application_no' => $data->application_no]) }}" class="btn btn-primary btn-sm">Make Payment To Aapale Sarkar</a> --}}
-                                                @else
-                                                    Payment Paid
-                                                @endif
+                                            @if(!$data->is_payment_paid)
+                                                <a href="{{ route('create-payment', ['service_id' => $data->service_id, 'application_id' => $data->id]) }}" data-id="{{ $data->service_id }}" class="btn btn-secondary btn-sm paymentPage">Make Payment to Corporation</a>
+                                            @elseif (Auth::user()->is_aapale_sarkar_user && !$data->is_payment_paid_aapale_sarkar)
+                                                <a href="{{ route('generate-payment-url', ['service_id' => $data->service_id, 'application_no' => $data->application_no]) }}" class="btn btn-primary btn-sm">Make Payment To Aapale Sarkar</a>
                                             @else
                                                 -
                                             @endif

@@ -59,8 +59,6 @@ class DashboardController extends Controller
 
     public function myApplication(Request $request)
     {
-
-
         if (isset($request->str) && $request->str != "") {
             $str = $request->str;
 
