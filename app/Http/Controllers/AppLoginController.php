@@ -10,12 +10,11 @@ use Carbon\Carbon;
 
 class AppLoginController extends Controller
 {
-   public function checkAppUser(Request $request)
+    public function checkAppUser(Request $request)
     {
-        $email = $request['userdata']['email'] ?? null;
         $phone = $request['userdata']['phone'] ?? null;
 
-        if ($email || $phone) {
+        if ($phone) {
             $user = User::where('mobile', $phone)->first();
 
             if (!$user) {
