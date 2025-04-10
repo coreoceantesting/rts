@@ -16,7 +16,7 @@ class AppLoginController extends Controller
         $phone = $request['userdata']['phone'] ?? null;
 
         if ($email || $phone) {
-            $user = User::where('email', $email)->orWhere('mobile', $phone)->first();
+            $user = User::where('mobile', $phone)->first();
 
             if (!$user) {
                 $parsedDate = Carbon::createFromFormat('Y-m-d', $request['userdata']['date_of_birth']);
