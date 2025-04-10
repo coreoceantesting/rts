@@ -18,8 +18,14 @@ class AppLoginController extends Controller
             $user = User::where('mobile', $phone)->first();
 
             if (!$user) {
-                $parsedDate = Carbon::createFromFormat('Y-m-d', $request['userdata']['date_of_birth']);
-                $age = $parsedDate->diffInYears(Carbon::now());
+                if (Carbon::hasFormat($request['userdata']['date_of_birth'], 'Y-m-d')) {
+                    $parsedDate = Carbon::createFromFormat('Y-m-d', $request['userdata']['date_of_birth']);
+                    $age = $parsedDate->diffInYears(Carbon::now());
+                } else {
+                    $age = 0;
+                }
+
+
                 $user = User::create([
                     'name' => $request['userdata']['first_name'] . " " . $request['userdata']['middle_name'] . " " . $request['userdata']['last_name'],
                     'email' => $request['userdata']['email'],
