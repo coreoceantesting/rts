@@ -77,7 +77,6 @@ class AppLoginController extends Controller
 
     public function appLogin(Request $request)
     {
-        \Log::info($request);
         set_time_limit(0);
 
         $arr = $this->chekData($request);
@@ -96,14 +95,8 @@ class AppLoginController extends Controller
 
     function chekData($request)
     {
-
-        $base64 = strtr($request->input('str'), '-_', '+/');
-        $base64 = preg_replace('/\s+/', '', $base64); // ✅ Add this to clean spaces
-
-        $encrypted = base64_decode($base64);
-
-        // $cleaned = preg_replace('/\s+/', '', $request->str);
-        // $encrypted = base64_decode($cleaned);
+        $cleaned = preg_replace('/\s+/', '', $request->str);
+        $encrypted = base64_decode($cleaned);
         $iv = substr($encrypted, 0, openssl_cipher_iv_length('aes-256-cbc'));
         $cipherText = substr($encrypted, openssl_cipher_iv_length('aes-256-cbc'));
 
