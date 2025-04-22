@@ -15,7 +15,7 @@ class AppLoginController extends Controller
         $phone = $request['userdata']['phone'] ?? null;
 
         if ($phone) {
-            $user = User::where('mobile', $phone)->first();
+            $user = User::where('mobile', $phone)->orWhere('email', $request['userdata']['email'])->first();
 
             if (!$user) {
                 if (Carbon::hasFormat($request['userdata']['date_of_birth'], 'Y-m-d')) {
@@ -34,6 +34,11 @@ class AppLoginController extends Controller
                     'mobile' => $request['userdata']['phone'],
                     'gender' => $request['userdata']['gender'],
                     'is_aapale_sarkar_user' => 0,
+                ]);
+            } else {
+                $user->update([
+                    'email' => $request['userdata']['email'],
+                    'mobile' => $request['userdata']['phone'],
                 ]);
             }
             $key = "0a7ee57607601b71d3c81662f11e3732a10ccf992bdf2fb5d6c0f64f839e2f12";
