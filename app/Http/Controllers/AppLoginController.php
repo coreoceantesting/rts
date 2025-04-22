@@ -58,7 +58,9 @@ class AppLoginController extends Controller
             $data = $user->id . "|" . $request->link;
             $cipherText = openssl_encrypt($data, 'aes-256-cbc', $key, 0, $iv);
             $encrypted = base64_encode($iv . $cipherText);
+            $encrypted = strtr($encrypted, '+/', '-_');
 
+            \Log::info($encrypted);
             // 🧹 Clean spaces, newlines, tabs
             $encrypted = preg_replace('/\s+/', '', $encrypted);
 
@@ -95,7 +97,8 @@ class AppLoginController extends Controller
 
     function chekData($request)
     {
-        $cleaned = preg_replace('/\s+/', '', $request->str);
+        $base64 = strtr($request->str, '-_', '+/');
+        $cleaned = preg_replace('/\s+/', '', $base64);
         $encrypted = base64_decode($cleaned);
         $iv = substr($encrypted, 0, openssl_cipher_iv_length('aes-256-cbc'));
         $cipherText = substr($encrypted, openssl_cipher_iv_length('aes-256-cbc'));
