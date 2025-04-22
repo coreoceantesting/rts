@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Carbon\Carbon;
@@ -60,7 +59,6 @@ class AppLoginController extends Controller
             $encrypted = base64_encode($iv . $cipherText);
             $encrypted = strtr($encrypted, '+/', '-_');
 
-            \Log::info($encrypted);
             // 🧹 Clean spaces, newlines, tabs
             $encrypted = preg_replace('/\s+/', '', $encrypted);
 
