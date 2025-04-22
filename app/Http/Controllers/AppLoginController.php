@@ -63,20 +63,19 @@ class AppLoginController extends Controller
     public function appLogin(Request $request)
     {
         set_time_limit(0);
+
         $arr = $this->chekData($request);
 
-        if (is_array($arr) && count($arr) > 0) {
+        if (is_array($arr) && count($arr) > 1) {
             $user = User::find($arr[0]);
+
             if ($user) {
                 Auth::login($user);
-
                 return redirect()->to($arr[1]);
-            } else {
-                $this->appLogin($request);
             }
-        } else {
-            $this->appLogin($request);
         }
+
+        return response()->json(['error' => 'Invalid credentials or request.'], 401);
     }
 
     function chekData($request)
