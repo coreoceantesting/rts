@@ -48,18 +48,16 @@ class AppLoginController extends Controller
                     'mobile' => $request['userdata']['phone'],
                 ]);
             }
-            $key = "0a7ee57607601b71d3c81662f11e3732a10ccf992bdf2fb5d6c0f64f839e2f12";
-            $key = substr(hash('sha256', $key, true), 0, 32); // Ensure it's 32 bytes for AES-256
+            $secret  = "0a7ee57607601b71d3c81662f11e3732a10ccf992bdf2fb5d6c0f64f839e2f12";
+            $key = substr(hash('sha256', $secret, true), 0, 32); // Ensure it's 32 bytes for AES-256
 
             // Initialization Vector (IV)
             $iv = random_bytes(openssl_cipher_iv_length('aes-256-cbc'));
 
             // Data to encrypt
             $data = $user->id . "|" . $request->link;
-            // Encrypt Data
-            $encrypted = openssl_encrypt($data, 'aes-256-cbc', $key, 0, $iv);
-            // Encode for storage or transfer
-            $encrypted = base64_encode($iv . $encrypted);
+            $cipherText = openssl_encrypt($data, 'aes-256-cbc', $key, 0, $iv);
+            $encrypted = base64_encode($iv . $cipherText);
 
             return response()->json(['success' => 200, 'data' => $encrypted]);
         } else {
