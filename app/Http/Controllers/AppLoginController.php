@@ -21,7 +21,9 @@ class AppLoginController extends Controller
                 $request['userdata']['last_name'] ?? '',
             ])));
 
-            $user = User::where('mobile', $phone)->orWhere('email', $request['userdata']['email'])->first();
+            $user = User::where('mobile', $phone)
+                ->orWhere('email', $request['userdata']['email'])
+                ->first();
 
             if (!$user) {
                 if (Carbon::hasFormat($request['userdata']['date_of_birth'], 'Y-m-d')) {
@@ -30,7 +32,6 @@ class AppLoginController extends Controller
                 } else {
                     $age = 0;
                 }
-
 
                 $user = User::create([
                     'name' => $fullName,
@@ -48,20 +49,31 @@ class AppLoginController extends Controller
                     'mobile' => $request['userdata']['phone'],
                 ]);
             }
-            $secret  = "0a7ee57607601b71d3c81662f11e3732a10ccf992bdf2fb5d6c0f64f839e2f12";
-            $key = substr(hash('sha256', $secret, true), 0, 32); // Ensure it's 32 bytes for AES-256
 
-            // Initialization Vector (IV)
+            // Encryption
+            $secret = "0a7ee57607601b71d3c81662f11e3732a10ccf992bdf2fb5d6c0f64f839e2f12";
+            $key = substr(hash('sha256', $secret, true), 0, 32); // 32-byte AES key
             $iv = random_bytes(openssl_cipher_iv_length('aes-256-cbc'));
 
-            // Data to encrypt
             $data = $user->id . "|" . $request->link;
-            $cipherText = openssl_encrypt($data, 'aes-256-cbc', $key, 0, $iv);
-            $encrypted = base64_encode($iv . $cipherText);
 
-            return response()->json(['success' => 200, 'data' => $encrypted]);
+            $cipherText = openssl_encrypt($data, 'aes-256-cbc', $key, 0, $iv);
+
+            $finalEncrypted = base64_encode($iv . $cipherText);
+
+            // Remove any whitespace from final string just to be extra safe
+            $finalEncrypted = preg_replace('/\s+/', '', $finalEncrypted);
+
+            return response()->json([
+                'success' => 200,
+                'data' => $finalEncrypted,
+                'key' => $secret,
+            ]);
         } else {
-            return response()->json(['error' => 503, 'message' => 'Something went wrong, please try again!']);
+            return response()->json([
+                'error' => 503,
+                'message' => 'Something went wrong, please try again!'
+            ]);
         }
     }
 
