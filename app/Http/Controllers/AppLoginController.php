@@ -15,6 +15,12 @@ class AppLoginController extends Controller
         $phone = $request['userdata']['phone'] ?? null;
 
         if ($phone) {
+            $fullName = trim(implode(' ', array_filter([
+                $request['userdata']['first_name'] ?? '',
+                $request['userdata']['middle_name'] ?? '',
+                $request['userdata']['last_name'] ?? '',
+            ])));
+
             $user = User::where('mobile', $phone)->orWhere('email', $request['userdata']['email'])->first();
 
             if (!$user) {
@@ -27,7 +33,7 @@ class AppLoginController extends Controller
 
 
                 $user = User::create([
-                    'name' => $request['userdata']['first_name'] . " " . $request['userdata']['middle_name'] . " " . $request['userdata']['last_name'],
+                    'name' => $fullName,
                     'email' => $request['userdata']['email'],
                     'password' => bcrypt($request['userdata']['email']),
                     'age' => $age,
@@ -37,6 +43,7 @@ class AppLoginController extends Controller
                 ]);
             } else {
                 $user->update([
+                    'name' => $fullName,
                     'email' => $request['userdata']['email'],
                     'mobile' => $request['userdata']['phone'],
                 ]);
