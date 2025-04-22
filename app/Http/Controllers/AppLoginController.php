@@ -51,22 +51,21 @@ class AppLoginController extends Controller
             }
 
             // Encryption
-            $secret = "0a7ee57607601b71d3c81662f11e3732a10ccf992bdf2fb5d6c0f64f839e2f12";
-            $key = substr(hash('sha256', $secret, true), 0, 32); // 32-byte AES key
+            $secret  = "0a7ee57607601b71d3c81662f11e3732a10ccf992bdf2fb5d6c0f64f839e2f12";
+            $key = substr(hash('sha256', $secret, true), 0, 32);
             $iv = random_bytes(openssl_cipher_iv_length('aes-256-cbc'));
 
             $data = $user->id . "|" . $request->link;
-
             $cipherText = openssl_encrypt($data, 'aes-256-cbc', $key, 0, $iv);
+            $encrypted = base64_encode($iv . $cipherText);
 
-            $finalEncrypted = base64_encode($iv . $cipherText);
-
-            // Remove any whitespace from final string just to be extra safe
-            $finalEncrypted = preg_replace('/\s+/', '', $finalEncrypted);
+            // 🧹 Clean spaces, newlines, tabs
+            $encrypted = preg_replace('/\s+/', '', $encrypted);
+            $urlSafe = strtr($encrypted, '+/', '-_');
 
             return response()->json([
                 'success' => 200,
-                'data' => $finalEncrypted,
+                'data' => $urlSafe,
                 'key' => $secret,
             ]);
         } else {
