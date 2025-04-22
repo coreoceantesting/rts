@@ -85,7 +85,8 @@ class AppLoginController extends Controller
 
     function chekData($request)
     {
-        $encrypted = base64_decode($request->str);
+        $cleaned = preg_replace('/\s+/', '', $request->str);
+        $encrypted = base64_decode($cleaned);
         $iv = substr($encrypted, 0, openssl_cipher_iv_length('aes-256-cbc'));
         $cipherText = substr($encrypted, openssl_cipher_iv_length('aes-256-cbc'));
 
