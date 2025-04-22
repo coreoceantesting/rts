@@ -61,11 +61,10 @@ class AppLoginController extends Controller
 
             // 🧹 Clean spaces, newlines, tabs
             $encrypted = preg_replace('/\s+/', '', $encrypted);
-            $urlSafe = strtr($encrypted, '+/', '-_');
 
             return response()->json([
                 'success' => 200,
-                'data' => $urlSafe,
+                'data' => $encrypted,
                 'key' => $secret,
             ]);
         } else {
@@ -78,6 +77,7 @@ class AppLoginController extends Controller
 
     public function appLogin(Request $request)
     {
+        \Log::info($request);
         set_time_limit(0);
 
         $arr = $this->chekData($request);
