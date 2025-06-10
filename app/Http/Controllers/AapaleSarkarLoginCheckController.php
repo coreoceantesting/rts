@@ -56,7 +56,7 @@ class AapaleSarkarLoginCheckController extends Controller
                     // Query the database to check if the user exists
                     $existingUser = User::where('user_id', $data['UserID'])
                     ->when($data['EmailID'] && $data['EmailID'] != "", function($q) use($data){
-                        $q->orWhere('email', $data);
+                        $q->orWhere('email', $data['EmailID']);
                     })->first();
 
                     if ($existingUser) {
