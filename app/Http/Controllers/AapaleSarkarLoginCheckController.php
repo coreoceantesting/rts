@@ -54,12 +54,19 @@ class AapaleSarkarLoginCheckController extends Controller
                 // return $data;
                 if (isset($data['UserID']) && !empty($data['UserID'])) {
                     // Query the database to check if the user exists
-                    $existingUser = User::where('user_id', $data['UserID'])->first();
+                    $existingUser = User::where('user_id', $data['UserID'])
+                    ->when($data['EmailID'] && $data['EmailID'] != "", function($q) use($data){
+                        $q->orWhere('email', $data);
+                    })->first();
 
                     if ($existingUser) {
                         Auth::login($existingUser);
 
-                        User::where('id', Auth::user()->id)->update(['trackid' => $data['TrackId']]);
+                        User::where('id', Auth::user()->id)->update([
+                            'trackid' => $data['TrackId'],
+                            'user_id' => $data['UserID'],
+                            'is_aapale_sarkar_user' => 1,
+                        ]);
                     } else {
                         $user = User::create([
                             'name' => ($data['FullName']) ? $data['FullName'] : '',

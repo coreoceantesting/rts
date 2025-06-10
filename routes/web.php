@@ -314,7 +314,7 @@ Route::post('rts-service-status', [AapaleSarkarLoginCheckController::class, 'upd
 Route::post('check-app-user', [App\Http\Controllers\AppLoginController::class, 'checkAppUser']);
 Route::get('app-login', [App\Http\Controllers\AppLoginController::class, 'appLogin'])->name('app-login');
 
-// Route::get('check-aapalesarkar-user', [AapaleSarkarLoginCheckController::class, 'check']);
+Route::get('rts-service', [AapaleSarkarLoginCheckController::class, 'check']);
 
 
 
