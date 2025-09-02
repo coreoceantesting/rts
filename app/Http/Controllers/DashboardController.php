@@ -57,6 +57,58 @@ class DashboardController extends Controller
         }
     }
 
+    public function dashboardApi()
+    {
+        $services = Service::with('services')->where('is_parent', 0)->get();
+
+        $result = [];
+
+        foreach ($services as $mainService) {
+            $mainServiceId = $mainService->id;
+            $mainServiceName = $mainService->name;
+            $childServices = $mainService->services;
+
+            $total = 0;
+            $approved = 0;
+            $rejected = 0;
+            $pending = 0;
+
+            foreach ($childServices as $child) {
+                if (!$child->table_name) {
+                    continue;
+                }
+
+                // Fetch all rows for this service with status counts in one go
+                $rows = DB::table($child->table_name)
+                    ->select(
+                        DB::raw('COUNT(*) as total'),
+                        DB::raw('SUM(CASE WHEN status = 4 THEN 1 ELSE 0 END) as approved'),
+                        DB::raw('SUM(CASE WHEN status = 5 THEN 1 ELSE 0 END) as rejected'),
+                        DB::raw('SUM(CASE WHEN status NOT IN (4,5) THEN 1 ELSE 0 END) as pending')
+                    )
+                    ->first();
+
+                $total += $rows->total ?? 0;
+                $approved += $rows->approved ?? 0;
+                $rejected += $rows->rejected ?? 0;
+                $pending += $rows->pending ?? 0;
+            }
+
+            $result[] = [
+                'main_service_id' => $mainServiceId,
+                'main_service_name' => $mainServiceName,
+                'total' => $total,
+                'approved' => $approved,
+                'rejected' => $rejected,
+                'pending' => $pending,
+            ];
+        }
+
+        return response()->json($result);
+    }
+
+
+
     public function myApplication(Request $request)
     {
 
